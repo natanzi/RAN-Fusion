@@ -8,7 +8,7 @@
 #import matplotlib.patches as mpatches
 #def plot_network(gNodeBs, UEs, show_cells=False):
     # Download the map image
-    #url = 'https://maps.googleapis.com/maps/api/staticmap?center=Worcester,MA&zoom=13&size=600x600&key=AIzaSyB_T3qyilY8zA0W75Wr7rOZlHTJVvxhCuA'
+    #url = ''
     #response = requests.get(url)
     #map_img = Image.open(BytesIO(response.content))
 
