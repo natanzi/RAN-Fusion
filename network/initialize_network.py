@@ -39,9 +39,9 @@ def initialize_network(num_ues_to_launch):
         cell_data_mapped = {
         'cell_id': cell_data['cell_id'],
         'gnodeb_id': cell_data['gnodeb_id'],
-        'frequency_band': cell_data['frequencyBand'],
-        'duplex_mode': cell_data['duplexMode'],
-        'tx_power': cell_data['txPower'],  # Change 'txPower' to 'tx_power'
+        'frequencyBand': cell_data['frequencyBand'],  # Corrected from 'frequency_band' to 'frequencyBand'
+        'duplexMode': cell_data['duplexMode'],  # Ensure this matches the constructor argument name
+        'tx_power': cell_data['txPower'],  # Ensure this matches the constructor argument name
         'bandwidth': cell_data['bandwidth'],
         'ssb_periodicity': cell_data['ssbPeriodicity'],
         'ssb_offset': cell_data['ssbOffset'],

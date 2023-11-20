@@ -1,15 +1,15 @@
 {
-    "ues": [
-      {
-        "ueId": "0001",
-        "IMEI": "123456789012345",
+  "ue": "UE",
+  "ues": [
+    {
+      "ue_id": "0001",
+        "IMEI": "",
         "location": {
           "latitude": 42.2745,
           "longitude": -71.8064
         },
         "connectedCellId": "CellA",
         "isMobile": true,
-        "serviceType": "video",
         "initialSignalStrength": 0.75,
         "rat": "NR",
         "maxBandwidth": 100,
@@ -43,8 +43,8 @@
         "n310": 1,
         "n311": 5,
         "model": "ModelX",
-        "screenSize": "6.5 inches",
-        "batteryLevel": 80
+        "screensize": "6.5 inches",
+        "batterylevel": 80
       }
     ]
   }

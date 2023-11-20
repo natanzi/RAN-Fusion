@@ -23,6 +23,7 @@ Welcome to the 5G Radio Access Network (RAN) Simulator! This simple tool is desi
 3. **Install Dependencies**
 
 pip install -r requirements.txt
+Milad
 
 
 
