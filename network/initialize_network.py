@@ -33,7 +33,7 @@ def initialize_network(num_ues_to_launch):
     gNodeBs = [gNodeB(**gNodeB_data) for gNodeB_data in gNodeBs_config['gNodeBs']]
 
     # Initialize Cells and link them to gNodeBs
-    cells = [Cell(**cell_data) for cell_data in cells_config['cells']]
+    cells = [Cell(**{k if k != 'txPower' else 'tx_power': v for k, v in cell_data.items()}) for cell_data in cells_config['cells']]
 
     # Initialize UEs and assign them to Cells
     ues = []
