@@ -1,0 +1,1 @@
+#Functions for calculating signal strength based on distance and other factors.

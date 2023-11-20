@@ -1,0 +1,1 @@
+#Functions for handling location-based calculations.

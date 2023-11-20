@@ -1,0 +1,121 @@
+{
+  "cells": [
+    {
+      "cell_id": "Ax1242",
+      "trackingArea": "TA1",
+      "gnodeb_id": "W1140",
+      "frequencyBand": "n78",
+      "duplexMode": "TDD",
+      "txPower": 20,
+      "bandwidth": 20,
+      "ssbPeriodicity": 20,
+      "ssbOffset": 2,
+      "maxConnectUes": 10,
+      "channelModel": "UMa"
+    },
+    {
+      "cell_id": "BX1453",
+      "trackingArea": "TA2",
+      "gnodeb_id": "W1140",
+      "frequencyBand": "n78",
+      "duplexMode": "TDD",
+      "txPower": 20,
+      "bandwidth": 20,
+      "ssbPeriodicity": 20,
+      "ssbOffset": 2,
+      "maxConnectUes": 10,
+      "channelModel": "UMa"
+    },
+    {
+      "cell_id": "CX1352",
+      "trackingArea": "TA3",
+      "gnodeb_id": "W1140",
+      "frequencyBand": "n78",
+      "duplexMode": "TDD",
+      "txPower": 20,
+      "bandwidth": 20,
+      "ssbPeriodicity": 20,
+      "ssbOffset": 2,
+      "maxConnectUes": 10,
+      "channelModel": "UMa"
+    },
+    {
+      "cell_id": "AX1112",
+      "trackingArea": "TA1",
+      "gnodeb_id": "W1320",
+      "frequencyBand": "n78",
+      "duplexMode": "TDD",
+      "txPower": 20,
+      "bandwidth": 20,
+      "ssbPeriodicity": 20,
+      "ssbOffset": 2,
+      "maxConnectUes": 10,
+      "channelModel": "UMa"
+    },
+    {
+      "cell_id": "BX1334",
+      "trackingArea": "TA2",
+      "gnodeb_id": "W1320",
+      "frequencyBand": "n78",
+      "duplexMode": "TDD",
+      "txPower": 20,
+      "bandwidth": 20,
+      "ssbPeriodicity": 20,
+      "ssbOffset": 2,
+      "maxConnectUes": 10,
+      "channelModel": "UMa"
+    },
+    {
+      "cell_id": "CX1873",
+      "trackingArea": "TA3",
+      "gnodeb_id": "W1320",
+      "frequencyBand": "n78",
+      "duplexMode": "TDD",
+      "txPower": 20,
+      "bandwidth": 20,
+      "ssbPeriodicity": 20,
+      "ssbOffset": 2,
+      "maxConnectUes": 10,
+      "channelModel": "UMa"
+    },
+    {
+      "cell_id": "AX9980",
+      "trackingArea": "TA1",
+      "gnodeb_id": "W2018",
+      "frequencyBand": "n78",
+      "duplexMode": "TDD",
+      "txPower": 20,
+      "bandwidth": 20,
+      "ssbPeriodicity": 20,
+      "ssbOffset": 2,
+      "maxConnectUes": 10,
+      "channelModel": "UMa"
+    },
+    {
+      "cell_id": "BX1230",
+      "trackingArea": "TA2",
+      "gnodeb_id": "W2018",
+      "frequencyBand": "n78",
+      "duplexMode": "TDD",
+      "txPower": 20,
+      "bandwidth": 20,
+      "ssbPeriodicity": 20,
+      "ssbOffset": 2,
+      "maxConnectUes": 10,
+      "channelModel": "UMa"
+    },
+    {
+      "cell_id": "CX5103",
+      "trackingArea": "TA3",
+      "gnodeb_id": "W2018",
+      "frequencyBand": "n78",
+      "duplexMode": "TDD",
+      "txPower": 20,
+      "bandwidth": 20,
+      "ssbPeriodicity": 20,
+      "ssbOffset": 2,
+      "maxConnectUes": 10,
+      "channelModel": "UMa"
+    }
+  ]
+}

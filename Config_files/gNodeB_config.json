@@ -1,0 +1,103 @@
+{
+    "gNodeBs": [
+      {
+        "gnodeb_id": "W1140",
+        "latitude": 42.2746,
+        "longitude": -71.8063,
+        "coverageRadius": 3,
+        "power": 20,
+        "frequency": 3500000000,
+        "bandwidth": 20000000,
+        "location": [
+          "worcester"
+        ],
+        "region": [
+          "WPI"
+        ],
+        "maxUEs": 10,
+        "cellCount": 3,
+        "handoverMargin": 3,
+        "handoverHysteresis": 1,
+        "timeToTrigger": 50,
+        "interFreqHandover": true,
+        "xnInterface": true,
+        "sonCapabilities": true,
+        "measurementBandwidth": 50,
+        "blacklistedCells": [
+          "W1320"
+        ],
+        "loadBalancingOffset": 10,
+        "cellIds": [
+          "Ax1242",
+          "BX1453",
+          "CX1352"
+        ]
+      },
+      {
+        "gnodeb_id": "W1320",
+        "latitude": 42.2695,
+        "longitude": -71.8078,
+        "coverageRadius": 3,
+        "power": 20,
+        "frequency": 3500000000,
+        "bandwidth": 20000000,
+        "location": [
+          "worcester"
+        ],
+        "region": [
+          "WPI"
+        ],
+        "maxUEs": 10,
+        "cellCount": 3,
+        "handoverMargin": 3,
+        "handoverHysteresis": 1,
+        "timeToTrigger": 50,
+        "interFreqHandover": true,
+        "xnInterface": true,
+        "sonCapabilities": true,
+        "measurementBandwidth": 50,
+        "blacklistedCells": [
+          "W1320"
+        ],
+        "loadBalancingOffset": 10,
+        "cellIds": [
+          "AX1112",
+          "BX1334",
+          "CX1873"
+        ]
+      },
+      {
+        "gnodeb_id": "W2018",
+        "latitude": 42.2735,
+        "longitude": -71.8105,
+        "coverageRadius": 3,
+        "power": 20,
+        "frequency": 3500000000,
+        "bandwidth": 20000000,
+        "location": [
+          "worcester"
+        ],
+        "region": [
+          "WPI"
+        ],
+        "maxUEs": 10,
+        "cellCount": 3,
+        "handoverMargin": 3,
+        "handoverHysteresis": 1,
+        "timeToTrigger": 50,
+        "interFreqHandover": true,
+        "xnInterface": true,
+        "sonCapabilities": true,
+        "measurementBandwidth": 50,
+        "blacklistedCells": [
+          "W1320"
+        ],
+        "loadBalancingOffset": 10,
+        "cellIds": [
+          "AX9980",
+          "BX1230",
+          "CX5103"
+        ]
+      }
+    ]
+  }
