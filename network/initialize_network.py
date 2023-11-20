@@ -1,5 +1,5 @@
-    # initialize_network.py
-    # Initialization of gNodeBs, Cells, and UEs // this file located in network directory
+# initialize_network.py
+# Initialization of gNodeBs, Cells, and UEs // this file located in network directory
 import os
 import json
 import random
@@ -30,36 +30,51 @@ def initialize_network(num_ues_to_launch):
     ue_config = load_json_config(os.path.join(config_dir, 'ue_config.json'))
 
     # Initialize gNodeBs
-    gNodeBs = gNodeB.from_json(gNodeBs_config)
+    gNodeBs = [gNodeB(**gNodeB_data) for gNodeB_data in gNodeBs_config['gNodeBs']]
 
     # Initialize Cells and link them to gNodeBs
-    cells = []
-    for cell_data in cells_config['cells']:
-    # Map the JSON keys to the constructor parameter names
-        cell_data_mapped = {
-        'cell_id': cell_data['cell_id'],
-        'gnodeb_id': cell_data['gnodeb_id'],
-        'frequencyBand': cell_data['frequencyBand'],  # Corrected from 'frequency_band' to 'frequencyBand'
-        'duplexMode': cell_data['duplexMode'],  # Ensure this matches the constructor argument name
-        'tx_power': cell_data['txPower'],  # Ensure this matches the constructor argument name
-        'bandwidth': cell_data['bandwidth'],
-        'ssb_periodicity': cell_data['ssbPeriodicity'],
-        'ssb_offset': cell_data['ssbOffset'],
-        'max_connect_ues': cell_data['maxConnectUes'],
-        'channel_model': cell_data['channelModel']
-    }
-    cell = Cell(**cell_data_mapped)
-    cells.append(cell)
+    cells = [Cell(**cell_data) for cell_data in cells_config['cells']]
 
     # Initialize UEs and assign them to Cells
     ues = []
-    for ue_data in ue_config['ues']:  # Assuming the key in the config is 'ues'
-        ue = UE(**ue_data)  # Assuming UE class has an appropriate constructor
+    for ue_data in ue_config['ues']:
+        # Remove the keys that are not expected by the UE constructor
+        ue_data.pop('IMEI', None)
+        ue_data.pop('screensize', None)
+        ue_data.pop('batterylevel', None)
+        # Adjust the keys to match the UE constructor argument names
+        ue_data['ue_id'] = ue_data.pop('ue_id')
+        ue_data['location'] = (ue_data['location']['latitude'], ue_data['location']['longitude'])
+        ue_data['connected_cell_id'] = ue_data.pop('connectedCellId')
+        ue_data['is_mobile'] = ue_data.pop('isMobile')
+        ue_data['initial_signal_strength'] = ue_data.pop('initialSignalStrength')
+        ue_data['rat'] = ue_data.pop('rat')
+        ue_data['max_bandwidth'] = ue_data.pop('maxBandwidth')
+        ue_data['duplex_mode'] = ue_data.pop('duplexMode')
+        ue_data['tx_power'] = ue_data.pop('txPower')
+        ue_data['modulation'] = ue_data.pop('modulation')
+        ue_data['coding'] = ue_data.pop('coding')
+        ue_data['mimo'] = ue_data.pop('mimo')
+        ue_data['processing'] = ue_data.pop('processing')
+        ue_data['bandwidth_parts'] = ue_data.pop('bandwidthParts')
+        ue_data['channel_model'] = ue_data.pop('channelModel')
+        ue_data['velocity'] = ue_data.pop('velocity')
+        ue_data['direction'] = ue_data.pop('direction')
+        ue_data['traffic_model'] = ue_data.pop('trafficModel')
+        ue_data['scheduling_requests'] = ue_data.pop('schedulingRequests')
+        ue_data['rlc_mode'] = ue_data.pop('rlcMode')
+        ue_data['snr_thresholds'] = ue_data.pop('snrThresholds')
+        ue_data['ho_margin'] = ue_data.pop('hoMargin')
+        ue_data['n310'] = ue_data.pop('n310')
+        ue_data['n311'] = ue_data.pop('n311')
+        ue_data['model'] = ue_data.pop('model')
+
+        ue = UE(**ue_data)
         # Assign UE to a random cell of a random gNodeB, if available
         selected_gNodeB = random.choice(gNodeBs)
-        if selected_gNodeB.Cells:
-            selected_cell = random.choice(selected_gNodeB.Cells)
-            ue.ConnectedCellID = selected_cell.ID
+        if selected_gNodeB.cells:
+            selected_cell = random.choice(selected_gNodeB.cells)
+            ue.connected_cell_id = selected_cell.cell_id
         ues.append(ue)
 
     # Create additional UEs if needed
