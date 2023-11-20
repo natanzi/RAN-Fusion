@@ -35,11 +35,21 @@ def initialize_network(num_ues_to_launch):
     # Initialize Cells and link them to gNodeBs
     cells = []
     for cell_data in cells_config['cells']:
-        cell = Cell(**cell_data)  # Assuming Cell class has an appropriate constructor
-        cells.append(cell)
-        for gNodeB in gNodeBs:
-            if cell.gNodeB_ID == gNodeB.ID:
-                gNodeB.Cells.append(cell)
+    # Map the JSON keys to the constructor parameter names
+        cell_data_mapped = {
+        'cell_id': cell_data['cell_id'],
+        'gnodeb_id': cell_data['gnodeb_id'],
+        'frequency_band': cell_data['frequencyBand'],
+        'duplex_mode': cell_data['duplexMode'],
+        'tx_power': cell_data['txPower'],  # Change 'txPower' to 'tx_power'
+        'bandwidth': cell_data['bandwidth'],
+        'ssb_periodicity': cell_data['ssbPeriodicity'],
+        'ssb_offset': cell_data['ssbOffset'],
+        'max_connect_ues': cell_data['maxConnectUes'],
+        'channel_model': cell_data['channelModel']
+    }
+    cell = Cell(**cell_data_mapped)
+    cells.append(cell)
 
     # Initialize UEs and assign them to Cells
     ues = []
