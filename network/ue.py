@@ -4,9 +4,9 @@ import json
 from traffic.traffic_generator import generate_voice_traffic, generate_video_traffic, generate_gaming_traffic, generate_iot_traffic
 
 class UE:
-    def __init__(self, ue_id, location, connected_cell_id, is_mobile, initial_signal_strength, rat, max_bandwidth, duplex_mode, tx_power, modulation, coding, mimo, processing, bandwidth_parts, channel_model, velocity, direction, traffic_model, scheduling_requests, rlc_mode, snr_thresholds, ho_margin, n310, n311, model, service_type=None, imei=None, screenSize=None, batteryLevel=None):
+    def __init__(self, ue_id, location, connected_cell_id, is_mobile, initial_signal_strength, rat, max_bandwidth, duplex_mode, tx_power, modulation, coding, mimo, processing, bandwidth_parts, channel_model, velocity, direction, traffic_model, scheduling_requests, rlc_mode, snr_thresholds, ho_margin, n310, n311, model, service_type=None):
         self.ID = ue_id
-        self.IMEI = imei if imei else self.allocate_imei()
+        self.IMEI = self.allocate_imei()  # Always generate a new IMEI
         self.Location = location
         self.ConnectedCellID = connected_cell_id
         self.IsMobile = is_mobile
@@ -32,8 +32,8 @@ class UE:
         self.N310 = n310
         self.N311 = n311
         self.Model = model
-        self.ScreenSize = screenSize if screenSize else f"{random.uniform(5.0, 7.0):.1f} inches"  # Use provided screen size or generate if not present
-        self.BatteryLevel = batteryLevel if batteryLevel else random.randint(10, 100)  # Use provided battery level or generate if not present
+        self.ScreenSize = f"{random.uniform(5.0, 7.0):.1f} inches"  # Always randomly generate screen size
+        self.BatteryLevel = random.randint(10, 100)  # Always randomly generate battery level
 
     @staticmethod
     def allocate_imei():
@@ -58,13 +58,12 @@ class UE:
         ues = []
         for item in json_data["ues"]:
             ue_id = item["ue_id"]  # Use the provided UE ID
-            imei = item["IMEI"] if item["IMEI"] else UE.allocate_imei()  # Use the provided IMEI or generate if empty
             ue = UE(
                 ue_id=ue_id,
                 location=(item["location"]["latitude"], item["location"]["longitude"]),
                 connected_cell_id=item["connectedCellId"],
                 is_mobile=item["isMobile"],
-                service_type=item["serviceType"] if "serviceType" in item else None,  # Check if serviceType is provided
+                service_type=item.get("serviceType"),  # Check if serviceType is provided
                 initial_signal_strength=item["initialSignalStrength"],
                 rat=item["rat"],
                 max_bandwidth=item["maxBandwidth"],
@@ -85,9 +84,8 @@ class UE:
                 ho_margin=item["hoMargin"],
                 n310=item["n310"],
                 n311=item["n311"],
-                model=item["model"],
-                screenSize=item["screensize"] if "screensize" in item else f"{random.uniform(5.0, 7.0):.1f} inches",  # Use provided screenSize or generate if not present
-                batteryLevel=item["batterylevel"] if "batterylevel" in item else random.randint(10, 100)  # Use provided batteryLevel or generate if not present
+                model=item["model"]
+                # Note: screenSize and batteryLevel are not included here as they are generated within the constructor
             )
             ues.append(ue)
         return ues
