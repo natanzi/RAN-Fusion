@@ -21,15 +21,15 @@ def from_json(json_data):
         cell = Cell(
             cell_id=item["cell_id"],
             gnodeb_id=item["gnodeb_id"],
-            frequencyBand=item["frequencyBand"],
-            duplexMode=item["duplexMode"],
-            tx_power=item["txPower"],
+            frequencyBand=item["frequencyband"],
+            duplexMode=item["duplexmode"],
+            tx_power=item["txpower"],
             bandwidth=item["bandwidth"],
-            ssb_periodicity=item["ssbPeriodicity"],
-            ssb_offset=item["ssbOffset"],
-            max_connect_ues=item["maxConnectUes"],
-            channel_model=item["channelModel"],
-            trackingArea=item.get("trackingArea")  # Use .get() to avoid KeyError if the key is missing
+            ssb_periodicity=item["ssb_periodicity"],
+            ssb_offset=item["ssboffset"],
+            max_connect_ues=item["maxconnectUes"],
+            channel_model=item["channelmodel"],
+            trackingArea=item.get("trackingarea")  # Use .get() to avoid KeyError if the key is missing
         )
         cells.append(cell)
     return cells
