@@ -21,25 +21,15 @@ def from_json(json_data):
         cell = Cell(
             cell_id=item["cell_id"],
             gnodeb_id=item["gnodeb_id"],
-            frequencyBand=item["frequencyBand"],  # Corrected to match constructor parameter
-            duplexMode=item["duplexMode"],        # Corrected to match constructor parameter
-            tx_power=item["txPower"],             # Corrected to match constructor parameter
+            frequencyBand=item["frequencyBand"],
+            duplexMode=item["duplexMode"],
+            tx_power=item["txPower"],
             bandwidth=item["bandwidth"],
-            ssb_periodicity=item["ssbPeriodicity"],  # Corrected to match constructor parameter
-            ssb_offset=item["ssbOffset"],            # Corrected to match constructor parameter
-            max_connect_ues=item["maxConnectUes"],   # Corrected to match constructor parameter
-            channel_model=item["channelModel"],      # Corrected to match constructor parameter
-            trackingArea=item.get("trackingArea")    # Use .get() to avoid KeyError if the key is missing
-        )
+            ssb_periodicity=item["ssbPeriodicity"],
+            ssb_offset=item["ssbOffset"],  # This should match the constructor argument name
+            max_connect_ues=item["maxConnectUes"],
+            channel_model=item["channelModel"],
+            trackingArea=item.get("trackingArea")
+    )
         cells.append(cell)
     return cells
-
-    #def add_ue(self, ue_id):
-        #if ue_id not in self.ConnectedUEs and len(self.ConnectedUEs) < self.MaxConnectedUEs:
-            #self.ConnectedUEs.append(ue_id)
-
-    #def remove_ue(self, ue_id):
-        #if ue_id in self.ConnectedUEs:
-            #self.ConnectedUEs.remove(ue_id)
-        
-
