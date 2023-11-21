@@ -130,6 +130,7 @@ def initialize_network(num_ues_to_launch):
         
         )
         if selected_gNodeB.Cells:
+            
             selected_cell = random.choice(selected_gNodeB.Cells)
             new_ue.ConnectedCellID = selected_cell.ID
         ues.append(new_ue)
