@@ -86,7 +86,7 @@ def initialize_network(num_ues_to_launch):
         ue = UE(**ue_data)
         # Assign UE to a random cell of a random gNodeB, if available
         selected_gNodeB = random.choice(gNodeBs)
-        if selected_gNodeB.cells:
+        if selected_gNodeB.Cells:
             selected_cell = random.choice(selected_gNodeB.cells)
             ue.connected_cell_id = selected_cell.cell_id
         ues.append(ue)
