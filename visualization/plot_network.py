@@ -1,4 +1,4 @@
-#Provides functions to plot the network, cells, and UEs for visualization purposes.
+# Provides functions to plot the network, cells, and UEs for visualization purposes.
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox

@@ -4,6 +4,8 @@ from multiprocessing import Process
 from network.initialize_network import initialize_network
 from Config_files.config_load import load_all_configs
 from visualization.plot_network import plot_network
+import matplotlib
+matplotlib.use('Agg')  # Set a non-interactive backend
 
 def visualize_network(gNodeBs, ues):
     while True:
