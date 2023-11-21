@@ -42,7 +42,7 @@ class UE:
             start = str(random.randint(10000000, 99999999))  # Generate an 8-digit TAC
             while len(start) < 14:
                 start += str(random.randint(0, 9))
-            imei = start + UE.calc_check_digit(start)
+            imei = start + str(UE.calc_check_digit(start))
             break
         return imei
 
