@@ -125,7 +125,6 @@ def initialize_network(num_ues_to_launch):
             n310=5,  # N310 counter value
             n311=10,  # N311 counter value
             model="ModelX",  # Device model
-            screenSize=f"{random.uniform(5.0, 7.0):.1f} inches",  # Random screen size
             batteryLevel=random.randint(10, 100)  # Random battery level
         
         )
