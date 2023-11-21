@@ -33,14 +33,24 @@ def generate_iot_traffic():
     interval = random.uniform(10, 60)  # Random interval between 10-60 seconds
     return data_size, interval
 
+def generate_data_traffic():
+    # Data traffic for downloads or FTP
+    bitrate = random.uniform(1, 10) * 1024  # Random bitrate in Mbps
+    interval = random.uniform(0.5, 2)  # Interval between 0.5 to 2 seconds
+    data_size = (bitrate * interval) / 8  # Convert Mbps to MB
+    return data_size, interval
+
 # Example usage
 voice_data, voice_interval = generate_voice_traffic()
 video_data, video_interval = generate_video_traffic()
 gaming_data, gaming_interval = generate_gaming_traffic()
 iot_data, iot_interval = generate_iot_traffic()
+data_data, data_interval = generate_data_traffic()
 
 print("Voice Traffic:", voice_data, "KB, Interval:", voice_interval, "seconds")
 print("Video Traffic:", video_data, "MB, Interval:", video_interval, "second")
 print("Gaming Traffic:", gaming_data, "KB, Interval:", gaming_interval, "seconds")
 print("IoT Traffic:", iot_data, "KB, Interval:", iot_interval, "seconds")
+print("Data Traffic:", data_data, "MB, Interval:", data_interval, "seconds")
+
 
