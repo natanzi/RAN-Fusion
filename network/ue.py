@@ -90,22 +90,22 @@ class UE:
             ues.append(ue)
         return ues
 
-def generate_traffic(self):
-    # Convert service type to lowercase to ensure case-insensitive comparison
-    service_type_lower = self.ServiceType.lower()
+    def generate_traffic(self):
+        # Convert service type to lowercase to ensure case-insensitive comparison
+        service_type_lower = self.ServiceType.lower()
 
-    if service_type_lower == "voice":
-        return generate_voice_traffic()
-    elif service_type_lower == "video":
-        return generate_video_traffic()
-    elif service_type_lower == "game":
-        return generate_gaming_traffic()
-    elif service_type_lower == "iot":
-        return generate_iot_traffic()
-    elif service_type_lower == "data":  
-        return generate_data_traffic()
-    else:
-        raise ValueError(f"Unknown service type: {self.ServiceType}")
+        if service_type_lower == "voice":
+            return generate_voice_traffic()
+        elif service_type_lower == "video":
+            return generate_video_traffic()
+        elif service_type_lower == "game":
+            return generate_gaming_traffic()
+        elif service_type_lower == "iot":
+            return generate_iot_traffic()
+        elif service_type_lower == "data":  
+            return generate_data_traffic()
+        else:
+            raise ValueError(f"Unknown service type: {self.ServiceType}")
 
 
     #def update_location(self, time_step):
