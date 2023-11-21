@@ -1,7 +1,7 @@
 import random
 import math
 import json
-from traffic.traffic_generator import generate_voice_traffic, generate_video_traffic, generate_gaming_traffic, generate_iot_traffic
+from traffic.traffic_generator import generate_voice_traffic, generate_video_traffic, generate_gaming_traffic, generate_iot_traffic, generate_data_traffic
 
 class UE:
     def __init__(self, ue_id, location, connected_cell_id, is_mobile, initial_signal_strength, rat, max_bandwidth, duplex_mode, tx_power, modulation, coding, mimo, processing, bandwidth_parts, channel_model, velocity, direction, traffic_model, scheduling_requests, rlc_mode, snr_thresholds, ho_margin, n310, n311, model, service_type=None):
@@ -102,6 +102,8 @@ def generate_traffic(self):
         return generate_gaming_traffic()
     elif service_type_lower == "iot":
         return generate_iot_traffic()
+    elif service_type_lower == "data":  
+        return generate_data_traffic()
     else:
         raise ValueError(f"Unknown service type: {self.ServiceType}")
 
