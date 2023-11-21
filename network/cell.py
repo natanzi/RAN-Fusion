@@ -11,7 +11,7 @@ class Cell:
         self.SSBOffset = ssb_offset
         self.MaxConnectedUEs = max_connect_ues
         self.ChannelModel = channel_model
-        self.TrackingArea = trackingArea
+        self.TrackingArea = trackingArea 
         self.ConnectedUEs = []
 
 @staticmethod

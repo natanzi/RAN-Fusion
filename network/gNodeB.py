@@ -16,7 +16,7 @@ def load_gNodeB_config():
 gNodeBs_config = load_gNodeB_config()
 
 class gNodeB:
-    def __init__(self, gnodeb_id, latitude, longitude, coverageRadius, power, frequency, bandwidth, maxUEs, cellCount, **kwargs):
+    def __init__(self, gnodeb_id, latitude, longitude, coverageRadius, power, frequency, bandwidth, location, region, maxUEs, cellCount, handoverMargin, handoverHysteresis, timeToTrigger, interFreqHandover, xnInterface, sonCapabilities, MeasurementBandwidth, BlacklistedCells, loadBalancingOffset, cellIds, **kwargs):
         self.ID = gnodeb_id
         self.Latitude = latitude
         self.Longitude = longitude
@@ -24,23 +24,26 @@ class gNodeB:
         self.TransmissionPower = power
         self.Frequency = frequency
         self.Bandwidth = bandwidth
+        self.Location = location
+        self.Region = region
+        self.MaxUEs = maxUEs
         self.MaxUEs = maxUEs
         self.CellCount = cellCount
         self.Cells = []  # This will hold Cell instances associated with this gNodeB
+        self.HandoverMargin = handoverMargin
+        self.HandoverHysteresis = handoverHysteresis
+        self.TimeToTrigger = timeToTrigger
+        self.InterFreqHandover = interFreqHandover
+        self.XnInterface = xnInterface
+        self.SONCapabilities = sonCapabilities
+        self.MeasurementBandwidth = MeasurementBandwidth
+        self.BlacklistedCells = BlacklistedCells
+        self.LoadBalancingOffset = loadBalancingOffset
+        self.CellIds = cellIds
 
-        # Optional attributes with default values
-        self.Location = kwargs.get('location', [])
-        self.Region = kwargs.get('region', [])
-        self.HandoverMargin = kwargs.get('handoverMargin', 0)
-        self.HandoverHysteresis = kwargs.get('handoverHysteresis', 0)
-        self.TimeToTrigger = kwargs.get('timeToTrigger', 0)
-        self.InterFreqHandover = kwargs.get('interFreqHandover', False)
-        self.XnInterface = kwargs.get('xnInterface', False)
-        self.SONCapabilities = kwargs.get('sonCapabilities', False)
-        self.MeasurementBandwidth = kwargs.get('measurementBandwidth', 0)
-        self.BlacklistedCells = kwargs.get('blacklistedCells', [])
-        self.LoadBalancingOffset = kwargs.get('loadBalancingOffset', 0)
-        self.CellIds = kwargs.get('cellIds', [])
+        # Handle any additional keyword arguments
+        for key, value in kwargs.items():
+            setattr(self, key, value)
 
     @staticmethod
     def from_json(json_data):
