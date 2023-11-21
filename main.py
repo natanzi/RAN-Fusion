@@ -2,7 +2,7 @@ import os
 import json
 from network.initialize_network import initialize_network
 from Config_files.config_load import load_all_configs
-
+from network.ue import UE
 def main():
     # Load configurations
     base_dir = os.path.dirname(os.path.abspath(__file__))
