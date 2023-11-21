@@ -3,6 +3,8 @@ import json
 from network.initialize_network import initialize_network
 from Config_files.config_load import load_all_configs
 from network.ue import UE
+from visualization.plot_network import plot_network
+
 def main():
     # Load configurations
     base_dir = os.path.dirname(os.path.abspath(__file__))
@@ -13,6 +15,8 @@ def main():
 
     # Initialize gNodeBs, Cells, and UEs
     gNodeBs, cells, ues = initialize_network(num_ues_to_launch)
+    # Now visualize the network
+    plot_network(gNodeBs, ues, show_cells=True, background_image_path='images/worcester_map.jpg')
     simulation_duration = 60  # Define the simulation duration in seconds or time steps
 
     # Simulation loop

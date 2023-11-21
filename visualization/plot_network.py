@@ -1,25 +1,8 @@
 #Provides functions to plot the network, cells, and UEs for visualization purposes.
-#plot_network
-#import matplotlib.pyplot as plt
-#import matplotlib.image as mpimg
-#from PIL import Image
-#import requests
-#from io import BytesIO
-#import matplotlib.patches as mpatches
-#def plot_network(gNodeBs, UEs, show_cells=False):
-    # Download the map image
-    #url = ''
-    #response = requests.get(url)
-    #map_img = Image.open(BytesIO(response.content))
-
-#import matplotlib.pyplot as plt
-#import matplotlib.patches as mpatches
-
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 from PIL import Image
-
 
 # Set the location for the center of your map (e.g., Worcester, MA)
 latitude_center = 42.2626  # Example latitude for Worcester, MA
