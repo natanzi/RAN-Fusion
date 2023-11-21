@@ -15,12 +15,14 @@ fig, ax = None, None
 plt.ion()
 
 def plot_network(gNodeBs, UEs, show_cells=True, background_image_path='images/worcester_map.jpg'):
-    fig, ax = plt.subplots(figsize=(10, 6))
-        # If a background image path is provided, load and set it as the background
+    global fig, ax
+    if fig is None or not plt.fignum_exists(fig.number):
+        fig, ax = plt.subplots(figsize=(10, 6))
+    else:
+        ax.clear()
+
     if background_image_path:
-        # Load the image
         img = Image.open(background_image_path)
-        # Set the extent of the image to match the plot coordinates
         ax.imshow(img, extent=[0, 1000, 0, 1000], aspect='auto')
 
     # Define the coverage radius scale based on your coordinate system
@@ -63,7 +65,7 @@ def plot_network(gNodeBs, UEs, show_cells=True, background_image_path='images/wo
 
     # Display the plot
     plt.draw()
-    plt.pause(0.001)  # Pause for a short period to allow the GUI event loop to update the plot
+    plt.pause(0.001)  # This will now update the existing plot instead of opening a new one
 
 
 
