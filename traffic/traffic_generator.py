@@ -41,16 +41,16 @@ def generate_data_traffic():
     return data_size, interval
 
 # Example usage
-voice_data, voice_interval = generate_voice_traffic()
-video_data, video_interval = generate_video_traffic()
-gaming_data, gaming_interval = generate_gaming_traffic()
-iot_data, iot_interval = generate_iot_traffic()
-data_data, data_interval = generate_data_traffic()
+#voice_data, voice_interval = generate_voice_traffic()
+#video_data, video_interval = generate_video_traffic()
+#gaming_data, gaming_interval = generate_gaming_traffic()
+#iot_data, iot_interval = generate_iot_traffic()
+#data_data, data_interval = generate_data_traffic()
 
-print("Voice Traffic:", voice_data, "KB, Interval:", voice_interval, "seconds")
-print("Video Traffic:", video_data, "MB, Interval:", video_interval, "second")
-print("Gaming Traffic:", gaming_data, "KB, Interval:", gaming_interval, "seconds")
-print("IoT Traffic:", iot_data, "KB, Interval:", iot_interval, "seconds")
-print("Data Traffic:", data_data, "MB, Interval:", data_interval, "seconds")
+#print("Voice Traffic:", voice_data, "KB, Interval:", voice_interval, "seconds")
+#print("Video Traffic:", video_data, "MB, Interval:", video_interval, "second")
+#print("Gaming Traffic:", gaming_data, "KB, Interval:", gaming_interval, "seconds")
+#print("IoT Traffic:", iot_data, "KB, Interval:", iot_interval, "seconds")
+#print("Data Traffic:", data_data, "MB, Interval:", data_interval, "seconds")
 
 
