@@ -15,12 +15,12 @@ def main():
 
     # Initialize gNodeBs, Cells, and UEs
     gNodeBs, cells, ues = initialize_network(num_ues_to_launch)
+    
     # Now visualize the network
     plot_network(gNodeBs, ues, show_cells=True, background_image_path='images/worcester_map.jpg')
-    simulation_duration = 60  # Define the simulation duration in seconds or time steps
-
-    # Simulation loop
-    for time_step in range(simulation_duration):
+    
+    # Run the simulation indefinitely
+    while True:
         for ue in ues:
             data_size, interval = ue.generate_traffic()
             print(f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Data Size: {data_size} KB/MB, Interval: {interval} sec")
