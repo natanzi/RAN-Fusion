@@ -40,7 +40,7 @@ def plot_network(gNodeBs, UEs, show_cells=True, background_image_path='images/wo
     for ue in UEs:
         ue_x, ue_y = ue.Location
         color = 'blue' if ue.ConnectedCellID is not None else 'gray'
-        ax.scatter(ue_x, ue_y, color=color, marker='o', s=20, label='Connected UE' if ue.isConnected else "Unconnected UE")
+        ax.scatter(ue_x, ue_y, color=color, marker='o', s=20, label='Connected UE' if ue.ConnectedCellID is not None else "Unconnected UE")
 
     # Set labels and title
     ax.set_xlabel('Worcester City, MA')
