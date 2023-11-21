@@ -16,7 +16,7 @@ def load_gNodeB_config():
 gNodeBs_config = load_gNodeB_config()
 
 class gNodeB:
-    def __init__(self, gnodeb_id, latitude, longitude, coverageRadius, power, frequency, bandwidth, location, region, maxUEs, cellCount, handoverMargin, handoverHysteresis, timeToTrigger, interFreqHandover, xnInterface, sonCapabilities, MeasurementBandwidth, BlacklistedCells, loadBalancingOffset, cellIds, **kwargs):
+    def __init__(self, gnodeb_id, latitude, longitude, coverageRadius, power, frequency, bandwidth, location, region, maxUEs, cellCount, handoverMargin, handoverHysteresis, timeToTrigger, interFreqHandover, xnInterface, sonCapabilities, MeasurementBandwidth=None, BlacklistedCells=None, loadBalancingOffset, cellIds, **kwargs):
         self.ID = gnodeb_id
         self.Latitude = latitude
         self.Longitude = longitude
