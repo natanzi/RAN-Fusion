@@ -27,7 +27,6 @@ class gNodeB:
         self.Location = location
         self.Region = region
         self.MaxUEs = maxUEs
-        self.MaxUEs = maxUEs
         self.CellCount = cellCount
         self.Cells = []  # This will hold Cell instances associated with this gNodeB
         self.HandoverMargin = handoverMargin
