@@ -2,28 +2,45 @@
 #traffic_generator.py
 
 import random
+
 def generate_voice_traffic():
-    # Approx 13 Kbps for VoLTE, let's assume a 20ms interval
-    data_size = (13 * 20) / 8 / 1000  # Convert Kbps to KB
-    interval = 0.02  # 20 ms
+    # Voice traffic with variable data rate between 8-16 Kbps
+    bitrate = random.uniform(8, 16)  # Random bitrate within range
+    interval = 0.02  # 20 ms interval
+    data_size = (bitrate * interval) / 8 / 1000  # Convert Kbps to KB
     return data_size, interval
 
 def generate_video_traffic():
-    # HD Video streaming at 5 Mbps, assume a 1-second interval
-    data_size = (5 * 1024 * 1) / 8  # Convert Mbps to MB
+    # Video traffic with multiple streams
+    num_streams = random.randint(1, 5)  # Random number of streams
+    data_size = 0
     interval = 1  # 1 second
+    for _ in range(num_streams):
+        stream_bitrate = random.uniform(3, 8) * 1024  # Random bitrate between 3-8 Mbps
+        data_size += (stream_bitrate * interval) / 8  # Convert Mbps to MB and sum
     return data_size, interval
 
 def generate_gaming_traffic():
-    # Online gaming, assuming 50 Kbps, with a 100ms interval
-    data_size = (50 * 100) / 8 / 1000  # Convert Kbps to KB
-    interval = 0.1  # 100 ms
+    # Online gaming traffic with varying data rate
+    bitrate = random.uniform(30, 70)  # Random bitrate within range
+    interval = 0.1  # 100 ms interval
+    data_size = (bitrate * interval) / 8 / 1000  # Convert Kbps to KB
     return data_size, interval
 
 def generate_iot_traffic():
-    # Small IoT data packets, assuming 10 KB every 30 seconds
-    data_size = 10  # 10 KB
-    interval = 30  # 30 seconds
+    # IoT traffic with variable packet size and interval
+    data_size = random.randint(5, 15)  # Random packet size between 5-15 KB
+    interval = random.uniform(10, 60)  # Random interval between 10-60 seconds
     return data_size, interval
 
+# Example usage
+voice_data, voice_interval = generate_voice_traffic()
+video_data, video_interval = generate_video_traffic()
+gaming_data, gaming_interval = generate_gaming_traffic()
+iot_data, iot_interval = generate_iot_traffic()
+
+print("Voice Traffic:", voice_data, "KB, Interval:", voice_interval, "seconds")
+print("Video Traffic:", video_data, "MB, Interval:", video_interval, "second")
+print("Gaming Traffic:", gaming_data, "KB, Interval:", gaming_interval, "seconds")
+print("IoT Traffic:", iot_data, "KB, Interval:", iot_interval, "seconds")
 
