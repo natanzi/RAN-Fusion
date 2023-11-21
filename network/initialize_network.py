@@ -125,8 +125,7 @@ def initialize_network(num_ues_to_launch):
             n310=5,  # N310 counter value
             n311=10,  # N311 counter value
             model="ModelX",  # Device model
-            batteryLevel=random.randint(10, 100)  # Random battery level
-        
+
         )
         if selected_gNodeB.Cells:
 
