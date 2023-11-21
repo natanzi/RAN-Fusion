@@ -90,34 +90,33 @@ class UE:
             ues.append(ue)
         return ues
 
-    def generate_traffic(self):
-        # Randomly pick a service type for each traffic generation
-        service_types = ["video", "game", "voice", "data", "IoT"]
-        self.ServiceType = random.choice(service_types)
+def generate_traffic(self):
+    # Convert service type to lowercase to ensure case-insensitive comparison
+    service_type_lower = self.ServiceType.lower()
 
-        if self.ServiceType == "voice":
-            return generate_voice_traffic()
-        elif self.ServiceType == "video":
-            return generate_video_traffic()
-        elif self.ServiceType == "game":
-            return generate_gaming_traffic()
-        elif self.ServiceType == "iot":
-            return generate_iot_traffic()
-        else:
-            raise ValueError(f"Unknown service type: {self.ServiceType}")
+    if service_type_lower == "voice":
+        return generate_voice_traffic()
+    elif service_type_lower == "video":
+        return generate_video_traffic()
+    elif service_type_lower == "game":
+        return generate_gaming_traffic()
+    elif service_type_lower == "iot":
+        return generate_iot_traffic()
+    else:
+        raise ValueError(f"Unknown service type: {self.ServiceType}")
 
 
     #def update_location(self, time_step):
         #if self.IsMobile:
             # Convert direction to radians
-            direction_rad = math.radians(self.Direction)
+            #direction_rad = math.radians(self.Direction)
 
             # Calculate displacement
-            dx = self.Speed * math.cos(direction_rad) * time_step
-            dy = self.Speed * math.sin(direction_rad) * time_step
+            #dx = self.Speed * math.cos(direction_rad) * time_step
+            #dy = self.Speed * math.sin(direction_rad) * time_step
 
             # Update location
-            self.Location = (self.Location[0] + dx, self.Location[1] + dy)
+            #self.Location = (self.Location[0] + dx, self.Location[1] + dy)
 
     #def update_metrics(self):
         # Placeholder logic for updating SINR and BER
