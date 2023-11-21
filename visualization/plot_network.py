@@ -8,6 +8,9 @@ from PIL import Image
 latitude_center = 42.2626  # Example latitude for Worcester, MA
 longitude_center = -71.8023  # Example longitude for Worcester, MA
 
+# Use the interactive mode of matplotlib
+plt.ion()
+
 def plot_network(gNodeBs, UEs, show_cells=True, background_image_path='images/worcester_map.jpg'):
     fig, ax = plt.subplots(figsize=(10, 6))
         # If a background image path is provided, load and set it as the background
@@ -56,7 +59,8 @@ def plot_network(gNodeBs, UEs, show_cells=True, background_image_path='images/wo
     ax.grid(True)
 
     # Display the plot
-    plt.show()
+    plt.draw()
+    plt.pause(0.001)  # Pause for a short period to allow the GUI event loop to update the plot
 
 
 
