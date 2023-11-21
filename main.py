@@ -16,8 +16,8 @@ def log_traffic(ues):
     while True:
         for ue in ues:
             data_size, interval = ue.generate_traffic()
-            print(f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Data Size: {data_size} KB/MB, Interval: {interval} sec")
-        time.sleep(1)  # Logging interval
+            print(f"UE ID: {self.ID}, IMEI: {self.IMEI}, Service Type: {self.ServiceType}, Data Size: {data_size}, Interval: {interval} sec")
+            time.sleep(1)  # Logging interval
 
 def main():
     # Load configurations
