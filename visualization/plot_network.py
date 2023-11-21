@@ -8,6 +8,9 @@ from PIL import Image
 latitude_center = 42.2626  # Example latitude for Worcester, MA
 longitude_center = -71.8023  # Example longitude for Worcester, MA
 
+# Initialize a global variable for the figure and axis
+fig, ax = None, None
+
 # Use the interactive mode of matplotlib
 plt.ion()
 
