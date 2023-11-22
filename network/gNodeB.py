@@ -52,6 +52,7 @@ class gNodeB:
             gNodeBs.append(gnodeb)
         return gNodeBs
 
+
     #def handover_decision(self, ue_array, cell_array):
         # Method to decide handovers for UEs based on signal-to-noise ratio (SNR)
         for ue in ue_array:

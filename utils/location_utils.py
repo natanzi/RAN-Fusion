@@ -1,5 +1,10 @@
 #Functions for handling location-based calculations.
 # Assuming this function is added to 'utils/location_utils.py'
+from functools import lru_cache
+
+@lru_cache(maxsize=None)
+def calculate_distance_cached(ue_lat, ue_lon, gNodeB_lat, gNodeB_lon):
+    return calculate_distance(ue_lat, ue_lon, gNodeB_lat, gNodeB_lon)
 
 def get_nearest_gNodeB(ue_location, gNodeBs):
     ue_lat, ue_lon = ue_location
@@ -7,7 +12,7 @@ def get_nearest_gNodeB(ue_location, gNodeBs):
     min_distance = float('inf')
 
     for gNodeB in gNodeBs:
-        distance = calculate_distance(ue_lat, ue_lon, gNodeB.Latitude, gNodeB.Longitude)
+        distance = calculate_distance_cached(ue_lat, ue_lon, gNodeB.Latitude, gNodeB.Longitude)
         if distance < min_distance:
             min_distance = distance
             nearest_gNodeB = gNodeB
