@@ -1,4 +1,4 @@
-# RAN Fusion a 5G RAN Simulator
+# RAN Fusion a NextG RAN Simulator
 
 ## Overview
 Welcome to the 5G Radio Access Network (RAN) Simulator! This simple tool is designed to simulate the behavior and performance of 5G networks. Our simulator offers a detailed framework to test and analyze various components of 5G technology, including the RAN functionalities and end-to-end communication protocols.
