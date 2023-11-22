@@ -1,29 +1,18 @@
 #network_metrics.py
 import math
+from math import radians, cos, sin, asin, sqrt
 
-def haversine(lat1, lon1, lat2, lon2):
-    """
-    Calculate the great-circle distance between two points on the Earth's surface.
+def haversine(lon1, lat1, lon2, lat2):
+    # Convert decimal degrees to radians
+    lon1, lat1, lon2, lat2 = map(radians, [lon1, lat1, lon2, lat2])
 
-    :param lat1: Latitude of the first point in degrees.
-    :param lon1: Longitude of the first point in degrees.
-    :param lat2: Latitude of the second point in degrees.
-    :param lon2: Longitude of the second point in degrees.
-    :return: Distance in kilometers.
-    """
-    R = 6371.0  # Radius of the Earth in kilometers
-    lat1_rad = math.radians(lat1)
-    lon1_rad = math.radians(lon1)
-    lat2_rad = math.radians(lat2)
-    lon2_rad = math.radians(lon2)
-
-    dlat = lat2_rad - lat1_rad
-    dlon = lon2_rad - lon1_rad
-
-    a = math.sin(dlat / 2)**2 + math.cos(lat1_rad) * math.cos(lat2_rad) * math.sin(dlon / 2)**2
-    c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
-
-    return R * c
+    # Haversine formula
+    dlon = lon2 - lon1
+    dlat = lat2 - lat1
+    a = sin(dlat/2)**2 + cos(lat1) * cos(lat2) * sin(dlon/2)**2
+    c = 2 * asin(sqrt(a))
+    r = 6371  # Radius of Earth in kilometers. Use 3956 for miles
+    return c * r
 
 def calculate_gnodeb_load(gnodeb_id, gnodebs):
     gNodeB = next((node for node in gnodebs if node.ID == gnodeb_id), None)
@@ -78,9 +67,22 @@ def is_entity_congested(connected_UEs, max_capacity):
                 print(f"Cell {cell.ID} is congested.")
 
 def calculate_signal_strength(ue, gNodeB):
-    # Placeholder function to calculate signal strength
+    # Assuming 'distance' is a function from 'location_utils.py' that calculates the distance
+    # between two points (latitude, longitude)
+    from location_utils import distance
+
+    # Calculate the distance between the UE and the gNodeB
     distance_to_gNodeB = distance((ue.Latitude, ue.Longitude), (gNodeB.Latitude, gNodeB.Longitude))
-    # Simple signal strength model (can be refined)
+    
+    # Adjust the signal strength calculation to return a value between 0 and 100
+    # The signal strength is 100 at the gNodeB and decreases linearly to 0 at the edge of the coverage radius
+    signal_strength = max(0, 100 * (1 - (distance_to_gNodeB / gNodeB.CoverageRadius)))
+    
+    return signal_strength
+
+# Now you can use the haversine function in your calculate_signal_strength function
+def calculate_signal_strength(ue, gNodeB):
+    distance_to_gNodeB = haversine(ue.Location[1], ue.Location[0], gNodeB.Longitude, gNodeB.Latitude)
     return max(0, 1 - (distance_to_gNodeB / gNodeB.CoverageRadius))
 
 def distance(location1, location2):
@@ -95,27 +97,7 @@ def distance(location1, location2):
     lat2, lon2 = location2
     return haversine(lat1, lon1, lat2, lon2)
 
-def simulate_latency(ue, gNodeBs, service_type):
-    connected_gNodeB = next((gnb for gnb in gNodeBs if gnb.ID == ue.ConnectedCellID), None)
-    if connected_gNodeB:
-        signal_strength = calculate_signal_strength(ue, connected_gNodeB)
-        network_load_impact = calculate_network_load_impact(connected_gNodeB)
-        
-        # Base latency based on distance
-        base_latency = distance((ue.Latitude, ue.Longitude), (connected_gNodeB.Latitude, connected_gNodeB.Longitude)) * 0.1
-        
-        # Adjust latency based on service type, signal strength, and network load
-        if service_type == 'voice':
-            latency = base_latency + (network_load_impact * 10)  # Voice is sensitive to network load
-        elif service_type == 'video':
-            latency = base_latency + (1 - signal_strength) * 20  # Video is sensitive to signal strength
-        elif service_type == 'gaming':
-            latency = base_latency + 5  # Gaming requires low latency
-        else:
-            latency = base_latency + 15  # Default for other services
-        return latency
-    return 0
-
+       
 def calculate_throughput(data_size, interval, signal_strength, network_load_impact):
     base_throughput = (data_size / 1000) / interval
     throughput = base_throughput * signal_strength * (1 - network_load_impact)
