@@ -109,23 +109,5 @@ class UE:
             raise ValueError(f"Unknown service type: {self.ServiceType}")
 
 
-    #def update_location(self, time_step):
-        #if self.IsMobile:
-            # Convert direction to radians
-            #direction_rad = math.radians(self.Direction)
-
-            # Calculate displacement
-            #dx = self.Speed * math.cos(direction_rad) * time_step
-            #dy = self.Speed * math.sin(direction_rad) * time_step
-
-            # Update location
-            #self.Location = (self.Location[0] + dx, self.Location[1] + dy)
-
-    #def update_metrics(self):
-        # Placeholder logic for updating SINR and BER
-        # This should be replaced with realistic calculations
-        #self.SINR = random.random()
-        #self.BER = random.random()
-
-    #def perform_handover(self, new_cell_id):
-        #self.ConnectedCellID = new_cell_id
+    def perform_handover(self, new_cell_id):
+    self.ConnectedCellID = new_cell_id

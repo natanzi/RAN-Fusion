@@ -2,6 +2,7 @@
 import os
 import json
 import random
+from utils.location_utils import get_nearest_gNodeB, get_ue_location_info
 
 def load_gNodeB_config():
     # Correct the path to point to the 'Config_files' directory
@@ -53,72 +54,33 @@ class gNodeB:
         return gNodeBs
 
 
-    #def handover_decision(self, ue_array, cell_array):
-        # Method to decide handovers for UEs based on signal-to-noise ratio (SNR)
-        for ue in ue_array:
-            current_cell_id = ue.ConnectedCellID
-            current_cell_index = next((index for index, cell in enumerate(cell_array) if cell.ID == current_cell_id), None)
+    def check_cell_capacity(self, cell):
+        # Placeholder for checking if a cell can accept more UEs
+        return len(cell.ConnectedUEs) < cell.MaxConnectedUEs
 
-            if current_cell_index is None:
-                continue  # Skip if the current cell is not found
+    def find_available_cell(self):
+        # Find a cell with available capacity
+        for cell in self.Cells:
+            if self.check_cell_capacity(cell):
+                return cell
+        return None
 
-            best_cell_index = current_cell_index
-            best_snr = ue.SINR  # Current SNR
+    def handover_decision(self, ue):
+        # Placeholder logic for deciding if a handover is needed
+        current_cell = next((cell for cell in self.Cells if cell.ID == ue.ConnectedCellID), None)
+        if current_cell and not self.check_cell_capacity(current_cell):
+            new_cell = self.find_available_cell()
+            if new_cell:
+                return new_cell
+        return None
 
-            # Loop through cells to find the best SNR
-            for index, cell in enumerate(self.Cells):
-                if index != current_cell_index:
-                    potential_snr = random.random()  # Placeholder for actual SNR calculation
-                    if potential_snr > best_snr:
-                        best_snr = potential_snr
-                        best_cell_index = index
-
-            # Perform handover if a better cell is found
-            if best_cell_index != current_cell_index:
-                cell_array[current_cell_index].remove_ue(ue.ID)
-                cell_array[best_cell_index].add_ue(ue.ID)
-                ue.perform_handover(self.Cells[best_cell_index].ID)
-    def handle_handover(self, ue, other_gNodeBs, real_time_db):
-        """
-        Handles all handover scenarios for a UE.
-
-        :param ue: The User Equipment instance.
-        :param other_gNodeBs: List of other gNodeBs in the network.
-        :param real_time_db: Connection to the real-time database (e.g., InfluxDB).
-        """
-        # Update UE location from the real-time database
-        ue_location = real_time_db.get_latest_ue_location(ue.ID)
-
-        # Intra-frequency and Inter-frequency Handovers
-        self.handle_intra_and_inter_frequency_handover(ue, ue_location)
-
-        # Xn-Based Handover
-        self.handle_xn_based_handover(ue, other_gNodeBs, ue_location)
-
-        # Inter-RAT and S1-Based Handovers
-        self.handle_inter_rat_and_s1_based_handover(ue, ue_location)
-
-        # N3 and N2 Based Handovers
-        self.handle_n3_and_n2_based_handover(ue, other_gNodeBs, ue_location)
-
-        # Seamless, Conditional, and Load Balancing Handovers
-        self.handle_seamless_conditional_and_load_balancing_handover(ue, ue_location)
-
-        # Vertical Handover
-        self.handle_vertical_handover(ue, ue_location)
-
-        # Emergency Handover
-        self.handle_emergency_handover(ue, ue_location)
-
-    # Define individual methods for each handover type within the gNodeB class
-    # ...
-
-# Example of a method for intra-frequency and inter-frequency handovers
-def handle_intra_and_inter_frequency_handover(self, ue, ue_location):
-    # Logic to handle intra-frequency and inter-frequency handovers
-    pass
-
-# ... other methods for different handover types ...
-
-# In your main simulation loop or appropriate control structure
-# Instantiate gNodeB objects and pass them to the handover function along with the UE and real-time DB connection
+    def perform_handover(self, ue):
+        new_cell = self.handover_decision(ue)
+        if new_cell:
+            # Update the UE's connected cell
+            ue.perform_handover(new_cell.ID)
+            # Update the cell's connected UEs
+            current_cell = next((cell for cell in self.Cells if cell.ID == ue.ConnectedCellID), None)
+            if current_cell:
+                current_cell.ConnectedUEs.remove(ue.ID)
+            new_cell.ConnectedUEs.append(ue.ID)
