@@ -1,66 +1,94 @@
 #database_manager.py in database directory
-import sqlite3
+# database_manager.py in database directory
+from influxdb import InfluxDBClient
 
 class DatabaseManager:
-    def __init__(self, db_path):
-        self.db_path = db_path
-        self.conn = None
-        self.cursor = None
+    def __init__(self, host='localhost', port=8086, username='root', password='root', dbname='RAN_metrics'):
+        self.client = InfluxDBClient(host, port, username, password, dbname)
+        self.dbname = dbname
 
     def connect(self):
         """Establishes a database connection."""
-        self.conn = sqlite3.connect(self.db_path)
-        self.cursor = self.conn.cursor()
+        self.client.create_database(self.dbname)
 
     def create_tables(self):
-        self.cursor.execute('''CREATE TABLE IF NOT EXISTS ue_kpi (
-                          timestamp TEXT, ue_id TEXT, imsi TEXT, latency REAL, throughput REAL,
-                          congestion_status BOOLEAN)''')
-
-        self.cursor.execute('''CREATE TABLE IF NOT EXISTS gnodeb_kpi (
-                          timestamp TEXT, gnodeb_id TEXT, imsi TEXT, latency REAL, throughput REAL,
-                          congestion_status BOOLEAN)''')
-
-        self.cursor.execute('''CREATE TABLE IF NOT EXISTS cell_kpi (
-                          timestamp TEXT, cell_id TEXT, imsi TEXT, latency REAL, throughput REAL,
-                          congestion_status BOOLEAN)''')
-
-        # New table to capture all KPI data
-        self.cursor.execute('''CREATE TABLE IF NOT EXISTS all_kpi_data (
-                          timestamp TEXT, ue_id TEXT, imsi TEXT, latency REAL, throughput REAL,
-                          congestion_status BOOLEAN, cell_id TEXT, gnodeb_id TEXT)''')
-
-        # Create a view named 'RAN_Report' based on the 'all_kpi_data' table
-        self.cursor.execute('''CREATE VIEW IF NOT EXISTS RAN_Report AS
-                               SELECT timestamp, ue_id, imsi, latency, throughput, 
-                               congestion_status, cell_id, gnodeb_id
-                               FROM all_kpi_data''')
+        # In InfluxDB, "tables" are structured as "measurements"
+        # No need to create them explicitly as they are created on data insertion
+        pass
 
     def insert_ue_data(self, data):
-        """Inserts a row of UE KPI data into the ue_kpi table."""
-        self.cursor.execute('''INSERT INTO ue_kpi (timestamp, ue_id, imsi, latency, throughput, 
-                              congestion_status) VALUES (?, ?, ?, ?, ?, ?)''', data)
+        """Inserts a row of UE KPI data into the ue_kpi measurement."""
+        json_body = [
+            {
+                "measurement": "ue_metrics",
+                "tags": {
+                    "ue_id": data['ue_id'],
+                    "imsi": data['imsi']
+                },
+                "fields": {
+                    "latency": data['latency'],
+                    "throughput": data['throughput'],
+                    "congestion_status": data['congestion_status']
+                },
+                "time": data['timestamp']
+            }
+        ]
+        self.client.write_points(json_body)
 
     def insert_gnodeb_data(self, data):
-        """Inserts a row of gNodeB KPI data into the gnodeb_kpi table."""
-        self.cursor.execute('''INSERT INTO gnodeb_kpi (timestamp, gnodeb_id, imsi, latency, throughput, 
-                              congestion_status) VALUES (?, ?, ?, ?, ?, ?)''', data)
+        """Inserts a row of gNodeB KPI data into the gnodeb_kpi measurement."""
+        json_body = [
+            {
+                "measurement": "gnodeb_metrics",
+                "tags": {
+                    "gnodeb_id": data['gnodeb_id'],
+                    "imsi": data['imsi']
+                },
+                "fields": {
+                    "latency": data['latency'],
+                    "throughput": data['throughput'],
+                    "congestion_status": data['congestion_status']
+                },
+                "time": data['timestamp']
+            }
+        ]
+        self.client.write_points(json_body)
 
     def insert_cell_data(self, data):
-        """Inserts a row of Cell KPI data into the cell_kpi table."""
-        self.cursor.execute('''INSERT INTO cell_kpi (timestamp, cell_id, imsi, latency, throughput, 
-                              congestion_status) VALUES (?, ?, ?, ?, ?, ?)''', data)
-
-    def insert_all_kpi_data(self, data):
-        """Inserts a row of data into the all_kpi_data table."""
-        self.cursor.execute('''INSERT INTO all_kpi_data (timestamp, ue_id, imsi, latency, throughput, 
-                              congestion_status, cell_id, gnodeb_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)''', data)
+        """Inserts a row of Cell KPI data into the cell_kpi measurement."""
+        json_body = [
+            {
+                "measurement": "cell_metrics",
+                "tags": {
+                    "cell_id": data['cell_id'],
+                    "imsi": data['imsi']
+                },
+                "fields": {
+                    "latency": data['latency'],
+                    "throughput": data['throughput'],
+                    "congestion_status": data['congestion_status']
+                },
+                "time": data['timestamp']
+            }
+        ]
+        self.client.write_points(json_body)
 
     def commit_changes(self):
-        """Commits changes to the database."""
-        self.conn.commit()
+        # InfluxDB writes data immediately, so no need for commit
+        pass
 
     def close_connection(self):
         """Closes the database connection."""
-        self.conn.close()
+        self.client.close()
 
+# Example usage:
+# db_manager = DatabaseManager()
+# db_manager.connect()
+# db_manager.insert_ue_data({
+#     'timestamp': "2023-04-01T00:00:00Z",
+#     'ue_id': "ue_123",
+#     'imsi': "123456789012345",
+#     'latency': 10.5,
+#     'throughput': 1000,
+#     'congestion_status': False
+# })
