@@ -77,4 +77,47 @@ class gNodeB:
                 cell_array[current_cell_index].remove_ue(ue.ID)
                 cell_array[best_cell_index].add_ue(ue.ID)
                 ue.perform_handover(self.Cells[best_cell_index].ID)
+    def handle_handover(self, ue, other_gNodeBs, real_time_db):
+        """
+        Handles all handover scenarios for a UE.
 
+        :param ue: The User Equipment instance.
+        :param other_gNodeBs: List of other gNodeBs in the network.
+        :param real_time_db: Connection to the real-time database (e.g., InfluxDB).
+        """
+        # Update UE location from the real-time database
+        ue_location = real_time_db.get_latest_ue_location(ue.ID)
+
+        # Intra-frequency and Inter-frequency Handovers
+        self.handle_intra_and_inter_frequency_handover(ue, ue_location)
+
+        # Xn-Based Handover
+        self.handle_xn_based_handover(ue, other_gNodeBs, ue_location)
+
+        # Inter-RAT and S1-Based Handovers
+        self.handle_inter_rat_and_s1_based_handover(ue, ue_location)
+
+        # N3 and N2 Based Handovers
+        self.handle_n3_and_n2_based_handover(ue, other_gNodeBs, ue_location)
+
+        # Seamless, Conditional, and Load Balancing Handovers
+        self.handle_seamless_conditional_and_load_balancing_handover(ue, ue_location)
+
+        # Vertical Handover
+        self.handle_vertical_handover(ue, ue_location)
+
+        # Emergency Handover
+        self.handle_emergency_handover(ue, ue_location)
+
+    # Define individual methods for each handover type within the gNodeB class
+    # ...
+
+# Example of a method for intra-frequency and inter-frequency handovers
+def handle_intra_and_inter_frequency_handover(self, ue, ue_location):
+    # Logic to handle intra-frequency and inter-frequency handovers
+    pass
+
+# ... other methods for different handover types ...
+
+# In your main simulation loop or appropriate control structure
+# Instantiate gNodeB objects and pass them to the handover function along with the UE and real-time DB connection
