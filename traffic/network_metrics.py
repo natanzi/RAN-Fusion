@@ -25,11 +25,57 @@ def haversine(lat1, lon1, lat2, lon2):
 
     return R * c
 
-def calculate_network_load_impact(gNodeB):
-    # Placeholder function to calculate network load impact
+def calculate_gnodeb_load(gnodeb_id, gnodebs):
+    gNodeB = next((node for node in gnodebs if node.ID == gnodeb_id), None)
+    if gNodeB is None:
+        return None  # or raise an exception if gNodeB with the given ID does not exist
     connected_UEs = sum(len(cell.assigned_UEs) for cell in gNodeB.Cells)
-    max_capacity = len(gNodeB.Cells) * max_UEs_per_cell  # Assuming each cell has same max capacity
-    return min(1, connected_UEs / max_capacity)  # Ratio of load to capacity
+    max_capacity = gNodeB.CellCount * gNodeB.MaxUEs
+    return min(1, connected_UEs / max_capacity)
+
+def calculate_cell_load(cell_id, gnodebs):
+    for gNodeB in gnodebs:
+        cell = next((cell for cell in gNodeB.Cells if cell.ID == cell_id), None)
+        if cell:
+            connected_UEs = len(cell.assigned_UEs)
+            max_capacity = gNodeB.MaxUEs  # Assuming max UEs per cell is defined at gNodeB level
+            return min(1, connected_UEs / max_capacity)
+    return None  # or raise an exception if cell with the given ID does not exist
+
+def calculate_network_load(gnodebs):
+    total_connected_UEs = sum(sum(len(cell.assigned_UEs) for cell in gNodeB.Cells) for gNodeB in gnodebs)
+    total_max_capacity = sum(gNodeB.CellCount * gNodeB.MaxUEs for gNodeB in gnodebs)
+    return min(1, total_connected_UEs / total_max_capacity)
+
+def calculate_ue_load(ue_id, gnodebs):
+    for gNodeB in gnodebs:
+        for cell in gNodeB.Cells:
+            ue = next((ue for ue in cell.assigned_UEs if ue.ID == ue_id), None)
+            if ue:
+                # Assuming UE has attributes for current data rate demand and the cell has max data rate
+                return min(1, ue.data_rate_demand / cell.max_data_rate)
+    return None  # or raise an exception if UE with the given ID does not exist
+
+def is_entity_congested(connected_UEs, max_capacity):
+    """
+    Determine if a cell or gNodeB is congested based on the number of connected UEs and the maximum capacity.
+    :param connected_UEs: The number of UEs currently connected to the entity.
+    :param max_capacity: The maximum number of UEs that the entity can support.
+    :return: True if the entity is congested, False otherwise.
+    """
+    load_percentage = (connected_UEs / max_capacity) * 100
+    return load_percentage > 85
+
+# Example usage within the simulation loop or a relevant function
+    for gnodeb in gNodeBs:
+        gnodeb_congested = is_entity_congested(len(gnodeb.ConnectedUEs), gnodeb.MaxUEs)
+        if gnodeb_congested:
+            print(f"gNodeB {gnodeb.ID} is congested.")
+
+        for cell in Cells:
+            cell_congested = is_entity_congested(len(cell.ConnectedUEs), cell.MaxConnectedUEs)
+            if cell_congested:
+                print(f"Cell {cell.ID} is congested.")
 
 def calculate_signal_strength(ue, gNodeB):
     # Placeholder function to calculate signal strength
