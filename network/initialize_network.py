@@ -7,6 +7,7 @@ import math
 from .gNodeB import gNodeB  # Relative import
 from .cell import Cell
 from .ue import UE
+from database.database_manager import DatabaseManager
 
 print("gNodeB import successful:", gNodeB)
 
@@ -34,23 +35,24 @@ def initialize_network(num_ues_to_launch):
 
     # Initialize Cells and link them to gNodeBs
     cells = [
-    Cell(
-        cell_id=cell_data['cell_id'],
-        gnodeb_id=cell_data['gnodeb_id'],
-        frequencyBand=cell_data['frequencyBand'],
-        duplexMode=cell_data['duplexMode'],
-        tx_power=cell_data['tx_power'], 
-        bandwidth=cell_data['bandwidth'],
-        ssb_periodicity=cell_data['ssbPeriodicity'], 
-        ssb_offset=cell_data['ssbOffset'],
-        max_connect_ues=cell_data['maxConnectUes'],
-        channel_model=cell_data['channelModel'],
-        trackingArea=cell_data.get('trackingArea', None)
-    ) for cell_data in cells_config['cells']
-]
+        Cell(
+            cell_id=cell_data['cell_id'],
+            gnodeb_id=cell_data['gnodeb_id'],
+            frequencyBand=cell_data['frequencyBand'],
+            duplexMode=cell_data['duplexMode'],
+            tx_power=cell_data['tx_power'], 
+            bandwidth=cell_data['bandwidth'],
+            ssb_periodicity=cell_data['ssbPeriodicity'], 
+            ssb_offset=cell_data['ssbOffset'],
+            max_connect_ues=cell_data['maxConnectUes'],
+            channel_model=cell_data['channelModel'],
+            trackingArea=cell_data.get('trackingArea', None)
+        ) for cell_data in cells_config['cells']
+    ]
 
     # Initialize UEs and assign them to Cells
     ues = []
+    db_manager = DatabaseManager(db_path='path_to_your_database')
     for ue_data in ue_config['ues']:
         # Remove the keys that are not expected by the UE constructor
         ue_data.pop('IMEI', None)
@@ -89,6 +91,10 @@ def initialize_network(num_ues_to_launch):
         if selected_gNodeB.Cells:
             selected_cell = random.choice(selected_gNodeB.cells)
             ue.connected_cell_id = selected_cell.cell_id
+        
+        # Write UE static data to the database
+        db_manager.insert_ue_static_data(ue)
+
         ues.append(ue)
 
     # Create additional UEs if needed
@@ -125,12 +131,18 @@ def initialize_network(num_ues_to_launch):
             n310=5,  # N310 counter value
             n311=10,  # N311 counter value
             model="ModelX",  # Device model
-
         )
         if selected_gNodeB.Cells:
-
             selected_cell = random.choice(selected_gNodeB.Cells)
             new_ue.ConnectedCellID = selected_cell.ID
+        
+        # Write UE static data to the database
+        db_manager.insert_ue_static_data(new_ue)
+
         ues.append(new_ue)
+
+    # Commit changes to the database
+    db_manager.commit_changes()
+    db_manager.close_connection()
 
     return gNodeBs, cells, ues
