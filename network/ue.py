@@ -2,6 +2,7 @@ import random
 import math
 import json
 from traffic.traffic_generator import generate_voice_traffic, generate_video_traffic, generate_gaming_traffic, generate_iot_traffic, generate_data_traffic
+from day_to_day_state import adjust_traffic_pattern
 
 class UE:
     def __init__(self, ue_id, location, connected_cell_id, is_mobile, initial_signal_strength, rat, max_bandwidth, duplex_mode, tx_power, modulation, coding, mimo, processing, bandwidth_parts, channel_model, velocity, direction, traffic_model, scheduling_requests, rlc_mode, snr_thresholds, ho_margin, n310, n311, model, service_type=None):
