@@ -109,5 +109,7 @@ class UE:
             raise ValueError(f"Unknown service type: {self.ServiceType}")
 
 
-    def perform_handover(self, new_cell_id):
-    self.ConnectedCellID = new_cell_id
+    def perform_handover(self, new_cell):
+        # Assuming new_cell is an instance of the Cell class
+        self.ConnectedCellID = new_cell.ID
+        new_cell.add_ue(self)
