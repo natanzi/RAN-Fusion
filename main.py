@@ -6,6 +6,8 @@ from Config_files.config_load import load_all_configs
 from visualization.plot_network import plot_network
 import matplotlib
 matplotlib.use('Agg')  # Set a non-interactive backend
+matplotlib.use('TkAgg')  # or another interactive backend that suits your environment
+import matplotlib.pyplot as plt
 
 def visualize_network(gNodeBs, ues):
     while True:
@@ -16,7 +18,8 @@ def log_traffic(ues):
     while True:
         for ue in ues:
             data_size, interval = ue.generate_traffic()
-            print(f"UE ID: {self.ID}, IMEI: {self.IMEI}, Service Type: {self.ServiceType}, Data Size: {data_size}, Interval: {interval} sec")
+            # Removed 'self' and used 'ue' to access the attributes of the UE instance
+            print(f"UE ID: {ue.ID}, IMEI: {ue.IMEI}, Service Type: {ue.ServiceType}, Data Size: {data_size}, Interval: {interval} sec")
             time.sleep(1)  # Logging interval
 
 def main():
