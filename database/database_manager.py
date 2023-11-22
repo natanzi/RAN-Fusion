@@ -73,6 +73,23 @@ def insert_ue_static_data(self, data):
         ]
         self.client.write_points(json_body)
 
+    def insert_gnodeb_static_data(self, data):
+    #"""Inserts static gNodeB data into the gnodeb_static measurement."""
+        json_body = [
+        {
+            "measurement": "gnodeb_static",
+            "tags": {
+                "gnodeb_id": data['gnodeb_id'],
+            },
+            "fields": {
+                # Add static fields here
+                # "field_name": data['field_name'],
+                # ...
+            }
+        }
+    ]
+    self.client.write_points(json_body)
+
     def insert_gnodeb_data(self, data):
         """Inserts a row of gNodeB KPI data into the gnodeb_metrics measurement."""
         json_body = [
