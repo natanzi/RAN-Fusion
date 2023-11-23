@@ -8,6 +8,8 @@ from .gNodeB import gNodeB  # Relative import
 from .cell import Cell
 from .ue import UE
 from database.database_manager import DatabaseManager
+from .init_gNodeB import initialize_gNodeBs  # Import the new initialization function
+from .init_ue import initialize_ues  # Import the new UE initialization function
 
 print("gNodeB import successful:", gNodeB)
 
@@ -49,6 +51,13 @@ def initialize_network(num_ues_to_launch):
             trackingArea=cell_data.get('trackingArea', None)
         ) for cell_data in cells_config['cells']
     ]
+
+    # Link cells to their respective gNodeBs
+    for cell in cells:
+        for gnodeb in gNodeBs:
+            if cell.gnodeb_id == gnodeb.ID:
+                gnodeb.Cells.append(cell)
+                break
 
     # Initialize UEs and assign them to Cells
     ues = []
