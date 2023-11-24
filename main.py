@@ -36,7 +36,8 @@ def main():
     num_ues_to_launch = 50
 
     # Initialize gNodeBs, Cells, and UEs
-    gNodeBs, cells, ues = initialize_network(num_ues_to_launch)
+    # Make sure to pass the configurations to the initialize_network function if required
+    gNodeBs, cells, ues = initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, ue_config)
     
     # Create a separate process for visualization
     visualization_process = Process(target=visualize_network, args=(gNodeBs, ues))
