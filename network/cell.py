@@ -34,8 +34,8 @@ def from_json(json_data):
         cells.append(cell)
     return cells
 
-    def add_ue(self, ue):
-        if len(self.ConnectedUEs) < self.MaxConnectedUEs:
+def add_ue(self, ue):
+    if len(self.ConnectedUEs) < self.MaxConnectedUEs:
             self.ConnectedUEs.append(ue)
-        else:
-            raise Exception("Maximum number of connected UEs reached for this cell.")
+    else:
+        raise Exception("Maximum number of connected UEs reached for this cell.")
