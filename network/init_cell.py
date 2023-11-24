@@ -19,7 +19,7 @@ def initialize_cells(gNodeBs):
     cells_config = load_json_config(os.path.join(config_dir, 'cell_config.json'))
 
     # Initialize the DatabaseManager with the required parameters and connect to the database
-    db_manager = DatabaseManager(host='your_host', port='your_port', username='your_username', password='your_password', dbname='your_dbname')
+    db_manager = DatabaseManager()
     db_manager.connect()
 
     # Initialize Cells and link them to gNodeBs

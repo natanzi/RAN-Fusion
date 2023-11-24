@@ -4,10 +4,17 @@ from multiprocessing import Process
 from network.initialize_network import initialize_network
 from Config_files.config_load import load_all_configs
 from visualization.plot_network import plot_network
+from database.database_manager import DatabaseManager
 import matplotlib
+
+# Set the backend for matplotlib
 matplotlib.use('Agg')  # Set a non-interactive backend
-matplotlib.use('TkAgg')  # or another interactive backend that suits your environment
-import matplotlib.pyplot as plt
+# matplotlib.use('TkAgg')  # Uncomment this and comment the line above if you want an interactive backend that suits your environment
+
+# Initialize the database manager once with the required parameters
+# Replace 'your_host', 'your_port', 'your_username', 'your_password', 'your_dbname' with your actual database credentials
+db_manager = DatabaseManager()
+db_manager.connect()
 
 def visualize_network(gNodeBs, ues):
     while True:
@@ -18,7 +25,6 @@ def log_traffic(ues):
     while True:
         for ue in ues:
             data_size, interval = ue.generate_traffic()
-            # Removed 'self' and used 'ue' to access the attributes of the UE instance
             print(f"UE ID: {ue.ID}, IMEI: {ue.IMEI}, Service Type: {ue.ServiceType}, Data Size: {data_size}, Interval: {interval} sec")
             time.sleep(1)  # Logging interval
 
