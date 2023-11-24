@@ -6,7 +6,6 @@ import random
 import math
 from .gNodeB import gNodeB  # Relative import
 from .cell import Cell
-from .ue import UE
 from database.database_manager import DatabaseManager
 from .init_gNodeB import initialize_gNodeBs  # Import the new initialization function
 from .init_ue import initialize_ues  # Import the new UE initialization function
@@ -35,7 +34,10 @@ def initialize_network(num_ues_to_launch):
     gNodeBs_config = load_json_config(os.path.join(config_dir, 'gNodeB_config.json'))
     cells_config = load_json_config(os.path.join(config_dir, 'cell_config.json'))
     ue_config = load_json_config(os.path.join(config_dir, 'ue_config.json'))
-
+    
+    # Local import to avoid circular dependency
+    from .ue import UE
+    
     # Initialize gNodeBs
     gNodeBs = initialize_gNodeBs()
 
