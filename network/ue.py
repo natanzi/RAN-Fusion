@@ -122,7 +122,6 @@ class UE:
     ues = []
     ue_config = {}
     for ue_data in ue_config['ues']:
-        # Remove the keys that are not expected by the UE constructor
         ue_data.pop('IMEI', None)
         ue_data.pop('screensize', None)
         ue_data.pop('batterylevel', None)
@@ -167,7 +166,7 @@ class UE:
 
         ues.append(ue)
 
-     # Create additional UEs if needed
+    # Create additional UEs if needed
     additional_ues_needed = max(0, num_ues_to_launch - len(ues))
     for _ in range(additional_ues_needed):
         selected_gNodeB = random.choice(gNodeBs)
