@@ -4,6 +4,7 @@ import random
 import math
 from .ue import UE
 from database.database_manager import DatabaseManager
+from .utils import random_location_within_radius
 
 def random_location_within_radius(latitude, longitude, radius_km):
     random_radius = random.uniform(0, radius_km)

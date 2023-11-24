@@ -7,6 +7,7 @@ from traffic.traffic_generator import generate_voice_traffic, generate_video_tra
 from network.initialize_network import random_location_within_radius
 from init_ue import UE
 from network.ue import UE
+from .utils import random_location_within_radius
 
 db_manager = DatabaseManager()
 
