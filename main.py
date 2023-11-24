@@ -5,7 +5,7 @@ from network.initialize_network import initialize_network
 from Config_files.config_load import load_all_configs
 from visualization.plot_network import plot_network
 from database.database_manager import DatabaseManager
-
+import sys
 import matplotlib
 
 # Set the backend for matplotlib
