@@ -14,7 +14,7 @@ def random_location_within_radius(latitude, longitude, radius_km):
 
 def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
     ues = []
-    db_manager = DatabaseManager(db_path='path_to_your_database')  # Make sure to provide the correct path
+    db_manager = DatabaseManager()
 
     for ue_data in ue_config['ues']:
         # Adjust the keys to match the UE constructor argument names
@@ -53,8 +53,38 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
             selected_cell = random.choice(selected_gNodeB.cells)
             ue.connected_cell_id = selected_cell.cell_id
         
+        # Prepare static UE data for database insertion
+        static_ue_data = {
+            'ue_id': ue.ID,
+            'imei': ue.IMEI,
+            'service_type': ue.ServiceType,
+            'model': ue.Model,
+            'rat': ue.RAT,
+            'max_bandwidth': ue.MaxBandwidth,
+            'duplex_mode': ue.DuplexMode,
+            'tx_power': ue.TxPower,
+            'modulation': ue.Modulation,
+            'coding': ue.Coding,
+            'mimo': ue.MIMO,
+            'processing': ue.Processing,
+            'bandwidth_parts': ue.BandwidthParts,
+            'channel_model': ue.ChannelModel,
+            'velocity': ue.Velocity,
+            'direction': ue.Direction,
+            'traffic_model': ue.TrafficModel,
+            'scheduling_requests': ue.SchedulingRequests,
+            'rlc_mode': ue.RLCMode,
+            'snr_thresholds': ue.SNRThresholds,
+            'ho_margin': ue.HOMargin,
+            'n310': ue.N310,
+            'n311': ue.N311,
+            'screen_size': ue.ScreenSize,
+            'battery_level': ue.BatteryLevel
+        }
+
+
         # Write UE static data to the database
-        db_manager.insert_ue_static_data(ue)
+        db_manager.insert_ue_static_data(static_ue_data)
         ues.append(ue)
 
     # Create additional UEs if needed
