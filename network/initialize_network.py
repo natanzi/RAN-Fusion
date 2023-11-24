@@ -11,6 +11,7 @@ from .init_gNodeB import initialize_gNodeBs  # Import the new initialization fun
 from .init_ue import initialize_ues  # Import the new UE initialization function
 from .init_gNodeB import initialize_gNodeBs  # Import the new initialization function
 from .init_cell import initialize_cells
+from .utils import random_location_within_radius
 
 db_manager = DatabaseManager()
 
@@ -19,13 +20,6 @@ print("gNodeB import successful:", gNodeB)
 def load_json_config(file_path):
     with open(file_path, 'r') as file:
         return json.load(file)
-
-def random_location_within_radius(latitude, longitude, radius_km):
-    random_radius = random.uniform(0, radius_km)
-    random_angle = random.uniform(0, 2 * math.pi)
-    delta_lat = random_radius * math.cos(random_angle)
-    delta_lon = random_radius * math.sin(random_angle)
-    return (latitude + delta_lat, longitude + delta_lon)
 
 def initialize_network(num_ues_to_launch):
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
