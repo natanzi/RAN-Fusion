@@ -117,7 +117,6 @@ class UE:
 
         # Initialize UEs and assign them to Cells
     ues = []
-    db_manager = DatabaseManager(db_path='path_to_your_database')
     for ue_data in ue_config['ues']:
         # Remove the keys that are not expected by the UE constructor
         ue_data.pop('IMEI', None)
