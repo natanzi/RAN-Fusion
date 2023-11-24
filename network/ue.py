@@ -1,3 +1,4 @@
+#This is UE class in network directory
 import random
 import math
 import json
@@ -167,11 +168,8 @@ class UE:
         db_manager.insert_ue_static_data(ue)
 
         ues.append(ue)
-    
 
-    
-
-    # Create additional UEs if needed
+     # Create additional UEs if needed
     additional_ues_needed = max(0, num_ues_to_launch - len(ues))
     for _ in range(additional_ues_needed):
         selected_gNodeB = random.choice(gNodeBs)
