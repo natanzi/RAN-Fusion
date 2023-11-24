@@ -1,4 +1,4 @@
-#This is UE class in network directory
+#This is UE class, ue.py in network directory
 import random
 import math
 import json
