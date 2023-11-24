@@ -49,7 +49,6 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
 
         # Assign sequential UE ID
         ue_data['ue_id'] = f"UE{i}"
-
         # Instantiate UE with the adjusted data
         ue = UE(**ue_data)
         # Assign UE to a random cell of a random gNodeB, if available
@@ -86,8 +85,6 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
             'screen_size': ue.ScreenSize,
             'battery_level': ue.BatteryLevel
         }
-
-
         # Write UE static data to the database
         db_manager.insert_ue_static_data(static_ue_data)
         ues.append(ue)
