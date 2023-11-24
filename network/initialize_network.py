@@ -40,6 +40,9 @@ def initialize_network(num_ues_to_launch):
 
     # Initialize Cells and link them to gNodeBs
     cells = initialize_cells(gNodeBs)
+
+    # After initializing gNodeBs and cells
+    ues = initialize_ues(num_ues_to_launch, gNodeBs, ue_config)
     
 
     return gNodeBs, cells, ues
