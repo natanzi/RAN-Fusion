@@ -9,9 +9,6 @@ from .cell import Cell
 from database.database_manager import DatabaseManager
 from .init_gNodeB import initialize_gNodeBs  # Import the new initialization function
 from .init_ue import initialize_ues  # Import the new UE initialization function
-from .init_gNodeB import initialize_gNodeBs  # Import the new initialization function
-from .init_cell import initialize_cells
-from .utils import random_location_within_radius
 
 db_manager = DatabaseManager()
 
@@ -40,6 +37,5 @@ def initialize_network(num_ues_to_launch):
 
     # After initializing gNodeBs and cells
     ues = initialize_ues(num_ues_to_launch, gNodeBs, ue_config)
-    
 
     return gNodeBs, cells, ues

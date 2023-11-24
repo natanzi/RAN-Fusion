@@ -16,23 +16,19 @@ class Cell:
 
 @staticmethod
 def from_json(json_data):
-    cells = []
-    for item in json_data["cells"]:
-        cell = Cell(
-            cell_id=item["cell_id"],
-            gnodeb_id=item["gnodeb_id"],
-            frequencyBand=item["frequencyBand"],
-            duplexMode=item["duplexMode"],
-            tx_power=item["txPower"],
-            bandwidth=item["bandwidth"],
-            ssb_periodicity=item["ssbPeriodicity"],
-            ssb_offset=item["ssbOffset"],  # This should match the constructor argument name
-            max_connect_ues=item["maxConnectUes"],
-            channel_model=item["channelModel"],
-            trackingArea=item.get("trackingArea")
-    )
-        cells.append(cell)
-    return cells
+        return Cell(
+            cell_id=json_data["cell_id"],
+            gnodeb_id=json_data["gnodeb_id"],
+            frequencyBand=json_data["frequencyBand"],
+            duplexMode=json_data["duplexMode"],
+            tx_power=json_data["txPower"],
+            bandwidth=json_data["bandwidth"],
+            ssb_periodicity=json_data["ssbPeriodicity"],
+            ssb_offset=json_data["ssbOffset"],
+            max_connect_ues=json_data["maxConnectUes"],
+            channel_model=json_data["channelModel"],
+            trackingArea=json_data.get("trackingArea")
+        )
 
 def add_ue(self, ue):
     if len(self.ConnectedUEs) < self.MaxConnectedUEs:

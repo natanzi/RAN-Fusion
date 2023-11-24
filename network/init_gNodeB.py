@@ -16,5 +16,4 @@ def initialize_gNodeBs():
 
     # Initialize gNodeBs
     gNodeBs = [gNodeB(**gNodeB_data) for gNodeB_data in gNodeBs_config['gNodeBs']]
-
     return gNodeBs

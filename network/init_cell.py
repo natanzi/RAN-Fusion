@@ -1,9 +1,5 @@
 # init_cell.py
 # Initialization of the cells
-
-# init_cell.py
-# Initialization of the cells
-
 import os
 import json
 from .cell import Cell
@@ -65,5 +61,3 @@ def initialize_cells(gNodeBs):
     db_manager.close_connection()
 
     return cells
-
-# The function initialize_cells should be called from initialize_network.py or similar
