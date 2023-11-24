@@ -93,7 +93,6 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         additional_ues_needed = max(0, num_ues_to_launch - len(ues))
         for _ in range(additional_ues_needed):
             selected_gNodeB = random.choice(gNodeBs)
-            # Find a cell with available capacity in the selected gNodeB
             available_cell = selected_gNodeB.find_available_cell()  # This method should be implemented in gNodeB.py
 
             if available_cell is not None:
