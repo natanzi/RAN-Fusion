@@ -4,7 +4,7 @@ import math
 import json
 from database.database_manager import DatabaseManager
 from traffic.traffic_generator import generate_voice_traffic, generate_video_traffic, generate_gaming_traffic, generate_iot_traffic, generate_data_traffic
-from init_ue import UE
+from .init_ue import UE
 from network.ue import UE
 from .utils import random_location_within_radius
 
