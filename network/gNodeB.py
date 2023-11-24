@@ -53,6 +53,21 @@ class gNodeB:
             gNodeBs.append(gnodeb)
         return gNodeBs
 
+    def add_cell(self, cell):
+        """
+        Adds a Cell instance to the gNodeB's list of cells.
+
+        :param cell: The Cell instance to be added.
+        """
+        # Check if the cell is already in the list to avoid duplicates
+        if cell not in self.Cells:
+            self.Cells.append(cell)
+        else:
+            print(f"Cell with ID {cell.ID} is already added to gNodeB with ID {self.ID}")
+
+        # Optionally, you can also check if the cell's gNodeB_ID matches this gNodeB's ID
+        if cell.gNodeB_ID != self.ID:
+            print(f"Cell with ID {cell.ID} does not match gNodeB ID {self.ID}. Not adding to Cells list.")
 
     def check_cell_capacity(self, cell):
         # Placeholder for checking if a cell can accept more UEs

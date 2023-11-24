@@ -1,7 +1,23 @@
-#init_cell.py // this file located in network directory
-#Initialization Of the cells
+# init_cell.py
+# Initialization of the cells
 
-# Initialize Cells and link them to gNodeBs
+# init_cell.py
+# Initialization of the cells
+
+import os
+import json
+from .cell import Cell
+
+def load_json_config(file_path):
+    with open(file_path, 'r') as file:
+        return json.load(file)
+
+def initialize_cells(gNodeBs):
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    config_dir = os.path.join(base_dir, 'Config_files')
+    cells_config = load_json_config(os.path.join(config_dir, 'cell_config.json'))
+
+    # Initialize Cells and link them to gNodeBs
     cells = [
         Cell(
             cell_id=cell_data['cell_id'],
@@ -22,5 +38,8 @@
     for cell in cells:
         for gnodeb in gNodeBs:
             if cell.gnodeb_id == gnodeb.ID:
-                gnodeb.Cells.append(cell)
-                break
+                gnodeb.add_cell(cell)  # Use the add_cell method of gNodeB
+
+    return cells
+
+# The function initialize_cells should be called from initialize_network.py or similar

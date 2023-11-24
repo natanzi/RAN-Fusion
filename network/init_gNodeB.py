@@ -1,7 +1,5 @@
 #init_gNodeB.py  // this file located in network directory
-# init_gNodeB.py
 # Initialization of gNodeBs
-
 import os
 import json
 from .gNodeB import gNodeB  # Relative import

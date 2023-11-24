@@ -1,6 +1,5 @@
 # init_ue.py
 # Initialization of UEs
-
 import random
 import math
 from .ue import UE
@@ -15,7 +14,7 @@ def random_location_within_radius(latitude, longitude, radius_km):
 
 def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
     ues = []
-    db_manager = DatabaseManager(db_path='path_to_your_database')
+    db_manager = DatabaseManager(db_path='path_to_your_database')  # Make sure to provide the correct path
 
     for ue_data in ue_config['ues']:
         # Adjust the keys to match the UE constructor argument names
@@ -24,8 +23,29 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         ue_data['connected_cell_id'] = ue_data.pop('connectedCellId')
         ue_data['is_mobile'] = ue_data.pop('isMobile')
         ue_data['initial_signal_strength'] = ue_data.pop('initialSignalStrength')
-        # ... (rest of the UE data adjustments)
+        ue_data['rat'] = ue_data.pop('rat')
+        ue_data['max_bandwidth'] = ue_data.pop('maxBandwidth')
+        ue_data['duplex_mode'] = ue_data.pop('duplexMode')
+        ue_data['tx_power'] = ue_data.pop('txPower')
+        ue_data['modulation'] = ue_data.pop('modulation')
+        ue_data['coding'] = ue_data.pop('coding')
+        ue_data['mimo'] = ue_data.pop('mimo')
+        ue_data['processing'] = ue_data.pop('processing')
+        ue_data['bandwidth_parts'] = ue_data.pop('bandwidthParts')
+        ue_data['channel_model'] = ue_data.pop('channelModel')
+        ue_data['velocity'] = ue_data.pop('velocity')
+        ue_data['direction'] = ue_data.pop('direction')
+        ue_data['traffic_model'] = ue_data.pop('trafficModel')
+        ue_data['scheduling_requests'] = ue_data.pop('schedulingRequests')
+        ue_data['rlc_mode'] = ue_data.pop('rlcMode')
+        ue_data['snr_thresholds'] = ue_data.pop('snrThresholds')
+        ue_data['ho_margin'] = ue_data.pop('hoMargin')
+        ue_data['n310'] = ue_data.pop('n310')
+        ue_data['n311'] = ue_data.pop('n311')
+        ue_data['model'] = ue_data.pop('model')
+        ue_data['service_type'] = ue_data.get('serviceType')  # Use get in case 'serviceType' is not provided
 
+        # Instantiate UE with the adjusted data
         ue = UE(**ue_data)
         # Assign UE to a random cell of a random gNodeB, if available
         selected_gNodeB = random.choice(gNodeBs)
@@ -37,6 +57,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         db_manager.insert_ue_static_data(ue)
         ues.append(ue)
 
+    # Create additional UEs if needed
     additional_ues_needed = max(0, num_ues_to_launch - len(ues))
     for _ in range(additional_ues_needed):
         selected_gNodeB = random.choice(gNodeBs)
@@ -48,28 +69,28 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
             location=random_location,
             connected_cell_id=None,  # Placeholder for no initial cell connection
             is_mobile=True,
-            initial_signal_strength=-70,  # Example placeholder value
-            rat='LTE',  # Example placeholder value
-            max_bandwidth=20,  # Example placeholder value in MHz
-            duplex_mode='FDD',  # Example placeholder value
-            tx_power=23,  # Example placeholder value in dBm
-            modulation='QAM',  # Example placeholder value
-            coding='Turbo',  # Example placeholder value
-            mimo=True,  # Example placeholder value
-            processing='normal',  # Example placeholder value
-            bandwidth_parts=1,  # Example placeholder value
-            channel_model='urban',  # Example placeholder value
-            velocity=3.0,  # Example placeholder value in m/s
-            direction=45,  # Example placeholder value in degrees
-            traffic_model='fullbuffer',  # Example placeholder value
-            scheduling_requests=5,  # Example placeholder value
-            rlc_mode='AM',  # Example placeholder value
-            snr_thresholds=[-15, -10, -6, 0, 5, 10],  # Example placeholder value in dB
-            ho_margin=3,  # Example placeholder value in dB
-            n310=1,  # Example placeholder value
-            n311=1,  # Example placeholder value
-            model='generic',  # Example placeholder value
-            service_type='data'  # Example placeholder value
+            initial_signal_strength=random.uniform(-120, -30),  # Randomized signal strength
+            rat='NR',  # Assuming New Radio (5G) as the RAT
+            max_bandwidth=random.choice([5, 10, 15, 20]),  # Randomized bandwidth
+            duplex_mode='TDD',  # Assuming Time Division Duplexing
+            tx_power=random.randint(0, 23),  # Randomized transmission power
+            modulation=random.choice(['QPSK', '16QAM', '64QAM']),  # Randomized modulation
+            coding=random.choice(['LDPC', 'Turbo']),  # Randomized coding scheme
+            mimo=random.choice([True, False]),  # Randomized MIMO capability
+            processing=random.choice(['low', 'normal', 'high']),  # Randomized processing capability
+            bandwidth_parts=random.randint(1, 5),  # Randomized bandwidth parts
+            channel_model=random.choice(['urban', 'rural', 'suburban']),  # Randomized channel model
+            velocity=random.uniform(0, 50),  # Randomized velocity
+            direction=random.randint(0, 360),  # Randomized direction
+            traffic_model=random.choice(['fullbuffer', 'bursty', 'periodic']),  # Randomized traffic model
+            scheduling_requests=random.randint(1, 10),  # Randomized scheduling requests
+            rlc_mode=random.choice(['AM', 'UM']),  # Randomized RLC mode
+            snr_thresholds=[random.randint(-20, 0) for _ in range(6)],  # Randomized SNR thresholds
+            ho_margin=random.randint(1, 10),  # Randomized handover margin
+            n310=random.randint(1, 10),  # Randomized N310
+            n311=random.randint(1, 10),  # Randomized N311
+            model='generic',  # Placeholder for model
+            service_type=random.choice(['video', 'game', 'voice', 'data', 'IoT'])  # Randomized service type
         )
         if selected_gNodeB.cells:
             selected_cell = random.choice(selected_gNodeB.cells)
@@ -79,6 +100,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         db_manager.insert_ue_static_data(new_ue)
         ues.append(new_ue)
 
+    # Commit changes to the database and close the connection
     db_manager.commit_changes()
     db_manager.close_connection()
 

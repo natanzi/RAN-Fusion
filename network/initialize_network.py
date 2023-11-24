@@ -10,6 +10,8 @@ from .ue import UE
 from database.database_manager import DatabaseManager
 from .init_gNodeB import initialize_gNodeBs  # Import the new initialization function
 from .init_ue import initialize_ues  # Import the new UE initialization function
+from .init_gNodeB import initialize_gNodeBs  # Import the new initialization function
+from .init_cell import initialize_cells
 
 print("gNodeB import successful:", gNodeB)
 
@@ -34,9 +36,10 @@ def initialize_network(num_ues_to_launch):
     ue_config = load_json_config(os.path.join(config_dir, 'ue_config.json'))
 
     # Initialize gNodeBs
-    gNodeBs = [gNodeB(**gNodeB_data) for gNodeB_data in gNodeBs_config['gNodeBs']]
+    gNodeBs = initialize_gNodeBs()
 
-    
+    # Initialize Cells and link them to gNodeBs
+    cells = initialize_cells(gNodeBs)
     
 
     return gNodeBs, cells, ues
