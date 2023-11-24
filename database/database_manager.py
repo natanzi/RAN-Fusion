@@ -72,6 +72,30 @@ def insert_ue_static_data(self, data):
             }
         ]
         self.client.write_points(json_body)
+        
+def insert_cell_static_data(self, data):
+    """Inserts static cell data into the cell_static measurement."""
+    json_body = [
+        {
+            "measurement": "cell_static",
+            "tags": {
+                "cell_id": data['cell_id'],
+            },
+            "fields": {
+                "pci": data['pci'],
+                "tac": data['tac'],
+                "frequency": data['frequency'],
+                "bandwidth": data['bandwidth'],
+                "power": data['power'],
+                "cell_range": data['cell_range'],
+                "mcc": data['mcc'],
+                "mnc": data['mnc'],
+                "technology": data['technology'],
+                # ... add other static cell parameters here
+            }
+        }
+    ]
+    self.client.write_points(json_body)
 
     def insert_gnodeb_static_data(self, data):
     #"""Inserts static gNodeB data into the gnodeb_static measurement."""
