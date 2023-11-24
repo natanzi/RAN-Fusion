@@ -68,14 +68,14 @@ class gNodeB:
         # Optionally, you can also check if the cell's gNodeB_ID matches this gNodeB's ID
         if cell.gNodeB_ID != self.ID:
             print(f"Cell with ID {cell.ID} does not match gNodeB ID {self.ID}. Not adding to Cells list.")
-
+    
     def check_cell_capacity(self, cell):
         # Placeholder for checking if a cell can accept more UEs
         return len(cell.ConnectedUEs) < cell.MaxConnectedUEs
 
     def find_available_cell(self):
         for cell in self.Cells:
-            if self.check_cell_capacity(cell):
+            if cell.has_available_capacity():  # Assuming this method checks for available capacity
                 return cell
         return None
 

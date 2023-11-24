@@ -90,17 +90,22 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         db_manager.insert_ue_static_data(static_ue_data)
         ues.append(ue)
 
-    # Create additional UEs if needed
-    additional_ues_needed = max(0, num_ues_to_launch - len(ues))
-    for i in range(len(ues) + 1, num_ues_to_launch + 1):
-        selected_gNodeB = random.choice(gNodeBs)
-        random_location = random_location_within_radius(
-            selected_gNodeB.latitude, selected_gNodeB.longitude, selected_gNodeB.coverage_radius
-        )
-        new_ue = UE(
-            ue_id=f"UE{i}",  # Sequential UE ID from UE1 to UE50
+        # Create additional UEs if needed
+        additional_ues_needed = max(0, num_ues_to_launch - len(ues))
+        for _ in range(additional_ues_needed):
+            selected_gNodeB = random.choice(gNodeBs)
+            # Find a cell with available capacity in the selected gNodeB
+            available_cell = selected_gNodeB.find_available_cell()  # This method should be implemented in gNodeB.py
+
+            if available_cell is not None:
+                random_location = random_location_within_radius(
+                    selected_gNodeB.latitude, selected_gNodeB.longitude, selected_gNodeB.coverage_radius
+                )
+
+            new_ue = UE(
+            ue_id=f"UE{random.randint(1000, 9999)}",
             location=random_location,
-            connected_cell_id=None,  # Placeholder for no initial cell connection
+            connected_cell_id=available_cell.ID,  # Connect to the available cell
             is_mobile=True,
             initial_signal_strength=random.uniform(-120, -30),  # Randomized signal strength
             rat='NR',  # Assuming New Radio (5G) as the RAT
