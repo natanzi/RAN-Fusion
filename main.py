@@ -8,13 +8,12 @@ from database.database_manager import DatabaseManager
 from network.initialize_network import random_location_within_radius
 import sys
 import matplotlib
+from Config_files.config_load import load_all_configs
 
 # Set the backend for matplotlib
 matplotlib.use('Agg')  # Set a non-interactive backend
 # matplotlib.use('TkAgg')  # Uncomment this and comment the line above if you want an interactive backend that suits your environment
 
-# Initialize the database manager once with the required parameters
-# Replace 'your_host', 'your_port', 'your_username', 'your_password', 'your_dbname' with your actual database credentials
 db_manager = DatabaseManager()
 db_manager.connect()
 

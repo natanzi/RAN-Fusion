@@ -1,4 +1,4 @@
-#this is the config_load.py to loading all json config
+#this is the config_load.py in Config_files directory to loading all json config
 import json
 import os
 
