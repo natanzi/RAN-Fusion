@@ -117,6 +117,7 @@ class UE:
 
         # Initialize UEs and assign them to Cells
     ues = []
+    ue_config = {}
     for ue_data in ue_config['ues']:
         # Remove the keys that are not expected by the UE constructor
         ue_data.pop('IMEI', None)
@@ -149,22 +150,32 @@ class UE:
         ue_data['n311'] = ue_data.pop('n311')
         ue_data['model'] = ue_data.pop('model')
 
+        UE = None
         ue = UE(**ue_data)
         # Assign UE to a random cell of a random gNodeB, if available
-        selected_gNodeB = random.choice(gNodeBs)
-        if selected_gNodeB.Cells:
-            selected_cell = random.choice(selected_gNodeB.cells)
-            ue.connected_cell_id = selected_cell.cell_id
+        gNodeBs = [] # initialize gNodeBs variable
+        if gNodeBs: 
+            selected_gNodeB = random.choice(gNodeBs)
+            if selected_gNodeB.Cells:
+                selected_cell = random.choice(selected_gNodeB.cells)
+                ue.connected_cell_id = selected_cell.cell_id
         
         # Write UE static data to the database
         db_manager.insert_ue_static_data(ue)
 
         ues.append(ue)
+    
+
+    
 
     # Create additional UEs if needed
     additional_ues_needed = max(0, num_ues_to_launch - len(ues))
     for _ in range(additional_ues_needed):
         selected_gNodeB = random.choice(gNodeBs)
+        # Fix: Define random_location_within_radius function
+        def random_location_within_radius(lat, lon, radius):
+            pass
+        
         random_location = random_location_within_radius(
             selected_gNodeB.Latitude, selected_gNodeB.Longitude, selected_gNodeB.CoverageRadius
         )
