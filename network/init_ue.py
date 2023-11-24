@@ -2,7 +2,6 @@
 # Initialization of UEs
 import random
 import math
-from .ue import UE
 from database.database_manager import DatabaseManager
 from .utils import random_location_within_radius
 
