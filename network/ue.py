@@ -3,6 +3,8 @@ import math
 import json
 from database.database_manager import DatabaseManager
 from traffic.traffic_generator import generate_voice_traffic, generate_video_traffic, generate_gaming_traffic, generate_iot_traffic, generate_data_traffic
+from network.initialize_network import random_location_within_radius
+
 db_manager = DatabaseManager()
 
 class UE:
@@ -171,12 +173,9 @@ class UE:
     additional_ues_needed = max(0, num_ues_to_launch - len(ues))
     for _ in range(additional_ues_needed):
         selected_gNodeB = random.choice(gNodeBs)
-        # Fix: Define random_location_within_radius function
-        def random_location_within_radius(lat, lon, radius):
-            pass
-        
         random_location = random_location_within_radius(
-            selected_gNodeB.Latitude, selected_gNodeB.Longitude, selected_gNodeB.CoverageRadius
+            selected_gNodeB.latitude, selected_gNodeB.longitude, selected_gNodeB.coverage_radius
+
         )
         new_ue = UE(
             ue_id=f"UE{random.randint(1000, 9999)}",
