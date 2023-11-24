@@ -16,7 +16,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
     ues = []
     db_manager = DatabaseManager()
 
-    for ue_data in ue_config['ues']:
+    for i, ue_data in enumerate(ue_config['ues'], start=1):
         # Adjust the keys to match the UE constructor argument names
         ue_data['ue_id'] = ue_data.pop('ue_id')
         ue_data['location'] = (ue_data['location']['latitude'], ue_data['location']['longitude'])
@@ -44,6 +44,9 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         ue_data['n311'] = ue_data.pop('n311')
         ue_data['model'] = ue_data.pop('model')
         ue_data['service_type'] = ue_data.get('serviceType')  # Use get in case 'serviceType' is not provided
+
+        # Assign sequential UE ID
+        ue_data['ue_id'] = f"UE{i}"
 
         # Instantiate UE with the adjusted data
         ue = UE(**ue_data)
@@ -89,13 +92,13 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
 
     # Create additional UEs if needed
     additional_ues_needed = max(0, num_ues_to_launch - len(ues))
-    for _ in range(additional_ues_needed):
+    for i in range(len(ues) + 1, num_ues_to_launch + 1):
         selected_gNodeB = random.choice(gNodeBs)
         random_location = random_location_within_radius(
             selected_gNodeB.latitude, selected_gNodeB.longitude, selected_gNodeB.coverage_radius
         )
         new_ue = UE(
-            ue_id=f"UE{random.randint(1000, 9999)}",
+            ue_id=f"UE{i}",  # Sequential UE ID from UE1 to UE50
             location=random_location,
             connected_cell_id=None,  # Placeholder for no initial cell connection
             is_mobile=True,
