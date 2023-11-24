@@ -15,7 +15,6 @@ from .init_cell import initialize_cells
 
 print("gNodeB import successful:", gNodeB)
 
-
 def load_json_config(file_path):
     with open(file_path, 'r') as file:
         return json.load(file)
