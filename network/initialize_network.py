@@ -12,6 +12,7 @@ from .init_gNodeB import initialize_gNodeBs  # Import the new initialization fun
 from .init_ue import initialize_ues  # Import the new UE initialization function
 from .init_gNodeB import initialize_gNodeBs  # Import the new initialization function
 from .init_cell import initialize_cells
+db_manager = DatabaseManager()
 
 print("gNodeB import successful:", gNodeB)
 
