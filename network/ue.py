@@ -150,7 +150,6 @@ class UE:
         ue_data['n311'] = ue_data.pop('n311')
         ue_data['model'] = ue_data.pop('model')
 
-        UE = None
         ue = UE(**ue_data)
         # Assign UE to a random cell of a random gNodeB, if available
         gNodeBs = [] # initialize gNodeBs variable
