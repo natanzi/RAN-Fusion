@@ -96,12 +96,12 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
             selected_gNodeB = random.choice(gNodeBs)
             available_cell = selected_gNodeB.find_available_cell()  # This method should be implemented in gNodeB.py
 
-            if available_cell is not None:
-                random_location = random_location_within_radius(
-                selected_gNodeB.latitude, selected_gNodeB.longitude, selected_gNodeB.coverage_radius
-            )
+        if available_cell is not None:
+            random_location = random_location_within_radius(
+            selected_gNodeB.latitude, selected_gNodeB.longitude, selected_gNodeB.coverage_radius
+        )
 
-            new_ue = UE(
+        new_ue = UE(
             ue_id=f"UE{random.randint(1000, 9999)}",
             location=random_location,
             connected_cell_id=available_cell.ID,  # Connect to the available cell
@@ -129,9 +129,9 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
             model='generic',  # Placeholder for model
             service_type=random.choice(['video', 'game', 'voice', 'data', 'IoT'])  # Randomized service type
         )
-            if selected_gNodeB.cells:
-                selected_cell = random.choice(selected_gNodeB.cells)
-                new_ue.connected_cell_id = selected_cell.cell_id
+        if selected_gNodeB.cells:
+            selected_cell = random.choice(selected_gNodeB.cells)
+            new_ue.connected_cell_id = selected_cell.cell_id
         
             # Write UE static data to the database
             db_manager.insert_ue_static_data(new_ue)
