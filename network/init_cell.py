@@ -19,42 +19,13 @@ def initialize_cells(gNodeBs):
     db_manager.connect()
 
     # Initialize Cells and link them to gNodeBs
-    cells = []
-    for cell_data in cells_config['cells']:
-        cell = Cell(
-            cell_id=cell_data['cell_id'],
-            gnodeb_id=cell_data['gnodeb_id'],
-            frequencyBand=cell_data['frequencyBand'],
-            duplexMode=cell_data['duplexMode'],
-            tx_power=cell_data['tx_power'], 
-            bandwidth=cell_data['bandwidth'],
-            ssb_periodicity=cell_data['ssbPeriodicity'], 
-            ssb_offset=cell_data['ssbOffset'],
-            max_connect_ues=cell_data['maxConnectUes'],
-            channel_model=cell_data['channelModel'],
-            trackingArea=cell_data.get('trackingArea', None)
-        )
-        cells.append(cell)
+    cells = [Cell.from_json(cell_data) for cell_data in cells_config['cells']]
 
-        # Insert static cell data into the database
-        db_manager.insert_cell_static_data({
-            'cell_id': cell_data['cell_id'],
-            'gnodeb_id': cell_data['gnodeb_id'],
-            'frequencyBand': cell_data['frequencyBand'],
-            'duplexMode': cell_data['duplexMode'],
-            'tx_power': cell_data['tx_power'], 
-            'bandwidth': cell_data['bandwidth'],
-            'ssb_periodicity': cell_data['ssbPeriodicity'], 
-            'ssb_offset': cell_data['ssbOffset'],
-            'max_connect_ues': cell_data['maxConnectUes'],
-            'channel_model': cell_data['channelModel'],
-            'trackingArea': cell_data.get('trackingArea', None)
-        })
-
-    # Link cells to their respective gNodeBs
+    # Insert static cell data into the database and link cells to gNodeBs
     for cell in cells:
+        db_manager.insert_cell_static_data(cell.__dict__)
         for gnodeb in gNodeBs:
-            if cell.gnodeb_id == gnodeb.ID:
+            if cell.gNodeB_ID == gnodeb.ID:
                 gnodeb.add_cell(cell)  # Use the add_cell method of gNodeB
 
     # Close the database connection

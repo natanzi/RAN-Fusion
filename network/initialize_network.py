@@ -1,41 +1,19 @@
 # initialize_network.py
 # Initialization of gNodeBs, Cells, and UEs // this file located in network directory
-import os
-import json
-import random
-import math
-from .gNodeB import gNodeB  # Relative import
-from .cell import Cell
-from database.database_manager import DatabaseManager
+# initialize_network.py
+# Initialization of gNodeBs, Cells, and UEs // this file located in network directory
 from .init_gNodeB import initialize_gNodeBs  # Import the new initialization function
+from .init_cell import initialize_cells  # Import the new Cell initialization function
 from .init_ue import initialize_ues  # Import the new UE initialization function
 
-db_manager = DatabaseManager()
+def initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, ue_config):
+    # Initialize gNodeBs with the provided configuration
+    gNodeBs = initialize_gNodeBs(gNodeBs_config)
 
-print("gNodeB import successful:", gNodeB)
+    # Initialize Cells with the provided configuration and link them to gNodeBs
+    cells = initialize_cells(cells_config, gNodeBs)
 
-def load_json_config(file_path):
-    with open(file_path, 'r') as file:
-        return json.load(file)
-
-def initialize_network(num_ues_to_launch):
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    config_dir = os.path.join(base_dir, 'Config_files')
-
-    gNodeBs_config = load_json_config(os.path.join(config_dir, 'gNodeB_config.json'))
-    cells_config = load_json_config(os.path.join(config_dir, 'cell_config.json'))
-    ue_config = load_json_config(os.path.join(config_dir, 'ue_config.json'))
-    
-    # Local import to avoid circular dependency
-    from .ue import UE
-    
-    # Initialize gNodeBs
-    gNodeBs = initialize_gNodeBs()
-
-    # Initialize Cells and link them to gNodeBs
-    cells = initialize_cells(gNodeBs)
-
-    # After initializing gNodeBs and cells
+    # After initializing gNodeBs and cells, initialize UEs with the provided configuration
     ues = initialize_ues(num_ues_to_launch, gNodeBs, ue_config)
 
     return gNodeBs, cells, ues
