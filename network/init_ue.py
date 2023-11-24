@@ -47,6 +47,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         ue_data['model'] = ue_data.pop('model')
         ue_data['service_type'] = ue_data.get('serviceType')  # Use get in case 'serviceType' is not provided
 
+
         # Assign sequential UE ID
         ue_data['ue_id'] = f"UE{i}"
         # Instantiate UE with the adjusted data
