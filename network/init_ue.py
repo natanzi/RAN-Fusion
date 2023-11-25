@@ -130,10 +130,10 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
             n311=random.randint(1, 10),  # Randomized N311
             model='generic',  # Placeholder for model
             service_type=random.choice(['video', 'game', 'voice', 'data', 'IoT'])  # Randomized service type
-            )
-            if selected_gNodeB.cells:
-                selected_cell = random.choice(selected_gNodeB.cells)
-                new_ue.connected_cell_id = selected_cell.cell_id
+        )
+        if selected_gNodeB.cells:
+            selected_cell = random.choice(selected_gNodeB.cells)
+            new_ue.connected_cell_id = selected_cell.cell_id
         
             # Write UE static data to the database
             db_manager.insert_ue_static_data(new_ue)
