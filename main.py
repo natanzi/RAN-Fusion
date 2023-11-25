@@ -12,8 +12,7 @@ import matplotlib
 matplotlib.use('Agg')  # Set a non-interactive backend
 # matplotlib.use('TkAgg')  # Uncomment this and comment the line above if you want an interactive backend that suits your environment
 
-db_manager = DatabaseManager()
-db_manager.connect()
+
 
 def visualize_network(gNodeBs, ues):
     while True:
