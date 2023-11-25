@@ -14,21 +14,21 @@ class Cell:
         self.TrackingArea = trackingArea 
         self.ConnectedUEs = []
 
-    @staticmethod
-    def from_json(json_data):
-        return Cell(
-            cell_id=json_data["cell_id"],
-            gnodeb_id=json_data["gnodeb_id"],
-            frequencyBand=json_data["frequencyBand"],
-            duplexMode=json_data["duplexMode"],
-            tx_power=json_data["txPower"],
-            bandwidth=json_data["bandwidth"],
-            ssb_periodicity=json_data["ssbPeriodicity"],
-            ssb_offset=json_data["ssbOffset"],
-            max_connect_ues=json_data["maxConnectUes"],
-            channel_model=json_data["channelModel"],
-            trackingArea=json_data.get("trackingArea")
-        )
+@staticmethod
+def from_json(json_data):
+    return Cell(
+        cell_id=json_data["cell_id"],
+        gnodeb_id=json_data["gnodeb_id"],
+        frequencyBand=json_data["frequencyBand"],
+        duplexMode=json_data["duplexMode"],
+        tx_power=json_data["tx_power"],  # Corrected from "txPower" to "tx_power"
+        bandwidth=json_data["bandwidth"],
+        ssb_periodicity=json_data["ssbPeriodicity"],
+        ssb_offset=json_data["ssbOffset"],
+        max_connect_ues=json_data["maxConnectUes"],
+        channel_model=json_data["channelModel"],
+        trackingArea=json_data.get("trackingArea")
+    )
 
     def add_ue(self, ue):
         if len(self.ConnectedUEs) < self.MaxConnectedUEs:
