@@ -21,7 +21,7 @@ def from_json(json_data):
         gnodeb_id=json_data["gnodeb_id"],
         frequencyBand=json_data["frequencyBand"],
         duplexMode=json_data["duplexMode"],
-        tx_power=json_data["tx_power"],  # Corrected from "txPower" to "tx_power"
+        tx_power=json_data["tx_power"],
         bandwidth=json_data["bandwidth"],
         ssb_periodicity=json_data["ssbPeriodicity"],
         ssb_offset=json_data["ssbOffset"],
@@ -30,8 +30,8 @@ def from_json(json_data):
         trackingArea=json_data.get("trackingArea")
     )
 
-    def add_ue(self, ue):
-        if len(self.ConnectedUEs) < self.MaxConnectedUEs:
-            self.ConnectedUEs.append(ue)
-        else:
+def add_ue(self, ue):
+    if len(self.ConnectedUEs) < self.MaxConnectedUEs:
+        self.ConnectedUEs.append(ue)
+    else:
             raise Exception("Maximum number of connected UEs reached for this cell.")
