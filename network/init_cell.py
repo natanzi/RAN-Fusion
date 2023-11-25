@@ -20,6 +20,7 @@ def initialize_cells(gNodeBs):
     # Initialize Cells and link them to gNodeBs
     cells = [Cell.from_json(cell_data) for cell_data in cells_config['cells']]
 
+
     # Insert static cell data into the database and link cells to gNodeBs
     for cell in cells:
         db_manager.insert_cell_static_data(cell.__dict__)
