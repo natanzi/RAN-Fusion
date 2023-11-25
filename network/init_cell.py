@@ -1,5 +1,5 @@
 # init_cell.py
-# Initialization of the cells
+# Initialization of the cells in network directory
 import os
 import json
 from .cell import Cell
@@ -14,9 +14,8 @@ def initialize_cells(gNodeBs):
     config_dir = os.path.join(base_dir, 'Config_files')
     cells_config = load_json_config(os.path.join(config_dir, 'cell_config.json'))
 
-    # Initialize the DatabaseManager with the required parameters and connect to the database
+    # Initialize the DatabaseManager with the required parameters
     db_manager = DatabaseManager()
-    db_manager.connect()
 
     # Initialize Cells and link them to gNodeBs
     cells = [Cell.from_json(cell_data) for cell_data in cells_config['cells']]
