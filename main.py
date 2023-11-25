@@ -12,8 +12,6 @@ import matplotlib
 matplotlib.use('Agg')  # Set a non-interactive backend
 # matplotlib.use('TkAgg')  # Uncomment this and comment the line above if you want an interactive backend that suits your environment
 
-
-
 def visualize_network(gNodeBs, ues):
     while True:
         plot_network(gNodeBs, ues, show_cells=True, background_image_path='images/worcester_map.jpg')
