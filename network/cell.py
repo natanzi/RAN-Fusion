@@ -29,7 +29,21 @@ class Cell:
             channel_model=json_data["channelModel"],
             trackingArea=json_data.get("trackingArea")
         )
-
+    def to_dict(self):
+        return {
+            'ID': self.ID,
+            'gNodeB_ID': self.gNodeB_ID,
+            'FrequencyBand': self.FrequencyBand,
+            'DuplexMode': self.DuplexMode,
+            'TxPower': self.TxPower,
+            'Bandwidth': self.Bandwidth,
+            'SSBPeriodicity': self.SSBPeriodicity,
+            'SSBOffset': self.SSBOffset,
+            'MaxConnectedUEs': self.MaxConnectedUEs,
+            'ChannelModel': self.ChannelModel,
+            'TrackingArea': self.TrackingArea,
+            # Assuming you don't need to include the 'ConnectedUEs' list
+        }
     def add_ue(self, ue):
         if len(self.ConnectedUEs) < self.MaxConnectedUEs:
             self.ConnectedUEs.append(ue)
