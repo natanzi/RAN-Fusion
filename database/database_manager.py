@@ -90,6 +90,7 @@ def insert_cell_static_data(self, data):
         }
     ]
     self.client.write_points(json_body)
+    
     def insert_cell_data(self, data):
         """Inserts a row of Cell KPI data into the cell_metrics measurement."""
         tags = {key: data.pop(key) for key in ['cell_id', 'imsi']}
