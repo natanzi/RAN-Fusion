@@ -159,20 +159,3 @@ class DatabaseManager:
     def close_connection(self):
         """Closes the database connection."""
         self.client.close()
-
-# Example usage:
-# db_manager = DatabaseManager()
-# db_manager.connect()
-# db_manager.insert_ue_static_data({
-#     'ue_id': "ue_123",
-#     'imei': "990000862471854",
-#     'service_type': "4G"
-# })
-# db_manager.insert_ue_data({
-#     'timestamp': "2023-04-01T00:00:00Z",
-#     'ue_id': "ue_123",
-#     'imsi': "123456789012345",
-#     'latency': 10.5,
-#     'throughput': 1000,
-#     'congestion_status': False
-# })
