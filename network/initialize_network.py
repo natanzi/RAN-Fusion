@@ -11,7 +11,8 @@ def initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, ue_confi
     gNodeBs = initialize_gNodeBs(gNodeBs_config)
 
     # Initialize Cells with the provided configuration and link them to gNodeBs
-    cells = initialize_cells(cells_config, gNodeBs)
+    cells = cells = initialize_cells(gNodeBs)
+
 
     # After initializing gNodeBs and cells, initialize UEs with the provided configuration
     ues = initialize_ues(num_ues_to_launch, gNodeBs, ue_config)
