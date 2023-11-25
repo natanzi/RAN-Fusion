@@ -46,8 +46,8 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         ue_data['n310'] = ue_data.pop('n310')
         ue_data['n311'] = ue_data.pop('n311')
         ue_data['model'] = ue_data.pop('model')
-        ue_data['service_type'] = ue_data.get('serviceType')  # Use get in case 'serviceType' is not provided
-
+        ue_data['service_type'] = ue_data.get('serviceType')  # Use get in case 'serviceType' is not provided.
+        
         # Assign sequential UE ID
         ue_data['ue_id'] = f"UE{i}"
         # Instantiate UE with the adjusted data
@@ -89,15 +89,15 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         # Write UE static data to the database
         db_manager.insert_ue_static_data(static_ue_data)
         ues.append(ue)
-        
-        # Calculate the number of additional UEs needed
-        additional_ues_needed = max(0, num_ues_to_launch - len(ues))
+    
+    
+    # Calculate the number of additional UEs needed
+    additional_ues_needed = max(0, num_ues_to_launch - len(ues))
 
-        # Create additional UEs if needed
-        for _ in range(additional_ues_needed):
-            selected_gNodeB = random.choice(gNodeBs)
-            available_cell = selected_gNodeB.find_available_cell()
-
+    # Create additional UEs if needed
+    for _ in range(additional_ues_needed):
+        selected_gNodeB = random.choice(gNodeBs)
+        available_cell = selected_gNodeB.find_available_cell()
         if available_cell is not None:
             random_location = random_location_within_radius(
                 selected_gNodeB.latitude, selected_gNodeB.longitude, selected_gNodeB.coverage_radius
@@ -131,10 +131,10 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
             model='generic',  # Placeholder for model
             service_type=random.choice(['video', 'game', 'voice', 'data', 'IoT'])  # Randomized service type
         )
-        if selected_gNodeB.cells:
-            selected_cell = random.choice(selected_gNodeB.cells)
-            new_ue.connected_cell_id = selected_cell.cell_id
-        
+            if selected_gNodeB.cells:
+                selected_cell = random.choice(selected_gNodeB.cells)
+                new_ue.connected_cell_id = selected_cell.cell_id
+            
             # Write UE static data to the database
             db_manager.insert_ue_static_data(new_ue)
             ues.append(new_ue)
