@@ -89,19 +89,21 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         # Write UE static data to the database
         db_manager.insert_ue_static_data(static_ue_data)
         ues.append(ue)
+        
+        # Calculate the number of additional UEs needed
+        additional_ues_needed = max(0, num_ues_to_launch - len(ues))
 
         # Create additional UEs if needed
-        additional_ues_needed = max(0, num_ues_to_launch - len(ues))
         for _ in range(additional_ues_needed):
             selected_gNodeB = random.choice(gNodeBs)
-            available_cell = selected_gNodeB.find_available_cell()  # This method should be implemented in gNodeB.py
+            available_cell = selected_gNodeB.find_available_cell()
 
         if available_cell is not None:
             random_location = random_location_within_radius(
-            selected_gNodeB.latitude, selected_gNodeB.longitude, selected_gNodeB.coverage_radius
-        )
+                selected_gNodeB.latitude, selected_gNodeB.longitude, selected_gNodeB.coverage_radius
+            )
 
-        new_ue = UE(
+            new_ue = UE(
             ue_id=f"UE{random.randint(1000, 9999)}",
             location=random_location,
             connected_cell_id=available_cell.ID,  # Connect to the available cell
@@ -128,10 +130,10 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
             n311=random.randint(1, 10),  # Randomized N311
             model='generic',  # Placeholder for model
             service_type=random.choice(['video', 'game', 'voice', 'data', 'IoT'])  # Randomized service type
-        )
-        if selected_gNodeB.cells:
-            selected_cell = random.choice(selected_gNodeB.cells)
-            new_ue.connected_cell_id = selected_cell.cell_id
+            )
+            if selected_gNodeB.cells:
+                selected_cell = random.choice(selected_gNodeB.cells)
+                new_ue.connected_cell_id = selected_cell.cell_id
         
             # Write UE static data to the database
             db_manager.insert_ue_static_data(new_ue)
