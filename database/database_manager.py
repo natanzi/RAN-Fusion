@@ -73,8 +73,6 @@ class DatabaseManager:
                     "cell_id": data.pop('ID'),  # Change 'cell_id' to 'ID'
                 },
                 "fields": {
-                    "pci": data['pci'],
-                    "tac": data['tac'],
                     "frequency": data['frequency'],
                     "bandwidth": data['bandwidth'],
                     "power": data['power'],
