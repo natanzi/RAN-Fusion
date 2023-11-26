@@ -179,7 +179,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
             'velocity': new_ue.Velocity,
             'direction': new_ue.Direction,
             'traffic_model': new_ue.TrafficModel,
-            'scheduling_requests': new_ue.SchedulingRequests,
+            'scheduling_requests': bool(new_ue.SchedulingRequests),  # Convert to boolean
             'rlc_mode': new_ue.RLCMode,
             'snr_thresholds': ','.join(map(str, new_ue.SNRThresholds)),
             'ho_margin': new_ue.HOMargin,
