@@ -16,7 +16,7 @@ def log_traffic(ues, db_manager):
                 'ue_id': ue.ID,
                 'imei': ue.IMEI,
                 'service_type': ue.ServiceType,
-                'data_size': data_size,
+                'data_size': float(data_size),
                 # Add other relevant data fields here
             }
 
