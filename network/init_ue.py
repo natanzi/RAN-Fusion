@@ -154,7 +154,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
             'coding': new_ue.Coding,
             'mimo': new_ue.MIMO,
             'processing': new_ue.Processing,
-            'bandwidth_parts': new_ue.BandwidthParts,
+            'bandwidth_parts': ue.BandwidthParts,  # This should be an integer
             'channel_model': new_ue.ChannelModel,
             'velocity': new_ue.Velocity,
             'direction': new_ue.Direction,
@@ -167,6 +167,8 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
             'n311': new_ue.N311,
             'screen_size': ue.ScreenSize,  
             'battery_level': ue.BatteryLevel
+            
+
             # ... any other fields that need to be included ...
         }
 
