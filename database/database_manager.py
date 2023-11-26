@@ -1,9 +1,6 @@
 # database_manager.py, this file located in database folder
 from influxdb_client import InfluxDBClient, Point, WritePrecision
 from influxdb_client.client.write_api import SYNCHRONOUS
-import os
-import time
-import sys
 
 print(sys.path)
 
