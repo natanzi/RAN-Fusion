@@ -21,7 +21,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
     # Instantiate UEs from the configuration
     for i, ue_data in enumerate(ue_config['ues'], start=1):
         # Adjust the keys to match the UE constructor argument names
-        ue_data['ue_id'] = ue_data.pop('ue_id')
+        # Remove the 'ue_id' pop as it's redundant and handled below
         ue_data['location'] = (ue_data['location']['latitude'], ue_data['location']['longitude'])
         ue_data['connected_cell_id'] = ue_data.pop('connectedCellId')
         ue_data['is_mobile'] = ue_data.pop('isMobile')
@@ -46,7 +46,9 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         ue_data['n310'] = ue_data.pop('n310')
         ue_data['n311'] = ue_data.pop('n311')
         ue_data['model'] = ue_data.pop('model')
-        ue_data['service_type'] = ue_data.get('serviceType')  # Use get in case 'serviceType' is not provided.
+        # Use get in case 'serviceType' is not provided, and remove any 'IMEI' key if present
+        ue_data['service_type'] = ue_data.get('serviceType')
+        ue_data.pop('IMEI', None)  # Ensure 'IMEI' is not passed to the constructor
         
         # Assign sequential UE ID
         ue_data['ue_id'] = f"UE{i}"

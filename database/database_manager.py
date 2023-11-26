@@ -1,6 +1,8 @@
 # database_manager.py, this file located in database folder
 import os
-from influxdb_client import InfluxDBClient, WritePrecision
+import time
+
+from influxdb_client import InfluxDBClient, WritePrecision, Point  
 from influxdb_client.client.write_api import SYNCHRONOUS
 
 INFLUXDB_URL = "http://localhost:8086"
