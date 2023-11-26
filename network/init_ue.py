@@ -165,6 +165,8 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
             'ho_margin': new_ue.HOMargin,
             'n310': new_ue.N310,
             'n311': new_ue.N311,
+            'screen_size': ue.ScreenSize,  
+            'battery_level': ue.BatteryLevel
             # ... any other fields that need to be included ...
         }
 
