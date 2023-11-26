@@ -74,8 +74,8 @@ class gNodeB:
         return len(cell.ConnectedUEs) < cell.MaxConnectedUEs
 
     def find_available_cell(self):
-        for cell in self.Cells:
-            if cell.has_available_capacity():  # Assuming this method checks for available capacity
+        for cell in self.Cells:  # Change 'cells' to 'Cells' to match the correct attribute name
+            if self.check_cell_capacity(cell):  # Assuming this method checks for available capacity
                 return cell
         return None
 
