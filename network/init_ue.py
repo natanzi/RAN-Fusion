@@ -61,7 +61,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         # Assign UE to a random cell of a random gNodeB, if available
         selected_gNodeB = random.choice(gNodeBs)
         if hasattr(selected_gNodeB, 'Cells'):  # Correct attribute name should be used here
-            selected_cell = random.choice(selected_gNodeB.Cells)  # And also here
+            selected_cell = random.choice(selected_gNodeB.Cells)
             ue.ConnectedCellID = selected_cell.ID
 
         # Prepare static UE data for database insertion
