@@ -104,9 +104,6 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         selected_gNodeB = random.choice(gNodeBs)
         available_cell = selected_gNodeB.find_available_cell()
         if available_cell is not None:
-            random_location = random_location_within_radius(
-                selected_gNodeB.Latitude, selected_gNodeB.Longitude, selected_gNodeB.CoverageRadius
-            )
 
             new_ue = UE(
                 ue_id=f"UE{random.randint(1000, 9999)}",
