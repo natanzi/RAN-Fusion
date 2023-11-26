@@ -21,7 +21,6 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
     # Instantiate UEs from the configuration
     for i, ue_data in enumerate(ue_config['ues'], start=1):
         # Adjust the keys to match the UE constructor argument names
-        # Remove the 'ue_id' pop as it's redundant and handled below
         ue_data['location'] = (ue_data['location']['latitude'], ue_data['location']['longitude'])
         ue_data['connected_cell_id'] = ue_data.pop('connectedCellId')
         ue_data['is_mobile'] = ue_data.pop('isMobile')
@@ -91,7 +90,6 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         # Write UE static data to the database
         db_manager.insert_ue_static_data(static_ue_data)
         ues.append(ue)
-    
     
     # Calculate the number of additional UEs needed
     additional_ues_needed = max(0, num_ues_to_launch - len(ues))
