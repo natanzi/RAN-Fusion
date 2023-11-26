@@ -56,6 +56,11 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         
         if isinstance(ue_data['modulation'], list):
             ue_data['modulation'] = random.choice(ue_data['modulation'])
+        
+        # Choose a random bandwidth part from the list
+        if isinstance(ue_data['bandwidth_parts'], list):
+            ue_data['bandwidth_parts'] = random.choice(ue_data['bandwidth_parts'])  
+        
         ue = UE(**ue_data)
         
         # Assign UE to a random cell of a random gNodeB, if available
