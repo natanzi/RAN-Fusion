@@ -94,7 +94,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
             'coding': ue.Coding,
             'mimo': ue.MIMO,
             'processing': ue.Processing,
-            'bandwidth_parts': str(ue.BandwidthParts),
+            'bandwidth_parts': ue.BandwidthParts,
             'channel_model': ue.ChannelModel,
             'velocity': ue.Velocity,
             'direction': ue.Direction,
