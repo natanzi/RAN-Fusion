@@ -70,7 +70,7 @@ class DatabaseManager:
             {
                 "measurement": "cell_static",
                 "tags": {
-                    "cell_id": data.pop('cell_id'),  # Extract 'cell_id' as a tag using pop
+                    "cell_id": data.pop('ID'),  # Change 'cell_id' to 'ID'
                 },
                 "fields": {
                     "pci": data['pci'],
