@@ -9,7 +9,7 @@ print(sys.path)
 
 class DatabaseManager:
     def __init__(self, url='http://localhost:8086', bucket='RAN_metrics'):
-        token = os.getenv('WnPp64q1nyPtp7kSRkTmKW8TNTaG--604-ZYdnt5ld1wwxi4Xu3wbb-jv_1bNCqDadLuvWIWwJNvTYTrdebjrw==')  # Ensure the INFLUXDB_TOKEN environment variable is set
+        token = os.environ.get('aZPFioFZQE_kNcXy5E7JLhaX0x4RaK0RG14xEgWIieGtuX8_xB2f783mRjn3Vj04y7iuMME-VRfB-HlbRt_iVw==')  # Ensure the INFLUXDB_TOKEN environment variable is set
         org = "ranfusion"
         self.client = InfluxDBClient(url=url, token=token, org=org)
         self.write_api = self.client.write_api(write_options=SYNCHRONOUS)
