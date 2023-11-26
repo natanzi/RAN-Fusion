@@ -139,7 +139,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
             if selected_gNodeB.Cells:
 
                 selected_cell = random.choice(selected_gNodeB.Cells)
-                new_ue.ConnectedCellID = selected_cell.cell_id
+                new_ue.ConnectedCellID = selected_cell.ID
             
             # Write UE static data to the database
             db_manager.insert_ue_static_data(new_ue)
