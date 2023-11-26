@@ -136,7 +136,8 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
                 model='generic',  # Placeholder for model
                 service_type=random.choice(['video', 'game', 'voice', 'data', 'IoT'])  # Randomized service type
             )
-            if selected_gNodeB.cells:
+            if selected_gNodeB.Cells:
+
                 selected_cell = random.choice(selected_gNodeB.cells)
                 new_ue.ConnectedCellID = selected_cell.cell_id
             
