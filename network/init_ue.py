@@ -99,7 +99,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
             'velocity': ue.Velocity,
             'direction': ue.Direction,
             'traffic_model': ue.TrafficModel,
-            'scheduling_requests': ue.SchedulingRequests,
+            'scheduling_requests': bool(ue.SchedulingRequests),
             'rlc_mode': ue.RLCMode,
             'snr_thresholds': ','.join(map(str, ue.SNRThresholds)),  # Serialize list into a comma-separated string
             'ho_margin': ue.HOMargin,
