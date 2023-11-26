@@ -194,7 +194,6 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         ues.append(new_ue)
 
         # Commit changes to the database and close the connection
-        db_manager.commit_changes()
         db_manager.close_connection()
 
     return ues
