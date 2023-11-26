@@ -140,7 +140,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
                 tx_power=random.randint(0, 23),
                 modulation=random.choice(['QPSK', '16QAM', '64QAM']),
                 coding=random.choice(['LDPC', 'Turbo']),
-                mimo=random.choice([True, False]),
+                mimo='2*2',
                 processing=random.choice(['low', 'normal', 'high']),
                 bandwidth_parts=bandwidth_parts,
                 channel_model=random.choice(['urban', 'rural', 'suburban']),
