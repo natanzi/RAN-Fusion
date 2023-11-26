@@ -45,8 +45,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         ue_data['n310'] = ue_data.pop('n310')
         ue_data['n311'] = ue_data.pop('n311')
         ue_data['model'] = ue_data.pop('model')
-        # Use get in case 'serviceType' is not provided, and remove any 'IMEI' key if present
-        ue_data['service_type'] = ue_data.get('serviceType')
+        ue_data['service_type'] = ue_data.get('serviceType', None)
         ue_data.pop('IMEI', None)  # Ensure 'IMEI' is not passed to the constructor
         
         # Assign sequential UE ID
@@ -57,7 +56,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         selected_gNodeB = random.choice(gNodeBs)
         if selected_gNodeB.cells:
             selected_cell = random.choice(selected_gNodeB.cells)
-            ue.connected_cell_id = selected_cell.cell_id
+            ue.ConnectedCellID = selected_cell.cell_id
         
         # Prepare static UE data for database insertion
         static_ue_data = {
@@ -104,36 +103,36 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
             )
 
             new_ue = UE(
-            ue_id=f"UE{random.randint(1000, 9999)}",
-            location=random_location,
-            connected_cell_id=available_cell.ID,  # Connect to the available cell
-            is_mobile=True,
-            initial_signal_strength=random.uniform(-120, -30),  # Randomized signal strength
-            rat='NR',  # Assuming New Radio (5G) as the RAT
-            max_bandwidth=random.choice([5, 10, 15, 20]),  # Randomized bandwidth
-            duplex_mode='TDD',  # Assuming Time Division Duplexing
-            tx_power=random.randint(0, 23),  # Randomized transmission power
-            modulation=random.choice(['QPSK', '16QAM', '64QAM']),  # Randomized modulation
-            coding=random.choice(['LDPC', 'Turbo']),  # Randomized coding scheme
-            mimo=random.choice([True, False]),  # Randomized MIMO capability
-            processing=random.choice(['low', 'normal', 'high']),  # Randomized processing capability
-            bandwidth_parts=random.randint(1, 5),  # Randomized bandwidth parts
-            channel_model=random.choice(['urban', 'rural', 'suburban']),  # Randomized channel model
-            velocity=random.uniform(0, 50),  # Randomized velocity
-            direction=random.randint(0, 360),  # Randomized direction
-            traffic_model=random.choice(['fullbuffer', 'bursty', 'periodic']),  # Randomized traffic model
-            scheduling_requests=random.randint(1, 10),  # Randomized scheduling requests
-            rlc_mode=random.choice(['AM', 'UM']),  # Randomized RLC mode
-            snr_thresholds=[random.randint(-20, 0) for _ in range(6)],  # Randomized SNR thresholds
-            ho_margin=random.randint(1, 10),  # Randomized handover margin
-            n310=random.randint(1, 10),  # Randomized N310
-            n311=random.randint(1, 10),  # Randomized N311
-            model='generic',  # Placeholder for model
-            service_type=random.choice(['video', 'game', 'voice', 'data', 'IoT'])  # Randomized service type
-        )
+                ue_id=f"UE{random.randint(1000, 9999)}",
+                location=random_location,
+                connected_cell_id=available_cell.ID,  # Connect to the available cell
+                is_mobile=True,
+                initial_signal_strength=random.uniform(-120, -30),  # Randomized signal strength
+                rat='NR',  # Assuming New Radio (5G) as the RAT
+                max_bandwidth=random.choice([5, 10, 15, 20]),  # Randomized bandwidth
+                duplex_mode='TDD',  # Assuming Time Division Duplexing
+                tx_power=random.randint(0, 23),  # Randomized transmission power
+                modulation=random.choice(['QPSK', '16QAM', '64QAM']),  # Randomized modulation
+                coding=random.choice(['LDPC', 'Turbo']),  # Randomized coding scheme
+                mimo=random.choice([True, False]),  # Randomized MIMO capability
+                processing=random.choice(['low', 'normal', 'high']),  # Randomized processing capability
+                bandwidth_parts=random.randint(1, 5),  # Randomized bandwidth parts
+                channel_model=random.choice(['urban', 'rural', 'suburban']),  # Randomized channel model
+                velocity=random.uniform(0, 50),  # Randomized velocity
+                direction=random.randint(0, 360),  # Randomized direction
+                traffic_model=random.choice(['fullbuffer', 'bursty', 'periodic']),  # Randomized traffic model
+                scheduling_requests=random.randint(1, 10),  # Randomized scheduling requests
+                rlc_mode=random.choice(['AM', 'UM']),  # Randomized RLC mode
+                snr_thresholds=[random.randint(-20, 0) for _ in range(6)],  # Randomized SNR thresholds
+                ho_margin=random.randint(1, 10),  # Randomized handover margin
+                n310=random.randint(1, 10),  # Randomized N310
+                n311=random.randint(1, 10),  # Randomized N311
+                model='generic',  # Placeholder for model
+                service_type=random.choice(['video', 'game', 'voice', 'data', 'IoT'])  # Randomized service type
+            )
             if selected_gNodeB.cells:
                 selected_cell = random.choice(selected_gNodeB.cells)
-                new_ue.connected_cell_id = selected_cell.cell_id
+                new_ue.ConnectedCellID = selected_cell.cell_id
             
             # Write UE static data to the database
             db_manager.insert_ue_static_data(new_ue)
