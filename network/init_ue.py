@@ -47,7 +47,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         ue_data['model'] = ue_data.pop('model')
         ue_data['service_type'] = ue_data.get('serviceType', None)
         ue_data.pop('IMEI', None)  # Ensure 'IMEI' is not passed to the constructor
-        
+        ue_data.pop('screensize', None)  # Add this line to remove 'screensize' key
         # Assign sequential UE ID
         ue_data['ue_id'] = f"UE{i}"
         # Instantiate UE with the adjusted data
