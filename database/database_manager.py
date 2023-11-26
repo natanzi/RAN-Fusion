@@ -1,17 +1,34 @@
 # database_manager.py, this file located in database folder
-from influxdb_client import InfluxDBClient, Point, WritePrecision
+import os
+from influxdb_client import InfluxDBClient, WritePrecision
 from influxdb_client.client.write_api import SYNCHRONOUS
 
-print(sys.path)
+INFLUXDB_URL = "http://localhost:8086"
+INFLUXDB_TOKEN = "aZPFioFZQE_kNcXy5E7JLhaX0x4RaK0RG14xEgWIieGtuX8_xB2f783mRjn3Vj04y7iuMME-VRfB-HlbRt_iVw==" 
+INFLUXDB_ORG = "ranfusion"
+INFLUXDB_BUCKET = "RAN_metrics"
 
 class DatabaseManager:
-    def __init__(self, url='http://localhost:8086', bucket='RAN_metrics'):
-        token = os.getenv('INFLUXDB_TOKEN')
-        org = "ranfusion"
-        bucket="RAN_metrics"
-        self.client = InfluxDBClient(url=url, token=token, org=org)
-        self.write_api = self.client.write_api(write_options=SYNCHRONOUS)
-        self.bucket = bucket
+
+    def __init__(self):
+        self.client = InfluxDBClient(
+            url=INFLUXDB_URL,
+            token=INFLUXDB_TOKEN,
+            org=INFLUXDB_ORG
+        )
+        
+        self.write_api = self.client.write_api(
+            write_options=SYNCHRONOUS
+        )  
+
+        self.bucket = INFLUXDB_BUCKET
+
+    def write_point(self, point):
+        self.write_api.write(
+            bucket=self.bucket, 
+            org=INFLUXDB_ORG,
+            record=point
+        )
 
     def insert_data(self, measurement, tags, fields, timestamp):
         """Inserts data into InfluxDB."""
