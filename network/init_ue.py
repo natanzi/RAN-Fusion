@@ -96,7 +96,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
             'processing': ue.Processing,
             'bandwidth_parts': ue.BandwidthParts,
             'channel_model': ue.ChannelModel,
-            'velocity': ue.Velocity,
+            'velocity': int(ue.Velocity),
             'direction': ue.Direction,
             'traffic_model': ue.TrafficModel,
             'scheduling_requests': bool(ue.SchedulingRequests),  # Convert to boolean
@@ -176,7 +176,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
             'processing': new_ue.Processing,
             'bandwidth_parts': ue.BandwidthParts,
             'channel_model': new_ue.ChannelModel,
-            'velocity': new_ue.Velocity,
+            'velocity': int(new_ue.Velocity),
             'direction': new_ue.Direction,
             'traffic_model': new_ue.TrafficModel,
             'scheduling_requests': bool(new_ue.SchedulingRequests),  # Convert to boolean
