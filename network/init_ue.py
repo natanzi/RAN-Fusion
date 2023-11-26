@@ -123,7 +123,11 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
             random_location = random_location_within_radius(
                 selected_gNodeB.Latitude, selected_gNodeB.Longitude, selected_gNodeB.CoverageRadius
             )
-
+        if 'bandwidthParts' in ue_config['ues'][0]:
+            bandwidth_parts = random.choice(ue_config['ues'][0]['bandwidthParts'])
+        else:
+            bandwidth_parts = random.choice(DEFAULT_BANDWIDTH_PARTS)
+            
             new_ue = UE(
                 ue_id=f"UE{random.randint(1000, 9999)}",
                 location=random_location,
@@ -138,7 +142,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
                 coding=random.choice(['LDPC', 'Turbo']),
                 mimo=random.choice([True, False]),
                 processing=random.choice(['low', 'normal', 'high']),
-                bandwidth_parts=random.choice(ue_config['ues'][0]['bandwidthParts']),
+                bandwidth_parts=bandwidth_parts,
                 channel_model=random.choice(['urban', 'rural', 'suburban']),
                 velocity=random.uniform(0, 50),
                 direction=random.randint(0, 360),
