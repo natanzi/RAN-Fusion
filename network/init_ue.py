@@ -18,6 +18,9 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
     ues = []
     db_manager = DatabaseManager()
     
+    # Define a default list of bandwidth parts if not provided in ue_config
+    DEFAULT_BANDWIDTH_PARTS = [1, 2, 3, 4]  # Example default values
+
     # Instantiate UEs from the configuration
     for i, ue_data in enumerate(ue_config['ues'], start=1):
         # Adjust the keys to match the UE constructor argument names
@@ -57,9 +60,17 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         if isinstance(ue_data['modulation'], list):
             ue_data['modulation'] = random.choice(ue_data['modulation'])
         
-        # Choose a random bandwidth part from the list
-        if isinstance(ue_data['bandwidth_parts'], list):
-            ue_data['bandwidth_parts'] = random.choice(ue_data['bandwidth_parts'])  
+        # Check if 'bandwidthParts' exists in ue_data and handle it appropriately
+        if 'bandwidthParts' not in ue_data:
+            # If 'bandwidthParts' does not exist, provide a default value or handle the absence
+            ue_data['bandwidth_parts'] = random.choice(DEFAULT_BANDWIDTH_PARTS)
+        else:
+            # If 'bandwidthParts' exists and it's a list, choose a random element
+            if isinstance(ue_data['bandwidthParts'], list):
+                ue_data['bandwidth_parts'] = random.choice(ue_data['bandwidthParts'])
+            else:
+                # If 'bandwidthParts' is not a list (i.e., it's a single value), use it as is
+                ue_data['bandwidth_parts'] = ue_data['bandwidthParts']
         
         ue = UE(**ue_data)
         
