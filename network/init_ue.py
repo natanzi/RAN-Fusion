@@ -52,7 +52,12 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         # Assign sequential UE ID
         ue_data['ue_id'] = f"UE{i}"
         # Instantiate UE with the adjusted data
+        # Ensure modulation is a single scalar value, not a list
+        
+        if isinstance(ue_data['modulation'], list):
+            ue_data['modulation'] = random.choice(ue_data['modulation'])
         ue = UE(**ue_data)
+        
         # Assign UE to a random cell of a random gNodeB, if available
         selected_gNodeB = random.choice(gNodeBs)
         if hasattr(selected_gNodeB, 'Cells'):  # Correct attribute name should be used here
