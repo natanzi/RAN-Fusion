@@ -2,7 +2,8 @@ from influxdb_client import InfluxDBClient, Point, WritePrecision
 from influxdb_client.client.write_api import SYNCHRONOUS
 import os
 import time
-
+import sys
+print(sys.path)
 class DatabaseManager:
     def __init__(self, url='http://localhost:8086', bucket='RAN_metrics'):
         token = os.getenv('WnPp64q1nyPtp7kSRkTmKW8TNTaG--604-ZYdnt5ld1wwxi4Xu3wbb-jv_1bNCqDadLuvWIWwJNvTYTrdebjrw==')  # Ensure the INFLUXDB_TOKEN environment variable is set
