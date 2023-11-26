@@ -67,30 +67,30 @@ def insert_ue_static_data(self, data):
         tags = {key: data.pop(key) for key in ['ue_id', 'imsi']}
         self.insert_data('ue_metrics', tags, data, time.time_ns())
 
-def insert_cell_static_data(self, data):
-    """Inserts static cell data into the cell_static measurement."""
-    json_body = [
-        {
-            "measurement": "cell_static",
-            "tags": {
-                "cell_id": data.pop('cell_id'),  # Extract 'cell_id' as a tag using pop
-            },
-            "fields": {
-                "pci": data['pci'],
-                "tac": data['tac'],
-                "frequency": data['frequency'],
-                "bandwidth": data['bandwidth'],
-                "power": data['power'],
-                "cell_range": data['cell_range'],
-                "mcc": data['mcc'],
-                "mnc": data['mnc'],
-                "technology": data['technology'],
-                # ... add other static cell parameters here
-            },
-            "time": time.time_ns()  # Add the current time in nanoseconds
-        }
-    ]
-    self.client.write_points(json_body)
+    def insert_cell_static_data(self, data):
+        """Inserts static cell data into the cell_static measurement."""
+        json_body = [
+            {
+                "measurement": "cell_static",
+                "tags": {
+                    "cell_id": data.pop('cell_id'),  # Extract 'cell_id' as a tag using pop
+                },
+                "fields": {
+                    "pci": data['pci'],
+                    "tac": data['tac'],
+                    "frequency": data['frequency'],
+                    "bandwidth": data['bandwidth'],
+                    "power": data['power'],
+                    "cell_range": data['cell_range'],
+                    "mcc": data['mcc'],
+                    "mnc": data['mnc'],
+                    "technology": data['technology'],
+                    # ... add other static cell parameters here
+                },
+                "time": time.time_ns()  # Add the current time in nanoseconds
+            }
+        ]
+        self.client.write_points(json_body)
     
     def insert_cell_data(self, data):
         """Inserts a row of Cell KPI data into the cell_metrics measurement."""
