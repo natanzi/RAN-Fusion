@@ -127,7 +127,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
                 coding=random.choice(['LDPC', 'Turbo']),
                 mimo=random.choice([True, False]),
                 processing=random.choice(['low', 'normal', 'high']),
-                bandwidth_parts=random.choice(ue_config['bandwidthParts']),
+                bandwidth_parts=random.choice(ue_config['ues'][0]['bandwidthParts']),
                 channel_model=random.choice(['urban', 'rural', 'suburban']),
                 velocity=random.uniform(0, 50),
                 direction=random.randint(0, 360),
