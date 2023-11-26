@@ -3,18 +3,7 @@ import time
 from multiprocessing import Process
 from network.initialize_network import initialize_network
 from Config_files.config_load import load_all_configs
-from visualization.plot_network import plot_network
 from database.database_manager import DatabaseManager
-import matplotlib
-
-# Set the backend for matplotlib
-matplotlib.use('Agg')  # Set a non-interactive backend
-# matplotlib.use('TkAgg')  # Uncomment this and comment the line above if you want an interactive backend that suits your environment
-
-def visualize_network(gNodeBs, ues):
-    while True:
-        plot_network(gNodeBs, ues, show_cells=True, background_image_path='images/worcester_map.jpg')
-        time.sleep(10)  # Update interval for the visualization
 
 def log_traffic(ues, db_manager):
     while True:
@@ -50,16 +39,10 @@ def main():
     # Initialize DatabaseManager
     db_manager = DatabaseManager()
 
-    # Create a separate process for visualization
-    visualization_process = Process(target=visualize_network, args=(gNodeBs, ues))
-    visualization_process.start()
-
     # Create a separate process for logging
     logging_process = Process(target=log_traffic, args=(ues, db_manager))
     logging_process.start()
 
-    # Wait for the processes to complete (they won't in this case since they run indefinitely)
-    visualization_process.join()
     logging_process.join()
 
 if __name__ == "__main__":
