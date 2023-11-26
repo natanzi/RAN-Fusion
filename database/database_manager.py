@@ -46,6 +46,8 @@ class DatabaseManager:
         """Inserts static UE data into the ue_static measurement."""
         tags = {'ue_id': data.pop('ue_id')}  # Extract 'ue_id' as a tag
         # Ensure the additional fields are included in the 'data' dictionary
+        # Convert 'mimo' to string if it's not already one
+        mimo_value = str(data['mimo']) if 'mimo' in data else 'unknown'
         fields = {
             "imei": data['imei'],
             "service_type": data['service_type'],
