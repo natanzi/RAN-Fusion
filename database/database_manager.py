@@ -80,7 +80,8 @@ class DatabaseManager:
 
     def insert_ue_data(self, data):
         """Inserts a row of UE KPI data into the ue_metrics measurement."""
-        tags = {key: data.pop(key) for key in ['ue_id', 'imsi']}
+        tags = {key: data.pop(key, None) for key in ['ue_id', 'imsi']}  # Provide a default value of None if 'imsi' is not present
+        tags = {k: v for k, v in tags.items() if v is not None}  # Remove any tags that have a value of None
         self.insert_data('ue_metrics', tags, data, time.time_ns())
 
     def insert_cell_static_data(self, data):
