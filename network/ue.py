@@ -21,7 +21,7 @@ class UE:
         self.MaxBandwidth = max_bandwidth
         self.DuplexMode = duplex_mode
         self.TxPower = tx_power
-        self.Modulation = modulation
+        self.Modulation = random.choice(["QPSK", "16QAM", "64QAM"]) if modulation is None else modulation
         self.Coding = coding
         self.MIMO = mimo
         self.Processing = processing
