@@ -70,13 +70,10 @@ class DatabaseManager:
             {
                 "measurement": "cell_static",
                 "tags": {
-                    "cell_id": data.pop('ID'),
+                    "cell_id": data.pop('ID'),  # Keep only cell_id in tags
                 },
                 "fields": {
-
-                    "frequency": data['frequency'],
-                    "bandwidth": data['bandwidth'],
-                    # ... add other static cell parameters here
+                # No fields are included
                 },
                 "time": time.time_ns()  # Add the current time in nanoseconds
             }
