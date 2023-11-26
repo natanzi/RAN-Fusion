@@ -34,7 +34,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         ue_data['tx_power'] = ue_data.pop('txPower')
         ue_data['modulation'] = ue_data.pop('modulation')
         ue_data['coding'] = ue_data.pop('coding')
-        ue_data['mimo'] = ue_data.pop('mimo')
+        ue_data['mimo'] = str(ue_data.pop('mimo'))
         ue_data['processing'] = ue_data.pop('processing')
         ue_data['bandwidth_parts'] = ue_data.pop('bandwidthParts')
         ue_data['channel_model'] = ue_data.pop('channelModel')
