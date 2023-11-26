@@ -85,10 +85,14 @@ class DatabaseManager:
         tags = {key: data.pop(key) for key in ['cell_id', 'imsi']}
         self.insert_data('cell_metrics', tags, data, time.time_ns())
 
-    def insert_gnodeb_static_data(self, data):
+    def insert_cell_static_data(self, data):
+
         """Inserts static gNodeB data into the gnodeb_static measurement."""
-        tags = {'gnodeb_id': data.pop('gnodeb_id')}  # Using pop for consistency
-        self.insert_data('gnodeb_static', tags, data, time.time_ns())
+        point = Point("cell_static") \
+        .tag("cell_id", data.pop('ID')) \
+        .time(time.time_ns(), WritePrecision.NS)
+        self.write_api.write(bucket=self.bucket, record=point)
+
 
     def insert_gnodeb_data(self, data):
         """Inserts a row of gNodeB KPI data into the gnodeb_metrics measurement."""
