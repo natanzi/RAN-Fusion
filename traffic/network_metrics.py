@@ -79,7 +79,7 @@ def calculate_gnodeb_throughput(gNodeB, gnodebs):
 def calculate_ue_latency(ue, gNodeB, gnodebs):
     signal_strength = calculate_signal_strength(ue, gNodeB)
     distance_to_gNodeB = calculate_distance_cached(ue.Latitude, ue.Longitude, gNodeB.Latitude, gNodeB.Longitude)
-    network_load_impact = calculate_ue_load(ue.ID, gnodebs)
+    network_load_impact = calculate_cell_load(ue.CellID, gnodebs)
     # Latency calculation can be a complex function involving these parameters
     # For simplicity, we'll assume it's a linear combination
     latency = (1 / signal_strength) + distance_to_gNodeB + network_load_impact
