@@ -48,6 +48,9 @@ class gNodeB:
             setattr(self, key, value)
         print(f"gNodeB '{self.ID}' has been launched with {self.CellCount} cells.")
         
+        # Logging statement should be here, after all attributes are set
+        logging.info(f"gNodeB '{self.ID}' has been launched with {self.CellCount} cells.")
+
     @staticmethod
     def from_json(json_data):
         gNodeBs = []

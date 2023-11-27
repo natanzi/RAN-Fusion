@@ -13,7 +13,9 @@ class Cell:
         self.ChannelModel = channel_model
         self.TrackingArea = trackingArea 
         self.ConnectedUEs = []
-
+        # Logging statement should be here, after all attributes are set
+        logging.info(f"Cell '{self.ID}' has been created in gNodeB '{self.gNodeB_ID}' with max capacity {self.MaxConnectedUEs}.")
+        
     @staticmethod
     def from_json(json_data):
         return Cell(

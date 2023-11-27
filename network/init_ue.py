@@ -6,6 +6,7 @@ from database.database_manager import DatabaseManager
 from .utils import random_location_within_radius
 from Config_files.config_load import load_all_configs
 from .ue import UE 
+import logging
 
 def random_location_within_radius(latitude, longitude, radius_km):
     random_radius = random.uniform(0, radius_km)
@@ -79,6 +80,8 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         if hasattr(selected_gNodeB, 'Cells'):  # Correct attribute name should be used here
             selected_cell = random.choice(selected_gNodeB.Cells)
             ue.ConnectedCellID = selected_cell.ID
+        # Log the attachment of the UE to the cell
+        logging.info(f"UE '{ue.ID}' has been attached to Cell '{ue.ConnectedCellID}'.")
 
         # Prepare static UE data for database insertion
         static_ue_data = {
