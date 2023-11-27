@@ -1,5 +1,6 @@
 #Defines the Cell class, which is part of a gNodeB.// this is located inside network directory
 class Cell:
+    logging.info(f"Cell '{self.ID}' has been created in gNodeB '{self.gNodeB_ID}' with max capacity {self.MaxConnectedUEs}.")
     def __init__(self, cell_id, gnodeb_id, frequencyBand, duplexMode, tx_power, bandwidth, ssb_periodicity, ssb_offset, max_connect_ues, channel_model, trackingArea=None):
         self.ID = cell_id
         self.gNodeB_ID = gnodeb_id
@@ -45,7 +46,8 @@ class Cell:
             # Assuming you don't need to include the 'ConnectedUEs' list
         }
     def add_ue(self, ue):
-        if len(self.ConnectedUEs) < self.MaxConnectedUEs:
-            self.ConnectedUEs.append(ue)
-        else:
-            raise Exception("Maximum number of connected UEs reached for this cell.")
+    if len(self.ConnectedUEs) < self.MaxConnectedUEs:
+        self.ConnectedUEs.append(ue)
+        print(f"UE '{ue.ID}' has been attached to Cell '{self.ID}'.")
+    else:
+        raise Exception("Maximum number of connected UEs reached for this cell.")
