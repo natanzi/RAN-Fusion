@@ -62,16 +62,10 @@ class gNodeB:
     """
     # Check if the cell is already in the list to avoid duplicates
     if cell not in self.Cells:
-            self.Cells.append(cell)
-            # Perform any additional setup for the cell here
-            # For example, initializing cell-specific configurations or resources
-            # ...
-            print(f"Cell with ID {cell.ID} has been added to gNodeB with ID {self.ID}")
-        else:
-            print(f"Cell with ID {cell.ID} does not match gNodeB ID {self.ID}. Not adding to Cells list.")
+        self.Cells.append(cell)
+        print(f"Cell with ID {cell.ID} has been added to gNodeB with ID {self.ID}")
     else:
         print(f"Cell with ID {cell.ID} is already added to gNodeB with ID {self.ID}")
-            print(f"Cell with ID {cell.ID} is already added to gNodeB with ID {self.ID}")
 
         # Optionally, you can also check if the cell's gNodeB_ID matches this gNodeB's ID
         if cell.gNodeB_ID != self.ID:
@@ -162,7 +156,14 @@ class gNodeB:
         # Call this method regularly to update handover decisions
         self.handle_load_balancing()
         self.handle_qos_based_handover()
-        
+
+    def find_ue_by_id(self, ue_id):
+        # Assuming self.all_ues is a method that returns a list of all UE objects
+        for ue in self.all_ues():
+            if ue.ID == ue_id:
+                return ue
+        return None    
+
     def delete_cell(self, cell_id):
         # Find the cell to be deleted
         cell_to_delete = next((cell for cell in self.Cells if cell.ID == cell_id), None)
@@ -185,3 +186,22 @@ class gNodeB:
         # Remove the cell from the Cells list
         self.Cells.remove(cell_to_delete)
         print(f"Cell with ID {cell_id} has been deleted from gNodeB with ID {self.ID}")
+
+    def all_ues(self):
+    """
+    Returns a list of all UE objects managed by this gNodeB.
+    """
+    # Placeholder implementation, this should be replaced with actual logic
+    return [ue for cell in self.Cells for ue in cell.ConnectedUEs]
+
+    def find_cell_by_id(self, cell_id):
+    """
+    Finds a cell by its ID within the gNodeB's list of cells.
+
+    :param cell_id: The ID of the cell to find.
+    :return: The cell with the matching ID or None if not found.
+    """
+    for cell in self.Cells:
+        if cell.ID == cell_id:
+            return cell
+    return None
