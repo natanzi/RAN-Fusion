@@ -213,8 +213,15 @@ class gNodeB:
     """
     Returns a list of all UE objects managed by this gNodeB.
     """
-    # Placeholder implementation, this should be replaced with actual logic
-    return [ue for cell in self.Cells for ue in cell.ConnectedUEs]
+    all_ue_objects = []
+    for cell in self.Cells:
+        # Assuming each cell has a list of UE IDs in a property called ConnectedUEs
+        for ue_id in cell.ConnectedUEs:
+            # Assuming there is a method to find a UE by its ID
+            ue = self.find_ue_by_id(ue_id)
+            if ue:
+                all_ue_objects.append(ue)
+    return all_ue_objects
 
     def find_cell_by_id(self, cell_id):
     """
@@ -223,7 +230,4 @@ class gNodeB:
     :param cell_id: The ID of the cell to find.
     :return: The cell with the matching ID or None if not found.
     """
-    for cell in self.Cells:
-        if cell.ID == cell_id:
-            return cell
-    return None
+    return next((cell for cell in self.Cells if cell.ID == cell_id), None)
