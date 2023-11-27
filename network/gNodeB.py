@@ -70,13 +70,13 @@ class gNodeB:
         else:
             print(f"gNodeB '{self.ID}' has reached its maximum cell capacity.")
 
-        # Update the database if necessary
-        # db_manager = DatabaseManager()
-        # db_manager.insert_cell_static_data(new_cell.to_dict())
-        # db_manager.close_connection()
+    # Update the database if necessary
+    # db_manager = DatabaseManager()
+    # db_manager.insert_cell_static_data(cell.to_dict())
+    # db_manager.close_connection()
 
-        # Update the list of available cells if there's such a function
-        # update_available_cells_list(new_cell)
+    # Update the list of available cells if there's such a function
+    # update_available_cells_list(cell)
 
     def handover_decision(self, ue):
         # Placeholder logic for deciding if a handover is needed
