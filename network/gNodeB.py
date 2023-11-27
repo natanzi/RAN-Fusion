@@ -224,10 +224,10 @@ class gNodeB:
         return all_ue_objects
 
     def find_cell_by_id(self, cell_id):
-    """
-    Finds a cell by its ID within the gNodeB's list of cells.
+        """
+        Finds a cell by its ID within the gNodeB's list of cells.
 
-    :param cell_id: The ID of the cell to find.
-    :return: The cell with the matching ID or None if not found.
-    """
-    return next((cell for cell in self.Cells if cell.ID == cell_id), None)
+        :param cell_id: The ID of the cell to find.
+        :return: The cell with the matching ID or None if not found.
+        """
+        return next((cell for cell in self.Cells if cell.ID == cell_id), None)
