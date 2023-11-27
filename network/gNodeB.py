@@ -226,3 +226,24 @@ class gNodeB:
         :return: The cell with the matching ID or None if not found.
         """
         return next((cell for cell in self.Cells if cell.ID == cell_id), None)
+        
+    def update_cell_capacity(self, new_capacity):
+        # Check if the new capacity is valid
+        if new_capacity < 0:
+            raise ValueError("Cell capacity cannot be negative.")
+        
+        # Update the CellCount attribute
+        self.CellCount = new_capacity
+        
+        # Log the change
+        logging.info(f"gNodeB '{self.ID}' cell capacity updated to {self.CellCount}.")
+        
+        # Update the database with the new capacity
+        # Assuming the DatabaseManager has a method named 'update_gNodeB_cell_capacity'
+        #db_manager = DatabaseManager()
+        #db_manager.update_gNodeB_cell_capacity(self.ID, self.CellCount)
+        #db_manager.close_connection()
+        
+        # Update related components if necessary
+        # For example, if there is a list of available cells that needs to be updated
+        # update_available_cells_list(self)
