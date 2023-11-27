@@ -1,4 +1,6 @@
 #Defines the Cell class, which is part of a gNodeB.// this is located inside network directory
+import logging
+
 class Cell:
     def __init__(self, cell_id, gnodeb_id, frequencyBand, duplexMode, tx_power, bandwidth, ssb_periodicity, ssb_offset, max_connect_ues, channel_model, trackingArea=None):
         self.ID = cell_id
