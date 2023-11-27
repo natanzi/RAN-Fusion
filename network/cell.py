@@ -16,6 +16,8 @@ class Cell:
         self.TrackingArea = trackingArea 
         self.ConnectedUEs = []
         self.assigned_UEs = []  # Initialize the list of assigned UEs
+        self.last_ue_update = None
+        self.last_update = None
         # Logging statement should be here, after all attributes are set
         logging.info(f"Cell '{self.ID}' has been created in gNodeB '{self.gNodeB_ID}' with max capacity {self.MaxConnectedUEs}.")
         
@@ -49,9 +51,26 @@ class Cell:
             'TrackingArea': self.TrackingArea,
             # Assuming you don't need to include the 'ConnectedUEs' list
         }
+    # Method to get the count of active UEs and update the last attached cell and its gNodeB
+    def update_ue_count(self):
+        self.last_update = datetime.datetime.now()
+        if self.ConnectedUEs:
+            self.last_ue_update = {
+                'ue_id': self.ConnectedUEs[-1].ID,
+                'cell_id': self.ID,
+                'gnodeb_id': self.gNodeB_ID,
+                'timestamp': self.last_update
+            }
+        return len(self.ConnectedUEs)
+
     def add_ue(self, ue):
         if len(self.ConnectedUEs) < self.MaxConnectedUEs:
             self.ConnectedUEs.append(ue)
             print(f"UE '{ue.ID}' has been attached to Cell '{self.ID}'.")
         else:
             raise Exception("Maximum number of connected UEs reached for this cell.")
+            self.update_ue_count()
+    # You may also want to override the method that removes a UE to include the update_ue_count call
+    def remove_ue(self, ue):
+        # ... (code to remove UE)
+        self.update_ue_count()
