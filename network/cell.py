@@ -47,8 +47,8 @@ class Cell:
             # Assuming you don't need to include the 'ConnectedUEs' list
         }
     def add_ue(self, ue):
-    if len(self.ConnectedUEs) < self.MaxConnectedUEs:
-        self.ConnectedUEs.append(ue)
-        print(f"UE '{ue.ID}' has been attached to Cell '{self.ID}'.")
-    else:
-        raise Exception("Maximum number of connected UEs reached for this cell.")
+        if len(self.ConnectedUEs) < self.MaxConnectedUEs:
+            self.ConnectedUEs.append(ue)
+            print(f"UE '{ue.ID}' has been attached to Cell '{self.ID}'.")
+        else:
+            raise Exception("Maximum number of connected UEs reached for this cell.")
