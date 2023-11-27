@@ -6,7 +6,6 @@ import logging
 from utils.location_utils import get_nearest_gNodeB, get_ue_location_info
 from traffic.network_metrics import calculate_cell_throughput
 from network.cell import Cell
-from network.gNodeB import load_gNodeB_config, gNodeB
 from network.init_cell import initialize_cells
 def load_gNodeB_config():
     # Correct the path to point to the 'Config_files' directory
