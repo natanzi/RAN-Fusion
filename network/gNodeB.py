@@ -6,8 +6,6 @@ import logging
 from utils.location_utils import get_nearest_gNodeB, get_ue_location_info
 from traffic.network_metrics import calculate_cell_throughput
 
-logging.basicConfig(level=logging.INFO)
-
 def load_gNodeB_config():
     # Correct the path to point to the 'Config_files' directory
     # This assumes that 'Config_files' is a direct subdirectory of the base directory where 'main.py' is located
@@ -21,7 +19,6 @@ def load_gNodeB_config():
 gNodeBs_config = load_gNodeB_config()
 
 class gNodeB:
-    logging.info(f"gNodeB '{self.ID}' has been launched with {self.CellCount} cells.")
     def __init__(self, gnodeb_id, latitude, longitude, coverageRadius, power, frequency, bandwidth, location, region, maxUEs, cellCount, handoverMargin, handoverHysteresis, timeToTrigger, interFreqHandover, xnInterface, sonCapabilities, loadBalancingOffset, cellIds, MeasurementBandwidth=None, BlacklistedCells=None, **kwargs):
         self.ID = gnodeb_id
         self.Latitude = latitude
