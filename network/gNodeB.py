@@ -62,8 +62,8 @@ class gNodeB:
         return gNodeBs
 
     def add_cell_to_gNodeB(self, cell):
-        # Assuming 'cell' is an instance of Cell
-        if len(self.Cells) < self.MaxUEs:
+    # Assuming 'cell' is an instance of Cell
+        if len(self.Cells) < self.CellCount:  # Use CellCount to check the capacity for cells
             self.Cells.append(cell)
             print(f"Cell '{cell.ID}' has been added to gNodeB '{self.ID}'.")
             logging.info(f"Cell '{cell.ID}' has been added to gNodeB '{self.ID}'.")
