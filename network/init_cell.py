@@ -28,7 +28,7 @@ def initialize_cells(gNodeBs):
         db_manager.insert_cell_static_data(cell_data)
         for gnodeb in gNodeBs:
             if gnodeb_id == gnodeb.ID:
-                gnodeb.add_cell_to_gNodeB(cell.ID, gnodeb_id)  # Use the add_cell method of gNodeB
+                gnodeb.add_cell_to_gNodeB(cell)  
 
     # Close the database connection
     db_manager.close_connection()

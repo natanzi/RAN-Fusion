@@ -61,19 +61,14 @@ class gNodeB:
             gNodeBs.append(gnodeb)
         return gNodeBs
 
-    def add_cell_to_gNodeB(cell_name, gnodeb_target_id):
-        # Load the existing gNodeBs configuration
-        gNodeBs_config = load_gNodeB_config()
-    
-        # Initialize gNodeBs from the configuration
-        gNodeBs = gNodeB.from_json(gNodeBs_config)
-
-        # Find the target gNodeB by ID
-        target_gNodeB = next((gnodeb for gnodeb in gNodeBs if gnodeb.ID == gnodeb_target_id), None)
-    
-        if target_gNodeB is None:
-            print(f"gNodeB with ID '{gnodeb_target_id}' not found.")
-            return
+    def add_cell_to_gNodeB(self, cell):
+        # Assuming 'cell' is an instance of Cell
+        if len(self.Cells) < self.MaxUEs:
+            self.Cells.append(cell)
+            print(f"Cell '{cell.ID}' has been added to gNodeB '{self.ID}'.")
+            logging.info(f"Cell '{cell.ID}' has been added to gNodeB '{self.ID}'.")
+        else:
+            print(f"gNodeB '{self.ID}' has reached its maximum cell capacity.")
 
         # Load the cell configurations
         base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
