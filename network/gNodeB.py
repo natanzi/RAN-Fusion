@@ -210,18 +210,18 @@ class gNodeB:
         print(f"Cell with ID {cell_id} has been deleted from gNodeB with ID {self.ID}")
 
     def all_ues(self):
-    """
-    Returns a list of all UE objects managed by this gNodeB.
-    """
-    all_ue_objects = []
-    for cell in self.Cells:
-        # Assuming each cell has a list of UE IDs in a property called ConnectedUEs
-        for ue_id in cell.ConnectedUEs:
-            # Assuming there is a method to find a UE by its ID
-            ue = self.find_ue_by_id(ue_id)
-            if ue:
-                all_ue_objects.append(ue)
-    return all_ue_objects
+        """
+        Returns a list of all UE objects managed by this gNodeB.
+        """
+        all_ue_objects = []
+        for cell in self.Cells:
+            # Assuming each cell has a list of UE IDs in a property called ConnectedUEs
+            for ue_id in cell.ConnectedUEs:
+                # Assuming there is a method to find a UE by its ID
+                ue = self.find_ue_by_id(ue_id)
+                if ue:
+                    all_ue_objects.append(ue)
+        return all_ue_objects
 
     def find_cell_by_id(self, cell_id):
     """
