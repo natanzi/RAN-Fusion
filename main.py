@@ -39,7 +39,7 @@ def main():
 
     # Initialize gNodeBs, Cells, and UEs
     gNodeBs, cells, ues = initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, ue_config)
-
+    time.sleep(2)
     # Initialize DatabaseManager
     db_manager = DatabaseManager()
 
