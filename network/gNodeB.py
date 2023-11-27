@@ -62,8 +62,6 @@ class gNodeB:
     """
     # Check if the cell is already in the list to avoid duplicates
     if cell not in self.Cells:
-        # Ensure the cell's gNodeB_ID matches this gNodeB's ID
-        if cell.gNodeB_ID == self.ID:
             self.Cells.append(cell)
             # Perform any additional setup for the cell here
             # For example, initializing cell-specific configurations or resources
