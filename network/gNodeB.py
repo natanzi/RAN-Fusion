@@ -98,3 +98,51 @@ class gNodeB:
             if current_cell:
                 current_cell.ConnectedUEs.remove(ue.ID)
             new_cell.ConnectedUEs.append(ue.ID)
+            
+    def calculate_cell_load(self, cell):
+        # Implement the cell load calculation
+        # Load can be based on the number of connected UEs, throughput, etc.
+        return len(cell.ConnectedUEs) / cell.MaxConnectedUEs if cell.MaxConnectedUEs > 0 else 0
+
+    def find_underloaded_cell(self):
+        # Find a cell with load below a certain threshold, e.g., 50%
+        for cell in self.Cells:
+            if self.calculate_cell_load(cell) < 0.5:
+                return cell
+        return None
+
+    def select_ues_for_load_balancing(self, overloaded_cell):
+        # Select UEs to handover based on criteria like service type, data usage, etc.
+        # Placeholder logic: Select a subset of UEs from the overloaded cell
+        return overloaded_cell.ConnectedUEs[:len(overloaded_cell.ConnectedUEs) // 2]
+
+    def perform_handover(self, ue, target_cell):
+        # Implement the handover logic
+        ue.perform_handover(target_cell.ID)
+        current_cell = next((cell for cell in self.Cells if cell.ID == ue.ConnectedCellID), None)
+        if current_cell:
+            current_cell.ConnectedUEs.remove(ue.ID)
+        target_cell.ConnectedUEs.append(ue.ID)
+
+    def handle_load_balancing(self):
+        for cell in self.Cells:
+            if self.calculate_cell_load(cell) > 0.8:  # If cell load is over 80%
+                underloaded_cell = self.find_underloaded_cell()
+                if underloaded_cell:
+                    selected_ues = self.select_ues_for_load_balancing(cell)
+                    for ue in selected_ues:
+                        self.perform_handover(ue, underloaded_cell)
+
+    def handle_qos_based_handover(self):
+        for ue in self.all_ues():  # Assuming all_ues method returns all UEs in the gNodeB
+            current_cell = self.find_cell_by_id(ue.ConnectedCellID)
+            if current_cell and not current_cell.can_provide_gbr(ue):
+                for cell in self.Cells:
+                    if cell != current_cell and cell.can_provide_gbr(ue):
+                        self.perform_handover(ue, cell)
+                        break
+
+    def update(self):
+        # Call this method regularly to update handover decisions
+        self.handle_load_balancing()
+        self.handle_qos_based_handover()
