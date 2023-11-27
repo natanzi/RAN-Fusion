@@ -121,7 +121,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
     # Create additional UEs if needed
     for _ in range(additional_ues_needed):
         selected_gNodeB = random.choice(gNodeBs)
-        available_cell = selected_gNodeB.find_available_cell()
+        available_cell = selected_gNodeB.find_underloaded_cell()
         if available_cell is not None:
             random_location = random_location_within_radius(
                 selected_gNodeB.Latitude, selected_gNodeB.Longitude, selected_gNodeB.CoverageRadius
