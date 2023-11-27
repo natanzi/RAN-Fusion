@@ -18,9 +18,10 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
     ues = []
     db_manager = DatabaseManager()
     DEFAULT_BANDWIDTH_PARTS = [1, 2, 3, 4]  # Example default values
+    ue_id_counter = 1  # Initialize the UE ID counter
 
     # Instantiate UEs from the configuration
-    for i, ue_data in enumerate(ue_config['ues'], start=1):
+    for ue_data in ue_config['ues']:
         # Adjust the keys to match the UE constructor argument names
         ue_data['location'] = (ue_data['location']['latitude'], ue_data['location']['longitude'])
         ue_data['connected_cell_id'] = ue_data.pop('connectedCellId')
@@ -51,8 +52,26 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         ue_data.pop('screensize', None)  # Add this line to remove 'screensize' key
         ue_data.pop('batterylevel', None)  # This line removes 'batterylevel' key
         # Assign sequential UE ID
-        ue_data['ue_id'] = f"UE{i}"
+        ue_data['ue_id'] = f"UE{ue_id_counter}" 
+        
         # Instantiate UE with the adjusted data
+        # Ensure modulation is a single scalar value, not a list
+        
+        if isinstance(ue_data['modulation'], list):
+            ue_data['modulation'] = random.choice(ue_data['modulation'])
+        
+        # Check if 'bandwidthParts' exists in ue_data and handle it appropriately
+        if 'bandwidthParts' not in ue_data:
+            # If 'bandwidthParts' does not exist, provide a default value or handle the absence
+            ue_data['bandwidth_parts'] = random.choice(DEFAULT_BANDWIDTH_PARTS)
+        else:
+            # If 'bandwidthParts' exists and it's a list, choose a random element
+            if isinstance(ue_data['bandwidthParts'], list):
+                ue_data['bandwidth_parts'] = random.choice(ue_data['bandwidthParts'])
+            else:
+                # If 'bandwidthParts' is not a list (i.e., it's a single value), use it as is
+                ue_data['bandwidth_parts'] = ue_data['bandwidthParts']
+        
         ue = UE(**ue_data)
         
         # Assign UE to a random cell of a random gNodeB, if available
@@ -110,7 +129,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
             bandwidth_parts = random.choice(DEFAULT_BANDWIDTH_PARTS)
             
             new_ue = UE(
-                ue_id=f"UE{random.randint(1000, 9999)}",
+                ue_id=f"UE{ue_id_counter}",
                 location=random_location,
                 connected_cell_id=available_cell.ID,
                 is_mobile=True,
@@ -137,6 +156,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
                 model='generic',
                 service_type=random.choice(['video', 'game', 'voice', 'data', 'IoT'])
             )
+            ue_id_counter += 1
         if selected_gNodeB.Cells:
             selected_cell = random.choice(selected_gNodeB.Cells)
             new_ue.ConnectedCellID = selected_cell.ID
