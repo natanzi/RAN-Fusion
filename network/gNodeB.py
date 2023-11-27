@@ -5,7 +5,9 @@ import random
 import logging
 from utils.location_utils import get_nearest_gNodeB, get_ue_location_info
 from traffic.network_metrics import calculate_cell_throughput
-
+from network.cell import Cell
+from network.gNodeB import load_gNodeB_config, gNodeB
+from network.init_cell import initialize_cells
 def load_gNodeB_config():
     # Correct the path to point to the 'Config_files' directory
     # This assumes that 'Config_files' is a direct subdirectory of the base directory where 'main.py' is located
@@ -59,32 +61,47 @@ class gNodeB:
             gNodeBs.append(gnodeb)
         return gNodeBs
 
-    def add_cell(self, cell):
-    """
-    Adds a Cell instance to the gNodeB's list of cells.
-
-    :param cell: The Cell instance to be added.
-    """
-    # Check if the cell is already in the list to avoid duplicates
-    if cell not in self.Cells:
-        self.Cells.append(cell)
-        print(f"Cell with ID {cell.ID} has been added to gNodeB with ID {self.ID}")
-    else:
-        print(f"Cell with ID {cell.ID} is already added to gNodeB with ID {self.ID}")
-
-        # Optionally, you can also check if the cell's gNodeB_ID matches this gNodeB's ID
-        if cell.gNodeB_ID != self.ID:
-            print(f"Cell with ID {cell.ID} does not match gNodeB ID {self.ID}. Not adding to Cells list.")
+    def add_cell_to_gNodeB(cell_name, gnodeb_target_id):
+        # Load the existing gNodeBs configuration
+        gNodeBs_config = load_gNodeB_config()
     
-    def check_cell_capacity(self, cell):
-        # Placeholder for checking if a cell can accept more UEs
-        return len(cell.ConnectedUEs) < cell.MaxConnectedUEs
+        # Initialize gNodeBs from the configuration
+        gNodeBs = gNodeB.from_json(gNodeBs_config)
 
-    def find_available_cell(self):
-        for cell in self.Cells:  # Change 'cells' to 'Cells' to match the correct attribute name
-            if self.check_cell_capacity(cell):  # Assuming this method checks for available capacity
-                return cell
-        return None
+        # Find the target gNodeB by ID
+        target_gNodeB = next((gnodeb for gnodeb in gNodeBs if gnodeb.ID == gnodeb_target_id), None)
+    
+        if target_gNodeB is None:
+            print(f"gNodeB with ID '{gnodeb_target_id}' not found.")
+            return
+
+        # Load the cell configurations
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        config_dir = os.path.join(base_dir, 'Config_files')
+        cells_config = load_json_config(os.path.join(config_dir, 'cell_config.json'))
+
+        # Find the cell configuration by name
+        cell_config = next((config for config in cells_config['cells'] if config['cell_id'] == cell_name), None)
+        if cell_config is None:
+            print(f"No configuration found for cell '{cell_name}'.")
+            return
+
+        # Create a new Cell instance from the configuration
+        new_cell = Cell.from_json(cell_config)
+
+        # Add the cell to the target gNodeB
+        target_gNodeB.add_cell(new_cell)
+        print(f"Cell '{cell_name}' has been added to gNodeB '{gnodeb_target_id}'.")
+
+        # Update the database if necessary
+        # db_manager = DatabaseManager()
+        # db_manager.insert_cell_static_data(new_cell.to_dict())
+        # db_manager.close_connection()
+
+        # Update the list of available cells if there's such a function
+        # update_available_cells_list(new_cell)
+
+        return new_cell
 
     def handover_decision(self, ue):
         # Placeholder logic for deciding if a handover is needed
