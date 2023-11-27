@@ -98,8 +98,8 @@ class UE:
     def generate_traffic(self):
         traffic_controller = TrafficController()  # Create an instance of TrafficController
 
-    # Convert service type to lowercase to ensure case-insensitive comparison
-    service_type_lower = self.ServiceType.lower()
+        # Convert service type to lowercase to ensure case-insensitive comparison
+        service_type_lower = self.ServiceType.lower()
 
         if service_type_lower == "voice":
             return traffic_controller.generate_voice_traffic()
