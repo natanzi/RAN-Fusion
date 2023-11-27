@@ -3,6 +3,7 @@ import os
 import json
 import random
 from utils.location_utils import get_nearest_gNodeB, get_ue_location_info
+from traffic.network_metrics import calculate_cell_throughput
 
 def load_gNodeB_config():
     # Correct the path to point to the 'Config_files' directory
@@ -54,15 +55,24 @@ class gNodeB:
         return gNodeBs
 
     def add_cell(self, cell):
-        """
-        Adds a Cell instance to the gNodeB's list of cells.
+    """
+    Adds a Cell instance to the gNodeB's list of cells.
 
-        :param cell: The Cell instance to be added.
-        """
-        # Check if the cell is already in the list to avoid duplicates
-        if cell not in self.Cells:
+    :param cell: The Cell instance to be added.
+    """
+    # Check if the cell is already in the list to avoid duplicates
+    if cell not in self.Cells:
+        # Ensure the cell's gNodeB_ID matches this gNodeB's ID
+        if cell.gNodeB_ID == self.ID:
             self.Cells.append(cell)
+            # Perform any additional setup for the cell here
+            # For example, initializing cell-specific configurations or resources
+            # ...
+            print(f"Cell with ID {cell.ID} has been added to gNodeB with ID {self.ID}")
         else:
+            print(f"Cell with ID {cell.ID} does not match gNodeB ID {self.ID}. Not adding to Cells list.")
+    else:
+        print(f"Cell with ID {cell.ID} is already added to gNodeB with ID {self.ID}")
             print(f"Cell with ID {cell.ID} is already added to gNodeB with ID {self.ID}")
 
         # Optionally, you can also check if the cell's gNodeB_ID matches this gNodeB's ID
@@ -100,9 +110,17 @@ class gNodeB:
             new_cell.ConnectedUEs.append(ue.ID)
             
     def calculate_cell_load(self, cell):
-        # Implement the cell load calculation
-        # Load can be based on the number of connected UEs, throughput, etc.
-        return len(cell.ConnectedUEs) / cell.MaxConnectedUEs if cell.MaxConnectedUEs > 0 else 0
+        # Calculate the load based on the number of connected UEs
+        ue_based_load = len(cell.ConnectedUEs) / cell.MaxConnectedUEs if cell.MaxConnectedUEs > 0 else 0
+        
+        # Calculate the load based on the throughput
+        throughput_based_load = calculate_cell_throughput(cell, [self])  # Assuming 'self' is the only gNodeB for simplicity
+        
+        # Combine the UE-based load and throughput-based load for a more accurate load calculation
+        # The weights (0.5 in this case) can be adjusted based on which factor is deemed more important
+        combined_load = (0.5 * ue_based_load) + (0.5 * throughput_based_load)
+        
+        return combined_load
 
     def find_underloaded_cell(self):
         # Find a cell with load below a certain threshold, e.g., 50%
@@ -146,3 +164,26 @@ class gNodeB:
         # Call this method regularly to update handover decisions
         self.handle_load_balancing()
         self.handle_qos_based_handover()
+        
+    def delete_cell(self, cell_id):
+        # Find the cell to be deleted
+        cell_to_delete = next((cell for cell in self.Cells if cell.ID == cell_id), None)
+        
+        if cell_to_delete is None:
+            print(f"No cell with ID {cell_id} found in gNodeB with ID {self.ID}")
+            return
+        
+        # Attempt to handover UEs to other cells
+        for ue_id in cell_to_delete.ConnectedUEs:
+            # Find a UE object by its ID (assuming a method exists to find a UE by ID)
+            ue = self.find_ue_by_id(ue_id)
+            if ue:
+                new_cell = self.handover_decision(ue)
+                if new_cell:
+                    self.perform_handover(ue, new_cell)
+                else:
+                    print(f"No available cell for UE with ID {ue.ID} to handover.")
+        
+        # Remove the cell from the Cells list
+        self.Cells.remove(cell_to_delete)
+        print(f"Cell with ID {cell_id} has been deleted from gNodeB with ID {self.ID}")
