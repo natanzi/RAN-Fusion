@@ -18,6 +18,17 @@ class TrafficController:
         self.video_traffic_params['num_streams'] = num_streams_range
         self.video_traffic_params['stream_bitrate'] = stream_bitrate_range
 
+    def update_gaming_traffic(self, bitrate_range):
+        self.gaming_traffic_params['bitrate'] = bitrate_range
+
+    def update_iot_traffic(self, packet_size_range, interval_range):
+        self.iot_traffic_params['packet_size'] = packet_size_range
+        self.iot_traffic_params['interval'] = interval_range
+
+    def update_data_traffic(self, bitrate_range, interval_range):
+        self.data_traffic_params['bitrate'] = bitrate_range
+        self.data_traffic_params['interval'] = interval_range    
+
     def generate_voice_traffic(self):
         bitrate = random.uniform(*self.voice_traffic_params['bitrate'])
         interval = 0.02
@@ -58,10 +69,10 @@ gaming_data, gaming_interval = traffic_controller.generate_gaming_traffic()
 iot_data, iot_interval = traffic_controller.generate_iot_traffic()
 data_data, data_interval = traffic_controller.generate_data_traffic()
 
-print("Voice Traffic:", voice_data, "KB, Interval:", voice_interval, "seconds")
-print("Video Traffic:", video_data, "MB, Interval:", video_interval, "second")
-print("Gaming Traffic:", gaming_data, "KB, Interval:", gaming_interval, "seconds")
-print("IoT Traffic:", iot_data, "KB, Interval:", iot_interval, "seconds")
-print("Data Traffic:", data_data, "MB, Interval:", data_interval, "seconds")
+#print("Voice Traffic:", voice_data, "KB, Interval:", voice_interval, "seconds")
+#print("Video Traffic:", video_data, "MB, Interval:", video_interval, "second")
+#print("Gaming Traffic:", gaming_data, "KB, Interval:", gaming_interval, "seconds")
+#print("IoT Traffic:", iot_data, "KB, Interval:", iot_interval, "seconds")
+#print("Data Traffic:", data_data, "MB, Interval:", data_interval, "seconds")
 
 
