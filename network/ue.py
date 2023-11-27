@@ -97,22 +97,21 @@ class UE:
         return ues
 
     def generate_traffic(self):
-        # Convert service type to lowercase to ensure case-insensitive comparison
-        service_type_lower = self.ServiceType.lower()
-        
-        # Convert service type to lowercase to ensure case-insensitive comparison
-        service_type_lower = self.ServiceType.lower()
+        traffic_controller = TrafficController()  # Create an instance of TrafficController
+
+    # Convert service type to lowercase to ensure case-insensitive comparison
+    service_type_lower = self.ServiceType.lower()
 
         if service_type_lower == "voice":
-            return generate_voice_traffic()
+            return traffic_controller.generate_voice_traffic()
         elif service_type_lower == "video":
-            return generate_video_traffic()
+            return traffic_controller.generate_video_traffic()
         elif service_type_lower == "game":
-            return generate_gaming_traffic()
+            return traffic_controller.generate_gaming_traffic()
         elif service_type_lower == "iot":
-            return generate_iot_traffic()
+            return traffic_controller.generate_iot_traffic()
         elif service_type_lower == "data":  
-            return generate_data_traffic()
+            return traffic_controller.generate_data_traffic()
         else:
             raise ValueError(f"Unknown service type: {self.ServiceType}")
 
