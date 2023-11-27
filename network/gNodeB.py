@@ -7,7 +7,7 @@ from utils.location_utils import get_nearest_gNodeB, get_ue_location_info
 from traffic.network_metrics import calculate_cell_throughput
 from network.cell import Cell
 from network.init_cell import initialize_cells
-
+from .init_cell import load_json_config
 def load_gNodeB_config():
     # Correct the path to point to the 'Config_files' directory
     # This assumes that 'Config_files' is a direct subdirectory of the base directory where 'main.py' is located
