@@ -70,25 +70,6 @@ class gNodeB:
         else:
             print(f"gNodeB '{self.ID}' has reached its maximum cell capacity.")
 
-        # Load the cell configurations
-        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        config_dir = os.path.join(base_dir, 'Config_files')
-        cells_config = load_json_config(os.path.join(config_dir, 'cell_config.json'))
-
-        # Find the cell configuration by name using cell.ID
-        cell_config = next((config for config in cells_config['cells'] if config['cell_id'] == cell.ID), None)
-        if cell_config is None:
-            print(f"No configuration found for cell '{cell.ID}'.")
-            return
-        # If additional actions are needed based on the cell_config, they should be added here
-
-        # Create a new Cell instance from the configuration
-        new_cell = Cell.from_json(cell_config)
-
-        # Add the cell to the target gNodeB
-        target_gNodeB.add_cell(new_cell)
-        print(f"Cell '{cell_name}' has been added to gNodeB '{gnodeb_target_id}'.")
-
         # Update the database if necessary
         # db_manager = DatabaseManager()
         # db_manager.insert_cell_static_data(new_cell.to_dict())
@@ -96,8 +77,6 @@ class gNodeB:
 
         # Update the list of available cells if there's such a function
         # update_available_cells_list(new_cell)
-
-        return new_cell
 
     def handover_decision(self, ue):
         # Placeholder logic for deciding if a handover is needed
