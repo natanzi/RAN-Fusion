@@ -75,11 +75,12 @@ class gNodeB:
         config_dir = os.path.join(base_dir, 'Config_files')
         cells_config = load_json_config(os.path.join(config_dir, 'cell_config.json'))
 
-        # Find the cell configuration by name
-        cell_config = next((config for config in cells_config['cells'] if config['cell_id'] == cell_name), None)
+        # Find the cell configuration by name using cell.ID
+        cell_config = next((config for config in cells_config['cells'] if config['cell_id'] == cell.ID), None)
         if cell_config is None:
-            print(f"No configuration found for cell '{cell_name}'.")
+            print(f"No configuration found for cell '{cell.ID}'.")
             return
+        # If additional actions are needed based on the cell_config, they should be added here
 
         # Create a new Cell instance from the configuration
         new_cell = Cell.from_json(cell_config)
