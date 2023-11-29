@@ -6,7 +6,6 @@ from layouts import ue_level_report_layout, cell_level_report_layout, gnodb_leve
 def check_credentials(username, password):
     return username == "admin" and password == "admin"
 
-def register_callbacks(app):
     @app.callback(
         [Output('login-modal', 'is_open'), 
          Output('main-layout-container', 'style')],  # Update the style instead of children
@@ -33,5 +32,4 @@ def register_callbacks(app):
             return network_level_report_layout()
         return html.Div()  # Default return if no tab is selected
 
-# Don't forget to call register_callbacks at the end
 register_callbacks(app)
