@@ -1,6 +1,4 @@
 # app.py
-# app.py
-# app.py
 from dash import html, dcc
 from app_instance import app  # Import the Dash app instance
 from layouts import create_login_modal, main_layout

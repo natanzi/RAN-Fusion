@@ -6,7 +6,6 @@ def check_credentials(username, password):
     return username == "admin" and password == "admin"
 
 def register_callbacks(app):
-
     @app.callback(
         Output('login-modal', 'is_open'),
         Output('main-layout-container', 'children'),  # This will hold the main layout
@@ -27,9 +26,6 @@ def register_callbacks(app):
         [Input("tabs", "active_tab")],
         prevent_initial_call=True
     )
-    def switch_tab(active_tab):
-        # Define your content for each tab here
-        pass
     def switch_tab(active_tab):
         if active_tab == "tab-ue":
             return ue_level_report_layout()
