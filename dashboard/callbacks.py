@@ -7,7 +7,6 @@ from layouts import main_layout
 def check_credentials(username, password):
     return username == "admin" and password == "admin"
 
-
 def register_callbacks(app):
     @app.callback(
         Output('login-modal', 'is_open'),
