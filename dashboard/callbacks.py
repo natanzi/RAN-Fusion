@@ -34,7 +34,3 @@ def switch_tab(active_tab):
     elif active_tab == "tab-network":
         return network_level_report_layout()
     return html.Div()  # Default return if no tab is selected
-
-
-    return html.Div()
-
