@@ -30,7 +30,6 @@ def register_callbacks(app):
 @app.callback(
         Output("tab-content", "children"),
         [Input("tabs", "active_tab")],
-        prevent_initial_call=True
     )
 def switch_tab(active_tab):
         if active_tab == "tab-ue":
