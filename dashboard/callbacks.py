@@ -11,21 +11,14 @@ def check_credentials(username, password):
 def register_callbacks(app):
     @app.callback(
         Output('login-modal', 'is_open'),
-        Output('main-layout-container', 'children'),  # This will hold the main layout
+        Output('main-layout-container', 'style'),  # Update the style instead of children
         [Input("login-button", "n_clicks")],
-        [State("username-input", "value"), State("password-input", "value")],
-        prevent_initial_call=True
+        [State("username-input", "value"), State("password-input", "value")]
     )
     def toggle_modal(n_clicks, username, password):
-        if n_clicks > 0:
-            if check_credentials(username, password):
-            # On successful login, close the modal and display the main layout
-                return False, main_layout()
-            else:
-            # Keep the modal open on failed login
-                return True, None
-    # Default state when the page loads
-    return True, None
+        if n_clicks and check_credentials(username, password):
+            return False, {}  # On successful login, close modal and display main layout
+        return True, {'display': 'none'}  # Keep hidden initially or on failed loginge loads
 
 @app.callback(
         Output("tab-content", "children"),
