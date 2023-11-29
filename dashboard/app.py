@@ -1,20 +1,25 @@
 # app.py
 # app.py
-from dash import html, dcc
-from app_instance import app
+import dash 
+import dash_bootstrap_components as dbc
 from layouts import create_login_modal, main_layout
 from callbacks import register_callbacks
+from app_instance import app
+
+# Import html  
+import html
+
+app = dash.Dash(__name__)
 
 app.layout = html.Div([
     create_login_modal(),
-    html.Div(id='main-layout-container', style={'display': 'none'}),  # Initially hidden
-    dcc.Store(id='auth-store')  # If needed for state management
-], className='body-background')
+    html.Div(id='main-content', style={'display': 'none'}), 
+])
 
 register_callbacks(app)
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+   app.run_server(debug=True)
 
 
 
