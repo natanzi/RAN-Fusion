@@ -1,9 +1,12 @@
 # database_manager.py, this file located in database folder
 import os
 import time
-
+from datetime import datetime
+from database.database_manager import DatabaseManager
 from influxdb_client import InfluxDBClient, WritePrecision, Point  
 from influxdb_client.client.write_api import SYNCHRONOUS
+from traffic.network_metrics import calculate_gnodeb_throughput
+from traffic.network_metrics import calculate_network_kpis
 
 INFLUXDB_URL = "http://localhost:8086"
 INFLUXDB_TOKEN = "aZPFioFZQE_kNcXy5E7JLhaX0x4RaK0RG14xEgWIieGtuX8_xB2f783mRjn3Vj04y7iuMME-VRfB-HlbRt_iVw==" 
@@ -100,10 +103,24 @@ class DatabaseManager:
         ]
         self.client.write_points(json_body)
 
-    def insert_cell_data(self, data):
+    def insert_cell_data(self, cell):
         """Inserts a row of Cell KPI data into the cell_metrics measurement."""
-        tags = {key: data.pop(key) for key in ['cell_id', 'imsi']}
-        self.insert_data('cell_metrics', tags, data, time.time_ns())
+        # Assuming 'cell' is an instance of the Cell class and has the necessary methods
+        current_ue_count = cell.update_ue_count()  # This method should return the current UE count
+        total_throughput = cell.calculate_total_throughput()  # You need to implement this method in the Cell class
+
+        tags = {
+            'cell_id': cell.ID,
+            'gnodeb_id': cell.gNodeB_ID
+        }
+        fields = {
+            'max_connect_ues': cell.MaxConnectedUEs,
+            'current_ue_count': current_ue_count,
+            'total_throughput': total_throughput
+        }
+        timestamp = time.time_ns()  # Current time in nanoseconds
+
+        self.insert_data('cell_metrics', tags, fields, timestamp)
 
     def insert_cell_static_data(self, data):
 
@@ -114,11 +131,42 @@ class DatabaseManager:
         self.write_api.write(bucket=self.bucket, record=point)
 
 
-    def insert_gnodeb_data(self, data):
+    def insert_gnodeb_data(self, gnodeb, gnodebs):
         """Inserts a row of gNodeB KPI data into the gnodeb_metrics measurement."""
-        tags = {key: data.pop(key) for key in ['gnodeb_id', 'imsi']}
-        self.insert_data('gnodeb_metrics', tags, data, time.time_ns())
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        gnodeb_id = gnodeb.ID
+        region = gnodeb.Region
+        maxUEs = gnodeb.MaxUEs
+        cell_count = gnodeb.CellCount
+        current_ue_count = len(gnodeb.all_ues())
+        gnodeb_throughput = calculate_gnodeb_throughput(gnodeb, gnodebs)
 
+        tags = {
+            'gnodeb_id': gnodeb_id,
+            'region': region
+        }
+        fields = {
+            'timestamp': timestamp,
+            'maxUEs': maxUEs,
+            'cell_count': cell_count,
+            'current_ue_count': current_ue_count,
+            'gnodeb_throughput': gnodeb_throughput
+        }
+
+        self.insert_data('gnodeb_metrics', tags, fields, time.time_ns())
+    
+    def insert_network_level_measurement(self, timestamp, region, count_gnodebs, count_ues, network_latency):
+        """Inserts network level KPIs into the network_metrics measurement."""
+        tags = {
+            'region': region
+        }
+        fields = {
+            'count_gnodebs': count_gnodebs,
+            'count_ues': count_ues,
+            'network_latency': network_latency
+        }
+        self.insert_data('network_metrics', tags, fields, timestamp)
+        
     def close_connection(self):
         """Closes the database connection."""
         self.client.close()

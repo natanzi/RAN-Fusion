@@ -96,3 +96,29 @@ def calculate_overall_network_latency(gnodebs):
                 total_latency += ue_latency
                 total_ues += 1
     return total_latency / total_ues if total_ues > 0 else 0
+    
+def calculate_network_level_kpis(gnodebs):
+    """
+    Calculate network-level KPIs such as overall network latency, total throughput, and cell load.
+    
+    :param gnodebs: List of all gNodeB instances in the network
+    :return: Dictionary containing the calculated network KPIs
+    """
+    # Calculate overall network latency
+    overall_network_latency = calculate_overall_network_latency(gnodebs)
+    
+    # Calculate total throughput for all gNodeBs
+    total_throughput = sum(calculate_gnodeb_throughput(gnodeb, gnodebs) for gnodeb in gnodebs)
+    
+    # Calculate average cell load across all gNodeBs
+    cell_loads = [calculate_cell_load(cell.ID, gnodebs) for gnodeb in gnodebs for cell in gnodeb.Cells]
+    average_cell_load = sum(cell_loads) / len(cell_loads) if cell_loads else 0
+    
+    # Compile the KPIs into a dictionary
+    network_kpis = {
+        'overall_network_latency': overall_network_latency,
+        'total_network_throughput': total_throughput,
+        'average_cell_load': average_cell_load
+    }
+    
+    return network_kpis
