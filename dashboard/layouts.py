@@ -1,6 +1,5 @@
 # Define Dash layout components (optional)
 # layouts.py
-
 import dash_bootstrap_components as dbc
 from dash import html, dcc
 
@@ -18,9 +17,6 @@ def create_login_modal():
             ),
         ],
         id="login-modal",
-        is_open=True,  # Set to True to have the modal open by default
-        centered=True,
-        size="sm"
     )
 
 def main_layout():
