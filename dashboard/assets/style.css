@@ -25,31 +25,41 @@
     margin: auto;
 }
 
+/* Centralizing and styling the login modal */
+#login-modal .modal-dialog {
+    margin-top: 10vh; /* Position modal slightly from the top */
+    max-width: 400px; /* Control the width of the modal */
+}
 #login-modal .modal-content {
-    border: none;
+    border: none; /* Remove border */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
 }
 
 #login-modal .modal-body {
-    padding: 0;
+    padding: 2rem; /* Spacing inside the modal */
 }
 
-/* Input fields styling */
+/* Style adjustments for input fields */
 #username-input, #password-input {
-    border-radius: 25px;
-    border: 2px solid #007bff;
+    border-radius: 20px;
+    border: 1px solid #dee2e6; /* Lighter border color */
     padding: 10px;
-    margin-top: 10px;
+    margin-bottom: 15px; /* Space between fields */
+    width: 100%; /* Full width */
 }
 /* Login button styling */
 #login-button {
     background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 25px;
+    border-radius: 20px;
     padding: 10px;
     width: 100%;
     margin-top: 20px;
     cursor: pointer;
+    transition: background-color 0.3s; /* Smooth hover effect */
 }
 
 #login-button:hover {
@@ -61,4 +71,6 @@
     background: url('/assets/telecom-tower-image.png') no-repeat center center fixed;
     background-size: cover;
 }
-
+@media screen and (max-width: 768px) {
+    /* Adjustments for smaller screens */
+}
