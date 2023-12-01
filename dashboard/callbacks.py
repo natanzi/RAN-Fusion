@@ -1,7 +1,6 @@
 # callbacks.py
 from dash import Output, Input, State, html
 from app_instance import app
-from layouts import ue_level_report_layout, cell_level_report_layout, gnodb_level_report_layout, network_level_report_layout
 
 def check_credentials(username, password):
     return username == 'admin' and password == 'admin'
