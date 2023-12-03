@@ -6,7 +6,6 @@ from Config_files.config_load import load_all_configs
 from database.database_manager import DatabaseManager
 import logging
 
-
 # At the beginning of your script
 logging.basicConfig(level=logging.INFO)
 
@@ -24,7 +23,6 @@ def log_traffic(ues, db_manager):
                 'data_size': float(data_size),
                 # Add other relevant data fields here
             }
-
             # Log the data to the database
             db_manager.insert_ue_data(data)
 
