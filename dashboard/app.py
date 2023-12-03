@@ -2,7 +2,6 @@
 from dash import html
 from app_instance import app
 from layouts import create_login_modal, create_sidebar, create_main_content
-from flask import Flask
 from callbacks import register_callbacks
 from layouts import create_login_modal, create_main_content, create_sidebar
 register_callbacks(app)
