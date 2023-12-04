@@ -21,7 +21,6 @@ def initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, ue_confi
 
     # Update the network state with the initialized elements
     network_state.update_state(gNodeBs, cells, ues)
-    return gNodeBs, cells, ues
     
     # Print the network state
     network_state.print_state()
