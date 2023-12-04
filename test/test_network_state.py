@@ -3,7 +3,7 @@
 # test_network_state.py located in test folder
 from network.network_state import NetworkState
 from main import load_all_configs, initialize_network
-
+import os
 def test_network_state_functionality():
     # Load configurations as done in main.py
     base_dir = os.path.dirname(os.path.abspath(__file__))
