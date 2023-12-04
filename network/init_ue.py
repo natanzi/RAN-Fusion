@@ -122,43 +122,44 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
     for _ in range(additional_ues_needed):
         selected_gNodeB = random.choice(list(gNodeBs.values()))
         available_cell = selected_gNodeB.find_underloaded_cell()
-            random_location = random_location_within_radius(
-                selected_gNodeB.Latitude, selected_gNodeB.Longitude, selected_gNodeB.CoverageRadius
-            )
+        random_location = random_location_within_radius(
+            selected_gNodeB.Latitude, selected_gNodeB.Longitude, selected_gNodeB.CoverageRadius
+        )
         if 'bandwidthParts' in ue_config['ues'][0]:
             bandwidth_parts = random.choice(ue_config['ues'][0]['bandwidthParts'])
         else:
             bandwidth_parts = random.choice(DEFAULT_BANDWIDTH_PARTS)
-            
-            new_ue = UE(
-                ue_id=f"UE{ue_id_counter}",
-                location=random_location,
-                connected_cell_id=available_cell.ID,
-                is_mobile=True,
-                initial_signal_strength=random.uniform(-120, -30),
-                rat='NR',
-                max_bandwidth=random.choice([5, 10, 15, 20]),
-                duplex_mode='TDD',
-                tx_power=random.randint(0, 23),
-                modulation=random.choice(['QPSK', '16QAM', '64QAM']),
-                coding=random.choice(['LDPC', 'Turbo']),
-                mimo='2*2',
-                processing=random.choice(['low', 'normal', 'high']),
-                bandwidth_parts=bandwidth_parts,
-                channel_model=random.choice(['urban', 'rural', 'suburban']),
-                velocity=random.uniform(0, 50),
-                direction=random.randint(0, 360),
-                traffic_model=random.choice(['fullbuffer', 'bursty', 'periodic']),
-                scheduling_requests=random.randint(1, 10),
-                rlc_mode=random.choice(['AM', 'UM']),
-                snr_thresholds=[random.randint(-20, 0) for _ in range(6)],
-                ho_margin=random.randint(1, 10),
-                n310=random.randint(1, 10),
-                n311=random.randint(1, 10),
-                model='generic',
-                service_type=random.choice(['video', 'game', 'voice', 'data', 'IoT'])
-            )
-            ue_id_counter += 1
+        
+        new_ue = UE(
+            ue_id=f"UE{ue_id_counter}",
+            location=random_location,
+            connected_cell_id=available_cell.ID if available_cell else None,
+            is_mobile=True,
+            initial_signal_strength=random.uniform(-120, -30),
+            rat='NR',
+            max_bandwidth=random.choice([5, 10, 15, 20]),
+            duplex_mode='TDD',
+            tx_power=random.randint(0, 23),
+            modulation=random.choice(['QPSK', '16QAM', '64QAM']),
+            coding=random.choice(['LDPC', 'Turbo']),
+            mimo='2*2',
+            processing=random.choice(['low', 'normal', 'high']),
+            bandwidth_parts=bandwidth_parts,
+            channel_model=random.choice(['urban', 'rural', 'suburban']),
+            velocity=random.uniform(0, 50),
+            direction=random.randint(0, 360),
+            traffic_model=random.choice(['fullbuffer', 'bursty', 'periodic']),
+            scheduling_requests=random.randint(1, 10),
+            rlc_mode=random.choice(['AM', 'UM']),
+            snr_thresholds=[random.randint(-20, 0) for _ in range(6)],
+            ho_margin=random.randint(1, 10),
+            n310=random.randint(1, 10),
+            n311=random.randint(1, 10),
+            model='generic',
+            service_type=random.choice(['video', 'game', 'voice', 'data', 'IoT'])
+        )
+        ue_id_counter += 1  # Increment the counter outside of any conditions
+
         if selected_gNodeB.Cells:
             selected_cell = random.choice(selected_gNodeB.Cells)
             new_ue.ConnectedCellID = selected_cell.ID
