@@ -62,7 +62,18 @@ class NetworkState:
                 'Allocated_Cells': allocated_cells
             }
         return None
-
+    def print_state(self):
+        print("Network State:")
+        print("Last Update:", self.last_update)
+        print("\ngNodeBs:")
+        for gNodeB_id, gNodeB in self.gNodeBs.items():
+            print(f"ID: {gNodeB_id}, Details: {gNodeB}")
+        print("\nCells:")
+        for cell_id, cell in self.cells.items():
+            print(f"ID: {cell_id}, Details: {cell}")
+        print("\nUEs:")
+        for ue_id, ue in self.ues.items():
+            print(f"ID: {ue_id}, Details: {ue}")
 # Usage example:
 #network_state = NetworkState()
 
