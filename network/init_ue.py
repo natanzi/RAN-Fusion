@@ -76,7 +76,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         ue = UE(**ue_data)
         
         # Assign UE to a random cell of a random gNodeB, if available
-        selected_gNodeB = random.choice(gNodeBs)
+        selected_gNodeB = random.choice(list(gNodeBs.values()))
         if hasattr(selected_gNodeB, 'Cells'):  # Correct attribute name should be used here
             selected_cell = random.choice(selected_gNodeB.Cells)
             ue.ConnectedCellID = selected_cell.ID
@@ -120,7 +120,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
 
     # Create additional UEs if needed
     for _ in range(additional_ues_needed):
-        selected_gNodeB = random.choice(gNodeBs)
+        selected_gNodeB = random.choice(list(gNodeBs.values()))
         available_cell = selected_gNodeB.find_underloaded_cell()
         if available_cell is not None:
             random_location = random_location_within_radius(
