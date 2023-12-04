@@ -13,7 +13,7 @@ class NetworkState:
 
     def update_state(self, gNodeBs, cells, ues):
         self.gNodeBs = gNodeBs
-        self.cells = cells
+        self.cells = {cell.ID: cell for cell in cells}
         self.ues = ues
         self.assign_neighbors_to_cells()
         self.last_update = datetime.datetime.now()
