@@ -22,7 +22,6 @@ def initialize_cells(gNodeBs):
 
     # Insert static cell data into the database and link cells to gNodeBs
     for cell in cells:
-        # Convert the cell object to a dictionary and remove the 'gNodeB_ID' before passing to the database
         cell_data = cell.to_dict()
         gnodeb_id = cell_data.pop('gNodeB_ID', None)
         db_manager.insert_cell_static_data(cell_data)
