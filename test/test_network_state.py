@@ -5,10 +5,6 @@ from network.network_state import NetworkState
 # Initialize the network state
 network_state = NetworkState()
 
-# Assuming gNodeBs, cells, and ues have been initialized and populated elsewhere in your code
-# You would update the network state with these dictionaries
-# network_state.update_state(gNodeBs, cells, ues)
-
 # Prompt the user to enter the UE ID
 ue_id_input = input("Please enter the UE ID like 10: ")
 
