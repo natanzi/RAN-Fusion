@@ -2,6 +2,7 @@
 import os
 import json
 import random
+import time
 import logging
 from utils.location_utils import get_nearest_gNodeB, get_ue_location_info
 from traffic.network_metrics import calculate_cell_throughput
@@ -52,7 +53,7 @@ class gNodeB:
         
         # Logging statement should be here, after all attributes are set
         logging.info(f"gNodeB '{self.ID}' has been launched with {self.CellCount} cells.")
-
+        time.sleep(1)  # Delay for 1 second
     @staticmethod
     def from_json(json_data):
         gNodeBs = []
@@ -67,6 +68,7 @@ class gNodeB:
             self.Cells.append(cell)
             print(f"Cell '{cell.ID}' has been added to gNodeB '{self.ID}'.")
             logging.info(f"Cell '{cell.ID}' has been added to gNodeB '{self.ID}'.")
+            time.sleep(1)  # Delay for 1 second
         else:
             print(f"gNodeB '{self.ID}' has reached its maximum cell capacity.")
 
