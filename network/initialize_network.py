@@ -11,11 +11,11 @@ def initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, ue_confi
     gNodeBs = initialize_gNodeBs(gNodeBs_config)
 
     # Initialize Cells with the provided configuration and link them to gNodeBs
-    cells = cells = initialize_cells(gNodeBs)
-
+    cells = initialize_cells(gNodeBs)  # Corrected the duplicate assignment here
 
     # After initializing gNodeBs and cells, initialize UEs with the provided configuration
     ues = initialize_ues(num_ues_to_launch, gNodeBs, ue_config)
+    
     # Create an instance of NetworkState
     network_state = NetworkState()
 
@@ -24,3 +24,5 @@ def initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, ue_confi
     
     # Print the network state
     network_state.print_state()
+
+    return gNodeBs, cells, ues
