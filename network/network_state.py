@@ -1,55 +1,77 @@
-#network_state.py is located in network
-# This class is for Maintain a Network State in Memory
-#network_state.py is located in network
+#This class is for Maintain a Network State in Memory
+#network_state.py is located in network import datetime
+import datetime
+
 class NetworkState:
     def __init__(self):
-        self.gNodeBs = []
+        self.gNodeBs = {}
         self.cells = {}
         self.ues = {}
+        self.last_update = datetime.datetime.min
 
     def update_state(self, gNodeBs, cells, ues):
         self.gNodeBs = gNodeBs
-        self.cells = {cell.ID: cell for gNodeB in gNodeBs for cell in gNodeB.Cells}
-        self.ues = {ue.ID: ue for ue in ues}
+        self.cells = cells
+        self.ues = ues
+        self.assign_neighbors_to_cells()
+        self.last_update = datetime.datetime.now()
 
-    def get_cell_by_gNodeB(self, gNodeB_id):
-        return [cell for cell in self.cells.values() if cell.gNodeBID == gNodeB_id]
+    def assign_neighbors_to_cells(self):
+        for gNodeB_id, gNodeB in self.gNodeBs.items():
+            cell_ids = [cell.ID for cell in gNodeB.Cells]
+            for cell in gNodeB.Cells:
+                cell.Neighbors = [neighbor_id for neighbor_id in cell_ids if neighbor_id != cell.ID]
 
-    def get_ue_by_cell(self, cell_id):
-        return [ue for ue in self.ues.values() if ue.ConnectedCellID == cell_id]
+    def get_ue_info(self, ue_id):
+        ue = self.ues.get(ue_id)
+        if ue:
+            cell_id = ue.ConnectedCellID
+            cell = self.cells.get(cell_id)
+            if cell:
+                gNodeB_id = cell.gNodeB_ID
+                neighbors = cell.Neighbors
+                return {
+                    'UE_ID': ue_id,
+                    'Cell_ID': cell_id,
+                    'gNodeB_ID': gNodeB_id,
+                    'Neighbors': neighbors
+                }
+        return None
 
-# Initialize the network state
-network_state = NetworkState()
+    def get_cell_info(self, cell_id):
+        cell = self.cells.get(cell_id)
+        if cell:
+            gNodeB_id = cell.gNodeB_ID
+            gNodeB = self.gNodeBs.get(gNodeB_id)
+            if gNodeB:
+                allocated_cells = [cell.ID for cell in gNodeB.Cells]
+                return {
+                    'gNodeB_ID': gNodeB_id,
+                    'Allocated_Cells': allocated_cells
+                }
+        return None
+
+    def get_gNodeB_last_update(self, gNodeB_id):
+        gNodeB = self.gNodeBs.get(gNodeB_id)
+        if gNodeB:
+            allocated_cells = [cell.ID for cell in gNodeB.Cells]
+            return {
+                'Last_Update': gNodeB.last_update,
+                'Allocated_Cells': allocated_cells
+            }
+        return None
+
+# Usage example:
+#network_state = NetworkState()
 
 # Update the network state after initialization or any changes
-network_state.update_state(gNodeBs, cells, ues)
+#network_state.update_state(gNodeBs, cells, ues)
 
-# Use the network state for queries
-cell_of_gNodeB = network_state.get_cell_by_gNodeB(gNodeB_id)
-ues_of_cell = network_state.get_ue_by_cell(cell_id)
-class NetworkState:
-    def __init__(self):
-        self.gNodeBs = []
-        self.cells = {}
-        self.ues = {}
+# To get the UE information including its cell and gNodeB
+#ue_info = network_state.get_ue_info('UE40')
 
-    def update_state(self, gNodeBs, cells, ues):
-        self.gNodeBs = gNodeBs
-        self.cells = {cell.ID: cell for gNodeB in gNodeBs for cell in gNodeB.Cells}
-        self.ues = {ue.ID: ue for ue in ues}
+# To get the cell information including its gNodeB and allocated cells
+#cell_info = network_state.get_cell_info('AX340T')
 
-    def get_cell_by_gNodeB(self, gNodeB_id):
-        return [cell for cell in self.cells.values() if cell.gNodeBID == gNodeB_id]
-
-    def get_ue_by_cell(self, cell_id):
-        return [ue for ue in self.ues.values() if ue.ConnectedCellID == cell_id]
-
-# Initialize the network state
-network_state = NetworkState()
-
-# Update the network state after initialization or any changes
-network_state.update_state(gNodeBs, cells, ues)
-
-# Use the network state for queries
-cell_of_gNodeB = network_state.get_cell_by_gNodeB(gNodeB_id)
-ues_of_cell = network_state.get_ue_by_cell(cell_id)
+# To get the last update of a specific gNodeB and its allocated cells
+#gNodeB_info = network_state.get_gNodeB_last_update('T240')
