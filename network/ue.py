@@ -5,6 +5,7 @@ import json
 from database.database_manager import DatabaseManager
 from .utils import random_location_within_radius
 from traffic.traffic_generator import TrafficController
+from network.network_state import NetworkState
 
 db_manager = DatabaseManager()
 
@@ -119,3 +120,8 @@ class UE:
         # Assuming new_cell is an instance of the Cell class
         self.ConnectedCellID = new_cell.ID
         new_cell.add_ue(self)
+        # Update the network state to reflect the handover
+        # TODO: Define network_state variable
+        network_state.update_state(self.gNodeBs, self.cells, self.ues)
+
+

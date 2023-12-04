@@ -9,6 +9,8 @@ from traffic.network_metrics import calculate_cell_throughput
 from network.cell import Cell
 from network.init_cell import initialize_cells
 from .init_cell import load_json_config
+from network.network_state import NetworkState
+
 def load_gNodeB_config():
     # Correct the path to point to the 'Config_files' directory
     # This assumes that 'Config_files' is a direct subdirectory of the base directory where 'main.py' is located
@@ -132,6 +134,8 @@ class gNodeB:
         if current_cell:
             current_cell.ConnectedUEs.remove(ue.ID)
         target_cell.ConnectedUEs.append(ue.ID)
+        # Update the network state to reflect the handover
+        network_state.update_state(self, target_cell, ue)
 
     def handle_load_balancing(self):
         for cell in self.Cells:
