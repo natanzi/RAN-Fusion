@@ -4,7 +4,6 @@ from .init_gNodeB import initialize_gNodeBs  # Import the new initialization fun
 from .init_cell import initialize_cells  # Import the new Cell initialization function
 from .init_ue import initialize_ues  # Import the new UE initialization function
 from .network_state import NetworkState  # Import the NetworkState class
-from .network_state import print_network_state  # Import the print_network_state function
 
 def initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, ue_config):
     # Initialize gNodeBs with the provided configuration
