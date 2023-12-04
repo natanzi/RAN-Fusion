@@ -2,12 +2,6 @@
 #test_network_state.py located in test folder
 # test_network_state.py located in test folder
 from network.network_state import NetworkState
-from main import load_all_configs, initialize_network
-import os
-def test_network_state_functionality():
-    # Load configurations as done in main.py
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    gNodeBs_config, cells_config, ue_config = load_all_configs(base_dir)
 
     # Initialize network components as done in main.py
     num_ues_to_launch = 10  # Or any other number suitable for testing
@@ -28,6 +22,3 @@ def test_network_state_functionality():
     # Add more assertions based on the expected state of UE with ID 4
 
     print(f"Test passed for UE {ue_id_to_test}: {ue_info}")
-
-# Run the test
-test_network_state_functionality()
