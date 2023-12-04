@@ -1,7 +1,9 @@
 #to insure that network state class is working
 #test_network_state.py located in test folder
 from network.network_state import NetworkState
-
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 # Assuming gNodeBs, cells, and ues have been initialized and populated elsewhere in your code
 
 def find_ue_info(ue_id):
