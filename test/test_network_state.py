@@ -11,7 +11,6 @@ def find_ue_info(ue_id):
     network_state = NetworkState()
 
     # Update the network state with the initialized components
-    # This should be done after the network has been initialized and the dictionaries have been populated
     network_state.update_state(gNodeBs, cells, ues)
 
     # Retrieve the information for UE with ID 4
