@@ -1,7 +1,5 @@
 # initialize_network.py
 # Initialization of gNodeBs, Cells, and UEs // this file located in network directory
-# initialize_network.py
-# Initialization of gNodeBs, Cells, and UEs // this file located in network directory
 from .init_gNodeB import initialize_gNodeBs  # Import the new initialization function
 from .init_cell import initialize_cells  # Import the new Cell initialization function
 from .init_ue import initialize_ues  # Import the new UE initialization function
