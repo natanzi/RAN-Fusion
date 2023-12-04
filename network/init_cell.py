@@ -26,9 +26,9 @@ def initialize_cells(gNodeBs):
         cell_data = cell.to_dict()
         gnodeb_id = cell_data.pop('gNodeB_ID', None)
         db_manager.insert_cell_static_data(cell_data)
-        for gnodeb in gNodeBs:
-            if gnodeb_id == gnodeb.ID:
-                gnodeb.add_cell_to_gNodeB(cell)  
+        for gnodeb_id, gnodeb in gNodeBs.items():
+            if cell_data['gNodeB_ID'] == gnodeb_id:  # Assuming cell_data contains 'gNodeB_ID' key
+                gnodeb.add_cell_to_gNodeB(cell) 
 
     # Close the database connection
     db_manager.close_connection()
