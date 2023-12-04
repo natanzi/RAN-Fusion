@@ -65,16 +65,22 @@ class NetworkState:
     def print_state(self):
         print("Network State:")
         print("Last Update:", self.last_update)
+
         print("\ngNodeBs:")
         for gNodeB_id, gNodeB in self.gNodeBs.items():
-            print(f"ID: {gNodeB_id}, Details: {gNodeB}")
+            print(f"ID: {gNodeB_id}")
+
         print("\nCells:")
         for cell_id, cell in self.cells.items():
-            print(f"ID: {cell_id}, Details: {cell}")
-        print("\nUEs:")
-        for ue_id, ue in self.ues.items():
-            print(f"ID: {ue_id}, Details: {ue}")
-# Usage example:
+            gNodeB = self.gNodeBs.get(cell.gNodeB_ID)
+            neighbors = ', '.join(cell.Neighbors) if hasattr(cell, 'Neighbors') and cell.Neighbors else 'None'
+            print(f"ID: {cell_id}, gNodeB: {cell.gNodeB_ID}, Neighbors: {neighbors}")
+
+    print("\nUEs:")
+    for ue_id, ue in self.ues.items():
+        cell = self.cells.get(ue.ConnectedCellID)
+        gNodeB_id = cell.gNodeB_ID if cell else 'Unknown'
+        print(f"ID: {ue_id}, Cell: {ue.ConnectedCellID}, gNodeB: {gNodeB_id}")
 #network_state = NetworkState()
 
 # Update the network state after initialization or any changes
