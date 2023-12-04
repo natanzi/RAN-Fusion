@@ -2,7 +2,6 @@
 #test_network_state.py located in test folder
 # test_network_state.py located in test folder
 from network.network_state import NetworkState
-
 # Initialize the network state
 network_state = NetworkState()
 
