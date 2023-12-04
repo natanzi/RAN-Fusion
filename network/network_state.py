@@ -1,3 +1,5 @@
+# The NetworkState class maintains the last state of a network in memory, allowing for updates and
+# retrieval of information about gNodeBs, cells, and UEs.
 #This class is for Maintain a Network State in Memory
 #network_state.py is located in network import datetime
 import datetime

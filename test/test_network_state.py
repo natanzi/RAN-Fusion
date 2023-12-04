@@ -3,22 +3,20 @@
 # test_network_state.py located in test folder
 from network.network_state import NetworkState
 
-    # Initialize network components as done in main.py
-    num_ues_to_launch = 10  # Or any other number suitable for testing
-    gNodeBs, cells, ues = initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, ue_config)
+# Initialize the network state
+network_state = NetworkState()
 
-    # Instantiate the NetworkState class
-    network_state = NetworkState()
+# Assuming gNodeBs, cells, and ues have been initialized and populated elsewhere in your code
+# You would update the network state with these dictionaries
+# network_state.update_state(gNodeBs, cells, ues)
 
-    # Update the network state with the initialized components
-    network_state.update_state(gNodeBs, cells, ues)
+# Now, you can get the UE information for UE with ID 'UE10'
+ue_info = network_state.get_ue_info('UE10')
 
-    # Test the get_ue_info method for a known UE
-    ue_id_to_test = 4  # Assuming UE with ID 4 exists
-    ue_info = network_state.get_ue_info(ue_id_to_test)
-
-    # Assert that ue_info is not None and contains expected data
-    assert ue_info is not None, "UE information should not be None"
-    # Add more assertions based on the expected state of UE with ID 4
-
-    print(f"Test passed for UE {ue_id_to_test}: {ue_info}")
+if ue_info:
+    print(f"UE ID: {ue_info['UE_ID']}")
+    print(f"Cell ID: {ue_info['Cell_ID']}")
+    print(f"gNodeB ID: {ue_info['gNodeB_ID']}")
+    print(f"Neighbor Cells: {ue_info['Neighbors']}")
+else:
+    print("UE with ID 'UE10' not found.")
