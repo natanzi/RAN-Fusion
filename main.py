@@ -33,7 +33,6 @@ def log_traffic(ues, db_manager):
             time.sleep(1)  # Logging interval
 
 def main():
-    # Load configurations
     base_dir = os.path.dirname(os.path.abspath(__file__))
     gNodeBs_config, cells_config, ue_config = load_all_configs(base_dir)
 
@@ -51,6 +50,5 @@ def main():
     logging_process.start()
 
     logging_process.join()
-
 if __name__ == "__main__":
     main()
