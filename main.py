@@ -37,10 +37,12 @@ def main():
     gNodeBs_config, cells_config, ue_config = load_all_configs(base_dir)
 
     # Specify the number of UEs to launch
-    num_ues_to_launch = 10
+    num_ues_to_launch = 20
 
     # Initialize gNodeBs, Cells, and UEs
     gNodeBs, cells, ues = initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, ue_config)
+    print(f"Number of UEs returned: {len(ues)}")
+
     time.sleep(2)
     # Initialize DatabaseManager
     db_manager = DatabaseManager()

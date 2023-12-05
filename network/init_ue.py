@@ -196,7 +196,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         # Write UE static data to the database
         db_manager.insert_ue_static_data(static_ue_data)
         ues.append(new_ue)
-
+        print(f"Number of UEs created: {len(ues)}")
         # Commit changes to the database and close the connection
         db_manager.close_connection()
 
