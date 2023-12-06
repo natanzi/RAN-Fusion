@@ -149,15 +149,24 @@ class TrafficController:
 
 # Example usage
 #traffic_controller = TrafficController()
-#traffic_controller.set_jitter(0.1)  # Enable jitter with a maximum of 0.1 seconds
-#traffic_controller.set_delay(1)  # Set a fixed delay of 1 second
-#traffic_controller.set_packet_loss_rate(0.01)  # Set a packet loss rate of 1%
 
-# Print statements can be uncommented to see the output
-# print("Voice Traffic:", voice_data, "KB, Interval:", voice_interval, "seconds")
-# print("Video Traffic:", video_data, "MB, Interval:", video_interval, "second")
-# print("Gaming Traffic:", gaming_data, "KB, Interval:", gaming_interval, "seconds")
-# print("IoT Traffic:", iot_data, "KB, Interval:", iot_interval, "seconds")
-# print("Data Traffic:", data_data, "MB, Interval:", data_interval, "seconds")
+# Update traffic parameters as needed, for example:
+#traffic_controller.update_voice_traffic_parameters(jitter=0.1, delay=1, packet_loss_rate=0.01)
+#traffic_controller.update_video_traffic_parameters(jitter=0.1, delay=1, packet_loss_rate=0.01)
+# ... and so on for other traffic types
+
+# Generate traffic and print the results
+#voice_data, voice_interval = traffic_controller.generate_voice_traffic()
+#video_data, video_interval = traffic_controller.generate_video_traffic()
+#gaming_data, gaming_interval = traffic_controller.generate_gaming_traffic()
+#iot_data, iot_interval = traffic_controller.generate_iot_traffic()
+#data_data, data_interval = traffic_controller.generate_data_traffic()
+
+# Print statements to see the output
+#print("Voice Traffic:", voice_data, "KB, Interval:", voice_interval, "seconds")
+#print("Video Traffic:", video_data, "MB, Interval:", video_interval, "second")
+#print("Gaming Traffic:", gaming_data, "KB, Interval:", gaming_interval, "seconds")
+#print("IoT Traffic:", iot_data, "KB, Interval:", iot_interval, "seconds")
+#print("Data Traffic:", data_data, "MB, Interval:", data_interval, "seconds")
 
 
