@@ -12,6 +12,9 @@ from .init_cell import load_json_config
 from network.network_state import NetworkState
 from traffic.network_metrics import calculate_cell_load
 from time import sleep
+from handover import handover_decision, perform_handover
+from handover import handover_decision, perform_handover, handle_load_balancing, handle_qos_based_handover
+from handover import handover_decision  # Import the handover function from handover.py
 
 # Set up logging
 logging.basicConfig(filename='cell_load.log', level=logging.INFO)
@@ -136,14 +139,15 @@ class gNodeB:
             print(f"No cell with ID {cell_id} found in gNodeB with ID {self.ID}")
             return
         
-        # Attempt to handover UEs to other cells
+        # Attempt to handover UEs to other cells using the handover function from handover.py
         for ue_id in cell_to_delete.ConnectedUEs:
-            # Find a UE object by its ID (assuming a method exists to find a UE by ID)
             ue = self.find_ue_by_id(ue_id)
             if ue:
-                new_cell = self.handover_decision(ue)
+                # Use the handover function from handover.py to make a handover decision
+                new_cell = handover_decision(ue, self.Cells)  # Assuming handover_decision takes a UE and a list of Cells
                 if new_cell:
-                    self.perform_handover(ue, new_cell)
+                    # Perform handover to the new cell using the perform_handover method from ue.py
+                    ue.perform_handover(new_cell)
                 else:
                     print(f"No available cell for UE with ID {ue.ID} to handover.")
         
