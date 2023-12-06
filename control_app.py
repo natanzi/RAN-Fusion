@@ -21,31 +21,47 @@ def update_video_traffic():
     data = request.json
     num_streams_range = data.get('num_streams_range')
     stream_bitrate_range = data.get('stream_bitrate_range')
+    jitter = data.get('jitter')
+    delay = data.get('delay')
+    packet_loss_rate = data.get('packet_loss_rate')
     traffic_controller.update_video_traffic(num_streams_range, stream_bitrate_range)
-    return {'message': 'Video traffic updated successfully'}, 200
+    traffic_controller.update_video_traffic_parameters(jitter, delay, packet_loss_rate)
+    return {'message': 'Video traffic parameters updated successfully'}, 200
 
 @app.route('/update_gaming_traffic', methods=['POST'])
 def update_gaming_traffic():
     data = request.json
     bitrate_range = data.get('bitrate_range')
+    jitter = data.get('jitter')
+    delay = data.get('delay')
+    packet_loss_rate = data.get('packet_loss_rate')
     traffic_controller.update_gaming_traffic(bitrate_range)
-    return {'message': 'Gaming traffic updated successfully'}, 200
+    traffic_controller.update_gaming_traffic_parameters(jitter, delay, packet_loss_rate)
+    return {'message': 'Gaming traffic parameters updated successfully'}, 200
 
 @app.route('/update_iot_traffic', methods=['POST'])
 def update_iot_traffic():
     data = request.json
     packet_size_range = data.get('packet_size_range')
     interval_range = data.get('interval_range')
+    jitter = data.get('jitter')
+    delay = data.get('delay')
+    packet_loss_rate = data.get('packet_loss_rate')
     traffic_controller.update_iot_traffic(packet_size_range, interval_range)
-    return {'message': 'IoT traffic updated successfully'}, 200
+    traffic_controller.update_iot_traffic_parameters(jitter, delay, packet_loss_rate)
+    return {'message': 'IoT traffic parameters updated successfully'}, 200
 
 @app.route('/update_data_traffic', methods=['POST'])
 def update_data_traffic():
     data = request.json
     bitrate_range = data.get('bitrate_range')
     interval_range = data.get('interval_range')
+    jitter = data.get('jitter')
+    delay = data.get('delay')
+    packet_loss_rate = data.get('packet_loss_rate')
     traffic_controller.update_data_traffic(bitrate_range, interval_range)
-    return {'message': 'Data traffic updated successfully'}, 200
+    traffic_controller.update_data_traffic_parameters(jitter, delay, packet_loss_rate)
+    return {'message': 'Data traffic parameters updated successfully'}, 200
 
 if __name__ == '__main__':
     app.run(debug=True)
