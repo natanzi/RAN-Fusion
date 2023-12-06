@@ -3,7 +3,26 @@ from network.cell import Cell
 from network.network_state import NetworkState
 from traffic.network_metrics import calculate_cell_throughput, calculate_cell_load
 import logging
+###################################################Handover Decision Logic###################
+def handle_load_balancing(gnodeb, calculate_cell_load, find_underloaded_cell, select_ues_for_load_balancing):
+    for cell in gnodeb.Cells:
+        if calculate_cell_load(cell) > 0.8:  # If cell load is over 80%
+            underloaded_cell = find_underloaded_cell(gnodeb)
+            if underloaded_cell:
+                selected_ues = select_ues_for_load_balancing(cell)
+                for ue in selected_ues:
+                    perform_handover(gnodeb, ue, underloaded_cell)
 
+def handle_qos_based_handover(gnodeb, all_ues, find_cell_by_id):
+    for ue in all_ues(gnodeb):  # Assuming all_ues method returns all UEs in the gNodeB
+        current_cell = find_cell_by_id(gnodeb, ue.ConnectedCellID)
+        if current_cell and not current_cell.can_provide_gbr(ue):
+            for cell in gnodeb.Cells:
+                if cell != current_cell and cell.can_provide_gbr(ue):
+                    perform_handover(gnodeb, ue, cell)
+                    break
+#################################################################################################
+#################################################Handover Execution###############################
 def handover_decision(gnodeb_instance, ue, target_cell):
     # Placeholder logic for deciding if a handover is needed
     current_cell = next((cell for cell in gnodeb.Cells if cell.ID == ue.ConnectedCellID), None)

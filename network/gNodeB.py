@@ -73,55 +73,7 @@ class gNodeB:
             gnodeb = gNodeB(**item)  # Unpack the dictionary directly
             gNodeBs.append(gnodeb)
         return gNodeBs
-
-    def add_cell_to_gNodeB(self, cell):
-    # Assuming 'cell' is an instance of Cell
-        if len(self.Cells) < self.CellCount:  # Use CellCount to check the capacity for cells
-            self.Cells.append(cell)
-            print(f"Cell '{cell.ID}' has been added to gNodeB '{self.ID}'.")
-            logging.info(f"Cell '{cell.ID}' has been added to gNodeB '{self.ID}'.")
-            time.sleep(1)  # Delay for 1 second
-        else:
-            print(f"gNodeB '{self.ID}' has reached its maximum cell capacity.")
-
-    # Update the database if necessary
-    # db_manager = DatabaseManager()
-    # db_manager.insert_cell_static_data(cell.to_dict())
-    # db_manager.close_connection()
-
-    # Update the list of available cells if there's such a function
-    # update_available_cells_list(cell)
-
-    def calculate_cell_load(self, cell):
-        # Calculate the load based on the number of connected UEs
-        ue_based_load = len(cell.ConnectedUEs) / cell.MaxConnectedUEs if cell.MaxConnectedUEs > 0 else 0
-        
-        # Calculate the load based on the throughput
-        throughput_based_load = calculate_cell_throughput(cell, [self])  # Assuming 'self' is the only gNodeB for simplicity
-        
-        # Combine the UE-based load and throughput-based load for a more accurate load calculation
-        # The weights (0.5 in this case) can be adjusted based on which factor is deemed more important
-        combined_load = (0.5 * ue_based_load) + (0.5 * throughput_based_load)
-        
-        return combined_load
-
-    def find_underloaded_cell(self):
-        # Find a cell with load below a certain threshold, e.g., 50%
-        for cell in self.Cells:
-            if self.calculate_cell_load(cell) < 0.5:
-                return cell
-        return None
-
-    def select_ues_for_load_balancing(self, overloaded_cell):
-        # Select UEs to handover based on criteria like service type, data usage, etc.
-        # Placeholder logic: Select a subset of UEs from the overloaded cell
-        return overloaded_cell.ConnectedUEs[:len(overloaded_cell.ConnectedUEs) // 2]
-
-    def update(self):
-        # Call this method regularly to update handover decisions
-        self.handle_load_balancing()
-        self.handle_qos_based_handover()
-
+##################################################Cell and UE Management##########################
     def find_ue_by_id(self, ue_id):
         # Assuming self.all_ues is a method that returns a list of all UE objects
         for ue in self.all_ues():
@@ -186,6 +138,62 @@ class gNodeB:
         
         # Log the change
         logging.info(f"gNodeB '{self.ID}' cell capacity updated to {self.CellCount}.")
+
+    def add_cell_to_gNodeB(self, cell):
+    # Assuming 'cell' is an instance of Cell
+        if len(self.Cells) < self.CellCount:  # Use CellCount to check the capacity for cells
+            self.Cells.append(cell)
+            print(f"Cell '{cell.ID}' has been added to gNodeB '{self.ID}'.")
+            logging.info(f"Cell '{cell.ID}' has been added to gNodeB '{self.ID}'.")
+            time.sleep(1)  # Delay for 1 second
+        else:
+            print(f"gNodeB '{self.ID}' has reached its maximum cell capacity.")
+##################################################################################################
+#####################################Load Calculation#############################################
+    def calculate_cell_load(self, cell):
+        # Calculate the load based on the number of connected UEs
+        ue_based_load = len(cell.ConnectedUEs) / cell.MaxConnectedUEs if cell.MaxConnectedUEs > 0 else 0
+        
+        # Calculate the load based on the throughput
+        throughput_based_load = calculate_cell_throughput(cell, [self])  # Assuming 'self' is the only gNodeB for simplicity
+        
+        # Combine the UE-based load and throughput-based load for a more accurate load calculation
+        # The weights (0.5 in this case) can be adjusted based on which factor is deemed more important
+        combined_load = (0.5 * ue_based_load) + (0.5 * throughput_based_load)
+        
+        return combined_load
+
+    def find_underloaded_cell(self):
+        # Find a cell with load below a certain threshold, e.g., 50%
+        for cell in self.Cells:
+            if self.calculate_cell_load(cell) < 0.5:
+                return cell
+        return None
+
+    def select_ues_for_load_balancing(self, overloaded_cell):
+        # Select UEs to handover based on criteria like service type, data usage, etc.
+        # Placeholder logic: Select a subset of UEs from the overloaded cell
+        return overloaded_cell.ConnectedUEs[:len(overloaded_cell.ConnectedUEs) // 2]
+
+######################################################################################################
+#######################################Periodic Updates###############################################
+    def update(self):
+        # Call this method regularly to update handover decisions
+        self.handle_load_balancing()
+        self.handle_qos_based_handover()
+######################################################################################################
+
+    # Update the database if necessary
+    # db_manager = DatabaseManager()
+    # db_manager.insert_cell_static_data(cell.to_dict())
+    # db_manager.close_connection()
+
+    # Update the list of available cells if there's such a function
+    # update_available_cells_list(cell)
+
+    
+
+    
         
         # Update the database with the new capacity
         # Assuming the DatabaseManager has a method named 'update_gNodeB_cell_capacity'
