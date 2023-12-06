@@ -174,6 +174,29 @@ class gNodeB:
         # Select UEs to handover based on criteria like service type, data usage, etc.
         # Placeholder logic: Select a subset of UEs from the overloaded cell
         return overloaded_cell.ConnectedUEs[:len(overloaded_cell.ConnectedUEs) // 2]
+    
+    def find_available_cell(self, target_ue):
+        """
+        Finds the best available cell for a UE to handover to based on the cell load and other criteria.
+
+        :param target_ue: The UE object that needs to be handed over.
+        :return: The best target cell for handover or None if no suitable cell is found.
+        """
+        best_cell = None
+        lowest_load = float('inf')
+
+        # Iterate over all cells to find the one with the lowest load that is underloaded
+        for cell in self.Cells:
+            cell_load = self.calculate_cell_load(cell)
+
+            # Check if the cell is underloaded and has a lower load than the current best cell
+            if cell_load < 0.5 and cell_load < lowest_load:
+                # Here you can add additional criteria for handover, such as signal quality, etc.
+                # For now, we only check if the cell is underloaded and has the lowest load
+                best_cell = cell
+                lowest_load = cell_load
+
+        return best_cell
 
 ######################################################################################################
 #######################################Periodic Updates###############################################
