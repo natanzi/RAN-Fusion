@@ -97,31 +97,7 @@ class gNodeB:
             if new_cell:
                 return new_cell
         return None
-
-    def perform_handover(self, ue):
-        new_cell = self.handover_decision(ue)
-        handover_successful = False  # Initialize the success flag
-
-        if new_cell:
-            # Attempt to update the UE's connected cell
-            handover_successful = ue.perform_handover(new_cell.ID)
-
-            if handover_successful:
-                # Update the cell's connected UEs
-                current_cell = next((cell for cell in self.Cells if cell.ID == ue.ConnectedCellID), None)
-                if current_cell:
-                    current_cell.ConnectedUEs.remove(ue.ID)
-                new_cell.ConnectedUEs.append(ue.ID)
-
-        # Update handover success and failure counts
-        if handover_successful:
-            self.handover_success_count += 1
-        else:
-            self.handover_failure_count += 1
-
-        # Return the handover outcome
-        return handover_successful
-            
+        
     def calculate_cell_load(self, cell):
         # Calculate the load based on the number of connected UEs
         ue_based_load = len(cell.ConnectedUEs) / cell.MaxConnectedUEs if cell.MaxConnectedUEs > 0 else 0
@@ -147,15 +123,34 @@ class gNodeB:
         # Placeholder logic: Select a subset of UEs from the overloaded cell
         return overloaded_cell.ConnectedUEs[:len(overloaded_cell.ConnectedUEs) // 2]
 
-    def perform_handover(self, ue, target_cell):
-        # Implement the handover logic
-        ue.perform_handover(target_cell.ID)
-        current_cell = next((cell for cell in self.Cells if cell.ID == ue.ConnectedCellID), None)
-        if current_cell:
-            current_cell.ConnectedUEs.remove(ue.ID)
-        target_cell.ConnectedUEs.append(ue.ID)
-        # Update the network state to reflect the handover
-        network_state.update_state(self, target_cell, ue)
+    def perform_handover(self, ue, target_cell=None):
+        handover_successful = False  # Initialize the success flag
+
+        # If a target cell is not specified, decide on the new cell
+        if target_cell is None:
+            target_cell = self.handover_decision(ue)
+
+        if target_cell:
+            # Perform the handover to the target cell
+            handover_successful = ue.perform_handover(target_cell.ID)
+
+            if handover_successful:
+                # Update the cell's connected UEs
+                current_cell = next((cell for cell in self.Cells if cell.ID == ue.ConnectedCellID), None)
+                if current_cell:
+                    current_cell.ConnectedUEs.remove(ue.ID)
+                target_cell.ConnectedUEs.append(ue.ID)
+                # Update the network state to reflect the handover
+                network_state.update_state(self, target_cell, ue)
+
+        # Update handover success and failure counts
+        if handover_successful:
+            self.handover_success_count += 1
+        else:
+            self.handover_failure_count += 1
+
+        # Return the handover outcome
+        return handover_successful
 
     def handle_load_balancing(self):
         for cell in self.Cells:
