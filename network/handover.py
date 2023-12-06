@@ -21,36 +21,37 @@ def handle_qos_based_handover(gnodeb, all_ues, find_cell_by_id):
                 if cell != current_cell and cell.can_provide_gbr(ue):
                     perform_handover(gnodeb, ue, cell)
                     break
-#################################################################################################
+##################################################################################################
 #################################################Handover Execution###############################
-def handover_decision(gnodeb_instance, ue, target_cell):
+def handover_decision(gnodeb_instance, ue, cells):
     # Placeholder logic for deciding if a handover is needed
-    current_cell = next((cell for cell in gnodeb.Cells if cell.ID == ue.ConnectedCellID), None)
-    if current_cell and not check_cell_capacity(current_cell):
-        new_cell = find_available_cell(gnodeb)
+    current_cell = next((cell for cell in gnodeb_instance.Cells if cell.ID == ue.ConnectedCellID), None)
+    if current_cell and not current_cell.check_capacity():  # Assuming check_capacity is a method of Cell
+        new_cell = find_available_cell(gnodeb_instance, ue)  # Assuming find_available_cell is a method of gNodeB
         if new_cell:
             return new_cell
     return None
 
-def perform_handover(gnodeb, ue, network_state, target_cell=None):
+def perform_handover(gnodeb, ue, target_cell=None):
+    network_state = NetworkState()  # Assuming NetworkState is instantiated here or passed as an argument
     handover_successful = False  # Initialize the success flag
 
     # If a target cell is not specified, decide on the new cell
     if target_cell is None:
-        target_cell = handover_decision(gnodeb, ue, gnodeb.find_available_cell, gnodeb.check_cell_capacity)
+        target_cell = handover_decision(gnodeb, ue, gnodeb.Cells)
 
     if target_cell:
         # Perform the handover to the target cell
-        handover_successful = ue.perform_handover(target_cell)
+        handover_successful = ue.perform_handover(target_cell)  # Assuming perform_handover is a method of UE
 
         if handover_successful:
             # Update the cell's connected UEs
             current_cell = next((cell for cell in gnodeb.Cells if cell.ID == ue.ConnectedCellID), None)
             if current_cell:
-                current_cell.ConnectedUEs.remove(ue)
-            target_cell.ConnectedUEs.append(ue)
+                current_cell.ConnectedUEs.remove(ue.ID)  # Assuming ConnectedUEs holds UE IDs
+            target_cell.ConnectedUEs.append(ue.ID)
             # Update the network state to reflect the handover
-            network_state.update_state(gnodeb, target_cell, ue)
+            network_state.update_state(gnodeb, target_cell, ue)  # Assuming update_state is a method of NetworkState
 
     # Update handover success and failure counts
     if handover_successful:
@@ -61,7 +62,7 @@ def perform_handover(gnodeb, ue, network_state, target_cell=None):
     # Return the handover outcome
     return handover_successful
 
-def monitor_and_log_cell_load(gnodeb, calculate_cell_load, logging):
+def monitor_and_log_cell_load(gnodeb):
     for cell in gnodeb.Cells:
         cell_load_percentage = calculate_cell_load(cell)
 
