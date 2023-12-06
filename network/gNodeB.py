@@ -236,7 +236,6 @@ class gNodeB:
     def monitor_and_log_cell_load(self):
         while True:  # Replace with a condition to stop monitoring when needed
             for cell in self.Cells:
-                # Calculate the cell load using the calculate_cell_load function
                 cell_load_percentage = calculate_cell_load(cell.ID, [self])
                 
                 # Log the cell load
