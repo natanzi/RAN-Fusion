@@ -47,6 +47,8 @@ class gNodeB:
         self.BlacklistedCells = BlacklistedCells
         self.LoadBalancingOffset = loadBalancingOffset
         self.CellIds = cellIds
+        self.handover_success_count = 0
+        self.handover_failure_count = 0
 
         # Handle any additional keyword arguments
         for key, value in kwargs.items():
@@ -93,14 +95,27 @@ class gNodeB:
 
     def perform_handover(self, ue):
         new_cell = self.handover_decision(ue)
+        handover_successful = False  # Initialize the success flag
+
         if new_cell:
-            # Update the UE's connected cell
-            ue.perform_handover(new_cell.ID)
-            # Update the cell's connected UEs
-            current_cell = next((cell for cell in self.Cells if cell.ID == ue.ConnectedCellID), None)
-            if current_cell:
-                current_cell.ConnectedUEs.remove(ue.ID)
-            new_cell.ConnectedUEs.append(ue.ID)
+            # Attempt to update the UE's connected cell
+            handover_successful = ue.perform_handover(new_cell.ID)
+
+            if handover_successful:
+                # Update the cell's connected UEs
+                current_cell = next((cell for cell in self.Cells if cell.ID == ue.ConnectedCellID), None)
+                if current_cell:
+                    current_cell.ConnectedUEs.remove(ue.ID)
+                new_cell.ConnectedUEs.append(ue.ID)
+
+        # Update handover success and failure counts
+        if handover_successful:
+            self.handover_success_count += 1
+        else:
+            self.handover_failure_count += 1
+
+        # Return the handover outcome
+        return handover_successful
             
     def calculate_cell_load(self, cell):
         # Calculate the load based on the number of connected UEs
