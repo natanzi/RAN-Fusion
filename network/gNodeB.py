@@ -89,14 +89,7 @@ class gNodeB:
     # Update the list of available cells if there's such a function
     # update_available_cells_list(cell)
 
-    def handover_decision(self, ue):
-        # Placeholder logic for deciding if a handover is needed
-        current_cell = next((cell for cell in self.Cells if cell.ID == ue.ConnectedCellID), None)
-        if current_cell and not self.check_cell_capacity(current_cell):
-            new_cell = self.find_available_cell()
-            if new_cell:
-                return new_cell
-        return None
+    
         
     def calculate_cell_load(self, cell):
         # Calculate the load based on the number of connected UEs
