@@ -234,17 +234,21 @@ class gNodeB:
         return next((cell for cell in self.Cells if cell.ID == cell_id), None)
         
     def monitor_and_log_cell_load(self):
-        while True:  # Replace with a condition to stop monitoring when needed
+        while True:
             for cell in self.Cells:
                 cell_load_percentage = calculate_cell_load(cell.ID, [self])
-                
-                # Log the cell load
+            
+                # Log the cell load percentage
                 logging.info(f'Cell {cell.ID} Load: {cell_load_percentage}%')
 
                 # Check if the cell load exceeds the congestion threshold
                 if cell_load_percentage > 80:  # Assuming 80% is the congestion threshold
-                    print(f"Cell {cell.ID} is congested with a load of {cell_load_percentage}%.")
-                    # Here you can also trigger load balancing or other mitigation actions
+                    # Print and log the congestion message
+                    congestion_message = f"Cell {cell.ID} is congested with a load of {cell_load_percentage}%."
+                    print(congestion_message)
+                    logging.warning(congestion_message)
+                    # Trigger load balancing
+                    self.handle_load_balancing()
 
             time.sleep(20)  # Wait for 20 seconds before the next check
 
