@@ -42,24 +42,6 @@ def perform_handover(gnodeb, ue, network_state, target_cell=None):
     # Return the handover outcome
     return handover_successful
 
-def handle_load_balancing(gnodeb, calculate_cell_load, find_underloaded_cell, select_ues_for_load_balancing):
-    for cell in gnodeb.Cells:
-        if calculate_cell_load(cell) > 0.8:  # If cell load is over 80%
-            underloaded_cell = find_underloaded_cell(gnodeb)
-            if underloaded_cell:
-                selected_ues = select_ues_for_load_balancing(cell)
-                for ue in selected_ues:
-                    perform_handover(gnodeb, ue, underloaded_cell)
-
-def handle_qos_based_handover(gnodeb, all_ues, find_cell_by_id):
-    for ue in all_ues(gnodeb):  # Assuming all_ues method returns all UEs in the gNodeB
-        current_cell = find_cell_by_id(gnodeb, ue.ConnectedCellID)
-        if current_cell and not current_cell.can_provide_gbr(ue):
-            for cell in gnodeb.Cells:
-                if cell != current_cell and cell.can_provide_gbr(ue):
-                    perform_handover(gnodeb, ue, cell)
-                    break
-
 def monitor_and_log_cell_load(gnodeb, calculate_cell_load, logging):
     for cell in gnodeb.Cells:
         cell_load_percentage = calculate_cell_load(cell)
