@@ -10,6 +10,11 @@ from network.cell import Cell
 from network.init_cell import initialize_cells
 from .init_cell import load_json_config
 from network.network_state import NetworkState
+from traffic.network_metrics import calculate_cell_load
+from time import sleep
+
+# Set up logging
+logging.basicConfig(filename='cell_load.log', level=logging.INFO)
 
 def load_gNodeB_config():
     # Correct the path to point to the 'Config_files' directory
@@ -228,6 +233,22 @@ class gNodeB:
         """
         return next((cell for cell in self.Cells if cell.ID == cell_id), None)
         
+    def monitor_and_log_cell_load(self):
+        while True:  # Replace with a condition to stop monitoring when needed
+            for cell in self.Cells:
+                # Calculate the cell load using the calculate_cell_load function
+                cell_load_percentage = calculate_cell_load(cell.ID, [self])
+                
+                # Log the cell load
+                logging.info(f'Cell {cell.ID} Load: {cell_load_percentage}%')
+
+                # Check if the cell load exceeds the congestion threshold
+                if cell_load_percentage > 80:  # Assuming 80% is the congestion threshold
+                    print(f"Cell {cell.ID} is congested with a load of {cell_load_percentage}%.")
+                    # Here you can also trigger load balancing or other mitigation actions
+
+            time.sleep(20)  # Wait for 20 seconds before the next check
+
     def update_cell_capacity(self, new_capacity):
         # Check if the new capacity is valid
         if new_capacity < 0:
