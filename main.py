@@ -5,10 +5,10 @@ from network.initialize_network import initialize_network
 from Config_files.config_load import load_all_configs
 from database.database_manager import DatabaseManager
 import logging
-#from logo import create_logo
+from logo import create_logo
 
-#logo_text = create_logo()
-#print(logo_text)
+logo_text = create_logo()
+print(logo_text)
 
 # At the beginning of your script
 logging.basicConfig(level=logging.INFO)
