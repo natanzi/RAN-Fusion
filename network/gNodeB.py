@@ -92,8 +92,6 @@ class gNodeB:
     # Update the list of available cells if there's such a function
     # update_available_cells_list(cell)
 
-    
-        
     def calculate_cell_load(self, cell):
         # Calculate the load based on the number of connected UEs
         ue_based_load = len(cell.ConnectedUEs) / cell.MaxConnectedUEs if cell.MaxConnectedUEs > 0 else 0
