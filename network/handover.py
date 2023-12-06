@@ -4,7 +4,7 @@ from network.network_state import NetworkState
 from traffic.network_metrics import calculate_cell_throughput, calculate_cell_load
 import logging
 
-def handover_decision(gnodeb, ue, find_available_cell, check_cell_capacity):
+def handover_decision(gnodeb_instance, ue, target_cell):
     # Placeholder logic for deciding if a handover is needed
     current_cell = next((cell for cell in gnodeb.Cells if cell.ID == ue.ConnectedCellID), None)
     if current_cell and not check_cell_capacity(current_cell):
