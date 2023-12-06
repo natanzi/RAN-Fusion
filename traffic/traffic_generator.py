@@ -77,7 +77,6 @@ class TrafficController:
         self.data_traffic_params['interval'] = interval_range    
 
     # Traffic generation methods with conditional application of jitter, delay, and packet loss
-    #jitter, delay, and packet_loss_rate are optional features that are disabled by default. They can be enabled and configured using the set_jitter, set_delay, and set_packet_loss_rate methods. The traffic generation methods have been updated to apply these features conditionally.
     def generate_voice_traffic(self):
         time.sleep(self.voice_delay)  # Use voice-specific delay
         jitter = random.uniform(0, self.voice_jitter) if self.voice_jitter > 0 else 0
@@ -95,52 +94,57 @@ class TrafficController:
         return data_size, interval
 
     def generate_video_traffic(self):
-        jitter = random.uniform(*self.jitter_range) if self.jitter_range != (0, 0) else 0
-        time.sleep(self.delay + jitter)  # Apply jitter to the delay
+        time.sleep(self.video_delay)  # Use video-specific delay
+        jitter = random.uniform(0, self.video_jitter) if self.video_jitter > 0 else 0
         num_streams = random.randint(*self.video_traffic_params['num_streams'])
         data_size = 0
         interval = 1
         for _ in range(num_streams):
             stream_bitrate = random.uniform(*self.video_traffic_params['stream_bitrate']) * 1024
-            # Simulate packet loss
-            if random.random() >= self.packet_loss_rate:
-                data_size += (stream_bitrate * interval) / 8
+        # Apply jitter
+            time.sleep(jitter)
+        # Simulate packet loss
+            if random.random() < self.video_packet_loss_rate:
+                continue  # Skip this stream due to packet loss
+            data_size += (stream_bitrate * interval) / 8
         return data_size, interval
 
     def generate_gaming_traffic(self):
-        jitter = random.uniform(*self.jitter_range) if self.jitter_range != (0, 0) else 0
-        time.sleep(self.delay + jitter)  # Apply jitter to the delay
+        time.sleep(self.gaming_delay)  # Use gaming-specific delay
+        jitter = random.uniform(0, self.gaming_jitter) if self.gaming_jitter > 0 else 0
         bitrate = random.uniform(*self.gaming_traffic_params['bitrate'])
         interval = 0.1
         data_size = (bitrate * interval) / 8 / 1000
+        # Apply jitter
+        time.sleep(jitter)
         # Simulate packet loss
-        if random.random() < self.packet_loss_rate:
+        if random.random() < self.gaming_packet_loss_rate:
             data_size = 0  # Packet is lost
         return data_size, interval
     
     def generate_iot_traffic(self):
-        jitter = random.uniform(0, self.jitter) if self.jitter > 0 else 0
-        time.sleep(self.delay + jitter)  # Apply jitter to the delay
+        time.sleep(self.iot_delay)  # Use IoT-specific delay
+        jitter = random.uniform(0, self.iot_jitter) if self.iot_jitter > 0 else 0
         data_size = random.randint(*self.iot_traffic_params['packet_size'])
         interval = random.uniform(*self.iot_traffic_params['interval'])
-    
+        # Apply jitter
+        time.sleep(jitter)
         # Simulate packet loss
-        if random.random() < self.packet_loss_rate:
+        if random.random() < self.iot_packet_loss_rate:
             data_size = 0  # Packet is lost
-    
         return data_size, interval
 
     def generate_data_traffic(self):
-        jitter = random.uniform(0, self.jitter) if self.jitter > 0 else 0
-        time.sleep(self.delay + jitter)  # Apply jitter to the delay
+        time.sleep(self.data_delay)  # Use data-specific delay
+        jitter = random.uniform(0, self.data_jitter) if self.data_jitter > 0 else 0
         bitrate = random.uniform(*self.data_traffic_params['bitrate']) * 1024
         interval = random.uniform(*self.data_traffic_params['interval'])
         data_size = (bitrate * interval) / 8
-    
+        # Apply jitter
+        time.sleep(jitter)
         # Simulate packet loss
-        if random.random() < self.packet_loss_rate:
+        if random.random() < self.data_packet_loss_rate:
             data_size = 0  # Packet is lost
-    
         return data_size, interval
 
 # Example usage with delay
