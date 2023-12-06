@@ -12,7 +12,6 @@ from .init_cell import load_json_config
 from network.network_state import NetworkState
 from traffic.network_metrics import calculate_cell_load
 from time import sleep
-from handover import handover_decision, perform_handover
 from handover import handover_decision, perform_handover, handle_load_balancing, handle_qos_based_handover
 from handover import handover_decision  # Import the handover function from handover.py
 
