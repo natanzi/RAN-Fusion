@@ -3,6 +3,9 @@ from network.cell import Cell
 from network.network_state import NetworkState
 from traffic.network_metrics import calculate_cell_throughput, calculate_cell_load
 import logging
+from network.gNodeB import gNodeB
+
+
 ###################################################Handover Decision Logic###################
 def handle_load_balancing(gnodeb, calculate_cell_load, find_underloaded_cell, select_ues_for_load_balancing):
     for cell in gnodeb.Cells:
@@ -27,7 +30,7 @@ def handover_decision(gnodeb_instance, ue, cells):
     # Placeholder logic for deciding if a handover is needed
     current_cell = next((cell for cell in gnodeb_instance.Cells if cell.ID == ue.ConnectedCellID), None)
     if current_cell and not current_cell.check_capacity():  # Assuming check_capacity is a method of Cell
-        new_cell = find_available_cell(gnodeb_instance, ue)  # Assuming find_available_cell is a method of gNodeB
+        new_cell = gnodeb_instance.find_available_cell(ue)  # Correctly call the method on the gNodeB instance
         if new_cell:
             return new_cell
     return None
