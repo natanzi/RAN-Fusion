@@ -12,7 +12,7 @@ from .init_cell import load_json_config
 from network.network_state import NetworkState
 from traffic.network_metrics import calculate_cell_load
 from time import sleep
-from .handover import handover_decision, perform_handover, handle_load_balancing, handle_qos_based_handover
+from .handover_utils import handover_decision, perform_handover
 
 # Set up logging
 logging.basicConfig(filename='cell_load.log', level=logging.INFO)

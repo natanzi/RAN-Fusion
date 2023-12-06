@@ -4,6 +4,7 @@ from network.network_state import NetworkState
 from traffic.network_metrics import calculate_cell_throughput, calculate_cell_load
 import logging
 from network.gNodeB import gNodeB
+from .handover_utils import handover_decision, perform_handover
 
 
 ###################################################Handover Decision Logic###################
