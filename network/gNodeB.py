@@ -14,6 +14,7 @@ from traffic.network_metrics import calculate_cell_load
 from time import sleep
 from handover import handover_decision, perform_handover, handle_load_balancing, handle_qos_based_handover
 from handover import handover_decision  # Import the handover function from handover.py
+from .handover import handover_decision, perform_handover
 
 # Set up logging
 logging.basicConfig(filename='cell_load.log', level=logging.INFO)
