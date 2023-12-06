@@ -121,5 +121,5 @@ class UE:
         self.ConnectedCellID = new_cell.ID
         new_cell.add_ue(self)
         # Update the network state to reflect the handover
-        # TODO: Define network_state variable
+        network_state = NetworkState() 
         network_state.update_state(self.gNodeBs, self.cells, self.ues)
