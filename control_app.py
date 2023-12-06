@@ -9,8 +9,12 @@ traffic_controller = TrafficController()
 def update_voice_traffic():
     data = request.json
     bitrate_range = data.get('bitrate_range')
+    jitter = data.get('jitter')
+    delay = data.get('delay')
+    packet_loss_rate = data.get('packet_loss_rate')
     traffic_controller.update_voice_traffic(bitrate_range)
-    return {'message': 'Voice traffic updated successfully'}, 200
+    traffic_controller.update_voice_traffic_parameters(jitter, delay, packet_loss_rate)
+    return {'message': 'Voice traffic parameters updated successfully'}, 200
 
 @app.route('/update_video_traffic', methods=['POST'])
 def update_video_traffic():
