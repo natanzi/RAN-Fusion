@@ -1,7 +1,7 @@
 #Functions for generating different types of traffic (voice, video, gaming, IoT).
 #traffic_generator.py in traffic folder
 import random
-
+import time
 class TrafficController:
     def __init__(self):
         # Initialize default traffic parameters
@@ -30,12 +30,14 @@ class TrafficController:
         self.data_traffic_params['interval'] = interval_range    
 
     def generate_voice_traffic(self):
+        time.sleep(delay)  # Delay in seconds
         bitrate = random.uniform(*self.voice_traffic_params['bitrate'])
         interval = 0.02
         data_size = (bitrate * interval) / 8 / 1000
         return data_size, interval
 
     def generate_video_traffic(self):
+        time.sleep(delay)  # Delay in seconds
         num_streams = random.randint(*self.video_traffic_params['num_streams'])
         data_size = 0
         interval = 1
@@ -45,34 +47,38 @@ class TrafficController:
         return data_size, interval
 
     def generate_gaming_traffic(self):
+        time.sleep(delay)  # Delay in seconds
         bitrate = random.uniform(*self.gaming_traffic_params['bitrate'])
         interval = 0.1
         data_size = (bitrate * interval) / 8 / 1000
         return data_size, interval
 
     def generate_iot_traffic(self):
+        time.sleep(delay)  # Delay in seconds
         data_size = random.randint(*self.iot_traffic_params['packet_size'])
         interval = random.uniform(*self.iot_traffic_params['interval'])
         return data_size, interval
 
     def generate_data_traffic(self):
+        time.sleep(delay)  # Delay in seconds
         bitrate = random.uniform(*self.data_traffic_params['bitrate']) * 1024
         interval = random.uniform(*self.data_traffic_params['interval'])
         data_size = (bitrate * interval) / 8
         return data_size, interval
 
-# Example usage
-traffic_controller = TrafficController()
-voice_data, voice_interval = traffic_controller.generate_voice_traffic()
-video_data, video_interval = traffic_controller.generate_video_traffic()
-gaming_data, gaming_interval = traffic_controller.generate_gaming_traffic()
-iot_data, iot_interval = traffic_controller.generate_iot_traffic()
-data_data, data_interval = traffic_controller.generate_data_traffic()
+# Example usage with delay
+#traffic_controller = TrafficController()
+#voice_data, voice_interval = traffic_controller.generate_voice_traffic(delay=1)  # 1 second delay
+#video_data, video_interval = traffic_controller.generate_video_traffic(delay=1)  # 1 second delay
+#gaming_data, gaming_interval = traffic_controller.generate_gaming_traffic(delay=1)  # 1 second delay
+#iot_data, iot_interval = traffic_controller.generate_iot_traffic(delay=1)  # 1 second delay
+#data_data, data_interval = traffic_controller.generate_data_traffic(delay=1)  # 1 second delay
 
-#print("Voice Traffic:", voice_data, "KB, Interval:", voice_interval, "seconds")
-#print("Video Traffic:", video_data, "MB, Interval:", video_interval, "second")
-#print("Gaming Traffic:", gaming_data, "KB, Interval:", gaming_interval, "seconds")
-#print("IoT Traffic:", iot_data, "KB, Interval:", iot_interval, "seconds")
-#print("Data Traffic:", data_data, "MB, Interval:", data_interval, "seconds")
+# Print statements can be uncommented to see the output
+# print("Voice Traffic:", voice_data, "KB, Interval:", voice_interval, "seconds")
+# print("Video Traffic:", video_data, "MB, Interval:", video_interval, "second")
+# print("Gaming Traffic:", gaming_data, "KB, Interval:", gaming_interval, "seconds")
+# print("IoT Traffic:", iot_data, "KB, Interval:", iot_interval, "seconds")
+# print("Data Traffic:", data_data, "MB, Interval:", data_interval, "seconds")
 
 
