@@ -147,7 +147,6 @@ class TrafficController:
             data_size = 0  # Packet is lost
         return data_size, interval
 
-# Example usage with delay
 # Example usage
 #traffic_controller = TrafficController()
 #traffic_controller.set_jitter(0.1)  # Enable jitter with a maximum of 0.1 seconds
