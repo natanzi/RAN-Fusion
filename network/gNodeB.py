@@ -146,7 +146,7 @@ class gNodeB:
         if len(self.Cells) < self.CellCount:  # Use CellCount to check the capacity for cells
             self.Cells.append(cell)
             print(f"Cell '{cell.ID}' has been added to gNodeB '{self.ID}'.")
-            cell_logger.info(f"Cell '{cell.ID}' has been added to gNodeB '{self.get_id()}'.")
+            cell_logger.info(f"Cell '{cell.ID}' has been added to gNodeB '{self.ID}'.")
             time.sleep(1)  # Delay for 1 second
         else:
             print(f"gNodeB '{self.ID}' has reached its maximum cell capacity.")
