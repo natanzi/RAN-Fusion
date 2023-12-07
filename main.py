@@ -8,7 +8,9 @@ import logging
 from logo import create_logo
 
 logo_text = create_logo()
+print("Printing logo start")
 print(logo_text)
+print("Printing logo end")
 
 # At the beginning of your script
 logging.basicConfig(level=logging.INFO)
