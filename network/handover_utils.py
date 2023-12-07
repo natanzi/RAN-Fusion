@@ -4,6 +4,7 @@ from network.network_state import NetworkState
 from traffic.network_metrics import calculate_cell_throughput, calculate_cell_load
 import logging
 from log.logger_config import gnodeb_logger
+from log.logger_config import cell_logger
 
 ###################################################Handover Decision Logic###################
 def handle_load_balancing(gnodeb, calculate_cell_load, find_underloaded_cell, select_ues_for_load_balancing):
@@ -79,14 +80,14 @@ def monitor_and_log_cell_load(gnodeb):
     for cell in gnodeb.Cells:
         cell_load_percentage = calculate_cell_load(cell)
 
-        # Log the cell load percentage
-        logging.info(f'Cell {cell.ID} Load: {cell_load_percentage}%')
+        # Log the cell load percentage using cell_logger
+        cell_logger.info(f'Cell {cell.ID} Load: {cell_load_percentage}%')
 
         # Check if the cell load exceeds the congestion threshold
         if cell_load_percentage > 80:  # Assuming 80% is the congestion threshold
-            # Print and log the congestion message
+            # Print and log the congestion message using cell_logger
             congestion_message = f"Cell {cell.ID} is congested with a load of {cell_load_percentage}%."
             print(congestion_message)
-            logging.warning(congestion_message)
+            cell_logger.warning(congestion_message)
             # Trigger load balancing
             handle_load_balancing(gnodeb, calculate_cell_load, gnodeb.find_underloaded_cell, gnodeb.select_ues_for_load_balancing)

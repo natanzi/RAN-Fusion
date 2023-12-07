@@ -2,6 +2,7 @@
 # network_metrics.py is in traffic directory
 from math import radians, cos, sin, asin, sqrt
 from utils.location_utils import calculate_distance_cached
+import logging
 
 # Haversine formula to calculate the great-circle distance between two points
 def haversine(lon1, lat1, lon2, lat2):
@@ -26,7 +27,7 @@ def calculate_signal_strength(ue, gNodeB):
     signal_strength = max(0, 100 * (1 - (distance_to_gNodeB / gNodeB.CoverageRadius)))
     
     return signal_strength
-
+#################################################################################################
 def calculate_cell_load(cell_id, gnodebs):
     # Find the cell with the matching cell_id
     cell = find_cell_by_id(cell_id, gnodebs)
@@ -42,6 +43,7 @@ def calculate_cell_load(cell_id, gnodebs):
     load_percentage = (current_load / max_capacity) * 100 if max_capacity > 0 else 0
     return load_percentage
 
+################################################################################################
 def find_cell_by_id(cell_id, gnodebs):
     # Iterate over all gNodeBs to find the cell with the given ID
     for gnodeb in gnodebs:
@@ -49,7 +51,7 @@ def find_cell_by_id(cell_id, gnodebs):
             if cell.ID == cell_id:
                 return cell
     return None
-
+################################################################################################
 # Calculate the throughput for a UE
 def calculate_throughput(data_size, interval, signal_strength, network_load_impact):
     base_throughput = (data_size / 1000) / interval
