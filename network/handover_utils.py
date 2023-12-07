@@ -4,6 +4,7 @@ from network.network_state import NetworkState
 from traffic.network_metrics import calculate_cell_throughput, calculate_cell_load
 import logging
 from network.gNodeB import gNodeB
+from .gNodeB import gNodeB
 
 ###################################################Handover Decision Logic###################
 def handle_load_balancing(gnodeb, calculate_cell_load, find_underloaded_cell, select_ues_for_load_balancing):
