@@ -14,9 +14,12 @@ from traffic.network_metrics import calculate_cell_load
 from time import sleep
 from log.logger_config import cell_logger  
 from log.logger_config import gnodeb_logger
+from datetime import datetime
 
 # Set up logging
 logging.basicConfig(filename=os.path.join('log', 'cell_load.log'), level=logging.INFO)
+logging.basicConfig(filename='log/gnb_logger.log', level=logging.INFO, 
+                    format='%(asctime)s:%(levelname)s:%(message)s')
 
 def load_gNodeB_config():
     # Correct the path to point to the 'Config_files' directory
@@ -56,7 +59,8 @@ class gNodeB:
         self.CellIds = cellIds
         self.handover_success_count = 0
         self.handover_failure_count = 0
-
+        logging.info(f"gNodeB '{self.ID}' has been launched with {self.CellCount} cells.")
+        
         # Handle any additional keyword arguments
         for key, value in kwargs.items():
             setattr(self, key, value)
