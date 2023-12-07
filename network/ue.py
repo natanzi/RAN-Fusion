@@ -118,9 +118,19 @@ class UE:
 
 
     def perform_handover(self, new_cell):
-        # Assuming new_cell is an instance of the Cell class
+        old_cell_id = self.ConnectedCellID  # Store the old cell ID for logging
         self.ConnectedCellID = new_cell.ID
         new_cell.add_ue(self)
+        
+        # Assuming you have a way to determine if the handover was successful
+        handover_successful = True  # or some condition that determines success
+        
         # Update the network state to reflect the handover
         network_state = NetworkState() 
         network_state.update_state(self.gNodeBs, self.cells, self.ues)
+        
+        # Log the handover event
+        if handover_successful:
+            ue_logger.info(f"UE {self.ID} handovered from Cell {old_cell_id} to Cell {new_cell.ID}")
+        else:
+            ue_logger.error(f"Handover failed for UE {self.ID} from Cell {old_cell_id} to Cell {new_cell.ID}")

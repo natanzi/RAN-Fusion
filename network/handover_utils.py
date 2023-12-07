@@ -3,6 +3,8 @@ from network.cell import Cell
 from network.network_state import NetworkState
 from traffic.network_metrics import calculate_cell_throughput, calculate_cell_load
 import logging
+from log.logger_config import gnodeb_logger
+
 ###################################################Handover Decision Logic###################
 def handle_load_balancing(gnodeb, calculate_cell_load, find_underloaded_cell, select_ues_for_load_balancing):
     for cell in gnodeb.Cells:
@@ -37,6 +39,7 @@ def handover_decision(gnodeb_instance, ue, cells):
 def perform_handover(gnodeb, ue, target_cell=None):
     network_state = NetworkState()  # Assuming NetworkState is instantiated here or passed as an argument
     handover_successful = False  # Initialize the success flag
+    current_cell_id = ue.ConnectedCellID  # Store the current cell ID for logging
 
     # If a target cell is not specified, decide on the new cell
     if target_cell is None:
@@ -48,18 +51,26 @@ def perform_handover(gnodeb, ue, target_cell=None):
 
         if handover_successful:
             # Update the cell's connected UEs
-            current_cell = next((cell for cell in gnodeb.Cells if cell.ID == ue.ConnectedCellID), None)
+            current_cell = next((cell for cell in gnodeb.Cells if cell.ID == current_cell_id), None)
             if current_cell:
                 current_cell.ConnectedUEs.remove(ue.ID)  # Assuming ConnectedUEs holds UE IDs
             target_cell.ConnectedUEs.append(ue.ID)
             # Update the network state to reflect the handover
             network_state.update_state(gnodeb, target_cell, ue)  # Assuming update_state is a method of NetworkState
 
+            # Log the successful handover
+            gnodeb_logger.info(f"Handover successful for UE {ue.ID} from Cell {current_cell_id} to Cell {target_cell.ID}.")
+        else:
+            # Log the failed handover
+            gnodeb_logger.error(f"Handover failed for UE {ue.ID} from Cell {current_cell_id}.")
+
     # Update handover success and failure counts
     if handover_successful:
         gnodeb.handover_success_count += 1
     else:
         gnodeb.handover_failure_count += 1
+        # Log the failed handover if target cell was not found or handover was not successful
+        gnodeb_logger.error(f"Handover failed for UE {ue.ID}. No suitable target cell found or handover was unsuccessful.")
 
     # Return the handover outcome
     return handover_successful
