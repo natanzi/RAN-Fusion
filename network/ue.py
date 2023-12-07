@@ -7,7 +7,7 @@ from .utils import random_location_within_radius
 from traffic.traffic_generator import TrafficController
 from network.network_state import NetworkState
 from log.logger_config import ue_logger
-import datetime
+from datetime import datetime
 db_manager = DatabaseManager()
 
 class UE:
