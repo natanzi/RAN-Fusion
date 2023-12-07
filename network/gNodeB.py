@@ -12,6 +12,8 @@ from .init_cell import load_json_config
 from network.network_state import NetworkState
 from traffic.network_metrics import calculate_cell_load
 from time import sleep
+from log.logger_config import cell_logger  
+from log.logger_config import gnodeb_logger
 
 # Set up logging
 logging.basicConfig(filename=os.path.join('log', 'cell_load.log'), level=logging.INFO)
@@ -135,14 +137,14 @@ class gNodeB:
         self.CellCount = new_capacity
         
         # Log the change
-        logging.info(f"gNodeB '{self.ID}' cell capacity updated to {self.CellCount}.")
+        cell_logger.info(f"gNodeB '{self.ID}' cell capacity updated to {self.CellCount}.")
 
     def add_cell_to_gNodeB(self, cell):
     # Assuming 'cell' is an instance of Cell
         if len(self.Cells) < self.CellCount:  # Use CellCount to check the capacity for cells
             self.Cells.append(cell)
             print(f"Cell '{cell.ID}' has been added to gNodeB '{self.ID}'.")
-            logging.info(f"Cell '{cell.ID}' has been added to gNodeB '{self.ID}'.")
+            cell_logger.info(f"Cell '{cell.get_cell_id()}' has been added to gNodeB '{self.get_id()}'.")
             time.sleep(1)  # Delay for 1 second
         else:
             print(f"gNodeB '{self.ID}' has reached its maximum cell capacity.")
