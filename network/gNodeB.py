@@ -12,7 +12,6 @@ from .init_cell import load_json_config
 from network.network_state import NetworkState
 from traffic.network_metrics import calculate_cell_load
 from time import sleep
-from .handover_utils import handover_decision, perform_handover
 
 # Set up logging
 logging.basicConfig(filename='cell_load.log', level=logging.INFO)
@@ -82,12 +81,13 @@ class gNodeB:
     def delete_cell(self, cell_id):
         # Find the cell to be deleted
         cell_to_delete = next((cell for cell in self.Cells if cell.ID == cell_id), None)
-        
+
         if cell_to_delete is None:
             print(f"No cell with ID {cell_id} found in gNodeB with ID {self.ID}")
             return
         
         # Attempt to handover UEs to other cells using the handover function from handover.py
+        from .handover_utils import handover_decision, perform_handover
         for ue_id in cell_to_delete.ConnectedUEs:
             ue = self.find_ue_by_id(ue_id)
             if ue:

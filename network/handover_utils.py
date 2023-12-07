@@ -24,6 +24,7 @@ def handle_qos_based_handover(gnodeb, all_ues, find_cell_by_id):
 ##################################################################################################
 def handover_decision(gnodeb_instance, ue, cells):
     # Placeholder logic for deciding if a handover is needed
+    from .gNodeB import gNodeB
     current_cell = next((cell for cell in gnodeb_instance.Cells if cell.ID == ue.ConnectedCellID), None)
     if current_cell and not current_cell.check_capacity():  # Assuming check_capacity is a method of Cell
         new_cell = gnodeb_instance.find_available_cell(ue)  # Correctly call the method on the gNodeB instance
