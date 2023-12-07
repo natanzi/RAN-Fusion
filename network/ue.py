@@ -6,7 +6,8 @@ from database.database_manager import DatabaseManager
 from .utils import random_location_within_radius
 from traffic.traffic_generator import TrafficController
 from network.network_state import NetworkState
-
+from log.logger_config import ue_logger
+import datetime
 db_manager = DatabaseManager()
 
 class UE:
@@ -40,7 +41,7 @@ class UE:
         self.Model = model
         self.ScreenSize = f"{random.uniform(5.0, 7.0):.1f} inches"  # Always randomly generate screen size
         self.BatteryLevel = random.randint(10, 100)  # Always randomly generate battery level
-
+        ue_logger.info(f"UE initialized with ID {ue_id} at {datetime.now()}")
     @staticmethod
     def allocate_imei():
         # Generate and return a random IMEI during UE initialization
