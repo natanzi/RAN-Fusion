@@ -14,7 +14,7 @@ from traffic.network_metrics import calculate_cell_load
 from time import sleep
 
 # Set up logging
-logging.basicConfig(filename='cell_load.log', level=logging.INFO)
+logging.basicConfig(filename=os.path.join('log', 'cell_load.log'), level=logging.INFO)
 
 def load_gNodeB_config():
     # Correct the path to point to the 'Config_files' directory
