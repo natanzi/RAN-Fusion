@@ -17,7 +17,6 @@ from log.logger_config import gnodeb_logger
 from datetime import datetime
 
 # Set up logging
-logging.basicConfig(filename=os.path.join('log', 'cell_load.log'), level=logging.INFO)
 logging.basicConfig(filename='log/gnb_logger.log', level=logging.INFO, 
                     format='%(asctime)s:%(levelname)s:%(message)s')
 
