@@ -40,7 +40,6 @@ def calculate_cell_load(cell_id, gnodebs):
     
     # Calculate the load as a percentage
     load_percentage = (current_load / max_capacity) * 100 if max_capacity > 0 else 0
-    
     return load_percentage
 
 def find_cell_by_id(cell_id, gnodebs):
@@ -110,7 +109,6 @@ def calculate_network_level_kpis(gnodebs):
     # Calculate total throughput for all gNodeBs
     total_throughput = sum(calculate_gnodeb_throughput(gnodeb, gnodebs) for gnodeb in gnodebs)
     
-    # Calculate average cell load across alvscode-file://vscode-app/c:/Users/snatanzi/AppData/Local/Programs/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.htmll gNodeBs
     cell_loads = [calculate_cell_load(cell.ID, gnodebs) for gnodeb in gnodebs for cell in gnodeb.Cells]
     average_cell_load = sum(cell_loads) / len(cell_loads) if cell_loads else 0
     
