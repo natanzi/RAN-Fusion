@@ -24,7 +24,7 @@ def load_gNodeB_config():
     with open(file_path, 'r') as file:
         return json.load(file)
 
-# Using the function to load the configuration
+##Using the function to load the configuration
 gNodeBs_config = load_gNodeB_config()
 
 class gNodeB:
@@ -201,10 +201,12 @@ class gNodeB:
 ######################################################################################################
 #######################################Periodic Updates###############################################
     def update(self):
-        from network.handover_utils import handle_load_balancing
-        # Call this method regularly to update handover decisions
+        from network.handover_utils import handle_load_balancing, monitor_and_log_cell_load
+    # Call this method regularly to update handover decisions
         handle_load_balancing(self, self.calculate_cell_load, self.find_underloaded_cell, self.select_ues_for_load_balancing)
-        #handle_qos_based_handover(self, self.all_ues, self.find_cell_by_id)
+    # Now also call monitor_and_log_cell_load to log the cell load
+        monitor_and_log_cell_load(self)
+    # handle_qos_based_handover(self, self.all_ues, self.find_cell_by_id)
 ######################################################################################################
 
     # Update the database if necessary
