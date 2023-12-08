@@ -68,12 +68,6 @@ class Cell:
             }
         return len(self.ConnectedUEs)
     
-    def neighbors_cells(self):
-        for gNodeB_id, gNodeB in self.gNodeBs.items():
-            cell_ids = [cell.ID for cell in gNodeB.Cells]
-            for cell in gNodeB.Cells:
-                cell.Neighbors = [neighbor_id for neighbor_id in cell_ids if neighbor_id != cell.ID]
-
     def add_ue(self, ue, network_state):
         if len(self.ConnectedUEs) < self.MaxConnectedUEs:
             self.ConnectedUEs.append(ue)
