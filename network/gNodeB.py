@@ -12,8 +12,7 @@ from .init_cell import load_json_config
 from network.network_state import NetworkState
 from traffic.network_metrics import calculate_cell_load
 from time import sleep
-from log.logger_config import cell_logger  
-from log.logger_config import gnodeb_logger
+from log.logger_config import cell_logger, gnodeb_logger
 from datetime import datetime
 from network.handover_utils import handle_load_balancing
 # Set up logging
@@ -57,7 +56,8 @@ class gNodeB:
         self.CellIds = cellIds
         self.handover_success_count = 0
         self.handover_failure_count = 0
-        logging.info(f"gNodeB '{self.ID}' has been launched with {self.CellCount} cells.")
+        gnodeb_logger.info(f"gNodeB '{self.ID}' has been launched with {self.CellCount} cells.")
+
         
         # Handle any additional keyword arguments
         for key, value in kwargs.items():
@@ -164,7 +164,7 @@ class gNodeB:
         combined_load = (0.5 * ue_based_load) + (0.5 * throughput_based_load)
         
         return combined_load
-
+#####################################################################################################
     def find_underloaded_cell(self):
         # Find a cell with load below a certain threshold, e.g., 50%
         for cell in self.Cells:
