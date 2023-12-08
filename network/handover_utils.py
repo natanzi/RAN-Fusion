@@ -77,6 +77,7 @@ def perform_handover(gnodeb, ue, target_cell=None):
     return handover_successful
 ##################################################################################################################
 def monitor_and_log_cell_load(gnodeb):
+    cell_load_logger.info("Testing cell load logging.")
     for cell in gnodeb.Cells:
         # Use the gNodeB class method to calculate cell load
         cell_load_percentage = gnodeb.calculate_cell_load(cell) * 100  # Convert to percentage
