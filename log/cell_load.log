@@ -41,3 +41,45 @@ INFO:ue_logger:UE initialized with ID UE16 at 2023-12-07 19:44:15.387767
 INFO:ue_logger:UE initialized with ID UE17 at 2023-12-07 19:44:15.391338
 INFO:ue_logger:UE initialized with ID UE18 at 2023-12-07 19:44:15.395068
 INFO:ue_logger:UE initialized with ID UE19 at 2023-12-07 19:44:15.398874
+INFO:gnodeb_logger:gNodeB 'W1140' has been launched with 3 cells.
+INFO:gnodeb_logger:gNodeB 'W1320' has been launched with 3 cells.
+INFO:gnodeb_logger:gNodeB 'W2018' has been launched with 3 cells.
+INFO:cell_logger:Cell 'Ax1242' has been created in gNodeB 'Ax1242' with max capacity 10.
+INFO:cell_logger:Cell 'BX1453' has been created in gNodeB 'BX1453' with max capacity 10.
+INFO:cell_logger:Cell 'CX1352' has been created in gNodeB 'CX1352' with max capacity 10.
+INFO:cell_logger:Cell 'AX1112' has been created in gNodeB 'AX1112' with max capacity 10.
+INFO:cell_logger:Cell 'BX1334' has been created in gNodeB 'BX1334' with max capacity 10.
+INFO:cell_logger:Cell 'CX1873' has been created in gNodeB 'CX1873' with max capacity 10.
+INFO:cell_logger:Cell 'AX9980' has been created in gNodeB 'AX9980' with max capacity 10.
+INFO:cell_logger:Cell 'BX1230' has been created in gNodeB 'BX1230' with max capacity 10.
+INFO:cell_logger:Cell 'CX5103' has been created in gNodeB 'CX5103' with max capacity 10.
+INFO:cell_logger:Cell 'Ax1242' has been added to gNodeB 'W1140'.
+INFO:cell_logger:Cell 'BX1453' has been added to gNodeB 'W1140'.
+INFO:cell_logger:Cell 'CX1352' has been added to gNodeB 'W1140'.
+INFO:cell_logger:Cell 'AX1112' has been added to gNodeB 'W1320'.
+INFO:cell_logger:Cell 'BX1334' has been added to gNodeB 'W1320'.
+INFO:cell_logger:Cell 'CX1873' has been added to gNodeB 'W1320'.
+INFO:cell_logger:Cell 'AX9980' has been added to gNodeB 'W2018'.
+INFO:cell_logger:Cell 'BX1230' has been added to gNodeB 'W2018'.
+INFO:cell_logger:Cell 'CX5103' has been added to gNodeB 'W2018'.
+INFO:ue_logger:UE initialized with ID UE1 at 2023-12-08 10:49:06.412362
+INFO:root:UE 'UE1' has been attached to Cell 'CX1873'.
+INFO:ue_logger:UE initialized with ID UE1 at 2023-12-08 10:49:06.445833
+INFO:ue_logger:UE initialized with ID UE2 at 2023-12-08 10:49:06.450725
+INFO:ue_logger:UE initialized with ID UE3 at 2023-12-08 10:49:06.486571
+INFO:ue_logger:UE initialized with ID UE4 at 2023-12-08 10:49:06.497331
+INFO:ue_logger:UE initialized with ID UE5 at 2023-12-08 10:49:06.507659
+INFO:ue_logger:UE initialized with ID UE6 at 2023-12-08 10:49:06.518382
+INFO:ue_logger:UE initialized with ID UE7 at 2023-12-08 10:49:06.529254
+INFO:ue_logger:UE initialized with ID UE8 at 2023-12-08 10:49:06.539736
+INFO:ue_logger:UE initialized with ID UE9 at 2023-12-08 10:49:06.549888
+INFO:ue_logger:UE initialized with ID UE10 at 2023-12-08 10:49:06.560240
+INFO:ue_logger:UE initialized with ID UE11 at 2023-12-08 10:49:06.570584
+INFO:ue_logger:UE initialized with ID UE12 at 2023-12-08 10:49:06.580844
+INFO:ue_logger:UE initialized with ID UE13 at 2023-12-08 10:49:06.591153
+INFO:ue_logger:UE initialized with ID UE14 at 2023-12-08 10:49:06.602193
+INFO:ue_logger:UE initialized with ID UE15 at 2023-12-08 10:49:06.612808
+INFO:ue_logger:UE initialized with ID UE16 at 2023-12-08 10:49:06.623259
+INFO:ue_logger:UE initialized with ID UE17 at 2023-12-08 10:49:06.633284
+INFO:ue_logger:UE initialized with ID UE18 at 2023-12-08 10:49:06.643549
+INFO:ue_logger:UE initialized with ID UE19 at 2023-12-08 10:49:06.653836
