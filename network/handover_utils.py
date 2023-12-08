@@ -1,12 +1,11 @@
 ## handover_utils.py and it is inside the network folder
-from network.cell import Cell
-from network.network_state import NetworkState
-from traffic.network_metrics import calculate_cell_throughput, calculate_cell_load
-import logging
-from log.logger_config import gnodeb_logger
-from log.logger_config import cell_load_logger
-from log.logger_config import cell_logger
 from datetime import datetime
+import logging
+from .cell import Cell
+from .gNodeB import gNodeB  # Import the gNodeB class to use its methods
+from .network_state import NetworkState
+from traffic.network_metrics import calculate_cell_throughput  # If needed
+from log.logger_config import gnodeb_logger, cell_load_logger, cell_logger
 
 ###################################################Handover Decision Logic###################
 def handle_load_balancing(gnodeb, calculate_cell_load, find_underloaded_cell, select_ues_for_load_balancing):
@@ -80,7 +79,8 @@ def perform_handover(gnodeb, ue, target_cell=None):
 ##################################################################################################################
 def monitor_and_log_cell_load(gnodeb):
     for cell in gnodeb.Cells:
-        cell_load_percentage = calculate_cell_load(cell.ID, [gnodeb])  # Assuming calculate_cell_load requires cell ID and list of gNodeBs
+        # Use the gNodeB class method to calculate cell load
+        cell_load_percentage = gnodeb.calculate_cell_load(cell) * 100  # Convert to percentage
 
         # Log the cell load percentage using cell_load_logger
         cell_load_logger.info(f'Cell load at time {datetime.now()}: {cell_load_percentage}% for Cell ID {cell.ID} in gNodeB ID {gnodeb.ID}')
@@ -94,4 +94,4 @@ def monitor_and_log_cell_load(gnodeb):
             gnodeb_logger.warning(congestion_message)  # Assuming gnodeb_logger is set up in logger_config.py
             
             # Trigger load balancing
-            handle_load_balancing(gnodeb, calculate_cell_load, gnodeb.find_underloaded_cell, gnodeb.select_ues_for_load_balancing)
+            handle_load_balancing(gnodeb, gnodeb.calculate_cell_load, gnodeb.find_underloaded_cell, gnodeb.select_ues_for_load_balancing)
