@@ -4,7 +4,10 @@ from network.network_state import NetworkState
 from traffic.network_metrics import calculate_cell_throughput, calculate_cell_load
 import logging
 from log.logger_config import gnodeb_logger
+from log.logger_config import cell_load_logger
 from log.logger_config import cell_logger
+
+from datetime import datetime
 
 ###################################################Handover Decision Logic###################
 def handle_load_balancing(gnodeb, calculate_cell_load, find_underloaded_cell, select_ues_for_load_balancing):
@@ -78,16 +81,18 @@ def perform_handover(gnodeb, ue, target_cell=None):
 ##################################################################################################################
 def monitor_and_log_cell_load(gnodeb):
     for cell in gnodeb.Cells:
-        cell_load_percentage = calculate_cell_load(cell)
+        cell_load_percentage = calculate_cell_load(cell.ID, [gnodeb])  # Assuming calculate_cell_load requires cell ID and list of gNodeBs
 
-        # Log the cell load percentage using cell_logger
-        cell_logger.info(f'Cell {cell.ID} Load: {cell_load_percentage}%')
+        # Log the cell load percentage using cell_load_logger
+        cell_load_logger.info(f'Cell load at time {datetime.now()}: {cell_load_percentage}% for Cell ID {cell.ID} in gNodeB ID {gnodeb.ID}')
 
         # Check if the cell load exceeds the congestion threshold
         if cell_load_percentage > 80:  # Assuming 80% is the congestion threshold
-            # Print and log the congestion message using cell_logger
-            congestion_message = f"Cell {cell.ID} is congested with a load of {cell_load_percentage}%."
+            # Construct and log the congestion message
+            congestion_message = f"gNodeB ID {gnodeb.ID} - Cell ID {cell.ID} is congested with a load of {cell_load_percentage}%."
             print(congestion_message)
             cell_logger.warning(congestion_message)
+            gnodeb_logger.warning(congestion_message)  # Assuming gnodeb_logger is set up in logger_config.py
+            
             # Trigger load balancing
             handle_load_balancing(gnodeb, calculate_cell_load, gnodeb.find_underloaded_cell, gnodeb.select_ues_for_load_balancing)

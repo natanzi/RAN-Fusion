@@ -1,0 +1,54 @@
+INFO:root:gNodeB 'W1140' has been launched with 3 cells.
+INFO:root:gNodeB 'W1140' has been launched with 3 cells.
+INFO:root:gNodeB 'W1320' has been launched with 3 cells.
+INFO:root:gNodeB 'W1320' has been launched with 3 cells.
+INFO:root:gNodeB 'W2018' has been launched with 3 cells.
+INFO:root:gNodeB 'W2018' has been launched with 3 cells.
+INFO:root:Cell 'Ax1242' has been created in gNodeB 'W1140' with max capacity 10.
+INFO:root:Cell 'BX1453' has been created in gNodeB 'W1140' with max capacity 10.
+INFO:root:Cell 'CX1352' has been created in gNodeB 'W1140' with max capacity 10.
+INFO:root:Cell 'AX1112' has been created in gNodeB 'W1320' with max capacity 10.
+INFO:root:Cell 'BX1334' has been created in gNodeB 'W1320' with max capacity 10.
+INFO:root:Cell 'CX1873' has been created in gNodeB 'W1320' with max capacity 10.
+INFO:root:Cell 'AX9980' has been created in gNodeB 'W2018' with max capacity 10.
+INFO:root:Cell 'BX1230' has been created in gNodeB 'W2018' with max capacity 10.
+INFO:root:Cell 'CX5103' has been created in gNodeB 'W2018' with max capacity 10.
+2023-12-07 18:50:12,974 - cell_logger - INFO - Cell 'Ax1242' has been added to gNodeB 'W1140'.
+INFO:cell_logger:Cell 'Ax1242' has been added to gNodeB 'W1140'.
+2023-12-07 18:50:13,977 - cell_logger - INFO - Cell 'BX1453' has been added to gNodeB 'W1140'.
+INFO:cell_logger:Cell 'BX1453' has been added to gNodeB 'W1140'.
+2023-12-07 18:50:14,980 - cell_logger - INFO - Cell 'CX1352' has been added to gNodeB 'W1140'.
+INFO:cell_logger:Cell 'CX1352' has been added to gNodeB 'W1140'.
+2023-12-07 18:50:15,982 - cell_logger - INFO - Cell 'AX1112' has been added to gNodeB 'W1320'.
+INFO:cell_logger:Cell 'AX1112' has been added to gNodeB 'W1320'.
+2023-12-07 18:50:16,985 - cell_logger - INFO - Cell 'BX1334' has been added to gNodeB 'W1320'.
+INFO:cell_logger:Cell 'BX1334' has been added to gNodeB 'W1320'.
+2023-12-07 18:50:17,987 - cell_logger - INFO - Cell 'CX1873' has been added to gNodeB 'W1320'.
+INFO:cell_logger:Cell 'CX1873' has been added to gNodeB 'W1320'.
+2023-12-07 18:50:18,989 - cell_logger - INFO - Cell 'AX9980' has been added to gNodeB 'W2018'.
+INFO:cell_logger:Cell 'AX9980' has been added to gNodeB 'W2018'.
+2023-12-07 18:50:19,992 - cell_logger - INFO - Cell 'BX1230' has been added to gNodeB 'W2018'.
+INFO:cell_logger:Cell 'BX1230' has been added to gNodeB 'W2018'.
+2023-12-07 18:50:20,995 - cell_logger - INFO - Cell 'CX5103' has been added to gNodeB 'W2018'.
+INFO:cell_logger:Cell 'CX5103' has been added to gNodeB 'W2018'.
+INFO:ue_logger:UE initialized with ID UE1 at 2023-12-07 18:50:21.997307
+INFO:root:UE 'UE1' has been attached to Cell 'AX9980'.
+INFO:ue_logger:UE initialized with ID UE1 at 2023-12-07 18:50:22.003276
+INFO:ue_logger:UE initialized with ID UE2 at 2023-12-07 18:50:22.007371
+INFO:ue_logger:UE initialized with ID UE3 at 2023-12-07 18:50:22.012906
+INFO:ue_logger:UE initialized with ID UE4 at 2023-12-07 18:50:22.016887
+INFO:ue_logger:UE initialized with ID UE5 at 2023-12-07 18:50:22.020772
+INFO:ue_logger:UE initialized with ID UE6 at 2023-12-07 18:50:22.025043
+INFO:ue_logger:UE initialized with ID UE7 at 2023-12-07 18:50:22.028536
+INFO:ue_logger:UE initialized with ID UE8 at 2023-12-07 18:50:22.032068
+INFO:ue_logger:UE initialized with ID UE9 at 2023-12-07 18:50:22.035746
+INFO:ue_logger:UE initialized with ID UE10 at 2023-12-07 18:50:22.039290
+INFO:ue_logger:UE initialized with ID UE11 at 2023-12-07 18:50:22.043056
+INFO:ue_logger:UE initialized with ID UE12 at 2023-12-07 18:50:22.047010
+INFO:ue_logger:UE initialized with ID UE13 at 2023-12-07 18:50:22.050656
+INFO:ue_logger:UE initialized with ID UE14 at 2023-12-07 18:50:22.054497
+INFO:ue_logger:UE initialized with ID UE15 at 2023-12-07 18:50:22.058383
+INFO:ue_logger:UE initialized with ID UE16 at 2023-12-07 18:50:22.061996
+INFO:ue_logger:UE initialized with ID UE17 at 2023-12-07 18:50:22.065779
+INFO:ue_logger:UE initialized with ID UE18 at 2023-12-07 18:50:22.069407
+INFO:ue_logger:UE initialized with ID UE19 at 2023-12-07 18:50:22.073036
