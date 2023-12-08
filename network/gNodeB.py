@@ -14,7 +14,6 @@ from traffic.network_metrics import calculate_cell_load
 from time import sleep
 from log.logger_config import cell_logger, gnodeb_logger
 from datetime import datetime
-from network.handover_utils import handle_load_balancing
 
 def load_gNodeB_config():
     # Correct the path to point to the 'Config_files' directory

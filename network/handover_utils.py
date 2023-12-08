@@ -2,7 +2,6 @@
 from datetime import datetime
 import logging
 from .cell import Cell
-from .gNodeB import gNodeB  # Import the gNodeB class to use its methods
 from .network_state import NetworkState
 from traffic.network_metrics import calculate_cell_throughput  # If needed
 from log.logger_config import gnodeb_logger, cell_load_logger, cell_logger
