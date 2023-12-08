@@ -37,8 +37,8 @@ def log_traffic(ues, db_manager):
 
 def monitor_cell_load(gNodeBs):
     while True:
-        for gNodeB in gNodeBs:
-            gNodeB.update()  # Call the update method for each gNodeB
+        for gNodeB_id, gNodeB_instance in gNodeBs.items():  # Iterate over the dictionary items
+            gNodeB_instance.update()  # Call the update method for each gNodeB instance
         time.sleep(5)  # Adjust the sleep time as needed for your simulation
 
 def main():
