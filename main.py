@@ -4,6 +4,7 @@ from multiprocessing import Process
 from network.initialize_network import initialize_network
 from Config_files.config_load import load_all_configs
 from database.database_manager import DatabaseManager
+from network.handover import monitor_and_log_cell_load  # Import the monitoring function
 import logging
 from logo import create_logo
 
@@ -34,6 +35,12 @@ def log_traffic(ues, db_manager):
 
             time.sleep(1)  # Logging interval
 
+def monitor_cell_load(gNodeBs):
+    while True:
+        for gNodeB in gNodeBs:
+            gNodeB.update()  # Call the update method for each gNodeB
+        time.sleep(5)  # Adjust the sleep time as needed for your simulation
+
 def main():
     base_dir = os.path.dirname(os.path.abspath(__file__))
     gNodeBs_config, cells_config, ue_config = load_all_configs(base_dir)
@@ -53,6 +60,13 @@ def main():
     logging_process = Process(target=log_traffic, args=(ues, db_manager))
     logging_process.start()
 
+    # Create a separate process for monitoring cell load
+    cell_monitor_process = Process(target=monitor_cell_load, args=(gNodeBs,))
+    cell_monitor_process.start()
+
+    # Wait for the processes to complete
     logging_process.join()
+    cell_monitor_process.join()
+
 if __name__ == "__main__":
     main()
