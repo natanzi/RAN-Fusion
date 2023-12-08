@@ -11,7 +11,14 @@ class NetworkState:
         self.cells = {}
         self.ues = {}
         self.last_update = datetime.datetime.min
-
+    
+    def get_cell_load(self, cell):
+        # Assuming there's a method in gNodeB to calculate cell load
+        gNodeB = self.gNodeBs.get(cell.gNodeB_ID)
+        if gNodeB:
+            return gNodeB.calculate_cell_load(cell)
+        return None
+    
     def update_state(self, gNodeBs, cells, ues):
         self.gNodeBs = gNodeBs
         self.cells = {cell.ID: cell for cell in cells}
@@ -64,62 +71,32 @@ class NetworkState:
             }
         return None
     
-    def serialize_state(self):
-        # Convert the state data into a format suitable for InfluxDB
-        # This is a simplified example; you'll need to adjust it based on your actual data structure
-        data = {
-            'measurement': 'network_state',
-            'tags': {
-                # Add relevant tags for querying in InfluxDB
-            },
-            'fields': {
-                'gNodeBs': self.gNodeBs,
-                'cells': self.cells,
-                'ues': self.ues,
-                # Add other fields as necessary
-            },
-            'time': datetime.utcnow().isoformat()
-        }
-        return data
-    
-    def save_state_to_database(self):
-        # Serialize the current state and save it to the database
-        serialized_state = self.serialize_state()
-        db_manager = DatabaseManager()
-        db_manager.insert_data(
-            measurement=serialized_state['measurement'],
-            tags=serialized_state['tags'],
-            fields=serialized_state['fields'],
-            timestamp=serialized_state['time']
-        )
-        db_manager.close_connection()
+    def serialize_for_influxdb(self):
+        points = []
+        for cell_id, cell in self.cells.items():
+            cell_load = self.get_cell_load(cell)
+            point = {
+                "measurement": "cell_load_info",
+                "tags": {
+                    "Cell_ID": cell_id,
+                    "gNodeB_ID": cell.gNodeB_ID,
+                    "Neighbors": ','.join(cell.Neighbors) if hasattr(cell, 'Neighbors') else 'None'
+                },
+                "fields": {
+                    "Load": cell_load,
+                    # Add other relevant fields here
+                },
+                "time": datetime.utcnow().isoformat()
+            }
+            points.append(point)
+        return points
     
     def save_state_to_influxdb(self):
-        # Serialize the current state and save it to InfluxDB
         db_manager = DatabaseManager()
         points = self.serialize_for_influxdb()
         for point in points:
             db_manager.write_data(point)
-        db_manager.close_connection()    
-        
-    def serialize_for_influxdb(self):
-        # Convert the network state into the structure expected by InfluxDB
-        points = []
-        for ue_id, ue in self.ues.items():
-            point = {
-                "measurement": "ue_info",
-                "tags": {
-                    "UE_ID": ue_id,
-                    "Cell_ID": ue.ConnectedCellID,
-                    "gNodeB_ID": self.cells[ue.ConnectedCellID].gNodeB_ID if ue.ConnectedCellID in self.cells else None
-                },
-                "fields": {
-                    "Connected": True  # You can add more relevant fields here
-                },
-                "time": datetime.datetime.utcnow().isoformat()
-            }
-            points.append(point)
-        return points
+        db_manager.close_connection()
     
     def print_state(self):
         print("Network State:")
