@@ -201,6 +201,7 @@ class gNodeB:
 ######################################################################################################
 #######################################Periodic Updates###############################################
     def update(self):
+        from network.handover_utils import handle_load_balancing
         # Call this method regularly to update handover decisions
         handle_load_balancing(self, self.calculate_cell_load, self.find_underloaded_cell, self.select_ues_for_load_balancing)
         #handle_qos_based_handover(self, self.all_ues, self.find_cell_by_id)
