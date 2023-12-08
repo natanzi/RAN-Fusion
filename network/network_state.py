@@ -26,13 +26,7 @@ class NetworkState:
         self.assign_neighbors_to_cells()
         self.last_update = datetime.datetime.now()
 
-    def assign_neighbors_to_cells(self):
-        for gNodeB_id, gNodeB in self.gNodeBs.items():
-            cell_ids = [cell.ID for cell in gNodeB.Cells]
-            for cell in gNodeB.Cells:
-                cell.Neighbors = [neighbor_id for neighbor_id in cell_ids if neighbor_id != cell.ID]
-
-    def get_ue_info(self, ue_id):
+        def get_ue_info(self, ue_id):
         ue = self.ues.get(ue_id)
         if ue:
             cell_id = ue.ConnectedCellID
