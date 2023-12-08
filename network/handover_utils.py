@@ -87,7 +87,7 @@ def monitor_and_log_cell_load(gnodeb):
         cell_load_logger.info(f'Cell {cell.ID} @ gNodeB {gnodeb.ID} - Load: {cell_load_percentage}%')
 
         # Check if the cell load exceeds the congestion threshold
-        if cell_load_percentage > 80:  # Assuming 80% is the congestion threshold
+        if cell_load_percentage > 50:  # Assuming 80% is the congestion threshold
             # Construct and log the congestion message
             congestion_message = f"gNodeB ID {gnodeb.ID} - Cell ID {cell.ID} is congested with a load of {cell_load_percentage}%."
             print(congestion_message)

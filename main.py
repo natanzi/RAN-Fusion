@@ -46,7 +46,7 @@ def main():
     gNodeBs_config, cells_config, ue_config = load_all_configs(base_dir)
 
     # Specify the number of UEs to launch
-    num_ues_to_launch = 20
+    num_ues_to_launch = 40
 
     # Initialize gNodeBs, Cells, and UEs
     gNodeBs, cells, ues = initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, ue_config)
