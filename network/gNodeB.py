@@ -15,8 +15,6 @@ from time import sleep
 from log.logger_config import cell_logger, gnodeb_logger
 from datetime import datetime
 from network.handover_utils import handle_load_balancing
-# Set up logging
-#logging.basicConfig(filename=os.path.join('log', 'cell_load.log'), level=logging.INFO)
 
 def load_gNodeB_config():
     # Correct the path to point to the 'Config_files' directory

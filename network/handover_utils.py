@@ -6,7 +6,6 @@ import logging
 from log.logger_config import gnodeb_logger
 from log.logger_config import cell_load_logger
 from log.logger_config import cell_logger
-
 from datetime import datetime
 
 ###################################################Handover Decision Logic###################
