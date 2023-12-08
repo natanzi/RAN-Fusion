@@ -83,7 +83,8 @@ def monitor_and_log_cell_load(gnodeb):
         cell_load_percentage = gnodeb.calculate_cell_load(cell) * 100  # Convert to percentage
 
         # Log the cell load percentage using cell_load_logger
-        cell_load_logger.info(f'Cell load at time {datetime.now()}: {cell_load_percentage}% for Cell ID {cell.ID} in gNodeB ID {gnodeb.ID}')
+        #cell_load_logger.info(f'Cell load at time {datetime.now()}: {cell_load_percentage}% for Cell ID {cell.ID} in gNodeB ID {gnodeb.ID}')
+        cell_load_logger.info(f'Cell {cell.ID} @ gNodeB {gnodeb.ID} - Load: {cell_load_percentage}%')
 
         # Check if the cell load exceeds the congestion threshold
         if cell_load_percentage > 80:  # Assuming 80% is the congestion threshold
