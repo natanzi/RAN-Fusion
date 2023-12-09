@@ -47,7 +47,17 @@ class NetworkState:
                     'Neighbors': neighbors
                 }
         return None
-
+    
+    def get_neighbors_load(self, cell_id):
+        neighbors_load = {}
+        cell = self.cells.get(cell_id)
+        if cell and hasattr(cell, 'Neighbors'):
+            for neighbor_id in cell.Neighbors:
+                neighbor_cell = self.cells.get(neighbor_id)
+                if neighbor_cell:
+                    neighbors_load[neighbor_id] = self.calculate_cell_load(neighbor_cell)
+        return neighbors_load
+    
     def get_cell_info(self, cell_id):
         cell = self.cells.get(cell_id)
         if cell:
