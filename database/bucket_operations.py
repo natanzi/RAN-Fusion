@@ -3,7 +3,7 @@ from influxdb_client import InfluxDBClient, BucketsApi
 
 # Define your InfluxDB credentials and details
 INFLUXDB_URL = "http://localhost:8086"
-INFLUXDB_TOKEN = "Z2HLqLWYr45rTCdTA3QgjMSMA6Nw8YZuDxgDEfYZyRjqmJ8ZOKjdURP9ke__3JZjv8g8DIjV05PyqItC6cIF1Q==" 
+INFLUXDB_TOKEN = "4MSSFUttiJwsqiYieknO_bS3gdrGhoC30KkQZOi5vShTXi5fBk-cJdYiJfGEE3bWRwFZwWJds5n0vCFDQ5BD4w==" 
 INFLUXDB_ORG = "ranfusion"
 
 def create_bucket(bucket_name):
