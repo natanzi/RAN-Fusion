@@ -10,8 +10,8 @@ class NetworkState:
         self.gNodeBs = {}
         self.cells = {}
         self.ues = {}
-        self.last_update = datetime.datetime.min
-    
+        self.last_update = datetime.min
+
     def get_cell_load(self, cell):
         # Assuming there's a method in gNodeB to calculate cell load
         gNodeB = self.gNodeBs.get(cell.gNodeB_ID)
@@ -24,7 +24,7 @@ class NetworkState:
         self.cells = {cell.ID: cell for cell in cells}
         self.ues = {ue.ID: ue for ue in ues}  # Convert list of UEs to a dictionary
         self.assign_neighbors_to_cells()
-        self.last_update = datetime.datetime.now()
+        self.last_update = datetime.now()
     
     def assign_neighbors_to_cells(self):
         for gNodeB_id, gNodeB in self.gNodeBs.items():
