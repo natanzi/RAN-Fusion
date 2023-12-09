@@ -16,6 +16,11 @@ print("Printing logo end")
 # At the beginning of your script
 logging.basicConfig(level=logging.INFO)
 
+# Check database connection
+# Create an instance of DatabaseManager
+db_manager = DatabaseManager()
+connection_status = db_manager.check_database_connection()
+
 def log_traffic(ues, db_manager):
     while True:
         for ue in ues:

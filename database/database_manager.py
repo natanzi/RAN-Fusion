@@ -7,7 +7,7 @@ from influxdb_client.client.write_api import SYNCHRONOUS
 from traffic.network_metrics import calculate_gnodeb_throughput
 
 INFLUXDB_URL = "http://localhost:8086"
-INFLUXDB_TOKEN = "aZPFioFZQE_kNcXy5E7JLhaX0x4RaK0RG14xEgWIieGtuX8_xB2f783mRjn3Vj04y7iuMME-VRfB-HlbRt_iVw==" 
+INFLUXDB_TOKEN = "Z2HLqLWYr45rTCdTA3QgjMSMA6Nw8YZuDxgDEfYZyRjqmJ8ZOKjdURP9ke__3JZjv8g8DIjV05PyqItC6cIF1Q==" 
 INFLUXDB_ORG = "ranfusion"
 INFLUXDB_BUCKET = "RAN_metrics"
 
@@ -42,7 +42,21 @@ class DatabaseManager:
             point.field(field_key, field_value)
         point.time(timestamp, WritePrecision.NS)
         self.write_api.write(bucket=self.bucket, record=point)
-
+    
+    def check_database_connection(self):
+        """Checks if the database is connected."""
+        try:
+            is_alive = self.client.ping()
+            if is_alive:
+                print("Database connection is alive.")
+                return True
+            else:
+                print("Database connection is not alive.")
+                return False
+        except Exception as e:
+            print(f"An error occurred while checking the database connection: {e}")
+            return False
+        
     def insert_ue_static_data(self, data):
         """Inserts static UE data into the ue_static measurement."""
         tags = {'ue_id': data.pop('ue_id')}  # Extract 'ue_id' as a tag
