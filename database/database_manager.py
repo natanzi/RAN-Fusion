@@ -2,7 +2,7 @@
 import os
 import time
 from datetime import datetime
-from influxdb_client import InfluxDBClient, WritePrecision, Point  
+from influxdb_client import InfluxDBClient, BucketsApi,  WritePrecision, Point  
 from influxdb_client.client.write_api import SYNCHRONOUS
 from traffic.network_metrics import calculate_gnodeb_throughput
 
