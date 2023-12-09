@@ -5,7 +5,6 @@ from datetime import datetime
 from influxdb_client import InfluxDBClient, WritePrecision, Point  
 from influxdb_client.client.write_api import SYNCHRONOUS
 from traffic.network_metrics import calculate_gnodeb_throughput
-from .bucket_operations import create_bucket
 
 INFLUXDB_URL = "http://localhost:8086"
 INFLUXDB_TOKEN = "Z2HLqLWYr45rTCdTA3QgjMSMA6Nw8YZuDxgDEfYZyRjqmJ8ZOKjdURP9ke__3JZjv8g8DIjV05PyqItC6cIF1Q==" 
@@ -40,9 +39,6 @@ class DatabaseManager:
         )  
 
         self.bucket = INFLUXDB_BUCKET
-
-        # Call the create_bucket function to ensure the bucket exists
-        create_bucket(self.bucket)
 
     def insert_data(self, measurement, tags, fields, timestamp):
         """Inserts data into InfluxDB."""
