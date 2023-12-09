@@ -50,6 +50,21 @@ def configure_influxdb_bucket(url, token, org, bucket_name):
     except Exception as e:
         print(f"An error occurred while setting up the bucket: {e}")
         sys.exit(1)
+    finally:
+        # Write configuration to .env file
+        write_env_file(url, token, org, bucket_name)
+
+def write_env_file(url, token, org, bucket):
+    """Writes the InfluxDB configuration to a .env file."""
+    try:
+        with open('.env', 'w') as env_file:
+            env_file.write(f"INFLUXDB_URL={url}\n")
+            env_file.write(f"INFLUXDB_TOKEN={token}\n")
+            env_file.write(f"INFLUXDB_ORG={org}\n")
+            env_file.write(f"INFLUXDB_BUCKET={bucket}\n")
+        print("InfluxDB configuration written to .env file.")
+    except IOError as e:
+        print(f"Error writing to .env file: {e}")
 
 def write_data_to_influxdb(url, token, org, bucket):
     """Writes example data to the InfluxDB."""
@@ -71,4 +86,4 @@ if __name__ == "__main__":
     install_requirements()
     check_influxdb_installation()
     setup_influxdb_config()
-    print("Setup completed successfully.")
+    print("Setup completed successfully, Now you can run the main.py")

@@ -6,10 +6,11 @@ from influxdb_client import InfluxDBClient, WritePrecision, Point
 from influxdb_client.client.write_api import SYNCHRONOUS
 from traffic.network_metrics import calculate_gnodeb_throughput
 
-INFLUXDB_URL = "http://localhost:8086"
-INFLUXDB_TOKEN = "Z2HLqLWYr45rTCdTA3QgjMSMA6Nw8YZuDxgDEfYZyRjqmJ8ZOKjdURP9ke__3JZjv8g8DIjV05PyqItC6cIF1Q==" 
-INFLUXDB_ORG = "ranfusion"
-INFLUXDB_BUCKET = "RAN_metrics"
+# Read from environment variables or use default values
+INFLUXDB_URL = os.getenv('INFLUXDB_URL', 'http://localhost:8086')
+INFLUXDB_TOKEN = os.getenv('INFLUXDB_TOKEN', 'your-default-token')
+INFLUXDB_ORG = os.getenv('INFLUXDB_ORG', 'ranfusion')
+INFLUXDB_BUCKET = os.getenv('INFLUXDB_BUCKET', 'RAN_metrics')
 
 class DatabaseManager:
     
@@ -33,11 +34,7 @@ class DatabaseManager:
             token=INFLUXDB_TOKEN,
             org=INFLUXDB_ORG
         )
-        
-        self.write_api = self.client.write_api(
-            write_options=SYNCHRONOUS
-        )  
-
+        self.write_api = self.client.write_api(write_options=SYNCHRONOUS)
         self.bucket = INFLUXDB_BUCKET
 
     def insert_data(self, measurement, tags, fields, timestamp):
