@@ -13,7 +13,21 @@ INFLUXDB_ORG = "ranfusion"
 INFLUXDB_BUCKET = "RAN_metrics"
 
 class DatabaseManager:
-
+    
+    def check_database_connection(self):
+        """Checks if the database is connected."""
+        try:
+            is_alive = self.client.ping()
+            if is_alive:
+                print("Database connection is alive.")
+                return True
+            else:
+                print("Database connection is not alive.")
+                return False
+        except Exception as e:
+            print(f"An error occurred while checking the database connection: {e}")
+            return False
+        
     def __init__(self):
         self.client = InfluxDBClient(
             url=INFLUXDB_URL,
@@ -40,19 +54,7 @@ class DatabaseManager:
         point.time(timestamp, WritePrecision.NS)
         self.write_api.write(bucket=self.bucket, record=point)
     
-    def check_database_connection(self):
-        """Checks if the database is connected."""
-        try:
-            is_alive = self.client.ping()
-            if is_alive:
-                print("Database connection is alive.")
-                return True
-            else:
-                print("Database connection is not alive.")
-                return False
-        except Exception as e:
-            print(f"An error occurred while checking the database connection: {e}")
-            return False
+    
         
     def insert_ue_static_data(self, data):
         """Inserts static UE data into the ue_static measurement."""
