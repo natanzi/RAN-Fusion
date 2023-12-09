@@ -2,9 +2,10 @@
 import os
 import time
 from datetime import datetime
-from influxdb_client import InfluxDBClient, BucketsApi,  WritePrecision, Point  
+from influxdb_client import InfluxDBClient, WritePrecision, Point  
 from influxdb_client.client.write_api import SYNCHRONOUS
 from traffic.network_metrics import calculate_gnodeb_throughput
+from .bucket_operations import create_bucket
 
 INFLUXDB_URL = "http://localhost:8086"
 INFLUXDB_TOKEN = "Z2HLqLWYr45rTCdTA3QgjMSMA6Nw8YZuDxgDEfYZyRjqmJ8ZOKjdURP9ke__3JZjv8g8DIjV05PyqItC6cIF1Q==" 
