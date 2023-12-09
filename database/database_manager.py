@@ -27,12 +27,8 @@ class DatabaseManager:
 
         self.bucket = INFLUXDB_BUCKET
 
-    def write_point(self, point):
-        self.write_api.write(
-            bucket=self.bucket, 
-            org=INFLUXDB_ORG,
-            record=point
-        )
+        # Call the create_bucket function to ensure the bucket exists
+        create_bucket(self.bucket)
 
     def insert_data(self, measurement, tags, fields, timestamp):
         """Inserts data into InfluxDB."""
