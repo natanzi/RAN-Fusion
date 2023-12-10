@@ -47,7 +47,7 @@ def calculate_cell_load(cell_id, gnodebs):
 def find_cell_by_id(cell_id, gnodebs):
     # Iterate over all gNodeBs to find the cell with the given ID
     for gnodeb in gnodebs:
-        for cell in gnodeb.cells:  # Assuming each gNodeB has a list of cells
+        for cell in gnodeb.Cells:
             if cell.ID == cell_id:
                 return cell
     return None
