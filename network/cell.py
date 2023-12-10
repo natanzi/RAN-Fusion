@@ -24,7 +24,7 @@ class Cell:
         self.last_update = None
         # Logging statement should be here, after all attributes are set
         cell_logger.info(f"Cell '{cell_id}' has been created in gNodeB '{self.ID}' with max capacity {self.MaxConnectedUEs}.")
-
+        
     @staticmethod
     def from_json(json_data):
         return Cell(
@@ -66,7 +66,7 @@ class Cell:
                 'timestamp': self.last_update
             }
         return len(self.ConnectedUEs)
-    
+
     def add_ue(self, ue, network_state):
         if len(self.ConnectedUEs) < self.MaxConnectedUEs:
             self.ConnectedUEs.append(ue)
