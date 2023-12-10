@@ -67,7 +67,6 @@ def calculate_cell_throughput(cell, gnodebs):
         ue_throughput = calculate_throughput(ue.data_size, ue.interval, signal_strength, network_load_impact)
         total_throughput += ue_throughput
     return total_throughput
-
 # Calculate the total throughput for all cells in a gNodeB
 def calculate_gnodeb_throughput(gNodeB, gnodebs):
     total_throughput = 0

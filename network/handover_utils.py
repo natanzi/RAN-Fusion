@@ -24,7 +24,6 @@ def handle_qos_based_handover(gnodeb, all_ues, find_cell_by_id):
                 if cell != current_cell and cell.can_provide_gbr(ue):
                     perform_handover(gnodeb, ue, cell)
                     break
-##################################################################################################
 def handover_decision(gnodeb_instance, ue, cells):
     # Placeholder logic for deciding if a handover is needed
     from .gNodeB import gNodeB
@@ -82,7 +81,6 @@ def monitor_and_log_cell_load(gnodeb):
         cell_load_percentage = gnodeb.calculate_cell_load(cell) * 100  # Convert to percentage
 
         # Log the cell load percentage using cell_load_logger
-        #cell_load_logger.info(f'Cell load at time {datetime.now()}: {cell_load_percentage}% for Cell ID {cell.ID} in gNodeB ID {gnodeb.ID}')
         cell_load_logger.info(f'Cell {cell.ID} @ gNodeB {gnodeb.ID} - Load: {cell_load_percentage}%')
 
         # Check if the cell load exceeds the congestion threshold

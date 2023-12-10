@@ -25,7 +25,6 @@ class Cell:
         # Logging statement should be here, after all attributes are set
         cell_logger.info(f"Cell '{cell_id}' has been created in gNodeB '{self.ID}' with max capacity {self.MaxConnectedUEs}.")
 
-        
     @staticmethod
     def from_json(json_data):
         return Cell(
