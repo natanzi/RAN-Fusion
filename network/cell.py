@@ -72,12 +72,21 @@ class Cell:
             self.ConnectedUEs.append(ue)
             print(f"UE '{ue.ID}' has been attached to Cell '{self.ID}'.")
             self.update_ue_count()
-        # Update the network state here
-            network_state.update_state(network_state.gNodeBs, network_state.cells, network_state.ues)
+            # Update the network state here
+            network_state.update_state(network_state.gNodeBs, list(network_state.cells.values()), list(network_state.ues.values()))
+            ue_logger.info(f"UE with ID {ue.ID} added to Cell {self.ID} at {datetime.datetime.now()}")
+            cell_logger.info(f"UE '{ue.ID}' has been added to Cell '{self.ID}'.")
         else:
             raise Exception("Maximum number of connected UEs reached for this cell.")
-            # You may also want to override the method that removes a UE to include the update_ue_count call
-    def remove_ue(self, ue):
-        # ... (code to remove UE)
-        self.update_ue_count()
-        ue_logger.info(f"UE with ID {ue.ID} removed from Cell {self.ID} at {datetime.now()}")
+
+    def remove_ue(self, ue, network_state):
+        if ue in self.ConnectedUEs:
+            self.ConnectedUEs.remove(ue)
+            print(f"UE '{ue.ID}' has been detached from Cell '{self.ID}'.")
+            self.update_ue_count()
+            # Update the network state here if necessary
+            network_state.update_state(network_state.gNodeBs, list(network_state.cells.values()), list(network_state.ues.values()))
+            ue_logger.info(f"UE with ID {ue.ID} removed from Cell {self.ID} at {datetime.datetime.now()}")
+        else:
+            print(f"UE '{ue.ID}' is not connected to Cell '{self.ID}' and cannot be removed.")
+            ue_logger.warning(f"Attempted to remove UE with ID {ue.ID} from Cell {self.ID} which is not connected.")
