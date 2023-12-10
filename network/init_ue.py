@@ -22,9 +22,6 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
     DEFAULT_BANDWIDTH_PARTS = [1, 2, 3, 4]  # Example default values
     ue_id_counter = 1  # Initialize the UE ID counter
 
-    # Create a NetworkState instance before the loop that adds UEs to cells
-    network_state = NetworkState()
-
     # Instantiate UEs from the configuration
     for ue_data in ue_config['ues']:
         # Adjust the keys to match the UE constructor argument names
@@ -77,21 +74,21 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
                 # If 'bandwidthParts' is not a list (i.e., it's a single value), use it as is
                 ue_data['bandwidth_parts'] = ue_data['bandwidthParts']
         
+        # Instantiate UE with the adjusted data
         ue = UE(**ue_data)
-        
         # Assign UE to a random cell of a random gNodeB, if available
         selected_gNodeB = random.choice(list(gNodeBs.values()))
         if hasattr(selected_gNodeB, 'Cells'):  # Correct attribute name should be used here
             selected_cell = random.choice(selected_gNodeB.Cells)
             try:
-            # Add the UE to the cell's ConnectedUEs list
-                selected_cell.add_ue(ue)
+                    #Add the UE to the cell's ConnectedUEs list
+            # Pass the network_state object to the add_ue method
+                selected_cell.add_ue(ue, network_state)  # Corrected line
                 ue.ConnectedCellID = selected_cell.ID
                 logging.info(f"UE '{ue.ID}' has been attached to Cell '{ue.ConnectedCellID}'.")
             except Exception as e:
             # Handle the case where the cell is at maximum capacity
                 logging.error(f"Failed to add UE '{ue.ID}' to Cell '{selected_cell.ID}': {e}")
-
         # You may want to implement additional logic to handle this case
         ue.ConnectedCellID = selected_cell.ID
         # Log the attachment of the UE to the cell
@@ -178,7 +175,8 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
             selected_cell = random.choice(selected_gNodeB.Cells)
             try:
             # Add the UE to the cell's ConnectedUEs list
-                selected_cell.add_ue(ue)
+                selected_cell.add_ue(ue, network_state)
+                network_state.update_state(ue, selected_cell)
                 ue.ConnectedCellID = selected_cell.ID
                 logging.info(f"UE '{ue.ID}' has been attached to Cell '{ue.ConnectedCellID}'.")
             except Exception as e:
