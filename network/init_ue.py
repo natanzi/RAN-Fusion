@@ -22,6 +22,9 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
     DEFAULT_BANDWIDTH_PARTS = [1, 2, 3, 4]  # Example default values
     ue_id_counter = 1  # Initialize the UE ID counter
 
+    # Create a NetworkState instance before the loop that adds UEs to cells
+    network_state = NetworkState()
+
     # Instantiate UEs from the configuration
     for ue_data in ue_config['ues']:
         # Adjust the keys to match the UE constructor argument names
