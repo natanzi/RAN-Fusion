@@ -7,6 +7,7 @@ from .utils import random_location_within_radius
 from Config_files.config_load import load_all_configs
 from .ue import UE 
 import logging
+from network.network_state import NetworkState
 
 def random_location_within_radius(latitude, longitude, radius_km):
     random_radius = random.uniform(0, radius_km)
@@ -79,7 +80,17 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         selected_gNodeB = random.choice(list(gNodeBs.values()))
         if hasattr(selected_gNodeB, 'Cells'):  # Correct attribute name should be used here
             selected_cell = random.choice(selected_gNodeB.Cells)
-            ue.ConnectedCellID = selected_cell.ID
+            try:
+            # Add the UE to the cell's ConnectedUEs list
+                selected_cell.add_ue(ue)
+                ue.ConnectedCellID = selected_cell.ID
+                logging.info(f"UE '{ue.ID}' has been attached to Cell '{ue.ConnectedCellID}'.")
+            except Exception as e:
+            # Handle the case where the cell is at maximum capacity
+                logging.error(f"Failed to add UE '{ue.ID}' to Cell '{selected_cell.ID}': {e}")
+
+        # You may want to implement additional logic to handle this case
+        ue.ConnectedCellID = selected_cell.ID
         # Log the attachment of the UE to the cell
         logging.info(f"UE '{ue.ID}' has been attached to Cell '{ue.ConnectedCellID}'.")
 
@@ -162,7 +173,17 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
 
         if selected_gNodeB.Cells:
             selected_cell = random.choice(selected_gNodeB.Cells)
-            new_ue.ConnectedCellID = selected_cell.ID
+            try:
+            # Add the UE to the cell's ConnectedUEs list
+                selected_cell.add_ue(ue)
+                ue.ConnectedCellID = selected_cell.ID
+                logging.info(f"UE '{ue.ID}' has been attached to Cell '{ue.ConnectedCellID}'.")
+            except Exception as e:
+            # Handle the case where the cell is at maximum capacity
+                logging.error(f"Failed to add UE '{ue.ID}' to Cell '{selected_cell.ID}': {e}")
+
+        # You may want to implement additional logic to handle this case
+        ue.ConnectedCellID = selected_cell.ID
 
         # Prepare static UE data for database insertion
         static_ue_data = {
