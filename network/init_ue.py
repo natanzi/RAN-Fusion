@@ -56,7 +56,6 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         # Assign sequential UE ID
         ue_data['ue_id'] = f"UE{ue_id_counter}" 
         
-        # Instantiate UE with the adjusted data
         # Ensure modulation is a single scalar value, not a list
         
         if isinstance(ue_data['modulation'], list):
@@ -81,18 +80,15 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         if hasattr(selected_gNodeB, 'Cells'):  # Correct attribute name should be used here
             selected_cell = random.choice(selected_gNodeB.Cells)
             try:
-                    #Add the UE to the cell's ConnectedUEs list
-            # Pass the network_state object to the add_ue method
-                selected_cell.add_ue(ue, network_state)  # Corrected line
+                # Add the UE to the cell's ConnectedUEs list
+                selected_cell.add_ue(ue, network_state)  # Pass the network_state object to the add_ue method
+            # The network_state should be updated here if necessary
+            # network_state.update_state(...)
                 ue.ConnectedCellID = selected_cell.ID
                 logging.info(f"UE '{ue.ID}' has been attached to Cell '{ue.ConnectedCellID}'.")
             except Exception as e:
-            # Handle the case where the cell is at maximum capacity
+        # Handle the case where the cell is at maximum capacity
                 logging.error(f"Failed to add UE '{ue.ID}' to Cell '{selected_cell.ID}': {e}")
-        # You may want to implement additional logic to handle this case
-        ue.ConnectedCellID = selected_cell.ID
-        # Log the attachment of the UE to the cell
-        logging.info(f"UE '{ue.ID}' has been attached to Cell '{ue.ConnectedCellID}'.")
 
         # Prepare static UE data for database insertion
         static_ue_data = {
@@ -176,7 +172,8 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
             try:
             # Add the UE to the cell's ConnectedUEs list
                 selected_cell.add_ue(ue, network_state)
-                network_state.update_state(ue, selected_cell)
+            # Update the network state with the current state of gNodeBs, cells, and UEs
+                network_state.update_state(network_state.gNodeBs, list(network_state.cells.values()), list(network_state.ues.values()))
                 ue.ConnectedCellID = selected_cell.ID
                 logging.info(f"UE '{ue.ID}' has been attached to Cell '{ue.ConnectedCellID}'.")
             except Exception as e:
