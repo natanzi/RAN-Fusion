@@ -9,6 +9,9 @@ from .ue import UE
 import logging
 from network.network_state import NetworkState
 
+# Create an instance of NetworkState
+network_state = NetworkState()
+
 def random_location_within_radius(latitude, longitude, radius_km):
     random_radius = random.uniform(0, radius_km)
     random_angle = random.uniform(0, 2 * math.pi)
