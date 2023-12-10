@@ -76,8 +76,6 @@ class Cell:
             network_state.update_state(network_state.gNodeBs, network_state.cells, network_state.ues)
         else:
             raise Exception("Maximum number of connected UEs reached for this cell.")
-        ue_logger.info(f"UE with ID {ue.ID} added to Cell {self.ID} at {datetime.now()}")
-        cell_logger.info(f"UE '{ue.get_id()}' has been added to Cell '{self.get_cell_id()}'.")
             # You may also want to override the method that removes a UE to include the update_ue_count call
     def remove_ue(self, ue):
         # ... (code to remove UE)
