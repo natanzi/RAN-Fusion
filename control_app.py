@@ -5,6 +5,10 @@ from traffic.traffic_generator import TrafficController
 app = Flask(__name__)
 traffic_controller = TrafficController()
 
+@app.route('/', methods=['GET'])
+def index():
+    return 'Welcome to the 5G RAN Simulator!', 200
+
 @app.route('/update_voice_traffic', methods=['POST'])
 def update_voice_traffic():
     data = request.json

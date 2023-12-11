@@ -45,7 +45,7 @@ def log_traffic(ues, db_manager, traffic_increase_config=None):
                 'data_size': float(data_size),
                 # Add other relevant data fields here
             }
-            # Log the data to the database
+            #Log the data to the database
             db_manager.insert_ue_data(data)
 
             time.sleep(1)  # Logging interval
