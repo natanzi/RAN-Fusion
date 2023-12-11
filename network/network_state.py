@@ -100,7 +100,7 @@ class NetworkState:
             }
             points.append(point)
         return points
-    
+
     def save_state_to_influxdb(self):
         db_manager = DatabaseManager()
         points = self.serialize_for_influxdb()

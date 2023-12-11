@@ -20,14 +20,22 @@ def initialize_cells(gNodeBs):
     # Initialize Cells and link them to gNodeBs
     cells = [Cell.from_json(cell_data) for cell_data in cells_config['cells']]
 
-    # Insert static cell data into the database and link cells to gNodeBs
+    # Prepare a list for batch insertion
+    cell_data_points = []
+
+    # Collect static cell data into the list for batch insertion
     for cell in cells:
         cell_data = cell.to_dict()
         gnodeb_id = cell_data.pop('gNodeB_ID', None)
-        db_manager.insert_cell_static_data(cell_data)
+        # Instead of inserting here, we add the data to the list
+        cell_data_points.append(cell_data)
+        # Link cells to gNodeBs
         for gnodeb_key, gnodeb in gNodeBs.items():
             if gnodeb_id == gnodeb_key:
                 gnodeb.add_cell_to_gNodeB(cell)
+
+    # Use the new batch insert method
+    db_manager.insert_data_batch(cell_data_points)
 
     # Close the database connection
     db_manager.close_connection()

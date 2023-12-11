@@ -47,7 +47,9 @@ class DatabaseManager:
         point.time(timestamp, WritePrecision.NS)
         self.write_api.write(bucket=self.bucket, record=point)
     
-    
+    def insert_data_batch(self, points):
+        """Inserts a batch of data points into InfluxDB."""
+        self.write_api.write(bucket=self.bucket, record=points)
         
     def insert_ue_static_data(self, data):
         """Inserts static UE data into the ue_static measurement."""
