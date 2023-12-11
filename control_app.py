@@ -2,9 +2,7 @@
 from flask import Flask, request
 from traffic.traffic_generator import TrafficController
 from log.logger_config import setup_logger
-
-# Set up a logger for the traffic updates
-traffic_update_logger = setup_logger('traffic_update', 'logs/traffic_update.log')
+from logger_config import traffic_update_logger
 
 app = Flask(__name__)
 traffic_controller = TrafficController()
@@ -15,6 +13,7 @@ def index():
 
 @app.route('/update_voice_traffic', methods=['POST'])
 def update_voice_traffic():
+    print("update_voice_traffic endpoint was called")  # Added this line for debugging
     data = request.json
     bitrate_range = data.get('bitrate_range')
     jitter = data.get('jitter')
