@@ -2,6 +2,10 @@ from flask import Flask, jsonify, request
 from network.gNodeB import gNodeB
 from network.cell import Cell
 from network.ue import UE
+from network.network_state import NetworkState
+
+# Assuming you have a global or accessible instance of NetworkState
+network_state = NetworkState()
 
 app = Flask(__name__)
 
@@ -52,16 +56,30 @@ def manage_single_ue(ue_id):
 # Additional actions
 @app.route('/ues/<int:ue_id>/generate_traffic', methods=['POST'])
 def ue_generate_traffic(ue_id):
-    # Find the UE by ID
-    ue = find_ue_by_id(ue_id)
-    if ue:
-        # Generate increased traffic for the UE
-        traffic_multiplier = request.json.get('traffic_multiplier', 1)  # Assuming traffic_multiplier is passed in the request body
-        ue.generate_traffic(traffic_multiplier)
-        return jsonify({"message": "Traffic generated successfully"}), 200
+    # Get UE info which includes the gNodeB ID
+    ue_info = network_state.get_ue_info(ue_id)
+    
+    if ue_info:
+        # Use the gNodeB ID to get the gNodeB instance
+        gnodeb_id = ue_info['gNodeB_ID']
+        gnodeb_instance = network_state.gNodeBs.get(gnodeb_id)  # Assuming network_state has a dictionary of gNodeBs
+        
+        if gnodeb_instance:
+            # Find the UE by ID using the gNodeB instance
+            ue = gnodeb_instance.find_ue_by_id(ue_id)
+            
+            if ue:
+                # Generate increased traffic for the UE
+                traffic_multiplier = request.json.get('traffic_multiplier', 1)
+                ue.generate_traffic(traffic_multiplier)
+                return jsonify({"message": "Traffic generated successfully"}), 200
+            else:
+                return jsonify({"error": "UE not found in the specified gNodeB"}), 404
+        else:
+            return jsonify({"error": "gNodeB instance not found"}), 404
     else:
         return jsonify({"error": f"UE with ID {ue_id} not found"}), 404
-
+    
 @app.route('/gnodebs/<int:gnodeb_id>/handover_decision', methods=['POST'])
 def gnodeb_handover_decision(gnodeb_id):
     # Logic for gNodeB to decide handovers

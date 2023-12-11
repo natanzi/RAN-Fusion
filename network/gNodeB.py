@@ -78,7 +78,7 @@ class gNodeB:
         for ue in self.all_ues():
             if ue.ID == ue_id:
                 return ue
-        return None    
+        return None
 
     def delete_cell(self, cell_id):
         # Find the cell to be deleted
