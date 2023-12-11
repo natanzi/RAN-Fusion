@@ -5,6 +5,7 @@ from datetime import datetime
 from influxdb_client import InfluxDBClient, WritePrecision, Point  
 from influxdb_client.client.write_api import SYNCHRONOUS
 from traffic.network_metrics import calculate_gnodeb_throughput
+from network.network_state import NetworkState
 
 # Read from environment variables or use default values
 INFLUXDB_URL = os.getenv('INFLUXDB_URL', 'http://localhost:8086')
@@ -36,6 +37,8 @@ class DatabaseManager:
         )
         self.write_api = self.client.write_api(write_options=SYNCHRONOUS)
         self.bucket = INFLUXDB_BUCKET
+        # Create an instance of NetworkState or pass it as a parameter to the DatabaseManager
+        self.network_state = NetworkState()
 
     def insert_data(self, measurement, tags, fields, timestamp):
         """Inserts data into InfluxDB."""
@@ -114,6 +117,11 @@ class DatabaseManager:
         # Assuming 'cell' is an instance of the Cell class and has the necessary methods
         current_ue_count = cell.update_ue_count()  # This method should return the current UE count
         total_throughput = cell.calculate_total_throughput()  # You need to implement this method in the Cell class
+        cell_load = self.network_state.get_cell_load(cell)
+
+        # Retrieve the cell load using the get_cell_load method from network_state.py
+        # Assuming you have an instance of NetworkState available here as `network_state`
+        cell_load = network_state.get_cell_load(cell)
 
         tags = {
             'cell_id': cell.ID,
@@ -122,10 +130,12 @@ class DatabaseManager:
         fields = {
             'max_connect_ues': cell.MaxConnectedUEs,
             'current_ue_count': current_ue_count,
-            'total_throughput': total_throughput
+            'total_throughput': total_throughput,
+            'cell_load': cell_load  # Add the cell load to the fields
         }
         timestamp = time.time_ns()  # Current time in nanoseconds
 
+        # Assuming insert_data is a method in this class that handles the database insertion
         self.insert_data('cell_metrics', tags, fields, timestamp)
 
     def insert_cell_static_data(self, data):
