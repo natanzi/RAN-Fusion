@@ -55,30 +55,30 @@ class Cell:
             'TrackingArea': self.TrackingArea,
             # Assuming you don't need to include the 'ConnectedUEs' list
         }
-    # Method to get the count of active UEs and update the last attached cell and its gNodeB
+        # Method to get the count of active UEs and update the last attached cell and its gNodeB
     def update_ue_count(self):
-        self.last_update = datetime.datetime.now()
-        if self.ConnectedUEs:
-            self.last_ue_update = {
-                'ue_id': self.ConnectedUEs[-1].ID,
-                'cell_id': self.ID,
-                'gnodeb_id': self.gNodeB_ID,
-                'timestamp': self.last_update
-            }
-        return len(self.ConnectedUEs)
-
+            self.last_update = datetime.datetime.now()
+            if self.ConnectedUEs:
+                self.last_ue_update = {
+                    'ue_id': self.ConnectedUEs[-1].ID,
+                    'cell_id': self.ID,
+                    'gnodeb_id': self.gNodeB_ID,
+                    'timestamp': self.last_update
+                }
+            return len(self.ConnectedUEs)
+        
     def add_ue(self, ue, network_state):
-        if len(self.ConnectedUEs) < self.MaxConnectedUEs:
-            self.ConnectedUEs.append(ue)
-            print(f"UE '{ue.ID}' has been attached to Cell '{self.ID}'.")
-            time.sleep(1)  # Delay for 1 second, adjust the number as needed
-            self.update_ue_count()
-            # Update the network state here
-            network_state.update_state(network_state.gNodeBs, list(network_state.cells.values()), list(network_state.ues.values()))
-            ue_logger.info(f"UE with ID {ue.ID} added to Cell {self.ID} at {datetime.datetime.now()}")
-            cell_logger.info(f"UE '{ue.ID}' has been added to Cell '{self.ID}'.")
-        else:
-            raise Exception("Maximum number of connected UEs reached for this cell.")
+            if len(self.ConnectedUEs) < self.MaxConnectedUEs:
+                self.ConnectedUEs.append(ue)
+                print(f"UE '{ue.ID}' has been attached to Cell '{self.ID}'.")
+                #time.sleep(1)  # Delay for 1 second, adjust the number as needed
+                self.update_ue_count()
+                # Update the network state here
+                network_state.update_state(network_state.gNodeBs, list(network_state.cells.values()), list(network_state.ues.values()))
+                ue_logger.info(f"UE with ID {ue.ID} added to Cell {self.ID} at {datetime.datetime.now()}")
+                cell_logger.info(f"UE '{ue.ID}' has been added to Cell '{self.ID}'.")
+            else:
+                raise Exception("Maximum number of connected UEs reached for this cell.")
 
     def remove_ue(self, ue, network_state):
         if ue in self.ConnectedUEs:
