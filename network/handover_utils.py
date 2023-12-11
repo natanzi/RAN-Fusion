@@ -76,6 +76,9 @@ def perform_handover(gnodeb, ue, target_cell=None):
     # Update handover success and failure counts
     if handover_successful:
         gnodeb.handover_success_count += 1
+        # After a successful handover, reassess the load distribution
+        handle_load_balancing(gnodeb, gnodeb.calculate_cell_load, gnodeb.find_underloaded_cell, gnodeb.select_ues_for_load_balancing)
+
     else:
         gnodeb.handover_failure_count += 1
         # Log the failed handover if target cell was not found or handover was not successful
