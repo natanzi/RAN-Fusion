@@ -71,7 +71,6 @@ class Cell:
             if len(self.ConnectedUEs) < self.MaxConnectedUEs:
                 self.ConnectedUEs.append(ue)
                 print(f"UE '{ue.ID}' has been attached to Cell '{self.ID}'.")
-                #time.sleep(1)  # Delay for 1 second, adjust the number as needed
                 self.update_ue_count()
                 # Update the network state here
                 network_state.update_state(network_state.gNodeBs, list(network_state.cells.values()), list(network_state.ues.values()))

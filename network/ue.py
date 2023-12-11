@@ -118,7 +118,6 @@ class UE:
         
         # Scale the data size by the traffic multiplier
         data_size *= traffic_multiplier
-
         return data_size, interval
 
     def perform_handover(self, new_cell):
