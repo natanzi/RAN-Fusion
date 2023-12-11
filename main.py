@@ -4,7 +4,6 @@ from multiprocessing import Process
 from network.initialize_network import initialize_network
 from Config_files.config_load import load_all_configs
 from database.database_manager import DatabaseManager
-from network.handover import monitor_and_log_cell_load  # Import the monitoring function
 import logging
 from logo import create_logo
 
