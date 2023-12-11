@@ -4,7 +4,7 @@ from .network_state import NetworkState  # Import the NetworkState class
 import datetime
 from log.logger_config import ue_logger
 from log.logger_config import cell_logger
-
+import time 
 class Cell:
     def __init__(self, cell_id, gnodeb_id, frequencyBand, duplexMode, tx_power, bandwidth, ssb_periodicity, ssb_offset, max_connect_ues, channel_model, trackingArea=None):
         self.ID = cell_id
@@ -71,6 +71,7 @@ class Cell:
         if len(self.ConnectedUEs) < self.MaxConnectedUEs:
             self.ConnectedUEs.append(ue)
             print(f"UE '{ue.ID}' has been attached to Cell '{self.ID}'.")
+            time.sleep(1)  # Delay for 1 second, adjust the number as needed
             self.update_ue_count()
             # Update the network state here
             network_state.update_state(network_state.gNodeBs, list(network_state.cells.values()), list(network_state.ues.values()))
