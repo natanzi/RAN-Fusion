@@ -97,7 +97,7 @@ class UE:
             ues.append(ue)
         return ues
 
-    def generate_traffic(self):
+    def generate_traffic(self, traffic_multiplier=1):
         traffic_controller = TrafficController()  # Create an instance of TrafficController
 
         # Convert service type to lowercase to ensure case-insensitive comparison
@@ -115,7 +115,11 @@ class UE:
             return traffic_controller.generate_data_traffic()
         else:
             raise ValueError(f"Unknown service type: {self.ServiceType}")
+        
+        # Scale the data size by the traffic multiplier
+        data_size *= traffic_multiplier
 
+        return data_size, interval
 
     def perform_handover(self, new_cell):
         old_cell_id = self.ConnectedCellID  # Store the old cell ID for logging

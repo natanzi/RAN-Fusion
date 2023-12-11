@@ -20,10 +20,21 @@ logging.basicConfig(level=logging.INFO)
 db_manager = DatabaseManager()
 connection_status = db_manager.check_database_connection()
 
-def log_traffic(ues, db_manager):
+def log_traffic(ues, db_manager, traffic_increase_config=None):
     while True:
         for ue in ues:
+            # Check if this UE should have increased traffic
+            if traffic_increase_config and ue.ID in traffic_increase_config:
+                # Get the traffic increase factor for this UE
+                traffic_multiplier = traffic_increase_config[ue.ID]
+            else:
+                # Default traffic multiplier is 1 (no increase)
+                traffic_multiplier = 1
+
+            # Generate traffic with the potential multiplier
             data_size, interval = ue.generate_traffic()
+            data_size *= traffic_multiplier  # Apply the traffic multiplier
+
             print(f"UE ID: {ue.ID}, IMEI: {ue.IMEI}, Service Type: {ue.ServiceType}, Data Size: {data_size}, Interval: {interval} sec")
             
             # Prepare data for logging to the database
@@ -60,8 +71,12 @@ def main():
     # Initialize DatabaseManager
     db_manager = DatabaseManager()
 
+    # Example traffic increase configuration
+    # This can be modified or managed through a GUI or API endpoint
+    traffic_increase_config = {1: 2, 3: 1.5}
+
     # Create a separate process for logging
-    logging_process = Process(target=log_traffic, args=(ues, db_manager))
+    logging_process = Process(target=log_traffic, args=(ues, db_manager, traffic_increase_config))
     logging_process.start()
 
     # Create a separate process for monitoring cell load

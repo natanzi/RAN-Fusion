@@ -52,8 +52,15 @@ def manage_single_ue(ue_id):
 # Additional actions
 @app.route('/ues/<int:ue_id>/generate_traffic', methods=['POST'])
 def ue_generate_traffic(ue_id):
-    # Logic to make a UE generate traffic
-    pass
+    # Find the UE by ID
+    ue = find_ue_by_id(ue_id)
+    if ue:
+        # Generate increased traffic for the UE
+        traffic_multiplier = request.json.get('traffic_multiplier', 1)  # Assuming traffic_multiplier is passed in the request body
+        ue.generate_traffic(traffic_multiplier)
+        return jsonify({"message": "Traffic generated successfully"}), 200
+    else:
+        return jsonify({"error": f"UE with ID {ue_id} not found"}), 404
 
 @app.route('/gnodebs/<int:gnodeb_id>/handover_decision', methods=['POST'])
 def gnodeb_handover_decision(gnodeb_id):
