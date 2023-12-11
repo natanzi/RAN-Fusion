@@ -1,173 +1,58 @@
-2023-12-10 22:40:45 - INFO - Cell 'Ax1242' has been created in gNodeB 'Ax1242' with max capacity 10.
-2023-12-10 22:40:45 - INFO - Cell 'BX1453' has been created in gNodeB 'BX1453' with max capacity 10.
-2023-12-10 22:40:45 - INFO - Cell 'CX1352' has been created in gNodeB 'CX1352' with max capacity 10.
-2023-12-10 22:40:45 - INFO - Cell 'AX1112' has been created in gNodeB 'AX1112' with max capacity 10.
-2023-12-10 22:40:45 - INFO - Cell 'BX1334' has been created in gNodeB 'BX1334' with max capacity 10.
-2023-12-10 22:40:45 - INFO - Cell 'CX1873' has been created in gNodeB 'CX1873' with max capacity 10.
-2023-12-10 22:40:45 - INFO - Cell 'AX9980' has been created in gNodeB 'AX9980' with max capacity 10.
-2023-12-10 22:40:45 - INFO - Cell 'BX1230' has been created in gNodeB 'BX1230' with max capacity 10.
-2023-12-10 22:40:45 - INFO - Cell 'CX5103' has been created in gNodeB 'CX5103' with max capacity 10.
-2023-12-10 22:40:45 - INFO - Cell 'Ax1242' has been added to gNodeB 'W1140'.
-2023-12-10 22:40:46 - INFO - Cell 'BX1453' has been added to gNodeB 'W1140'.
-2023-12-10 22:40:47 - INFO - Cell 'CX1352' has been added to gNodeB 'W1140'.
-2023-12-10 22:40:48 - INFO - Cell 'AX1112' has been added to gNodeB 'W1320'.
-2023-12-10 22:40:49 - INFO - Cell 'BX1334' has been added to gNodeB 'W1320'.
-2023-12-10 22:40:50 - INFO - Cell 'CX1873' has been added to gNodeB 'W1320'.
-2023-12-10 22:40:51 - INFO - Cell 'AX9980' has been added to gNodeB 'W2018'.
-2023-12-10 22:40:52 - INFO - Cell 'BX1230' has been added to gNodeB 'W2018'.
-2023-12-10 22:40:53 - INFO - Cell 'CX5103' has been added to gNodeB 'W2018'.
-2023-12-10 22:40:55 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
-2023-12-10 22:40:56 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
-2023-12-10 22:40:57 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
-2023-12-10 22:40:58 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
-2023-12-10 22:40:59 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
-2023-12-10 22:41:00 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
-2023-12-10 22:41:01 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
-2023-12-10 22:41:02 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
-2023-12-10 22:41:03 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
-2023-12-10 22:41:04 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
-2023-12-10 22:41:05 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
-2023-12-10 22:41:06 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
-2023-12-10 22:41:07 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
-2023-12-10 22:41:08 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
-2023-12-10 22:41:09 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
-2023-12-10 22:41:10 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
-2023-12-10 22:41:11 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
-2023-12-10 22:41:13 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
-2023-12-10 22:41:14 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
-2023-12-10 22:41:15 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
-2023-12-10 22:41:16 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
-2023-12-10 22:41:17 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
-2023-12-10 22:41:18 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
-2023-12-10 22:41:19 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
-2023-12-10 22:41:20 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
-2023-12-10 22:41:21 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
-2023-12-10 22:41:22 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
-2023-12-10 22:41:23 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
-2023-12-10 22:41:24 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
-2023-12-10 22:41:25 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
-2023-12-10 22:41:26 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
-2023-12-10 22:41:27 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
-2023-12-10 22:41:28 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
-2023-12-10 22:41:29 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
-2023-12-10 22:41:30 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
-2023-12-10 22:41:31 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
-2023-12-10 22:41:32 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
-2023-12-10 22:41:33 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
-2023-12-10 22:41:34 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
-2023-12-10 22:41:35 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
-2023-12-10 22:49:31 - INFO - Cell 'Ax1242' has been created in gNodeB 'Ax1242' with max capacity 10.
-2023-12-10 22:49:31 - INFO - Cell 'BX1453' has been created in gNodeB 'BX1453' with max capacity 10.
-2023-12-10 22:49:31 - INFO - Cell 'CX1352' has been created in gNodeB 'CX1352' with max capacity 10.
-2023-12-10 22:49:31 - INFO - Cell 'AX1112' has been created in gNodeB 'AX1112' with max capacity 10.
-2023-12-10 22:49:31 - INFO - Cell 'BX1334' has been created in gNodeB 'BX1334' with max capacity 10.
-2023-12-10 22:49:31 - INFO - Cell 'CX1873' has been created in gNodeB 'CX1873' with max capacity 10.
-2023-12-10 22:49:31 - INFO - Cell 'AX9980' has been created in gNodeB 'AX9980' with max capacity 10.
-2023-12-10 22:49:31 - INFO - Cell 'BX1230' has been created in gNodeB 'BX1230' with max capacity 10.
-2023-12-10 22:49:31 - INFO - Cell 'CX5103' has been created in gNodeB 'CX5103' with max capacity 10.
-2023-12-10 22:49:31 - INFO - Cell 'Ax1242' has been added to gNodeB 'W1140'.
-2023-12-10 22:49:32 - INFO - Cell 'BX1453' has been added to gNodeB 'W1140'.
-2023-12-10 22:49:33 - INFO - Cell 'CX1352' has been added to gNodeB 'W1140'.
-2023-12-10 22:49:34 - INFO - Cell 'AX1112' has been added to gNodeB 'W1320'.
-2023-12-10 22:49:35 - INFO - Cell 'BX1334' has been added to gNodeB 'W1320'.
-2023-12-10 22:49:36 - INFO - Cell 'CX1873' has been added to gNodeB 'W1320'.
-2023-12-10 22:49:37 - INFO - Cell 'AX9980' has been added to gNodeB 'W2018'.
-2023-12-10 22:49:38 - INFO - Cell 'BX1230' has been added to gNodeB 'W2018'.
-2023-12-10 22:49:39 - INFO - Cell 'CX5103' has been added to gNodeB 'W2018'.
-2023-12-10 22:49:41 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
-2023-12-10 22:49:42 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
-2023-12-10 22:49:43 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
-2023-12-10 22:49:44 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
-2023-12-10 22:49:45 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
-2023-12-10 22:49:46 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
-2023-12-10 22:49:47 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
-2023-12-10 22:49:48 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
-2023-12-10 22:49:49 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
-2023-12-10 22:49:50 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
-2023-12-10 22:49:51 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
-2023-12-10 22:49:52 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
-2023-12-10 22:49:53 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
-2023-12-10 22:49:54 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
-2023-12-10 22:49:55 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
-2023-12-10 22:49:56 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
-2023-12-10 22:49:57 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
-2023-12-10 22:49:58 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
-2023-12-10 22:49:59 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
-2023-12-10 22:50:00 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
-2023-12-10 22:50:01 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
-2023-12-10 22:50:02 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
-2023-12-10 22:50:03 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
-2023-12-10 22:50:04 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
-2023-12-10 22:50:05 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
-2023-12-10 22:50:06 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
-2023-12-10 22:50:07 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
-2023-12-10 22:50:08 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
-2023-12-10 22:50:09 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
-2023-12-10 22:50:10 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
-2023-12-10 22:50:11 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
-2023-12-10 22:50:12 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
-2023-12-10 22:50:13 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
-2023-12-10 22:50:14 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
-2023-12-10 22:50:15 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
-2023-12-10 22:50:16 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
-2023-12-10 22:50:17 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
-2023-12-10 22:50:18 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
-2023-12-10 22:50:19 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
-2023-12-10 22:50:20 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
-2023-12-10 22:52:17 - INFO - Cell 'Ax1242' has been created in gNodeB 'Ax1242' with max capacity 10.
-2023-12-10 22:52:17 - INFO - Cell 'BX1453' has been created in gNodeB 'BX1453' with max capacity 10.
-2023-12-10 22:52:17 - INFO - Cell 'CX1352' has been created in gNodeB 'CX1352' with max capacity 10.
-2023-12-10 22:52:17 - INFO - Cell 'AX1112' has been created in gNodeB 'AX1112' with max capacity 10.
-2023-12-10 22:52:17 - INFO - Cell 'BX1334' has been created in gNodeB 'BX1334' with max capacity 10.
-2023-12-10 22:52:17 - INFO - Cell 'CX1873' has been created in gNodeB 'CX1873' with max capacity 10.
-2023-12-10 22:52:17 - INFO - Cell 'AX9980' has been created in gNodeB 'AX9980' with max capacity 10.
-2023-12-10 22:52:17 - INFO - Cell 'BX1230' has been created in gNodeB 'BX1230' with max capacity 10.
-2023-12-10 22:52:17 - INFO - Cell 'CX5103' has been created in gNodeB 'CX5103' with max capacity 10.
-2023-12-10 22:52:17 - INFO - Cell 'Ax1242' has been added to gNodeB 'W1140'.
-2023-12-10 22:52:18 - INFO - Cell 'BX1453' has been added to gNodeB 'W1140'.
-2023-12-10 22:52:19 - INFO - Cell 'CX1352' has been added to gNodeB 'W1140'.
-2023-12-10 22:52:20 - INFO - Cell 'AX1112' has been added to gNodeB 'W1320'.
-2023-12-10 22:52:21 - INFO - Cell 'BX1334' has been added to gNodeB 'W1320'.
-2023-12-10 22:52:22 - INFO - Cell 'CX1873' has been added to gNodeB 'W1320'.
-2023-12-10 22:52:23 - INFO - Cell 'AX9980' has been added to gNodeB 'W2018'.
-2023-12-10 22:52:24 - INFO - Cell 'BX1230' has been added to gNodeB 'W2018'.
-2023-12-10 22:52:25 - INFO - Cell 'CX5103' has been added to gNodeB 'W2018'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
-2023-12-10 22:52:26 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-11 12:19:10 - INFO - Cell 'Ax1242' has been created in gNodeB 'Ax1242' with max capacity 10.
+2023-12-11 12:19:10 - INFO - Cell 'BX1453' has been created in gNodeB 'BX1453' with max capacity 10.
+2023-12-11 12:19:10 - INFO - Cell 'CX1352' has been created in gNodeB 'CX1352' with max capacity 10.
+2023-12-11 12:19:10 - INFO - Cell 'AX1112' has been created in gNodeB 'AX1112' with max capacity 10.
+2023-12-11 12:19:10 - INFO - Cell 'BX1334' has been created in gNodeB 'BX1334' with max capacity 10.
+2023-12-11 12:19:10 - INFO - Cell 'CX1873' has been created in gNodeB 'CX1873' with max capacity 10.
+2023-12-11 12:19:10 - INFO - Cell 'AX9980' has been created in gNodeB 'AX9980' with max capacity 10.
+2023-12-11 12:19:10 - INFO - Cell 'BX1230' has been created in gNodeB 'BX1230' with max capacity 10.
+2023-12-11 12:19:10 - INFO - Cell 'CX5103' has been created in gNodeB 'CX5103' with max capacity 10.
+2023-12-11 12:19:10 - INFO - Cell 'Ax1242' has been added to gNodeB 'W1140'.
+2023-12-11 12:19:11 - INFO - Cell 'BX1453' has been added to gNodeB 'W1140'.
+2023-12-11 12:19:12 - INFO - Cell 'CX1352' has been added to gNodeB 'W1140'.
+2023-12-11 12:19:13 - INFO - Cell 'AX1112' has been added to gNodeB 'W1320'.
+2023-12-11 12:19:14 - INFO - Cell 'BX1334' has been added to gNodeB 'W1320'.
+2023-12-11 12:19:15 - INFO - Cell 'CX1873' has been added to gNodeB 'W1320'.
+2023-12-11 12:19:16 - INFO - Cell 'AX9980' has been added to gNodeB 'W2018'.
+2023-12-11 12:19:17 - INFO - Cell 'BX1230' has been added to gNodeB 'W2018'.
+2023-12-11 12:19:18 - INFO - Cell 'CX5103' has been added to gNodeB 'W2018'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-11 12:19:19 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
