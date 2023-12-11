@@ -13,7 +13,6 @@ def index():
 
 @app.route('/update_voice_traffic', methods=['POST'])
 def update_voice_traffic():
-    print("update_voice_traffic endpoint was called")  # Added this line for debugging
     data = request.json
     bitrate_range = data.get('bitrate_range')
     jitter = data.get('jitter')
