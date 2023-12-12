@@ -33,12 +33,11 @@ def initialize_cells(gNodeBs, network_state):
         
         # Add a 'fields' key to cell_data with the necessary fields
         cell_data['fields'] = {
-            # Add your cell data fields here. For example:
-            'max_capacity': cell_data['max_capacity']
+            'max_capacity': cell_data['MaxConnectedUEs']  # Corrected key to 'MaxConnectedUEs'
         }
         
-        # Remove the 'max_capacity' from the main dictionary as it's now in 'fields'
-        cell_data.pop('max_capacity', None)
+        # Remove the 'MaxConnectedUEs' from the main dictionary as it's now in 'fields'
+        cell_data.pop('MaxConnectedUEs', None)
         
         # Instead of inserting here, we add the data to the list
         cell_data_points.append(cell_data)
