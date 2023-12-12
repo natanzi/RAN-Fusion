@@ -111,13 +111,8 @@ class DatabaseManager:
 
     def insert_cell_data(self, cell):
         """Inserts a row of Cell KPI data into the cell_metrics measurement."""
-        # Assuming 'cell' is an instance of the Cell class and has the necessary methods
         current_ue_count = cell.update_ue_count()  # This method should return the current UE count
         total_throughput = cell.calculate_total_throughput()  # You need to implement this method in the Cell class
-        cell_load = self.network_state.get_cell_load(cell)
-
-        # Retrieve the cell load using the get_cell_load method from network_state.py
-        # Assuming you have an instance of NetworkState available here as `network_state`
         cell_load = self.network_state.get_cell_load(cell)
 
         tags = {
@@ -132,7 +127,6 @@ class DatabaseManager:
         }
         timestamp = time.time_ns()  # Current time in nanoseconds
 
-        # Assuming insert_data is a method in this class that handles the database insertion
         self.insert_data('cell_metrics', tags, fields, timestamp)
 
     def insert_cell_static_data(self, data):

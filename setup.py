@@ -32,10 +32,6 @@ def setup_influxdb_config():
     # Configure InfluxDB bucket
     configure_influxdb_bucket(influxdb_url, influxdb_token, influxdb_org, influxdb_bucket)
 
-    # Example of writing data to InfluxDB
-    # write_data_to_influxdb(influxdb_url, influxdb_token, influxdb_org, influxdb_bucket)
-
-
 def configure_influxdb_bucket(url, token, org, bucket_name):
     """Configures the InfluxDB bucket."""
     client = InfluxDBClient(url=url, token=token, org=org)
@@ -66,21 +62,6 @@ def write_env_file(url, token, org, bucket):
         print("InfluxDB configuration written to .env file.")
     except IOError as e:
         print(f"Error writing to .env file: {e}")
-
-#def write_data_to_influxdb(url, token, org, bucket):
-    #"""Writes example data to the InfluxDB."""
-    #client = InfluxDBClient(url=url, token=token, org=org)
-    #write_api = client.write_api(write_options=SYNCHRONOUS)
-    
-    #for value in range(5):
-        #point = (
-            #Point("measurement1")
-            #.tag("tagname1", "tagvalue1")
-            #.field("field1", value)
-        #)
-        #write_api.write(bucket=bucket, org=org, record=point)
-        #time.sleep(1) # separate points by 1 second
-    #print("Sample data written to InfluxDB.")
 
 if __name__ == "__main__":
     print("Setting up the 5G Simulator...")
