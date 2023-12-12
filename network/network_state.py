@@ -6,6 +6,7 @@ from database.database_manager import DatabaseManager
 from datetime import datetime
 
 class NetworkState:
+    
     def __init__(self):
         self.gNodeBs = {}
         self.cells = {}
