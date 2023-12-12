@@ -76,8 +76,8 @@ def main():
     print(f"Number of UEs returned: {len(ues)}")
 
     time.sleep(2)
-    # Initialize DatabaseManager
-    db_manager = DatabaseManager()
+    # The DatabaseManager has already been initialized with network_state at the beginning of the script
+    # So we don't need to initialize it again here
 
     # Example traffic increase configuration
     # This can be modified or managed through a GUI or API endpoint
