@@ -22,7 +22,11 @@ class DatabaseManager:
         )
         self.write_api = self.client.write_api(write_options=SYNCHRONOUS)
         self.bucket = INFLUXDB_BUCKET
-        self.network_state = network_state  # Store the passed NetworkState instance
+        self.network_state = None  # Initialize without NetworkState 
+        
+    def set_network_state(self, network_state):
+        self.network_state = network_state
+
 
     def insert_data(self, measurement, tags, fields, timestamp):
         """Inserts data into InfluxDB."""

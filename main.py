@@ -13,6 +13,15 @@ print("Printing logo start")
 print(logo_text)
 print("Printing logo end")
 
+# Initialize DatabaseManager
+db_manager = DatabaseManager()
+# Perform health check
+
+if perform_health_check(db_manager):
+    print("Health check passed.")
+else:
+    print("Health check failed.")
+
 # At the beginning of your script
 logging.basicConfig(level=logging.INFO)
 
