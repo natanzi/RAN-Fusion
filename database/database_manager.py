@@ -15,20 +15,6 @@ INFLUXDB_BUCKET = os.getenv('INFLUXDB_BUCKET', 'RAN_metrics')
 
 class DatabaseManager:
     
-    def check_database_connection(self):
-        """Checks if the database is connected."""
-        try:
-            is_alive = self.client.ping()
-            if is_alive:
-                print("Database connection is alive.")
-                return True
-            else:
-                print("Database connection is not alive.")
-                return False
-        except Exception as e:
-            print(f"An error occurred while checking the database connection: {e}")
-            return False
-        
     def __init__(self, network_state):  # Add network_state as a parameter
         self.client = InfluxDBClient(
             url=INFLUXDB_URL,
