@@ -1,9 +1,9 @@
 #database_status.py is located in health check directory
 from database.database_manager import DatabaseManager
 
-def check_database_status():
-    # Placeholder for actual database status check logic
-    db_manager = DatabaseManager()
+def check_database_status(network_state):
+    # Now passing network_state to DatabaseManager
+    db_manager = DatabaseManager(network_state)
     connected = db_manager.test_connection()
     return {
         'status': 'UP' if connected else 'DOWN',

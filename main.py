@@ -19,7 +19,8 @@ network_state = NetworkState()
 # Initialize DatabaseManager with network_state
 db_manager = DatabaseManager(network_state)
 
-if perform_health_check():
+# Pass network_state to perform_health_check
+if perform_health_check(network_state):
     print("Health check passed.")
 else:
     print("Health check failed.")
