@@ -1,7 +1,7 @@
 #do_health_check.py located in health_check directory
-from server_status import check_server_status
-from database_status import check_database_status
-from system_resources import check_system_resources
+from .server_status import check_server_status
+from .database_status import check_database_status
+from .system_resources import check_system_resources
 
 def perform_health_check():
     print("Performing health check...")
