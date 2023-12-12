@@ -21,7 +21,7 @@ def random_location_within_radius(latitude, longitude, radius_km):
 
 def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
     ues = []
-    db_manager = DatabaseManager()
+    db_manager = DatabaseManager(network_state)
     DEFAULT_BANDWIDTH_PARTS = [1, 2, 3, 4]  # Example default values
     ue_id_counter = 1  # Initialize the UE ID counter
 
