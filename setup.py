@@ -33,7 +33,8 @@ def setup_influxdb_config():
     configure_influxdb_bucket(influxdb_url, influxdb_token, influxdb_org, influxdb_bucket)
 
     # Example of writing data to InfluxDB
-    write_data_to_influxdb(influxdb_url, influxdb_token, influxdb_org, influxdb_bucket)
+    # write_data_to_influxdb(influxdb_url, influxdb_token, influxdb_org, influxdb_bucket)
+
 
 def configure_influxdb_bucket(url, token, org, bucket_name):
     """Configures the InfluxDB bucket."""

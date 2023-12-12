@@ -1,4 +1,4 @@
-#do_health_check.py located in health_check directory
+# do_health_check.py located in health_check directory
 import sys
 from .server_status import check_server_status
 from .database_status import check_database_status
@@ -15,9 +15,11 @@ def perform_health_check(network_state):
     print("System Resources:", system_resources)
 
     # Check if any of the components report a status other than 'UP'
-    if server_status['status'] != 'UP' or database_status['status'] != 'UP':
+    if server_status.get('status') != 'UP' or database_status.get('status') != 'UP':
         print("Health check failed. Exiting...")
         sys.exit(1)  # Exit with a non-zero status to indicate an error
 
 if __name__ == "__main__":
-    perform_health_check()
+    # Assuming network_state is provided or obtained elsewhere in the actual code
+    network_state = {}  # Placeholder for the actual network state
+    perform_health_check(network_state)
