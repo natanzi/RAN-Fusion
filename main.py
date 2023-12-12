@@ -7,15 +7,17 @@ from database.database_manager import DatabaseManager
 import logging
 from logo import create_logo
 from health_check.do_health_check import perform_health_check
+from network.network_state import NetworkState
 
 logo_text = create_logo()
 print("Printing logo start")
 print(logo_text)
 print("Printing logo end")
 
-# Initialize DatabaseManager
-db_manager = DatabaseManager()
-# Perform health check
+# Create an instance of NetworkState
+network_state = NetworkState()
+# Initialize DatabaseManager with network_state
+db_manager = DatabaseManager(network_state)
 
 if perform_health_check(db_manager):
     print("Health check passed.")
