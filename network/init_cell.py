@@ -9,13 +9,13 @@ def load_json_config(file_path):
     with open(file_path, 'r') as file:
         return json.load(file)
 
-def initialize_cells(gNodeBs):
+def initialize_cells(gNodeBs, network_state):
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     config_dir = os.path.join(base_dir, 'Config_files')
     cells_config = load_json_config(os.path.join(config_dir, 'cell_config.json'))
 
     # Initialize the DatabaseManager with the required parameters
-    db_manager = DatabaseManager()
+    db_manager = DatabaseManager(network_state)
 
     # Initialize Cells and link them to gNodeBs
     cells = [Cell.from_json(cell_data) for cell_data in cells_config['cells']]
@@ -27,8 +27,13 @@ def initialize_cells(gNodeBs):
     for cell in cells:
         cell_data = cell.to_dict()
         gnodeb_id = cell_data.pop('gNodeB_ID', None)
+        
+        # Add a 'measurement' key to cell_data
+        cell_data['measurement'] = 'cell_measurement'  # Replace 'cell_measurement' with your actual measurement name
+        
         # Instead of inserting here, we add the data to the list
         cell_data_points.append(cell_data)
+        
         # Link cells to gNodeBs
         for gnodeb_key, gnodeb in gNodeBs.items():
             if gnodeb_id == gnodeb_key:

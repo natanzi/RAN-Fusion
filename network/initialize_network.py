@@ -6,11 +6,15 @@ from .init_ue import initialize_ues  # Import the new UE initialization function
 from .network_state import NetworkState  # Import the NetworkState class
 
 def initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, ue_config):
+    
+    # Create an instance of NetworkState
+    network_state = NetworkState()
+
     # Initialize gNodeBs with the provided configuration
     gNodeBs = initialize_gNodeBs(gNodeBs_config)
 
     # Initialize Cells with the provided configuration and link them to gNodeBs
-    cells = initialize_cells(gNodeBs)  # Corrected the duplicate assignment here
+    cells = initialize_cells(gNodeBs, network_state)  # Pass network_state as an argument
 
     # After initializing gNodeBs and cells, initialize UEs with the provided configuration
     ues = initialize_ues(num_ues_to_launch, gNodeBs, ue_config)
