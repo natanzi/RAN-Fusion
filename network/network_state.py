@@ -4,6 +4,7 @@
 #network_state.py is located in network import datetime
 from database.database_manager import DatabaseManager
 from datetime import datetime
+from influxdb_client import Point, WritePrecision
 
 class NetworkState:
     
@@ -88,27 +89,20 @@ class NetworkState:
         points = []
         for cell_id, cell in self.cells.items():
             cell_load = self.get_cell_load(cell)
-            point = {
-                "measurement": "cell_load_info",
-                "tags": {
-                    "Cell_ID": cell_id,
-                    "gNodeB_ID": cell.gNodeB_ID,
-                    "Neighbors": ','.join(cell.Neighbors) if hasattr(cell, 'Neighbors') else 'None'
-                },
-                "fields": {
-                    "Load": cell_load,
-                    # Add other relevant fields here
-                },
-                "time": datetime.utcnow().isoformat()
-            }
+            point = Point("cell_load_info") \
+                .tag("Cell_ID", cell_id) \
+                .tag("gNodeB_ID", cell.gNodeB_ID) \
+                .tag("Neighbors", ','.join(cell.Neighbors) if hasattr(cell, 'Neighbors') else 'None') \
+                .field("Load", cell_load)
+        # Add other relevant fields here using .field("field_name", value)
+            point.time(datetime.utcnow(), WritePrecision.NS)
             points.append(point)
         return points
 
     def save_state_to_influxdb(self):
         points = self.serialize_for_influxdb()
-        for point in points:
-            db_manager.write_data(point)
-        db_manager.close_connection()
+        self.db_manager.insert_data_batch(points)
+        self.db_manager.close_connection()
     
     def print_state(self):
         print("Network State:")
