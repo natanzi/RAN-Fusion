@@ -89,14 +89,13 @@ class NetworkState:
         points = []
         for cell_id, cell in self.cells.items():
             cell_load = self.get_cell_load(cell)
-            point = Point("cell_load_info") \
+            point = Point("cell_metrics") \
                 .tag("Cell_ID", cell_id) \
                 .tag("gNodeB_ID", cell.gNodeB_ID) \
                 .tag("Neighbors", ','.join(cell.Neighbors) if hasattr(cell, 'Neighbors') else 'None') \
-                .field("Load", cell_load)
-        # Add other relevant fields here using .field("field_name", value)
+                .field("cell_load", cell_load)  
             point.time(datetime.utcnow(), WritePrecision.NS)
-            points.append(point)
+        points.append(point)
         return points
 
     def save_state_to_influxdb(self):
