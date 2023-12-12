@@ -29,7 +29,7 @@ class DatabaseManager:
             print(f"An error occurred while checking the database connection: {e}")
             return False
         
-    def __init__(self):
+    def __init__(self, network_state):  # Add network_state as a parameter
         self.client = InfluxDBClient(
             url=INFLUXDB_URL,
             token=INFLUXDB_TOKEN,
@@ -37,8 +37,7 @@ class DatabaseManager:
         )
         self.write_api = self.client.write_api(write_options=SYNCHRONOUS)
         self.bucket = INFLUXDB_BUCKET
-        # Create an instance of NetworkState or pass it as a parameter to the DatabaseManager
-        self.network_state = NetworkState()
+        self.network_state = network_state  # Store the passed NetworkState instance
 
     def insert_data(self, measurement, tags, fields, timestamp):
         """Inserts data into InfluxDB."""
@@ -121,7 +120,7 @@ class DatabaseManager:
 
         # Retrieve the cell load using the get_cell_load method from network_state.py
         # Assuming you have an instance of NetworkState available here as `network_state`
-        cell_load = network_state.get_cell_load(cell)
+        cell_load = self.network_state.get_cell_load(cell)
 
         tags = {
             'cell_id': cell.ID,

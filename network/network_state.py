@@ -102,7 +102,7 @@ class NetworkState:
         return points
 
     def save_state_to_influxdb(self):
-        db_manager = DatabaseManager()
+        db_manager = DatabaseManager(self)  # Pass the shared NetworkState instance
         points = self.serialize_for_influxdb()
         for point in points:
             db_manager.write_data(point)

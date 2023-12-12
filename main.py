@@ -6,6 +6,7 @@ from Config_files.config_load import load_all_configs
 from database.database_manager import DatabaseManager
 import logging
 from logo import create_logo
+from health_check.do_health_check import perform_health_check
 
 logo_text = create_logo()
 print("Printing logo start")
