@@ -12,7 +12,7 @@ class NetworkState:
         self.cells = {}
         self.ues = {}
         self.last_update = datetime.min
-        self.db_manager = DatabaseManager()
+        self.db_manager = DatabaseManager(self)
         self.db_manager.set_network_state(self)
 
     def get_cell_load(self, cell):
