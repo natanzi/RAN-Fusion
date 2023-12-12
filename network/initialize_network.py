@@ -15,9 +15,6 @@ def initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, ue_confi
     # After initializing gNodeBs and cells, initialize UEs with the provided configuration
     ues = initialize_ues(num_ues_to_launch, gNodeBs, ue_config)
     
-    # Create an instance of NetworkState
-    network_state = NetworkState()
-
     # Update the network state with the initialized elements
     network_state.update_state(gNodeBs, cells, ues)
     
