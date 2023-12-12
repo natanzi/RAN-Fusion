@@ -3,12 +3,17 @@ import random
 import math
 import json
 from database.database_manager import DatabaseManager
+from .network_state import NetworkState
 from .utils import random_location_within_radius
 from traffic.traffic_generator import TrafficController
 from network.network_state import NetworkState
 from log.logger_config import ue_logger
 from datetime import datetime
-db_manager = DatabaseManager()
+
+# Create an instance of NetworkState or get it from somewhere
+network_state = NetworkState()
+
+db_manager = db_manager = DatabaseManager(network_state)
 
 class UE:
     def __init__(self, ue_id, location, connected_cell_id, is_mobile, initial_signal_strength, rat, max_bandwidth, duplex_mode, tx_power, modulation, coding, mimo, processing, bandwidth_parts, channel_model, velocity, direction, traffic_model, scheduling_requests, rlc_mode, snr_thresholds, ho_margin, n310, n311, model, service_type=None):
