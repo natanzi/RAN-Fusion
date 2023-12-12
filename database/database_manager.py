@@ -26,7 +26,16 @@ class DatabaseManager:
         
     def set_network_state(self, network_state):
         self.network_state = network_state
-
+    
+    def test_connection(self):
+        """Test if the connection to the database is successful."""
+        try:
+            # This is a placeholder; you'll need to replace it with actual connection test logic
+            self.client.ping()
+            return True
+        except Exception as e:
+            print(f"Connection test failed: {e}")
+            return False
 
     def insert_data(self, measurement, tags, fields, timestamp):
         """Inserts data into InfluxDB."""
