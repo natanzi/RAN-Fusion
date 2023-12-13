@@ -7,7 +7,7 @@ from .network_state import NetworkState
 from .utils import random_location_within_radius
 from traffic.traffic_generator import TrafficController
 from network.network_state import NetworkState
-from log.logger_config import ue_logger
+from logs.logger_config import ue_logger
 from datetime import datetime
 
 class UE:

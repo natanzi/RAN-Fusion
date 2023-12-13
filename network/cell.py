@@ -2,8 +2,8 @@
 import logging
 from .network_state import NetworkState  # Import the NetworkState class
 import datetime
-from log.logger_config import ue_logger
-from log.logger_config import cell_logger
+from logs.logger_config import ue_logger
+from logs.logger_config import cell_logger
 import time 
 class Cell:
     def __init__(self, cell_id, gnodeb_id, frequencyBand, duplexMode, tx_power, bandwidth, ssb_periodicity, ssb_offset, max_connect_ues, channel_model, trackingArea=None):

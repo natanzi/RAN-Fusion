@@ -4,7 +4,7 @@ import logging
 from .cell import Cell
 from .network_state import NetworkState
 from traffic.network_metrics import calculate_cell_throughput  # If needed
-from log.logger_config import cell_load_logger, cell_logger, gnodeb_logger
+from logs.logger_config import cell_load_logger, cell_logger, gnodeb_logger
 
 ###################################################Handover Decision Logic###################
 def handle_load_balancing(gnodeb, calculate_cell_load, find_underloaded_cell, select_ues_for_load_balancing):
