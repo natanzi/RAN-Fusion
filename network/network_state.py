@@ -95,7 +95,7 @@ class NetworkState:
                 .tag("Neighbors", ','.join(cell.Neighbors) if hasattr(cell, 'Neighbors') else 'None') \
                 .field("cell_load", cell_load)  
             point.time(datetime.utcnow(), WritePrecision.NS)
-        points.append(point)
+            points.append(point)  # Correct indentation
         return points
 
     def save_state_to_influxdb(self):
