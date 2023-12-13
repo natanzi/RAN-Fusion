@@ -67,7 +67,50 @@ class DatabaseManager:
 
         self.insert_data('cell_metrics', tags, fields, timestamp)
 
-            
+    def insert_gnodeb_data(self, gnodeb):
+        #"""Inserts a row of gNodeB KPI data into the gnodeb_metrics measurement."""
+        # Assuming you have methods in the gNodeB class to get the required KPIs
+        # You need to implement these methods in the gNodeB class
+        total_ue_count = gnodeb.get_total_ue_count()
+        total_throughput = gnodeb.get_total_throughput()
+        operational_status = gnodeb.get_operational_status()  # This should return a boolean or a string
+
+        tags = {
+            'gnodeb_id': gnodeb.ID
+        # Add other tags if needed
+        }
+        fields = {
+            'total_ue_count': total_ue_count,
+            'total_throughput': total_throughput,
+            'operational_status': operational_status
+        # Add other fields if needed
+        }
+        timestamp = time.time_ns()  # Current time in nanoseconds
+
+        self.insert_data('gnodeb_metrics', tags, fields, timestamp)
+
+    def insert_ue_data(self, ue):
+        """Inserts a row of UE KPI data into the ue_metrics measurement."""
+        # Assuming you have methods in the UE class to get the required KPIs
+        # You need to implement these methods in the UE class
+        traffic_volume = ue.get_traffic_volume()
+        service_type = ue.get_service_type()
+        connection_status = ue.get_connection_status()  # This should return a boolean or a string
+
+        tags = {
+            'ue_id': ue.ID,
+            'imei': ue.IMEI
+            # Add other tags if needed
+        }
+        fields = {
+            'traffic_volume': traffic_volume,
+            'service_type': service_type,
+            'connection_status': connection_status
+            # Add other fields if needed
+        }
+        timestamp = time.time_ns()  # Current time in nanoseconds
+
+        self.insert_data('ue_metrics', tags, fields, timestamp)        
     def close_connection(self):
         """Closes the database connection."""
         self.client.close()
