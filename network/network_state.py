@@ -5,6 +5,7 @@
 from database.database_manager import DatabaseManager
 from datetime import datetime
 from influxdb_client import Point, WritePrecision
+from log.logger_config import database_logger
 
 class NetworkState:
     
@@ -95,13 +96,19 @@ class NetworkState:
                 .tag("Neighbors", ','.join(cell.Neighbors) if hasattr(cell, 'Neighbors') else 'None') \
                 .field("cell_load", cell_load)  
             point.time(datetime.utcnow(), WritePrecision.NS)
-            points.append(point)  # Correct indentation
+            points.append(point)
+            database_logger.info(f"Serialized data for InfluxDB for Cell ID {cell_id} with load {cell_load}")  # Log serialization
         return points
 
     def save_state_to_influxdb(self):
         points = self.serialize_for_influxdb()
-        self.db_manager.insert_data_batch(points)
-        self.db_manager.close_connection()
+        try:
+            self.db_manager.insert_data_batch(points)
+            database_logger.info("Successfully saved state to InfluxDB")  # Log successful save
+        except Exception as e:
+            database_logger.error(f"Failed to save state to InfluxDB: {e}")  # Log any exceptions
+        finally:
+            self.db_manager.close_connection()
     
     def print_state(self):
         print("Network State:")

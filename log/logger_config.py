@@ -32,3 +32,4 @@ cell_logger = setup_logger('cell_logger', 'log/cell_logger.log')  # Correct file
 gnodeb_logger = setup_logger('gnodeb_logger', 'log/gnodeb_logger.log')
 cell_load_logger = setup_logger('cell_load_logger', 'log/cell_load.log')
 traffic_update_logger = setup_logger('traffic_update_logger', 'log/traffic_update_logger.log')
+database_logger = setup_logger('database_logger', 'log/database_logger.log')
