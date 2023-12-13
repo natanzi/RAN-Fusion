@@ -1,8 +1,8 @@
 # control_app.py in root directory
 from flask import Flask, request
 from traffic.traffic_generator import TrafficController
-from log.logger_config import setup_logger
-from log.logger_config import traffic_update_logger
+from logs.logger_config import setup_logger
+from logs.logger_config import traffic_update_logger
 
 app = Flask(__name__)
 traffic_controller = TrafficController()

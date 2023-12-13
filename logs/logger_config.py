@@ -27,9 +27,9 @@ def setup_logger(name, log_file, level=logging.INFO):
     return logger
 
 # Set up loggers for UE, Cell, and gNodeB
-ue_logger = setup_logger('ue_logger', 'log/ue_logger.log')
-cell_logger = setup_logger('cell_logger', 'log/cell_logger.log')  # Correct file path
-gnodeb_logger = setup_logger('gnodeb_logger', 'log/gnodeb_logger.log')
-cell_load_logger = setup_logger('cell_load_logger', 'log/cell_load.log')
-traffic_update_logger = setup_logger('traffic_update_logger', 'log/traffic_update_logger.log')
-database_logger = setup_logger('database_logger', 'log/database_logger.log')
+ue_logger = setup_logger('ue_logger', 'logs/ue_logger.log')
+cell_logger = setup_logger('cell_logger', 'logs/cell_logger.log')
+gnodeb_logger = setup_logger('gnodeb_logger', 'logs/gnodeb_logger.log')
+cell_load_logger = setup_logger('cell_load_logger', 'logs/cell_load.log')
+traffic_update_logger = setup_logger('traffic_update', 'logs/traffic_update.log')
+database_logger = setup_logger('database_logger', 'logs/database_logger.log')

@@ -5,7 +5,7 @@
 from database.database_manager import DatabaseManager
 from datetime import datetime
 from influxdb_client import Point, WritePrecision
-from log.logger_config import database_logger
+from logs.logger_config import database_logger
 
 class NetworkState:
     
