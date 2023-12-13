@@ -1,4 +1,4 @@
-#logger_config.py for define all log in log folder
+# logger_config.py for define all log in log folder
 import logging
 import os
 import json
@@ -52,8 +52,16 @@ def compress_log_file(log_file):
         # Remove the original log file (backup)
         os.remove(log_file_backup)
 
-# Create a dictionary to hold loggers and their respective log files
-loggers = {
+# Initialize loggers for all components
+ue_logger = setup_logger('ue_logger', 'logs/ue_logger.log')
+cell_logger = setup_logger('cell_logger', 'logs/cell_logger.log')
+gnodeb_logger = setup_logger('gnodeb_logger', 'logs/gnodeb_logger.log')
+cell_load_logger = setup_logger('cell_load_logger', 'logs/cell_load.log')
+traffic_update = setup_logger('traffic_update', 'logs/traffic_update.log')
+database_logger = setup_logger('database_logger', 'logs/database_logger.log')
+
+# Dictionary to hold loggers and their respective log files for compression
+log_files = {
     'ue_logger': 'logs/ue_logger.log',
     'cell_logger': 'logs/cell_logger.log',
     'gnodeb_logger': 'logs/gnodeb_logger.log',
@@ -62,10 +70,8 @@ loggers = {
     'database_logger': 'logs/database_logger.log'
 }
 
-# Set up loggers for all components
+# Use ThreadPoolExecutor to compress log files
 with ThreadPoolExecutor(max_workers=1) as executor:
-    for logger_name, log_file in loggers.items():
-        loggers[logger_name] = setup_logger(logger_name, log_file)
+    for log_file in log_files.values():
         # Schedule log compression for older log files (e.g., once a day)
         executor.submit(compress_log_file, log_file)
-
