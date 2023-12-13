@@ -2,9 +2,12 @@
 import os
 import time
 from datetime import datetime
-from influxdb_client import InfluxDBClient, WritePrecision, Point  
+from influxdb_client import InfluxDBClient, WritePrecision, Point
 from influxdb_client.client.write_api import SYNCHRONOUS
-from traffic.network_metrics import calculate_gnodeb_throughput
+import logging
+
+# Configure logging
+logging.basicConfig(filename='database_manager.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Read from environment variables or use default values
 INFLUXDB_URL = os.getenv('INFLUXDB_URL', 'http://localhost:8086')
@@ -13,35 +16,34 @@ INFLUXDB_ORG = os.getenv('INFLUXDB_ORG', 'ranfusion')
 INFLUXDB_BUCKET = os.getenv('INFLUXDB_BUCKET', 'RAN_metrics')
 
 class DatabaseManager:
-    
-    def __init__(self, network_state):  # Add network_state as a parameter
-        self.client = InfluxDBClient(
-            url=INFLUXDB_URL,
-            token=INFLUXDB_TOKEN,
-            org=INFLUXDB_ORG
-        )
+    def __init__(self, network_state=None):
+        self.client = InfluxDBClient(url=INFLUXDB_URL, token=INFLUXDB_TOKEN, org=INFLUXDB_ORG)
         self.write_api = self.client.write_api(write_options=SYNCHRONOUS)
         self.bucket = INFLUXDB_BUCKET
         self.network_state = network_state
-    
+
     def test_connection(self):
         """Test if the connection to the database is successful."""
         try:
             self.client.ping()
+            logging.info("Database connection successful.")
             return True
         except Exception as e:
-            print(f"Connection test failed: {e}")
+            logging.error(f"Database connection test failed: {e}")
             return False
 
-    def insert_data(self, measurement, tags, fields, timestamp):
+    def insert_data(self, measurement, tags, fields, timestamp=None):
         """Inserts data into InfluxDB."""
+        timestamp = timestamp if timestamp is not None else int(datetime.utcnow().timestamp())  # Current time in seconds
         point = Point(measurement)
         for tag_key, tag_value in tags.items():
             point.tag(tag_key, tag_value)
         for field_key, field_value in fields.items():
             point.field(field_key, field_value)
-        point.time(timestamp, WritePrecision.NS)
-        self.write_api.write(bucket=self.bucket, record=point)
+        point.time(timestamp, WritePrecision.S)  # Use seconds precision
+    
+        try:
+            self.write_api.write(bucket=self.bucket, record=point)
         except Exception as e:
             logging.error(f"Failed to insert data into InfluxDB: {e}")
 
@@ -65,7 +67,7 @@ class DatabaseManager:
 
         self.insert_data('cell_metrics', tags, fields, timestamp)
 
-        
+            
     def close_connection(self):
         """Closes the database connection."""
         self.client.close()
