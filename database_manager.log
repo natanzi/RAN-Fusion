@@ -6765,3 +6765,18 @@ Reason: Bad Request
 HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Thu, 14 Dec 2023 16:03:00 GMT', 'Content-Length': '247'})
 HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=905860480108288,ue_id=UE33 connection_status=\"connected\",service_type=\"video\",traffic_volume=0i 1702569780771752800': time outside range -9223372036854775806 - 9223372036854775806"}
 
+2023-12-14 11:03:01,777 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Thu, 14 Dec 2023 16:03:01 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=822978925172595,ue_id=UE34 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702569781775050300': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-14 11:03:02,780 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Thu, 14 Dec 2023 16:03:02 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=545665593727333,ue_id=UE35 connection_status=\"connected\",service_type=\"IoT\",traffic_volume=0i 1702569782777341700': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-14 11:03:03,782 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Thu, 14 Dec 2023 16:03:03 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=225868574608698,ue_id=UE36 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702569783781013800': time outside range -9223372036854775806 - 9223372036854775806"}
+
