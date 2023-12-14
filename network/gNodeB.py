@@ -55,7 +55,6 @@ class gNodeB:
         self.handover_failure_count = 0
         gnodeb_logger.info(f"gNodeB '{self.ID}' has been launched with {self.CellCount} cells.")
 
-        
         # Handle any additional keyword arguments
         for key, value in kwargs.items():
             setattr(self, key, value)
