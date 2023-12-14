@@ -88,18 +88,40 @@ class NetworkState:
 ########################################################################################################
     def serialize_for_influxdb(self):
         points = []
+
+        # Serialize cell metrics
         for cell_id, cell in self.cells.items():
             cell_load = self.get_cell_load(cell)
             gNodeB = self.gNodeBs.get(cell.gNodeB_ID)
             if gNodeB:
-                point = Point("cell_metrics") \
+                cell_point = Point("cell_metrics") \
                     .tag("Cell_ID", cell_id) \
                     .tag("gNodeB_ID", cell.gNodeB_ID) \
                     .field("total_cells", len(gNodeB.Cells)) \
-                    .field("last_update", gNodeB.last_update) \
-                    .field("cell_load", cell_load)
-                points.append(point)
-                database_logger.info(f"Serialized data for InfluxDB for Cell ID {cell_id} with load {cell_load}")  # Log serialization
+                    .field("last_update", gNodeB.last_update.strftime('%Y-%m-%d %H:%M:%S')) \
+                    .field("cell_load", cell_load) \
+                    .time(datetime.datetime.utcnow(), WritePrecision.NS)
+                points.append(cell_point)
+                database_logger.info(f"Serialized data for InfluxDB for Cell ID {cell_id} with load {cell_load}")
+
+        # Serialize gNodeB metrics
+        for gNodeB_id, gNodeB in self.gNodeBs.items():
+            gNodeB_point = Point("gnodeb_metrics") \
+                .tag("gNodeB_ID", gNodeB_id) \
+                .field("max_ues", gNodeB.MaxUEs) \
+                .field("cell_count", gNodeB.CellCount) \
+                .field("last_update", gNodeB.last_update.strftime('%Y-%m-%d %H:%M:%S')) \
+                .time(datetime.datetime.utcnow(), WritePrecision.NS)
+            points.append(gNodeB_point)
+
+        # Serialize UE metrics
+        for ue_id, ue in self.ues.items():
+            ue_point = Point("ue_metrics") \
+                .tag("UE_ID", ue_id) \
+                .field("connected_cell", ue.ConnectedCellID) \
+                .time(datetime.datetime.utcnow(), WritePrecision.NS)
+            points.append(ue_point)
+
         return points
 ########################################################################################################
     def save_state_to_influxdb(self):
