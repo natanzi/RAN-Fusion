@@ -101,3 +101,30 @@
 2023-12-13 19:32:27,212 - INFO - UE with ID UE1 added to Cell Ax1242 at 2023-12-13 19:32:27.212601
 2023-12-13 19:32:27,213 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
 2023-12-13 19:32:27,213 - INFO - UE 'UE1' has been attached to Cell 'Ax1242'.
+2023-12-13 19:34:28,628 - INFO - Database connection successful.
+2023-12-13 19:34:28,639 - INFO - gNodeB 'W1140' has been launched with 3 cells.
+2023-12-13 19:34:29,640 - INFO - gNodeB 'W1320' has been launched with 3 cells.
+2023-12-13 19:34:30,642 - INFO - gNodeB 'W2018' has been launched with 3 cells.
+2023-12-13 19:34:31,644 - INFO - Cell 'Ax1242' has been created in gNodeB 'Ax1242' with max capacity 10.
+2023-12-13 19:34:31,644 - INFO - Cell 'BX1453' has been created in gNodeB 'BX1453' with max capacity 10.
+2023-12-13 19:34:31,644 - INFO - Cell 'CX1352' has been created in gNodeB 'CX1352' with max capacity 10.
+2023-12-13 19:34:31,645 - INFO - Cell 'AX1112' has been created in gNodeB 'AX1112' with max capacity 10.
+2023-12-13 19:34:31,645 - INFO - Cell 'BX1334' has been created in gNodeB 'BX1334' with max capacity 10.
+2023-12-13 19:34:31,645 - INFO - Cell 'CX1873' has been created in gNodeB 'CX1873' with max capacity 10.
+2023-12-13 19:34:31,645 - INFO - Cell 'AX9980' has been created in gNodeB 'AX9980' with max capacity 10.
+2023-12-13 19:34:31,646 - INFO - Cell 'BX1230' has been created in gNodeB 'BX1230' with max capacity 10.
+2023-12-13 19:34:31,646 - INFO - Cell 'CX5103' has been created in gNodeB 'CX5103' with max capacity 10.
+2023-12-13 19:34:31,647 - INFO - Cell 'Ax1242' has been added to gNodeB 'W1140'.
+2023-12-13 19:34:32,648 - INFO - Cell 'BX1453' has been added to gNodeB 'W1140'.
+2023-12-13 19:34:33,650 - INFO - Cell 'CX1352' has been added to gNodeB 'W1140'.
+2023-12-13 19:34:34,652 - INFO - Cell 'AX1112' has been added to gNodeB 'W1320'.
+2023-12-13 19:34:35,653 - INFO - Cell 'BX1334' has been added to gNodeB 'W1320'.
+2023-12-13 19:34:36,655 - INFO - Cell 'CX1873' has been added to gNodeB 'W1320'.
+2023-12-13 19:34:37,656 - INFO - Cell 'AX9980' has been added to gNodeB 'W2018'.
+2023-12-13 19:34:38,658 - INFO - Cell 'BX1230' has been added to gNodeB 'W2018'.
+2023-12-13 19:34:39,659 - INFO - Cell 'CX5103' has been added to gNodeB 'W2018'.
+2023-12-13 19:34:40,669 - INFO - Batch data insertion successful.
+2023-12-13 19:34:40,669 - INFO - UE initialized with ID UE1 at 2023-12-13 19:34:40.669735
+2023-12-13 19:34:40,670 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-13 19:34:40.670241
+2023-12-13 19:34:40,671 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-13 19:34:40,671 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.

@@ -102,16 +102,16 @@ class DatabaseManager:
 
     def insert_ue_data(self, ue):
         """Inserts a row of UE KPI data into the ue_metrics measurement."""
-        # Assuming you have methods in the UE class to get the required KPIs
-        # You need to implement these methods in the UE class
-        traffic_volume = ue.get_traffic_volume()
-        service_type = ue.get_service_type()
+        # Directly access the attributes from the UE instance
+        # Replace the method calls with direct attribute access
+        traffic_volume = ue.traffic_volume  # Assuming traffic_volume is an attribute of UE
+        service_type = ue.ServiceType  # Assuming ServiceType is an attribute of UE
         connection_status = ue.get_connection_status()  # This should return a boolean or a string
 
         tags = {
             'ue_id': ue.ID,
             'imei': ue.IMEI
-            # Add other tags if needed
+        # Add other tags if needed
         }
         fields = {
             'traffic_volume': traffic_volume,
@@ -120,6 +120,8 @@ class DatabaseManager:
             # Add other fields if needed
         }
         timestamp = time.time_ns()  # Current time in nanoseconds
+
+        self.insert_data('ue_metrics', tags, fields, timestamp)
 
         self.insert_data('ue_metrics', tags, fields, timestamp)        
     def close_connection(self):
