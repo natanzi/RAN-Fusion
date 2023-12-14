@@ -1,10 +1,13 @@
 #Defines the Cell class, which is part of a gNodeB.// this is located inside network directory
 import logging
-from .network_state import NetworkState  # Import the NetworkState class
+from .network_state import NetworkState
 import datetime
 from logs.logger_config import ue_logger
 from logs.logger_config import cell_logger
 import time 
+from influxdb_client import Point
+from influxdb_client.client.write_api import SYNCHRONOUS
+
 class Cell:
     def __init__(self, cell_id, gnodeb_id, frequencyBand, duplexMode, tx_power, bandwidth, ssb_periodicity, ssb_offset, max_connect_ues, channel_model, trackingArea=None):
         self.ID = cell_id
@@ -95,3 +98,18 @@ class Cell:
         else:
             print(f"UE '{ue.ID}' is not connected to Cell '{self.ID}' and cannot be removed.")
             ue_logger.warning(f"Attempted to remove UE with ID {ue.ID} from Cell {self.ID} which is not connected.")
+    
+    def serialize_for_influxdb(self):
+        point = Point("cell_metrics") \
+            .tag("cell_id", self.ID) \
+            .tag("gnodeb_id", self.gNodeB_ID) \
+            .field("frequencyBand", self.FrequencyBand) \
+            .field("duplexMode", self.DuplexMode) \
+            .field("tx_power", self.TxPower) \
+            .field("bandwidth", self.Bandwidth) \
+            .field("ssb_periodicity", self.SSBPeriodicity) \
+            .field("ssb_offset", self.SSBOffset) \
+            .field("max_connect_ues", self.MaxConnectedUEs) \
+            .field("channel_model", self.ChannelModel) \
+            .field("trackingArea", self.TrackingArea)
+        return point

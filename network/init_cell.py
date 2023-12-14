@@ -21,32 +21,14 @@ def initialize_cells(gNodeBs, network_state):
     cells = [Cell.from_json(cell_data) for cell_data in cells_config['cells']]
 
     for cell in cells:
-        cell_data = cell.to_dict()
-        gnodeb_id = cell_data.pop('gNodeB_ID', None)
-        
-        # Extract the cell_id before it's popped
-        cell_id = cell_data['cell_id']
-        
-        # Add a 'measurement' key to cell_data
-        cell_data['measurement'] = 'cell_measurement'
-        
-        # Add a 'fields' key to cell_data with the necessary fields
-        cell_data['fields'] = {
-            'max_capacity': cell_data.pop('maxConnectUes')  # Use pop to extract and remove the item
-        }
-        
-        # Add a 'tags' key to cell_data with the cell_id
-        cell_data['tags'] = {
-            'cell_id': cell_id
-        }
-        
-        # Append the modified cell_data to the list
-        cell_data_points.append(cell_data)
-        
+        # Serialize and write to InfluxDB
+        point = cell.serialize_for_influxdb()
+        db_manager.insert_data(point)
+
         # Link cells to gNodeBs
-        for gnodeb_key, gnodeb in gNodeBs.items():
-            if gnodeb_id == gnodeb_key:
-                gnodeb.add_cell_to_gNodeB(cell)
+        gnodeb = gNodeBs.get(cell.gNodeB_ID)
+        if gnodeb:
+            gnodeb.add_cell_to_gNodeB(cell)
 
     # Close the database connection
     db_manager.close_connection()
