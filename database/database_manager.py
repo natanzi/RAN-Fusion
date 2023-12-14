@@ -108,7 +108,7 @@ class DatabaseManager:
     
     # Access the connection status directly if it's an attribute, or adjust as needed
     # Replace 'connection_status_attribute' with the actual attribute name if it's different
-        connection_status = ue.connection_status_attribute  # This should be the actual attribute name
+        connection_status = 'connected' if ue.ConnectedCellID else 'disconnected'
 
         tags = {
             'ue_id': ue.ID,
