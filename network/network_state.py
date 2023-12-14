@@ -85,21 +85,24 @@ class NetworkState:
                 'Allocated_Cells': allocated_cells
             }
         return None
-    
+########################################################################################################
     def serialize_for_influxdb(self):
         points = []
         for cell_id, cell in self.cells.items():
             cell_load = self.get_cell_load(cell)
-            point = Point("cell_metrics") \
-                .tag("Cell_ID", cell_id) \
-                .tag("gNodeB_ID", cell.gNodeB_ID) \
-                .tag("Neighbors", ','.join(cell.Neighbors) if hasattr(cell, 'Neighbors') else 'None') \
-                .field("cell_load", cell_load)  
-            point.time(datetime.utcnow(), WritePrecision.NS)
-            points.append(point)
-            database_logger.info(f"Serialized data for InfluxDB for Cell ID {cell_id} with load {cell_load}")  # Log serialization
+            gNodeB = self.gNodeBs.get(cell.gNodeB_ID)
+            if gNodeB:
+                point = Point("cell_metrics") \
+                    .tag("Cell_ID", cell_id) \
+                    .tag("gNodeB_ID", cell.gNodeB_ID) \
+                    .tag("Neighbors", ','.join(cell.Neighbors) if hasattr(cell, 'Neighbors') else 'None') \
+                    .field("total_cells", len(gNodeB.Cells)) \
+                    .field("last_update", gNodeB.last_update) \
+                    .field("cell_load", cell_load)
+                points.append(point)
+                database_logger.info(f"Serialized data for InfluxDB for Cell ID {cell_id} with load {cell_load}")  # Log serialization
         return points
-
+########################################################################################################
     def save_state_to_influxdb(self):
         points = self.serialize_for_influxdb()
         try:
@@ -109,7 +112,7 @@ class NetworkState:
             database_logger.error(f"Failed to save state to InfluxDB: {e}")  # Log any exceptions
         finally:
             self.db_manager.close_connection()
-    
+########################################################################################################    
     def print_state(self):
         print("Network State:")
         print("Last Update:", self.last_update)
@@ -129,3 +132,4 @@ class NetworkState:
             cell = self.cells.get(ue.ConnectedCellID)
             gNodeB_id = cell.gNodeB_ID if cell else 'Unknown'
             print(f"ID: {ue_id}, Cell: {ue.ConnectedCellID}, gNodeB: {gNodeB_id}")
+#############################################################################################################
