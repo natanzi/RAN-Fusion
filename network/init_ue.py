@@ -92,35 +92,39 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
             except Exception as e:
         # Handle the case where the cell is at maximum capacity
                 logging.error(f"Failed to add UE '{ue.ID}' to Cell '{selected_cell.ID}': {e}")
+        
+        ue = UE(**ue_data)
+        # Serialize and write to InfluxDB
+        point = ue.serialize_for_influxdb()
+        db_manager.insert_data(point)    
 
-        # Prepare static UE data for database insertion
-        static_ue_data = {
-            'ue_id': ue.ID,
-            'imei': ue.IMEI,
-            'service_type': ue.ServiceType,
-            'model': ue.Model,
-            'rat': ue.RAT,
-            'max_bandwidth': ue.MaxBandwidth,
-            'duplex_mode': ue.DuplexMode,
-            'tx_power': ue.TxPower,
-            'modulation': ue.Modulation,
-            'coding': ue.Coding,
-            'mimo': ue.MIMO,
-            'processing': ue.Processing,
-            'bandwidth_parts': ue.BandwidthParts,
-            'channel_model': ue.ChannelModel,
-            'velocity': int(ue.Velocity),
-            'direction': ue.Direction,
-            'traffic_model': ue.TrafficModel,
-            'scheduling_requests': bool(ue.SchedulingRequests),  # Convert to boolean
-            'rlc_mode': ue.RLCMode,
-            'snr_thresholds': ','.join(map(str, ue.SNRThresholds)),  # Serialize list into a comma-separated string
-            'ho_margin': ue.HOMargin,
-            'n310': ue.N310,
-            'n311': ue.N311,
-            'screen_size': ue.ScreenSize,
-            'battery_level': ue.BatteryLevel
-        }
+    # Prepare static UE data for database insertion
+        #static_ue_data = {
+            #'ue_id': ue.ID,
+            ##'imei': ue.IMEI,
+            #'service_type': ue.ServiceType,
+            #'model': ue.Model,
+            #'rat': ue.RAT,
+            #'max_bandwidth': ue.MaxBandwidth,
+            #'duplex_mode': ue.DuplexMode,
+            #'tx_power': ue.TxPower,
+            #'modulation': ue.Modulation,
+            #'coding': ue.Coding,
+            #'mimo': ue.MIMO,
+            #'processing': ue.Processing,
+            #'bandwidth_parts': ue.BandwidthParts,
+            #'channel_model': ue.ChannelModel,
+            ##'direction': ue.Direction,
+            #'traffic_model': ue.TrafficModel,
+           # 'scheduling_requests': bool(ue.SchedulingRequests),  # Convert to boolean
+            #'rlc_mode': ue.RLCMode,
+            #'snr_thresholds': ','.join(map(str, ue.SNRThresholds)),  # Serialize list into a comma-separated string
+            #'ho_margin': ue.HOMargin,
+            #'n310': ue.N310,
+            #'n311': ue.N311,
+            #'screen_size': ue.ScreenSize,
+            #'battery_level': ue.BatteryLevel
+        #}
         # Write UE data to the database
         ues.append(ue)
     

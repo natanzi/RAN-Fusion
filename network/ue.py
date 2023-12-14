@@ -9,6 +9,7 @@ from traffic.traffic_generator import TrafficController
 from network.network_state import NetworkState
 from logs.logger_config import ue_logger
 from datetime import datetime
+from influxdb_client import Point
 
 class UE:
     def __init__(self, ue_id, location, connected_cell_id, is_mobile, initial_signal_strength, rat, max_bandwidth, duplex_mode, tx_power, modulation, coding, mimo, processing, bandwidth_parts, channel_model, velocity, direction, traffic_model, scheduling_requests, rlc_mode, snr_thresholds, ho_margin, n310, n311, model, service_type=None):
@@ -143,3 +144,36 @@ class UE:
             ue_logger.info(f"UE {self.ID} handovered from Cell {old_cell_id} to Cell {new_cell.ID}")
         else:
             ue_logger.error(f"Handover failed for UE {self.ID} from Cell {old_cell_id} to Cell {new_cell.ID}")
+    
+    def serialize_for_influxdb(self):
+        point = Point("ue_metrics") \
+            .tag("ue_id", self.ID) \
+            .tag("connected_cell_id", self.ConnectedCellID) \
+            .field("imei", self.IMEI) \
+            .field("service_type", self.ServiceType) \
+            .field("signal_strength", self.SignalStrength) \
+            .field("rat", self.RAT) \
+            .field("max_bandwidth", self.MaxBandwidth) \
+            .field("duplex_mode", self.DuplexMode) \
+            .field("tx_power", self.TxPower) \
+            .field("modulation", self.Modulation) \
+            .field("coding", self.Coding) \
+            .field("mimo", self.MIMO) \
+            .field("processing", self.Processing) \
+            .field("bandwidth_parts", self.BandwidthParts) \
+            .field("channel_model", self.ChannelModel) \
+            .field("velocity", self.Velocity) \
+            .field("direction", self.Direction) \
+            .field("traffic_model", self.TrafficModel) \
+            .field("scheduling_requests", self.SchedulingRequests) \
+            .field("rlc_mode", self.RLCMode) \
+            .field("snr_thresholds", self.SNRThresholds) \
+            .field("ho_margin", self.HOMargin) \
+            .field("n310", self.N310) \
+            .field("n311", self.N311) \
+            .field("model", self.Model) \
+            .field("screen_size", self.ScreenSize) \
+            .field("battery_level", self.BatteryLevel)
+        return point
+        
+
