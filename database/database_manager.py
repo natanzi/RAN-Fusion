@@ -16,10 +16,15 @@ INFLUXDB_ORG = os.getenv('INFLUXDB_ORG', 'ranfusion')
 INFLUXDB_BUCKET = os.getenv('INFLUXDB_BUCKET', 'RAN_metrics')
 
 class DatabaseManager:
+    
     def __init__(self, network_state=None):
         self.client = InfluxDBClient(url=INFLUXDB_URL, token=INFLUXDB_TOKEN, org=INFLUXDB_ORG)
         self.write_api = self.client.write_api(write_options=SYNCHRONOUS)
         self.bucket = INFLUXDB_BUCKET
+        self.network_state = network_state
+
+    def set_network_state(self, network_state):
+        """Sets the network state for the database manager."""
         self.network_state = network_state
 
     def test_connection(self):
