@@ -20,10 +20,6 @@ def initialize_cells(gNodeBs, network_state):
     # Initialize Cells and link them to gNodeBs
     cells = [Cell.from_json(cell_data) for cell_data in cells_config['cells']]
 
-    # Prepare a list for batch insertion
-    cell_data_points = []
-
-    # Collect static cell data into the list for batch insertion
     for cell in cells:
         cell_data = cell.to_dict()
         gnodeb_id = cell_data.pop('gNodeB_ID', None)
@@ -51,9 +47,6 @@ def initialize_cells(gNodeBs, network_state):
         for gnodeb_key, gnodeb in gNodeBs.items():
             if gnodeb_id == gnodeb_key:
                 gnodeb.add_cell_to_gNodeB(cell)
-
-    # Use the new batch insert method
-    db_manager.insert_data_batch(cell_data_points)
 
     # Close the database connection
     db_manager.close_connection()
