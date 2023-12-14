@@ -36,7 +36,13 @@ class DatabaseManager:
         except Exception as e:
             logging.error(f"Database connection test failed: {e}")
             return False
-
+    def insert_data_batch(self, data_points):
+        try:
+            self.write_api.write(bucket=self.bucket, record=data_points)
+            logging.info("Batch data insertion successful.")
+        except Exception as e:
+            logging.error(f"Failed to insert batch data into InfluxDB: {e}")
+            
     def insert_data(self, measurement, tags, fields, timestamp=None):
         """Inserts data into InfluxDB."""
         timestamp = timestamp if timestamp is not None else int(datetime.utcnow().timestamp())  # Current time in seconds
