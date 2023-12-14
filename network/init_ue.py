@@ -121,8 +121,8 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
             'screen_size': ue.ScreenSize,
             'battery_level': ue.BatteryLevel
         }
-        # Write UE static data to the database
-        db_manager.insert_ue_static_data(static_ue_data)
+        # Write UE data to the database
+        db_manager.insert_ue_data(ue)
         ues.append(ue)
     
     # Calculate the number of additional UEs needed
@@ -216,7 +216,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         }
 
         # Write UE static data to the database
-        db_manager.insert_ue_static_data(static_ue_data)
+        db_manager.insert_ue_data(ue)
         ues.append(new_ue)
         print(f"Number of UEs created: {len(ues)}")
         # Commit changes to the database and close the connection
