@@ -6595,3 +6595,25 @@ Reason: Bad Request
 HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Thu, 14 Dec 2023 16:02:38 GMT', 'Content-Length': '247'})
 HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=840769957449874,ue_id=UE11 connection_status=\"connected\",service_type=\"video\",traffic_volume=0i 1702569758709597900': time outside range -9223372036854775806 - 9223372036854775806"}
 
+2023-12-14 11:02:39,714 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Thu, 14 Dec 2023 16:02:39 GMT', 'Content-Length': '247'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=493379256042627,ue_id=UE12 connection_status=\"connected\",service_type=\"video\",traffic_volume=0i 1702569759712070200': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-14 11:02:39,787 - INFO - Testing cell load logging.
+2023-12-14 11:02:39,787 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 35.0%
+2023-12-14 11:02:39,787 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-14 11:02:39,788 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 10.0%
+2023-12-14 11:02:39,788 - INFO - Testing cell load logging.
+2023-12-14 11:02:39,788 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 30.0%
+2023-12-14 11:02:39,788 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 20.0%
+2023-12-14 11:02:39,789 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 25.0%
+2023-12-14 11:02:39,789 - INFO - Testing cell load logging.
+2023-12-14 11:02:39,789 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 10.0%
+2023-12-14 11:02:39,789 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 25.0%
+2023-12-14 11:02:39,790 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 25.0%
+2023-12-14 11:02:40,717 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Thu, 14 Dec 2023 16:02:40 GMT', 'Content-Length': '247'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=222545966273131,ue_id=UE13 connection_status=\"connected\",service_type=\"voice\",traffic_volume=0i 1702569760715620800': time outside range -9223372036854775806 - 9223372036854775806"}
+
