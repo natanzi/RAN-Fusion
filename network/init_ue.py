@@ -122,7 +122,6 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
             'battery_level': ue.BatteryLevel
         }
         # Write UE data to the database
-        db_manager.insert_ue_data(ue)
         ues.append(ue)
     
     # Calculate the number of additional UEs needed
