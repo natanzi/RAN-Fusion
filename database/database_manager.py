@@ -105,7 +105,10 @@ class DatabaseManager:
         # Directly access the attributes from the UE instance
         traffic_volume = ue.traffic_volume  # Assuming traffic_volume is an attribute of UE
         service_type = ue.ServiceType  # Assuming ServiceType is an attribute of UE
-        connection_status = ue.get_connection_status()  # This should return a boolean or a string
+    
+    # Access the connection status directly if it's an attribute, or adjust as needed
+    # Replace 'connection_status_attribute' with the actual attribute name if it's different
+        connection_status = ue.connection_status_attribute  # This should be the actual attribute name
 
         tags = {
             'ue_id': ue.ID,
@@ -116,7 +119,7 @@ class DatabaseManager:
             'traffic_volume': traffic_volume,
             'service_type': service_type,
             'connection_status': connection_status
-            # Add other fields if needed
+        # Add other fields if needed
         }
         timestamp = time.time_ns()  # Current time in nanoseconds
 
