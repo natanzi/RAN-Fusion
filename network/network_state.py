@@ -95,7 +95,6 @@ class NetworkState:
                 point = Point("cell_metrics") \
                     .tag("Cell_ID", cell_id) \
                     .tag("gNodeB_ID", cell.gNodeB_ID) \
-                    .tag("Neighbors", ','.join(cell.Neighbors) if hasattr(cell, 'Neighbors') else 'None') \
                     .field("total_cells", len(gNodeB.Cells)) \
                     .field("last_update", gNodeB.last_update) \
                     .field("cell_load", cell_load)
