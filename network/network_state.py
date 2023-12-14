@@ -129,16 +129,3 @@ class NetworkState:
             cell = self.cells.get(ue.ConnectedCellID)
             gNodeB_id = cell.gNodeB_ID if cell else 'Unknown'
             print(f"ID: {ue_id}, Cell: {ue.ConnectedCellID}, gNodeB: {gNodeB_id}")
-#network_state = NetworkState()
-
-# Update the network state after initialization or any changes
-#network_state.update_state(gNodeBs, cells, ues)
-
-# To get the UE information including its cell and gNodeB
-#ue_info = network_state.get_ue_info('UE40')
-
-# To get the cell information including its gNodeB and allocated cells
-#cell_info = network_state.get_cell_info('AX340T')
-
-# To get the last update of a specific gNodeB and its allocated cells
-#gNodeB_info = network_state.get_gNodeB_last_update('T240')
