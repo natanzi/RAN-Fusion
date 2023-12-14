@@ -4,7 +4,9 @@ import time
 from datetime import datetime
 from influxdb_client import InfluxDBClient, WritePrecision, Point
 from influxdb_client.client.write_api import SYNCHRONOUS
+from influxdb_client import Point, WritePrecision
 import logging
+from logger_config import database_logger
 
 # Configure logging
 logging.basicConfig(filename='database_manager.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -36,28 +38,40 @@ class DatabaseManager:
         except Exception as e:
             logging.error(f"Database connection test failed: {e}")
             return False
-    def insert_data_batch(self, data_points):
+###################################################################################################################################        
+    def insert_data_batch(self, points):
+        """Inserts a batch of Point objects into InfluxDB."""
         try:
-            self.write_api.write(bucket=self.bucket, record=data_points)
-            logging.info("Batch data insertion successful.")
+            self.write_api.write(bucket=self.bucket, record=points)
+            database_logger.info("Batch data inserted into InfluxDB")
         except Exception as e:
-            logging.error(f"Failed to insert batch data into InfluxDB: {e}")
-            
-    def insert_data(self, measurement, tags, fields, timestamp=None):
-        """Inserts data into InfluxDB."""
-        timestamp = timestamp if timestamp is not None else int(datetime.utcnow().timestamp())  # Current time in seconds
-        point = Point(measurement)
-        for tag_key, tag_value in tags.items():
-            point.tag(tag_key, tag_value)
-        for field_key, field_value in fields.items():
-            point.field(field_key, field_value)
-        point.time(timestamp, WritePrecision.S)  # Use seconds precision
-    
+            database_logger.error(f"Failed to insert batch data into InfluxDB: {e}")
+##################################################################################################################################            
+    #Modify the insert_data method to handle Point objects directly
+    def insert_data(self, measurement_or_point, tags=None, fields=None, timestamp=None):
+        """Inserts data into InfluxDB. Can handle both Point objects and separate parameters."""
         try:
-            self.write_api.write(bucket=self.bucket, record=point)
-        except Exception as e:
-            logging.error(f"Failed to insert data into InfluxDB: {e}")
+            if isinstance(measurement_or_point, Point):
+                # If a Point object is provided
+                point = measurement_or_point
+                if timestamp:
+                    point.time(timestamp)
+            else:
+                # If separate parameters are provided
+                measurement = measurement_or_point
+                timestamp = timestamp if timestamp is not None else int(datetime.utcnow().timestamp())  # Current time in seconds
+                point = Point(measurement)
+                for tag_key, tag_value in (tags or {}).items():
+                    point.tag(tag_key, tag_value)
+                for field_key, field_value in (fields or {}).items():
+                    point.field(field_key, field_value)
+                point.time(timestamp, WritePrecision.S)  # Use seconds precision
 
+            self.write_api.write(bucket=self.bucket, record=point)
+            database_logger.info(f"Data inserted for measurement {point.measurement}")
+        except Exception as e:
+            database_logger.error(f"Failed to insert data into InfluxDB: {e}")
+################################################################################################################################
     def insert_cell_data(self, cell):
         """Inserts a row of Cell KPI data into the cell_metrics measurement."""
         current_ue_count = cell.update_ue_count()  # This method should return the current UE count

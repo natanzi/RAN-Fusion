@@ -8,8 +8,12 @@ def load_json_config(file_path):
     with open(file_path, 'r') as file:
         return json.load(file)
 
-def initialize_gNodeBs(gNodeBs_config):
-    # Initialize gNodeBs using the provided configuration
-    # Change from list to dictionary with gNodeB_id as keys
-    gNodeBs = {gNodeB_data['gnodeb_id']: gNodeB(**gNodeB_data) for gNodeB_data in gNodeBs_config['gNodeBs']}
+def initialize_gNodeBs(gNodeBs_config, db_manager):
+    gNodeBs = {}
+    for gNodeB_data in gNodeBs_config['gNodeBs']:
+        gnodeb = gNodeB(**gNodeB_data)
+        gNodeBs[gnodeb.ID] = gnodeb
+        # Serialize and write to InfluxDB
+        point = gnodeb.serialize_for_influxdb()
+        db_manager.insert_data("gnodeb_metrics", point.tags, point.fields, point.time)
     return gNodeBs

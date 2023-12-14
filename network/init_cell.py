@@ -28,18 +28,23 @@ def initialize_cells(gNodeBs, network_state):
         cell_data = cell.to_dict()
         gnodeb_id = cell_data.pop('gNodeB_ID', None)
         
+        # Extract the cell_id before it's popped
+        cell_id = cell_data['cell_id']
+        
         # Add a 'measurement' key to cell_data
-        cell_data['measurement'] = 'cell_measurement'  # Replace 'cell_measurement' with your actual measurement name
+        cell_data['measurement'] = 'cell_measurement'
         
         # Add a 'fields' key to cell_data with the necessary fields
         cell_data['fields'] = {
-            'max_capacity': cell_data['MaxConnectedUEs']  # Corrected key to 'MaxConnectedUEs'
+            'max_capacity': cell_data.pop('maxConnectUes')  # Use pop to extract and remove the item
         }
         
-        # Remove the 'MaxConnectedUEs' from the main dictionary as it's now in 'fields'
-        cell_data.pop('MaxConnectedUEs', None)
+        # Add a 'tags' key to cell_data with the cell_id
+        cell_data['tags'] = {
+            'cell_id': cell_id
+        }
         
-        # Instead of inserting here, we add the data to the list
+        # Append the modified cell_data to the list
         cell_data_points.append(cell_data)
         
         # Link cells to gNodeBs
