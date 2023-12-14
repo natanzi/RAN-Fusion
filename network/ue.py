@@ -119,7 +119,12 @@ class UE:
         # Scale the data size by the traffic multiplier
         data_size *= traffic_multiplier
         return data_size, interval
-
+    
+    def get_traffic_volume(self):
+        # Implementation to return the traffic volume
+        # This could be a simple attribute access or a more complex calculation
+        return self.traffic_volume
+    
     def perform_handover(self, new_cell):
         old_cell_id = self.ConnectedCellID  # Store the old cell ID for logging
         self.ConnectedCellID = new_cell.ID
