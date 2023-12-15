@@ -1,6 +1,5 @@
 # database_manager.py, this file located in database folder
 import os
-import time
 from datetime import datetime
 from influxdb_client import InfluxDBClient, WritePrecision, Point
 from influxdb_client.client.write_api import SYNCHRONOUS
@@ -38,7 +37,6 @@ class DatabaseManager:
             return False
 ###################################################################################################################################        
     def insert_data_batch(self, points):
-        from logs.logger_config import database_logger
         """Inserts a batch of Point objects into InfluxDB."""
         try:
             self.write_api.write(bucket=self.bucket, record=points)
@@ -48,7 +46,6 @@ class DatabaseManager:
 ##################################################################################################################################            
     #to Write data into influx BD
     def insert_data(self, measurement_or_point, tags=None, fields=None, timestamp=None):
-        from logs.logger_config import database_logger
         """Inserts data into InfluxDB. Can handle both Point objects and separate parameters."""
         try:
             if isinstance(measurement_or_point, Point):
@@ -81,7 +78,6 @@ class DatabaseManager:
 ################################################################################################################################
     #To write log data into influx db for further analysis
     def insert_log(self, log_point):
-        from logs.logger_config import database_logger
         """Inserts log data into the logs bucket in InfluxDB."""
         log_bucket = 'RAN_logs' 
         try:
