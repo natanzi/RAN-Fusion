@@ -93,7 +93,6 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         # Handle the case where the cell is at maximum capacity
                 logging.error(f"Failed to add UE '{ue.ID}' to Cell '{selected_cell.ID}': {e}")
         
-        ue = UE(**ue_data)
         # Serialize and write to InfluxDB
         point = ue.serialize_for_influxdb()
         db_manager.insert_data(point)    
@@ -189,40 +188,10 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         # You may want to implement additional logic to handle this case
         ue.ConnectedCellID = selected_cell.ID
 
-        # Prepare static UE data for database insertion
-        static_ue_data = {
-            'ue_id': new_ue.ID,
-            'imei': new_ue.IMEI,
-            'service_type': new_ue.ServiceType,
-            'model': new_ue.Model,
-            'rat': new_ue.RAT,
-            'max_bandwidth': new_ue.MaxBandwidth,
-            'duplex_mode': new_ue.DuplexMode,
-            'tx_power': new_ue.TxPower,
-            'modulation': new_ue.Modulation,
-            'coding': new_ue.Coding,
-            'mimo': new_ue.MIMO,
-            'processing': new_ue.Processing,
-            'bandwidth_parts': ue.BandwidthParts,
-            'channel_model': new_ue.ChannelModel,
-            'velocity': int(new_ue.Velocity),
-            'direction': new_ue.Direction,
-            'traffic_model': new_ue.TrafficModel,
-            'scheduling_requests': bool(new_ue.SchedulingRequests),  # Convert to boolean
-            'rlc_mode': new_ue.RLCMode,
-            'snr_thresholds': ','.join(map(str, new_ue.SNRThresholds)),
-            'ho_margin': new_ue.HOMargin,
-            'n310': new_ue.N310,
-            'n311': new_ue.N311,
-            'screen_size': ue.ScreenSize,  
-            'battery_level': ue.BatteryLevel
-        }
 
         # Write UE static data to the database
         db_manager.insert_ue_data(ue)
         ues.append(new_ue)
-        print(f"Number of UEs created: {len(ues)}")
-        # Commit changes to the database and close the connection
         db_manager.close_connection()
 
     return ues
