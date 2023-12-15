@@ -14258,3 +14258,17 @@ HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,ime
 2023-12-15 12:23:22,973 - INFO - Cell 'CX1873' has been added to gNodeB 'W1320'.
 2023-12-15 12:23:23,978 - INFO - Data inserted for measurement <function Point.measurement at 0x000001FF7F8E7CE0>
 2023-12-15 12:23:23,979 - INFO - Cell 'AX9980' has been added to gNodeB 'W2018'.
+2023-12-15 12:23:24,985 - INFO - Data inserted for measurement <function Point.measurement at 0x000001FF7F8E7CE0>
+2023-12-15 12:23:24,986 - INFO - Cell 'BX1230' has been added to gNodeB 'W2018'.
+2023-12-15 12:23:25,990 - INFO - Data inserted for measurement <function Point.measurement at 0x000001FF7F8E7CE0>
+2023-12-15 12:23:25,991 - INFO - Cell 'CX5103' has been added to gNodeB 'W2018'.
+2023-12-15 12:23:26,992 - INFO - UE initialized with ID UE1 at 2023-12-15 12:23:26.992442
+2023-12-15 12:23:26,992 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 12:23:26.992948
+2023-12-15 12:23:26,993 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 12:23:26,993 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 12:23:26,993 - INFO - UE initialized with ID UE1 at 2023-12-15 12:23:26.993947
+2023-12-15 12:23:26,993 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 12:23:26,994 - INFO - UE initialized with ID UE1 at 2023-12-15 12:23:26.994943
+2023-12-15 12:23:26,994 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 12:23:26.994943
+2023-12-15 12:23:26,995 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 12:23:26,995 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
