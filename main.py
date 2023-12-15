@@ -49,7 +49,6 @@ def log_traffic(ues, traffic_increase_config=None):
 
             print(f"UE ID: {ue.ID}, IMEI: {ue.IMEI}, Service Type: {ue.ServiceType}, Data Size: {data_size}, Interval: {interval} sec")
             
-            # Prepare data for logging to the database
             data = {
                 'ue_id': ue.ID,
                 'imei': ue.IMEI,
