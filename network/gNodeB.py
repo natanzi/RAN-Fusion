@@ -249,25 +249,3 @@ class gNodeB:
         monitor_and_log_cell_load(self)
     # handle_qos_based_handover(self, self.all_ues, self.find_cell_by_id)
 ######################################################################################################
-
-    # Update the database if necessary
-    # db_manager = DatabaseManager()
-    # db_manager.insert_cell_static_data(cell.to_dict())
-    # db_manager.close_connection()
-
-    # Update the list of available cells if there's such a function
-    # update_available_cells_list(cell)
-
-    
-
-    
-        
-        # Update the database with the new capacity
-        # Assuming the DatabaseManager has a method named 'update_gNodeB_cell_capacity'
-        #db_manager = DatabaseManager()
-        #db_manager.update_gNodeB_cell_capacity(self.ID, self.CellCount)
-        #db_manager.close_connection()
-        
-        # Update related components if necessary
-        # For example, if there is a list of available cells that needs to be updated
-        # update_available_cells_list(self)
