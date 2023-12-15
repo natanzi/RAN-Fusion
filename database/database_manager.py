@@ -119,7 +119,7 @@ class DatabaseManager:
         # Directly access the attributes from the UE instance
         traffic_volume = ue.traffic_volume  # Assuming traffic_volume is an attribute of UE
         service_type = ue.ServiceType  # Assuming ServiceType is an attribute of UE
-    
+        timestamp = int(time.time() * 1000)  # Current time in milliseconds
     # Access the connection status directly if it's an attribute, or adjust as needed
     # Replace 'connection_status_attribute' with the actual attribute name if it's different
         connection_status = 'connected' if ue.ConnectedCellID else 'disconnected'
@@ -135,7 +135,7 @@ class DatabaseManager:
             'connection_status': connection_status
         # Add other fields if needed
         }
-        timestamp = time.time_ns()  # Current time in nanoseconds
+        self.insert_data('ue_metrics', tags, fields, timestamp)
 
         self.insert_data('ue_metrics', tags, fields, timestamp)        
     def close_connection(self):

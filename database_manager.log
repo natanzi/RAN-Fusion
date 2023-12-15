@@ -10547,3 +10547,1072 @@ Reason: Bad Request
 HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 16:59:51 GMT', 'Content-Length': '247'})
 HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=142821745632780,ue_id=UE34 connection_status=\"connected\",service_type=\"voice\",traffic_volume=0i 1702659591665872700': time outside range -9223372036854775806 - 9223372036854775806"}
 
+2023-12-15 12:01:09,113 - INFO - Database connection successful.
+2023-12-15 12:01:09,138 - INFO - gNodeB 'W1140' has been launched with 3 cells.
+2023-12-15 12:01:10,139 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "region" is not supported.
+2023-12-15 12:01:10,139 - INFO - gNodeB 'W1320' has been launched with 3 cells.
+2023-12-15 12:01:11,141 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "region" is not supported.
+2023-12-15 12:01:11,141 - INFO - gNodeB 'W2018' has been launched with 3 cells.
+2023-12-15 12:01:12,144 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "region" is not supported.
+2023-12-15 12:01:12,146 - INFO - Cell 'Ax1242' has been created in gNodeB 'Ax1242' with max capacity 10.
+2023-12-15 12:01:12,147 - INFO - Cell 'BX1453' has been created in gNodeB 'BX1453' with max capacity 10.
+2023-12-15 12:01:12,147 - INFO - Cell 'CX1352' has been created in gNodeB 'CX1352' with max capacity 10.
+2023-12-15 12:01:12,147 - INFO - Cell 'AX1112' has been created in gNodeB 'AX1112' with max capacity 10.
+2023-12-15 12:01:12,148 - INFO - Cell 'BX1334' has been created in gNodeB 'BX1334' with max capacity 10.
+2023-12-15 12:01:12,148 - INFO - Cell 'CX1873' has been created in gNodeB 'CX1873' with max capacity 10.
+2023-12-15 12:01:12,148 - INFO - Cell 'AX9980' has been created in gNodeB 'AX9980' with max capacity 10.
+2023-12-15 12:01:12,149 - INFO - Cell 'BX1230' has been created in gNodeB 'BX1230' with max capacity 10.
+2023-12-15 12:01:12,149 - INFO - Cell 'CX5103' has been created in gNodeB 'CX5103' with max capacity 10.
+2023-12-15 12:01:12,165 - INFO - Data inserted for measurement <function Point.measurement at 0x0000018DBADE7CE0>
+2023-12-15 12:01:12,165 - INFO - Cell 'Ax1242' has been added to gNodeB 'W1140'.
+2023-12-15 12:01:13,171 - INFO - Data inserted for measurement <function Point.measurement at 0x0000018DBADE7CE0>
+2023-12-15 12:01:13,171 - INFO - Cell 'BX1453' has been added to gNodeB 'W1140'.
+2023-12-15 12:01:14,183 - INFO - Data inserted for measurement <function Point.measurement at 0x0000018DBADE7CE0>
+2023-12-15 12:01:14,184 - INFO - Cell 'CX1352' has been added to gNodeB 'W1140'.
+2023-12-15 12:01:15,190 - INFO - Data inserted for measurement <function Point.measurement at 0x0000018DBADE7CE0>
+2023-12-15 12:01:15,191 - INFO - Cell 'AX1112' has been added to gNodeB 'W1320'.
+2023-12-15 12:01:16,196 - INFO - Data inserted for measurement <function Point.measurement at 0x0000018DBADE7CE0>
+2023-12-15 12:01:16,196 - INFO - Cell 'BX1334' has been added to gNodeB 'W1320'.
+2023-12-15 12:01:17,203 - INFO - Data inserted for measurement <function Point.measurement at 0x0000018DBADE7CE0>
+2023-12-15 12:01:17,203 - INFO - Cell 'CX1873' has been added to gNodeB 'W1320'.
+2023-12-15 12:01:18,209 - INFO - Data inserted for measurement <function Point.measurement at 0x0000018DBADE7CE0>
+2023-12-15 12:01:18,210 - INFO - Cell 'AX9980' has been added to gNodeB 'W2018'.
+2023-12-15 12:01:19,227 - INFO - Data inserted for measurement <function Point.measurement at 0x0000018DBADE7CE0>
+2023-12-15 12:01:19,227 - INFO - Cell 'BX1230' has been added to gNodeB 'W2018'.
+2023-12-15 12:01:20,234 - INFO - Data inserted for measurement <function Point.measurement at 0x0000018DBADE7CE0>
+2023-12-15 12:01:20,235 - INFO - Cell 'CX5103' has been added to gNodeB 'W2018'.
+2023-12-15 12:01:21,237 - INFO - UE initialized with ID UE1 at 2023-12-15 12:01:21.236479
+2023-12-15 12:01:21,238 - INFO - UE with ID UE1 added to Cell CX1873 at 2023-12-15 12:01:21.237017
+2023-12-15 12:01:21,238 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-15 12:01:21,238 - INFO - UE 'UE1' has been attached to Cell 'CX1873'.
+2023-12-15 12:01:21,238 - INFO - UE initialized with ID UE1 at 2023-12-15 12:01:21.238017
+2023-12-15 12:01:21,239 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 12:01:21,239 - INFO - UE initialized with ID UE1 at 2023-12-15 12:01:21.239013
+2023-12-15 12:01:21,240 - INFO - UE with ID UE1 added to Cell Ax1242 at 2023-12-15 12:01:21.240008
+2023-12-15 12:01:21,240 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-15 12:01:21,241 - INFO - UE 'UE1' has been attached to Cell 'Ax1242'.
+2023-12-15 12:01:21,244 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681241003800': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,245 - INFO - UE initialized with ID UE2 at 2023-12-15 12:01:21.245207
+2023-12-15 12:01:21,245 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 12:01:21.245713
+2023-12-15 12:01:21,245 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 12:01:21,245 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 12:01:21,265 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681245713700': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,266 - INFO - UE initialized with ID UE3 at 2023-12-15 12:01:21.266159
+2023-12-15 12:01:21,267 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 12:01:21.267158
+2023-12-15 12:01:21,267 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 12:01:21,267 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 12:01:21,269 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681268152700': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,269 - INFO - UE initialized with ID UE4 at 2023-12-15 12:01:21.269599
+2023-12-15 12:01:21,270 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 12:01:21.269599
+2023-12-15 12:01:21,270 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 12:01:21,270 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 12:01:21,271 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681270597000': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,272 - INFO - UE initialized with ID UE5 at 2023-12-15 12:01:21.272437
+2023-12-15 12:01:21,273 - INFO - UE with ID UE1 added to Cell Ax1242 at 2023-12-15 12:01:21.273435
+2023-12-15 12:01:21,273 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-15 12:01:21,273 - INFO - UE 'UE1' has been attached to Cell 'Ax1242'.
+2023-12-15 12:01:21,274 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681273435300': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,275 - INFO - UE initialized with ID UE6 at 2023-12-15 12:01:21.275307
+2023-12-15 12:01:21,275 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 12:01:21.275307
+2023-12-15 12:01:21,276 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 12:01:21,276 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 12:01:21,277 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681276307900': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,278 - INFO - UE initialized with ID UE7 at 2023-12-15 12:01:21.278424
+2023-12-15 12:01:21,278 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 12:01:21.278424
+2023-12-15 12:01:21,279 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 12:01:21,279 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 12:01:21,280 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681279423400': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,281 - INFO - UE initialized with ID UE8 at 2023-12-15 12:01:21.281214
+2023-12-15 12:01:21,281 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 12:01:21.281214
+2023-12-15 12:01:21,282 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 12:01:21,282 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 12:01:21,283 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681282214500': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,284 - INFO - UE initialized with ID UE9 at 2023-12-15 12:01:21.284160
+2023-12-15 12:01:21,285 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 12:01:21.285161
+2023-12-15 12:01:21,285 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 12:01:21,285 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 12:01:21,286 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681285161200': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,287 - INFO - UE initialized with ID UE10 at 2023-12-15 12:01:21.287280
+2023-12-15 12:01:21,287 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 12:01:21.287280
+2023-12-15 12:01:21,288 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 12:01:21,288 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 12:01:21,289 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681288280000': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,290 - INFO - UE initialized with ID UE11 at 2023-12-15 12:01:21.290027
+2023-12-15 12:01:21,290 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 12:01:21.290027
+2023-12-15 12:01:21,291 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 12:01:21,291 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 12:01:21,292 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681291022400': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,292 - INFO - UE initialized with ID UE12 at 2023-12-15 12:01:21.292824
+2023-12-15 12:01:21,292 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 12:01:21.292824
+2023-12-15 12:01:21,293 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 12:01:21,293 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 12:01:21,295 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681293815600': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,295 - INFO - UE initialized with ID UE13 at 2023-12-15 12:01:21.295540
+2023-12-15 12:01:21,295 - INFO - UE with ID UE1 added to Cell Ax1242 at 2023-12-15 12:01:21.295540
+2023-12-15 12:01:21,296 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-15 12:01:21,296 - INFO - UE 'UE1' has been attached to Cell 'Ax1242'.
+2023-12-15 12:01:21,297 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681296530800': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,298 - INFO - UE initialized with ID UE14 at 2023-12-15 12:01:21.298344
+2023-12-15 12:01:21,299 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 12:01:21.299338
+2023-12-15 12:01:21,299 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 12:01:21,299 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 12:01:21,300 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681299338700': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,301 - INFO - UE initialized with ID UE15 at 2023-12-15 12:01:21.301348
+2023-12-15 12:01:21,301 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 12:01:21.301348
+2023-12-15 12:01:21,302 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 12:01:21,302 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 12:01:21,303 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681302342900': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,304 - INFO - UE initialized with ID UE16 at 2023-12-15 12:01:21.304275
+2023-12-15 12:01:21,304 - INFO - UE with ID UE1 added to Cell CX1873 at 2023-12-15 12:01:21.304782
+2023-12-15 12:01:21,304 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-15 12:01:21,304 - INFO - UE 'UE1' has been attached to Cell 'CX1873'.
+2023-12-15 12:01:21,306 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681304782000': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,306 - INFO - UE initialized with ID UE17 at 2023-12-15 12:01:21.306977
+2023-12-15 12:01:21,306 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 12:01:21.306977
+2023-12-15 12:01:21,307 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 12:01:21,307 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 12:01:21,309 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681307977400': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,309 - INFO - UE initialized with ID UE18 at 2023-12-15 12:01:21.309795
+2023-12-15 12:01:21,309 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 12:01:21.309795
+2023-12-15 12:01:21,310 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 12:01:21,310 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 12:01:21,311 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681310795100': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,312 - INFO - UE initialized with ID UE19 at 2023-12-15 12:01:21.312476
+2023-12-15 12:01:21,312 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 12:01:21.312476
+2023-12-15 12:01:21,313 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 12:01:21,313 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 12:01:21,314 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681313475900': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,315 - INFO - UE initialized with ID UE20 at 2023-12-15 12:01:21.315236
+2023-12-15 12:01:21,315 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 12:01:21.315236
+2023-12-15 12:01:21,316 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 12:01:21,316 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 12:01:21,317 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681316235100': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,318 - INFO - UE initialized with ID UE21 at 2023-12-15 12:01:21.318008
+2023-12-15 12:01:21,318 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 12:01:21.318008
+2023-12-15 12:01:21,319 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 12:01:21,319 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 12:01:21,320 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681319007800': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,320 - INFO - UE initialized with ID UE22 at 2023-12-15 12:01:21.320812
+2023-12-15 12:01:21,320 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 12:01:21.320812
+2023-12-15 12:01:21,321 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 12:01:21,321 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 12:01:21,322 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681321811600': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,323 - INFO - UE initialized with ID UE23 at 2023-12-15 12:01:21.323348
+2023-12-15 12:01:21,323 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 12:01:21.323348
+2023-12-15 12:01:21,324 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 12:01:21,324 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 12:01:21,325 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681324346900': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,326 - INFO - UE initialized with ID UE24 at 2023-12-15 12:01:21.326030
+2023-12-15 12:01:21,326 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 12:01:21.326030
+2023-12-15 12:01:21,327 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 12:01:21,327 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 12:01:21,328 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681327030000': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,328 - INFO - UE initialized with ID UE25 at 2023-12-15 12:01:21.328665
+2023-12-15 12:01:21,328 - INFO - UE with ID UE1 added to Cell CX1873 at 2023-12-15 12:01:21.328665
+2023-12-15 12:01:21,329 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-15 12:01:21,329 - INFO - UE 'UE1' has been attached to Cell 'CX1873'.
+2023-12-15 12:01:21,330 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681329663800': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,331 - INFO - UE initialized with ID UE26 at 2023-12-15 12:01:21.331292
+2023-12-15 12:01:21,331 - INFO - UE with ID UE1 added to Cell Ax1242 at 2023-12-15 12:01:21.331292
+2023-12-15 12:01:21,332 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-15 12:01:21,332 - INFO - UE 'UE1' has been attached to Cell 'Ax1242'.
+2023-12-15 12:01:21,333 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681332290900': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,333 - INFO - UE initialized with ID UE27 at 2023-12-15 12:01:21.333913
+2023-12-15 12:01:21,333 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 12:01:21.333913
+2023-12-15 12:01:21,334 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 12:01:21,334 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 12:01:21,335 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681334911500': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,336 - INFO - UE initialized with ID UE28 at 2023-12-15 12:01:21.336477
+2023-12-15 12:01:21,336 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 12:01:21.336477
+2023-12-15 12:01:21,337 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 12:01:21,337 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 12:01:21,338 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681337476400': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,339 - INFO - UE initialized with ID UE29 at 2023-12-15 12:01:21.339194
+2023-12-15 12:01:21,339 - INFO - UE with ID UE1 added to Cell Ax1242 at 2023-12-15 12:01:21.339194
+2023-12-15 12:01:21,340 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-15 12:01:21,340 - INFO - UE 'UE1' has been attached to Cell 'Ax1242'.
+2023-12-15 12:01:21,341 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681340193100': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,341 - INFO - UE initialized with ID UE30 at 2023-12-15 12:01:21.341906
+2023-12-15 12:01:21,341 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 12:01:21.341906
+2023-12-15 12:01:21,342 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 12:01:21,342 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 12:01:21,344 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681342905300': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,344 - INFO - UE initialized with ID UE31 at 2023-12-15 12:01:21.344631
+2023-12-15 12:01:21,344 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 12:01:21.344631
+2023-12-15 12:01:21,345 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 12:01:21,345 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 12:01:21,346 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681345630300': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,347 - INFO - UE initialized with ID UE32 at 2023-12-15 12:01:21.347313
+2023-12-15 12:01:21,347 - INFO - UE with ID UE1 added to Cell CX1873 at 2023-12-15 12:01:21.347313
+2023-12-15 12:01:21,347 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-15 12:01:21,348 - INFO - UE 'UE1' has been attached to Cell 'CX1873'.
+2023-12-15 12:01:21,349 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681348310500': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,349 - INFO - UE initialized with ID UE33 at 2023-12-15 12:01:21.349727
+2023-12-15 12:01:21,349 - INFO - UE with ID UE1 added to Cell Ax1242 at 2023-12-15 12:01:21.349727
+2023-12-15 12:01:21,350 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-15 12:01:21,350 - INFO - UE 'UE1' has been attached to Cell 'Ax1242'.
+2023-12-15 12:01:21,351 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681350726800': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,352 - INFO - UE initialized with ID UE34 at 2023-12-15 12:01:21.352246
+2023-12-15 12:01:21,352 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 12:01:21.352246
+2023-12-15 12:01:21,353 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 12:01:21,353 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 12:01:21,354 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681353244900': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,354 - INFO - UE initialized with ID UE35 at 2023-12-15 12:01:21.354795
+2023-12-15 12:01:21,354 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 12:01:21.354795
+2023-12-15 12:01:21,355 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 12:01:21,355 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 12:01:21,356 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681355794000': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,357 - INFO - UE initialized with ID UE36 at 2023-12-15 12:01:21.357295
+2023-12-15 12:01:21,357 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 12:01:21.357295
+2023-12-15 12:01:21,357 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 12:01:21,358 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 12:01:21,359 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681358294000': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,359 - INFO - UE initialized with ID UE37 at 2023-12-15 12:01:21.359656
+2023-12-15 12:01:21,359 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 12:01:21.359656
+2023-12-15 12:01:21,360 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 12:01:21,360 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 12:01:21,361 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681360656200': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,362 - INFO - UE initialized with ID UE38 at 2023-12-15 12:01:21.362253
+2023-12-15 12:01:21,362 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 12:01:21.362253
+2023-12-15 12:01:21,363 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 12:01:21,363 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 12:01:21,364 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681363251500': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:21,364 - INFO - UE initialized with ID UE39 at 2023-12-15 12:01:21.364760
+2023-12-15 12:01:21,364 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 12:01:21.364760
+2023-12-15 12:01:21,365 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 12:01:21,365 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 12:01:21,366 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659681365759100': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:26,915 - INFO - Database connection successful.
+2023-12-15 12:01:26,928 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:26 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659686924683600': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:27,930 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:27 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=974997515974135,ue_id=UE1 connection_status=\"connected\",service_type=\"data\",traffic_volume=0i 1702659687928993200': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:28,933 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:28 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=526513466258801,ue_id=UE2 connection_status=\"connected\",service_type=\"voice\",traffic_volume=0i 1702659688931830300': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:29,937 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:29 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=561992105320065,ue_id=UE3 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659689935437100': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:30,440 - INFO - Database connection successful.
+2023-12-15 12:01:30,449 - INFO - Testing cell load logging.
+2023-12-15 12:01:30,449 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 30.0%
+2023-12-15 12:01:30,450 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 12:01:30,450 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 5.0%
+2023-12-15 12:01:30,450 - INFO - Testing cell load logging.
+2023-12-15 12:01:30,451 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 12:01:30,451 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 12:01:30,451 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 12:01:30,451 - INFO - Testing cell load logging.
+2023-12-15 12:01:30,452 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 12:01:30,452 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 45.0%
+2023-12-15 12:01:30,452 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 12:01:30,940 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:30 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=225856859127653,ue_id=UE4 connection_status=\"connected\",service_type=\"voice\",traffic_volume=0i 1702659690938394400': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:31,944 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:31 GMT', 'Content-Length': '244'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=390632212512597,ue_id=UE5 connection_status=\"connected\",service_type=\"IoT\",traffic_volume=0i 1702659691942036800': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:32,947 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:32 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=522083283377943,ue_id=UE6 connection_status=\"connected\",service_type=\"video\",traffic_volume=0i 1702659692945607200': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:33,950 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:33 GMT', 'Content-Length': '244'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=654188138199742,ue_id=UE7 connection_status=\"connected\",service_type=\"IoT\",traffic_volume=0i 1702659693948524100': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:34,954 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:34 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=149263834462727,ue_id=UE8 connection_status=\"connected\",service_type=\"data\",traffic_volume=0i 1702659694952139400': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:35,453 - INFO - Testing cell load logging.
+2023-12-15 12:01:35,453 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 30.0%
+2023-12-15 12:01:35,453 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 12:01:35,454 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 5.0%
+2023-12-15 12:01:35,454 - INFO - Testing cell load logging.
+2023-12-15 12:01:35,454 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 12:01:35,455 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 12:01:35,455 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 12:01:35,455 - INFO - Testing cell load logging.
+2023-12-15 12:01:35,456 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 12:01:35,456 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 45.0%
+2023-12-15 12:01:35,456 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 12:01:35,957 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:35 GMT', 'Content-Length': '244'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=238435316912228,ue_id=UE9 connection_status=\"connected\",service_type=\"IoT\",traffic_volume=0i 1702659695955794800': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:36,961 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:36 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=826192992439492,ue_id=UE10 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659696959564400': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:37,964 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:37 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=251211531978491,ue_id=UE11 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659697962335200': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:38,967 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:38 GMT', 'Content-Length': '247'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=675596893078244,ue_id=UE12 connection_status=\"connected\",service_type=\"video\",traffic_volume=0i 1702659698965575000': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:39,970 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:39 GMT', 'Content-Length': '247'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=238531369046056,ue_id=UE13 connection_status=\"connected\",service_type=\"voice\",traffic_volume=0i 1702659699968884000': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:40,458 - INFO - Testing cell load logging.
+2023-12-15 12:01:40,458 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 30.0%
+2023-12-15 12:01:40,458 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 12:01:40,459 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 5.0%
+2023-12-15 12:01:40,459 - INFO - Testing cell load logging.
+2023-12-15 12:01:40,459 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 12:01:40,460 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 12:01:40,460 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 12:01:40,460 - INFO - Testing cell load logging.
+2023-12-15 12:01:40,461 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 12:01:40,461 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 45.0%
+2023-12-15 12:01:40,461 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 12:01:40,974 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:40 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=212191713235539,ue_id=UE14 connection_status=\"connected\",service_type=\"IoT\",traffic_volume=0i 1702659700971889800': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:41,976 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:41 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=462944341998007,ue_id=UE15 connection_status=\"connected\",service_type=\"data\",traffic_volume=0i 1702659701975044500': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:42,979 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:42 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=664606795273026,ue_id=UE16 connection_status=\"connected\",service_type=\"IoT\",traffic_volume=0i 1702659702978185200': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:43,983 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:43 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=350923151077144,ue_id=UE17 connection_status=\"connected\",service_type=\"data\",traffic_volume=0i 1702659703981861300': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:44,986 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:44 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=171698485841667,ue_id=UE18 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659704984856700': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:45,462 - INFO - Testing cell load logging.
+2023-12-15 12:01:45,462 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 30.0%
+2023-12-15 12:01:45,462 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 12:01:45,463 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 5.0%
+2023-12-15 12:01:45,463 - INFO - Testing cell load logging.
+2023-12-15 12:01:45,463 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 12:01:45,464 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 12:01:45,464 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 12:01:45,464 - INFO - Testing cell load logging.
+2023-12-15 12:01:45,465 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 12:01:45,465 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 45.0%
+2023-12-15 12:01:45,465 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 12:01:45,989 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:45 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=302512662008339,ue_id=UE19 connection_status=\"connected\",service_type=\"IoT\",traffic_volume=0i 1702659705988028800': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:46,993 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:46 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=844988920531051,ue_id=UE20 connection_status=\"connected\",service_type=\"data\",traffic_volume=0i 1702659706991088400': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:47,997 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:47 GMT', 'Content-Length': '247'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=150209049967362,ue_id=UE21 connection_status=\"connected\",service_type=\"video\",traffic_volume=0i 1702659707994968800': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:48,999 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:48 GMT', 'Content-Length': '247'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=607359620338285,ue_id=UE22 connection_status=\"connected\",service_type=\"voice\",traffic_volume=0i 1702659708998222400': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:50,003 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:50 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=106841809961864,ue_id=UE23 connection_status=\"connected\",service_type=\"data\",traffic_volume=0i 1702659710002079300': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:50,466 - INFO - Testing cell load logging.
+2023-12-15 12:01:50,467 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 30.0%
+2023-12-15 12:01:50,467 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 12:01:50,467 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 5.0%
+2023-12-15 12:01:50,467 - INFO - Testing cell load logging.
+2023-12-15 12:01:50,468 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 12:01:50,468 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 12:01:50,468 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 12:01:50,468 - INFO - Testing cell load logging.
+2023-12-15 12:01:50,469 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 12:01:50,469 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 45.0%
+2023-12-15 12:01:50,469 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 12:01:51,006 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:51 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=769086277096878,ue_id=UE24 connection_status=\"connected\",service_type=\"IoT\",traffic_volume=0i 1702659711004823800': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:52,009 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:52 GMT', 'Content-Length': '247'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=304570174475619,ue_id=UE25 connection_status=\"connected\",service_type=\"video\",traffic_volume=0i 1702659712007932800': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:53,012 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:53 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=554108552284610,ue_id=UE26 connection_status=\"connected\",service_type=\"data\",traffic_volume=0i 1702659713010787300': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:54,016 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:54 GMT', 'Content-Length': '247'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=685573770538518,ue_id=UE27 connection_status=\"connected\",service_type=\"video\",traffic_volume=0i 1702659714014649800': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:55,020 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:55 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=419163372584122,ue_id=UE28 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659715018049600': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:55,470 - INFO - Testing cell load logging.
+2023-12-15 12:01:55,470 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 30.0%
+2023-12-15 12:01:55,471 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 12:01:55,471 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 5.0%
+2023-12-15 12:01:55,471 - INFO - Testing cell load logging.
+2023-12-15 12:01:55,472 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 12:01:55,472 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 12:01:55,472 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 12:01:55,472 - INFO - Testing cell load logging.
+2023-12-15 12:01:55,473 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 12:01:55,473 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 45.0%
+2023-12-15 12:01:55,473 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 12:01:56,022 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:56 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=888933278121264,ue_id=UE29 connection_status=\"connected\",service_type=\"IoT\",traffic_volume=0i 1702659716021253700': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:57,025 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:57 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=778646440868749,ue_id=UE30 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659717023821900': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:58,029 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:58 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=121728234585278,ue_id=UE31 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659718027242200': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:01:59,032 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:01:59 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=485410808839486,ue_id=UE32 connection_status=\"connected\",service_type=\"data\",traffic_volume=0i 1702659719031097200': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:00,037 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:00 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=657564381659109,ue_id=UE33 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659720034797200': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:00,475 - INFO - Testing cell load logging.
+2023-12-15 12:02:00,475 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 30.0%
+2023-12-15 12:02:00,475 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 12:02:00,476 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 5.0%
+2023-12-15 12:02:00,476 - INFO - Testing cell load logging.
+2023-12-15 12:02:00,476 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 12:02:00,476 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 12:02:00,476 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 12:02:00,476 - INFO - Testing cell load logging.
+2023-12-15 12:02:00,476 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 12:02:00,476 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 45.0%
+2023-12-15 12:02:00,477 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 12:02:01,039 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:01 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=351988218722898,ue_id=UE34 connection_status=\"connected\",service_type=\"data\",traffic_volume=0i 1702659721038138400': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:02,042 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:02 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=905563418896761,ue_id=UE35 connection_status=\"connected\",service_type=\"IoT\",traffic_volume=0i 1702659722040923300': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:03,045 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:03 GMT', 'Content-Length': '247'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=944469962556019,ue_id=UE36 connection_status=\"connected\",service_type=\"voice\",traffic_volume=0i 1702659723043793900': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:04,048 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:04 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=925492963031163,ue_id=UE37 connection_status=\"connected\",service_type=\"IoT\",traffic_volume=0i 1702659724046438900': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:05,051 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:05 GMT', 'Content-Length': '247'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=305270625880777,ue_id=UE38 connection_status=\"connected\",service_type=\"video\",traffic_volume=0i 1702659725049514800': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:05,478 - INFO - Testing cell load logging.
+2023-12-15 12:02:05,478 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 30.0%
+2023-12-15 12:02:05,478 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 12:02:05,479 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 5.0%
+2023-12-15 12:02:05,479 - INFO - Testing cell load logging.
+2023-12-15 12:02:05,479 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 12:02:05,479 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 12:02:05,479 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 12:02:05,480 - INFO - Testing cell load logging.
+2023-12-15 12:02:05,480 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 12:02:05,481 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 45.0%
+2023-12-15 12:02:05,481 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 12:02:06,054 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:06 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=293066233224294,ue_id=UE39 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659726052928900': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:07,057 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:07 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659727055401000': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:08,060 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:08 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=974997515974135,ue_id=UE1 connection_status=\"connected\",service_type=\"data\",traffic_volume=0i 1702659728058206500': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:09,062 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:09 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=526513466258801,ue_id=UE2 connection_status=\"connected\",service_type=\"voice\",traffic_volume=0i 1702659729060996300': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:10,065 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:10 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=561992105320065,ue_id=UE3 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659730063419300': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:10,482 - INFO - Testing cell load logging.
+2023-12-15 12:02:10,482 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 30.0%
+2023-12-15 12:02:10,482 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 12:02:10,483 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 5.0%
+2023-12-15 12:02:10,483 - INFO - Testing cell load logging.
+2023-12-15 12:02:10,483 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 12:02:10,483 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 12:02:10,484 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 12:02:10,484 - INFO - Testing cell load logging.
+2023-12-15 12:02:10,484 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 12:02:10,484 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 45.0%
+2023-12-15 12:02:10,485 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 12:02:11,068 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:11 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=225856859127653,ue_id=UE4 connection_status=\"connected\",service_type=\"voice\",traffic_volume=0i 1702659731066226900': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:12,070 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:12 GMT', 'Content-Length': '244'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=390632212512597,ue_id=UE5 connection_status=\"connected\",service_type=\"IoT\",traffic_volume=0i 1702659732069234100': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:13,073 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:13 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=522083283377943,ue_id=UE6 connection_status=\"connected\",service_type=\"video\",traffic_volume=0i 1702659733072450200': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:14,077 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:14 GMT', 'Content-Length': '244'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=654188138199742,ue_id=UE7 connection_status=\"connected\",service_type=\"IoT\",traffic_volume=0i 1702659734075169000': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:15,080 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:15 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=149263834462727,ue_id=UE8 connection_status=\"connected\",service_type=\"data\",traffic_volume=0i 1702659735078516700': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:15,486 - INFO - Testing cell load logging.
+2023-12-15 12:02:15,486 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 30.0%
+2023-12-15 12:02:15,487 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 12:02:15,487 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 5.0%
+2023-12-15 12:02:15,487 - INFO - Testing cell load logging.
+2023-12-15 12:02:15,488 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 12:02:15,488 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 12:02:15,488 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 12:02:15,488 - INFO - Testing cell load logging.
+2023-12-15 12:02:15,489 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 12:02:15,489 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 45.0%
+2023-12-15 12:02:15,489 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 12:02:16,083 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:16 GMT', 'Content-Length': '244'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=238435316912228,ue_id=UE9 connection_status=\"connected\",service_type=\"IoT\",traffic_volume=0i 1702659736081626200': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:17,086 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:17 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=826192992439492,ue_id=UE10 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659737084554900': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:18,089 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:18 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=251211531978491,ue_id=UE11 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659738087782900': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:19,092 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:19 GMT', 'Content-Length': '247'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=675596893078244,ue_id=UE12 connection_status=\"connected\",service_type=\"video\",traffic_volume=0i 1702659739090714400': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:20,096 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:20 GMT', 'Content-Length': '247'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=238531369046056,ue_id=UE13 connection_status=\"connected\",service_type=\"voice\",traffic_volume=0i 1702659740094122500': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:20,491 - INFO - Testing cell load logging.
+2023-12-15 12:02:20,491 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 30.0%
+2023-12-15 12:02:20,491 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 12:02:20,492 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 5.0%
+2023-12-15 12:02:20,492 - INFO - Testing cell load logging.
+2023-12-15 12:02:20,492 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 12:02:20,493 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 12:02:20,493 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 12:02:20,493 - INFO - Testing cell load logging.
+2023-12-15 12:02:20,494 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 12:02:20,494 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 45.0%
+2023-12-15 12:02:20,494 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 12:02:21,099 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:21 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=212191713235539,ue_id=UE14 connection_status=\"connected\",service_type=\"IoT\",traffic_volume=0i 1702659741097438900': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:22,103 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:22 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=462944341998007,ue_id=UE15 connection_status=\"connected\",service_type=\"data\",traffic_volume=0i 1702659742102101500': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:23,106 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:23 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=664606795273026,ue_id=UE16 connection_status=\"connected\",service_type=\"IoT\",traffic_volume=0i 1702659743105289900': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:24,109 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:24 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=350923151077144,ue_id=UE17 connection_status=\"connected\",service_type=\"data\",traffic_volume=0i 1702659744107972000': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:25,114 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:25 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=171698485841667,ue_id=UE18 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659745111812500': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:25,495 - INFO - Testing cell load logging.
+2023-12-15 12:02:25,495 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 30.0%
+2023-12-15 12:02:25,496 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 12:02:25,496 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 5.0%
+2023-12-15 12:02:25,496 - INFO - Testing cell load logging.
+2023-12-15 12:02:25,497 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 12:02:25,497 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 12:02:25,497 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 12:02:25,498 - INFO - Testing cell load logging.
+2023-12-15 12:02:25,498 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 12:02:25,498 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 45.0%
+2023-12-15 12:02:25,498 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 12:02:26,117 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:26 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=302512662008339,ue_id=UE19 connection_status=\"connected\",service_type=\"IoT\",traffic_volume=0i 1702659746115342800': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:27,120 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:27 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=844988920531051,ue_id=UE20 connection_status=\"connected\",service_type=\"data\",traffic_volume=0i 1702659747118569900': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:28,124 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:28 GMT', 'Content-Length': '247'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=150209049967362,ue_id=UE21 connection_status=\"connected\",service_type=\"video\",traffic_volume=0i 1702659748121806700': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:29,127 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:29 GMT', 'Content-Length': '247'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=607359620338285,ue_id=UE22 connection_status=\"connected\",service_type=\"voice\",traffic_volume=0i 1702659749125516200': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:30,130 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:30 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=106841809961864,ue_id=UE23 connection_status=\"connected\",service_type=\"data\",traffic_volume=0i 1702659750128252400': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:30,499 - INFO - Testing cell load logging.
+2023-12-15 12:02:30,500 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 30.0%
+2023-12-15 12:02:30,500 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 12:02:30,500 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 5.0%
+2023-12-15 12:02:30,501 - INFO - Testing cell load logging.
+2023-12-15 12:02:30,501 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 12:02:30,501 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 12:02:30,502 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 12:02:30,502 - INFO - Testing cell load logging.
+2023-12-15 12:02:30,502 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 12:02:30,502 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 45.0%
+2023-12-15 12:02:30,503 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 12:02:31,133 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:31 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=769086277096878,ue_id=UE24 connection_status=\"connected\",service_type=\"IoT\",traffic_volume=0i 1702659751130885000': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:32,136 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:32 GMT', 'Content-Length': '247'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=304570174475619,ue_id=UE25 connection_status=\"connected\",service_type=\"video\",traffic_volume=0i 1702659752134645500': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:33,139 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:33 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=554108552284610,ue_id=UE26 connection_status=\"connected\",service_type=\"data\",traffic_volume=0i 1702659753137936800': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:34,142 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:34 GMT', 'Content-Length': '247'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=685573770538518,ue_id=UE27 connection_status=\"connected\",service_type=\"video\",traffic_volume=0i 1702659754140647400': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:35,146 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:35 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=419163372584122,ue_id=UE28 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659755144485400': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:35,504 - INFO - Testing cell load logging.
+2023-12-15 12:02:35,504 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 30.0%
+2023-12-15 12:02:35,505 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 12:02:35,505 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 5.0%
+2023-12-15 12:02:35,505 - INFO - Testing cell load logging.
+2023-12-15 12:02:35,506 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 12:02:35,506 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 12:02:35,506 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 12:02:35,507 - INFO - Testing cell load logging.
+2023-12-15 12:02:35,507 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 12:02:35,507 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 45.0%
+2023-12-15 12:02:35,507 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 12:02:36,148 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:36 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=888933278121264,ue_id=UE29 connection_status=\"connected\",service_type=\"IoT\",traffic_volume=0i 1702659756146950200': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:37,152 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:37 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=778646440868749,ue_id=UE30 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659757149628200': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:38,154 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:38 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=121728234585278,ue_id=UE31 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659758152689100': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:39,159 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:39 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=485410808839486,ue_id=UE32 connection_status=\"connected\",service_type=\"data\",traffic_volume=0i 1702659759156684300': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:40,162 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:40 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=657564381659109,ue_id=UE33 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659760160705900': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:40,509 - INFO - Testing cell load logging.
+2023-12-15 12:02:40,509 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 30.0%
+2023-12-15 12:02:40,509 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 12:02:40,510 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 5.0%
+2023-12-15 12:02:40,510 - INFO - Testing cell load logging.
+2023-12-15 12:02:40,510 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 12:02:40,511 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 12:02:40,511 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 12:02:40,511 - INFO - Testing cell load logging.
+2023-12-15 12:02:40,512 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 12:02:40,512 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 45.0%
+2023-12-15 12:02:40,512 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 12:02:41,165 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:41 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=351988218722898,ue_id=UE34 connection_status=\"connected\",service_type=\"data\",traffic_volume=0i 1702659761163397700': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:42,168 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:42 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=905563418896761,ue_id=UE35 connection_status=\"connected\",service_type=\"IoT\",traffic_volume=0i 1702659762166181200': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:43,171 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:43 GMT', 'Content-Length': '247'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=944469962556019,ue_id=UE36 connection_status=\"connected\",service_type=\"voice\",traffic_volume=0i 1702659763169392300': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:44,174 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:44 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=925492963031163,ue_id=UE37 connection_status=\"connected\",service_type=\"IoT\",traffic_volume=0i 1702659764172645000': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:45,178 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:45 GMT', 'Content-Length': '247'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=305270625880777,ue_id=UE38 connection_status=\"connected\",service_type=\"video\",traffic_volume=0i 1702659765176203400': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:45,513 - INFO - Testing cell load logging.
+2023-12-15 12:02:45,513 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 30.0%
+2023-12-15 12:02:45,514 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 12:02:45,514 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 5.0%
+2023-12-15 12:02:45,514 - INFO - Testing cell load logging.
+2023-12-15 12:02:45,515 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 12:02:45,515 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 12:02:45,515 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 12:02:45,516 - INFO - Testing cell load logging.
+2023-12-15 12:02:45,516 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 12:02:45,516 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 45.0%
+2023-12-15 12:02:45,517 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 12:02:46,180 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:46 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=293066233224294,ue_id=UE39 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659766179076500': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:47,183 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:47 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=575607492762540,ue_id=UE1 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659767181709300': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:48,187 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:48 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=974997515974135,ue_id=UE1 connection_status=\"connected\",service_type=\"data\",traffic_volume=0i 1702659768185593900': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:49,189 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:49 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=526513466258801,ue_id=UE2 connection_status=\"connected\",service_type=\"voice\",traffic_volume=0i 1702659769188416000': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:50,193 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:50 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=561992105320065,ue_id=UE3 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659770191568300': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:50,518 - INFO - Testing cell load logging.
+2023-12-15 12:02:50,518 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 30.0%
+2023-12-15 12:02:50,518 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 12:02:50,519 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 5.0%
+2023-12-15 12:02:50,519 - INFO - Testing cell load logging.
+2023-12-15 12:02:50,519 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 12:02:50,520 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 12:02:50,520 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 12:02:50,520 - INFO - Testing cell load logging.
+2023-12-15 12:02:50,520 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 12:02:50,521 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 45.0%
+2023-12-15 12:02:50,521 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 12:02:51,196 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:51 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=225856859127653,ue_id=UE4 connection_status=\"connected\",service_type=\"voice\",traffic_volume=0i 1702659771195248800': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:52,200 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:52 GMT', 'Content-Length': '244'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=390632212512597,ue_id=UE5 connection_status=\"connected\",service_type=\"IoT\",traffic_volume=0i 1702659772198855900': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:53,204 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:53 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=522083283377943,ue_id=UE6 connection_status=\"connected\",service_type=\"video\",traffic_volume=0i 1702659773202595500': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:54,207 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:54 GMT', 'Content-Length': '244'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=654188138199742,ue_id=UE7 connection_status=\"connected\",service_type=\"IoT\",traffic_volume=0i 1702659774205491700': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:55,209 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:55 GMT', 'Content-Length': '245'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=149263834462727,ue_id=UE8 connection_status=\"connected\",service_type=\"data\",traffic_volume=0i 1702659775208086800': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:55,522 - INFO - Testing cell load logging.
+2023-12-15 12:02:55,522 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 30.0%
+2023-12-15 12:02:55,522 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 12:02:55,523 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 5.0%
+2023-12-15 12:02:55,523 - INFO - Testing cell load logging.
+2023-12-15 12:02:55,523 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 12:02:55,523 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 12:02:55,524 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 12:02:55,524 - INFO - Testing cell load logging.
+2023-12-15 12:02:55,524 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 12:02:55,524 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 45.0%
+2023-12-15 12:02:55,525 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 12:02:56,212 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:56 GMT', 'Content-Length': '244'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=238435316912228,ue_id=UE9 connection_status=\"connected\",service_type=\"IoT\",traffic_volume=0i 1702659776211083200': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:57,215 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:57 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=826192992439492,ue_id=UE10 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659777213915000': time outside range -9223372036854775806 - 9223372036854775806"}
+
+2023-12-15 12:02:58,218 - ERROR - Failed to insert data into InfluxDB: (400)
+Reason: Bad Request
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:02:58 GMT', 'Content-Length': '246'})
+HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=251211531978491,ue_id=UE11 connection_status=\"connected\",service_type=\"game\",traffic_volume=0i 1702659778216591100': time outside range -9223372036854775806 - 9223372036854775806"}
+
