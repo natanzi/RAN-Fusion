@@ -1,2 +1,6 @@
 {"level": "ERROR", "timestamp": "2023-12-15 17:23:15", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"region\" is not supported."}
 {"level": "ERROR", "timestamp": "2023-12-15 17:23:16", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"region\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 17:23:17", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"region\" is not supported."}
+{"level": "INFO", "timestamp": "2023-12-15 17:23:17", "message": "Data inserted for measurement <function Point.measurement at 0x000001FF7F8E7CE0>"}
+{"level": "INFO", "timestamp": "2023-12-15 17:23:18", "message": "Data inserted for measurement <function Point.measurement at 0x000001FF7F8E7CE0>"}
+{"level": "INFO", "timestamp": "2023-12-15 17:23:19", "message": "Data inserted for measurement <function Point.measurement at 0x000001FF7F8E7CE0>"}

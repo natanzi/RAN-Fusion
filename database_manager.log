@@ -14228,3 +14228,21 @@ Reason: Bad Request
 HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Fri, 15 Dec 2023 17:18:59 GMT', 'Content-Length': '241'})
 HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=208041192499519,ue_id=UE21 connection_status=\"connected\",service_type=\"video\",traffic_volume=0i 1702660739657': time outside range -9223372036854775806 - 9223372036854775806"}
 
+2023-12-15 12:23:14,887 - INFO - Database connection successful.
+2023-12-15 12:23:14,910 - INFO - gNodeB 'W1140' has been launched with 3 cells.
+2023-12-15 12:23:15,911 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "region" is not supported.
+2023-12-15 12:23:15,911 - INFO - gNodeB 'W1320' has been launched with 3 cells.
+2023-12-15 12:23:16,913 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "region" is not supported.
+2023-12-15 12:23:16,913 - INFO - gNodeB 'W2018' has been launched with 3 cells.
+2023-12-15 12:23:17,915 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "region" is not supported.
+2023-12-15 12:23:17,917 - INFO - Cell 'Ax1242' has been created in gNodeB 'Ax1242' with max capacity 10.
+2023-12-15 12:23:17,917 - INFO - Cell 'BX1453' has been created in gNodeB 'BX1453' with max capacity 10.
+2023-12-15 12:23:17,917 - INFO - Cell 'CX1352' has been created in gNodeB 'CX1352' with max capacity 10.
+2023-12-15 12:23:17,917 - INFO - Cell 'AX1112' has been created in gNodeB 'AX1112' with max capacity 10.
+2023-12-15 12:23:17,918 - INFO - Cell 'BX1334' has been created in gNodeB 'BX1334' with max capacity 10.
+2023-12-15 12:23:17,918 - INFO - Cell 'CX1873' has been created in gNodeB 'CX1873' with max capacity 10.
+2023-12-15 12:23:17,918 - INFO - Cell 'AX9980' has been created in gNodeB 'AX9980' with max capacity 10.
+2023-12-15 12:23:17,918 - INFO - Cell 'BX1230' has been created in gNodeB 'BX1230' with max capacity 10.
+2023-12-15 12:23:17,919 - INFO - Cell 'CX5103' has been created in gNodeB 'CX5103' with max capacity 10.
+2023-12-15 12:23:17,924 - INFO - Data inserted for measurement <function Point.measurement at 0x000001FF7F8E7CE0>
+2023-12-15 12:23:17,924 - INFO - Cell 'Ax1242' has been added to gNodeB 'W1140'.
