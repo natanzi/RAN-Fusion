@@ -6849,3 +6849,4 @@ Reason: Bad Request
 HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'invalid', 'Date': 'Thu, 14 Dec 2023 16:03:12 GMT', 'Content-Length': '246'})
 HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,imei=245776591572249,ue_id=UE5 connection_status=\"connected\",service_type=\"voice\",traffic_volume=0i 1702569792805184300': time outside range -9223372036854775806 - 9223372036854775806"}
 
+2023-12-14 19:02:24,030 - INFO - Database connection successful.

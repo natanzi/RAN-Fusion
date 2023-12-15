@@ -6,7 +6,7 @@ from influxdb_client import InfluxDBClient, WritePrecision, Point
 from influxdb_client.client.write_api import SYNCHRONOUS
 from influxdb_client import Point, WritePrecision
 import logging
-from logger_config import database_logger
+from logs.logger_config import database_logger
 
 # Configure logging
 logging.basicConfig(filename='database_manager.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
