@@ -98,7 +98,7 @@ class gNodeB:
             "blacklisted_cells": self.BlacklistedCells,
             "handover_success_count": self.handover_success_count,
             "handover_failure_count": self.handover_failure_count,
-            "location": location_str,  # Use the converted string for 'location'
+            "location": location_str,  
             "bandwidth": self.Bandwidth,
             "handover_margin": self.HandoverMargin,
             "handover_hysteresis": self.HandoverHysteresis,

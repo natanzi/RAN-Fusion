@@ -28,7 +28,11 @@ else:
 # At the beginning of your script
 logging.basicConfig(level=logging.INFO)
 
-def log_traffic(ues, db_manager, traffic_increase_config=None):
+def log_traffic(ues, traffic_increase_config=None):
+    # Initialize DatabaseManager inside the function
+    network_state = NetworkState()
+    db_manager = DatabaseManager(network_state)
+    
     while True:
         for ue in ues:
             # Check if this UE should have increased traffic
@@ -83,8 +87,8 @@ def main():
     # This can be modified or managed through a GUI or API endpoint
     traffic_increase_config = {1: 2, 3: 1.5}
 
-    # Create a separate process for logging
-    logging_process = Process(target=log_traffic, args=(ues, db_manager, traffic_increase_config))
+    # Create a separate process for logging without passing db_manager
+    logging_process = Process(target=log_traffic, args=(ues, traffic_increase_config))
     logging_process.start()
 
     # Create a separate process for monitoring cell load

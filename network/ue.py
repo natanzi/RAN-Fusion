@@ -165,9 +165,9 @@ class UE:
             .field("velocity", self.Velocity) \
             .field("direction", self.Direction) \
             .field("traffic_model", self.TrafficModel) \
-            .field("scheduling_requests", self.SchedulingRequests) \
+            .field("scheduling_requests", int(self.SchedulingRequests)) \
             .field("rlc_mode", self.RLCMode) \
-            .field("snr_thresholds", self.SNRThresholds) \
+            .field("snr_thresholds", ','.join(map(str, self.SNRThresholds))) \
             .field("ho_margin", self.HOMargin) \
             .field("n310", self.N310) \
             .field("n311", self.N311) \
