@@ -14252,3 +14252,9 @@ HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,ime
 2023-12-15 12:23:19,939 - INFO - Cell 'CX1352' has been added to gNodeB 'W1140'.
 2023-12-15 12:23:20,958 - INFO - Data inserted for measurement <function Point.measurement at 0x000001FF7F8E7CE0>
 2023-12-15 12:23:20,958 - INFO - Cell 'AX1112' has been added to gNodeB 'W1320'.
+2023-12-15 12:23:21,964 - INFO - Data inserted for measurement <function Point.measurement at 0x000001FF7F8E7CE0>
+2023-12-15 12:23:21,965 - INFO - Cell 'BX1334' has been added to gNodeB 'W1320'.
+2023-12-15 12:23:22,972 - INFO - Data inserted for measurement <function Point.measurement at 0x000001FF7F8E7CE0>
+2023-12-15 12:23:22,973 - INFO - Cell 'CX1873' has been added to gNodeB 'W1320'.
+2023-12-15 12:23:23,978 - INFO - Data inserted for measurement <function Point.measurement at 0x000001FF7F8E7CE0>
+2023-12-15 12:23:23,979 - INFO - Cell 'AX9980' has been added to gNodeB 'W2018'.
