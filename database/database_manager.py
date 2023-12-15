@@ -120,14 +120,8 @@ class DatabaseManager:
         traffic_volume = ue.traffic_volume  # Assuming traffic_volume is an attribute of UE
         service_type = ue.ServiceType  # Assuming ServiceType is an attribute of UE
         timestamp = int(time.time() * 1e9)  # Current time in nanoseconds
-
-        # Add a debug log to check the timestamp value
-        logging.debug(f"Generated timestamp for UE data: {timestamp}")
-
-        # Determine the connection status
         connection_status = 'connected' if ue.ConnectedCellID else 'disconnected'
 
-        # Prepare tags and fields for InfluxDB
         tags = {
             'ue_id': ue.ID,
             'imei': ue.IMEI
