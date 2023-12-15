@@ -16,7 +16,6 @@ class JsonFormatter(logging.Formatter):
         }
         if record.exc_info:
             log_record['exception'] = self.formatException(record.exc_info)
-        return json.dumps(log_record)
 
 def setup_logger(name, log_file, level=logging.INFO, max_log_size=10 * 1024 * 1024, backup_count=5):
     """Function to set up a logger with asynchronous and buffered logging."""
