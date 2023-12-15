@@ -6,13 +6,11 @@ import gzip
 from datetime import datetime
 from logging.handlers import RotatingFileHandler
 from concurrent.futures import ThreadPoolExecutor
-from database.database_manager import DatabaseManager
 
 class JsonFormatter(logging.Formatter):
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.db_manager = DatabaseManager()
 
     def format(self, record):
         log_record = {
