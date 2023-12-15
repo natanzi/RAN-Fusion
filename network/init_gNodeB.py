@@ -1,4 +1,4 @@
-#init_gNodeB.py  // this file located in network directory
+# init_gNodeB.py  // this file located in network directory
 # Initialization of gNodeBs
 import os
 import json
@@ -13,7 +13,6 @@ def initialize_gNodeBs(gNodeBs_config, db_manager):
     for gNodeB_data in gNodeBs_config['gNodeBs']:
         gnodeb = gNodeB(**gNodeB_data)
         gNodeBs[gnodeb.ID] = gnodeb
-        # Serialize and write to InfluxDB
-        point = gnodeb.serialize_for_influxdb()
-        db_manager.insert_data("gnodeb_metrics", point.tags, point.fields, point.time)
+        point = gnodeb.serialize_for_influxdb()  # Serialize for InfluxDB
+        db_manager.insert_data(point)  # Insert the Point object directly
     return gNodeBs

@@ -78,30 +78,33 @@ class gNodeB:
     def serialize_for_influxdb(self):
         point = Point("gnodeb_metrics").tag("gnodeb_id", self.ID)
 
+    # Convert the location list to a string if it's not None
+        location_str = ','.join(map(str, self.Location)) if self.Location is not None else None
+
         fields = {
-            "latitude": self.Latitude,
-            "longitude": self.Longitude,
-            "coverage_radius": self.CoverageRadius,
-            "transmission_power": self.TransmissionPower,
-            "frequency": self.Frequency,
-            "region": self.Region,
-            "max_ues": self.MaxUEs,
-            "cell_count": self.CellCount,
-            "measurement_bandwidth": self.MeasurementBandwidth,
-            "blacklisted_cells": self.BlacklistedCells,
-            "handover_success_count": self.handover_success_count,
-            "handover_failure_count": self.handover_failure_count,
-            "location": self.Location,
-            "bandwidth": self.Bandwidth,
-            "handover_margin": self.HandoverMargin,
-            "handover_hysteresis": self.HandoverHysteresis,
-            "time_to_trigger": self.TimeToTrigger,
-            "inter_freq_handover": self.InterFreqHandover,
-            "xn_interface": self.XnInterface,
-            "son_capabilities": self.SONCapabilities,
-            "load_balancing_offset": self.LoadBalancingOffset,
-            "cell_ids": ','.join(map(str, self.CellIds)) if self.CellIds is not None else None
-        }
+        "latitude": self.Latitude,
+        "longitude": self.Longitude,
+        "coverage_radius": self.CoverageRadius,
+        "transmission_power": self.TransmissionPower,
+        "frequency": self.Frequency,
+        "region": self.Region,
+        "max_ues": self.MaxUEs,
+        "cell_count": self.CellCount,
+        "measurement_bandwidth": self.MeasurementBandwidth,
+        "blacklisted_cells": self.BlacklistedCells,
+        "handover_success_count": self.handover_success_count,
+        "handover_failure_count": self.handover_failure_count,
+        "location": location_str,  # Use the converted string
+        "bandwidth": self.Bandwidth,
+        "handover_margin": self.HandoverMargin,
+        "handover_hysteresis": self.HandoverHysteresis,
+        "time_to_trigger": self.TimeToTrigger,
+        "inter_freq_handover": self.InterFreqHandover,
+        "xn_interface": self.XnInterface,
+        "son_capabilities": self.SONCapabilities,
+        "load_balancing_offset": self.LoadBalancingOffset,
+        "cell_ids": ','.join(map(str, self.CellIds)) if self.CellIds is not None else None
+    }
 
         for field, value in fields.items():
             if value is not None:
