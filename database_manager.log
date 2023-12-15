@@ -22401,3 +22401,920 @@ Reason: Unprocessable Entity
 HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:32:08 GMT', 'Content-Length': '239'})
 HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
 
+2023-12-15 15:35:31,056 - INFO - Database connection successful.
+2023-12-15 15:35:31,066 - INFO - gNodeB 'W1140' has been launched with 3 cells.
+2023-12-15 15:35:32,087 - INFO - Data inserted for measurement <function Point.measurement at 0x000001CDED394180>
+2023-12-15 15:35:32,088 - INFO - gNodeB 'W1320' has been launched with 3 cells.
+2023-12-15 15:35:33,095 - INFO - Data inserted for measurement <function Point.measurement at 0x000001CDED394180>
+2023-12-15 15:35:33,095 - INFO - gNodeB 'W2018' has been launched with 3 cells.
+2023-12-15 15:35:34,100 - INFO - Data inserted for measurement <function Point.measurement at 0x000001CDED394180>
+2023-12-15 15:35:34,102 - INFO - Cell 'Ax1242' has been created in gNodeB 'Ax1242' with max capacity 10.
+2023-12-15 15:35:34,102 - INFO - Cell 'BX1453' has been created in gNodeB 'BX1453' with max capacity 10.
+2023-12-15 15:35:34,103 - INFO - Cell 'CX1352' has been created in gNodeB 'CX1352' with max capacity 10.
+2023-12-15 15:35:34,103 - INFO - Cell 'AX1112' has been created in gNodeB 'AX1112' with max capacity 10.
+2023-12-15 15:35:34,103 - INFO - Cell 'BX1334' has been created in gNodeB 'BX1334' with max capacity 10.
+2023-12-15 15:35:34,103 - INFO - Cell 'CX1873' has been created in gNodeB 'CX1873' with max capacity 10.
+2023-12-15 15:35:34,104 - INFO - Cell 'AX9980' has been created in gNodeB 'AX9980' with max capacity 10.
+2023-12-15 15:35:34,104 - INFO - Cell 'BX1230' has been created in gNodeB 'BX1230' with max capacity 10.
+2023-12-15 15:35:34,104 - INFO - Cell 'CX5103' has been created in gNodeB 'CX5103' with max capacity 10.
+2023-12-15 15:35:34,109 - INFO - Data inserted for measurement <function Point.measurement at 0x000001CDED394180>
+2023-12-15 15:35:34,109 - INFO - Cell 'Ax1242' has been added to gNodeB 'W1140'.
+2023-12-15 15:35:35,116 - INFO - Data inserted for measurement <function Point.measurement at 0x000001CDED394180>
+2023-12-15 15:35:35,116 - INFO - Cell 'BX1453' has been added to gNodeB 'W1140'.
+2023-12-15 15:35:36,122 - INFO - Data inserted for measurement <function Point.measurement at 0x000001CDED394180>
+2023-12-15 15:35:36,123 - INFO - Cell 'CX1352' has been added to gNodeB 'W1140'.
+2023-12-15 15:35:37,129 - INFO - Data inserted for measurement <function Point.measurement at 0x000001CDED394180>
+2023-12-15 15:35:37,130 - INFO - Cell 'AX1112' has been added to gNodeB 'W1320'.
+2023-12-15 15:35:38,135 - INFO - Data inserted for measurement <function Point.measurement at 0x000001CDED394180>
+2023-12-15 15:35:38,136 - INFO - Cell 'BX1334' has been added to gNodeB 'W1320'.
+2023-12-15 15:35:39,141 - INFO - Data inserted for measurement <function Point.measurement at 0x000001CDED394180>
+2023-12-15 15:35:39,141 - INFO - Cell 'CX1873' has been added to gNodeB 'W1320'.
+2023-12-15 15:35:40,146 - INFO - Data inserted for measurement <function Point.measurement at 0x000001CDED394180>
+2023-12-15 15:35:40,146 - INFO - Cell 'AX9980' has been added to gNodeB 'W2018'.
+2023-12-15 15:35:41,153 - INFO - Data inserted for measurement <function Point.measurement at 0x000001CDED394180>
+2023-12-15 15:35:41,154 - INFO - Cell 'BX1230' has been added to gNodeB 'W2018'.
+2023-12-15 15:35:42,159 - INFO - Data inserted for measurement <function Point.measurement at 0x000001CDED394180>
+2023-12-15 15:35:42,159 - INFO - Cell 'CX5103' has been added to gNodeB 'W2018'.
+2023-12-15 15:35:43,162 - INFO - UE initialized with ID UE1 at 2023-12-15 15:35:43.162498
+2023-12-15 15:35:43,163 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 15:35:43.163497
+2023-12-15 15:35:43,163 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 15:35:43,163 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 15:35:43,196 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,196 - INFO - UE initialized with ID UE1 at 2023-12-15 15:35:43.196294
+2023-12-15 15:35:43,197 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 15:35:43.197292
+2023-12-15 15:35:43,197 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 15:35:43,198 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 15:35:43,204 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,205 - INFO - UE initialized with ID UE2 at 2023-12-15 15:35:43.205013
+2023-12-15 15:35:43,205 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 15:35:43.205518
+2023-12-15 15:35:43,205 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 15:35:43,205 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 15:35:43,227 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,227 - INFO - UE initialized with ID UE3 at 2023-12-15 15:35:43.227194
+2023-12-15 15:35:43,228 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 15:35:43.228193
+2023-12-15 15:35:43,228 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 15:35:43,229 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 15:35:43,235 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,235 - INFO - UE initialized with ID UE4 at 2023-12-15 15:35:43.235213
+2023-12-15 15:35:43,236 - INFO - UE with ID UE1 added to Cell Ax1242 at 2023-12-15 15:35:43.236211
+2023-12-15 15:35:43,236 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-15 15:35:43,237 - INFO - UE 'UE1' has been attached to Cell 'Ax1242'.
+2023-12-15 15:35:43,243 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,243 - INFO - UE initialized with ID UE5 at 2023-12-15 15:35:43.243636
+2023-12-15 15:35:43,243 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 15:35:43.243636
+2023-12-15 15:35:43,244 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 15:35:43,244 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 15:35:43,250 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,250 - INFO - UE initialized with ID UE6 at 2023-12-15 15:35:43.250547
+2023-12-15 15:35:43,251 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 15:35:43.251546
+2023-12-15 15:35:43,251 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 15:35:43,251 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 15:35:43,258 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,258 - INFO - UE initialized with ID UE7 at 2023-12-15 15:35:43.258216
+2023-12-15 15:35:43,259 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 15:35:43.259215
+2023-12-15 15:35:43,259 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 15:35:43,259 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 15:35:43,265 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,265 - INFO - UE initialized with ID UE8 at 2023-12-15 15:35:43.265494
+2023-12-15 15:35:43,266 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 15:35:43.266492
+2023-12-15 15:35:43,266 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 15:35:43,266 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 15:35:43,272 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,272 - INFO - UE initialized with ID UE9 at 2023-12-15 15:35:43.272589
+2023-12-15 15:35:43,273 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 15:35:43.273587
+2023-12-15 15:35:43,273 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 15:35:43,273 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 15:35:43,286 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,286 - INFO - UE initialized with ID UE10 at 2023-12-15 15:35:43.286733
+2023-12-15 15:35:43,286 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 15:35:43.286733
+2023-12-15 15:35:43,287 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 15:35:43,287 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 15:35:43,293 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,294 - INFO - UE initialized with ID UE11 at 2023-12-15 15:35:43.294348
+2023-12-15 15:35:43,294 - INFO - UE with ID UE1 added to Cell CX1873 at 2023-12-15 15:35:43.294348
+2023-12-15 15:35:43,294 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-15 15:35:43,295 - INFO - UE 'UE1' has been attached to Cell 'CX1873'.
+2023-12-15 15:35:43,308 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,308 - INFO - UE initialized with ID UE12 at 2023-12-15 15:35:43.308228
+2023-12-15 15:35:43,309 - INFO - UE with ID UE1 added to Cell CX1873 at 2023-12-15 15:35:43.309212
+2023-12-15 15:35:43,309 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-15 15:35:43,310 - INFO - UE 'UE1' has been attached to Cell 'CX1873'.
+2023-12-15 15:35:43,315 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,315 - INFO - UE initialized with ID UE13 at 2023-12-15 15:35:43.315830
+2023-12-15 15:35:43,316 - INFO - UE with ID UE1 added to Cell CX1873 at 2023-12-15 15:35:43.316821
+2023-12-15 15:35:43,316 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-15 15:35:43,316 - INFO - UE 'UE1' has been attached to Cell 'CX1873'.
+2023-12-15 15:35:43,323 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,323 - INFO - UE initialized with ID UE14 at 2023-12-15 15:35:43.323952
+2023-12-15 15:35:43,323 - INFO - UE with ID UE1 added to Cell Ax1242 at 2023-12-15 15:35:43.323952
+2023-12-15 15:35:43,324 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-15 15:35:43,324 - INFO - UE 'UE1' has been attached to Cell 'Ax1242'.
+2023-12-15 15:35:43,331 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,331 - INFO - UE initialized with ID UE15 at 2023-12-15 15:35:43.331081
+2023-12-15 15:35:43,332 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 15:35:43.332079
+2023-12-15 15:35:43,332 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 15:35:43,332 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 15:35:43,339 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,339 - INFO - UE initialized with ID UE16 at 2023-12-15 15:35:43.339018
+2023-12-15 15:35:43,340 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 15:35:43.340119
+2023-12-15 15:35:43,340 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 15:35:43,340 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 15:35:43,353 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,353 - INFO - UE initialized with ID UE17 at 2023-12-15 15:35:43.353527
+2023-12-15 15:35:43,354 - INFO - UE with ID UE1 added to Cell CX1873 at 2023-12-15 15:35:43.354527
+2023-12-15 15:35:43,354 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-15 15:35:43,354 - INFO - UE 'UE1' has been attached to Cell 'CX1873'.
+2023-12-15 15:35:43,361 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,361 - INFO - UE initialized with ID UE18 at 2023-12-15 15:35:43.361188
+2023-12-15 15:35:43,362 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 15:35:43.362187
+2023-12-15 15:35:43,362 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 15:35:43,362 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 15:35:43,368 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,368 - INFO - UE initialized with ID UE19 at 2023-12-15 15:35:43.368694
+2023-12-15 15:35:43,369 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 15:35:43.369693
+2023-12-15 15:35:43,369 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 15:35:43,369 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 15:35:43,376 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,376 - INFO - UE initialized with ID UE20 at 2023-12-15 15:35:43.376179
+2023-12-15 15:35:43,377 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 15:35:43.377179
+2023-12-15 15:35:43,377 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 15:35:43,377 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 15:35:43,383 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,383 - INFO - UE initialized with ID UE21 at 2023-12-15 15:35:43.383574
+2023-12-15 15:35:43,384 - INFO - UE with ID UE1 added to Cell Ax1242 at 2023-12-15 15:35:43.384574
+2023-12-15 15:35:43,384 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-15 15:35:43,384 - INFO - UE 'UE1' has been attached to Cell 'Ax1242'.
+2023-12-15 15:35:43,391 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,391 - INFO - UE initialized with ID UE22 at 2023-12-15 15:35:43.391055
+2023-12-15 15:35:43,392 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 15:35:43.392053
+2023-12-15 15:35:43,392 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 15:35:43,392 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 15:35:43,404 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,405 - INFO - UE initialized with ID UE23 at 2023-12-15 15:35:43.405458
+2023-12-15 15:35:43,406 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 15:35:43.405458
+2023-12-15 15:35:43,406 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 15:35:43,406 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 15:35:43,418 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,419 - INFO - UE initialized with ID UE24 at 2023-12-15 15:35:43.419488
+2023-12-15 15:35:43,419 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 15:35:43.419488
+2023-12-15 15:35:43,420 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 15:35:43,420 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 15:35:43,432 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,433 - INFO - UE initialized with ID UE25 at 2023-12-15 15:35:43.433457
+2023-12-15 15:35:43,433 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 15:35:43.433457
+2023-12-15 15:35:43,434 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 15:35:43,434 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 15:35:43,441 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,441 - INFO - UE initialized with ID UE26 at 2023-12-15 15:35:43.441133
+2023-12-15 15:35:43,442 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 15:35:43.442293
+2023-12-15 15:35:43,442 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 15:35:43,442 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 15:35:43,455 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,456 - INFO - UE initialized with ID UE27 at 2023-12-15 15:35:43.456406
+2023-12-15 15:35:43,456 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 15:35:43.456406
+2023-12-15 15:35:43,456 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 15:35:43,457 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 15:35:43,469 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,470 - INFO - UE initialized with ID UE28 at 2023-12-15 15:35:43.470069
+2023-12-15 15:35:43,470 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 15:35:43.470863
+2023-12-15 15:35:43,470 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 15:35:43,470 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 15:35:43,477 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,477 - INFO - UE initialized with ID UE29 at 2023-12-15 15:35:43.477957
+2023-12-15 15:35:43,477 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 15:35:43.477957
+2023-12-15 15:35:43,478 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 15:35:43,478 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 15:35:43,485 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,485 - INFO - UE initialized with ID UE30 at 2023-12-15 15:35:43.485688
+2023-12-15 15:35:43,485 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 15:35:43.485688
+2023-12-15 15:35:43,486 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 15:35:43,486 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 15:35:43,499 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,499 - INFO - UE initialized with ID UE31 at 2023-12-15 15:35:43.499851
+2023-12-15 15:35:43,500 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 15:35:43.500850
+2023-12-15 15:35:43,500 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 15:35:43,500 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 15:35:43,507 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,507 - INFO - UE initialized with ID UE32 at 2023-12-15 15:35:43.507726
+2023-12-15 15:35:43,508 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 15:35:43.508726
+2023-12-15 15:35:43,508 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 15:35:43,508 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 15:35:43,521 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,521 - INFO - UE initialized with ID UE33 at 2023-12-15 15:35:43.521806
+2023-12-15 15:35:43,521 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 15:35:43.521806
+2023-12-15 15:35:43,522 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 15:35:43,522 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 15:35:43,529 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,529 - INFO - UE initialized with ID UE34 at 2023-12-15 15:35:43.529574
+2023-12-15 15:35:43,529 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 15:35:43.529574
+2023-12-15 15:35:43,530 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 15:35:43,530 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 15:35:43,536 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,537 - INFO - UE initialized with ID UE35 at 2023-12-15 15:35:43.537387
+2023-12-15 15:35:43,537 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 15:35:43.537387
+2023-12-15 15:35:43,538 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 15:35:43,538 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 15:35:43,544 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,544 - INFO - UE initialized with ID UE36 at 2023-12-15 15:35:43.544955
+2023-12-15 15:35:43,545 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 15:35:43.545957
+2023-12-15 15:35:43,545 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 15:35:43,545 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 15:35:43,552 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,552 - INFO - UE initialized with ID UE37 at 2023-12-15 15:35:43.552433
+2023-12-15 15:35:43,553 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 15:35:43.553431
+2023-12-15 15:35:43,553 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 15:35:43,553 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 15:35:43,559 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,559 - INFO - UE initialized with ID UE38 at 2023-12-15 15:35:43.559908
+2023-12-15 15:35:43,560 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 15:35:43.559908
+2023-12-15 15:35:43,560 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 15:35:43,560 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 15:35:43,573 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:43,573 - INFO - UE initialized with ID UE39 at 2023-12-15 15:35:43.573299
+2023-12-15 15:35:43,574 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 15:35:43.574298
+2023-12-15 15:35:43,574 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 15:35:43,575 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 15:35:43,587 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:43 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:49,269 - INFO - Database connection successful.
+2023-12-15 15:35:49,280 - INFO - Testing cell load logging.
+2023-12-15 15:35:49,281 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 15.0%
+2023-12-15 15:35:49,281 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 30.0%
+2023-12-15 15:35:49,281 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 30.0%
+2023-12-15 15:35:49,282 - INFO - Testing cell load logging.
+2023-12-15 15:35:49,282 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 15:35:49,282 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 15:35:49,283 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 15:35:49,283 - INFO - Testing cell load logging.
+2023-12-15 15:35:49,283 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 15:35:49,283 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 15.0%
+2023-12-15 15:35:49,283 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 30.0%
+2023-12-15 15:35:49,288 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:49 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:50,297 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:50 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:51,306 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:51 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:52,315 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:52 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:53,323 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:53 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:54,285 - INFO - Testing cell load logging.
+2023-12-15 15:35:54,285 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 15.0%
+2023-12-15 15:35:54,285 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 30.0%
+2023-12-15 15:35:54,286 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 30.0%
+2023-12-15 15:35:54,286 - INFO - Testing cell load logging.
+2023-12-15 15:35:54,286 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 15:35:54,286 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 15:35:54,287 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 15:35:54,287 - INFO - Testing cell load logging.
+2023-12-15 15:35:54,287 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 15:35:54,287 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 15.0%
+2023-12-15 15:35:54,288 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 30.0%
+2023-12-15 15:35:54,332 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:54 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:55,340 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:55 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:56,350 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:56 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:57,359 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:57 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:58,367 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:58 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:35:59,289 - INFO - Testing cell load logging.
+2023-12-15 15:35:59,289 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 15.0%
+2023-12-15 15:35:59,289 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 30.0%
+2023-12-15 15:35:59,290 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 30.0%
+2023-12-15 15:35:59,290 - INFO - Testing cell load logging.
+2023-12-15 15:35:59,290 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 15:35:59,291 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 15:35:59,291 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 15:35:59,291 - INFO - Testing cell load logging.
+2023-12-15 15:35:59,291 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 15:35:59,292 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 15.0%
+2023-12-15 15:35:59,292 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 30.0%
+2023-12-15 15:35:59,375 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:35:59 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:36:00,383 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:36:00 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:36:01,392 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:36:01 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:36:02,400 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:36:02 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:36:03,410 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:36:03 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:36:04,293 - INFO - Testing cell load logging.
+2023-12-15 15:36:04,293 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 15.0%
+2023-12-15 15:36:04,293 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 30.0%
+2023-12-15 15:36:04,294 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 30.0%
+2023-12-15 15:36:04,294 - INFO - Testing cell load logging.
+2023-12-15 15:36:04,294 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 15:36:04,294 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 15:36:04,295 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 15:36:04,295 - INFO - Testing cell load logging.
+2023-12-15 15:36:04,295 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 15:36:04,296 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 15.0%
+2023-12-15 15:36:04,296 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 30.0%
+2023-12-15 15:36:04,419 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:36:04 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:37:57,273 - INFO - Database connection successful.
+2023-12-15 15:37:57,283 - INFO - gNodeB 'W1140' has been launched with 3 cells.
+2023-12-15 15:37:58,292 - INFO - Data inserted for measurement <function Point.measurement at 0x000002A3C84D4180>
+2023-12-15 15:37:58,292 - INFO - gNodeB 'W1320' has been launched with 3 cells.
+2023-12-15 15:37:59,299 - INFO - Data inserted for measurement <function Point.measurement at 0x000002A3C84D4180>
+2023-12-15 15:37:59,299 - INFO - gNodeB 'W2018' has been launched with 3 cells.
+2023-12-15 15:38:00,305 - INFO - Data inserted for measurement <function Point.measurement at 0x000002A3C84D4180>
+2023-12-15 15:38:00,306 - INFO - Cell 'Ax1242' has been created in gNodeB 'Ax1242' with max capacity 10.
+2023-12-15 15:38:00,307 - INFO - Cell 'BX1453' has been created in gNodeB 'BX1453' with max capacity 10.
+2023-12-15 15:38:00,307 - INFO - Cell 'CX1352' has been created in gNodeB 'CX1352' with max capacity 10.
+2023-12-15 15:38:00,307 - INFO - Cell 'AX1112' has been created in gNodeB 'AX1112' with max capacity 10.
+2023-12-15 15:38:00,308 - INFO - Cell 'BX1334' has been created in gNodeB 'BX1334' with max capacity 10.
+2023-12-15 15:38:00,308 - INFO - Cell 'CX1873' has been created in gNodeB 'CX1873' with max capacity 10.
+2023-12-15 15:38:00,308 - INFO - Cell 'AX9980' has been created in gNodeB 'AX9980' with max capacity 10.
+2023-12-15 15:38:00,308 - INFO - Cell 'BX1230' has been created in gNodeB 'BX1230' with max capacity 10.
+2023-12-15 15:38:00,308 - INFO - Cell 'CX5103' has been created in gNodeB 'CX5103' with max capacity 10.
+2023-12-15 15:38:00,325 - INFO - Data inserted for measurement <function Point.measurement at 0x000002A3C84D4180>
+2023-12-15 15:38:00,326 - INFO - Cell 'Ax1242' has been added to gNodeB 'W1140'.
+2023-12-15 15:38:01,332 - INFO - Data inserted for measurement <function Point.measurement at 0x000002A3C84D4180>
+2023-12-15 15:38:01,333 - INFO - Cell 'BX1453' has been added to gNodeB 'W1140'.
+2023-12-15 15:38:02,338 - INFO - Data inserted for measurement <function Point.measurement at 0x000002A3C84D4180>
+2023-12-15 15:38:02,338 - INFO - Cell 'CX1352' has been added to gNodeB 'W1140'.
+2023-12-15 15:38:03,345 - INFO - Data inserted for measurement <function Point.measurement at 0x000002A3C84D4180>
+2023-12-15 15:38:03,345 - INFO - Cell 'AX1112' has been added to gNodeB 'W1320'.
+2023-12-15 15:38:04,352 - INFO - Data inserted for measurement <function Point.measurement at 0x000002A3C84D4180>
+2023-12-15 15:38:04,352 - INFO - Cell 'BX1334' has been added to gNodeB 'W1320'.
+2023-12-15 15:38:05,359 - INFO - Data inserted for measurement <function Point.measurement at 0x000002A3C84D4180>
+2023-12-15 15:38:05,359 - INFO - Cell 'CX1873' has been added to gNodeB 'W1320'.
+2023-12-15 15:38:06,365 - INFO - Data inserted for measurement <function Point.measurement at 0x000002A3C84D4180>
+2023-12-15 15:38:06,366 - INFO - Cell 'AX9980' has been added to gNodeB 'W2018'.
+2023-12-15 15:38:07,370 - INFO - Data inserted for measurement <function Point.measurement at 0x000002A3C84D4180>
+2023-12-15 15:38:07,371 - INFO - Cell 'BX1230' has been added to gNodeB 'W2018'.
+2023-12-15 15:38:08,377 - INFO - Data inserted for measurement <function Point.measurement at 0x000002A3C84D4180>
+2023-12-15 15:38:08,377 - INFO - Cell 'CX5103' has been added to gNodeB 'W2018'.
+2023-12-15 15:38:09,379 - INFO - UE initialized with ID UE1 at 2023-12-15 15:38:09.379687
+2023-12-15 15:38:09,380 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 15:38:09.380682
+2023-12-15 15:38:09,380 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 15:38:09,381 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 15:38:09,395 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,395 - INFO - UE initialized with ID UE1 at 2023-12-15 15:38:09.395969
+2023-12-15 15:38:09,395 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 15:38:09.395969
+2023-12-15 15:38:09,396 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 15:38:09,396 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 15:38:09,403 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,404 - INFO - UE initialized with ID UE2 at 2023-12-15 15:38:09.404373
+2023-12-15 15:38:09,404 - INFO - UE with ID UE1 added to Cell CX1873 at 2023-12-15 15:38:09.404884
+2023-12-15 15:38:09,404 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-15 15:38:09,404 - INFO - UE 'UE1' has been attached to Cell 'CX1873'.
+2023-12-15 15:38:09,436 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,437 - INFO - UE initialized with ID UE3 at 2023-12-15 15:38:09.437405
+2023-12-15 15:38:09,438 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 15:38:09.438399
+2023-12-15 15:38:09,438 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 15:38:09,438 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 15:38:09,451 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,451 - INFO - UE initialized with ID UE4 at 2023-12-15 15:38:09.451200
+2023-12-15 15:38:09,452 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 15:38:09.452194
+2023-12-15 15:38:09,452 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 15:38:09,453 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 15:38:09,458 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,458 - INFO - UE initialized with ID UE5 at 2023-12-15 15:38:09.458874
+2023-12-15 15:38:09,459 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 15:38:09.459864
+2023-12-15 15:38:09,459 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 15:38:09,459 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 15:38:09,466 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,466 - INFO - UE initialized with ID UE6 at 2023-12-15 15:38:09.466604
+2023-12-15 15:38:09,467 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 15:38:09.467599
+2023-12-15 15:38:09,467 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 15:38:09,468 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 15:38:09,474 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,474 - INFO - UE initialized with ID UE7 at 2023-12-15 15:38:09.474473
+2023-12-15 15:38:09,475 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 15:38:09.475462
+2023-12-15 15:38:09,475 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 15:38:09,475 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 15:38:09,481 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,482 - INFO - UE initialized with ID UE8 at 2023-12-15 15:38:09.482380
+2023-12-15 15:38:09,483 - INFO - UE with ID UE1 added to Cell Ax1242 at 2023-12-15 15:38:09.483368
+2023-12-15 15:38:09,483 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-15 15:38:09,483 - INFO - UE 'UE1' has been attached to Cell 'Ax1242'.
+2023-12-15 15:38:09,498 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,498 - INFO - UE initialized with ID UE9 at 2023-12-15 15:38:09.498581
+2023-12-15 15:38:09,498 - INFO - UE with ID UE1 added to Cell Ax1242 at 2023-12-15 15:38:09.498581
+2023-12-15 15:38:09,499 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-15 15:38:09,499 - INFO - UE 'UE1' has been attached to Cell 'Ax1242'.
+2023-12-15 15:38:09,505 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,506 - INFO - UE initialized with ID UE10 at 2023-12-15 15:38:09.506648
+2023-12-15 15:38:09,506 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 15:38:09.506648
+2023-12-15 15:38:09,506 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 15:38:09,507 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 15:38:09,519 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,519 - INFO - UE initialized with ID UE11 at 2023-12-15 15:38:09.519685
+2023-12-15 15:38:09,520 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 15:38:09.520680
+2023-12-15 15:38:09,520 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 15:38:09,520 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 15:38:09,527 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,527 - INFO - UE initialized with ID UE12 at 2023-12-15 15:38:09.527314
+2023-12-15 15:38:09,528 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 15:38:09.528308
+2023-12-15 15:38:09,528 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 15:38:09,528 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 15:38:09,534 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,535 - INFO - UE initialized with ID UE13 at 2023-12-15 15:38:09.535351
+2023-12-15 15:38:09,535 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 15:38:09.535351
+2023-12-15 15:38:09,536 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 15:38:09,536 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 15:38:09,548 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,548 - INFO - UE initialized with ID UE14 at 2023-12-15 15:38:09.548608
+2023-12-15 15:38:09,549 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 15:38:09.549603
+2023-12-15 15:38:09,549 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 15:38:09,549 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 15:38:09,556 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,556 - INFO - UE initialized with ID UE15 at 2023-12-15 15:38:09.556357
+2023-12-15 15:38:09,557 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 15:38:09.557352
+2023-12-15 15:38:09,557 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 15:38:09,557 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 15:38:09,563 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,563 - INFO - UE initialized with ID UE16 at 2023-12-15 15:38:09.563941
+2023-12-15 15:38:09,564 - INFO - UE with ID UE1 added to Cell CX1873 at 2023-12-15 15:38:09.564927
+2023-12-15 15:38:09,564 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-15 15:38:09,564 - INFO - UE 'UE1' has been attached to Cell 'CX1873'.
+2023-12-15 15:38:09,571 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,572 - INFO - UE initialized with ID UE17 at 2023-12-15 15:38:09.572032
+2023-12-15 15:38:09,572 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 15:38:09.572542
+2023-12-15 15:38:09,572 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 15:38:09,573 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 15:38:09,585 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,586 - INFO - UE initialized with ID UE18 at 2023-12-15 15:38:09.586373
+2023-12-15 15:38:09,586 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 15:38:09.586895
+2023-12-15 15:38:09,587 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 15:38:09,587 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 15:38:09,600 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,600 - INFO - UE initialized with ID UE19 at 2023-12-15 15:38:09.600339
+2023-12-15 15:38:09,601 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 15:38:09.601338
+2023-12-15 15:38:09,601 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 15:38:09,601 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 15:38:09,614 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,615 - INFO - UE initialized with ID UE20 at 2023-12-15 15:38:09.615176
+2023-12-15 15:38:09,615 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 15:38:09.615176
+2023-12-15 15:38:09,615 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 15:38:09,616 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 15:38:09,622 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,622 - INFO - UE initialized with ID UE21 at 2023-12-15 15:38:09.622614
+2023-12-15 15:38:09,623 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 15:38:09.622614
+2023-12-15 15:38:09,623 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 15:38:09,623 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 15:38:09,636 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,636 - INFO - UE initialized with ID UE22 at 2023-12-15 15:38:09.636204
+2023-12-15 15:38:09,637 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 15:38:09.637203
+2023-12-15 15:38:09,637 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 15:38:09,638 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 15:38:09,644 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,644 - INFO - UE initialized with ID UE23 at 2023-12-15 15:38:09.644560
+2023-12-15 15:38:09,644 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 15:38:09.644560
+2023-12-15 15:38:09,645 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 15:38:09,645 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 15:38:09,651 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,651 - INFO - UE initialized with ID UE24 at 2023-12-15 15:38:09.651928
+2023-12-15 15:38:09,652 - INFO - UE with ID UE1 added to Cell Ax1242 at 2023-12-15 15:38:09.652928
+2023-12-15 15:38:09,652 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-15 15:38:09,653 - INFO - UE 'UE1' has been attached to Cell 'Ax1242'.
+2023-12-15 15:38:09,659 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,660 - INFO - UE initialized with ID UE25 at 2023-12-15 15:38:09.660186
+2023-12-15 15:38:09,660 - INFO - UE with ID UE1 added to Cell CX1873 at 2023-12-15 15:38:09.660186
+2023-12-15 15:38:09,661 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-15 15:38:09,661 - INFO - UE 'UE1' has been attached to Cell 'CX1873'.
+2023-12-15 15:38:09,667 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,667 - INFO - UE initialized with ID UE26 at 2023-12-15 15:38:09.667715
+2023-12-15 15:38:09,668 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 15:38:09.668714
+2023-12-15 15:38:09,668 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 15:38:09,668 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 15:38:09,675 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,675 - INFO - UE initialized with ID UE27 at 2023-12-15 15:38:09.675120
+2023-12-15 15:38:09,676 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 15:38:09.676118
+2023-12-15 15:38:09,676 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 15:38:09,677 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 15:38:09,682 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,683 - INFO - UE initialized with ID UE28 at 2023-12-15 15:38:09.683468
+2023-12-15 15:38:09,683 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 15:38:09.683468
+2023-12-15 15:38:09,684 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 15:38:09,684 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 15:38:09,690 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,691 - INFO - UE initialized with ID UE29 at 2023-12-15 15:38:09.691010
+2023-12-15 15:38:09,691 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 15:38:09.691010
+2023-12-15 15:38:09,692 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 15:38:09,692 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 15:38:09,704 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,704 - INFO - UE initialized with ID UE30 at 2023-12-15 15:38:09.704246
+2023-12-15 15:38:09,705 - INFO - UE with ID UE1 added to Cell CX1873 at 2023-12-15 15:38:09.705246
+2023-12-15 15:38:09,705 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-15 15:38:09,705 - INFO - UE 'UE1' has been attached to Cell 'CX1873'.
+2023-12-15 15:38:09,718 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,718 - INFO - UE initialized with ID UE31 at 2023-12-15 15:38:09.718689
+2023-12-15 15:38:09,719 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 15:38:09.718689
+2023-12-15 15:38:09,719 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 15:38:09,719 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 15:38:09,732 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,732 - INFO - UE initialized with ID UE32 at 2023-12-15 15:38:09.732965
+2023-12-15 15:38:09,733 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 15:38:09.733965
+2023-12-15 15:38:09,733 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 15:38:09,734 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 15:38:09,747 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,747 - INFO - UE initialized with ID UE33 at 2023-12-15 15:38:09.747844
+2023-12-15 15:38:09,748 - INFO - UE with ID UE1 added to Cell CX1873 at 2023-12-15 15:38:09.748844
+2023-12-15 15:38:09,748 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-15 15:38:09,749 - INFO - UE 'UE1' has been attached to Cell 'CX1873'.
+2023-12-15 15:38:09,756 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,756 - INFO - UE initialized with ID UE34 at 2023-12-15 15:38:09.756362
+2023-12-15 15:38:09,757 - INFO - UE with ID UE1 added to Cell CX1873 at 2023-12-15 15:38:09.757361
+2023-12-15 15:38:09,757 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-15 15:38:09,758 - INFO - UE 'UE1' has been attached to Cell 'CX1873'.
+2023-12-15 15:38:09,770 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,771 - INFO - UE initialized with ID UE35 at 2023-12-15 15:38:09.771779
+2023-12-15 15:38:09,771 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 15:38:09.771779
+2023-12-15 15:38:09,772 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 15:38:09,772 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 15:38:09,785 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,785 - INFO - UE initialized with ID UE36 at 2023-12-15 15:38:09.785393
+2023-12-15 15:38:09,786 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 15:38:09.786386
+2023-12-15 15:38:09,786 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 15:38:09,787 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 15:38:09,793 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,794 - INFO - UE initialized with ID UE37 at 2023-12-15 15:38:09.794504
+2023-12-15 15:38:09,794 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 15:38:09.794504
+2023-12-15 15:38:09,795 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 15:38:09,795 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 15:38:09,802 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,802 - INFO - UE initialized with ID UE38 at 2023-12-15 15:38:09.802540
+2023-12-15 15:38:09,803 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 15:38:09.803540
+2023-12-15 15:38:09,803 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 15:38:09,803 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 15:38:09,810 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
+2023-12-15 15:38:09,810 - INFO - UE initialized with ID UE39 at 2023-12-15 15:38:09.810046
+2023-12-15 15:38:09,811 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 15:38:09.811045
+2023-12-15 15:38:09,811 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 15:38:09,811 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 15:38:09,817 - ERROR - Failed to insert data into InfluxDB: (422)
+Reason: Unprocessable Entity
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'unprocessable entity', 'Date': 'Fri, 15 Dec 2023 20:38:09 GMT', 'Content-Length': '239'})
+HTTP response body: {"code":"unprocessable entity","message":"failure writing points to database: partial write: field type conflict: input field \"scheduling_requests\" on measurement \"ue_metrics\" is type integer, already exists as type boolean dropped=1"}
+
