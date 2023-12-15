@@ -4,7 +4,6 @@ import time
 from datetime import datetime
 from influxdb_client import InfluxDBClient, WritePrecision, Point
 from influxdb_client.client.write_api import SYNCHRONOUS
-from influxdb_client import Point, WritePrecision
 import logging
 from logs.logger_config import database_logger
 
