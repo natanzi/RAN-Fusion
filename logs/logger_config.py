@@ -6,8 +6,14 @@ import gzip
 from datetime import datetime
 from logging.handlers import RotatingFileHandler
 from concurrent.futures import ThreadPoolExecutor
+from database.database_manager import DatabaseManager
 
 class JsonFormatter(logging.Formatter):
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.db_manager = DatabaseManager()
+
     def format(self, record):
         log_record = {
             "level": record.levelname,
@@ -16,6 +22,27 @@ class JsonFormatter(logging.Formatter):
         }
         if record.exc_info:
             log_record['exception'] = self.formatException(record.exc_info)
+        
+        # Send log record to InfluxDB
+        self.write_log_to_influxdb(log_record)
+
+        return json.dumps(log_record)
+
+    def write_log_to_influxdb(self, log_record):
+        # Define the log data structure for InfluxDB
+        log_data = {
+            "measurement": "logs",
+            "tags": {
+                "level": log_record["level"]
+            },
+            "fields": {
+                "message": log_record["message"],
+                "timestamp": log_record["timestamp"]
+            }
+        }
+
+        # Write the log record to InfluxDB
+        self.db_manager.insert_log(log_data)
 
 def setup_logger(name, log_file, level=logging.INFO, max_log_size=10 * 1024 * 1024, backup_count=5):
     """Function to set up a logger with asynchronous and buffered logging."""
