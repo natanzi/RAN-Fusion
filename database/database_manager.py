@@ -137,7 +137,6 @@ class DatabaseManager:
         }
         self.insert_data('ue_metrics', tags, fields, timestamp)
 
-        self.insert_data('ue_metrics', tags, fields, timestamp)        
     def close_connection(self):
         """Closes the database connection."""
         self.client.close()
