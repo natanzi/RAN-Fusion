@@ -71,85 +71,9 @@ class DatabaseManager:
             database_logger.info(f"Data inserted for measurement {point.measurement}")
         except Exception as e:
             database_logger.error(f"Failed to insert data into InfluxDB: {e}")
-################################################################################################################################
-    def insert_cell_data(self, cell):
-        """Inserts a row of Cell KPI data into the cell_metrics measurement."""
-        current_ue_count = cell.update_ue_count()  # This method should return the current UE count
-        total_throughput = cell.calculate_total_throughput()  # You need to implement this method in the Cell class
-        cell_load = self.network_state.get_cell_load(cell)
-
-        tags = {
-            'cell_id': cell.ID,
-            'gnodeb_id': cell.gNodeB_ID
-        }
-        fields = {
-            'max_connect_ues': cell.MaxConnectedUEs,
-            'current_ue_count': current_ue_count,
-            'total_throughput': total_throughput,
-            'cell_load': cell_load  # Add the cell load to the fields
-        }
-        timestamp = time.time_ns()  # Current time in nanoseconds
-
-        self.insert_data('cell_metrics', tags, fields, timestamp)
-
-    def insert_gnodeb_data(self, gnodeb):
-        #"""Inserts a row of gNodeB KPI data into the gnodeb_metrics measurement."""
-        # Assuming you have methods in the gNodeB class to get the required KPIs
-        # You need to implement these methods in the gNodeB class
-        total_ue_count = gnodeb.get_total_ue_count()
-        total_throughput = gnodeb.get_total_throughput()
-        operational_status = gnodeb.get_operational_status()  # This should return a boolean or a string
-
-        tags = {
-            'gnodeb_id': gnodeb.ID
-        # Add other tags if needed
-        }
-        fields = {
-            'total_ue_count': total_ue_count,
-            'total_throughput': total_throughput,
-            'operational_status': operational_status
-        # Add other fields if needed
-        }
-        timestamp = time.time_ns()  # Current time in nanoseconds
-
-        self.insert_data('gnodeb_metrics', tags, fields, timestamp)
-
-    def insert_ue_data(self, ue):
-        # Access attributes from the UE instance and other necessary data
-        traffic_volume = ue.traffic_volume
-        service_type = ue.ServiceType
-        timestamp = int(time.time() * 1e9)  # Current time in nanoseconds
-        connection_status = 'connected' if ue.ConnectedCellID else 'disconnected'
-
-        tags = {
-            'ue_id': ue.ID,
-            'imei': ue.IMEI
-            # Add other tags if needed
-        }
-        fields = {
-            'traffic_volume': traffic_volume,
-            'service_type': service_type,
-            'connection_status': connection_status
-            # Add other fields if needed
-        }
-
-    # Create a Point object for InfluxDB
-        point = Point("ue_metrics")
-        for tag_key, tag_value in tags.items():
-            point.tag(tag_key, tag_value)
-        for field_key, field_value in fields.items():
-            point.field(field_key, field_value)
-        point.time(timestamp, WritePrecision.NS)
-
-    # Insert the data into InfluxDB
-        try:
-            self.write_api.write(bucket=self.bucket, record=point)
-            logging.info("UE data inserted into InfluxDB")
-        except Exception as e:
-            logging.error(f"Failed to insert UE data into InfluxDB: {e}")
-
 
     def close_connection(self):
         """Closes the database connection."""
         self.client.close()
+################################################################################################################################
 
