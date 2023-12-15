@@ -25872,3 +25872,727 @@ HTTP response body: {"code":"unprocessable entity","message":"failure writing po
 2023-12-15 16:03:28,264 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 10.0%
 2023-12-15 16:03:28,350 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
 2023-12-15 16:03:29,357 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:09:57,722 - INFO - Database connection successful.
+2023-12-15 16:09:57,733 - INFO - gNodeB 'W1140' has been launched with 3 cells.
+2023-12-15 16:09:58,740 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags gnodeb_id=W1140, entity_type=gnodeb
+2023-12-15 16:09:58,741 - INFO - gNodeB 'W1320' has been launched with 3 cells.
+2023-12-15 16:09:59,747 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags gnodeb_id=W1320, entity_type=gnodeb
+2023-12-15 16:09:59,747 - INFO - gNodeB 'W2018' has been launched with 3 cells.
+2023-12-15 16:10:00,754 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags gnodeb_id=W2018, entity_type=gnodeb
+2023-12-15 16:10:00,755 - INFO - Cell 'Ax1242' has been created in gNodeB 'Ax1242' with max capacity 10.
+2023-12-15 16:10:00,756 - INFO - Cell 'BX1453' has been created in gNodeB 'BX1453' with max capacity 10.
+2023-12-15 16:10:00,756 - INFO - Cell 'CX1352' has been created in gNodeB 'CX1352' with max capacity 10.
+2023-12-15 16:10:00,757 - INFO - Cell 'AX1112' has been created in gNodeB 'AX1112' with max capacity 10.
+2023-12-15 16:10:00,757 - INFO - Cell 'BX1334' has been created in gNodeB 'BX1334' with max capacity 10.
+2023-12-15 16:10:00,757 - INFO - Cell 'CX1873' has been created in gNodeB 'CX1873' with max capacity 10.
+2023-12-15 16:10:00,757 - INFO - Cell 'AX9980' has been created in gNodeB 'AX9980' with max capacity 10.
+2023-12-15 16:10:00,758 - INFO - Cell 'BX1230' has been created in gNodeB 'BX1230' with max capacity 10.
+2023-12-15 16:10:00,758 - INFO - Cell 'CX5103' has been created in gNodeB 'CX5103' with max capacity 10.
+2023-12-15 16:10:00,763 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags cell_id=Ax1242, gnodeb_id=W1140, entity_type=cell
+2023-12-15 16:10:00,763 - INFO - Cell 'Ax1242' has been added to gNodeB 'W1140'.
+2023-12-15 16:10:01,769 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags cell_id=BX1453, gnodeb_id=W1140, entity_type=cell
+2023-12-15 16:10:01,770 - INFO - Cell 'BX1453' has been added to gNodeB 'W1140'.
+2023-12-15 16:10:02,775 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags cell_id=CX1352, gnodeb_id=W1140, entity_type=cell
+2023-12-15 16:10:02,775 - INFO - Cell 'CX1352' has been added to gNodeB 'W1140'.
+2023-12-15 16:10:03,781 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags cell_id=AX1112, gnodeb_id=W1320, entity_type=cell
+2023-12-15 16:10:03,782 - INFO - Cell 'AX1112' has been added to gNodeB 'W1320'.
+2023-12-15 16:10:04,787 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags cell_id=BX1334, gnodeb_id=W1320, entity_type=cell
+2023-12-15 16:10:04,788 - INFO - Cell 'BX1334' has been added to gNodeB 'W1320'.
+2023-12-15 16:10:05,794 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags cell_id=CX1873, gnodeb_id=W1320, entity_type=cell
+2023-12-15 16:10:05,794 - INFO - Cell 'CX1873' has been added to gNodeB 'W1320'.
+2023-12-15 16:10:06,803 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags cell_id=AX9980, gnodeb_id=W2018, entity_type=cell
+2023-12-15 16:10:06,804 - INFO - Cell 'AX9980' has been added to gNodeB 'W2018'.
+2023-12-15 16:10:07,809 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags cell_id=BX1230, gnodeb_id=W2018, entity_type=cell
+2023-12-15 16:10:07,809 - INFO - Cell 'BX1230' has been added to gNodeB 'W2018'.
+2023-12-15 16:10:08,814 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags cell_id=CX5103, gnodeb_id=W2018, entity_type=cell
+2023-12-15 16:10:08,815 - INFO - Cell 'CX5103' has been added to gNodeB 'W2018'.
+2023-12-15 16:10:09,817 - INFO - UE initialized with ID UE1 at 2023-12-15 16:10:09.817680
+2023-12-15 16:10:09,818 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 16:10:09.818675
+2023-12-15 16:10:09,819 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 16:10:09,819 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 16:10:09,831 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE1, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:10:09,831 - INFO - UE initialized with ID UE1 at 2023-12-15 16:10:09.831661
+2023-12-15 16:10:09,832 - INFO - UE with ID UE1 added to Cell CX1873 at 2023-12-15 16:10:09.832661
+2023-12-15 16:10:09,832 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-15 16:10:09,832 - INFO - UE 'UE1' has been attached to Cell 'CX1873'.
+2023-12-15 16:10:09,837 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE1, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:10:09,837 - INFO - UE initialized with ID UE2 at 2023-12-15 16:10:09.837315
+2023-12-15 16:10:09,838 - INFO - UE with ID UE1 added to Cell Ax1242 at 2023-12-15 16:10:09.838313
+2023-12-15 16:10:09,838 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-15 16:10:09,838 - INFO - UE 'UE1' has been attached to Cell 'Ax1242'.
+2023-12-15 16:10:09,850 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE2, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:10:09,851 - INFO - UE initialized with ID UE3 at 2023-12-15 16:10:09.851090
+2023-12-15 16:10:09,851 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 16:10:09.851090
+2023-12-15 16:10:09,852 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 16:10:09,852 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 16:10:09,856 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE3, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:10:09,856 - INFO - UE initialized with ID UE4 at 2023-12-15 16:10:09.856738
+2023-12-15 16:10:09,856 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 16:10:09.856738
+2023-12-15 16:10:09,856 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 16:10:09,857 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 16:10:09,867 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE4, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:10:09,867 - INFO - UE initialized with ID UE5 at 2023-12-15 16:10:09.867698
+2023-12-15 16:10:09,868 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 16:10:09.868696
+2023-12-15 16:10:09,868 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 16:10:09,868 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 16:10:09,879 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE5, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:10:09,879 - INFO - UE initialized with ID UE6 at 2023-12-15 16:10:09.879776
+2023-12-15 16:10:09,880 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 16:10:09.880774
+2023-12-15 16:10:09,880 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 16:10:09,880 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 16:10:09,885 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE6, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:10:09,885 - INFO - UE initialized with ID UE7 at 2023-12-15 16:10:09.885034
+2023-12-15 16:10:09,886 - INFO - UE with ID UE1 added to Cell CX1873 at 2023-12-15 16:10:09.886032
+2023-12-15 16:10:09,886 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-15 16:10:09,886 - INFO - UE 'UE1' has been attached to Cell 'CX1873'.
+2023-12-15 16:10:09,890 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE7, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:10:09,890 - INFO - UE initialized with ID UE8 at 2023-12-15 16:10:09.890508
+2023-12-15 16:10:09,891 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 16:10:09.891506
+2023-12-15 16:10:09,891 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 16:10:09,891 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 16:10:09,895 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE8, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:10:09,895 - INFO - UE initialized with ID UE9 at 2023-12-15 16:10:09.895991
+2023-12-15 16:10:09,895 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 16:10:09.895991
+2023-12-15 16:10:09,896 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 16:10:09,896 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 16:10:09,907 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE9, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:10:09,907 - INFO - UE initialized with ID UE10 at 2023-12-15 16:10:09.907251
+2023-12-15 16:10:09,908 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 16:10:09.908243
+2023-12-15 16:10:09,908 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 16:10:09,908 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 16:10:09,919 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE10, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:10:09,919 - INFO - UE initialized with ID UE11 at 2023-12-15 16:10:09.919368
+2023-12-15 16:10:09,920 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 16:10:09.920360
+2023-12-15 16:10:09,920 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 16:10:09,920 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 16:10:09,931 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE11, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:10:09,931 - INFO - UE initialized with ID UE12 at 2023-12-15 16:10:09.931192
+2023-12-15 16:10:09,932 - INFO - UE with ID UE1 added to Cell Ax1242 at 2023-12-15 16:10:09.932190
+2023-12-15 16:10:09,932 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-15 16:10:09,932 - INFO - UE 'UE1' has been attached to Cell 'Ax1242'.
+2023-12-15 16:10:09,936 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE12, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:10:09,936 - INFO - UE initialized with ID UE13 at 2023-12-15 16:10:09.936740
+2023-12-15 16:10:09,937 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 16:10:09.937738
+2023-12-15 16:10:09,937 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 16:10:09,937 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 16:10:09,941 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE13, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:10:09,941 - INFO - UE initialized with ID UE14 at 2023-12-15 16:10:09.941890
+2023-12-15 16:10:09,942 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 16:10:09.942887
+2023-12-15 16:10:09,942 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 16:10:09,942 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 16:10:09,947 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE14, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:10:09,947 - INFO - UE initialized with ID UE15 at 2023-12-15 16:10:09.947405
+2023-12-15 16:10:09,947 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 16:10:09.947405
+2023-12-15 16:10:09,948 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 16:10:09,948 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 16:10:09,952 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE15, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:10:09,952 - INFO - UE initialized with ID UE16 at 2023-12-15 16:10:09.952544
+2023-12-15 16:10:09,953 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 16:10:09.953545
+2023-12-15 16:10:09,953 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 16:10:09,953 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 16:10:09,957 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE16, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:10:09,957 - INFO - UE initialized with ID UE17 at 2023-12-15 16:10:09.957869
+2023-12-15 16:10:09,958 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 16:10:09.958867
+2023-12-15 16:10:09,958 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 16:10:09,958 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 16:10:09,969 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE17, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:10:09,969 - INFO - UE initialized with ID UE18 at 2023-12-15 16:10:09.969911
+2023-12-15 16:10:09,969 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 16:10:09.969911
+2023-12-15 16:10:09,970 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 16:10:09,970 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 16:10:09,981 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE18, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:10:09,981 - INFO - UE initialized with ID UE19 at 2023-12-15 16:10:09.981568
+2023-12-15 16:10:09,981 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 16:10:09.981568
+2023-12-15 16:10:09,982 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 16:10:09,982 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 16:10:09,992 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE19, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:10:09,993 - INFO - UE initialized with ID UE20 at 2023-12-15 16:10:09.993185
+2023-12-15 16:10:09,993 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 16:10:09.993185
+2023-12-15 16:10:09,994 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 16:10:09,994 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 16:10:09,998 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE20, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:10:09,998 - INFO - UE initialized with ID UE21 at 2023-12-15 16:10:09.998158
+2023-12-15 16:10:09,998 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 16:10:09.998158
+2023-12-15 16:10:09,999 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 16:10:09,999 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 16:10:10,009 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE21, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:10:10,010 - INFO - UE initialized with ID UE22 at 2023-12-15 16:10:10.010158
+2023-12-15 16:10:10,010 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 16:10:10.010158
+2023-12-15 16:10:10,011 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 16:10:10,011 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 16:10:10,021 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE22, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:10:10,022 - INFO - UE initialized with ID UE23 at 2023-12-15 16:10:10.022154
+2023-12-15 16:10:10,022 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 16:10:10.022660
+2023-12-15 16:10:10,022 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 16:10:10,023 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 16:10:10,033 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE23, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:10:10,034 - INFO - UE initialized with ID UE24 at 2023-12-15 16:10:10.034122
+2023-12-15 16:10:10,034 - INFO - UE with ID UE1 added to Cell Ax1242 at 2023-12-15 16:10:10.034122
+2023-12-15 16:10:10,035 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-15 16:10:10,035 - INFO - UE 'UE1' has been attached to Cell 'Ax1242'.
+2023-12-15 16:10:10,039 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE24, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:10:10,039 - INFO - UE initialized with ID UE25 at 2023-12-15 16:10:10.039861
+2023-12-15 16:10:10,039 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 16:10:10.039861
+2023-12-15 16:10:10,040 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 16:10:10,040 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 16:10:10,050 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE25, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:10:10,050 - INFO - UE initialized with ID UE26 at 2023-12-15 16:10:10.050974
+2023-12-15 16:10:10,051 - INFO - UE with ID UE1 added to Cell Ax1242 at 2023-12-15 16:10:10.051972
+2023-12-15 16:10:10,051 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-15 16:10:10,051 - INFO - UE 'UE1' has been attached to Cell 'Ax1242'.
+2023-12-15 16:10:10,056 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE26, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:10:10,056 - INFO - UE initialized with ID UE27 at 2023-12-15 16:10:10.056351
+2023-12-15 16:10:10,057 - INFO - UE with ID UE1 added to Cell CX1873 at 2023-12-15 16:10:10.057349
+2023-12-15 16:10:10,057 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-15 16:10:10,057 - INFO - UE 'UE1' has been attached to Cell 'CX1873'.
+2023-12-15 16:10:10,067 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE27, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:10:10,068 - INFO - UE initialized with ID UE28 at 2023-12-15 16:10:10.068380
+2023-12-15 16:10:10,068 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 16:10:10.068380
+2023-12-15 16:10:10,069 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 16:10:10,069 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 16:10:10,073 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE28, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:10:10,073 - INFO - UE initialized with ID UE29 at 2023-12-15 16:10:10.073424
+2023-12-15 16:10:10,073 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 16:10:10.073424
+2023-12-15 16:10:10,074 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 16:10:10,074 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 16:10:10,078 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE29, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:10:10,078 - INFO - UE initialized with ID UE30 at 2023-12-15 16:10:10.078518
+2023-12-15 16:10:10,079 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 16:10:10.078518
+2023-12-15 16:10:10,079 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 16:10:10,079 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 16:10:10,083 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE30, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:10:10,083 - INFO - UE initialized with ID UE31 at 2023-12-15 16:10:10.083566
+2023-12-15 16:10:10,083 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 16:10:10.083566
+2023-12-15 16:10:10,084 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 16:10:10,084 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 16:10:10,095 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE31, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:10:10,095 - INFO - UE initialized with ID UE32 at 2023-12-15 16:10:10.095337
+2023-12-15 16:10:10,096 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 16:10:10.096335
+2023-12-15 16:10:10,096 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 16:10:10,096 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 16:10:10,106 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE32, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:10:10,107 - INFO - UE initialized with ID UE33 at 2023-12-15 16:10:10.107459
+2023-12-15 16:10:10,107 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 16:10:10.107459
+2023-12-15 16:10:10,108 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 16:10:10,108 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 16:10:10,112 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE33, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:10:10,112 - INFO - UE initialized with ID UE34 at 2023-12-15 16:10:10.112564
+2023-12-15 16:10:10,113 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 16:10:10.113527
+2023-12-15 16:10:10,113 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 16:10:10,113 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 16:10:10,117 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE34, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:10:10,117 - INFO - UE initialized with ID UE35 at 2023-12-15 16:10:10.117666
+2023-12-15 16:10:10,118 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 16:10:10.118658
+2023-12-15 16:10:10,118 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 16:10:10,118 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 16:10:10,122 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE35, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:10:10,122 - INFO - UE initialized with ID UE36 at 2023-12-15 16:10:10.122901
+2023-12-15 16:10:10,123 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 16:10:10.123900
+2023-12-15 16:10:10,123 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 16:10:10,123 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 16:10:10,128 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE36, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:10:10,128 - INFO - UE initialized with ID UE37 at 2023-12-15 16:10:10.128132
+2023-12-15 16:10:10,129 - INFO - UE with ID UE1 added to Cell CX1873 at 2023-12-15 16:10:10.129131
+2023-12-15 16:10:10,129 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-15 16:10:10,129 - INFO - UE 'UE1' has been attached to Cell 'CX1873'.
+2023-12-15 16:10:10,139 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE37, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:10:10,139 - INFO - UE initialized with ID UE38 at 2023-12-15 16:10:10.139458
+2023-12-15 16:10:10,140 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 16:10:10.140456
+2023-12-15 16:10:10,140 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 16:10:10,140 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 16:10:10,144 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE38, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:10:10,144 - INFO - UE initialized with ID UE39 at 2023-12-15 16:10:10.144892
+2023-12-15 16:10:10,144 - INFO - UE with ID UE1 added to Cell Ax1242 at 2023-12-15 16:10:10.144892
+2023-12-15 16:10:10,145 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-15 16:10:10,145 - INFO - UE 'UE1' has been attached to Cell 'Ax1242'.
+2023-12-15 16:10:10,156 - INFO - Data inserted for measurement <function Point.measurement at 0x0000029168A77D80> with tags ue_id=UE39, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:10:15,827 - INFO - Database connection successful.
+2023-12-15 16:10:15,836 - INFO - Testing cell load logging.
+2023-12-15 16:10:15,837 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 25.0%
+2023-12-15 16:10:15,837 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 25.0%
+2023-12-15 16:10:15,837 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 25.0%
+2023-12-15 16:10:15,837 - INFO - Testing cell load logging.
+2023-12-15 16:10:15,838 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 16:10:15,838 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 10.0%
+2023-12-15 16:10:15,838 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 16:10:15,838 - INFO - Testing cell load logging.
+2023-12-15 16:10:15,839 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 30.0%
+2023-12-15 16:10:15,839 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 30.0%
+2023-12-15 16:10:15,839 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 10.0%
+2023-12-15 16:10:15,841 - INFO - Database connection successful.
+2023-12-15 16:10:15,881 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE1, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:10:16,888 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE1, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:10:17,893 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE2, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:10:18,899 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE3, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:10:19,904 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE4, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:10:20,840 - INFO - Testing cell load logging.
+2023-12-15 16:10:20,840 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 25.0%
+2023-12-15 16:10:20,841 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 25.0%
+2023-12-15 16:10:20,841 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 25.0%
+2023-12-15 16:10:20,842 - INFO - Testing cell load logging.
+2023-12-15 16:10:20,842 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 16:10:20,842 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 10.0%
+2023-12-15 16:10:20,843 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 16:10:20,843 - INFO - Testing cell load logging.
+2023-12-15 16:10:20,843 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 30.0%
+2023-12-15 16:10:20,844 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 30.0%
+2023-12-15 16:10:20,844 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 10.0%
+2023-12-15 16:10:20,912 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE5, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:10:21,918 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE6, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:10:22,925 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE7, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:10:23,932 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE8, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:10:24,939 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE9, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:10:25,845 - INFO - Testing cell load logging.
+2023-12-15 16:10:25,845 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 25.0%
+2023-12-15 16:10:25,846 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 25.0%
+2023-12-15 16:10:25,846 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 25.0%
+2023-12-15 16:10:25,847 - INFO - Testing cell load logging.
+2023-12-15 16:10:25,847 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 16:10:25,847 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 10.0%
+2023-12-15 16:10:25,848 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 16:10:25,848 - INFO - Testing cell load logging.
+2023-12-15 16:10:25,848 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 30.0%
+2023-12-15 16:10:25,849 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 30.0%
+2023-12-15 16:10:25,849 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 10.0%
+2023-12-15 16:10:25,946 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE10, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:10:26,952 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE11, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:10:27,958 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE12, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:10:28,965 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE13, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:10:29,970 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE14, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:10:30,850 - INFO - Testing cell load logging.
+2023-12-15 16:10:30,850 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 25.0%
+2023-12-15 16:10:30,850 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 25.0%
+2023-12-15 16:10:30,851 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 25.0%
+2023-12-15 16:10:30,851 - INFO - Testing cell load logging.
+2023-12-15 16:10:30,851 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 16:10:30,852 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 10.0%
+2023-12-15 16:10:30,852 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 16:10:30,852 - INFO - Testing cell load logging.
+2023-12-15 16:10:30,852 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 30.0%
+2023-12-15 16:10:30,853 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 30.0%
+2023-12-15 16:10:30,853 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 10.0%
+2023-12-15 16:10:30,976 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE15, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:10:31,983 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE16, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:10:32,988 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE17, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:10:33,995 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE18, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:10:35,001 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE19, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:10:35,854 - INFO - Testing cell load logging.
+2023-12-15 16:10:35,854 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 25.0%
+2023-12-15 16:10:35,854 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 25.0%
+2023-12-15 16:10:35,855 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 25.0%
+2023-12-15 16:10:35,855 - INFO - Testing cell load logging.
+2023-12-15 16:10:35,855 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 16:10:35,856 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 10.0%
+2023-12-15 16:10:35,856 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 16:10:35,856 - INFO - Testing cell load logging.
+2023-12-15 16:10:35,857 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 30.0%
+2023-12-15 16:10:35,857 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 30.0%
+2023-12-15 16:10:35,857 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 10.0%
+2023-12-15 16:10:36,008 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE20, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:10:37,014 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE21, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:10:38,021 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE22, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:10:39,027 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE23, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:10:40,034 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE24, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:10:40,858 - INFO - Testing cell load logging.
+2023-12-15 16:10:40,858 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 25.0%
+2023-12-15 16:10:40,859 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 25.0%
+2023-12-15 16:10:40,859 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 25.0%
+2023-12-15 16:10:40,859 - INFO - Testing cell load logging.
+2023-12-15 16:10:40,860 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 16:10:40,860 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 10.0%
+2023-12-15 16:10:40,860 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 16:10:40,860 - INFO - Testing cell load logging.
+2023-12-15 16:10:40,860 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 30.0%
+2023-12-15 16:10:40,861 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 30.0%
+2023-12-15 16:10:40,861 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 10.0%
+2023-12-15 16:10:41,040 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE25, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:10:42,046 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE26, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:10:43,052 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE27, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:10:44,059 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE28, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:10:45,065 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE29, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:10:45,862 - INFO - Testing cell load logging.
+2023-12-15 16:10:45,862 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 25.0%
+2023-12-15 16:10:45,862 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 25.0%
+2023-12-15 16:10:45,863 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 25.0%
+2023-12-15 16:10:45,863 - INFO - Testing cell load logging.
+2023-12-15 16:10:45,863 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 16:10:45,864 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 10.0%
+2023-12-15 16:10:45,864 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 16:10:45,864 - INFO - Testing cell load logging.
+2023-12-15 16:10:45,864 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 30.0%
+2023-12-15 16:10:45,864 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 30.0%
+2023-12-15 16:10:45,865 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 10.0%
+2023-12-15 16:10:46,072 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE30, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:10:47,078 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE31, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:10:48,084 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE32, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:10:49,091 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE33, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:10:50,097 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE34, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:10:50,866 - INFO - Testing cell load logging.
+2023-12-15 16:10:50,866 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 25.0%
+2023-12-15 16:10:50,866 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 25.0%
+2023-12-15 16:10:50,867 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 25.0%
+2023-12-15 16:10:50,867 - INFO - Testing cell load logging.
+2023-12-15 16:10:50,867 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 16:10:50,868 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 10.0%
+2023-12-15 16:10:50,868 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 16:10:50,868 - INFO - Testing cell load logging.
+2023-12-15 16:10:50,869 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 30.0%
+2023-12-15 16:10:50,869 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 30.0%
+2023-12-15 16:10:50,869 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 10.0%
+2023-12-15 16:10:51,103 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE35, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:10:52,109 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE36, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:10:53,115 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE37, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:10:54,121 - INFO - Data inserted for measurement <function Point.measurement at 0x000001A5470F5DA0> with tags ue_id=UE38, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:16:43,310 - INFO - Database connection successful.
+2023-12-15 16:16:43,337 - INFO - gNodeB 'W1140' has been launched with 3 cells.
+2023-12-15 16:16:44,361 - INFO - Data inserted for measurement gnodeb_metrics with tags gnodeb_id=W1140, entity_type=gnodeb
+2023-12-15 16:16:44,361 - INFO - gNodeB 'W1320' has been launched with 3 cells.
+2023-12-15 16:16:45,367 - INFO - Data inserted for measurement gnodeb_metrics with tags gnodeb_id=W1320, entity_type=gnodeb
+2023-12-15 16:16:45,367 - INFO - gNodeB 'W2018' has been launched with 3 cells.
+2023-12-15 16:16:46,374 - INFO - Data inserted for measurement gnodeb_metrics with tags gnodeb_id=W2018, entity_type=gnodeb
+2023-12-15 16:16:46,375 - INFO - Cell 'Ax1242' has been created in gNodeB 'Ax1242' with max capacity 10.
+2023-12-15 16:16:46,376 - INFO - Cell 'BX1453' has been created in gNodeB 'BX1453' with max capacity 10.
+2023-12-15 16:16:46,376 - INFO - Cell 'CX1352' has been created in gNodeB 'CX1352' with max capacity 10.
+2023-12-15 16:16:46,377 - INFO - Cell 'AX1112' has been created in gNodeB 'AX1112' with max capacity 10.
+2023-12-15 16:16:46,377 - INFO - Cell 'BX1334' has been created in gNodeB 'BX1334' with max capacity 10.
+2023-12-15 16:16:46,377 - INFO - Cell 'CX1873' has been created in gNodeB 'CX1873' with max capacity 10.
+2023-12-15 16:16:46,377 - INFO - Cell 'AX9980' has been created in gNodeB 'AX9980' with max capacity 10.
+2023-12-15 16:16:46,378 - INFO - Cell 'BX1230' has been created in gNodeB 'BX1230' with max capacity 10.
+2023-12-15 16:16:46,378 - INFO - Cell 'CX5103' has been created in gNodeB 'CX5103' with max capacity 10.
+2023-12-15 16:16:46,401 - INFO - Data inserted for measurement cell_metrics with tags cell_id=Ax1242, gnodeb_id=W1140, entity_type=cell
+2023-12-15 16:16:46,401 - INFO - Cell 'Ax1242' has been added to gNodeB 'W1140'.
+2023-12-15 16:16:47,408 - INFO - Data inserted for measurement cell_metrics with tags cell_id=BX1453, gnodeb_id=W1140, entity_type=cell
+2023-12-15 16:16:47,409 - INFO - Cell 'BX1453' has been added to gNodeB 'W1140'.
+2023-12-15 16:16:48,414 - INFO - Data inserted for measurement cell_metrics with tags cell_id=CX1352, gnodeb_id=W1140, entity_type=cell
+2023-12-15 16:16:48,414 - INFO - Cell 'CX1352' has been added to gNodeB 'W1140'.
+2023-12-15 16:16:49,421 - INFO - Data inserted for measurement cell_metrics with tags cell_id=AX1112, gnodeb_id=W1320, entity_type=cell
+2023-12-15 16:16:49,421 - INFO - Cell 'AX1112' has been added to gNodeB 'W1320'.
+2023-12-15 16:16:50,428 - INFO - Data inserted for measurement cell_metrics with tags cell_id=BX1334, gnodeb_id=W1320, entity_type=cell
+2023-12-15 16:16:50,428 - INFO - Cell 'BX1334' has been added to gNodeB 'W1320'.
+2023-12-15 16:16:51,435 - INFO - Data inserted for measurement cell_metrics with tags cell_id=CX1873, gnodeb_id=W1320, entity_type=cell
+2023-12-15 16:16:51,436 - INFO - Cell 'CX1873' has been added to gNodeB 'W1320'.
+2023-12-15 16:16:52,441 - INFO - Data inserted for measurement cell_metrics with tags cell_id=AX9980, gnodeb_id=W2018, entity_type=cell
+2023-12-15 16:16:52,442 - INFO - Cell 'AX9980' has been added to gNodeB 'W2018'.
+2023-12-15 16:16:53,448 - INFO - Data inserted for measurement cell_metrics with tags cell_id=BX1230, gnodeb_id=W2018, entity_type=cell
+2023-12-15 16:16:53,449 - INFO - Cell 'BX1230' has been added to gNodeB 'W2018'.
+2023-12-15 16:16:54,455 - INFO - Data inserted for measurement cell_metrics with tags cell_id=CX5103, gnodeb_id=W2018, entity_type=cell
+2023-12-15 16:16:54,455 - INFO - Cell 'CX5103' has been added to gNodeB 'W2018'.
+2023-12-15 16:16:55,456 - INFO - UE initialized with ID UE1 at 2023-12-15 16:16:55.456908
+2023-12-15 16:16:55,457 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 16:16:55.457905
+2023-12-15 16:16:55,458 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 16:16:55,458 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 16:16:55,471 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE1, connected_cell_id=BX1453, entity_type=ue
+2023-12-15 16:16:55,471 - INFO - UE initialized with ID UE1 at 2023-12-15 16:16:55.471652
+2023-12-15 16:16:55,472 - INFO - UE with ID UE1 added to Cell Ax1242 at 2023-12-15 16:16:55.472651
+2023-12-15 16:16:55,472 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-15 16:16:55,472 - INFO - UE 'UE1' has been attached to Cell 'Ax1242'.
+2023-12-15 16:16:55,476 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE1, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:16:55,476 - INFO - UE initialized with ID UE2 at 2023-12-15 16:16:55.476850
+2023-12-15 16:16:55,476 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 16:16:55.476850
+2023-12-15 16:16:55,477 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 16:16:55,477 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 16:16:55,483 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE2, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:16:55,483 - INFO - UE initialized with ID UE3 at 2023-12-15 16:16:55.483809
+2023-12-15 16:16:55,483 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 16:16:55.483809
+2023-12-15 16:16:55,484 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 16:16:55,484 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 16:16:55,495 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE3, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:16:55,495 - INFO - UE initialized with ID UE4 at 2023-12-15 16:16:55.495126
+2023-12-15 16:16:55,496 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 16:16:55.496126
+2023-12-15 16:16:55,496 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 16:16:55,496 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 16:16:55,500 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE4, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:16:55,500 - INFO - UE initialized with ID UE5 at 2023-12-15 16:16:55.500482
+2023-12-15 16:16:55,500 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 16:16:55.500482
+2023-12-15 16:16:55,501 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 16:16:55,501 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 16:16:55,505 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE5, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:16:55,505 - INFO - UE initialized with ID UE6 at 2023-12-15 16:16:55.505510
+2023-12-15 16:16:55,506 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 16:16:55.505510
+2023-12-15 16:16:55,506 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 16:16:55,506 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 16:16:55,516 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE6, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:16:55,517 - INFO - UE initialized with ID UE7 at 2023-12-15 16:16:55.517323
+2023-12-15 16:16:55,517 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 16:16:55.517323
+2023-12-15 16:16:55,518 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 16:16:55,518 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 16:16:55,522 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE7, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:16:55,522 - INFO - UE initialized with ID UE8 at 2023-12-15 16:16:55.522886
+2023-12-15 16:16:55,522 - INFO - UE with ID UE1 added to Cell CX1873 at 2023-12-15 16:16:55.522886
+2023-12-15 16:16:55,522 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-15 16:16:55,523 - INFO - UE 'UE1' has been attached to Cell 'CX1873'.
+2023-12-15 16:16:55,533 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE8, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:16:55,534 - INFO - UE initialized with ID UE9 at 2023-12-15 16:16:55.534296
+2023-12-15 16:16:55,534 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 16:16:55.534296
+2023-12-15 16:16:55,535 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 16:16:55,535 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 16:16:55,539 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE9, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:16:55,539 - INFO - UE initialized with ID UE10 at 2023-12-15 16:16:55.539360
+2023-12-15 16:16:55,540 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 16:16:55.540358
+2023-12-15 16:16:55,540 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 16:16:55,540 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 16:16:55,551 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE10, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:16:55,551 - INFO - UE initialized with ID UE11 at 2023-12-15 16:16:55.551302
+2023-12-15 16:16:55,551 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 16:16:55.551302
+2023-12-15 16:16:55,552 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 16:16:55,552 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 16:16:55,562 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE11, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:16:55,563 - INFO - UE initialized with ID UE12 at 2023-12-15 16:16:55.563213
+2023-12-15 16:16:55,563 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 16:16:55.563213
+2023-12-15 16:16:55,564 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 16:16:55,564 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 16:16:55,574 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE12, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:16:55,574 - INFO - UE initialized with ID UE13 at 2023-12-15 16:16:55.574282
+2023-12-15 16:16:55,575 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 16:16:55.575280
+2023-12-15 16:16:55,575 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 16:16:55,575 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 16:16:55,586 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE13, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:16:55,586 - INFO - UE initialized with ID UE14 at 2023-12-15 16:16:55.586548
+2023-12-15 16:16:55,587 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 16:16:55.587546
+2023-12-15 16:16:55,587 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 16:16:55,587 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 16:16:55,598 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE14, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:16:55,598 - INFO - UE initialized with ID UE15 at 2023-12-15 16:16:55.598053
+2023-12-15 16:16:55,599 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 16:16:55.599054
+2023-12-15 16:16:55,599 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 16:16:55,600 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 16:16:55,609 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE15, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:16:55,609 - INFO - UE initialized with ID UE16 at 2023-12-15 16:16:55.609956
+2023-12-15 16:16:55,610 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 16:16:55.610948
+2023-12-15 16:16:55,610 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 16:16:55,610 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 16:16:55,621 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE16, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:16:55,621 - INFO - UE initialized with ID UE17 at 2023-12-15 16:16:55.621676
+2023-12-15 16:16:55,622 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 16:16:55.622668
+2023-12-15 16:16:55,622 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 16:16:55,622 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 16:16:55,627 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE17, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:16:55,627 - INFO - UE initialized with ID UE18 at 2023-12-15 16:16:55.627261
+2023-12-15 16:16:55,628 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 16:16:55.628260
+2023-12-15 16:16:55,628 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 16:16:55,628 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 16:16:55,638 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE18, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:16:55,639 - INFO - UE initialized with ID UE19 at 2023-12-15 16:16:55.639105
+2023-12-15 16:16:55,639 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 16:16:55.639105
+2023-12-15 16:16:55,640 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 16:16:55,640 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 16:16:55,644 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE19, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:16:55,644 - INFO - UE initialized with ID UE20 at 2023-12-15 16:16:55.644173
+2023-12-15 16:16:55,644 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 16:16:55.644173
+2023-12-15 16:16:55,645 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 16:16:55,645 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 16:16:55,655 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE20, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:16:55,655 - INFO - UE initialized with ID UE21 at 2023-12-15 16:16:55.655435
+2023-12-15 16:16:55,656 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 16:16:55.656433
+2023-12-15 16:16:55,656 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 16:16:55,656 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 16:16:55,660 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE21, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:16:55,660 - INFO - UE initialized with ID UE22 at 2023-12-15 16:16:55.660867
+2023-12-15 16:16:55,660 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 16:16:55.660867
+2023-12-15 16:16:55,661 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 16:16:55,661 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 16:16:55,665 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE22, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:16:55,665 - INFO - UE initialized with ID UE23 at 2023-12-15 16:16:55.665789
+2023-12-15 16:16:55,665 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 16:16:55.665789
+2023-12-15 16:16:55,666 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 16:16:55,666 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 16:16:55,670 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE23, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:16:55,671 - INFO - UE initialized with ID UE24 at 2023-12-15 16:16:55.671168
+2023-12-15 16:16:55,671 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 16:16:55.671168
+2023-12-15 16:16:55,672 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 16:16:55,672 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 16:16:55,676 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE24, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:16:55,676 - INFO - UE initialized with ID UE25 at 2023-12-15 16:16:55.676046
+2023-12-15 16:16:55,676 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 16:16:55.676046
+2023-12-15 16:16:55,677 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 16:16:55,677 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 16:16:55,681 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE25, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:16:55,681 - INFO - UE initialized with ID UE26 at 2023-12-15 16:16:55.681095
+2023-12-15 16:16:55,682 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 16:16:55.682094
+2023-12-15 16:16:55,682 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 16:16:55,682 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 16:16:55,692 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE26, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:16:55,692 - INFO - UE initialized with ID UE27 at 2023-12-15 16:16:55.692781
+2023-12-15 16:16:55,693 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 16:16:55.693779
+2023-12-15 16:16:55,693 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 16:16:55,693 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 16:16:55,698 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE27, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:16:55,698 - INFO - UE initialized with ID UE28 at 2023-12-15 16:16:55.698547
+2023-12-15 16:16:55,698 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 16:16:55.698547
+2023-12-15 16:16:55,698 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 16:16:55,699 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 16:16:55,703 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE28, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:16:55,703 - INFO - UE initialized with ID UE29 at 2023-12-15 16:16:55.703352
+2023-12-15 16:16:55,703 - INFO - UE with ID UE1 added to Cell CX1873 at 2023-12-15 16:16:55.703352
+2023-12-15 16:16:55,704 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-15 16:16:55,704 - INFO - UE 'UE1' has been attached to Cell 'CX1873'.
+2023-12-15 16:16:55,714 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE29, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:16:55,714 - INFO - UE initialized with ID UE30 at 2023-12-15 16:16:55.714779
+2023-12-15 16:16:55,715 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 16:16:55.715771
+2023-12-15 16:16:55,715 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 16:16:55,715 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 16:16:55,719 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE30, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:16:55,719 - INFO - UE initialized with ID UE31 at 2023-12-15 16:16:55.719957
+2023-12-15 16:16:55,720 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 16:16:55.720929
+2023-12-15 16:16:55,720 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 16:16:55,720 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 16:16:55,731 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE31, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:16:55,731 - INFO - UE initialized with ID UE32 at 2023-12-15 16:16:55.731293
+2023-12-15 16:16:55,732 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 16:16:55.732291
+2023-12-15 16:16:55,732 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 16:16:55,732 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 16:16:55,736 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE32, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:16:55,736 - INFO - UE initialized with ID UE33 at 2023-12-15 16:16:55.736566
+2023-12-15 16:16:55,736 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 16:16:55.736566
+2023-12-15 16:16:55,737 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 16:16:55,737 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 16:16:55,747 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE33, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:16:55,747 - INFO - UE initialized with ID UE34 at 2023-12-15 16:16:55.747807
+2023-12-15 16:16:55,748 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 16:16:55.748805
+2023-12-15 16:16:55,748 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 16:16:55,748 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 16:16:55,753 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE34, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:16:55,753 - INFO - UE initialized with ID UE35 at 2023-12-15 16:16:55.753043
+2023-12-15 16:16:55,753 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 16:16:55.753043
+2023-12-15 16:16:55,754 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 16:16:55,754 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 16:16:55,758 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE35, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:16:55,758 - INFO - UE initialized with ID UE36 at 2023-12-15 16:16:55.758178
+2023-12-15 16:16:55,758 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 16:16:55.758178
+2023-12-15 16:16:55,759 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 16:16:55,759 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 16:16:55,769 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE36, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:16:55,769 - INFO - UE initialized with ID UE37 at 2023-12-15 16:16:55.769355
+2023-12-15 16:16:55,770 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 16:16:55.770354
+2023-12-15 16:16:55,770 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 16:16:55,770 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 16:16:55,774 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE37, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:16:55,774 - INFO - UE initialized with ID UE38 at 2023-12-15 16:16:55.774714
+2023-12-15 16:16:55,775 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 16:16:55.775713
+2023-12-15 16:16:55,775 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 16:16:55,775 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 16:16:55,786 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE38, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:16:55,786 - INFO - UE initialized with ID UE39 at 2023-12-15 16:16:55.786326
+2023-12-15 16:16:55,787 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 16:16:55.787326
+2023-12-15 16:16:55,787 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 16:16:55,787 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 16:16:55,791 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE39, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:17:01,503 - INFO - Database connection successful.
+2023-12-15 16:17:01,515 - INFO - Testing cell load logging.
+2023-12-15 16:17:01,515 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 5.0%
+2023-12-15 16:17:01,516 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 16:17:01,516 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 45.0%
+2023-12-15 16:17:01,516 - INFO - Testing cell load logging.
+2023-12-15 16:17:01,516 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 35.0%
+2023-12-15 16:17:01,517 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 10.0%
+2023-12-15 16:17:01,517 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 10.0%
+2023-12-15 16:17:01,517 - INFO - Testing cell load logging.
+2023-12-15 16:17:01,517 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 25.0%
+2023-12-15 16:17:01,518 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 35.0%
+2023-12-15 16:17:01,518 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 15.0%
+2023-12-15 16:17:01,520 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE1, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:17:02,526 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE1, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:17:03,532 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE2, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:17:04,539 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE3, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:17:05,546 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE4, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:17:06,519 - INFO - Testing cell load logging.
+2023-12-15 16:17:06,519 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 5.0%
+2023-12-15 16:17:06,519 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 16:17:06,520 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 45.0%
+2023-12-15 16:17:06,520 - INFO - Testing cell load logging.
+2023-12-15 16:17:06,520 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 35.0%
+2023-12-15 16:17:06,520 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 10.0%
+2023-12-15 16:17:06,521 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 10.0%
+2023-12-15 16:17:06,521 - INFO - Testing cell load logging.
+2023-12-15 16:17:06,521 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 25.0%
+2023-12-15 16:17:06,521 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 35.0%
+2023-12-15 16:17:06,522 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 15.0%
+2023-12-15 16:17:06,552 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE5, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:17:07,558 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE6, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:17:08,564 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE7, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:17:09,570 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE8, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:17:10,576 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE9, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:17:11,523 - INFO - Testing cell load logging.
+2023-12-15 16:17:11,523 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 5.0%
+2023-12-15 16:17:11,523 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 16:17:11,524 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 45.0%
+2023-12-15 16:17:11,524 - INFO - Testing cell load logging.
+2023-12-15 16:17:11,524 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 35.0%
+2023-12-15 16:17:11,524 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 10.0%
+2023-12-15 16:17:11,525 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 10.0%
+2023-12-15 16:17:11,525 - INFO - Testing cell load logging.
+2023-12-15 16:17:11,525 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 25.0%
+2023-12-15 16:17:11,525 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 35.0%
+2023-12-15 16:17:11,525 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 15.0%
+2023-12-15 16:17:11,582 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE10, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:17:12,588 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE11, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:17:13,594 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE12, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:17:14,600 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE13, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:17:15,606 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE14, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:17:16,527 - INFO - Testing cell load logging.
+2023-12-15 16:17:16,527 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 5.0%
+2023-12-15 16:17:16,528 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 16:17:16,528 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 45.0%
+2023-12-15 16:17:16,528 - INFO - Testing cell load logging.
+2023-12-15 16:17:16,529 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 35.0%
+2023-12-15 16:17:16,529 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 10.0%
+2023-12-15 16:17:16,529 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 10.0%
+2023-12-15 16:17:16,530 - INFO - Testing cell load logging.
+2023-12-15 16:17:16,530 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 25.0%
+2023-12-15 16:17:16,530 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 35.0%
+2023-12-15 16:17:16,531 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 15.0%
+2023-12-15 16:17:16,613 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE15, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:17:17,619 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE16, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:17:18,624 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE17, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:17:19,630 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE18, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:17:20,636 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE19, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:17:21,531 - INFO - Testing cell load logging.
+2023-12-15 16:17:21,531 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 5.0%
+2023-12-15 16:17:21,531 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 16:17:21,532 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 45.0%
+2023-12-15 16:17:21,532 - INFO - Testing cell load logging.
+2023-12-15 16:17:21,532 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 35.0%
+2023-12-15 16:17:21,532 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 10.0%
+2023-12-15 16:17:21,533 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 10.0%
+2023-12-15 16:17:21,533 - INFO - Testing cell load logging.
+2023-12-15 16:17:21,533 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 25.0%
+2023-12-15 16:17:21,533 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 35.0%
+2023-12-15 16:17:21,533 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 15.0%
+2023-12-15 16:17:21,642 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE20, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:17:22,649 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE21, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:17:23,655 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE22, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:17:24,661 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE23, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:17:25,668 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE24, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:17:26,535 - INFO - Testing cell load logging.
+2023-12-15 16:17:26,535 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 5.0%
+2023-12-15 16:17:26,536 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 16:17:26,536 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 45.0%
+2023-12-15 16:17:26,536 - INFO - Testing cell load logging.
+2023-12-15 16:17:26,536 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 35.0%
+2023-12-15 16:17:26,537 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 10.0%
+2023-12-15 16:17:26,537 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 10.0%
+2023-12-15 16:17:26,538 - INFO - Testing cell load logging.
+2023-12-15 16:17:26,538 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 25.0%
+2023-12-15 16:17:26,538 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 35.0%
+2023-12-15 16:17:26,539 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 15.0%
+2023-12-15 16:17:26,674 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE25, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:17:27,680 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE26, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:17:28,686 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE27, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:17:29,693 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE28, connected_cell_id=AX9980, entity_type=ue
+2023-12-15 16:17:30,699 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE29, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:17:31,540 - INFO - Testing cell load logging.
+2023-12-15 16:17:31,540 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 5.0%
+2023-12-15 16:17:31,541 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 16:17:31,541 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 45.0%
+2023-12-15 16:17:31,541 - INFO - Testing cell load logging.
+2023-12-15 16:17:31,541 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 35.0%
+2023-12-15 16:17:31,542 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 10.0%
+2023-12-15 16:17:31,542 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 10.0%
+2023-12-15 16:17:31,542 - INFO - Testing cell load logging.
+2023-12-15 16:17:31,543 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 25.0%
+2023-12-15 16:17:31,543 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 35.0%
+2023-12-15 16:17:31,543 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 15.0%
+2023-12-15 16:17:31,705 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE30, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:17:32,711 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE31, connected_cell_id=AX1112, entity_type=ue
+2023-12-15 16:17:33,718 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE32, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 16:17:34,724 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE33, connected_cell_id=Ax1242, entity_type=ue

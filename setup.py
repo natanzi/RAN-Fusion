@@ -31,6 +31,9 @@ def setup_influxdb_config():
 
     # Configure InfluxDB bucket
     configure_influxdb_bucket(influxdb_url, influxdb_token, influxdb_org, influxdb_bucket)
+    
+    # Write configuration to .env file
+    write_env_file(influxdb_url, influxdb_token, influxdb_org, influxdb_bucket)
 
 def configure_influxdb_bucket(url, token, org, bucket_name):
     """Configures the InfluxDB bucket."""
@@ -48,7 +51,7 @@ def configure_influxdb_bucket(url, token, org, bucket_name):
         print(f"An error occurred while setting up the bucket: {e}")
         sys.exit(1)
     finally:
-        # Write configuration to .env file
+        # Write configuration to .env file for the first bucket
         write_env_file(url, token, org, bucket_name)
 
 def write_env_file(url, token, org, bucket):
@@ -59,9 +62,21 @@ def write_env_file(url, token, org, bucket):
             env_file.write(f"INFLUXDB_TOKEN={token}\n")
             env_file.write(f"INFLUXDB_ORG={org}\n")
             env_file.write(f"INFLUXDB_BUCKET={bucket}\n")
+            # If you want to include the log bucket, you can add it here
+            # env_file.write(f"INFLUXDB_LOG_BUCKET={influxdb_log_bucket}\n")
         print("InfluxDB configuration written to .env file.")
     except IOError as e:
         print(f"Error writing to .env file: {e}")
+
+# If you want to append the log bucket to the .env file, you can use this function
+def append_env_file(url, token, org, log_bucket):
+    """Appends the InfluxDB log bucket configuration to the .env file."""
+    try:
+        with open('.env', 'a') as env_file:
+            env_file.write(f"INFLUXDB_LOG_BUCKET={log_bucket}\n")
+        print(f"InfluxDB log bucket configuration appended to .env file.")
+    except IOError as e:
+        print(f"Error appending to .env file: {e}")
 
 if __name__ == "__main__":
     print("Setting up the 5G Simulator...")
