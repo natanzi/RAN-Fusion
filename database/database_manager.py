@@ -2,7 +2,6 @@ import os
 from datetime import datetime
 from influxdb_client import InfluxDBClient, WritePrecision, Point
 from influxdb_client.client.write_api import SYNCHRONOUS
-import logging
 
 # Configure a standard logger for database_manager.py
 db_manager_logger = logging.getLogger('db_manager_logger')
