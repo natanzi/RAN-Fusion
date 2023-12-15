@@ -25571,3 +25571,304 @@ HTTP response body: {"code":"unprocessable entity","message":"failure writing po
 2023-12-15 15:51:45,146 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 30.0%
 2023-12-15 15:51:45,146 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 15.0%
 2023-12-15 15:51:45,275 - INFO - Data inserted for measurement <function Point.measurement at 0x0000018AB15A5DA0>
+2023-12-15 16:02:54,875 - INFO - Database connection successful.
+2023-12-15 16:02:54,901 - INFO - gNodeB 'W1140' has been launched with 3 cells.
+2023-12-15 16:02:55,930 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:02:55,930 - INFO - gNodeB 'W1320' has been launched with 3 cells.
+2023-12-15 16:02:56,942 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:02:56,942 - INFO - gNodeB 'W2018' has been launched with 3 cells.
+2023-12-15 16:02:57,954 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:02:57,955 - INFO - Cell 'Ax1242' has been created in gNodeB 'Ax1242' with max capacity 10.
+2023-12-15 16:02:57,956 - INFO - Cell 'BX1453' has been created in gNodeB 'BX1453' with max capacity 10.
+2023-12-15 16:02:57,956 - INFO - Cell 'CX1352' has been created in gNodeB 'CX1352' with max capacity 10.
+2023-12-15 16:02:57,956 - INFO - Cell 'AX1112' has been created in gNodeB 'AX1112' with max capacity 10.
+2023-12-15 16:02:57,957 - INFO - Cell 'BX1334' has been created in gNodeB 'BX1334' with max capacity 10.
+2023-12-15 16:02:57,957 - INFO - Cell 'CX1873' has been created in gNodeB 'CX1873' with max capacity 10.
+2023-12-15 16:02:57,957 - INFO - Cell 'AX9980' has been created in gNodeB 'AX9980' with max capacity 10.
+2023-12-15 16:02:57,957 - INFO - Cell 'BX1230' has been created in gNodeB 'BX1230' with max capacity 10.
+2023-12-15 16:02:57,958 - INFO - Cell 'CX5103' has been created in gNodeB 'CX5103' with max capacity 10.
+2023-12-15 16:02:57,969 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:02:57,969 - INFO - Cell 'Ax1242' has been added to gNodeB 'W1140'.
+2023-12-15 16:02:58,982 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:02:58,982 - INFO - Cell 'BX1453' has been added to gNodeB 'W1140'.
+2023-12-15 16:02:59,995 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:02:59,995 - INFO - Cell 'CX1352' has been added to gNodeB 'W1140'.
+2023-12-15 16:03:01,008 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:01,008 - INFO - Cell 'AX1112' has been added to gNodeB 'W1320'.
+2023-12-15 16:03:02,020 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:02,020 - INFO - Cell 'BX1334' has been added to gNodeB 'W1320'.
+2023-12-15 16:03:03,033 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:03,033 - INFO - Cell 'CX1873' has been added to gNodeB 'W1320'.
+2023-12-15 16:03:04,048 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:04,048 - INFO - Cell 'AX9980' has been added to gNodeB 'W2018'.
+2023-12-15 16:03:05,060 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:05,060 - INFO - Cell 'BX1230' has been added to gNodeB 'W2018'.
+2023-12-15 16:03:06,072 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:06,072 - INFO - Cell 'CX5103' has been added to gNodeB 'W2018'.
+2023-12-15 16:03:07,074 - INFO - UE initialized with ID UE1 at 2023-12-15 16:03:07.074236
+2023-12-15 16:03:07,075 - INFO - UE with ID UE1 added to Cell Ax1242 at 2023-12-15 16:03:07.075233
+2023-12-15 16:03:07,076 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-15 16:03:07,076 - INFO - UE 'UE1' has been attached to Cell 'Ax1242'.
+2023-12-15 16:03:07,088 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,088 - INFO - UE initialized with ID UE1 at 2023-12-15 16:03:07.088987
+2023-12-15 16:03:07,089 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 16:03:07.088987
+2023-12-15 16:03:07,089 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 16:03:07,089 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 16:03:07,094 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,094 - INFO - UE initialized with ID UE2 at 2023-12-15 16:03:07.094785
+2023-12-15 16:03:07,094 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 16:03:07.094785
+2023-12-15 16:03:07,095 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 16:03:07,095 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 16:03:07,107 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,107 - INFO - UE initialized with ID UE3 at 2023-12-15 16:03:07.107608
+2023-12-15 16:03:07,108 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 16:03:07.108603
+2023-12-15 16:03:07,108 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 16:03:07,108 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 16:03:07,119 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,119 - INFO - UE initialized with ID UE4 at 2023-12-15 16:03:07.119381
+2023-12-15 16:03:07,120 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 16:03:07.120383
+2023-12-15 16:03:07,120 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 16:03:07,120 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 16:03:07,131 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,131 - INFO - UE initialized with ID UE5 at 2023-12-15 16:03:07.131638
+2023-12-15 16:03:07,131 - INFO - UE with ID UE1 added to Cell CX1873 at 2023-12-15 16:03:07.131638
+2023-12-15 16:03:07,132 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-15 16:03:07,132 - INFO - UE 'UE1' has been attached to Cell 'CX1873'.
+2023-12-15 16:03:07,143 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,143 - INFO - UE initialized with ID UE6 at 2023-12-15 16:03:07.143404
+2023-12-15 16:03:07,144 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 16:03:07.144404
+2023-12-15 16:03:07,144 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 16:03:07,144 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 16:03:07,155 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,155 - INFO - UE initialized with ID UE7 at 2023-12-15 16:03:07.155594
+2023-12-15 16:03:07,155 - INFO - UE with ID UE1 added to Cell CX1873 at 2023-12-15 16:03:07.155594
+2023-12-15 16:03:07,156 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-15 16:03:07,156 - INFO - UE 'UE1' has been attached to Cell 'CX1873'.
+2023-12-15 16:03:07,166 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,167 - INFO - UE initialized with ID UE8 at 2023-12-15 16:03:07.167217
+2023-12-15 16:03:07,167 - INFO - UE with ID UE1 added to Cell Ax1242 at 2023-12-15 16:03:07.167217
+2023-12-15 16:03:07,168 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-15 16:03:07,168 - INFO - UE 'UE1' has been attached to Cell 'Ax1242'.
+2023-12-15 16:03:07,178 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,178 - INFO - UE initialized with ID UE9 at 2023-12-15 16:03:07.178849
+2023-12-15 16:03:07,179 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 16:03:07.179849
+2023-12-15 16:03:07,179 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 16:03:07,179 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 16:03:07,190 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,190 - INFO - UE initialized with ID UE10 at 2023-12-15 16:03:07.190872
+2023-12-15 16:03:07,190 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 16:03:07.190872
+2023-12-15 16:03:07,191 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 16:03:07,191 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 16:03:07,202 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,202 - INFO - UE initialized with ID UE11 at 2023-12-15 16:03:07.202644
+2023-12-15 16:03:07,202 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 16:03:07.202644
+2023-12-15 16:03:07,203 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 16:03:07,203 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 16:03:07,213 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,213 - INFO - UE initialized with ID UE12 at 2023-12-15 16:03:07.213950
+2023-12-15 16:03:07,214 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 16:03:07.214949
+2023-12-15 16:03:07,214 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 16:03:07,214 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 16:03:07,225 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,225 - INFO - UE initialized with ID UE13 at 2023-12-15 16:03:07.225968
+2023-12-15 16:03:07,226 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 16:03:07.225968
+2023-12-15 16:03:07,226 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 16:03:07,226 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 16:03:07,237 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,237 - INFO - UE initialized with ID UE14 at 2023-12-15 16:03:07.237945
+2023-12-15 16:03:07,237 - INFO - UE with ID UE1 added to Cell CX1873 at 2023-12-15 16:03:07.237945
+2023-12-15 16:03:07,238 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-15 16:03:07,238 - INFO - UE 'UE1' has been attached to Cell 'CX1873'.
+2023-12-15 16:03:07,249 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,249 - INFO - UE initialized with ID UE15 at 2023-12-15 16:03:07.249651
+2023-12-15 16:03:07,249 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 16:03:07.249651
+2023-12-15 16:03:07,250 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 16:03:07,250 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 16:03:07,260 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,260 - INFO - UE initialized with ID UE16 at 2023-12-15 16:03:07.260839
+2023-12-15 16:03:07,261 - INFO - UE with ID UE1 added to Cell CX1873 at 2023-12-15 16:03:07.261837
+2023-12-15 16:03:07,261 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-15 16:03:07,261 - INFO - UE 'UE1' has been attached to Cell 'CX1873'.
+2023-12-15 16:03:07,272 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,272 - INFO - UE initialized with ID UE17 at 2023-12-15 16:03:07.272408
+2023-12-15 16:03:07,273 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 16:03:07.273408
+2023-12-15 16:03:07,273 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 16:03:07,273 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 16:03:07,284 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,284 - INFO - UE initialized with ID UE18 at 2023-12-15 16:03:07.284090
+2023-12-15 16:03:07,285 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 16:03:07.285090
+2023-12-15 16:03:07,285 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 16:03:07,285 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 16:03:07,295 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,296 - INFO - UE initialized with ID UE19 at 2023-12-15 16:03:07.296241
+2023-12-15 16:03:07,296 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 16:03:07.296241
+2023-12-15 16:03:07,297 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 16:03:07,297 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 16:03:07,307 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,307 - INFO - UE initialized with ID UE20 at 2023-12-15 16:03:07.307487
+2023-12-15 16:03:07,308 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 16:03:07.308478
+2023-12-15 16:03:07,308 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 16:03:07,308 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 16:03:07,318 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,319 - INFO - UE initialized with ID UE21 at 2023-12-15 16:03:07.319495
+2023-12-15 16:03:07,320 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 16:03:07.319495
+2023-12-15 16:03:07,320 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 16:03:07,320 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 16:03:07,331 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,331 - INFO - UE initialized with ID UE22 at 2023-12-15 16:03:07.331023
+2023-12-15 16:03:07,332 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 16:03:07.332022
+2023-12-15 16:03:07,332 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 16:03:07,332 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 16:03:07,342 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,343 - INFO - UE initialized with ID UE23 at 2023-12-15 16:03:07.343283
+2023-12-15 16:03:07,344 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 16:03:07.344281
+2023-12-15 16:03:07,344 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 16:03:07,344 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 16:03:07,354 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,354 - INFO - UE initialized with ID UE24 at 2023-12-15 16:03:07.354890
+2023-12-15 16:03:07,355 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 16:03:07.355889
+2023-12-15 16:03:07,355 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 16:03:07,355 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 16:03:07,366 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,367 - INFO - UE initialized with ID UE25 at 2023-12-15 16:03:07.367164
+2023-12-15 16:03:07,367 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 16:03:07.367164
+2023-12-15 16:03:07,368 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 16:03:07,368 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 16:03:07,378 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,378 - INFO - UE initialized with ID UE26 at 2023-12-15 16:03:07.378464
+2023-12-15 16:03:07,379 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 16:03:07.379462
+2023-12-15 16:03:07,379 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 16:03:07,379 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 16:03:07,389 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,389 - INFO - UE initialized with ID UE27 at 2023-12-15 16:03:07.389993
+2023-12-15 16:03:07,390 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 16:03:07.390991
+2023-12-15 16:03:07,390 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 16:03:07,390 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 16:03:07,401 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,402 - INFO - UE initialized with ID UE28 at 2023-12-15 16:03:07.402409
+2023-12-15 16:03:07,402 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 16:03:07.402409
+2023-12-15 16:03:07,403 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 16:03:07,403 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 16:03:07,413 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,413 - INFO - UE initialized with ID UE29 at 2023-12-15 16:03:07.413659
+2023-12-15 16:03:07,414 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 16:03:07.414659
+2023-12-15 16:03:07,414 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 16:03:07,414 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 16:03:07,425 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,425 - INFO - UE initialized with ID UE30 at 2023-12-15 16:03:07.425967
+2023-12-15 16:03:07,425 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 16:03:07.425967
+2023-12-15 16:03:07,426 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 16:03:07,426 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 16:03:07,437 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,437 - INFO - UE initialized with ID UE31 at 2023-12-15 16:03:07.437405
+2023-12-15 16:03:07,438 - INFO - UE with ID UE1 added to Cell Ax1242 at 2023-12-15 16:03:07.438404
+2023-12-15 16:03:07,438 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-15 16:03:07,438 - INFO - UE 'UE1' has been attached to Cell 'Ax1242'.
+2023-12-15 16:03:07,449 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,449 - INFO - UE initialized with ID UE32 at 2023-12-15 16:03:07.449056
+2023-12-15 16:03:07,450 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 16:03:07.450056
+2023-12-15 16:03:07,450 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 16:03:07,450 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 16:03:07,461 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,461 - INFO - UE initialized with ID UE33 at 2023-12-15 16:03:07.461010
+2023-12-15 16:03:07,462 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 16:03:07.462009
+2023-12-15 16:03:07,462 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 16:03:07,462 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 16:03:07,472 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,472 - INFO - UE initialized with ID UE34 at 2023-12-15 16:03:07.472858
+2023-12-15 16:03:07,473 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 16:03:07.473857
+2023-12-15 16:03:07,473 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 16:03:07,473 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 16:03:07,484 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,484 - INFO - UE initialized with ID UE35 at 2023-12-15 16:03:07.484760
+2023-12-15 16:03:07,485 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 16:03:07.485759
+2023-12-15 16:03:07,485 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 16:03:07,485 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 16:03:07,496 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,496 - INFO - UE initialized with ID UE36 at 2023-12-15 16:03:07.496310
+2023-12-15 16:03:07,497 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 16:03:07.497306
+2023-12-15 16:03:07,497 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 16:03:07,497 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 16:03:07,507 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,507 - INFO - UE initialized with ID UE37 at 2023-12-15 16:03:07.507844
+2023-12-15 16:03:07,508 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 16:03:07.508834
+2023-12-15 16:03:07,508 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 16:03:07,508 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 16:03:07,519 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,519 - INFO - UE initialized with ID UE38 at 2023-12-15 16:03:07.519647
+2023-12-15 16:03:07,520 - INFO - UE with ID UE1 added to Cell Ax1242 at 2023-12-15 16:03:07.520648
+2023-12-15 16:03:07,520 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-15 16:03:07,520 - INFO - UE 'UE1' has been attached to Cell 'Ax1242'.
+2023-12-15 16:03:07,531 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:07,531 - INFO - UE initialized with ID UE39 at 2023-12-15 16:03:07.531366
+2023-12-15 16:03:07,532 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 16:03:07.532365
+2023-12-15 16:03:07,532 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 16:03:07,532 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 16:03:07,543 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:13,237 - INFO - Database connection successful.
+2023-12-15 16:03:13,237 - INFO - Database connection successful.
+2023-12-15 16:03:13,250 - INFO - Testing cell load logging.
+2023-12-15 16:03:13,250 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 16:03:13,250 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 40.0%
+2023-12-15 16:03:13,251 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 35.0%
+2023-12-15 16:03:13,251 - INFO - Testing cell load logging.
+2023-12-15 16:03:13,251 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 16:03:13,251 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 16:03:13,251 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 16:03:13,252 - INFO - Testing cell load logging.
+2023-12-15 16:03:13,252 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 15.0%
+2023-12-15 16:03:13,253 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 15.0%
+2023-12-15 16:03:13,253 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 10.0%
+2023-12-15 16:03:13,261 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:14,267 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:15,273 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:16,280 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:17,286 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:18,254 - INFO - Testing cell load logging.
+2023-12-15 16:03:18,254 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 16:03:18,254 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 40.0%
+2023-12-15 16:03:18,255 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 35.0%
+2023-12-15 16:03:18,255 - INFO - Testing cell load logging.
+2023-12-15 16:03:18,255 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 16:03:18,255 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 16:03:18,256 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 16:03:18,256 - INFO - Testing cell load logging.
+2023-12-15 16:03:18,256 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 15.0%
+2023-12-15 16:03:18,256 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 15.0%
+2023-12-15 16:03:18,256 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 10.0%
+2023-12-15 16:03:18,292 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:19,297 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:20,303 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:21,309 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:22,316 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:23,258 - INFO - Testing cell load logging.
+2023-12-15 16:03:23,258 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 16:03:23,258 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 40.0%
+2023-12-15 16:03:23,259 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 35.0%
+2023-12-15 16:03:23,259 - INFO - Testing cell load logging.
+2023-12-15 16:03:23,259 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 16:03:23,259 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 16:03:23,260 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 16:03:23,260 - INFO - Testing cell load logging.
+2023-12-15 16:03:23,260 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 15.0%
+2023-12-15 16:03:23,260 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 15.0%
+2023-12-15 16:03:23,261 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 10.0%
+2023-12-15 16:03:23,321 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:24,327 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:25,333 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:26,339 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:27,344 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:28,261 - INFO - Testing cell load logging.
+2023-12-15 16:03:28,261 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 16:03:28,261 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 40.0%
+2023-12-15 16:03:28,262 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 35.0%
+2023-12-15 16:03:28,262 - INFO - Testing cell load logging.
+2023-12-15 16:03:28,262 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 16:03:28,262 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 16:03:28,263 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 16:03:28,263 - INFO - Testing cell load logging.
+2023-12-15 16:03:28,263 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 15.0%
+2023-12-15 16:03:28,263 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 15.0%
+2023-12-15 16:03:28,264 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 10.0%
+2023-12-15 16:03:28,350 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'
+2023-12-15 16:03:29,357 - ERROR - Failed to insert data into InfluxDB: 'Point' object has no attribute 'tags'

@@ -58,17 +58,18 @@ class DatabaseManager:
             else:
                 # If separate parameters are provided
                 measurement = measurement_or_point
-                timestamp = timestamp if timestamp is not None else int(datetime.utcnow().timestamp())  # Current time in seconds
+                timestamp = timestamp if timestamp is not None else int(datetime.utcnow().timestamp())
                 point = Point(measurement)
                 for tag_key, tag_value in (tags or {}).items():
                     point.tag(tag_key, tag_value)
                 for field_key, field_value in (fields or {}).items():
                     point.field(field_key, field_value)
-                point.time(timestamp, WritePrecision.S)  # Use seconds precision
+                point.time(timestamp, WritePrecision.S)
 
             self.write_api.write(bucket=self.bucket, record=point)
-            entity_type = point.tags.get('entity_type', 'Unknown')  # Extract entity type from tags
-            database_logger.info(f"Data inserted for {entity_type} with measurement {point.measurement}")
+            # Log the measurement and the tags for context
+            tags_description = ", ".join([f"{k}={v}" for k, v in point._tags.items()])
+            database_logger.info(f"Data inserted for measurement {point.measurement} with tags {tags_description}")
         except Exception as e:
             database_logger.error(f"Failed to insert data into InfluxDB: {e}")
 
