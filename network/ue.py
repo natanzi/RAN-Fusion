@@ -45,6 +45,7 @@ class UE:
         ue_logger.info(f"UE initialized with ID {ue_id} at {datetime.now()}")
         self.traffic_volume = 0  # Initialize with a default value or a calculated value
     @staticmethod
+    
     def allocate_imei():
         # Generate and return a random IMEI during UE initialization
         while True:
@@ -162,18 +163,18 @@ class UE:
             .field("processing", self.Processing) \
             .field("bandwidth_parts", self.BandwidthParts) \
             .field("channel_model", self.ChannelModel) \
-            .field("velocity", self.Velocity) \
+            .field("velocity", float(self.Velocity)) \
             .field("direction", self.Direction) \
             .field("traffic_model", self.TrafficModel) \
             .field("scheduling_requests", int(self.SchedulingRequests)) \
             .field("rlc_mode", self.RLCMode) \
             .field("snr_thresholds", ','.join(map(str, self.SNRThresholds))) \
-            .field("ho_margin", self.HOMargin) \
-            .field("n310", self.N310) \
-            .field("n311", self.N311) \
-            .field("model", self.Model) \
-            .field("screen_size", self.ScreenSize) \
-            .field("battery_level", self.BatteryLevel)
+            .field("ho_margin", str(self.HOMargin)) \
+            .field("n310", str(self.N310)) \
+            .field("n311", str(self.N311)) \
+            .field("model", str(self.Model)) \
+            .field("screen_size", str(self.ScreenSize)) \
+            .field("battery_level", str(self.BatteryLevel))
         return point
         
 

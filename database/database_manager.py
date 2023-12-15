@@ -67,7 +67,8 @@ class DatabaseManager:
                 point.time(timestamp, WritePrecision.S)  # Use seconds precision
 
             self.write_api.write(bucket=self.bucket, record=point)
-            database_logger.info(f"Data inserted for measurement {point.measurement}")
+            entity_type = point.tags.get('entity_type', 'Unknown')  # Extract entity type from tags
+            database_logger.info(f"Data inserted for {entity_type} with measurement {point.measurement}")
         except Exception as e:
             database_logger.error(f"Failed to insert data into InfluxDB: {e}")
 
