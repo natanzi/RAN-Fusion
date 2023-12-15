@@ -5,13 +5,14 @@ from .init_cell import initialize_cells  # Import the new Cell initialization fu
 from .init_ue import initialize_ues  # Import the new UE initialization function
 from .network_state import NetworkState  # Import the NetworkState class
 
-def initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, ue_config):
+def initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, ue_config, db_manager):
     
     # Create an instance of NetworkState
     network_state = NetworkState()
 
     # Initialize gNodeBs with the provided configuration
-    gNodeBs = initialize_gNodeBs(gNodeBs_config)
+    gNodeBs = initialize_gNodeBs(gNodeBs_config, db_manager)
+
 
     # Initialize Cells with the provided configuration and link them to gNodeBs
     cells = initialize_cells(gNodeBs, network_state)  # Pass network_state as an argument
