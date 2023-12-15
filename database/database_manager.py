@@ -5,8 +5,13 @@ from influxdb_client import InfluxDBClient, WritePrecision, Point
 from influxdb_client.client.write_api import SYNCHRONOUS
 import logging
 
-# Configure logging
-logging.basicConfig(filename='database_manager.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+# Configure a standard logger for database_manager.py
+db_manager_logger = logging.getLogger('db_manager_logger')
+db_manager_logger.setLevel(logging.INFO)
+handler = logging.FileHandler('database_manager.log')  # Log to a file
+formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+handler.setFormatter(formatter)
+db_manager_logger.addHandler(handler)
 
 # Read from environment variables or use default values
 INFLUXDB_URL = os.getenv('INFLUXDB_URL', 'http://localhost:8086')
@@ -30,21 +35,20 @@ class DatabaseManager:
         """Test if the connection to the database is successful."""
         try:
             self.client.ping()
-            logging.info("Database connection successful.")
+            db_manager_logger.info("Database connection successful.")
             return True
         except Exception as e:
-            logging.error(f"Database connection test failed: {e}")
+            db_manager_logger.error(f"Database connection test failed: {e}")
             return False
-###################################################################################################################################        
+
     def insert_data_batch(self, points):
         """Inserts a batch of Point objects into InfluxDB."""
         try:
             self.write_api.write(bucket=self.bucket, record=points)
-            database_logger.info("Batch data inserted into InfluxDB")
+            db_manager_logger.info("Batch data inserted into InfluxDB")
         except Exception as e:
-            database_logger.error(f"Failed to insert batch data into InfluxDB: {e}")
-##################################################################################################################################            
-    #to Write data into influx BD
+            db_manager_logger.error(f"Failed to insert batch data into InfluxDB: {e}")
+
     def insert_data(self, measurement_or_point, tags=None, fields=None, timestamp=None):
         """Inserts data into InfluxDB. Can handle both Point objects and separate parameters."""
         try:
@@ -67,21 +71,20 @@ class DatabaseManager:
             self.write_api.write(bucket=self.bucket, record=point)
             # Log the measurement and the tags for context
             tags_description = ", ".join([f"{k}={v}" for k, v in point._tags.items()])
-            database_logger.info(f"Data inserted for measurement {point._name} with tags {tags_description}")
+            db_manager_logger.info(f"Data inserted for measurement {point._name} with tags {tags_description}")
 
         except Exception as e:
-            database_logger.error(f"Failed to insert data into InfluxDB: {e}")
+            db_manager_logger.error(f"Failed to insert data into InfluxDB: {e}")
 
     def close_connection(self):
         """Closes the database connection."""
         self.client.close()
-################################################################################################################################
-    #To write log data into influx db for further analysis
+
     def insert_log(self, log_point):
         """Inserts log data into the logs bucket in InfluxDB."""
         log_bucket = 'RAN_logs' 
         try:
             self.write_api.write(bucket=log_bucket, record=log_point)
-            database_logger.info(f"Log data inserted into bucket {log_bucket}")
+            db_manager_logger.info(f"Log data inserted into bucket {log_bucket}")
         except Exception as e:
-            database_logger.error(f"Failed to insert log data into InfluxDB: {e}")
+            db_manager_logger.error(f"Failed to insert log data into InfluxDB: {e}")
