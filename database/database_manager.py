@@ -115,10 +115,9 @@ class DatabaseManager:
         self.insert_data('gnodeb_metrics', tags, fields, timestamp)
 
     def insert_ue_data(self, ue):
-        """Inserts a row of UE KPI data into the ue_metrics measurement."""
-        # Directly access the attributes from the UE instance
-        traffic_volume = ue.traffic_volume  # Assuming traffic_volume is an attribute of UE
-        service_type = ue.ServiceType  # Assuming ServiceType is an attribute of UE
+        # Access attributes from the UE instance and other necessary data
+        traffic_volume = ue.traffic_volume
+        service_type = ue.ServiceType
         timestamp = int(time.time() * 1e9)  # Current time in nanoseconds
         connection_status = 'connected' if ue.ConnectedCellID else 'disconnected'
 
@@ -134,18 +133,21 @@ class DatabaseManager:
             # Add other fields if needed
         }
 
-        # Create a Point object for InfluxDB
-        point = Point("ue_metrics")\
-            .tag(tags)\
-            .field(fields)\
-            .time(timestamp, WritePrecision.NS)
+    # Create a Point object for InfluxDB
+        point = Point("ue_metrics")
+        for tag_key, tag_value in tags.items():
+            point.tag(tag_key, tag_value)
+        for field_key, field_value in fields.items():
+            point.field(field_key, field_value)
+        point.time(timestamp, WritePrecision.NS)
 
-        # Insert the data into InfluxDB
+    # Insert the data into InfluxDB
         try:
             self.write_api.write(bucket=self.bucket, record=point)
             logging.info("UE data inserted into InfluxDB")
         except Exception as e:
             logging.error(f"Failed to insert UE data into InfluxDB: {e}")
+
 
     def close_connection(self):
         """Closes the database connection."""
