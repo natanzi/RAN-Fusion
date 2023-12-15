@@ -1278,3 +1278,323 @@
 {"level": "INFO", "timestamp": "2023-12-15 21:16:55", "message": "UE with ID UE1 added to Cell AX9980 at 2023-12-15 16:16:55.775713"}
 {"level": "INFO", "timestamp": "2023-12-15 21:16:55", "message": "UE initialized with ID UE39 at 2023-12-15 16:16:55.786326"}
 {"level": "INFO", "timestamp": "2023-12-15 21:16:55", "message": "UE with ID UE1 added to Cell AX1112 at 2023-12-15 16:16:55.787326"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE1 at 2023-12-15 17:59:32.221137"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell CX1873 at 2023-12-15 17:59:32.222114"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE1 at 2023-12-15 17:59:32.257968"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell AX9980 at 2023-12-15 17:59:32.257968"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE2 at 2023-12-15 17:59:32.270599"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell CX5103 at 2023-12-15 17:59:32.270599"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE3 at 2023-12-15 17:59:32.284745"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell CX1873 at 2023-12-15 17:59:32.284745"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE4 at 2023-12-15 17:59:32.295942"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell CX1873 at 2023-12-15 17:59:32.296933"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE5 at 2023-12-15 17:59:32.307993"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell AX1112 at 2023-12-15 17:59:32.308993"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE6 at 2023-12-15 17:59:32.320492"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell Ax1242 at 2023-12-15 17:59:32.321492"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE7 at 2023-12-15 17:59:32.332575"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell BX1230 at 2023-12-15 17:59:32.333573"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE8 at 2023-12-15 17:59:32.344957"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell AX1112 at 2023-12-15 17:59:32.345955"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE9 at 2023-12-15 17:59:32.356949"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell CX1352 at 2023-12-15 17:59:32.357948"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE10 at 2023-12-15 17:59:32.369713"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell CX1352 at 2023-12-15 17:59:32.370713"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE11 at 2023-12-15 17:59:32.383132"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell BX1230 at 2023-12-15 17:59:32.383132"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE12 at 2023-12-15 17:59:32.395407"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell AX1112 at 2023-12-15 17:59:32.396398"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE13 at 2023-12-15 17:59:32.407420"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell BX1453 at 2023-12-15 17:59:32.408417"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE14 at 2023-12-15 17:59:32.419898"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell AX9980 at 2023-12-15 17:59:32.420898"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE15 at 2023-12-15 17:59:32.435633"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell CX1873 at 2023-12-15 17:59:32.436630"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE16 at 2023-12-15 17:59:32.449262"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell Ax1242 at 2023-12-15 17:59:32.449262"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE17 at 2023-12-15 17:59:32.461302"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell CX1352 at 2023-12-15 17:59:32.462304"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE18 at 2023-12-15 17:59:32.474092"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell CX5103 at 2023-12-15 17:59:32.474092"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE19 at 2023-12-15 17:59:32.487635"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell BX1230 at 2023-12-15 17:59:32.487635"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE20 at 2023-12-15 17:59:32.500153"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell CX1352 at 2023-12-15 17:59:32.500153"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE21 at 2023-12-15 17:59:32.512170"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell CX1352 at 2023-12-15 17:59:32.512170"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE22 at 2023-12-15 17:59:32.524322"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell CX1352 at 2023-12-15 17:59:32.524322"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE23 at 2023-12-15 17:59:32.536794"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell CX5103 at 2023-12-15 17:59:32.537795"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE24 at 2023-12-15 17:59:32.549291"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell CX1352 at 2023-12-15 17:59:32.549291"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE25 at 2023-12-15 17:59:32.561021"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell CX5103 at 2023-12-15 17:59:32.561021"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE26 at 2023-12-15 17:59:32.573253"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell Ax1242 at 2023-12-15 17:59:32.573253"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE27 at 2023-12-15 17:59:32.585478"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell AX9980 at 2023-12-15 17:59:32.585478"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE28 at 2023-12-15 17:59:32.597385"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell CX1873 at 2023-12-15 17:59:32.597385"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE29 at 2023-12-15 17:59:32.609253"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell Ax1242 at 2023-12-15 17:59:32.610252"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE30 at 2023-12-15 17:59:32.621729"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell Ax1242 at 2023-12-15 17:59:32.622727"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE31 at 2023-12-15 17:59:32.633842"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell CX1352 at 2023-12-15 17:59:32.634840"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE32 at 2023-12-15 17:59:32.646320"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell AX1112 at 2023-12-15 17:59:32.646320"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE33 at 2023-12-15 17:59:32.658510"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell BX1230 at 2023-12-15 17:59:32.658510"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE34 at 2023-12-15 17:59:32.671274"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell Ax1242 at 2023-12-15 17:59:32.671274"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE35 at 2023-12-15 17:59:32.683990"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell BX1230 at 2023-12-15 17:59:32.683990"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE36 at 2023-12-15 17:59:32.695499"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell BX1453 at 2023-12-15 17:59:32.696492"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE37 at 2023-12-15 17:59:32.707727"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell CX5103 at 2023-12-15 17:59:32.708726"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE38 at 2023-12-15 17:59:32.719940"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell CX5103 at 2023-12-15 17:59:32.719940"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE initialized with ID UE39 at 2023-12-15 17:59:32.731459"}
+{"level": "INFO", "timestamp": "2023-12-15 22:59:32", "message": "UE with ID UE1 added to Cell CX1352 at 2023-12-15 17:59:32.732457"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE1 at 2023-12-15 18:06:17.435828"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell BX1453 at 2023-12-15 18:06:17.436827"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE1 at 2023-12-15 18:06:17.452228"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell AX1112 at 2023-12-15 18:06:17.453227"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE2 at 2023-12-15 18:06:17.465070"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell AX9980 at 2023-12-15 18:06:17.466069"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE3 at 2023-12-15 18:06:17.478602"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell CX5103 at 2023-12-15 18:06:17.479602"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE4 at 2023-12-15 18:06:17.491407"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell CX1873 at 2023-12-15 18:06:17.492406"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE5 at 2023-12-15 18:06:17.504707"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell AX9980 at 2023-12-15 18:06:17.504707"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE6 at 2023-12-15 18:06:17.517359"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell BX1453 at 2023-12-15 18:06:17.517359"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE7 at 2023-12-15 18:06:17.528695"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell BX1453 at 2023-12-15 18:06:17.529693"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE8 at 2023-12-15 18:06:17.540703"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell CX1352 at 2023-12-15 18:06:17.541701"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE9 at 2023-12-15 18:06:17.552948"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell CX5103 at 2023-12-15 18:06:17.553947"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE10 at 2023-12-15 18:06:17.566473"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell BX1230 at 2023-12-15 18:06:17.566473"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE11 at 2023-12-15 18:06:17.578046"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell Ax1242 at 2023-12-15 18:06:17.578046"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE12 at 2023-12-15 18:06:17.590946"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell CX5103 at 2023-12-15 18:06:17.590946"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE13 at 2023-12-15 18:06:17.603286"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell AX1112 at 2023-12-15 18:06:17.603286"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE14 at 2023-12-15 18:06:17.616236"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell Ax1242 at 2023-12-15 18:06:17.617234"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE15 at 2023-12-15 18:06:17.628529"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell CX1873 at 2023-12-15 18:06:17.628529"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE16 at 2023-12-15 18:06:17.640756"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell BX1230 at 2023-12-15 18:06:17.640756"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE17 at 2023-12-15 18:06:17.652864"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell CX1873 at 2023-12-15 18:06:17.652864"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE18 at 2023-12-15 18:06:17.664845"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell AX1112 at 2023-12-15 18:06:17.665845"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE19 at 2023-12-15 18:06:17.677171"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell BX1334 at 2023-12-15 18:06:17.678171"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE20 at 2023-12-15 18:06:17.689343"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell CX5103 at 2023-12-15 18:06:17.690343"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE21 at 2023-12-15 18:06:17.702142"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell BX1334 at 2023-12-15 18:06:17.702142"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE22 at 2023-12-15 18:06:17.713747"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell BX1230 at 2023-12-15 18:06:17.714738"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE23 at 2023-12-15 18:06:17.725996"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell BX1334 at 2023-12-15 18:06:17.727002"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE24 at 2023-12-15 18:06:17.739421"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell AX1112 at 2023-12-15 18:06:17.739421"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE25 at 2023-12-15 18:06:17.751189"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell CX1352 at 2023-12-15 18:06:17.752189"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE26 at 2023-12-15 18:06:17.763792"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell AX1112 at 2023-12-15 18:06:17.763792"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE27 at 2023-12-15 18:06:17.775844"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell Ax1242 at 2023-12-15 18:06:17.775844"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE28 at 2023-12-15 18:06:17.788134"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell CX1873 at 2023-12-15 18:06:17.788134"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE29 at 2023-12-15 18:06:17.800394"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell CX1873 at 2023-12-15 18:06:17.801392"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE30 at 2023-12-15 18:06:17.812789"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell Ax1242 at 2023-12-15 18:06:17.813762"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE31 at 2023-12-15 18:06:17.825120"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell AX1112 at 2023-12-15 18:06:17.825120"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE32 at 2023-12-15 18:06:17.837605"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell BX1230 at 2023-12-15 18:06:17.837605"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE33 at 2023-12-15 18:06:17.849217"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell CX5103 at 2023-12-15 18:06:17.850215"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE34 at 2023-12-15 18:06:17.861687"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell AX9980 at 2023-12-15 18:06:17.861687"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE35 at 2023-12-15 18:06:17.873959"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell AX9980 at 2023-12-15 18:06:17.873959"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE36 at 2023-12-15 18:06:17.886724"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell BX1334 at 2023-12-15 18:06:17.886724"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE37 at 2023-12-15 18:06:17.899210"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell CX5103 at 2023-12-15 18:06:17.899210"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE38 at 2023-12-15 18:06:17.911170"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell BX1334 at 2023-12-15 18:06:17.911170"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE initialized with ID UE39 at 2023-12-15 18:06:17.923622"}
+{"level": "INFO", "timestamp": "2023-12-15 23:06:17", "message": "UE with ID UE1 added to Cell Ax1242 at 2023-12-15 18:06:17.923622"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE1 at 2023-12-15 18:08:59.314253"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell AX9980 at 2023-12-15 18:08:59.315250"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE1 at 2023-12-15 18:08:59.346977"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell BX1453 at 2023-12-15 18:08:59.347977"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE2 at 2023-12-15 18:08:59.354481"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell BX1334 at 2023-12-15 18:08:59.355480"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE3 at 2023-12-15 18:08:59.391675"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell BX1230 at 2023-12-15 18:08:59.391675"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE4 at 2023-12-15 18:08:59.397147"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell AX9980 at 2023-12-15 18:08:59.398146"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE5 at 2023-12-15 18:08:59.409464"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell BX1334 at 2023-12-15 18:08:59.410462"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE6 at 2023-12-15 18:08:59.425764"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell BX1334 at 2023-12-15 18:08:59.426757"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE7 at 2023-12-15 18:08:59.438865"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell AX9980 at 2023-12-15 18:08:59.438865"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE8 at 2023-12-15 18:08:59.451127"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell CX5103 at 2023-12-15 18:08:59.451127"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE9 at 2023-12-15 18:08:59.462613"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell CX1352 at 2023-12-15 18:08:59.462613"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE10 at 2023-12-15 18:08:59.473813"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell BX1334 at 2023-12-15 18:08:59.473813"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE11 at 2023-12-15 18:08:59.486282"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell Ax1242 at 2023-12-15 18:08:59.487280"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE12 at 2023-12-15 18:08:59.492691"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell BX1230 at 2023-12-15 18:08:59.492691"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE13 at 2023-12-15 18:08:59.498291"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell CX5103 at 2023-12-15 18:08:59.499289"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE14 at 2023-12-15 18:08:59.509852"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell BX1334 at 2023-12-15 18:08:59.509852"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE15 at 2023-12-15 18:08:59.522210"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell AX9980 at 2023-12-15 18:08:59.522210"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE16 at 2023-12-15 18:08:59.534610"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell BX1453 at 2023-12-15 18:08:59.535600"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE17 at 2023-12-15 18:08:59.546506"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell CX1352 at 2023-12-15 18:08:59.547504"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE18 at 2023-12-15 18:08:59.558233"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell CX1873 at 2023-12-15 18:08:59.558233"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE19 at 2023-12-15 18:08:59.563660"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell BX1334 at 2023-12-15 18:08:59.563660"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE20 at 2023-12-15 18:08:59.569795"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell AX1112 at 2023-12-15 18:08:59.569795"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE21 at 2023-12-15 18:08:59.581784"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell AX1112 at 2023-12-15 18:08:59.581784"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE22 at 2023-12-15 18:08:59.587183"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell AX1112 at 2023-12-15 18:08:59.587183"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE23 at 2023-12-15 18:08:59.599153"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell Ax1242 at 2023-12-15 18:08:59.599153"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE24 at 2023-12-15 18:08:59.611743"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell AX1112 at 2023-12-15 18:08:59.612741"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE25 at 2023-12-15 18:08:59.617913"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell CX1873 at 2023-12-15 18:08:59.617913"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE26 at 2023-12-15 18:08:59.629769"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell CX5103 at 2023-12-15 18:08:59.630761"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE27 at 2023-12-15 18:08:59.641507"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell BX1334 at 2023-12-15 18:08:59.642507"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE28 at 2023-12-15 18:08:59.654093"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell BX1453 at 2023-12-15 18:08:59.655092"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE29 at 2023-12-15 18:08:59.666621"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell CX5103 at 2023-12-15 18:08:59.667620"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE30 at 2023-12-15 18:08:59.678640"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell Ax1242 at 2023-12-15 18:08:59.679638"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE31 at 2023-12-15 18:08:59.684986"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell CX5103 at 2023-12-15 18:08:59.684986"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE32 at 2023-12-15 18:08:59.696683"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell AX9980 at 2023-12-15 18:08:59.697716"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE33 at 2023-12-15 18:08:59.702357"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell CX1352 at 2023-12-15 18:08:59.702357"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE34 at 2023-12-15 18:08:59.714457"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell BX1453 at 2023-12-15 18:08:59.714457"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE35 at 2023-12-15 18:08:59.726097"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell BX1230 at 2023-12-15 18:08:59.727089"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE36 at 2023-12-15 18:08:59.732304"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell CX1873 at 2023-12-15 18:08:59.733295"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE37 at 2023-12-15 18:08:59.737866"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell BX1453 at 2023-12-15 18:08:59.738866"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE38 at 2023-12-15 18:08:59.750179"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell CX1873 at 2023-12-15 18:08:59.751179"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE initialized with ID UE39 at 2023-12-15 18:08:59.756365"}
+{"level": "INFO", "timestamp": "2023-12-15 23:08:59", "message": "UE with ID UE1 added to Cell CX1352 at 2023-12-15 18:08:59.756365"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE1 at 2023-12-15 18:14:20.554444"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell CX1352 at 2023-12-15 18:14:20.554951"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE1 at 2023-12-15 18:14:20.578113"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell AX1112 at 2023-12-15 18:14:20.579111"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE2 at 2023-12-15 18:14:20.584737"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell BX1334 at 2023-12-15 18:14:20.584737"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE3 at 2023-12-15 18:14:20.591718"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell CX1352 at 2023-12-15 18:14:20.591718"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE4 at 2023-12-15 18:14:20.603534"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell BX1334 at 2023-12-15 18:14:20.603534"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE5 at 2023-12-15 18:14:20.609457"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell BX1453 at 2023-12-15 18:14:20.609457"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE6 at 2023-12-15 18:14:20.621519"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell BX1334 at 2023-12-15 18:14:20.621519"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE7 at 2023-12-15 18:14:20.626990"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell BX1334 at 2023-12-15 18:14:20.627989"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE8 at 2023-12-15 18:14:20.639477"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell AX9980 at 2023-12-15 18:14:20.639477"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE9 at 2023-12-15 18:14:20.645092"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell BX1334 at 2023-12-15 18:14:20.646084"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE10 at 2023-12-15 18:14:20.657133"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell BX1453 at 2023-12-15 18:14:20.658132"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE11 at 2023-12-15 18:14:20.669675"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell BX1230 at 2023-12-15 18:14:20.669675"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE12 at 2023-12-15 18:14:20.681636"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell CX1352 at 2023-12-15 18:14:20.682635"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE13 at 2023-12-15 18:14:20.693952"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell BX1453 at 2023-12-15 18:14:20.693952"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE14 at 2023-12-15 18:14:20.705764"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell BX1453 at 2023-12-15 18:14:20.706763"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE15 at 2023-12-15 18:14:20.711437"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell CX5103 at 2023-12-15 18:14:20.712436"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE16 at 2023-12-15 18:14:20.717145"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell Ax1242 at 2023-12-15 18:14:20.718144"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE17 at 2023-12-15 18:14:20.722454"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell CX5103 at 2023-12-15 18:14:20.723452"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE18 at 2023-12-15 18:14:20.734200"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell CX5103 at 2023-12-15 18:14:20.735198"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE19 at 2023-12-15 18:14:20.746547"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell CX1352 at 2023-12-15 18:14:20.747538"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE20 at 2023-12-15 18:14:20.758314"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell Ax1242 at 2023-12-15 18:14:20.759312"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE21 at 2023-12-15 18:14:20.770750"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell AX9980 at 2023-12-15 18:14:20.770750"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE22 at 2023-12-15 18:14:20.783047"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell CX5103 at 2023-12-15 18:14:20.784045"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE23 at 2023-12-15 18:14:20.789216"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell BX1453 at 2023-12-15 18:14:20.789216"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE24 at 2023-12-15 18:14:20.794251"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell AX9980 at 2023-12-15 18:14:20.795250"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE25 at 2023-12-15 18:14:20.806688"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell CX1873 at 2023-12-15 18:14:20.806688"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE26 at 2023-12-15 18:14:20.811963"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell CX1873 at 2023-12-15 18:14:20.812961"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE27 at 2023-12-15 18:14:20.817782"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell AX1112 at 2023-12-15 18:14:20.817782"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE28 at 2023-12-15 18:14:20.822971"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell BX1230 at 2023-12-15 18:14:20.823970"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE29 at 2023-12-15 18:14:20.835804"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell CX1873 at 2023-12-15 18:14:20.836802"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE30 at 2023-12-15 18:14:20.841130"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell CX1352 at 2023-12-15 18:14:20.842121"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE31 at 2023-12-15 18:14:20.847363"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell CX1352 at 2023-12-15 18:14:20.847363"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE32 at 2023-12-15 18:14:20.859079"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell Ax1242 at 2023-12-15 18:14:20.860077"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE33 at 2023-12-15 18:14:20.871915"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell BX1230 at 2023-12-15 18:14:20.872914"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE34 at 2023-12-15 18:14:20.877536"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell BX1334 at 2023-12-15 18:14:20.878534"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE35 at 2023-12-15 18:14:20.889297"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell CX5103 at 2023-12-15 18:14:20.889297"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE36 at 2023-12-15 18:14:20.894533"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell BX1230 at 2023-12-15 18:14:20.895531"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE37 at 2023-12-15 18:14:20.906653"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell AX1112 at 2023-12-15 18:14:20.906653"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE38 at 2023-12-15 18:14:20.918637"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell AX1112 at 2023-12-15 18:14:20.918637"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE initialized with ID UE39 at 2023-12-15 18:14:20.924279"}
+{"level": "INFO", "timestamp": "2023-12-15 23:14:20", "message": "UE with ID UE1 added to Cell AX1112 at 2023-12-15 18:14:20.924279"}

@@ -24,16 +24,18 @@ def setup_influxdb_config():
     influxdb_url = "http://localhost:8086"
     influxdb_org = "ranfusion"
     influxdb_bucket = "RAN_metrics"
+    influxdb_log_bucket = "RAN_logs"  # Name for the logs bucket
 
     if not influxdb_token:
         print("No API Token provided. Exiting setup.")
         sys.exit(1)
 
-    # Configure InfluxDB bucket
+    # Configure InfluxDB buckets
     configure_influxdb_bucket(influxdb_url, influxdb_token, influxdb_org, influxdb_bucket)
-    
+    configure_influxdb_bucket(influxdb_url, influxdb_token, influxdb_org, influxdb_log_bucket)  # For logs
+
     # Write configuration to .env file
-    write_env_file(influxdb_url, influxdb_token, influxdb_org, influxdb_bucket)
+    write_env_file(influxdb_url, influxdb_token, influxdb_org, influxdb_bucket, influxdb_log_bucket)
 
 def configure_influxdb_bucket(url, token, org, bucket_name):
     """Configures the InfluxDB bucket."""
@@ -51,10 +53,9 @@ def configure_influxdb_bucket(url, token, org, bucket_name):
         print(f"An error occurred while setting up the bucket: {e}")
         sys.exit(1)
     finally:
-        # Write configuration to .env file for the first bucket
-        write_env_file(url, token, org, bucket_name)
+        client.close()
 
-def write_env_file(url, token, org, bucket):
+def write_env_file(url, token, org, bucket, log_bucket):
     """Writes the InfluxDB configuration to a .env file."""
     try:
         with open('.env', 'w') as env_file:
@@ -62,8 +63,7 @@ def write_env_file(url, token, org, bucket):
             env_file.write(f"INFLUXDB_TOKEN={token}\n")
             env_file.write(f"INFLUXDB_ORG={org}\n")
             env_file.write(f"INFLUXDB_BUCKET={bucket}\n")
-            # If you want to include the log bucket, you can add it here
-            # env_file.write(f"INFLUXDB_LOG_BUCKET={influxdb_log_bucket}\n")
+            env_file.write(f"INFLUXDB_LOG_BUCKET={log_bucket}\n")  # Include the log bucket
         print("InfluxDB configuration written to .env file.")
     except IOError as e:
         print(f"Error writing to .env file: {e}")

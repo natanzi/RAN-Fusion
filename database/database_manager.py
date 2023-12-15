@@ -7,10 +7,17 @@ import logging
 # Configure a standard logger for database_manager.py
 db_manager_logger = logging.getLogger('db_manager_logger')
 db_manager_logger.setLevel(logging.INFO)
-handler = logging.FileHandler('database_manager.log')  # Log to a file
+
+# Correct the file path to point to the logs folder and the expected log file
+log_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs', 'database_logger.log')
+handler = logging.FileHandler(log_file_path)  # Log to a file inside the logs folder
+
 formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
 handler.setFormatter(formatter)
 db_manager_logger.addHandler(handler)
+
+log_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'database_manager.log')
+handler = logging.FileHandler('database_logger.log') 
 
 # Read from environment variables or use default values
 INFLUXDB_URL = os.getenv('INFLUXDB_URL', 'http://localhost:8086')
