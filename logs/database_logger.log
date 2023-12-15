@@ -1,14 +1,13 @@
-
-{"level": "ERROR", "timestamp": "2023-12-15 17:32:35", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"region\" is not supported."}
-{"level": "ERROR", "timestamp": "2023-12-15 17:32:36", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"region\" is not supported."}
-{"level": "ERROR", "timestamp": "2023-12-15 17:32:37", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"region\" is not supported."}
-{"level": "INFO", "timestamp": "2023-12-15 17:32:37", "message": "Data inserted for measurement <function Point.measurement at 0x00000237D2A57D80>"}
-{"level": "INFO", "timestamp": "2023-12-15 17:32:38", "message": "Data inserted for measurement <function Point.measurement at 0x00000237D2A57D80>"}
-{"level": "INFO", "timestamp": "2023-12-15 17:32:39", "message": "Data inserted for measurement <function Point.measurement at 0x00000237D2A57D80>"}
-{"level": "INFO", "timestamp": "2023-12-15 17:32:40", "message": "Data inserted for measurement <function Point.measurement at 0x00000237D2A57D80>"}
-{"level": "INFO", "timestamp": "2023-12-15 17:32:41", "message": "Data inserted for measurement <function Point.measurement at 0x00000237D2A57D80>"}
-{"level": "INFO", "timestamp": "2023-12-15 17:32:42", "message": "Data inserted for measurement <function Point.measurement at 0x00000237D2A57D80>"}
-{"level": "INFO", "timestamp": "2023-12-15 17:32:43", "message": "Data inserted for measurement <function Point.measurement at 0x00000237D2A57D80>"}
-{"level": "INFO", "timestamp": "2023-12-15 17:32:44", "message": "Data inserted for measurement <function Point.measurement at 0x00000237D2A57D80>"}
-{"level": "INFO", "timestamp": "2023-12-15 17:32:45", "message": "Data inserted for measurement <function Point.measurement at 0x00000237D2A57D80>"}
-{"level": "ERROR", "timestamp": "2023-12-15 17:32:46", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 18:20:00", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"region\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 18:20:01", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"region\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 18:20:02", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"region\" is not supported."}
+{"level": "INFO", "timestamp": "2023-12-15 18:20:02", "message": "Data inserted for measurement <function Point.measurement at 0x00000169BA5E7D80>"}
+{"level": "INFO", "timestamp": "2023-12-15 18:20:03", "message": "Data inserted for measurement <function Point.measurement at 0x00000169BA5E7D80>"}
+{"level": "INFO", "timestamp": "2023-12-15 18:20:04", "message": "Data inserted for measurement <function Point.measurement at 0x00000169BA5E7D80>"}
+{"level": "INFO", "timestamp": "2023-12-15 18:20:05", "message": "Data inserted for measurement <function Point.measurement at 0x00000169BA5E7D80>"}
+{"level": "INFO", "timestamp": "2023-12-15 18:20:06", "message": "Data inserted for measurement <function Point.measurement at 0x00000169BA5E7D80>"}
+{"level": "INFO", "timestamp": "2023-12-15 18:20:07", "message": "Data inserted for measurement <function Point.measurement at 0x00000169BA5E7D80>"}
+{"level": "INFO", "timestamp": "2023-12-15 18:20:08", "message": "Data inserted for measurement <function Point.measurement at 0x00000169BA5E7D80>"}
+{"level": "INFO", "timestamp": "2023-12-15 18:20:09", "message": "Data inserted for measurement <function Point.measurement at 0x00000169BA5E7D80>"}
+{"level": "INFO", "timestamp": "2023-12-15 18:20:10", "message": "Data inserted for measurement <function Point.measurement at 0x00000169BA5E7D80>"}
+{"level": "ERROR", "timestamp": "2023-12-15 18:20:11", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}

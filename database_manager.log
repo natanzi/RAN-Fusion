@@ -14968,3 +14968,839 @@ HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,ime
 2023-12-15 12:33:26,709 - INFO - UE data inserted into InfluxDB
 2023-12-15 12:33:27,720 - INFO - UE data inserted into InfluxDB
 2023-12-15 12:33:28,733 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:05,287 - INFO - Database connection successful.
+2023-12-15 13:18:05,312 - INFO - gNodeB 'W1140' has been launched with 3 cells.
+2023-12-15 13:18:06,314 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "region" is not supported.
+2023-12-15 13:18:06,314 - INFO - gNodeB 'W1320' has been launched with 3 cells.
+2023-12-15 13:18:07,315 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "region" is not supported.
+2023-12-15 13:18:07,315 - INFO - gNodeB 'W2018' has been launched with 3 cells.
+2023-12-15 13:18:08,317 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "region" is not supported.
+2023-12-15 13:18:08,318 - INFO - Cell 'Ax1242' has been created in gNodeB 'Ax1242' with max capacity 10.
+2023-12-15 13:18:08,319 - INFO - Cell 'BX1453' has been created in gNodeB 'BX1453' with max capacity 10.
+2023-12-15 13:18:08,319 - INFO - Cell 'CX1352' has been created in gNodeB 'CX1352' with max capacity 10.
+2023-12-15 13:18:08,320 - INFO - Cell 'AX1112' has been created in gNodeB 'AX1112' with max capacity 10.
+2023-12-15 13:18:08,320 - INFO - Cell 'BX1334' has been created in gNodeB 'BX1334' with max capacity 10.
+2023-12-15 13:18:08,320 - INFO - Cell 'CX1873' has been created in gNodeB 'CX1873' with max capacity 10.
+2023-12-15 13:18:08,320 - INFO - Cell 'AX9980' has been created in gNodeB 'AX9980' with max capacity 10.
+2023-12-15 13:18:08,321 - INFO - Cell 'BX1230' has been created in gNodeB 'BX1230' with max capacity 10.
+2023-12-15 13:18:08,321 - INFO - Cell 'CX5103' has been created in gNodeB 'CX5103' with max capacity 10.
+2023-12-15 13:18:08,330 - INFO - Data inserted for measurement <function Point.measurement at 0x000002653EEE7D80>
+2023-12-15 13:18:08,331 - INFO - Cell 'Ax1242' has been added to gNodeB 'W1140'.
+2023-12-15 13:18:09,338 - INFO - Data inserted for measurement <function Point.measurement at 0x000002653EEE7D80>
+2023-12-15 13:18:09,339 - INFO - Cell 'BX1453' has been added to gNodeB 'W1140'.
+2023-12-15 13:18:10,345 - INFO - Data inserted for measurement <function Point.measurement at 0x000002653EEE7D80>
+2023-12-15 13:18:10,346 - INFO - Cell 'CX1352' has been added to gNodeB 'W1140'.
+2023-12-15 13:18:11,352 - INFO - Data inserted for measurement <function Point.measurement at 0x000002653EEE7D80>
+2023-12-15 13:18:11,353 - INFO - Cell 'AX1112' has been added to gNodeB 'W1320'.
+2023-12-15 13:18:12,358 - INFO - Data inserted for measurement <function Point.measurement at 0x000002653EEE7D80>
+2023-12-15 13:18:12,358 - INFO - Cell 'BX1334' has been added to gNodeB 'W1320'.
+2023-12-15 13:18:13,364 - INFO - Data inserted for measurement <function Point.measurement at 0x000002653EEE7D80>
+2023-12-15 13:18:13,365 - INFO - Cell 'CX1873' has been added to gNodeB 'W1320'.
+2023-12-15 13:18:14,371 - INFO - Data inserted for measurement <function Point.measurement at 0x000002653EEE7D80>
+2023-12-15 13:18:14,371 - INFO - Cell 'AX9980' has been added to gNodeB 'W2018'.
+2023-12-15 13:18:15,376 - INFO - Data inserted for measurement <function Point.measurement at 0x000002653EEE7D80>
+2023-12-15 13:18:15,377 - INFO - Cell 'BX1230' has been added to gNodeB 'W2018'.
+2023-12-15 13:18:16,383 - INFO - Data inserted for measurement <function Point.measurement at 0x000002653EEE7D80>
+2023-12-15 13:18:16,384 - INFO - Cell 'CX5103' has been added to gNodeB 'W2018'.
+2023-12-15 13:18:17,386 - INFO - UE initialized with ID UE1 at 2023-12-15 13:18:17.386053
+2023-12-15 13:18:17,386 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 13:18:17.386572
+2023-12-15 13:18:17,387 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 13:18:17,387 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 13:18:17,387 - INFO - UE initialized with ID UE1 at 2023-12-15 13:18:17.387609
+2023-12-15 13:18:17,388 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 13:18:17,388 - INFO - UE initialized with ID UE1 at 2023-12-15 13:18:17.388649
+2023-12-15 13:18:17,389 - INFO - UE with ID UE1 added to Cell CX1873 at 2023-12-15 13:18:17.389170
+2023-12-15 13:18:17,389 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-15 13:18:17,389 - INFO - UE 'UE1' has been attached to Cell 'CX1873'.
+2023-12-15 13:18:17,401 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,401 - INFO - UE initialized with ID UE2 at 2023-12-15 13:18:17.401937
+2023-12-15 13:18:17,402 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 13:18:17.402936
+2023-12-15 13:18:17,402 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 13:18:17,402 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 13:18:17,408 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,408 - INFO - UE initialized with ID UE3 at 2023-12-15 13:18:17.408967
+2023-12-15 13:18:17,408 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 13:18:17.408967
+2023-12-15 13:18:17,408 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 13:18:17,409 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 13:18:17,413 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,413 - INFO - UE initialized with ID UE4 at 2023-12-15 13:18:17.413751
+2023-12-15 13:18:17,413 - INFO - UE with ID UE1 added to Cell CX1873 at 2023-12-15 13:18:17.413751
+2023-12-15 13:18:17,414 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-15 13:18:17,414 - INFO - UE 'UE1' has been attached to Cell 'CX1873'.
+2023-12-15 13:18:17,419 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,419 - INFO - UE initialized with ID UE5 at 2023-12-15 13:18:17.419276
+2023-12-15 13:18:17,420 - INFO - UE with ID UE1 added to Cell CX1873 at 2023-12-15 13:18:17.420275
+2023-12-15 13:18:17,420 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-15 13:18:17,420 - INFO - UE 'UE1' has been attached to Cell 'CX1873'.
+2023-12-15 13:18:17,424 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,424 - INFO - UE initialized with ID UE6 at 2023-12-15 13:18:17.424484
+2023-12-15 13:18:17,425 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 13:18:17.425482
+2023-12-15 13:18:17,425 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 13:18:17,425 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 13:18:17,429 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,429 - INFO - UE initialized with ID UE7 at 2023-12-15 13:18:17.429866
+2023-12-15 13:18:17,430 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 13:18:17.430858
+2023-12-15 13:18:17,430 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 13:18:17,430 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 13:18:17,434 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,434 - INFO - UE initialized with ID UE8 at 2023-12-15 13:18:17.434967
+2023-12-15 13:18:17,434 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 13:18:17.434967
+2023-12-15 13:18:17,435 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 13:18:17,435 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 13:18:17,439 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,439 - INFO - UE initialized with ID UE9 at 2023-12-15 13:18:17.439895
+2023-12-15 13:18:17,439 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 13:18:17.439895
+2023-12-15 13:18:17,440 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 13:18:17,440 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 13:18:17,444 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,444 - INFO - UE initialized with ID UE10 at 2023-12-15 13:18:17.444850
+2023-12-15 13:18:17,445 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 13:18:17.445848
+2023-12-15 13:18:17,445 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 13:18:17,445 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 13:18:17,450 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,450 - INFO - UE initialized with ID UE11 at 2023-12-15 13:18:17.450077
+2023-12-15 13:18:17,450 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 13:18:17.450077
+2023-12-15 13:18:17,451 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 13:18:17,451 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 13:18:17,455 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,455 - INFO - UE initialized with ID UE12 at 2023-12-15 13:18:17.455154
+2023-12-15 13:18:17,456 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 13:18:17.456155
+2023-12-15 13:18:17,456 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 13:18:17,456 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 13:18:17,460 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,460 - INFO - UE initialized with ID UE13 at 2023-12-15 13:18:17.460450
+2023-12-15 13:18:17,461 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 13:18:17.461450
+2023-12-15 13:18:17,461 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 13:18:17,461 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 13:18:17,465 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,465 - INFO - UE initialized with ID UE14 at 2023-12-15 13:18:17.465747
+2023-12-15 13:18:17,465 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 13:18:17.465747
+2023-12-15 13:18:17,466 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 13:18:17,466 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 13:18:17,470 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,470 - INFO - UE initialized with ID UE15 at 2023-12-15 13:18:17.470679
+2023-12-15 13:18:17,470 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 13:18:17.470679
+2023-12-15 13:18:17,471 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 13:18:17,471 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 13:18:17,475 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,475 - INFO - UE initialized with ID UE16 at 2023-12-15 13:18:17.475640
+2023-12-15 13:18:17,476 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 13:18:17.476638
+2023-12-15 13:18:17,476 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 13:18:17,476 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 13:18:17,480 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,480 - INFO - UE initialized with ID UE17 at 2023-12-15 13:18:17.480806
+2023-12-15 13:18:17,481 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 13:18:17.480806
+2023-12-15 13:18:17,481 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 13:18:17,481 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 13:18:17,486 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,486 - INFO - UE initialized with ID UE18 at 2023-12-15 13:18:17.486509
+2023-12-15 13:18:17,486 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 13:18:17.486509
+2023-12-15 13:18:17,486 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 13:18:17,487 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 13:18:17,491 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,491 - INFO - UE initialized with ID UE19 at 2023-12-15 13:18:17.491211
+2023-12-15 13:18:17,492 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 13:18:17.492209
+2023-12-15 13:18:17,492 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 13:18:17,492 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 13:18:17,496 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,496 - INFO - UE initialized with ID UE20 at 2023-12-15 13:18:17.496364
+2023-12-15 13:18:17,497 - INFO - UE with ID UE1 added to Cell Ax1242 at 2023-12-15 13:18:17.497365
+2023-12-15 13:18:17,497 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-15 13:18:17,498 - INFO - UE 'UE1' has been attached to Cell 'Ax1242'.
+2023-12-15 13:18:17,501 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,501 - INFO - UE initialized with ID UE21 at 2023-12-15 13:18:17.501998
+2023-12-15 13:18:17,502 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 13:18:17.502999
+2023-12-15 13:18:17,502 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 13:18:17,503 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 13:18:17,508 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,508 - INFO - UE initialized with ID UE22 at 2023-12-15 13:18:17.508132
+2023-12-15 13:18:17,509 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 13:18:17.509132
+2023-12-15 13:18:17,509 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 13:18:17,510 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 13:18:17,514 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,514 - INFO - UE initialized with ID UE23 at 2023-12-15 13:18:17.514375
+2023-12-15 13:18:17,515 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 13:18:17.515377
+2023-12-15 13:18:17,515 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 13:18:17,516 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 13:18:17,520 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,520 - INFO - UE initialized with ID UE24 at 2023-12-15 13:18:17.520416
+2023-12-15 13:18:17,521 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 13:18:17.521417
+2023-12-15 13:18:17,521 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 13:18:17,522 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 13:18:17,526 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,526 - INFO - UE initialized with ID UE25 at 2023-12-15 13:18:17.526323
+2023-12-15 13:18:17,527 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 13:18:17.527324
+2023-12-15 13:18:17,527 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 13:18:17,528 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 13:18:17,532 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,532 - INFO - UE initialized with ID UE26 at 2023-12-15 13:18:17.532290
+2023-12-15 13:18:17,533 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 13:18:17.533258
+2023-12-15 13:18:17,533 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 13:18:17,533 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 13:18:17,537 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,537 - INFO - UE initialized with ID UE27 at 2023-12-15 13:18:17.537561
+2023-12-15 13:18:17,538 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 13:18:17.538556
+2023-12-15 13:18:17,538 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 13:18:17,538 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 13:18:17,542 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,542 - INFO - UE initialized with ID UE28 at 2023-12-15 13:18:17.542991
+2023-12-15 13:18:17,543 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 13:18:17.543986
+2023-12-15 13:18:17,543 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 13:18:17,544 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 13:18:17,548 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,548 - INFO - UE initialized with ID UE29 at 2023-12-15 13:18:17.548882
+2023-12-15 13:18:17,548 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 13:18:17.548882
+2023-12-15 13:18:17,549 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 13:18:17,549 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 13:18:17,553 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,553 - INFO - UE initialized with ID UE30 at 2023-12-15 13:18:17.553798
+2023-12-15 13:18:17,553 - INFO - UE with ID UE1 added to Cell Ax1242 at 2023-12-15 13:18:17.553798
+2023-12-15 13:18:17,554 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-15 13:18:17,554 - INFO - UE 'UE1' has been attached to Cell 'Ax1242'.
+2023-12-15 13:18:17,558 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,558 - INFO - UE initialized with ID UE31 at 2023-12-15 13:18:17.558557
+2023-12-15 13:18:17,558 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 13:18:17.558557
+2023-12-15 13:18:17,559 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 13:18:17,559 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 13:18:17,563 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,563 - INFO - UE initialized with ID UE32 at 2023-12-15 13:18:17.563531
+2023-12-15 13:18:17,563 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 13:18:17.563531
+2023-12-15 13:18:17,564 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 13:18:17,564 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 13:18:17,568 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,568 - INFO - UE initialized with ID UE33 at 2023-12-15 13:18:17.568309
+2023-12-15 13:18:17,568 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 13:18:17.568309
+2023-12-15 13:18:17,569 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 13:18:17,569 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 13:18:17,573 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,573 - INFO - UE initialized with ID UE34 at 2023-12-15 13:18:17.573181
+2023-12-15 13:18:17,573 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 13:18:17.573181
+2023-12-15 13:18:17,574 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 13:18:17,574 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 13:18:17,578 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,578 - INFO - UE initialized with ID UE35 at 2023-12-15 13:18:17.578636
+2023-12-15 13:18:17,578 - INFO - UE with ID UE1 added to Cell Ax1242 at 2023-12-15 13:18:17.578636
+2023-12-15 13:18:17,579 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-15 13:18:17,579 - INFO - UE 'UE1' has been attached to Cell 'Ax1242'.
+2023-12-15 13:18:17,583 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,583 - INFO - UE initialized with ID UE36 at 2023-12-15 13:18:17.583468
+2023-12-15 13:18:17,583 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 13:18:17.583468
+2023-12-15 13:18:17,584 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 13:18:17,584 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 13:18:17,587 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,588 - INFO - UE initialized with ID UE37 at 2023-12-15 13:18:17.588254
+2023-12-15 13:18:17,588 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 13:18:17.588254
+2023-12-15 13:18:17,589 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 13:18:17,589 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 13:18:17,593 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,593 - INFO - UE initialized with ID UE38 at 2023-12-15 13:18:17.593266
+2023-12-15 13:18:17,593 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 13:18:17.593772
+2023-12-15 13:18:17,593 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 13:18:17,593 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 13:18:17,598 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:17,598 - INFO - UE initialized with ID UE39 at 2023-12-15 13:18:17.598125
+2023-12-15 13:18:17,598 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 13:18:17.598125
+2023-12-15 13:18:17,599 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 13:18:17,599 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 13:18:17,602 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:23,058 - INFO - Database connection successful.
+2023-12-15 13:18:23,096 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:24,108 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:25,121 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:26,133 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:26,499 - INFO - Database connection successful.
+2023-12-15 13:18:26,508 - INFO - Testing cell load logging.
+2023-12-15 13:18:26,508 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 15.0%
+2023-12-15 13:18:26,509 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 35.0%
+2023-12-15 13:18:26,509 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 10.0%
+2023-12-15 13:18:26,509 - INFO - Testing cell load logging.
+2023-12-15 13:18:26,509 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 30.0%
+2023-12-15 13:18:26,510 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 35.0%
+2023-12-15 13:18:26,510 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 13:18:26,510 - INFO - Testing cell load logging.
+2023-12-15 13:18:26,510 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 10.0%
+2023-12-15 13:18:26,511 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 25.0%
+2023-12-15 13:18:26,511 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 25.0%
+2023-12-15 13:18:27,146 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:28,157 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:29,169 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:30,180 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:31,193 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:31,512 - INFO - Testing cell load logging.
+2023-12-15 13:18:31,512 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 15.0%
+2023-12-15 13:18:31,512 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 35.0%
+2023-12-15 13:18:31,513 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 10.0%
+2023-12-15 13:18:31,513 - INFO - Testing cell load logging.
+2023-12-15 13:18:31,513 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 30.0%
+2023-12-15 13:18:31,513 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 35.0%
+2023-12-15 13:18:31,514 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 13:18:31,514 - INFO - Testing cell load logging.
+2023-12-15 13:18:31,514 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 10.0%
+2023-12-15 13:18:31,514 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 25.0%
+2023-12-15 13:18:31,514 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 25.0%
+2023-12-15 13:18:32,205 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:33,217 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:34,230 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:35,242 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:36,256 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:36,515 - INFO - Testing cell load logging.
+2023-12-15 13:18:36,515 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 15.0%
+2023-12-15 13:18:36,516 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 35.0%
+2023-12-15 13:18:36,516 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 10.0%
+2023-12-15 13:18:36,516 - INFO - Testing cell load logging.
+2023-12-15 13:18:36,517 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 30.0%
+2023-12-15 13:18:36,517 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 35.0%
+2023-12-15 13:18:36,517 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 13:18:36,518 - INFO - Testing cell load logging.
+2023-12-15 13:18:36,518 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 10.0%
+2023-12-15 13:18:36,518 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 25.0%
+2023-12-15 13:18:36,519 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 25.0%
+2023-12-15 13:18:37,268 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:38,280 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:39,292 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:40,305 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:41,318 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:41,520 - INFO - Testing cell load logging.
+2023-12-15 13:18:41,520 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 15.0%
+2023-12-15 13:18:41,520 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 35.0%
+2023-12-15 13:18:41,521 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 10.0%
+2023-12-15 13:18:41,521 - INFO - Testing cell load logging.
+2023-12-15 13:18:41,521 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 30.0%
+2023-12-15 13:18:41,522 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 35.0%
+2023-12-15 13:18:41,522 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 13:18:41,522 - INFO - Testing cell load logging.
+2023-12-15 13:18:41,523 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 10.0%
+2023-12-15 13:18:41,523 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 25.0%
+2023-12-15 13:18:41,523 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 25.0%
+2023-12-15 13:18:42,330 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:43,342 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:44,354 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:45,367 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:46,380 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:46,525 - INFO - Testing cell load logging.
+2023-12-15 13:18:46,525 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 15.0%
+2023-12-15 13:18:46,526 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 35.0%
+2023-12-15 13:18:46,526 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 10.0%
+2023-12-15 13:18:46,526 - INFO - Testing cell load logging.
+2023-12-15 13:18:46,526 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 30.0%
+2023-12-15 13:18:46,527 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 35.0%
+2023-12-15 13:18:46,527 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 13:18:46,528 - INFO - Testing cell load logging.
+2023-12-15 13:18:46,528 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 10.0%
+2023-12-15 13:18:46,528 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 25.0%
+2023-12-15 13:18:46,529 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 25.0%
+2023-12-15 13:18:47,392 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:48,404 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:49,417 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:50,429 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:51,441 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:51,529 - INFO - Testing cell load logging.
+2023-12-15 13:18:51,529 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 15.0%
+2023-12-15 13:18:51,529 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 35.0%
+2023-12-15 13:18:51,530 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 10.0%
+2023-12-15 13:18:51,530 - INFO - Testing cell load logging.
+2023-12-15 13:18:51,530 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 30.0%
+2023-12-15 13:18:51,530 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 35.0%
+2023-12-15 13:18:51,531 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 13:18:51,531 - INFO - Testing cell load logging.
+2023-12-15 13:18:51,531 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 10.0%
+2023-12-15 13:18:51,531 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 25.0%
+2023-12-15 13:18:51,532 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 25.0%
+2023-12-15 13:18:52,453 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:53,466 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:54,480 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:55,492 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:56,504 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:56,533 - INFO - Testing cell load logging.
+2023-12-15 13:18:56,533 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 15.0%
+2023-12-15 13:18:56,534 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 35.0%
+2023-12-15 13:18:56,534 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 10.0%
+2023-12-15 13:18:56,534 - INFO - Testing cell load logging.
+2023-12-15 13:18:56,535 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 30.0%
+2023-12-15 13:18:56,535 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 35.0%
+2023-12-15 13:18:56,535 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 13:18:56,536 - INFO - Testing cell load logging.
+2023-12-15 13:18:56,536 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 10.0%
+2023-12-15 13:18:56,536 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 25.0%
+2023-12-15 13:18:56,537 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 25.0%
+2023-12-15 13:18:57,517 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:58,529 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:18:59,541 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:19:00,555 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:19:01,538 - INFO - Testing cell load logging.
+2023-12-15 13:19:01,539 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 15.0%
+2023-12-15 13:19:01,539 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 35.0%
+2023-12-15 13:19:01,539 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 10.0%
+2023-12-15 13:19:01,540 - INFO - Testing cell load logging.
+2023-12-15 13:19:01,540 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 30.0%
+2023-12-15 13:19:01,540 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 35.0%
+2023-12-15 13:19:01,541 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 13:19:01,541 - INFO - Testing cell load logging.
+2023-12-15 13:19:01,541 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 10.0%
+2023-12-15 13:19:01,542 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 25.0%
+2023-12-15 13:19:01,542 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 25.0%
+2023-12-15 13:19:01,568 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:19:02,580 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:19:03,586 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:19:04,592 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:19:05,598 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:19:06,543 - INFO - Testing cell load logging.
+2023-12-15 13:19:06,543 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 15.0%
+2023-12-15 13:19:06,543 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 35.0%
+2023-12-15 13:19:06,544 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 10.0%
+2023-12-15 13:19:06,544 - INFO - Testing cell load logging.
+2023-12-15 13:19:06,544 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 30.0%
+2023-12-15 13:19:06,544 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 35.0%
+2023-12-15 13:19:06,545 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 13:19:06,545 - INFO - Testing cell load logging.
+2023-12-15 13:19:06,545 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 10.0%
+2023-12-15 13:19:06,546 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 25.0%
+2023-12-15 13:19:06,546 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 25.0%
+2023-12-15 13:19:06,603 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:19:07,608 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:19:08,614 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:19:09,619 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:19:10,624 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:19:11,547 - INFO - Testing cell load logging.
+2023-12-15 13:19:11,547 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 15.0%
+2023-12-15 13:19:11,547 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 35.0%
+2023-12-15 13:19:11,548 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 10.0%
+2023-12-15 13:19:11,548 - INFO - Testing cell load logging.
+2023-12-15 13:19:11,548 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 30.0%
+2023-12-15 13:19:11,549 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 35.0%
+2023-12-15 13:19:11,549 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 13:19:11,549 - INFO - Testing cell load logging.
+2023-12-15 13:19:11,550 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 10.0%
+2023-12-15 13:19:11,550 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 25.0%
+2023-12-15 13:19:11,550 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 25.0%
+2023-12-15 13:19:11,631 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:19:12,637 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:19:13,644 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:19:14,650 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:19:15,657 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:19:59,093 - INFO - Database connection successful.
+2023-12-15 13:19:59,103 - INFO - gNodeB 'W1140' has been launched with 3 cells.
+2023-12-15 13:20:00,105 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "region" is not supported.
+2023-12-15 13:20:00,105 - INFO - gNodeB 'W1320' has been launched with 3 cells.
+2023-12-15 13:20:01,107 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "region" is not supported.
+2023-12-15 13:20:01,108 - INFO - gNodeB 'W2018' has been launched with 3 cells.
+2023-12-15 13:20:02,110 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "region" is not supported.
+2023-12-15 13:20:02,111 - INFO - Cell 'Ax1242' has been created in gNodeB 'Ax1242' with max capacity 10.
+2023-12-15 13:20:02,112 - INFO - Cell 'BX1453' has been created in gNodeB 'BX1453' with max capacity 10.
+2023-12-15 13:20:02,112 - INFO - Cell 'CX1352' has been created in gNodeB 'CX1352' with max capacity 10.
+2023-12-15 13:20:02,112 - INFO - Cell 'AX1112' has been created in gNodeB 'AX1112' with max capacity 10.
+2023-12-15 13:20:02,112 - INFO - Cell 'BX1334' has been created in gNodeB 'BX1334' with max capacity 10.
+2023-12-15 13:20:02,113 - INFO - Cell 'CX1873' has been created in gNodeB 'CX1873' with max capacity 10.
+2023-12-15 13:20:02,113 - INFO - Cell 'AX9980' has been created in gNodeB 'AX9980' with max capacity 10.
+2023-12-15 13:20:02,113 - INFO - Cell 'BX1230' has been created in gNodeB 'BX1230' with max capacity 10.
+2023-12-15 13:20:02,113 - INFO - Cell 'CX5103' has been created in gNodeB 'CX5103' with max capacity 10.
+2023-12-15 13:20:02,119 - INFO - Data inserted for measurement <function Point.measurement at 0x00000169BA5E7D80>
+2023-12-15 13:20:02,119 - INFO - Cell 'Ax1242' has been added to gNodeB 'W1140'.
+2023-12-15 13:20:03,125 - INFO - Data inserted for measurement <function Point.measurement at 0x00000169BA5E7D80>
+2023-12-15 13:20:03,126 - INFO - Cell 'BX1453' has been added to gNodeB 'W1140'.
+2023-12-15 13:20:04,131 - INFO - Data inserted for measurement <function Point.measurement at 0x00000169BA5E7D80>
+2023-12-15 13:20:04,131 - INFO - Cell 'CX1352' has been added to gNodeB 'W1140'.
+2023-12-15 13:20:05,137 - INFO - Data inserted for measurement <function Point.measurement at 0x00000169BA5E7D80>
+2023-12-15 13:20:05,138 - INFO - Cell 'AX1112' has been added to gNodeB 'W1320'.
+2023-12-15 13:20:06,143 - INFO - Data inserted for measurement <function Point.measurement at 0x00000169BA5E7D80>
+2023-12-15 13:20:06,143 - INFO - Cell 'BX1334' has been added to gNodeB 'W1320'.
+2023-12-15 13:20:07,149 - INFO - Data inserted for measurement <function Point.measurement at 0x00000169BA5E7D80>
+2023-12-15 13:20:07,150 - INFO - Cell 'CX1873' has been added to gNodeB 'W1320'.
+2023-12-15 13:20:08,155 - INFO - Data inserted for measurement <function Point.measurement at 0x00000169BA5E7D80>
+2023-12-15 13:20:08,156 - INFO - Cell 'AX9980' has been added to gNodeB 'W2018'.
+2023-12-15 13:20:09,162 - INFO - Data inserted for measurement <function Point.measurement at 0x00000169BA5E7D80>
+2023-12-15 13:20:09,162 - INFO - Cell 'BX1230' has been added to gNodeB 'W2018'.
+2023-12-15 13:20:10,168 - INFO - Data inserted for measurement <function Point.measurement at 0x00000169BA5E7D80>
+2023-12-15 13:20:10,169 - INFO - Cell 'CX5103' has been added to gNodeB 'W2018'.
+2023-12-15 13:20:11,171 - INFO - UE initialized with ID UE1 at 2023-12-15 13:20:11.170785
+2023-12-15 13:20:11,172 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 13:20:11.171641
+2023-12-15 13:20:11,172 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 13:20:11,172 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 13:20:11,172 - INFO - UE initialized with ID UE1 at 2023-12-15 13:20:11.172640
+2023-12-15 13:20:11,173 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 13:20:11,173 - INFO - UE initialized with ID UE1 at 2023-12-15 13:20:11.173636
+2023-12-15 13:20:11,174 - INFO - UE with ID UE1 added to Cell CX1873 at 2023-12-15 13:20:11.174632
+2023-12-15 13:20:11,174 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-15 13:20:11,175 - INFO - UE 'UE1' has been attached to Cell 'CX1873'.
+2023-12-15 13:20:11,188 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,188 - INFO - UE initialized with ID UE2 at 2023-12-15 13:20:11.188589
+2023-12-15 13:20:11,188 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 13:20:11.188589
+2023-12-15 13:20:11,189 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 13:20:11,189 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 13:20:11,194 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,195 - INFO - UE initialized with ID UE3 at 2023-12-15 13:20:11.195264
+2023-12-15 13:20:11,195 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 13:20:11.195264
+2023-12-15 13:20:11,195 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 13:20:11,196 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 13:20:11,200 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,200 - INFO - UE initialized with ID UE4 at 2023-12-15 13:20:11.200184
+2023-12-15 13:20:11,200 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 13:20:11.200184
+2023-12-15 13:20:11,201 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 13:20:11,201 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 13:20:11,205 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,205 - INFO - UE initialized with ID UE5 at 2023-12-15 13:20:11.205682
+2023-12-15 13:20:11,205 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 13:20:11.205682
+2023-12-15 13:20:11,205 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 13:20:11,206 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 13:20:11,209 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,210 - INFO - UE initialized with ID UE6 at 2023-12-15 13:20:11.210227
+2023-12-15 13:20:11,210 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 13:20:11.210227
+2023-12-15 13:20:11,211 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 13:20:11,211 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 13:20:11,215 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,215 - INFO - UE initialized with ID UE7 at 2023-12-15 13:20:11.215183
+2023-12-15 13:20:11,216 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 13:20:11.216182
+2023-12-15 13:20:11,216 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 13:20:11,216 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 13:20:11,220 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,220 - INFO - UE initialized with ID UE8 at 2023-12-15 13:20:11.220179
+2023-12-15 13:20:11,220 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 13:20:11.220179
+2023-12-15 13:20:11,221 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 13:20:11,221 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 13:20:11,225 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,225 - INFO - UE initialized with ID UE9 at 2023-12-15 13:20:11.225613
+2023-12-15 13:20:11,225 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 13:20:11.225613
+2023-12-15 13:20:11,226 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 13:20:11,226 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 13:20:11,230 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,230 - INFO - UE initialized with ID UE10 at 2023-12-15 13:20:11.230655
+2023-12-15 13:20:11,230 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 13:20:11.230655
+2023-12-15 13:20:11,231 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 13:20:11,231 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 13:20:11,235 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,235 - INFO - UE initialized with ID UE11 at 2023-12-15 13:20:11.235754
+2023-12-15 13:20:11,235 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 13:20:11.235754
+2023-12-15 13:20:11,235 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 13:20:11,236 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 13:20:11,240 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,240 - INFO - UE initialized with ID UE12 at 2023-12-15 13:20:11.240332
+2023-12-15 13:20:11,240 - INFO - UE with ID UE1 added to Cell CX1873 at 2023-12-15 13:20:11.240837
+2023-12-15 13:20:11,240 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-15 13:20:11,241 - INFO - UE 'UE1' has been attached to Cell 'CX1873'.
+2023-12-15 13:20:11,245 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,245 - INFO - UE initialized with ID UE13 at 2023-12-15 13:20:11.245376
+2023-12-15 13:20:11,246 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 13:20:11.246375
+2023-12-15 13:20:11,246 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 13:20:11,246 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 13:20:11,250 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,250 - INFO - UE initialized with ID UE14 at 2023-12-15 13:20:11.250459
+2023-12-15 13:20:11,250 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 13:20:11.250459
+2023-12-15 13:20:11,251 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 13:20:11,251 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 13:20:11,255 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,255 - INFO - UE initialized with ID UE15 at 2023-12-15 13:20:11.255398
+2023-12-15 13:20:11,256 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 13:20:11.255398
+2023-12-15 13:20:11,256 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 13:20:11,256 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 13:20:11,260 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,260 - INFO - UE initialized with ID UE16 at 2023-12-15 13:20:11.260337
+2023-12-15 13:20:11,260 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 13:20:11.260337
+2023-12-15 13:20:11,261 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 13:20:11,261 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 13:20:11,265 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,265 - INFO - UE initialized with ID UE17 at 2023-12-15 13:20:11.265279
+2023-12-15 13:20:11,265 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 13:20:11.265279
+2023-12-15 13:20:11,266 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 13:20:11,266 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 13:20:11,270 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,270 - INFO - UE initialized with ID UE18 at 2023-12-15 13:20:11.270712
+2023-12-15 13:20:11,270 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 13:20:11.270712
+2023-12-15 13:20:11,270 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 13:20:11,271 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 13:20:11,275 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,275 - INFO - UE initialized with ID UE19 at 2023-12-15 13:20:11.275933
+2023-12-15 13:20:11,275 - INFO - UE with ID UE1 added to Cell CX1873 at 2023-12-15 13:20:11.275933
+2023-12-15 13:20:11,275 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-15 13:20:11,276 - INFO - UE 'UE1' has been attached to Cell 'CX1873'.
+2023-12-15 13:20:11,279 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,280 - INFO - UE initialized with ID UE20 at 2023-12-15 13:20:11.280496
+2023-12-15 13:20:11,280 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 13:20:11.280496
+2023-12-15 13:20:11,281 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 13:20:11,281 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 13:20:11,285 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,285 - INFO - UE initialized with ID UE21 at 2023-12-15 13:20:11.285406
+2023-12-15 13:20:11,285 - INFO - UE with ID UE1 added to Cell Ax1242 at 2023-12-15 13:20:11.285912
+2023-12-15 13:20:11,285 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-15 13:20:11,286 - INFO - UE 'UE1' has been attached to Cell 'Ax1242'.
+2023-12-15 13:20:11,290 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,290 - INFO - UE initialized with ID UE22 at 2023-12-15 13:20:11.290343
+2023-12-15 13:20:11,291 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 13:20:11.291341
+2023-12-15 13:20:11,291 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 13:20:11,291 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 13:20:11,295 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,295 - INFO - UE initialized with ID UE23 at 2023-12-15 13:20:11.295567
+2023-12-15 13:20:11,296 - INFO - UE with ID UE1 added to Cell Ax1242 at 2023-12-15 13:20:11.296565
+2023-12-15 13:20:11,296 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-15 13:20:11,296 - INFO - UE 'UE1' has been attached to Cell 'Ax1242'.
+2023-12-15 13:20:11,300 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,300 - INFO - UE initialized with ID UE24 at 2023-12-15 13:20:11.300926
+2023-12-15 13:20:11,300 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 13:20:11.300926
+2023-12-15 13:20:11,301 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 13:20:11,301 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 13:20:11,306 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,306 - INFO - UE initialized with ID UE25 at 2023-12-15 13:20:11.306003
+2023-12-15 13:20:11,306 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 13:20:11.306003
+2023-12-15 13:20:11,307 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 13:20:11,307 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 13:20:11,310 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,310 - INFO - UE initialized with ID UE26 at 2023-12-15 13:20:11.310970
+2023-12-15 13:20:11,311 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 13:20:11.311970
+2023-12-15 13:20:11,311 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 13:20:11,311 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 13:20:11,316 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,316 - INFO - UE initialized with ID UE27 at 2023-12-15 13:20:11.316042
+2023-12-15 13:20:11,316 - INFO - UE with ID UE1 added to Cell Ax1242 at 2023-12-15 13:20:11.316042
+2023-12-15 13:20:11,317 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-15 13:20:11,317 - INFO - UE 'UE1' has been attached to Cell 'Ax1242'.
+2023-12-15 13:20:11,320 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,321 - INFO - UE initialized with ID UE28 at 2023-12-15 13:20:11.321014
+2023-12-15 13:20:11,321 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 13:20:11.321014
+2023-12-15 13:20:11,321 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 13:20:11,322 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 13:20:11,325 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,325 - INFO - UE initialized with ID UE29 at 2023-12-15 13:20:11.325662
+2023-12-15 13:20:11,325 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 13:20:11.325662
+2023-12-15 13:20:11,325 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 13:20:11,326 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 13:20:11,329 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,330 - INFO - UE initialized with ID UE30 at 2023-12-15 13:20:11.330434
+2023-12-15 13:20:11,330 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 13:20:11.330434
+2023-12-15 13:20:11,331 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 13:20:11,331 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 13:20:11,335 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,335 - INFO - UE initialized with ID UE31 at 2023-12-15 13:20:11.335194
+2023-12-15 13:20:11,336 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 13:20:11.335194
+2023-12-15 13:20:11,336 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 13:20:11,336 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 13:20:11,339 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,340 - INFO - UE initialized with ID UE32 at 2023-12-15 13:20:11.340209
+2023-12-15 13:20:11,340 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 13:20:11.340209
+2023-12-15 13:20:11,341 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 13:20:11,341 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 13:20:11,344 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,344 - INFO - UE initialized with ID UE33 at 2023-12-15 13:20:11.344836
+2023-12-15 13:20:11,345 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 13:20:11.344836
+2023-12-15 13:20:11,345 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 13:20:11,345 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 13:20:11,349 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,349 - INFO - UE initialized with ID UE34 at 2023-12-15 13:20:11.349885
+2023-12-15 13:20:11,349 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 13:20:11.349885
+2023-12-15 13:20:11,350 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 13:20:11,350 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 13:20:11,354 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,354 - INFO - UE initialized with ID UE35 at 2023-12-15 13:20:11.354975
+2023-12-15 13:20:11,354 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 13:20:11.354975
+2023-12-15 13:20:11,354 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 13:20:11,355 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 13:20:11,359 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,359 - INFO - UE initialized with ID UE36 at 2023-12-15 13:20:11.359488
+2023-12-15 13:20:11,360 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 13:20:11.360486
+2023-12-15 13:20:11,360 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 13:20:11,360 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 13:20:11,364 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,364 - INFO - UE initialized with ID UE37 at 2023-12-15 13:20:11.364608
+2023-12-15 13:20:11,364 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 13:20:11.364608
+2023-12-15 13:20:11,365 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 13:20:11,365 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 13:20:11,369 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,369 - INFO - UE initialized with ID UE38 at 2023-12-15 13:20:11.369559
+2023-12-15 13:20:11,369 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 13:20:11.369559
+2023-12-15 13:20:11,370 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 13:20:11,370 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 13:20:11,374 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:11,374 - INFO - UE initialized with ID UE39 at 2023-12-15 13:20:11.374267
+2023-12-15 13:20:11,374 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 13:20:11.374267
+2023-12-15 13:20:11,375 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 13:20:11,375 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 13:20:11,379 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:16,866 - INFO - Database connection successful.
+2023-12-15 13:20:16,882 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:17,895 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:18,907 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:19,919 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:20,293 - INFO - Database connection successful.
+2023-12-15 13:20:20,302 - INFO - Testing cell load logging.
+2023-12-15 13:20:20,302 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 15.0%
+2023-12-15 13:20:20,303 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 13:20:20,303 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 15.0%
+2023-12-15 13:20:20,303 - INFO - Testing cell load logging.
+2023-12-15 13:20:20,304 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 13:20:20,304 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 13:20:20,304 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 13:20:20,305 - INFO - Testing cell load logging.
+2023-12-15 13:20:20,305 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 30.0%
+2023-12-15 13:20:20,305 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 13:20:20,305 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 40.0%
+2023-12-15 13:20:20,932 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:21,945 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:22,958 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:23,971 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:24,983 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:25,306 - INFO - Testing cell load logging.
+2023-12-15 13:20:25,306 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 15.0%
+2023-12-15 13:20:25,307 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 13:20:25,307 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 15.0%
+2023-12-15 13:20:25,308 - INFO - Testing cell load logging.
+2023-12-15 13:20:25,308 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 13:20:25,308 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 13:20:25,308 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 13:20:25,309 - INFO - Testing cell load logging.
+2023-12-15 13:20:25,309 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 30.0%
+2023-12-15 13:20:25,309 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 13:20:25,310 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 40.0%
+2023-12-15 13:20:25,996 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:27,009 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:28,021 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:29,033 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:30,046 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:30,311 - INFO - Testing cell load logging.
+2023-12-15 13:20:30,311 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 15.0%
+2023-12-15 13:20:30,312 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 13:20:30,313 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 15.0%
+2023-12-15 13:20:30,313 - INFO - Testing cell load logging.
+2023-12-15 13:20:30,313 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 13:20:30,314 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 13:20:30,314 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 13:20:30,314 - INFO - Testing cell load logging.
+2023-12-15 13:20:30,315 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 30.0%
+2023-12-15 13:20:30,315 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 13:20:30,315 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 40.0%
+2023-12-15 13:20:31,058 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:32,071 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:33,084 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:34,097 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:35,109 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:35,316 - INFO - Testing cell load logging.
+2023-12-15 13:20:35,316 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 15.0%
+2023-12-15 13:20:35,316 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 13:20:35,317 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 15.0%
+2023-12-15 13:20:35,317 - INFO - Testing cell load logging.
+2023-12-15 13:20:35,317 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 13:20:35,318 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 13:20:35,318 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 13:20:35,318 - INFO - Testing cell load logging.
+2023-12-15 13:20:35,319 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 30.0%
+2023-12-15 13:20:35,319 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 13:20:35,319 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 40.0%
+2023-12-15 13:20:36,123 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:37,135 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:38,153 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:39,165 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:40,177 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:40,321 - INFO - Testing cell load logging.
+2023-12-15 13:20:40,321 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 15.0%
+2023-12-15 13:20:40,321 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 13:20:40,322 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 15.0%
+2023-12-15 13:20:40,322 - INFO - Testing cell load logging.
+2023-12-15 13:20:40,323 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 13:20:40,323 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 13:20:40,323 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 13:20:40,323 - INFO - Testing cell load logging.
+2023-12-15 13:20:40,324 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 30.0%
+2023-12-15 13:20:40,324 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 13:20:40,324 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 40.0%
+2023-12-15 13:20:41,191 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:42,204 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:43,266 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:44,282 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:45,296 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:45,325 - INFO - Testing cell load logging.
+2023-12-15 13:20:45,325 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 15.0%
+2023-12-15 13:20:45,325 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 13:20:45,326 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 15.0%
+2023-12-15 13:20:45,326 - INFO - Testing cell load logging.
+2023-12-15 13:20:45,326 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 13:20:45,326 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 13:20:45,327 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 13:20:45,327 - INFO - Testing cell load logging.
+2023-12-15 13:20:45,327 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 30.0%
+2023-12-15 13:20:45,327 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 13:20:45,328 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 40.0%
+2023-12-15 13:20:46,307 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:47,320 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:48,331 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:49,345 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:50,329 - INFO - Testing cell load logging.
+2023-12-15 13:20:50,329 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 15.0%
+2023-12-15 13:20:50,330 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 13:20:50,330 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 15.0%
+2023-12-15 13:20:50,330 - INFO - Testing cell load logging.
+2023-12-15 13:20:50,331 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 13:20:50,331 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 13:20:50,331 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 13:20:50,332 - INFO - Testing cell load logging.
+2023-12-15 13:20:50,332 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 30.0%
+2023-12-15 13:20:50,332 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 13:20:50,333 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 40.0%
+2023-12-15 13:20:50,357 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:51,369 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:52,382 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:53,394 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:54,407 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:55,334 - INFO - Testing cell load logging.
+2023-12-15 13:20:55,334 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 15.0%
+2023-12-15 13:20:55,335 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 13:20:55,335 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 15.0%
+2023-12-15 13:20:55,335 - INFO - Testing cell load logging.
+2023-12-15 13:20:55,335 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 13:20:55,335 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 13:20:55,336 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 13:20:55,336 - INFO - Testing cell load logging.
+2023-12-15 13:20:55,336 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 30.0%
+2023-12-15 13:20:55,336 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 13:20:55,336 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 40.0%
+2023-12-15 13:20:55,418 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:56,431 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:57,437 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:58,442 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:20:59,447 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:21:00,338 - INFO - Testing cell load logging.
+2023-12-15 13:21:00,338 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 15.0%
+2023-12-15 13:21:00,339 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 13:21:00,339 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 15.0%
+2023-12-15 13:21:00,339 - INFO - Testing cell load logging.
+2023-12-15 13:21:00,340 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 13:21:00,340 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 13:21:00,340 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 13:21:00,340 - INFO - Testing cell load logging.
+2023-12-15 13:21:00,341 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 30.0%
+2023-12-15 13:21:00,341 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 13:21:00,341 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 40.0%
+2023-12-15 13:21:00,454 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:21:01,459 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:21:02,465 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:21:03,471 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:21:04,477 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:21:05,343 - INFO - Testing cell load logging.
+2023-12-15 13:21:05,343 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 15.0%
+2023-12-15 13:21:05,343 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 13:21:05,344 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 15.0%
+2023-12-15 13:21:05,344 - INFO - Testing cell load logging.
+2023-12-15 13:21:05,344 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 13:21:05,345 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 13:21:05,345 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 13:21:05,345 - INFO - Testing cell load logging.
+2023-12-15 13:21:05,345 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 30.0%
+2023-12-15 13:21:05,346 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 13:21:05,346 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 40.0%
+2023-12-15 13:21:05,483 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:21:06,489 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:21:07,495 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:21:08,501 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:21:09,506 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:21:10,347 - INFO - Testing cell load logging.
+2023-12-15 13:21:10,347 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 15.0%
+2023-12-15 13:21:10,348 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 20.0%
+2023-12-15 13:21:10,348 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 15.0%
+2023-12-15 13:21:10,348 - INFO - Testing cell load logging.
+2023-12-15 13:21:10,349 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 20.0%
+2023-12-15 13:21:10,349 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 13:21:10,349 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 13:21:10,350 - INFO - Testing cell load logging.
+2023-12-15 13:21:10,350 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 30.0%
+2023-12-15 13:21:10,350 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 20.0%
+2023-12-15 13:21:10,350 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 40.0%
+2023-12-15 13:21:10,512 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:21:11,518 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:21:12,523 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:21:13,529 - INFO - UE data inserted into InfluxDB
