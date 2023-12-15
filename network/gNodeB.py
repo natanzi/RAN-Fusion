@@ -105,9 +105,10 @@ class gNodeB:
 
         for field, value in fields.items():
             if value is not None:
-                point.field(field, value)
+                point = point.field(field, value)
 
-        return point.time(time.time_ns(), WritePrecision.NS)
+        point = point.time(time.time_ns(), WritePrecision.NS)
+        return point
 ######################################################################################################
 ##################################################Cell and UE Management##########################
     def find_ue_by_id(self, ue_id):
