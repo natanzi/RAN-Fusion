@@ -26687,3 +26687,215 @@ HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charse
 HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
 
 2023-12-15 17:43:53,859 - ERROR - Failed to insert log data into InfluxDB: maximum recursion depth exceeded
+2023-12-15 17:53:25,974 - INFO - Database connection successful.
+2023-12-15 17:53:26,003 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:26 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:26,006 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:26 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:27,148 - INFO - Data inserted for measurement gnodeb_metrics with tags gnodeb_id=W1140, entity_type=gnodeb
+2023-12-15 17:53:27,151 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:27 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:27,153 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:27 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:28,167 - INFO - Data inserted for measurement gnodeb_metrics with tags gnodeb_id=W1320, entity_type=gnodeb
+2023-12-15 17:53:28,168 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:28 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:28,170 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:28 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:29,182 - INFO - Data inserted for measurement gnodeb_metrics with tags gnodeb_id=W2018, entity_type=gnodeb
+2023-12-15 17:53:29,187 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:29 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:29,189 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:29 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:29,191 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:29 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:29,193 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:29 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:29,196 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:29 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:29,197 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:29 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:29,199 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:29 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:29,201 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:29 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:29,203 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:29 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:29,205 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:29 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:29,207 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:29 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:29,208 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:29 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:29,211 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:29 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:29,212 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:29 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:29,214 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:29 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:29,216 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:29 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:29,217 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:29 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:29,219 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:29 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:29,231 - INFO - Data inserted for measurement cell_metrics with tags cell_id=Ax1242, gnodeb_id=W1140, entity_type=cell
+2023-12-15 17:53:29,233 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:29 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:29,235 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:29 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:30,248 - INFO - Data inserted for measurement cell_metrics with tags cell_id=BX1453, gnodeb_id=W1140, entity_type=cell
+2023-12-15 17:53:30,250 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:30 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:30,252 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:30 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:31,264 - INFO - Data inserted for measurement cell_metrics with tags cell_id=CX1352, gnodeb_id=W1140, entity_type=cell
+2023-12-15 17:53:31,266 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:31 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:31,268 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:31 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:32,281 - INFO - Data inserted for measurement cell_metrics with tags cell_id=AX1112, gnodeb_id=W1320, entity_type=cell
+2023-12-15 17:53:32,283 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:32 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:32,286 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:32 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:33,299 - INFO - Data inserted for measurement cell_metrics with tags cell_id=BX1334, gnodeb_id=W1320, entity_type=cell
+2023-12-15 17:53:33,301 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:33 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:33,303 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:33 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:34,315 - INFO - Data inserted for measurement cell_metrics with tags cell_id=CX1873, gnodeb_id=W1320, entity_type=cell
+2023-12-15 17:53:34,317 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:34 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:34,319 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:34 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:35,331 - INFO - Data inserted for measurement cell_metrics with tags cell_id=AX9980, gnodeb_id=W2018, entity_type=cell
+2023-12-15 17:53:35,333 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:35 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:35,335 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:35 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:36,348 - INFO - Data inserted for measurement cell_metrics with tags cell_id=BX1230, gnodeb_id=W2018, entity_type=cell
+2023-12-15 17:53:36,350 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:36 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:53:36,352 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:53:36 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+

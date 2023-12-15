@@ -21,26 +21,15 @@ class JsonFormatter(logging.Formatter):
         if record.exc_info:
             log_record['exception'] = self.formatException(record.exc_info)
         
-        # Send log record to InfluxDB
-        self.write_log_to_influxdb(log_record)
+        # The following line is commented out to prevent circular import
+        # self.write_log_to_influxdb(log_record)
 
         return json.dumps(log_record)
 
-    def write_log_to_influxdb(self, log_record):
-        # Define the log data structure for InfluxDB
-        log_data = {
-            "measurement": "logs",
-            "tags": {
-                "level": log_record["level"]
-            },
-            "fields": {
-                "message": log_record["message"],
-                "timestamp": log_record["timestamp"]
-            }
-        }
-
-        # Write the log record to InfluxDB
-        self.db_manager.insert_log(log_data)
+    # The following method is commented out to prevent circular import
+    # def write_log_to_influxdb(self, log_record):
+    #     pass
+    #     # Implement a different approach to log to InfluxDB if needed
 
 def setup_logger(name, log_file, level=logging.INFO, max_log_size=10 * 1024 * 1024, backup_count=5):
     """Function to set up a logger with asynchronous and buffered logging."""
