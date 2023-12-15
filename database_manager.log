@@ -26596,3 +26596,66 @@ HTTP response body: {"code":"unprocessable entity","message":"failure writing po
 2023-12-15 16:17:32,711 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE31, connected_cell_id=AX1112, entity_type=ue
 2023-12-15 16:17:33,718 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE32, connected_cell_id=Ax1242, entity_type=ue
 2023-12-15 16:17:34,724 - INFO - Data inserted for measurement ue_metrics with tags ue_id=UE33, connected_cell_id=Ax1242, entity_type=ue
+2023-12-15 17:27:26,607 - INFO - Database connection successful.
+2023-12-15 17:27:26,756 - ERROR - Failed to insert log data into InfluxDB: maximum recursion depth exceeded while calling a Python object
+2023-12-15 17:27:27,484 - ERROR - Failed to insert log data into InfluxDB: maximum recursion depth exceeded
+2023-12-15 17:27:26,755 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:27:26 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:27:28,062 - ERROR - Failed to insert log data into InfluxDB: maximum recursion depth exceeded while calling a Python object
+2023-12-15 17:27:28,617 - ERROR - Failed to insert log data into InfluxDB: maximum recursion depth exceeded while getting the str of an object
+2023-12-15 17:27:28,060 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:27:28 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:27:26,754 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:27:26 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:27:29,156 - ERROR - Failed to insert log data into InfluxDB: maximum recursion depth exceeded while calling a Python object
+2023-12-15 17:27:29,698 - ERROR - Failed to insert log data into InfluxDB: maximum recursion depth exceeded while getting the str of an object
+2023-12-15 17:27:29,155 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:27:29 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:27:30,234 - ERROR - Failed to insert log data into InfluxDB: maximum recursion depth exceeded
+2023-12-15 17:27:30,760 - ERROR - Failed to insert log data into InfluxDB: maximum recursion depth exceeded while calling a Python object
+2023-12-15 17:27:30,232 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:27:30 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:27:29,153 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:27:29 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:27:26,753 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:27:26 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:27:31,279 - ERROR - Failed to insert log data into InfluxDB: maximum recursion depth exceeded while calling a Python object
+2023-12-15 17:27:31,790 - ERROR - Failed to insert log data into InfluxDB: maximum recursion depth exceeded while getting the str of an object
+2023-12-15 17:27:31,278 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:27:31 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:27:32,325 - ERROR - Failed to insert log data into InfluxDB: maximum recursion depth exceeded
+2023-12-15 17:27:32,868 - ERROR - Failed to insert log data into InfluxDB: maximum recursion depth exceeded while calling a Python object
+2023-12-15 17:27:32,323 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:27:32 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
+2023-12-15 17:27:31,277 - ERROR - Failed to insert log data into InfluxDB: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json; charset=utf-8', 'X-Influxdb-Build': 'OSS', 'X-Influxdb-Version': 'v2.7.4', 'X-Platform-Error-Code': 'not found', 'Date': 'Fri, 15 Dec 2023 22:27:31 GMT', 'Content-Length': '62'})
+HTTP response body: {"code":"not found","message":"bucket \"RAN_logs\" not found"}
+
