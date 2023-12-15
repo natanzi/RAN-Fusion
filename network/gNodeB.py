@@ -77,7 +77,9 @@ class gNodeB:
     ###############################################################################################################
     # add serialization methods to the gNodeB class to convert gNodeB instances into a format suitable for InfluxDB
     def serialize_for_influxdb(self):
-        point = Point("gnodeb_metrics").tag("gnodeb_id", self.ID)
+        point = Point("gnodeb_metrics") \
+            .tag("gnodeb_id", self.ID) \
+            .tag("entity_type", "gnodeb") 
 
         # Convert the location list to a string if it's not None
         location_str = ','.join(map(str, self.Location)) if self.Location is not None else None

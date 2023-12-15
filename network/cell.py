@@ -103,6 +103,7 @@ class Cell:
         point = Point("cell_metrics") \
             .tag("cell_id", self.ID) \
             .tag("gnodeb_id", self.gNodeB_ID) \
+            .tag("entity_type", "cell") \
             .field("frequencyBand", self.FrequencyBand) \
             .field("duplexMode", self.DuplexMode) \
             .field("tx_power", self.TxPower) \

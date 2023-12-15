@@ -150,6 +150,7 @@ class UE:
         point = Point("ue_metrics") \
             .tag("ue_id", self.ID) \
             .tag("connected_cell_id", self.ConnectedCellID) \
+            .tag("entity_type", "ue") \
             .field("imei", self.IMEI) \
             .field("service_type", self.ServiceType) \
             .field("signal_strength", self.SignalStrength) \
