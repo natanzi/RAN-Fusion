@@ -1,4 +1,3 @@
-# database_manager.py, this file located in database folder
 import os
 from datetime import datetime
 from influxdb_client import InfluxDBClient, WritePrecision, Point

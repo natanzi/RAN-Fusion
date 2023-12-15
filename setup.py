@@ -68,16 +68,6 @@ def write_env_file(url, token, org, bucket):
     except IOError as e:
         print(f"Error writing to .env file: {e}")
 
-# If you want to append the log bucket to the .env file, you can use this function
-def append_env_file(url, token, org, log_bucket):
-    """Appends the InfluxDB log bucket configuration to the .env file."""
-    try:
-        with open('.env', 'a') as env_file:
-            env_file.write(f"INFLUXDB_LOG_BUCKET={log_bucket}\n")
-        print(f"InfluxDB log bucket configuration appended to .env file.")
-    except IOError as e:
-        print(f"Error appending to .env file: {e}")
-
 if __name__ == "__main__":
     print("Setting up the 5G Simulator...")
     install_requirements()
