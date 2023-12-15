@@ -1066,3 +1066,351 @@
 {"level": "INFO", "timestamp": "2023-12-15 17:02:55", "message": "Cell AX9980 @ gNodeB W2018 - Load: 20.0%"}
 {"level": "INFO", "timestamp": "2023-12-15 17:02:55", "message": "Cell BX1230 @ gNodeB W2018 - Load: 45.0%"}
 {"level": "INFO", "timestamp": "2023-12-15 17:02:55", "message": "Cell CX5103 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:06:56", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:06:56", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 15.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:06:56", "message": "Cell BX1453 @ gNodeB W1140 - Load: 45.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:06:56", "message": "Cell CX1352 @ gNodeB W1140 - Load: 35.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:06:56", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:06:56", "message": "Cell AX1112 @ gNodeB W1320 - Load: 0.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:06:56", "message": "Cell BX1334 @ gNodeB W1320 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:06:56", "message": "Cell CX1873 @ gNodeB W1320 - Load: 15.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:06:56", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:06:56", "message": "Cell AX9980 @ gNodeB W2018 - Load: 30.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:06:56", "message": "Cell BX1230 @ gNodeB W2018 - Load: 10.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:06:56", "message": "Cell CX5103 @ gNodeB W2018 - Load: 30.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:01", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:01", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 15.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:01", "message": "Cell BX1453 @ gNodeB W1140 - Load: 45.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:01", "message": "Cell CX1352 @ gNodeB W1140 - Load: 35.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:01", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:01", "message": "Cell AX1112 @ gNodeB W1320 - Load: 0.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:01", "message": "Cell BX1334 @ gNodeB W1320 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:01", "message": "Cell CX1873 @ gNodeB W1320 - Load: 15.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:01", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:01", "message": "Cell AX9980 @ gNodeB W2018 - Load: 30.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:01", "message": "Cell BX1230 @ gNodeB W2018 - Load: 10.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:01", "message": "Cell CX5103 @ gNodeB W2018 - Load: 30.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:06", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:06", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 15.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:06", "message": "Cell BX1453 @ gNodeB W1140 - Load: 45.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:06", "message": "Cell CX1352 @ gNodeB W1140 - Load: 35.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:06", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:06", "message": "Cell AX1112 @ gNodeB W1320 - Load: 0.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:06", "message": "Cell BX1334 @ gNodeB W1320 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:06", "message": "Cell CX1873 @ gNodeB W1320 - Load: 15.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:06", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:06", "message": "Cell AX9980 @ gNodeB W2018 - Load: 30.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:06", "message": "Cell BX1230 @ gNodeB W2018 - Load: 10.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:06", "message": "Cell CX5103 @ gNodeB W2018 - Load: 30.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:11", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:11", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 15.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:11", "message": "Cell BX1453 @ gNodeB W1140 - Load: 45.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:11", "message": "Cell CX1352 @ gNodeB W1140 - Load: 35.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:11", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:11", "message": "Cell AX1112 @ gNodeB W1320 - Load: 0.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:11", "message": "Cell BX1334 @ gNodeB W1320 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:11", "message": "Cell CX1873 @ gNodeB W1320 - Load: 15.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:11", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:11", "message": "Cell AX9980 @ gNodeB W2018 - Load: 30.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:11", "message": "Cell BX1230 @ gNodeB W2018 - Load: 10.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:11", "message": "Cell CX5103 @ gNodeB W2018 - Load: 30.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:16", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:16", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 15.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:16", "message": "Cell BX1453 @ gNodeB W1140 - Load: 45.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:16", "message": "Cell CX1352 @ gNodeB W1140 - Load: 35.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:16", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:16", "message": "Cell AX1112 @ gNodeB W1320 - Load: 0.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:16", "message": "Cell BX1334 @ gNodeB W1320 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:16", "message": "Cell CX1873 @ gNodeB W1320 - Load: 15.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:16", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:16", "message": "Cell AX9980 @ gNodeB W2018 - Load: 30.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:16", "message": "Cell BX1230 @ gNodeB W2018 - Load: 10.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:07:16", "message": "Cell CX5103 @ gNodeB W2018 - Load: 30.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:37", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:37", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 35.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:37", "message": "Cell BX1453 @ gNodeB W1140 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:37", "message": "Cell CX1352 @ gNodeB W1140 - Load: 5.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:37", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:37", "message": "Cell AX1112 @ gNodeB W1320 - Load: 5.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:37", "message": "Cell BX1334 @ gNodeB W1320 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:37", "message": "Cell CX1873 @ gNodeB W1320 - Load: 45.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:37", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:37", "message": "Cell AX9980 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:37", "message": "Cell BX1230 @ gNodeB W2018 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:37", "message": "Cell CX5103 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:42", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:42", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 35.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:42", "message": "Cell BX1453 @ gNodeB W1140 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:42", "message": "Cell CX1352 @ gNodeB W1140 - Load: 5.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:42", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:42", "message": "Cell AX1112 @ gNodeB W1320 - Load: 5.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:42", "message": "Cell BX1334 @ gNodeB W1320 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:42", "message": "Cell CX1873 @ gNodeB W1320 - Load: 45.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:42", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:42", "message": "Cell AX9980 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:42", "message": "Cell BX1230 @ gNodeB W2018 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:42", "message": "Cell CX5103 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:47", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:47", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 35.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:47", "message": "Cell BX1453 @ gNodeB W1140 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:47", "message": "Cell CX1352 @ gNodeB W1140 - Load: 5.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:47", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:47", "message": "Cell AX1112 @ gNodeB W1320 - Load: 5.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:47", "message": "Cell BX1334 @ gNodeB W1320 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:47", "message": "Cell CX1873 @ gNodeB W1320 - Load: 45.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:47", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:47", "message": "Cell AX9980 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:47", "message": "Cell BX1230 @ gNodeB W2018 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:47", "message": "Cell CX5103 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:52", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:52", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 35.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:52", "message": "Cell BX1453 @ gNodeB W1140 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:52", "message": "Cell CX1352 @ gNodeB W1140 - Load: 5.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:52", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:52", "message": "Cell AX1112 @ gNodeB W1320 - Load: 5.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:52", "message": "Cell BX1334 @ gNodeB W1320 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:52", "message": "Cell CX1873 @ gNodeB W1320 - Load: 45.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:52", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:52", "message": "Cell AX9980 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:52", "message": "Cell BX1230 @ gNodeB W2018 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:52", "message": "Cell CX5103 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:57", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:57", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 35.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:57", "message": "Cell BX1453 @ gNodeB W1140 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:57", "message": "Cell CX1352 @ gNodeB W1140 - Load: 5.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:57", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:57", "message": "Cell AX1112 @ gNodeB W1320 - Load: 5.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:57", "message": "Cell BX1334 @ gNodeB W1320 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:57", "message": "Cell CX1873 @ gNodeB W1320 - Load: 45.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:57", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:57", "message": "Cell AX9980 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:57", "message": "Cell BX1230 @ gNodeB W2018 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:12:57", "message": "Cell CX5103 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:02", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:02", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 35.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:02", "message": "Cell BX1453 @ gNodeB W1140 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:02", "message": "Cell CX1352 @ gNodeB W1140 - Load: 5.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:02", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:02", "message": "Cell AX1112 @ gNodeB W1320 - Load: 5.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:02", "message": "Cell BX1334 @ gNodeB W1320 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:02", "message": "Cell CX1873 @ gNodeB W1320 - Load: 45.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:02", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:02", "message": "Cell AX9980 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:02", "message": "Cell BX1230 @ gNodeB W2018 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:02", "message": "Cell CX5103 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:07", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:07", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 35.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:07", "message": "Cell BX1453 @ gNodeB W1140 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:07", "message": "Cell CX1352 @ gNodeB W1140 - Load: 5.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:07", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:07", "message": "Cell AX1112 @ gNodeB W1320 - Load: 5.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:07", "message": "Cell BX1334 @ gNodeB W1320 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:07", "message": "Cell CX1873 @ gNodeB W1320 - Load: 45.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:07", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:07", "message": "Cell AX9980 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:07", "message": "Cell BX1230 @ gNodeB W2018 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:07", "message": "Cell CX5103 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:12", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:12", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 35.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:12", "message": "Cell BX1453 @ gNodeB W1140 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:12", "message": "Cell CX1352 @ gNodeB W1140 - Load: 5.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:12", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:12", "message": "Cell AX1112 @ gNodeB W1320 - Load: 5.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:12", "message": "Cell BX1334 @ gNodeB W1320 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:12", "message": "Cell CX1873 @ gNodeB W1320 - Load: 45.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:12", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:12", "message": "Cell AX9980 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:12", "message": "Cell BX1230 @ gNodeB W2018 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:12", "message": "Cell CX5103 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:17", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:17", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 35.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:17", "message": "Cell BX1453 @ gNodeB W1140 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:17", "message": "Cell CX1352 @ gNodeB W1140 - Load: 5.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:17", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:17", "message": "Cell AX1112 @ gNodeB W1320 - Load: 5.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:17", "message": "Cell BX1334 @ gNodeB W1320 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:17", "message": "Cell CX1873 @ gNodeB W1320 - Load: 45.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:17", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:17", "message": "Cell AX9980 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:17", "message": "Cell BX1230 @ gNodeB W2018 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:17", "message": "Cell CX5103 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:22", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:22", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 35.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:22", "message": "Cell BX1453 @ gNodeB W1140 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:22", "message": "Cell CX1352 @ gNodeB W1140 - Load: 5.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:22", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:22", "message": "Cell AX1112 @ gNodeB W1320 - Load: 5.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:22", "message": "Cell BX1334 @ gNodeB W1320 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:22", "message": "Cell CX1873 @ gNodeB W1320 - Load: 45.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:22", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:22", "message": "Cell AX9980 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:22", "message": "Cell BX1230 @ gNodeB W2018 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:22", "message": "Cell CX5103 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:27", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:27", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 35.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:27", "message": "Cell BX1453 @ gNodeB W1140 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:27", "message": "Cell CX1352 @ gNodeB W1140 - Load: 5.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:27", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:27", "message": "Cell AX1112 @ gNodeB W1320 - Load: 5.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:27", "message": "Cell BX1334 @ gNodeB W1320 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:27", "message": "Cell CX1873 @ gNodeB W1320 - Load: 45.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:27", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:27", "message": "Cell AX9980 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:27", "message": "Cell BX1230 @ gNodeB W2018 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:27", "message": "Cell CX5103 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:32", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:32", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 35.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:32", "message": "Cell BX1453 @ gNodeB W1140 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:32", "message": "Cell CX1352 @ gNodeB W1140 - Load: 5.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:32", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:32", "message": "Cell AX1112 @ gNodeB W1320 - Load: 5.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:32", "message": "Cell BX1334 @ gNodeB W1320 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:32", "message": "Cell CX1873 @ gNodeB W1320 - Load: 45.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:32", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:32", "message": "Cell AX9980 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:32", "message": "Cell BX1230 @ gNodeB W2018 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:13:32", "message": "Cell CX5103 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:01", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:01", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:01", "message": "Cell BX1453 @ gNodeB W1140 - Load: 15.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:01", "message": "Cell CX1352 @ gNodeB W1140 - Load: 35.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:01", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:01", "message": "Cell AX1112 @ gNodeB W1320 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:01", "message": "Cell BX1334 @ gNodeB W1320 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:01", "message": "Cell CX1873 @ gNodeB W1320 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:01", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:01", "message": "Cell AX9980 @ gNodeB W2018 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:01", "message": "Cell BX1230 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:01", "message": "Cell CX5103 @ gNodeB W2018 - Load: 15.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:06", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:06", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:06", "message": "Cell BX1453 @ gNodeB W1140 - Load: 15.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:06", "message": "Cell CX1352 @ gNodeB W1140 - Load: 35.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:06", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:06", "message": "Cell AX1112 @ gNodeB W1320 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:06", "message": "Cell BX1334 @ gNodeB W1320 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:06", "message": "Cell CX1873 @ gNodeB W1320 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:06", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:06", "message": "Cell AX9980 @ gNodeB W2018 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:06", "message": "Cell BX1230 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:06", "message": "Cell CX5103 @ gNodeB W2018 - Load: 15.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:11", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:11", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:11", "message": "Cell BX1453 @ gNodeB W1140 - Load: 15.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:11", "message": "Cell CX1352 @ gNodeB W1140 - Load: 35.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:11", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:11", "message": "Cell AX1112 @ gNodeB W1320 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:11", "message": "Cell BX1334 @ gNodeB W1320 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:11", "message": "Cell CX1873 @ gNodeB W1320 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:11", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:11", "message": "Cell AX9980 @ gNodeB W2018 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:11", "message": "Cell BX1230 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:11", "message": "Cell CX5103 @ gNodeB W2018 - Load: 15.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:16", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:16", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:16", "message": "Cell BX1453 @ gNodeB W1140 - Load: 15.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:16", "message": "Cell CX1352 @ gNodeB W1140 - Load: 35.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:16", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:16", "message": "Cell AX1112 @ gNodeB W1320 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:16", "message": "Cell BX1334 @ gNodeB W1320 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:16", "message": "Cell CX1873 @ gNodeB W1320 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:16", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:16", "message": "Cell AX9980 @ gNodeB W2018 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:16", "message": "Cell BX1230 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:16", "message": "Cell CX5103 @ gNodeB W2018 - Load: 15.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:21", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:21", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:21", "message": "Cell BX1453 @ gNodeB W1140 - Load: 15.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:21", "message": "Cell CX1352 @ gNodeB W1140 - Load: 35.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:21", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:21", "message": "Cell AX1112 @ gNodeB W1320 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:21", "message": "Cell BX1334 @ gNodeB W1320 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:21", "message": "Cell CX1873 @ gNodeB W1320 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:21", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:21", "message": "Cell AX9980 @ gNodeB W2018 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:21", "message": "Cell BX1230 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:21", "message": "Cell CX5103 @ gNodeB W2018 - Load: 15.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:26", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:26", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:26", "message": "Cell BX1453 @ gNodeB W1140 - Load: 15.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:26", "message": "Cell CX1352 @ gNodeB W1140 - Load: 35.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:26", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:26", "message": "Cell AX1112 @ gNodeB W1320 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:26", "message": "Cell BX1334 @ gNodeB W1320 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:26", "message": "Cell CX1873 @ gNodeB W1320 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:26", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:26", "message": "Cell AX9980 @ gNodeB W2018 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:26", "message": "Cell BX1230 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:26", "message": "Cell CX5103 @ gNodeB W2018 - Load: 15.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:31", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:31", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:31", "message": "Cell BX1453 @ gNodeB W1140 - Load: 15.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:31", "message": "Cell CX1352 @ gNodeB W1140 - Load: 35.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:31", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:31", "message": "Cell AX1112 @ gNodeB W1320 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:31", "message": "Cell BX1334 @ gNodeB W1320 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:31", "message": "Cell CX1873 @ gNodeB W1320 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:31", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:31", "message": "Cell AX9980 @ gNodeB W2018 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:31", "message": "Cell BX1230 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:31", "message": "Cell CX5103 @ gNodeB W2018 - Load: 15.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:36", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:36", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:36", "message": "Cell BX1453 @ gNodeB W1140 - Load: 15.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:36", "message": "Cell CX1352 @ gNodeB W1140 - Load: 35.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:36", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:36", "message": "Cell AX1112 @ gNodeB W1320 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:36", "message": "Cell BX1334 @ gNodeB W1320 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:36", "message": "Cell CX1873 @ gNodeB W1320 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:36", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:36", "message": "Cell AX9980 @ gNodeB W2018 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:36", "message": "Cell BX1230 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:36", "message": "Cell CX5103 @ gNodeB W2018 - Load: 15.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:41", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:41", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:41", "message": "Cell BX1453 @ gNodeB W1140 - Load: 15.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:41", "message": "Cell CX1352 @ gNodeB W1140 - Load: 35.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:41", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:41", "message": "Cell AX1112 @ gNodeB W1320 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:41", "message": "Cell BX1334 @ gNodeB W1320 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:41", "message": "Cell CX1873 @ gNodeB W1320 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:41", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:41", "message": "Cell AX9980 @ gNodeB W2018 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:41", "message": "Cell BX1230 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:41", "message": "Cell CX5103 @ gNodeB W2018 - Load: 15.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:46", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:46", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:46", "message": "Cell BX1453 @ gNodeB W1140 - Load: 15.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:46", "message": "Cell CX1352 @ gNodeB W1140 - Load: 35.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:46", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:46", "message": "Cell AX1112 @ gNodeB W1320 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:46", "message": "Cell BX1334 @ gNodeB W1320 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:46", "message": "Cell CX1873 @ gNodeB W1320 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:46", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:46", "message": "Cell AX9980 @ gNodeB W2018 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:46", "message": "Cell BX1230 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:46", "message": "Cell CX5103 @ gNodeB W2018 - Load: 15.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:51", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:51", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:51", "message": "Cell BX1453 @ gNodeB W1140 - Load: 15.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:51", "message": "Cell CX1352 @ gNodeB W1140 - Load: 35.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:51", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:51", "message": "Cell AX1112 @ gNodeB W1320 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:51", "message": "Cell BX1334 @ gNodeB W1320 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:51", "message": "Cell CX1873 @ gNodeB W1320 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:51", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:51", "message": "Cell AX9980 @ gNodeB W2018 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:51", "message": "Cell BX1230 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:51", "message": "Cell CX5103 @ gNodeB W2018 - Load: 15.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:56", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:56", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:56", "message": "Cell BX1453 @ gNodeB W1140 - Load: 15.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:56", "message": "Cell CX1352 @ gNodeB W1140 - Load: 35.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:56", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:56", "message": "Cell AX1112 @ gNodeB W1320 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:56", "message": "Cell BX1334 @ gNodeB W1320 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:56", "message": "Cell CX1873 @ gNodeB W1320 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:56", "message": "Testing cell load logging."}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:56", "message": "Cell AX9980 @ gNodeB W2018 - Load: 25.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:56", "message": "Cell BX1230 @ gNodeB W2018 - Load: 20.0%"}
+{"level": "INFO", "timestamp": "2023-12-15 17:18:56", "message": "Cell CX5103 @ gNodeB W2018 - Load: 15.0%"}

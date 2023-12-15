@@ -119,23 +119,39 @@ class DatabaseManager:
         # Directly access the attributes from the UE instance
         traffic_volume = ue.traffic_volume  # Assuming traffic_volume is an attribute of UE
         service_type = ue.ServiceType  # Assuming ServiceType is an attribute of UE
-        timestamp = int(time.time() * 1000)  # Current time in milliseconds
-    # Access the connection status directly if it's an attribute, or adjust as needed
-    # Replace 'connection_status_attribute' with the actual attribute name if it's different
+        timestamp = int(time.time() * 1e9)  # Current time in nanoseconds
+
+        # Add a debug log to check the timestamp value
+        logging.debug(f"Generated timestamp for UE data: {timestamp}")
+
+        # Determine the connection status
         connection_status = 'connected' if ue.ConnectedCellID else 'disconnected'
 
+        # Prepare tags and fields for InfluxDB
         tags = {
             'ue_id': ue.ID,
             'imei': ue.IMEI
-        # Add other tags if needed
+            # Add other tags if needed
         }
         fields = {
             'traffic_volume': traffic_volume,
             'service_type': service_type,
             'connection_status': connection_status
-        # Add other fields if needed
+            # Add other fields if needed
         }
-        self.insert_data('ue_metrics', tags, fields, timestamp)
+
+        # Create a Point object for InfluxDB
+        point = Point("ue_metrics")\
+            .tag(tags)\
+            .field(fields)\
+            .time(timestamp, WritePrecision.NS)
+
+        # Insert the data into InfluxDB
+        try:
+            self.write_api.write(bucket=self.bucket, record=point)
+            logging.info("UE data inserted into InfluxDB")
+        except Exception as e:
+            logging.error(f"Failed to insert UE data into InfluxDB: {e}")
 
     def close_connection(self):
         """Closes the database connection."""
