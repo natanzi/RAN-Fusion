@@ -15804,3 +15804,91 @@ HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,ime
 2023-12-15 13:21:11,518 - INFO - UE data inserted into InfluxDB
 2023-12-15 13:21:12,523 - INFO - UE data inserted into InfluxDB
 2023-12-15 13:21:13,529 - INFO - UE data inserted into InfluxDB
+2023-12-15 13:37:42,245 - INFO - Database connection successful.
+2023-12-15 13:37:42,269 - INFO - gNodeB 'W1140' has been launched with 3 cells.
+2023-12-15 13:37:43,270 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "region" is not supported.
+2023-12-15 13:37:43,270 - INFO - gNodeB 'W1320' has been launched with 3 cells.
+2023-12-15 13:37:44,273 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "region" is not supported.
+2023-12-15 13:37:44,273 - INFO - gNodeB 'W2018' has been launched with 3 cells.
+2023-12-15 13:37:45,275 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "region" is not supported.
+2023-12-15 13:37:45,277 - INFO - Cell 'Ax1242' has been created in gNodeB 'Ax1242' with max capacity 10.
+2023-12-15 13:37:45,277 - INFO - Cell 'BX1453' has been created in gNodeB 'BX1453' with max capacity 10.
+2023-12-15 13:37:45,278 - INFO - Cell 'CX1352' has been created in gNodeB 'CX1352' with max capacity 10.
+2023-12-15 13:37:45,278 - INFO - Cell 'AX1112' has been created in gNodeB 'AX1112' with max capacity 10.
+2023-12-15 13:37:45,278 - INFO - Cell 'BX1334' has been created in gNodeB 'BX1334' with max capacity 10.
+2023-12-15 13:37:45,279 - INFO - Cell 'CX1873' has been created in gNodeB 'CX1873' with max capacity 10.
+2023-12-15 13:37:45,279 - INFO - Cell 'AX9980' has been created in gNodeB 'AX9980' with max capacity 10.
+2023-12-15 13:37:45,279 - INFO - Cell 'BX1230' has been created in gNodeB 'BX1230' with max capacity 10.
+2023-12-15 13:37:45,279 - INFO - Cell 'CX5103' has been created in gNodeB 'CX5103' with max capacity 10.
+2023-12-15 13:37:45,288 - INFO - Data inserted for measurement <function Point.measurement at 0x0000019999587D80>
+2023-12-15 13:37:45,289 - INFO - Cell 'Ax1242' has been added to gNodeB 'W1140'.
+2023-12-15 13:37:46,298 - INFO - Data inserted for measurement <function Point.measurement at 0x0000019999587D80>
+2023-12-15 13:37:46,299 - INFO - Cell 'BX1453' has been added to gNodeB 'W1140'.
+2023-12-15 13:37:47,304 - INFO - Data inserted for measurement <function Point.measurement at 0x0000019999587D80>
+2023-12-15 13:37:47,305 - INFO - Cell 'CX1352' has been added to gNodeB 'W1140'.
+2023-12-15 13:37:48,311 - INFO - Data inserted for measurement <function Point.measurement at 0x0000019999587D80>
+2023-12-15 13:37:48,312 - INFO - Cell 'AX1112' has been added to gNodeB 'W1320'.
+2023-12-15 13:37:49,317 - INFO - Data inserted for measurement <function Point.measurement at 0x0000019999587D80>
+2023-12-15 13:37:49,318 - INFO - Cell 'BX1334' has been added to gNodeB 'W1320'.
+2023-12-15 13:37:50,324 - INFO - Data inserted for measurement <function Point.measurement at 0x0000019999587D80>
+2023-12-15 13:37:50,325 - INFO - Cell 'CX1873' has been added to gNodeB 'W1320'.
+2023-12-15 13:37:51,329 - INFO - Data inserted for measurement <function Point.measurement at 0x0000019999587D80>
+2023-12-15 13:37:51,330 - INFO - Cell 'AX9980' has been added to gNodeB 'W2018'.
+2023-12-15 13:37:52,336 - INFO - Data inserted for measurement <function Point.measurement at 0x0000019999587D80>
+2023-12-15 13:37:52,336 - INFO - Cell 'BX1230' has been added to gNodeB 'W2018'.
+2023-12-15 13:37:53,343 - INFO - Data inserted for measurement <function Point.measurement at 0x0000019999587D80>
+2023-12-15 13:37:53,343 - INFO - Cell 'CX5103' has been added to gNodeB 'W2018'.
+2023-12-15 13:37:54,346 - INFO - UE initialized with ID UE1 at 2023-12-15 13:37:54.345787
+2023-12-15 13:37:54,347 - INFO - UE with ID UE1 added to Cell CX1873 at 2023-12-15 13:37:54.347292
+2023-12-15 13:37:54,347 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-15 13:37:54,348 - INFO - UE 'UE1' has been attached to Cell 'CX1873'.
+2023-12-15 13:37:54,348 - INFO - UE initialized with ID UE1 at 2023-12-15 13:37:54.348289
+2023-12-15 13:37:54,348 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 13:37:54,349 - INFO - UE initialized with ID UE1 at 2023-12-15 13:37:54.348289
+2023-12-15 13:37:54,349 - INFO - UE with ID UE1 added to Cell Ax1242 at 2023-12-15 13:37:54.349284
+2023-12-15 13:37:54,349 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-15 13:37:54,350 - INFO - UE 'UE1' has been attached to Cell 'Ax1242'.
+2023-12-15 13:41:04,286 - INFO - Database connection successful.
+2023-12-15 13:41:04,297 - INFO - gNodeB 'W1140' has been launched with 3 cells.
+2023-12-15 13:41:05,299 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "region" is not supported.
+2023-12-15 13:41:05,299 - INFO - gNodeB 'W1320' has been launched with 3 cells.
+2023-12-15 13:41:06,302 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "region" is not supported.
+2023-12-15 13:41:06,302 - INFO - gNodeB 'W2018' has been launched with 3 cells.
+2023-12-15 13:41:07,304 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "region" is not supported.
+2023-12-15 13:41:07,305 - INFO - Cell 'Ax1242' has been created in gNodeB 'Ax1242' with max capacity 10.
+2023-12-15 13:41:07,306 - INFO - Cell 'BX1453' has been created in gNodeB 'BX1453' with max capacity 10.
+2023-12-15 13:41:07,306 - INFO - Cell 'CX1352' has been created in gNodeB 'CX1352' with max capacity 10.
+2023-12-15 13:41:07,307 - INFO - Cell 'AX1112' has been created in gNodeB 'AX1112' with max capacity 10.
+2023-12-15 13:41:07,307 - INFO - Cell 'BX1334' has been created in gNodeB 'BX1334' with max capacity 10.
+2023-12-15 13:41:07,307 - INFO - Cell 'CX1873' has been created in gNodeB 'CX1873' with max capacity 10.
+2023-12-15 13:41:07,307 - INFO - Cell 'AX9980' has been created in gNodeB 'AX9980' with max capacity 10.
+2023-12-15 13:41:07,308 - INFO - Cell 'BX1230' has been created in gNodeB 'BX1230' with max capacity 10.
+2023-12-15 13:41:07,308 - INFO - Cell 'CX5103' has been created in gNodeB 'CX5103' with max capacity 10.
+2023-12-15 13:41:07,335 - INFO - Data inserted for measurement <function Point.measurement at 0x000001E0B73D7D80>
+2023-12-15 13:41:07,336 - INFO - Cell 'Ax1242' has been added to gNodeB 'W1140'.
+2023-12-15 13:41:08,341 - INFO - Data inserted for measurement <function Point.measurement at 0x000001E0B73D7D80>
+2023-12-15 13:41:08,341 - INFO - Cell 'BX1453' has been added to gNodeB 'W1140'.
+2023-12-15 13:41:09,348 - INFO - Data inserted for measurement <function Point.measurement at 0x000001E0B73D7D80>
+2023-12-15 13:41:09,349 - INFO - Cell 'CX1352' has been added to gNodeB 'W1140'.
+2023-12-15 13:41:10,354 - INFO - Data inserted for measurement <function Point.measurement at 0x000001E0B73D7D80>
+2023-12-15 13:41:10,354 - INFO - Cell 'AX1112' has been added to gNodeB 'W1320'.
+2023-12-15 13:41:11,360 - INFO - Data inserted for measurement <function Point.measurement at 0x000001E0B73D7D80>
+2023-12-15 13:41:11,360 - INFO - Cell 'BX1334' has been added to gNodeB 'W1320'.
+2023-12-15 13:41:12,367 - INFO - Data inserted for measurement <function Point.measurement at 0x000001E0B73D7D80>
+2023-12-15 13:41:12,368 - INFO - Cell 'CX1873' has been added to gNodeB 'W1320'.
+2023-12-15 13:41:13,374 - INFO - Data inserted for measurement <function Point.measurement at 0x000001E0B73D7D80>
+2023-12-15 13:41:13,375 - INFO - Cell 'AX9980' has been added to gNodeB 'W2018'.
+2023-12-15 13:41:14,380 - INFO - Data inserted for measurement <function Point.measurement at 0x000001E0B73D7D80>
+2023-12-15 13:41:14,381 - INFO - Cell 'BX1230' has been added to gNodeB 'W2018'.
+2023-12-15 13:41:15,386 - INFO - Data inserted for measurement <function Point.measurement at 0x000001E0B73D7D80>
+2023-12-15 13:41:15,387 - INFO - Cell 'CX5103' has been added to gNodeB 'W2018'.
+2023-12-15 13:41:16,388 - INFO - UE initialized with ID UE1 at 2023-12-15 13:41:16.388528
+2023-12-15 13:41:16,389 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 13:41:16.389566
+2023-12-15 13:41:16,390 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 13:41:16,390 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 13:41:16,390 - INFO - UE initialized with ID UE1 at 2023-12-15 13:41:16.390565
+2023-12-15 13:41:16,391 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 13:41:16,391 - INFO - UE initialized with ID UE1 at 2023-12-15 13:41:16.391561
+2023-12-15 13:41:16,392 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 13:41:16.392556
+2023-12-15 13:41:16,392 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 13:41:16,392 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.

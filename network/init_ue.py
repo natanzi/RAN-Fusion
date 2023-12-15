@@ -95,36 +95,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         
         # Serialize and write to InfluxDB
         point = ue.serialize_for_influxdb()
-        db_manager.insert_data(point)    
-
-    # Prepare static UE data for database insertion
-        #static_ue_data = {
-            #'ue_id': ue.ID,
-            ##'imei': ue.IMEI,
-            #'service_type': ue.ServiceType,
-            #'model': ue.Model,
-            #'rat': ue.RAT,
-            #'max_bandwidth': ue.MaxBandwidth,
-            #'duplex_mode': ue.DuplexMode,
-            #'tx_power': ue.TxPower,
-            #'modulation': ue.Modulation,
-            #'coding': ue.Coding,
-            #'mimo': ue.MIMO,
-            #'processing': ue.Processing,
-            #'bandwidth_parts': ue.BandwidthParts,
-            #'channel_model': ue.ChannelModel,
-            ##'direction': ue.Direction,
-            #'traffic_model': ue.TrafficModel,
-           # 'scheduling_requests': bool(ue.SchedulingRequests),  # Convert to boolean
-            #'rlc_mode': ue.RLCMode,
-            #'snr_thresholds': ','.join(map(str, ue.SNRThresholds)),  # Serialize list into a comma-separated string
-            #'ho_margin': ue.HOMargin,
-            #'n310': ue.N310,
-            #'n311': ue.N311,
-            #'screen_size': ue.ScreenSize,
-            #'battery_level': ue.BatteryLevel
-        #}
-        # Write UE data to the database
+        db_manager.insert_data(point)  # Corrected method call
         ues.append(ue)
     
     # Calculate the number of additional UEs needed
@@ -187,10 +158,10 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
 
         # You may want to implement additional logic to handle this case
         ue.ConnectedCellID = selected_cell.ID
-
-
-        # Write UE static data to the database
-        db_manager.insert_ue_data(ue)
+        
+        # Serialize and write to InfluxDB
+        point = new_ue.serialize_for_influxdb()
+        db_manager.insert_data(point)  # Corrected method call
         ues.append(new_ue)
         db_manager.close_connection()
 
