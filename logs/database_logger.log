@@ -37,3 +37,55 @@
 {"level": "INFO", "timestamp": "2023-12-15 18:41:14", "message": "Data inserted for measurement <function Point.measurement at 0x000001E0B73D7D80>"}
 {"level": "INFO", "timestamp": "2023-12-15 18:41:15", "message": "Data inserted for measurement <function Point.measurement at 0x000001E0B73D7D80>"}
 {"level": "ERROR", "timestamp": "2023-12-15 18:41:16", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:10", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"region\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:11", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"region\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:12", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"region\" is not supported."}
+{"level": "INFO", "timestamp": "2023-12-15 19:28:12", "message": "Data inserted for measurement <function Point.measurement at 0x000002297F487D80>"}
+{"level": "INFO", "timestamp": "2023-12-15 19:28:13", "message": "Data inserted for measurement <function Point.measurement at 0x000002297F487D80>"}
+{"level": "INFO", "timestamp": "2023-12-15 19:28:14", "message": "Data inserted for measurement <function Point.measurement at 0x000002297F487D80>"}
+{"level": "INFO", "timestamp": "2023-12-15 19:28:15", "message": "Data inserted for measurement <function Point.measurement at 0x000002297F487D80>"}
+{"level": "INFO", "timestamp": "2023-12-15 19:28:16", "message": "Data inserted for measurement <function Point.measurement at 0x000002297F487D80>"}
+{"level": "INFO", "timestamp": "2023-12-15 19:28:17", "message": "Data inserted for measurement <function Point.measurement at 0x000002297F487D80>"}
+{"level": "INFO", "timestamp": "2023-12-15 19:28:18", "message": "Data inserted for measurement <function Point.measurement at 0x000002297F487D80>"}
+{"level": "INFO", "timestamp": "2023-12-15 19:28:19", "message": "Data inserted for measurement <function Point.measurement at 0x000002297F487D80>"}
+{"level": "INFO", "timestamp": "2023-12-15 19:28:20", "message": "Data inserted for measurement <function Point.measurement at 0x000002297F487D80>"}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
+{"level": "ERROR", "timestamp": "2023-12-15 19:28:21", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"snr_thresholds\" is not supported."}
