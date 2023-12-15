@@ -53,8 +53,8 @@ def log_traffic(ues, db_manager, traffic_increase_config=None):
                 'data_size': float(data_size),
                 # Add other relevant data fields here
             }
-            #Log the data to the database
-            db_manager.insert_ue_data(ue)
+            point = ue.serialize_for_influxdb()
+            db_manager.insert_data(point)  # Use the correct method here
 
             time.sleep(1)  # Logging interval
 

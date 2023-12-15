@@ -19032,3 +19032,263 @@ HTTP response body: {"code":"invalid","message":"unable to parse 'ue_metrics,ime
 2023-12-15 14:48:36,389 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 25.0%
 2023-12-15 14:48:36,389 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 35.0%
 2023-12-15 14:48:36,389 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 10.0%
+2023-12-15 14:49:03,652 - INFO - Database connection successful.
+2023-12-15 14:49:03,677 - INFO - gNodeB 'W1140' has been launched with 3 cells.
+2023-12-15 14:49:04,679 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "region" is not supported.
+2023-12-15 14:49:04,679 - INFO - gNodeB 'W1320' has been launched with 3 cells.
+2023-12-15 14:49:05,681 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "region" is not supported.
+2023-12-15 14:49:05,681 - INFO - gNodeB 'W2018' has been launched with 3 cells.
+2023-12-15 14:49:06,683 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "region" is not supported.
+2023-12-15 14:49:06,684 - INFO - Cell 'Ax1242' has been created in gNodeB 'Ax1242' with max capacity 10.
+2023-12-15 14:49:06,685 - INFO - Cell 'BX1453' has been created in gNodeB 'BX1453' with max capacity 10.
+2023-12-15 14:49:06,685 - INFO - Cell 'CX1352' has been created in gNodeB 'CX1352' with max capacity 10.
+2023-12-15 14:49:06,685 - INFO - Cell 'AX1112' has been created in gNodeB 'AX1112' with max capacity 10.
+2023-12-15 14:49:06,686 - INFO - Cell 'BX1334' has been created in gNodeB 'BX1334' with max capacity 10.
+2023-12-15 14:49:06,686 - INFO - Cell 'CX1873' has been created in gNodeB 'CX1873' with max capacity 10.
+2023-12-15 14:49:06,686 - INFO - Cell 'AX9980' has been created in gNodeB 'AX9980' with max capacity 10.
+2023-12-15 14:49:06,686 - INFO - Cell 'BX1230' has been created in gNodeB 'BX1230' with max capacity 10.
+2023-12-15 14:49:06,686 - INFO - Cell 'CX5103' has been created in gNodeB 'CX5103' with max capacity 10.
+2023-12-15 14:49:06,695 - INFO - Data inserted for measurement <function Point.measurement at 0x000001D9B8C97D80>
+2023-12-15 14:49:06,695 - INFO - Cell 'Ax1242' has been added to gNodeB 'W1140'.
+2023-12-15 14:49:07,703 - INFO - Data inserted for measurement <function Point.measurement at 0x000001D9B8C97D80>
+2023-12-15 14:49:07,704 - INFO - Cell 'BX1453' has been added to gNodeB 'W1140'.
+2023-12-15 14:49:08,710 - INFO - Data inserted for measurement <function Point.measurement at 0x000001D9B8C97D80>
+2023-12-15 14:49:08,710 - INFO - Cell 'CX1352' has been added to gNodeB 'W1140'.
+2023-12-15 14:49:09,716 - INFO - Data inserted for measurement <function Point.measurement at 0x000001D9B8C97D80>
+2023-12-15 14:49:09,716 - INFO - Cell 'AX1112' has been added to gNodeB 'W1320'.
+2023-12-15 14:49:10,723 - INFO - Data inserted for measurement <function Point.measurement at 0x000001D9B8C97D80>
+2023-12-15 14:49:10,724 - INFO - Cell 'BX1334' has been added to gNodeB 'W1320'.
+2023-12-15 14:49:11,729 - INFO - Data inserted for measurement <function Point.measurement at 0x000001D9B8C97D80>
+2023-12-15 14:49:11,730 - INFO - Cell 'CX1873' has been added to gNodeB 'W1320'.
+2023-12-15 14:49:12,736 - INFO - Data inserted for measurement <function Point.measurement at 0x000001D9B8C97D80>
+2023-12-15 14:49:12,737 - INFO - Cell 'AX9980' has been added to gNodeB 'W2018'.
+2023-12-15 14:49:13,742 - INFO - Data inserted for measurement <function Point.measurement at 0x000001D9B8C97D80>
+2023-12-15 14:49:13,743 - INFO - Cell 'BX1230' has been added to gNodeB 'W2018'.
+2023-12-15 14:49:14,748 - INFO - Data inserted for measurement <function Point.measurement at 0x000001D9B8C97D80>
+2023-12-15 14:49:14,749 - INFO - Cell 'CX5103' has been added to gNodeB 'W2018'.
+2023-12-15 14:49:15,751 - INFO - UE initialized with ID UE1 at 2023-12-15 14:49:15.751052
+2023-12-15 14:49:15,752 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 14:49:15.751605
+2023-12-15 14:49:15,752 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 14:49:15,752 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 14:49:15,752 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,753 - INFO - UE initialized with ID UE1 at 2023-12-15 14:49:15.753600
+2023-12-15 14:49:15,753 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 14:49:15.753600
+2023-12-15 14:49:15,754 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 14:49:15,754 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 14:49:15,754 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,755 - INFO - UE initialized with ID UE2 at 2023-12-15 14:49:15.755591
+2023-12-15 14:49:15,756 - INFO - UE with ID UE1 added to Cell CX1873 at 2023-12-15 14:49:15.756186
+2023-12-15 14:49:15,756 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-15 14:49:15,756 - INFO - UE 'UE1' has been attached to Cell 'CX1873'.
+2023-12-15 14:49:15,756 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,757 - INFO - UE initialized with ID UE3 at 2023-12-15 14:49:15.757185
+2023-12-15 14:49:15,757 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 14:49:15.757185
+2023-12-15 14:49:15,758 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 14:49:15,758 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 14:49:15,758 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,759 - INFO - UE initialized with ID UE4 at 2023-12-15 14:49:15.759176
+2023-12-15 14:49:15,759 - INFO - UE with ID UE1 added to Cell CX1873 at 2023-12-15 14:49:15.759176
+2023-12-15 14:49:15,759 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-15 14:49:15,760 - INFO - UE 'UE1' has been attached to Cell 'CX1873'.
+2023-12-15 14:49:15,760 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,760 - INFO - UE initialized with ID UE5 at 2023-12-15 14:49:15.760171
+2023-12-15 14:49:15,760 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 14:49:15.760171
+2023-12-15 14:49:15,761 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 14:49:15,761 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 14:49:15,761 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,762 - INFO - UE initialized with ID UE6 at 2023-12-15 14:49:15.762163
+2023-12-15 14:49:15,762 - INFO - UE with ID UE1 added to Cell CX1873 at 2023-12-15 14:49:15.762163
+2023-12-15 14:49:15,762 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-15 14:49:15,763 - INFO - UE 'UE1' has been attached to Cell 'CX1873'.
+2023-12-15 14:49:15,763 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,763 - INFO - UE initialized with ID UE7 at 2023-12-15 14:49:15.763158
+2023-12-15 14:49:15,764 - INFO - UE with ID UE1 added to Cell Ax1242 at 2023-12-15 14:49:15.764153
+2023-12-15 14:49:15,764 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-15 14:49:15,764 - INFO - UE 'UE1' has been attached to Cell 'Ax1242'.
+2023-12-15 14:49:15,764 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,765 - INFO - UE initialized with ID UE8 at 2023-12-15 14:49:15.765150
+2023-12-15 14:49:15,765 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 14:49:15.765150
+2023-12-15 14:49:15,766 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 14:49:15,766 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 14:49:15,766 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,766 - INFO - UE initialized with ID UE9 at 2023-12-15 14:49:15.766145
+2023-12-15 14:49:15,767 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 14:49:15.767141
+2023-12-15 14:49:15,767 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 14:49:15,767 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 14:49:15,767 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,768 - INFO - UE initialized with ID UE10 at 2023-12-15 14:49:15.768136
+2023-12-15 14:49:15,768 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 14:49:15.768136
+2023-12-15 14:49:15,768 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 14:49:15,769 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 14:49:15,769 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,769 - INFO - UE initialized with ID UE11 at 2023-12-15 14:49:15.769132
+2023-12-15 14:49:15,769 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 14:49:15.769132
+2023-12-15 14:49:15,770 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 14:49:15,770 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 14:49:15,770 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,770 - INFO - UE initialized with ID UE12 at 2023-12-15 14:49:15.770128
+2023-12-15 14:49:15,771 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 14:49:15.771123
+2023-12-15 14:49:15,771 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 14:49:15,771 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 14:49:15,771 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,772 - INFO - UE initialized with ID UE13 at 2023-12-15 14:49:15.772118
+2023-12-15 14:49:15,772 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 14:49:15.772118
+2023-12-15 14:49:15,773 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 14:49:15,773 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 14:49:15,773 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,773 - INFO - UE initialized with ID UE14 at 2023-12-15 14:49:15.773114
+2023-12-15 14:49:15,774 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 14:49:15.774110
+2023-12-15 14:49:15,774 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 14:49:15,774 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 14:49:15,774 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,775 - INFO - UE initialized with ID UE15 at 2023-12-15 14:49:15.775106
+2023-12-15 14:49:15,775 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 14:49:15.775106
+2023-12-15 14:49:15,776 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 14:49:15,776 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 14:49:15,776 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,776 - INFO - UE initialized with ID UE16 at 2023-12-15 14:49:15.776101
+2023-12-15 14:49:15,777 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 14:49:15.777097
+2023-12-15 14:49:15,777 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 14:49:15,778 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 14:49:15,778 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,778 - INFO - UE initialized with ID UE17 at 2023-12-15 14:49:15.778092
+2023-12-15 14:49:15,779 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 14:49:15.779087
+2023-12-15 14:49:15,779 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 14:49:15,779 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 14:49:15,779 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,780 - INFO - UE initialized with ID UE18 at 2023-12-15 14:49:15.780084
+2023-12-15 14:49:15,780 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 14:49:15.780084
+2023-12-15 14:49:15,780 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 14:49:15,781 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 14:49:15,781 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,781 - INFO - UE initialized with ID UE19 at 2023-12-15 14:49:15.781079
+2023-12-15 14:49:15,781 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 14:49:15.781079
+2023-12-15 14:49:15,782 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 14:49:15,782 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 14:49:15,782 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,783 - INFO - UE initialized with ID UE20 at 2023-12-15 14:49:15.782075
+2023-12-15 14:49:15,783 - INFO - UE with ID UE1 added to Cell CX1873 at 2023-12-15 14:49:15.783070
+2023-12-15 14:49:15,783 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-15 14:49:15,784 - INFO - UE 'UE1' has been attached to Cell 'CX1873'.
+2023-12-15 14:49:15,784 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,784 - INFO - UE initialized with ID UE21 at 2023-12-15 14:49:15.784066
+2023-12-15 14:49:15,784 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 14:49:15.784066
+2023-12-15 14:49:15,785 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 14:49:15,785 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 14:49:15,785 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,785 - INFO - UE initialized with ID UE22 at 2023-12-15 14:49:15.785061
+2023-12-15 14:49:15,786 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 14:49:15.786057
+2023-12-15 14:49:15,786 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 14:49:15,786 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 14:49:15,786 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,787 - INFO - UE initialized with ID UE23 at 2023-12-15 14:49:15.787053
+2023-12-15 14:49:15,787 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 14:49:15.787053
+2023-12-15 14:49:15,788 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 14:49:15,788 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 14:49:15,788 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,788 - INFO - UE initialized with ID UE24 at 2023-12-15 14:49:15.788048
+2023-12-15 14:49:15,789 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 14:49:15.789044
+2023-12-15 14:49:15,789 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 14:49:15,789 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 14:49:15,789 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,790 - INFO - UE initialized with ID UE25 at 2023-12-15 14:49:15.790040
+2023-12-15 14:49:15,790 - INFO - UE with ID UE1 added to Cell CX1873 at 2023-12-15 14:49:15.790040
+2023-12-15 14:49:15,790 - INFO - UE 'UE1' has been added to Cell 'CX1873'.
+2023-12-15 14:49:15,791 - INFO - UE 'UE1' has been attached to Cell 'CX1873'.
+2023-12-15 14:49:15,791 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,791 - INFO - UE initialized with ID UE26 at 2023-12-15 14:49:15.791035
+2023-12-15 14:49:15,792 - INFO - UE with ID UE1 added to Cell Ax1242 at 2023-12-15 14:49:15.792031
+2023-12-15 14:49:15,792 - INFO - UE 'UE1' has been added to Cell 'Ax1242'.
+2023-12-15 14:49:15,792 - INFO - UE 'UE1' has been attached to Cell 'Ax1242'.
+2023-12-15 14:49:15,792 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,793 - INFO - UE initialized with ID UE27 at 2023-12-15 14:49:15.793026
+2023-12-15 14:49:15,793 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 14:49:15.793026
+2023-12-15 14:49:15,793 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 14:49:15,794 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 14:49:15,794 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,794 - INFO - UE initialized with ID UE28 at 2023-12-15 14:49:15.794022
+2023-12-15 14:49:15,795 - INFO - UE with ID UE1 added to Cell BX1230 at 2023-12-15 14:49:15.795018
+2023-12-15 14:49:15,795 - INFO - UE 'UE1' has been added to Cell 'BX1230'.
+2023-12-15 14:49:15,795 - INFO - UE 'UE1' has been attached to Cell 'BX1230'.
+2023-12-15 14:49:15,795 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,796 - INFO - UE initialized with ID UE29 at 2023-12-15 14:49:15.795018
+2023-12-15 14:49:15,796 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 14:49:15.796013
+2023-12-15 14:49:15,796 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 14:49:15,796 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 14:49:15,797 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,797 - INFO - UE initialized with ID UE30 at 2023-12-15 14:49:15.797009
+2023-12-15 14:49:15,797 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 14:49:15.797009
+2023-12-15 14:49:15,798 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 14:49:15,798 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 14:49:15,798 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,799 - INFO - UE initialized with ID UE31 at 2023-12-15 14:49:15.799001
+2023-12-15 14:49:15,799 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 14:49:15.799001
+2023-12-15 14:49:15,799 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 14:49:15,799 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 14:49:15,799 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,799 - INFO - UE initialized with ID UE32 at 2023-12-15 14:49:15.799996
+2023-12-15 14:49:15,799 - INFO - UE with ID UE1 added to Cell AX9980 at 2023-12-15 14:49:15.799996
+2023-12-15 14:49:15,801 - INFO - UE 'UE1' has been added to Cell 'AX9980'.
+2023-12-15 14:49:15,801 - INFO - UE 'UE1' has been attached to Cell 'AX9980'.
+2023-12-15 14:49:15,801 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,801 - INFO - UE initialized with ID UE33 at 2023-12-15 14:49:15.801987
+2023-12-15 14:49:15,801 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 14:49:15.801987
+2023-12-15 14:49:15,801 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 14:49:15,802 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 14:49:15,802 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,802 - INFO - UE initialized with ID UE34 at 2023-12-15 14:49:15.802982
+2023-12-15 14:49:15,802 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 14:49:15.802982
+2023-12-15 14:49:15,803 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 14:49:15,803 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 14:49:15,803 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,803 - INFO - UE initialized with ID UE35 at 2023-12-15 14:49:15.803979
+2023-12-15 14:49:15,804 - INFO - UE with ID UE1 added to Cell BX1453 at 2023-12-15 14:49:15.804974
+2023-12-15 14:49:15,804 - INFO - UE 'UE1' has been added to Cell 'BX1453'.
+2023-12-15 14:49:15,804 - INFO - UE 'UE1' has been attached to Cell 'BX1453'.
+2023-12-15 14:49:15,804 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,805 - INFO - UE initialized with ID UE36 at 2023-12-15 14:49:15.805969
+2023-12-15 14:49:15,805 - INFO - UE with ID UE1 added to Cell BX1334 at 2023-12-15 14:49:15.805969
+2023-12-15 14:49:15,805 - INFO - UE 'UE1' has been added to Cell 'BX1334'.
+2023-12-15 14:49:15,806 - INFO - UE 'UE1' has been attached to Cell 'BX1334'.
+2023-12-15 14:49:15,806 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,806 - INFO - UE initialized with ID UE37 at 2023-12-15 14:49:15.806965
+2023-12-15 14:49:15,807 - INFO - UE with ID UE1 added to Cell CX1352 at 2023-12-15 14:49:15.807960
+2023-12-15 14:49:15,807 - INFO - UE 'UE1' has been added to Cell 'CX1352'.
+2023-12-15 14:49:15,807 - INFO - UE 'UE1' has been attached to Cell 'CX1352'.
+2023-12-15 14:49:15,807 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,808 - INFO - UE initialized with ID UE38 at 2023-12-15 14:49:15.808957
+2023-12-15 14:49:15,808 - INFO - UE with ID UE1 added to Cell CX5103 at 2023-12-15 14:49:15.808957
+2023-12-15 14:49:15,808 - INFO - UE 'UE1' has been added to Cell 'CX5103'.
+2023-12-15 14:49:15,809 - INFO - UE 'UE1' has been attached to Cell 'CX5103'.
+2023-12-15 14:49:15,809 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:15,809 - INFO - UE initialized with ID UE39 at 2023-12-15 14:49:15.809952
+2023-12-15 14:49:15,809 - INFO - UE with ID UE1 added to Cell AX1112 at 2023-12-15 14:49:15.809952
+2023-12-15 14:49:15,810 - INFO - UE 'UE1' has been added to Cell 'AX1112'.
+2023-12-15 14:49:15,810 - INFO - UE 'UE1' has been attached to Cell 'AX1112'.
+2023-12-15 14:49:15,810 - ERROR - Failed to insert data into InfluxDB: Type: "<class 'list'>" of field: "snr_thresholds" is not supported.
+2023-12-15 14:49:21,364 - INFO - Database connection successful.
+2023-12-15 14:49:24,877 - INFO - Database connection successful.
+2023-12-15 14:49:24,886 - INFO - Testing cell load logging.
+2023-12-15 14:49:24,886 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 10.0%
+2023-12-15 14:49:24,886 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 25.0%
+2023-12-15 14:49:24,887 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 25.0%
+2023-12-15 14:49:24,887 - INFO - Testing cell load logging.
+2023-12-15 14:49:24,887 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 14:49:24,888 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 14:49:24,888 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 14:49:24,888 - INFO - Testing cell load logging.
+2023-12-15 14:49:24,888 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 30.0%
+2023-12-15 14:49:24,888 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 25.0%
+2023-12-15 14:49:24,889 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 30.0%
+2023-12-15 14:49:29,889 - INFO - Testing cell load logging.
+2023-12-15 14:49:29,889 - INFO - Cell Ax1242 @ gNodeB W1140 - Load: 10.0%
+2023-12-15 14:49:29,890 - INFO - Cell BX1453 @ gNodeB W1140 - Load: 25.0%
+2023-12-15 14:49:29,890 - INFO - Cell CX1352 @ gNodeB W1140 - Load: 25.0%
+2023-12-15 14:49:29,890 - INFO - Testing cell load logging.
+2023-12-15 14:49:29,891 - INFO - Cell AX1112 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 14:49:29,891 - INFO - Cell BX1334 @ gNodeB W1320 - Load: 15.0%
+2023-12-15 14:49:29,891 - INFO - Cell CX1873 @ gNodeB W1320 - Load: 25.0%
+2023-12-15 14:49:29,891 - INFO - Testing cell load logging.
+2023-12-15 14:49:29,892 - INFO - Cell AX9980 @ gNodeB W2018 - Load: 30.0%
+2023-12-15 14:49:29,892 - INFO - Cell BX1230 @ gNodeB W2018 - Load: 25.0%
+2023-12-15 14:49:29,892 - INFO - Cell CX5103 @ gNodeB W2018 - Load: 30.0%
