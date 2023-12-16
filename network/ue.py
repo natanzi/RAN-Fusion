@@ -128,14 +128,18 @@ class UE:
         # This could be a simple attribute access or a more complex calculation
         return self.traffic_volume
     
-    def perform_handover(self, new_cell):
-        old_cell_id = self.ConnectedCellID  # Store the old cell ID for logging
-        self.ConnectedCellID = new_cell.ID
-        new_cell.add_ue(self)
-        
-        # Assuming you have a way to determine if the handover was successful
-        handover_successful = True  # or some condition that determines success
-        
+    def perform_handover(self, old_cell, new_cell, network_state):
+        try:
+            # Check if the handover is feasible (this method should be implemented)
+            handover_successful = self.check_handover_feasibility(old_cell, new_cell)
+
+            if handover_successful:
+            # Remove UE from the old cell's list of connected UEs
+                old_cell.remove_ue(self)
+            # Add UE to the new cell
+                new_cell.add_ue(self)
+            # Update the UE's connected cell ID
+                self.ConnectedCellID = new_cell.ID
         # Update the network state to reflect the handover
         network_state = NetworkState() 
         network_state.update_state(self.gNodeBs, self.cells, self.ues)
