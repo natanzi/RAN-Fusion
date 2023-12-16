@@ -154,3 +154,7 @@ class NetworkState:
             gNodeB_id = cell.gNodeB_ID if cell else 'Unknown'
             print(f"ID: {ue_id}, Cell: {ue.ConnectedCellID}, gNodeB: {gNodeB_id}")
 #############################################################################################################
+# Add this method to the NetworkState class
+def update_and_save(self, gNodeBs, cells, ues):
+    self.update_state(gNodeBs, cells, ues)
+    self.save_state_to_influxdb()

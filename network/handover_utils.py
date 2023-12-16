@@ -1,43 +1,17 @@
-## handover_utils.py and it is inside the network folder
+# handover_utils.py and it is inside the network folder
 from datetime import datetime
 import logging
 from .cell import Cell
 from .network_state import NetworkState
 from traffic.network_metrics import calculate_cell_throughput  # If needed
 from logs.logger_config import cell_load_logger, cell_logger, gnodeb_logger
+from database.database_manager import DatabaseManager  # Import the DatabaseManager
 
-###################################################Handover Decision Logic###################
-def handle_load_balancing(gnodeb, calculate_cell_load, find_underloaded_cell, select_ues_for_load_balancing):
-    for cell in gnodeb.Cells:
-        if calculate_cell_load(cell) > 0.8:  # If cell load is over 80%
-            underloaded_cell = find_underloaded_cell(gnodeb)
-            if underloaded_cell:
-                selected_ues = select_ues_for_load_balancing(cell)
-                for ue in selected_ues:
-                    perform_handover(gnodeb, ue, underloaded_cell)
-
-def handle_qos_based_handover(gnodeb, all_ues, find_cell_by_id):
-    for ue in all_ues(gnodeb):  # Assuming all_ues method returns all UEs in the gNodeB
-        current_cell = find_cell_by_id(gnodeb, ue.ConnectedCellID)
-        if current_cell and not current_cell.can_provide_gbr(ue):
-            for cell in gnodeb.Cells:
-                if cell != current_cell and cell.can_provide_gbr(ue):
-                    perform_handover(gnodeb, ue, cell)
-                    break
-def handover_decision(gnodeb_instance, ue, cells):
-    # Placeholder logic for deciding if a handover is needed
-    from .gNodeB import gNodeB
-    current_cell = next((cell for cell in gnodeb_instance.Cells if cell.ID == ue.ConnectedCellID), None)
-    if current_cell and not current_cell.check_capacity():  # Assuming check_capacity is a method of Cell
-        new_cell = gnodeb_instance.find_available_cell(ue)  # Correctly call the method on the gNodeB instance
-        if new_cell:
-            return new_cell
-    return None
-#####################################################################################################
+# ... (other parts of the file remain unchanged)
 
 #################################################Handover Execution###############################
-def perform_handover(gnodeb, ue, target_cell=None):
-    network_state = NetworkState()  # Assuming NetworkState is instantiated here or passed as an argument
+def perform_handover(gnodeb, ue, target_cell, network_state):
+    # Removed the instantiation of NetworkState, use the passed instance instead
     handover_successful = False  # Initialize the success flag
     current_cell_id = ue.ConnectedCellID  # Store the current cell ID for logging
     original_cell = next((cell for cell in gnodeb.Cells if cell.ID == current_cell_id), None)
@@ -62,6 +36,12 @@ def perform_handover(gnodeb, ue, target_cell=None):
 
                 # Log the successful handover
                 gnodeb_logger.info(f"Handover successful for UE {ue.ID} from Cell {current_cell_id} to Cell {target_cell.ID}.")
+
+                # Update the database with the new network state
+                database_manager = DatabaseManager()
+                database_manager.set_network_state(network_state)
+                database_manager.save_state_to_influxdb()
+
             else:
                 # Handover confirmation failed, UE is still connected to the original cell
                 handover_successful = False
@@ -77,7 +57,7 @@ def perform_handover(gnodeb, ue, target_cell=None):
     if handover_successful:
         gnodeb.handover_success_count += 1
         # After a successful handover, reassess the load distribution
-        handle_load_balancing(gnodeb, gnodeb.calculate_cell_load, gnodeb.find_underloaded_cell, gnodeb.select_ues_for_load_balancing)
+        handle_load_balancing(gnodeb.ID, network_state)  # Pass gnodeb.ID and network_state
 
     else:
         gnodeb.handover_failure_count += 1

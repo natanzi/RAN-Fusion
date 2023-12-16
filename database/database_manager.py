@@ -71,6 +71,19 @@ class DatabaseManager:
         """Closes the database connection."""
         self.client.close()
 
+    def save_state_to_influxdb(self):
+        """Saves the current network state to the InfluxDB database."""
+        if self.network_state is None:
+            database_logger.error("No network state available to save to the database.")
+            return
+
+        # Serialize the network state for InfluxDB
+        points = self.network_state.serialize_for_influxdb()
+
+        # Write the points to the InfluxDB database
+        self.insert_data_batch(points)
+        database_logger.info("Network state saved to InfluxDB.")
+
     def insert_log(self, log_point):
         """Inserts log data into the logs bucket in InfluxDB."""
         log_bucket = 'RAN_logs' 
