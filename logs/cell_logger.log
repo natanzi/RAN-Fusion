@@ -363,3 +363,61 @@
 {"level": "INFO", "timestamp": "2023-12-15 23:31:38", "message": "UE 'UE1' has been added to Cell 'CX1352'."}
 {"level": "INFO", "timestamp": "2023-12-15 23:31:38", "message": "UE 'UE1' has been added to Cell 'CX5103'."}
 {"level": "INFO", "timestamp": "2023-12-15 23:31:38", "message": "UE 'UE1' has been added to Cell 'AX9980'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:47", "message": "Cell 'Ax1242' has been created in gNodeB 'Ax1242' with max capacity 10."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:47", "message": "Cell 'BX1453' has been created in gNodeB 'BX1453' with max capacity 10."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:47", "message": "Cell 'CX1352' has been created in gNodeB 'CX1352' with max capacity 10."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:47", "message": "Cell 'AX1112' has been created in gNodeB 'AX1112' with max capacity 10."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:48", "message": "Cell 'BX1334' has been created in gNodeB 'BX1334' with max capacity 10."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:48", "message": "Cell 'CX1873' has been created in gNodeB 'CX1873' with max capacity 10."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:48", "message": "Cell 'AX9980' has been created in gNodeB 'AX9980' with max capacity 10."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:48", "message": "Cell 'BX1230' has been created in gNodeB 'BX1230' with max capacity 10."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:48", "message": "Cell 'CX5103' has been created in gNodeB 'CX5103' with max capacity 10."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:48", "message": "Cell 'Ax1242' has been added to gNodeB 'W1140'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:49", "message": "Cell 'BX1453' has been added to gNodeB 'W1140'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:50", "message": "Cell 'CX1352' has been added to gNodeB 'W1140'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:51", "message": "Cell 'AX1112' has been added to gNodeB 'W1320'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:52", "message": "Cell 'BX1334' has been added to gNodeB 'W1320'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:53", "message": "Cell 'CX1873' has been added to gNodeB 'W1320'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:54", "message": "Cell 'AX9980' has been added to gNodeB 'W2018'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:55", "message": "Cell 'BX1230' has been added to gNodeB 'W2018'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:56", "message": "Cell 'CX5103' has been added to gNodeB 'W2018'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'BX1334'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'CX1352'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'BX1453'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'CX5103'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'CX5103'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'BX1230'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'CX1352'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'CX1352'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'Ax1242'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'CX1352'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'Ax1242'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'Ax1242'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'CX1352'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'AX9980'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'CX5103'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'BX1230'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'BX1334'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'BX1230'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'CX5103'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'CX1873'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'BX1334'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'BX1334'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'BX1334'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'BX1334'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'CX1352'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'BX1230'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'CX1352'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'CX1873'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'AX9980'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'CX5103'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'BX1230'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'CX1352'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'AX1112'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'AX9980'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'CX1352'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'AX9980'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'Ax1242'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'Ax1242'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'AX9980'."}
+{"level": "INFO", "timestamp": "2023-12-15 23:39:57", "message": "UE 'UE1' has been added to Cell 'CX1873'."}
