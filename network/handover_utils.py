@@ -4,7 +4,7 @@ import logging
 from .cell import Cell
 from .network_state import NetworkState
 from traffic.network_metrics import calculate_cell_throughput  # If needed
-from logs.logger_config import cell_load_logger, cell_logger, gnodeb_logger
+from logs.logger_config import cell_load_logger, cell_logger, gnodeb_logger, ue_logger
 from database.database_manager import DatabaseManager  # Import the DatabaseManager
 
 # ... (other parts of the file remain unchanged)
@@ -36,6 +36,8 @@ def perform_handover(gnodeb, ue, target_cell, network_state):
 
                 # Log the successful handover
                 gnodeb_logger.info(f"Handover successful for UE {ue.ID} from Cell {current_cell_id} to Cell {target_cell.ID}.")
+                cell_logger.info(f"Handover successful for UE {ue.ID} from Cell {current_cell_id} to Cell {target_cell.ID}.")
+                ue_logger.info(f"Handover successful for UE {ue.ID} from Cell {current_cell_id} to Cell {target_cell.ID}.")
 
                 # Update the database with the new network state
                 database_manager = DatabaseManager()
@@ -47,6 +49,8 @@ def perform_handover(gnodeb, ue, target_cell, network_state):
                 handover_successful = False
                 ue.perform_handover(original_cell)  # Rollback to the original cell
                 gnodeb_logger.error(f"Handover confirmation failed for UE {ue.ID}. Rolled back to Cell {original_cell.ID}.")
+                cell_logger.error(f"Handover failed for UE {ue.ID} from Cell {current_cell_id}.")
+                ue_logger.error(f"Handover failed for UE {ue.ID} from Cell {current_cell_id}.")
         else:
             # Log the failed handover
             gnodeb_logger.error(f"Handover failed for UE {ue.ID} from Cell {current_cell_id}.")
