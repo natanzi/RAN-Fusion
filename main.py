@@ -14,17 +14,6 @@ print("Printing logo start")
 print(logo_text)
 print("Printing logo end")
 
-# Create an instance of NetworkState
-network_state = NetworkState()
-# Initialize DatabaseManager with network_state
-db_manager = DatabaseManager(network_state)
-
-# Pass network_state to perform_health_check
-if perform_health_check(network_state):
-    print("Health check passed.")
-else:
-    print("Health check failed.")
-
 # At the beginning of your script
 logging.basicConfig(level=logging.INFO)
 
@@ -79,11 +68,8 @@ def main():
 
     print(f"Number of UEs returned: {len(ues)}")
     time.sleep(2)
-    # The DatabaseManager has already been initialized with network_state at the beginning of the script
-    # So we don't need to initialize it again here
 
     # Example traffic increase configuration
-    # This can be modified or managed through a GUI or API endpoint
     traffic_increase_config = {1: 2, 3: 1.5}
 
     # Create a separate process for logging without passing db_manager
