@@ -134,21 +134,26 @@ class UE:
             handover_successful = self.check_handover_feasibility(old_cell, new_cell)
 
             if handover_successful:
-            # Remove UE from the old cell's list of connected UEs
+                # Remove UE from the old cell's list of connected UEs
                 old_cell.remove_ue(self)
-            # Add UE to the new cell
+                # Add UE to the new cell
                 new_cell.add_ue(self)
-            # Update the UE's connected cell ID
+                # Update the UE's connected cell ID
                 self.ConnectedCellID = new_cell.ID
-        # Update the network state to reflect the handover
-        network_state = NetworkState() 
-        network_state.update_state(self.gNodeBs, self.cells, self.ues)
-        
-        # Log the handover event
-        if handover_successful:
-            ue_logger.info(f"UE {self.ID} handovered from Cell {old_cell_id} to Cell {new_cell.ID}")
-        else:
-            ue_logger.error(f"Handover failed for UE {self.ID} from Cell {old_cell_id} to Cell {new_cell.ID}")
+                # Update the network state to reflect the handover
+                network_state.update_state(self.gNodeBs, self.cells, self.ues)
+                # Log the successful handover
+                ue_logger.info(f"UE {self.ID} handovered from Cell {old_cell.ID} to Cell {new_cell.ID}")
+            else:
+                # Log the failed handover
+                ue_logger.error(f"Handover failed for UE {self.ID} from Cell {old_cell.ID} to Cell {new_cell.ID}")
+
+            return handover_successful
+        except Exception as e:
+        # Log any exception that occurs during the handover
+            ue_logger.error(f"Handover exception for UE {self.ID}: {e}")
+        return False
+
     
     def serialize_for_influxdb(self):
         point = Point("ue_metrics") \

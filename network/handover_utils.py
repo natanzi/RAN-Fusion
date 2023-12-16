@@ -47,13 +47,21 @@ def perform_handover(gnodeb, ue, target_cell, network_state):
             else:
                 # Handover confirmation failed, UE is still connected to the original cell
                 handover_successful = False
-                ue.perform_handover(original_cell)  # Rollback to the original cell
-                gnodeb_logger.error(f"Handover confirmation failed for UE {ue.ID}. Rolled back to Cell {original_cell.ID}.")
-                cell_logger.error(f"Handover failed for UE {ue.ID} from Cell {current_cell_id}.")
-                ue_logger.error(f"Handover failed for UE {ue.ID} from Cell {current_cell_id}.")
+                # Rollback to the original cell
+                rollback_successful = ue.perform_handover(original_cell)
+                if rollback_successful:
+                    gnodeb_logger.error(f"Handover confirmation failed for UE {ue.ID}. Rolled back to Cell {original_cell.ID}.")
+                    cell_logger.error(f"Handover confirmation failed for UE {ue.ID}. Rolled back to Cell {original_cell.ID}.")
+                    ue_logger.error(f"Handover confirmation failed for UE {ue.ID}. Rolled back to Cell {original_cell.ID}.")
+                else:
+                    gnodeb_logger.critical(f"Rollback failed for UE {ue.ID}.")
+                    cell_logger.critical(f"Rollback failed for UE {ue.ID}.")
+                    ue_logger.critical(f"Rollback failed for UE {ue.ID}.")
         else:
             # Log the failed handover
             gnodeb_logger.error(f"Handover failed for UE {ue.ID} from Cell {current_cell_id}.")
+            cell_logger.error(f"Handover failed for UE {ue.ID} from Cell {current_cell_id}.")
+            ue_logger.error(f"Handover failed for UE {ue.ID} from Cell {current_cell_id}.")
             # Rollback to the original cell
             ue.perform_handover(original_cell)
 
