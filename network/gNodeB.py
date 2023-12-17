@@ -216,7 +216,6 @@ class gNodeB:
         return None
 
     def select_ues_for_load_balancing(self, overloaded_cell, underloaded_cell):
-        # Get UE objects from the overloaded cell
         ue_objects = [self.get_ue_by_id(ue_id) for ue_id in overloaded_cell.ConnectedUEs]
 
         # Prioritize UEs based on service type and data usage
@@ -226,10 +225,6 @@ class gNodeB:
         # Select a subset of UEs for handover
         # Assuming we want to move a third of the UEs, but this can be adjusted
         ues_to_move = prioritized_ues[:len(prioritized_ues) // 3]
-    
-    def find_available_cell(self, target_ue):
-        """
-        Finds the best available cell for a UE to handover to based on the cell load and other criteria.
 
         :param target_ue: The UE object that needs to be handed over.
         :return: The best target cell for handover or None if no suitable cell is found.
@@ -249,7 +244,6 @@ class gNodeB:
                 lowest_load = cell_load
 
         return best_cell
-    
 #################################################
 #######################################Periodic Updates###############################################
     def update(self):

@@ -14,7 +14,6 @@ def perform_handover(gnodeb, ue, target_cell, network_state):
     current_cell_id = ue.ConnectedCellID  # Store the current cell ID for logging
     original_cell = next((cell for cell in gnodeb.Cells if cell.ID == current_cell_id), None)
 
-    # If a target cell is not specified, decide on the new cell
     if target_cell is None:
         target_cell = handover_decision(gnodeb, ue, gnodeb.Cells)
 
@@ -24,25 +23,20 @@ def perform_handover(gnodeb, ue, target_cell, network_state):
         handover_successful = ue.perform_handover(target_cell)  # Assuming perform_handover is a method of UE
 
         if handover_successful:
-            # Confirm UE is no longer connected to the previous cell
             if ue.ID not in original_cell.ConnectedUEs:
-                # Update the cell's connected UEs
                 if original_cell:
                     original_cell.ConnectedUEs.remove(ue.ID)  # Assuming ConnectedUEs holds UE IDs
                 target_cell.ConnectedUEs.append(ue.ID)
                 # Update the network state to reflect the handover
                 network_state.update_state(gnodeb, target_cell, ue)  # Assuming update_state is a method of NetworkState
 
-                # Log the successful handover
                 gnodeb_logger.info(f"Handover successful for UE {ue.ID} from Cell {current_cell_id} to Cell {target_cell.ID}.")
                 cell_logger.info(f"Handover successful for UE {ue.ID} from Cell {current_cell_id} to Cell {target_cell.ID}.")
                 ue_logger.info(f"Handover successful for UE {ue.ID} from Cell {current_cell_id} to Cell {target_cell.ID}.")
 
-                # Update the database with the new network state
                 database_manager = DatabaseManager()
                 database_manager.set_network_state(network_state)
                 database_manager.save_state_to_influxdb()
-
             else:
                 # Handover confirmation failed, UE is still connected to the original cell
                 handover_successful = False
@@ -72,11 +66,6 @@ def perform_handover(gnodeb, ue, target_cell, network_state):
 
     else:
         gnodeb.handover_failure_count += 1
-        # Log the failed handover if target cell was not found or handover was not successful
-        gnodeb_logger.error(f"Handover failed for UE {ue.ID}. No suitable target cell found or handover was unsuccessful.")
-
-    # Return the handover outcome
-    return handover_successful
 ###########################################################################################################################################
 def monitor_and_log_cell_load(gnodeb):
     cell_load_logger.info("Testing cell load logging.")
@@ -109,7 +98,6 @@ def check_handover_feasibility(network_state, target_cell_id):
     return len(target_cell.ConnectedUEs) < target_cell.MaxConnectedUEs
 ##########################################################################################################################################
 def handle_load_balancing(gnodeb, network_state):
-    # Iterate over all cells in the gNodeB to check their load
     for cell in gnodeb.Cells:
         cell_load = gnodeb.calculate_cell_load(cell)
         # If the cell is overloaded, initiate load balancing
@@ -117,14 +105,9 @@ def handle_load_balancing(gnodeb, network_state):
             # Find an underloaded cell to potentially receive UEs from the overloaded cell
             underloaded_cell = gnodeb.find_underloaded_cell()
             if underloaded_cell:
-                # Select UEs from the overloaded cell to be handed over
                 ues_to_move = gnodeb.select_ues_for_load_balancing(cell, underloaded_cell)
-                # Perform handovers for the selected UEs
                 for ue in ues_to_move:
-                    # Perform the handover using the perform_handover function defined above
                     perform_handover(gnodeb, ue, underloaded_cell, network_state)
-                    # Recalculate the load after each handover
                     cell_load = gnodeb.calculate_cell_load(cell)
                     if cell_load <= 0.8:
-                        # If the cell is no longer overloaded, break the loop
                         break
