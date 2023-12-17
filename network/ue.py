@@ -127,7 +127,7 @@ class UE:
         # Implementation to return the traffic volume
         # This could be a simple attribute access or a more complex calculation
         return self.traffic_volume
-    
+    ####################################################################################
     def perform_handover(self, old_cell, new_cell, network_state):
         try:
             # Check if the handover is feasible (this method should be implemented)
@@ -153,8 +153,30 @@ class UE:
         # Log any exception that occurs during the handover
             ue_logger.error(f"Handover exception for UE {self.ID}: {e}")
         return False
+    ##################################################################################
+    def is_in_restricted_region(self):
+        # Logic to determine if the cell is in a restricted region
+        # ...
+        return False
+    ##################################################################################
+    def is_eligible_for_handover(self, network_state):
+        """
+        Determines if the UE is eligible for handover based on its properties 
+        and the network state.
 
-    
+        :param network_state: The current state of the network.
+        :return: Boolean indicating eligibility for handover.
+        """
+        # Example: Check service type
+        if self.serviceType in ['restricted_service_type']:
+            return False
+
+        # Additional checks can be added here based on network_state
+        # For example, checking network policies, cell congestion, etc.
+        # ...
+
+        return True
+    ###################################################################################
     def serialize_for_influxdb(self):
         point = Point("ue_metrics") \
             .tag("ue_id", self.ID) \

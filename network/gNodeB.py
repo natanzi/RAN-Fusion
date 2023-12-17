@@ -203,43 +203,45 @@ class gNodeB:
         throughput_based_load = calculate_cell_throughput(cell, [self])  # Assuming 'self' is the only gNodeB for simplicity
         
         # Combine the UE-based load and throughput-based load for a more accurate load calculation
-        # The weights (0.5 in this case) can be adjusted based on which factor is deemed more important
+        # The weights can be adjusted based on which factor is deemed more important
         combined_load = (0.5 * ue_based_load) + (0.5 * throughput_based_load)
         
         return combined_load
-#####################################################################################################
+##########################################################################################################################
     def find_underloaded_cell(self):
-        # Find a cell with load below a certain threshold, e.g., 50%
-        for cell in self.Cells:
-            if self.calculate_cell_load(cell) < 0.5:
-                return cell
-        return None
+        underloaded_cell = None
+        lowest_load = float('inf')
 
+        for cell in self.Cells:
+            cell_load = self.calculate_cell_load(cell)
+            if cell_load < 0.5 and cell_load < lowest_load:  # Threshold is 50%
+                underloaded_cell = cell
+                lowest_load = cell_load
+
+        return underloaded_cell
+##########################################################################################################################
     def select_ues_for_load_balancing(self, overloaded_cell, underloaded_cell):
         ue_objects = [self.get_ue_by_id(ue_id) for ue_id in overloaded_cell.ConnectedUEs]
 
-        # Prioritize UEs based on service type and data usage
-        # Non-real-time services and lower data usage UEs are more likely to be selected
-        prioritized_ues = sorted(ue_objects, key=lambda ue: (ue.ServiceType not in ['video', 'game'], ue.get_traffic_volume()))
+        # Prioritize UEs based on service type (higher priority for 'video', 'game', 'data') and data usage
+        prioritized_ues = sorted(ue_objects, key=lambda ue: (ue.serviceType in ['video', 'game', 'data'], ue.get_data_usage()), reverse=True)
 
         # Select a subset of UEs for handover
-        # Assuming we want to move a third of the UEs, but this can be adjusted
+        # The exact logic for how many UEs to move can be adjusted as needed
         ues_to_move = prioritized_ues[:len(prioritized_ues) // 3]
 
-        :param target_ue: The UE object that needs to be handed over.
-        :return: The best target cell for handover or None if no suitable cell is found.
-        """
+        return ues_to_move
+############################################################################################################################
+    def find_available_cell(self):
         best_cell = None
         lowest_load = float('inf')
 
-        # Iterate over all cells to find the one with the lowest load that is underloaded
+        # Iterate over all cells to find the one with the lowest load that is not near capacity
         for cell in self.Cells:
             cell_load = self.calculate_cell_load(cell)
 
-            # Check if the cell is underloaded and has a lower load than the current best cell
-            if cell_load < 0.5 and cell_load < lowest_load:
-                # Here you can add additional criteria for handover, such as signal quality, etc.
-                # For now, we only check if the cell is underloaded and has the lowest load
+            # Check if the cell is underloaded (e.g., load less than 80%) and has a lower load than the current best cell
+            if cell_load < 0.8 and cell_load < lowest_load:  # 0.8 represents 80% load
                 best_cell = cell
                 lowest_load = cell_load
 
