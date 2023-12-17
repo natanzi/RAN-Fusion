@@ -12,31 +12,34 @@ def perform_handover(gnodeb, ue, target_cell, network_state):
     current_cell_id = ue.ConnectedCellID
     original_cell = next((cell for cell in gnodeb.Cells if cell.ID == current_cell_id), None)
 
-    if target_cell is None:
-        target_cell = handover_decision(gnodeb, ue, gnodeb.Cells)
+    # Ensure target_cell is provided
+    if not target_cell:
+        return False  # Optionally, handle this situation more gracefully
 
-    if target_cell and check_handover_feasibility(network_state, target_cell.ID, ue):
+    if check_handover_feasibility(network_state, target_cell.ID, ue):
         handover_successful = ue.perform_handover(target_cell)
 
         if handover_successful:
-            if ue.ID not in original_cell.ConnectedUEs:
-                if original_cell:
-                    original_cell.ConnectedUEs.remove(ue.ID)
-                target_cell.ConnectedUEs.append(ue.ID)
-                network_state.update_state(gnodeb, target_cell, ue)
+            # Process after successful handover
+            if original_cell:
+                original_cell.ConnectedUEs.remove(ue.ID)
+            target_cell.ConnectedUEs.append(ue.ID)
+            network_state.update_state(gnodeb, target_cell, ue)
 
-                gnodeb_logger.info(f"Handover successful for UE {ue.ID} from Cell {current_cell_id} to Cell {target_cell.ID}.")
-                cell_logger.info(f"Handover successful for UE {ue.ID} from Cell {current_cell_id} to Cell {target_cell.ID}.")
-                ue_logger.info(f"Handover successful for UE {ue.ID} from Cell {current_cell_id} to Cell {target_cell.ID}.")
+            # Logging the successful handover
+            gnodeb_logger.info(f"Handover successful for UE {ue.ID} from Cell {current_cell_id} to Cell {target_cell.ID}.")
+            cell_logger.info(f"Handover successful for UE {ue.ID} from Cell {current_cell_id} to Cell {target_cell.ID}.")
+            ue_logger.info(f"Handover successful for UE {ue.ID} from Cell {current_cell_id} to Cell {target_cell.ID}.")
 
-                database_manager = DatabaseManager()
-                database_manager.set_network_state(network_state)
-                database_manager.save_state_to_influxdb()
-            else:
-                log_handover_failure("Handover confirmation failed, UE still connected to the original cell", ue, original_cell, target_cell, rollback=True)
+            # Updating the database
+            database_manager = DatabaseManager()
+            database_manager.set_network_state(network_state)
+            database_manager.save_state_to_influxdb()
         else:
-            log_handover_failure("Handover execution failed", ue, original_cell, target_cell, rollback=True)
+            # Handling handover failure
+            log_handover_failure("Handover execution failed", ue, original_cell, target_cell)
     else:
+        # Handling feasibility check failure
         log_handover_failure("Handover feasibility check failed", ue, original_cell, target_cell)
 
     update_handover_counts(gnodeb, handover_successful, network_state)
@@ -57,6 +60,7 @@ def log_handover_failure(message, ue, original_cell, target_cell, rollback=False
 def update_handover_counts(gnodeb, handover_successful, network_state):
     if handover_successful:
         gnodeb.handover_success_count += 1
+        # Assuming handle_load_balancing is defined elsewhere and is relevant here
         handle_load_balancing(gnodeb, network_state)
     else:
         gnodeb.handover_failure_count += 1
