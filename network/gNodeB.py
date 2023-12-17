@@ -216,10 +216,17 @@ class gNodeB:
                 return cell
         return None
 
-    def select_ues_for_load_balancing(self, overloaded_cell):
-        # Select UEs to handover based on criteria like service type, data usage, etc.
-        # Placeholder logic: Select a subset of UEs from the overloaded cell
-        return overloaded_cell.ConnectedUEs[:len(overloaded_cell.ConnectedUEs) // 2]
+    def select_ues_for_load_balancing(self, overloaded_cell, underloaded_cell):
+        # Get UE objects from the overloaded cell
+        ue_objects = [self.get_ue_by_id(ue_id) for ue_id in overloaded_cell.ConnectedUEs]
+
+        # Prioritize UEs based on service type and data usage
+        # Non-real-time services and lower data usage UEs are more likely to be selected
+        prioritized_ues = sorted(ue_objects, key=lambda ue: (ue.ServiceType not in ['video', 'game'], ue.get_traffic_volume()))
+
+        # Select a subset of UEs for handover
+        # Assuming we want to move a third of the UEs, but this can be adjusted
+        ues_to_move = prioritized_ues[:len(prioritized_ues) // 3]
     
     def find_available_cell(self, target_ue):
         """
@@ -243,7 +250,12 @@ class gNodeB:
                 lowest_load = cell_load
 
         return best_cell
-
+    
+    def get_ue_by_id(self, ue_id):
+        # Assuming there is a method to get the UE object by its ID
+        # This method should be implemented in the gNodeB class or elsewhere in the codebase
+        # The method below is a placeholder and should be replaced with the actual implementation
+        return next((ue for ue in self.all_ue_objects() if ue.ID == ue_id), None)
 ######################################################################################################
 #######################################Periodic Updates###############################################
     def update(self):
