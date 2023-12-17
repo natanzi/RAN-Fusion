@@ -119,13 +119,11 @@ class gNodeB:
         return point
 ######################################################################################################
 ##################################################Cell and UE Management##########################
-    def find_ue_by_id(self, ue_id):
-        # Assuming self.all_ues is a method that returns a list of all UE objects
-        for ue in self.all_ues():
-            if ue.ID == ue_id:
-                return ue
-        return None
-
+    def get_ue_by_id(self, ue_id):
+        # Retrieve the UE object from the internal list of UEs managed by this gNodeB
+        # Assuming self.ues is a dictionary with UE IDs as keys and UE objects as values
+        return self.ues.get(ue_id, None)
+################################################################################################
     def delete_cell(self, cell_id):
         # Find the cell to be deleted
         cell_to_delete = next((cell for cell in self.Cells if cell.ID == cell_id), None)
@@ -251,12 +249,7 @@ class gNodeB:
 
         return best_cell
     
-    def get_ue_by_id(self, ue_id):
-        # Assuming there is a method to get the UE object by its ID
-        # This method should be implemented in the gNodeB class or elsewhere in the codebase
-        # The method below is a placeholder and should be replaced with the actual implementation
-        return next((ue for ue in self.all_ue_objects() if ue.ID == ue_id), None)
-######################################################################################################
+#################################################
 #######################################Periodic Updates###############################################
     def update(self):
         from network.handover_utils import handle_load_balancing, monitor_and_log_cell_load
