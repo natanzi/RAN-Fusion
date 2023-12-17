@@ -16,7 +16,6 @@ from logs.logger_config import cell_logger, gnodeb_logger
 from datetime import datetime
 from influxdb_client import Point
 from influxdb_client.client.write_api import SYNCHRONOUS, WritePrecision
-from influxdb_client import Point
 
 def load_gNodeB_config():
     # Correct the path to point to the 'Config_files' directory
