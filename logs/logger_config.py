@@ -6,6 +6,7 @@ import gzip
 from datetime import datetime
 from logging.handlers import RotatingFileHandler
 from concurrent.futures import ThreadPoolExecutor
+from database.time_utils import get_current_time_ntp
 
 class JsonFormatter(logging.Formatter):
     
@@ -15,7 +16,7 @@ class JsonFormatter(logging.Formatter):
     def format(self, record):
         log_record = {
             "level": record.levelname,
-            "timestamp": datetime.utcfromtimestamp(record.created).strftime('%Y-%m-%d %H:%M:%S'),
+            "timestamp": get_current_time_ntp(),
             "message": record.getMessage()
         }
         if record.exc_info:

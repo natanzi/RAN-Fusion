@@ -3,6 +3,7 @@ import os
 import json
 import random
 import time
+from database.time_utils import get_current_time_ntp
 import logging
 from utils.location_utils import get_nearest_gNodeB, get_ue_location_info
 from traffic.network_metrics import calculate_cell_throughput
