@@ -5,11 +5,9 @@ from .cell import Cell
 from .network_state import NetworkState
 from traffic.network_metrics import calculate_cell_throughput  # If needed
 from logs.logger_config import cell_load_logger, cell_logger, gnodeb_logger, ue_logger
-from database.database_manager import DatabaseManager  # Import the DatabaseManager
-
-# ... (other parts of the file remain unchanged)
-
-#################################################Handover Execution###############################
+from database.database_manager import DatabaseManager  
+from .handover import handover_decision
+################################################Handover Execution#######################################################
 def perform_handover(gnodeb, ue, target_cell, network_state):
     # Removed the instantiation of NetworkState, use the passed instance instead
     handover_successful = False  # Initialize the success flag
@@ -20,7 +18,8 @@ def perform_handover(gnodeb, ue, target_cell, network_state):
     if target_cell is None:
         target_cell = handover_decision(gnodeb, ue, gnodeb.Cells)
 
-    if target_cell:
+    # Check handover feasibility before performing handover
+    if target_cell and check_handover_feasibility(network_state, target_cell.ID):
         # Perform the handover to the target cell
         handover_successful = ue.perform_handover(target_cell)  # Assuming perform_handover is a method of UE
 
@@ -78,7 +77,7 @@ def perform_handover(gnodeb, ue, target_cell, network_state):
 
     # Return the handover outcome
     return handover_successful
-##################################################################################################################
+###########################################################################################################################################
 def monitor_and_log_cell_load(gnodeb):
     cell_load_logger.info("Testing cell load logging.")
     for cell in gnodeb.Cells:
@@ -99,7 +98,7 @@ def monitor_and_log_cell_load(gnodeb):
             # Trigger load balancing
             handle_load_balancing(gnodeb, gnodeb.calculate_cell_load, gnodeb.find_underloaded_cell, gnodeb.select_ues_for_load_balancing)
 ##########################################################################################################################################
-    def check_handover_feasibility(network_state, target_cell_id):
+def check_handover_feasibility(network_state, target_cell_id):
     # Get the target cell object using its ID
     target_cell = network_state.cells.get(target_cell_id)
 
@@ -107,9 +106,4 @@ def monitor_and_log_cell_load(gnodeb):
         raise ValueError(f"Target cell with ID {target_cell_id} does not exist.")
 
     # Check if the target cell can accept more UEs based on its load
-    if len(target_cell.ConnectedUEs) < target_cell.MaxConnectedUEs:
-        # The target cell has capacity for more UEs
-        return True
-    else:
-        # The target cell is at capacity and cannot accept more UEs
-        return False
+    return len(target_cell.ConnectedUEs) < target_cell.MaxConnectedUEs
