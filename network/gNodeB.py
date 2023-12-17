@@ -132,24 +132,24 @@ class gNodeB:
         if cell_to_delete is None:
             print(f"No cell with ID {cell_id} found in gNodeB with ID {self.ID}")
             return
-        
-        # Attempt to handover UEs to other cells using the handover function from handover.py
-        from .handover_utils import handover_decision, perform_handover
+
+    # Attempt to handover UEs to other cells
+        from .handover_utils import perform_handover, check_handover_feasibility
         for ue_id in cell_to_delete.ConnectedUEs:
             ue = self.find_ue_by_id(ue_id)
-            if ue:
-                # Use the handover function from handover.py to make a handover decision
-                new_cell = handover_decision(ue, self.Cells)  # Assuming handover_decision takes a UE and a list of Cells
-                if new_cell:
-                    # Perform handover to the new cell using the perform_handover method from ue.py
-                    ue.perform_handover(new_cell)
-                else:
-                    print(f"No available cell for UE with ID {ue.ID} to handover.")
-        
-        # Remove the cell from the Cells list
+        if ue:
+            # Determine a new cell for handover
+            new_cell = self.find_available_cell()  # This method should identify a suitable cell
+            if new_cell and check_handover_feasibility(self.network_state, new_cell.ID, ue):
+                # Perform handover to the new cell
+                perform_handover(self, ue, new_cell, self.network_state)
+            else:
+                print(f"No available or suitable cell for UE with ID {ue.ID} to handover.")
+
+    # Remove the cell from the Cells list
         self.Cells.remove(cell_to_delete)
         print(f"Cell with ID {cell_id} has been deleted from gNodeB with ID {self.ID}")
-
+###################################################################################################
     def all_ues(self):
         """
         Returns a list of all UE objects managed by this gNodeB.
