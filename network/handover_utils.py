@@ -107,3 +107,24 @@ def check_handover_feasibility(network_state, target_cell_id):
 
     # Check if the target cell can accept more UEs based on its load
     return len(target_cell.ConnectedUEs) < target_cell.MaxConnectedUEs
+##########################################################################################################################################
+def handle_load_balancing(gnodeb, network_state):
+    # Iterate over all cells in the gNodeB to check their load
+    for cell in gnodeb.Cells:
+        cell_load = gnodeb.calculate_cell_load(cell)
+        # If the cell is overloaded, initiate load balancing
+        if cell_load > 0.8:  # Assuming 80% is the threshold for an overloaded cell
+            # Find an underloaded cell to potentially receive UEs from the overloaded cell
+            underloaded_cell = gnodeb.find_underloaded_cell()
+            if underloaded_cell:
+                # Select UEs from the overloaded cell to be handed over
+                ues_to_move = gnodeb.select_ues_for_load_balancing(cell, underloaded_cell)
+                # Perform handovers for the selected UEs
+                for ue in ues_to_move:
+                    # Perform the handover using the perform_handover function defined above
+                    perform_handover(gnodeb, ue, underloaded_cell, network_state)
+                    # Recalculate the load after each handover
+                    cell_load = gnodeb.calculate_cell_load(cell)
+                    if cell_load <= 0.8:
+                        # If the cell is no longer overloaded, break the loop
+                        break
