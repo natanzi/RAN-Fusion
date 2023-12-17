@@ -6,7 +6,6 @@ from .network_state import NetworkState
 from traffic.network_metrics import calculate_cell_throughput  # If needed
 from logs.logger_config import cell_load_logger, cell_logger, gnodeb_logger, ue_logger
 from database.database_manager import DatabaseManager  
-from .handover import handover_decision
 ################################################Handover Execution#######################################################
 def perform_handover(gnodeb, ue, target_cell, network_state):
     handover_successful = False
