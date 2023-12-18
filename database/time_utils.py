@@ -22,8 +22,8 @@ server_pools = [
 def get_current_time_ntp(cache_expiry=CACHE_EXPIRY):
     global CACHED_TIME
 
-    # Use the cached time if it's still valid
-    if CACHED_TIME and (default_time() - CACHED_TIME[1]) < cache_expiry:
+    # Check if cached time is still valid
+    if CACHED_TIME and (default_time() - CACHED_TIME[1]) < CACHE_EXPIRY:
         return CACHED_TIME[0]
 
     # Try to get time from each server in the pool
