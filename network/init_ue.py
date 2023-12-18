@@ -60,6 +60,13 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         # Assign sequential UE ID
         ue_data['ue_id'] = f"UE{ue_id_counter}" 
         
+        # Generate a unique UE ID
+        ue_id = f"UE{ue_id_counter}"
+        while ue_id in network_state.ues:
+            ue_id_counter += 1
+            ue_id = f"UE{ue_id_counter}"
+        ue_data['ue_id'] = ue_id
+
         # Ensure modulation is a single scalar value, not a list
         
         if isinstance(ue_data['modulation'], list):

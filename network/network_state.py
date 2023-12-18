@@ -25,11 +25,22 @@ class NetworkState:
         return None
     
     def update_state(self, gNodeBs, cells, ues):
+        # Update gNodeBs and cells normally
         self.gNodeBs = gNodeBs
         self.cells = {cell.ID: cell for cell in cells}
-        self.ues = {ue.ID: ue for ue in ues}  # Convert list of UEs to a dictionary
+
+        # Update UEs, but check for duplicates first
+        new_ues = {}
+        for ue in ues:
+            if ue.ID in self.ues:
+                raise ValueError(f"Duplicate UE ID {ue.ID} found during state update.")
+            new_ues[ue.ID] = ue
+        self.ues = new_ues
+
+        # Assign neighbors to cells and update the last update timestamp
         self.assign_neighbors_to_cells()
-        self.last_update = datetime.now()
+        self.last_update = get_current_time_ntp()
+
     
     def assign_neighbors_to_cells(self):
         for gNodeB_id, gNodeB in self.gNodeBs.items():
@@ -134,7 +145,7 @@ class NetworkState:
             database_logger.error(f"Failed to save state to InfluxDB: {e}")  # Log any exceptions
         finally:
             self.db_manager.close_connection()
-        end_time = get_current_time_ntp()  # Use your custom time utility function again to get the end time
+        end_time = get_current_time_ntp() 
 
     # Assuming you want to log the start and end times
         database_logger.info(f"Start Time for saving state to InfluxDB: {start_time}")
