@@ -3,12 +3,12 @@ import sys
 from .server_status import check_server_status
 from .database_status import check_database_status
 from .system_resources import check_system_resources
-from database.time_utils import get_current_time_ntp  # Corrected import statement
+from database.time_utils import get_current_time_ntp, server_pools
 
 def check_time_utility():
     try:
         # Attempt to fetch the time from the NTP server
-        time = get_current_time_ntp()  # Corrected function name
+        time = current_time = get_current_time_ntp(server_pools)
         # If the time is successfully fetched, the utility is considered 'UP'
         return {'status': 'UP', 'time': time}
     except Exception as e:
