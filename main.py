@@ -9,9 +9,10 @@ from logo import create_logo
 from health_check.do_health_check import perform_health_check
 from network.network_state import NetworkState
 from network.handover_utils import handle_load_balancing
-from health_check.system_resources import SystemMonitor
+from health_check.system_monitoring import SystemMonitor
 
 def network_state_manager(network_state, command_queue):
+    
     while True:
         command = command_queue.get()  # Retrieve the command from the queue
         if command == 'save':
