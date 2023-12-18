@@ -25,7 +25,6 @@ def network_state_manager(network_state, command_queue):
         elif command == 'exit':  # Handle exit command to break the loop
             break
 
-
 def log_traffic(ues, command_queue, traffic_increase_config=None):
     while True:
         for ue in ues:
