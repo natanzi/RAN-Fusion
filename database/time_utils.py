@@ -16,7 +16,6 @@ def get_current_time_ntp(servers=['pool.ntp.org', 'time.google.com', 'time.windo
             response = ntp_client.request(server, timeout=timeout)
             utc_time = datetime.utcfromtimestamp(response.tx_time)
 
-            # Convert UTC time to EST
             est = pytz.timezone('US/Eastern')
             est_time = utc_time.replace(tzinfo=pytz.utc).astimezone(est)
             return est_time.strftime("%Y-%m-%d %H:%M:%S")
@@ -30,7 +29,6 @@ def get_current_time_ntp(servers=['pool.ntp.org', 'time.google.com', 'time.windo
     est = pytz.timezone('US/Eastern')
     return datetime.now(est).strftime("%Y-%m-%d %H:%M:%S")
 
-# Example usage
 if __name__ == "__main__":
     current_time = get_current_time_ntp()
     print(f"Current Time: {current_time}")
