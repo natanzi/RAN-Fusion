@@ -32,4 +32,3 @@ def get_current_time_ntp(server='pool.ntp.org'):
 if __name__ == "__main__":
     current_time = get_current_time_ntp()
     print(f"Current Time: {current_time}")
-
