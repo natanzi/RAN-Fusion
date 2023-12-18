@@ -6,7 +6,7 @@ from datetime import datetime
 from influxdb_client import Point, WritePrecision
 from logs.logger_config import database_logger
 from database.time_utils import get_current_time_ntp, server_pools
-current_time = get_current_time_ntp(server_pools)
+time = current_time = get_current_time_ntp()
 
 class NetworkState:
     
@@ -14,7 +14,7 @@ class NetworkState:
         self.gNodeBs = {}
         self.cells = {}
         self.ues = {}
-        self.last_update = datetime.min
+        self.last_update = datetime.min 
         self.db_manager = DatabaseManager(self)
         self.db_manager.set_network_state(self)
 
@@ -40,7 +40,7 @@ class NetworkState:
 
         # Assign neighbors to cells and update the last update timestamp
         self.assign_neighbors_to_cells()
-        self.last_update = get_current_time_ntp(server_pools)
+        self.last_update = get_current_time_ntp()
 
     
     def assign_neighbors_to_cells(self):
@@ -137,7 +137,7 @@ class NetworkState:
         return points
 ########################################################################################################
     def save_state_to_influxdb(self):
-        start_time = get_current_time_ntp(server_pools)
+        start_time = get_current_time_ntp()
         points = self.serialize_for_influxdb()
         try:
             self.db_manager.insert_data_batch(points)
@@ -146,7 +146,7 @@ class NetworkState:
             database_logger.error(f"Failed to save state to InfluxDB: {e}")  # Log any exceptions
         finally:
             self.db_manager.close_connection()
-        end_time = get_current_time_ntp(server_pools)
+        end_time = get_current_time_ntp()
 
     # Assuming you want to log the start and end times
         database_logger.info(f"Start Time for saving state to InfluxDB: {start_time}")

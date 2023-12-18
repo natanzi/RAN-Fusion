@@ -34,7 +34,7 @@ def is_time_valid(time_to_check):
 def get_current_time_ntp(cache_expiry=CACHE_EXPIRY):
     global CACHED_TIME
 
-    # Ensure CACHED_TIME is a tuple and the second element is a float
+    # Check if CACHED_TIME is a tuple and the second element is a float
     if CACHED_TIME and isinstance(CACHED_TIME, tuple) and isinstance(CACHED_TIME[1], float):
         if (default_time() - CACHED_TIME[1]) < cache_expiry:
             return CACHED_TIME[0]

@@ -65,7 +65,7 @@ class Cell:
         }
     # Method to get the count of active UEs and update the last attached cell and its gNodeB
     def update_ue_count(self):
-        self.last_update = get_current_time_ntp(server_pools)
+        self.last_update = get_current_time_ntp()
         if self.ConnectedUEs:
             self.last_ue_update = {
                 'ue_id': self.ConnectedUEs[-1].ID,
@@ -82,7 +82,7 @@ class Cell:
                 raise Exception(f"UE '{ue.ID}' is already connected to Cell '{cell_id}'.")
 
         if len(self.ConnectedUEs) < self.MaxConnectedUEs:
-            current_time = get_current_time_ntp(server_pools)
+            current_time = get_current_time_ntp()
             self.ConnectedUEs.append(ue)
             print(f"UE '{ue.ID}' has been attached to Cell '{self.ID}' at '{current_time}'.")
             self.update_ue_count()
@@ -94,7 +94,7 @@ class Cell:
             raise Exception("Maximum number of connected UEs reached for this cell.")
 
     def remove_ue(self, ue, network_state):
-        current_time = get_current_time_ntp(server_pools)
+        current_time = get_current_time_ntp()
         if ue in self.ConnectedUEs:
             self.ConnectedUEs.remove(ue)
             print(f"UE '{ue.ID}' has been detached from Cell '{self.ID}' at {current_time}.")
