@@ -44,14 +44,14 @@ class DatabaseManager:
         """Inserts data into InfluxDB. Can handle both Point objects and separate parameters."""
         try:
             if isinstance(measurement_or_point, Point):
-            # If a Point object is provided
+                # If a Point object is provided
                 point = measurement_or_point
                 if timestamp:
                     point.time(timestamp)
             else:
-            # If separate parameters are provided
+                # If separate parameters are provided
                 measurement = measurement_or_point
-            # Use NTP time or fallback to system time
+                # Use NTP time or fallback to system time
                 timestamp = timestamp if timestamp is not None else get_current_time_ntp()
                 point = Point(measurement)
                 for tag_key, tag_value in (tags or {}).items():
