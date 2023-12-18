@@ -41,7 +41,7 @@ def detect_and_handle_congestion(network_state, command_queue):
                 # Call the load balancing function from handover_utils.py
                 handle_load_balancing(cell.gNodeB_ID, network_state)
                 command_queue.put('save')  # Save state after handling congestion
-        time.sleep(1)  # Check for congestion at regular intervals
+        time.sleep(5)  # Check for congestion at regular intervals
 
 def main():
     logo_text = create_logo()
