@@ -7,7 +7,7 @@ from logs.logger_config import cell_logger
 import time 
 from influxdb_client import Point
 from influxdb_client.client.write_api import SYNCHRONOUS
-from database.time_utils import get_current_time_ntp
+from database.time_utils import get_current_time_ntp, server_pools
 
 class Cell:
     def __init__(self, cell_id, gnodeb_id, frequencyBand, duplexMode, tx_power, bandwidth, ssb_periodicity, ssb_offset, max_connect_ues, channel_model, trackingArea=None, network_state=None):
@@ -29,7 +29,7 @@ class Cell:
         self.assigned_UEs = []  # Initialize the list of assigned UEs
         self.last_ue_update = None
         self.last_update = None
-        current_time =  get_current_time_ntp()
+        current_time = get_current_time_ntp(server_pools)
         # Logging statement should be here, after all attributes are set
         cell_logger.info(f"Cell '{cell_id}' has been created at '{current_time}' in gNodeB '{self.ID}' with max capacity {self.MaxConnectedUEs}.")
         
@@ -63,18 +63,18 @@ class Cell:
             'TrackingArea': self.TrackingArea,
             # Assuming you don't need to include the 'ConnectedUEs' list
         }
-        # Method to get the count of active UEs and update the last attached cell and its gNodeB
+    # Method to get the count of active UEs and update the last attached cell and its gNodeB
     def update_ue_count(self):
-            self.last_update = datetime.datetime.now()
-            if self.ConnectedUEs:
-                self.last_ue_update = {
-                    'ue_id': self.ConnectedUEs[-1].ID,
-                    'cell_id': self.ID,
-                    'gnodeb_id': self.gNodeB_ID,
-                    'timestamp': self.last_update
-                }
-            return len(self.ConnectedUEs)
-        
+        self.last_update = get_current_time_ntp(server_pools)
+        if self.ConnectedUEs:
+            self.last_ue_update = {
+                'ue_id': self.ConnectedUEs[-1].ID,
+                'cell_id': self.ID,
+                'gnodeb_id': self.gNodeB_ID,
+                'timestamp': self.last_update
+            }
+        return len(self.ConnectedUEs)
+#########################################################################################        
     def add_ue(self, ue, network_state):
     # Check if the UE is already connected to any cell
         for cell_id, cell in network_state.cells.items():
@@ -82,7 +82,7 @@ class Cell:
                 raise Exception(f"UE '{ue.ID}' is already connected to Cell '{cell_id}'.")
 
         if len(self.ConnectedUEs) < self.MaxConnectedUEs:
-            current_time =  get_current_time_ntp()
+            current_time = get_current_time_ntp(server_pools)
             self.ConnectedUEs.append(ue)
             print(f"UE '{ue.ID}' has been attached to Cell '{self.ID}' at '{current_time}'.")
             self.update_ue_count()
@@ -94,7 +94,7 @@ class Cell:
             raise Exception("Maximum number of connected UEs reached for this cell.")
 
     def remove_ue(self, ue, network_state):
-        current_time =  get_current_time_ntp()
+        current_time = get_current_time_ntp(server_pools)
         if ue in self.ConnectedUEs:
             self.ConnectedUEs.remove(ue)
             print(f"UE '{ue.ID}' has been detached from Cell '{self.ID}' at {current_time}.")
