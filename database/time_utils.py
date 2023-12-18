@@ -4,7 +4,6 @@ import logging
 from datetime import datetime
 import pytz
 from time import monotonic as default_time
-import time
 
 # Set up logging 
 logging.basicConfig(level=logging.INFO)
