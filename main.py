@@ -17,7 +17,6 @@ def network_state_manager(network_state, command_queue):
         command = command_queue.get()  # Retrieve the command from the queue
         if command == 'save':
             network_state.save_state_to_influxdb()
-        elif command == 'exit':
             break
 
 def log_traffic(ues, command_queue, traffic_increase_config=None):
