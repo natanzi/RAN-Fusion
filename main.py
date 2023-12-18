@@ -12,7 +12,6 @@ from network.handover_utils import handle_load_balancing  # Make sure to import 
 
 def network_state_manager(network_state, command_queue):
     while True:
-        command = command_queue.get()
         if command == 'save':
             network_state.save_state_to_influxdb()
         elif command == 'exit':

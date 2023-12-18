@@ -8,23 +8,25 @@ import pytz
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-def get_current_time_ntp(server='pool.ntp.org'):
-    """Fetches current time from NTP server and converts it to EST."""
-    try:
-        ntp_client = ntplib.NTPClient()
-        response = ntp_client.request(server)
-        utc_time = datetime.utcfromtimestamp(response.tx_time)
+def get_current_time_ntp(servers=['pool.ntp.org', 'time.google.com', 'time.windows.com'], timeout=5):
+    """Fetches current time from a list of NTP servers and converts it to EST."""
+    for server in servers:
+        try:
+            ntp_client = ntplib.NTPClient()
+            response = ntp_client.request(server, timeout=timeout)
+            utc_time = datetime.utcfromtimestamp(response.tx_time)
 
-        # Convert UTC time to EST
-        est = pytz.timezone('US/Eastern')
-        est_time = utc_time.replace(tzinfo=pytz.utc).astimezone(est)
-        return est_time.strftime("%Y-%m-%d %H:%M:%S")
-    except ntplib.NTPException as e:
-        logger.error(f"Error fetching time from NTP server: {e}")
-    except Exception as e:
-        logger.error(f"Unexpected error: {e}")
+            # Convert UTC time to EST
+            est = pytz.timezone('US/Eastern')
+            est_time = utc_time.replace(tzinfo=pytz.utc).astimezone(est)
+            return est_time.strftime("%Y-%m-%d %H:%M:%S")
+        except ntplib.NTPException as e:
+            logger.error(f"Error fetching time from NTP server '{server}': {e}")
+        except Exception as e:
+            logger.error(f"Unexpected error with server '{server}': {e}")
 
     # Fallback to system time in EST
+    logger.warning("Falling back to system time in EST")
     est = pytz.timezone('US/Eastern')
     return datetime.now(est).strftime("%Y-%m-%d %H:%M:%S")
 
