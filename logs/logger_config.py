@@ -6,23 +6,23 @@ import gzip
 from datetime import datetime
 from logging.handlers import RotatingFileHandler
 from concurrent.futures import ThreadPoolExecutor
-from database.time_utils import get_current_time_ntp, server_pools
+from database.time_utils import get_current_time_ntp
 
 class JsonFormatter(logging.Formatter):
-    
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
     def format(self, record):
         log_record = {
             "level": record.levelname,
-            "timestamp": get_current_time_ntp(server_pools),
+            "timestamp": get_current_time_ntp(),
             "message": record.getMessage()
         }
         if record.exc_info:
             log_record['exception'] = self.formatException(record.exc_info)
         
         return json.dumps(log_record)
+
 
 def setup_logger(name, log_file, level=logging.INFO, max_log_size=10 * 1024 * 1024, backup_count=5):
     """Function to set up a logger with asynchronous and buffered logging."""
