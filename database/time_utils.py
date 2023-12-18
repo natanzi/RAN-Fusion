@@ -14,10 +14,15 @@ CACHE_EXPIRY = 30 * 60  # 30 minutes
 RETRY_LIMIT = 3  # Number of retries for each NTP server
 
 server_pools = [
-    "pool1.ntp.org", 
-    "time1.google.com", 
-    "pool2.ntp.org", 
-    "time2.facebook.com"
+    "129.6.15.28", # time1.google.com
+    "132.163.96.3", # time2.facebook.com 
+    "132.163.96.1", # time3.facebook.com
+    "216.239.35.0", # time-a.nist.gov
+    "216.239.35.4", # time-b.nist.gov  
+    "129.6.15.30", # time2.google.com
+    "64.6.64.6",   # secondary.ntp.worldweatheronline.com
+    "38.229.71.1", # ntp-s1.sma-c.kfki.hu
+    "194.153.171.2" # ptbtime1.ptb.de
 ]
 
 def is_time_valid(time_to_check):
@@ -30,8 +35,9 @@ def get_current_time_ntp(cache_expiry=CACHE_EXPIRY):
     global CACHED_TIME
 
     # Ensure CACHED_TIME is a tuple and the second element is a float
-    if CACHED_TIME and isinstance(CACHED_TIME, tuple) and isinstance(CACHED_TIME[1], float) and (default_time() - CACHED_TIME[1]) < cache_expiry:
-        return CACHED_TIME[0]
+    if CACHED_TIME and isinstance(CACHED_TIME, tuple) and isinstance(CACHED_TIME[1], float):
+        if (default_time() - CACHED_TIME[1]) < cache_expiry:
+            return CACHED_TIME[0]
 
     ntp_client = ntplib.NTPClient()
     for server in server_pools:
