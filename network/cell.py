@@ -7,7 +7,7 @@ from logs.logger_config import cell_logger
 import time 
 from influxdb_client import Point
 from influxdb_client.client.write_api import SYNCHRONOUS
-from database.time_utils import fetch_ntp_time
+from database.time_utils import get_current_time_ntp
 
 class Cell:
     def __init__(self, cell_id, gnodeb_id, frequencyBand, duplexMode, tx_power, bandwidth, ssb_periodicity, ssb_offset, max_connect_ues, channel_model, trackingArea=None, network_state=None):
@@ -29,7 +29,7 @@ class Cell:
         self.assigned_UEs = []  # Initialize the list of assigned UEs
         self.last_ue_update = None
         self.last_update = None
-        current_time = fetch_ntp_time()
+        current_time =  get_current_time_ntp
         # Logging statement should be here, after all attributes are set
         cell_logger.info(f"Cell '{cell_id}' has been created at '{current_time}' in gNodeB '{self.ID}' with max capacity {self.MaxConnectedUEs}.")
         
@@ -82,7 +82,7 @@ class Cell:
                 raise Exception(f"UE '{ue.ID}' is already connected to Cell '{cell_id}'.")
 
         if len(self.ConnectedUEs) < self.MaxConnectedUEs:
-            current_time = fetch_ntp_time()
+            current_time =  get_current_time_ntp
             self.ConnectedUEs.append(ue)
             print(f"UE '{ue.ID}' has been attached to Cell '{self.ID}' at '{current_time}'.")
             self.update_ue_count()
@@ -94,7 +94,7 @@ class Cell:
             raise Exception("Maximum number of connected UEs reached for this cell.")
 
     def remove_ue(self, ue, network_state):
-        current_time = fetch_ntp_time()
+        current_time =  get_current_time_ntp
         if ue in self.ConnectedUEs:
             self.ConnectedUEs.remove(ue)
             print(f"UE '{ue.ID}' has been detached from Cell '{self.ID}' at {current_time}.")
