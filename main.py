@@ -8,7 +8,8 @@ import logging
 from logo import create_logo
 from health_check.do_health_check import perform_health_check
 from network.network_state import NetworkState
-from network.handover_utils import handle_load_balancing  # Make sure to import this
+from network.handover_utils import handle_load_balancing
+from health_check.system_resources import SystemMonitor
 
 def network_state_manager(network_state, command_queue):
     while True:
@@ -74,22 +75,42 @@ def main():
 
     command_queue = Queue()
 
-    ns_manager_process = Process(target=network_state_manager, args=(network_state, command_queue))
+    # Instantiate the SystemMonitor
+    system_monitor = SystemMonitor(network_state)
 
+    # Define a function to periodically log system resources
+    def log_system_resources():
+        while True:
+            system_monitor.log_resource_usage()
+            time.sleep(60)  # Log every 60 seconds
+
+    # Start the network state manager process
+    ns_manager_process = Process(target=network_state_manager, args=(network_state, command_queue))
+    ns_manager_process.start()
+
+    # Start the traffic logging process
     logging_process = Process(target=log_traffic, args=(ues, command_queue, traffic_increase_config))
     logging_process.start()
 
+    # Start the cell monitor process
     cell_monitor_process = Process(target=monitor_cell_load, args=(gNodeBs, command_queue))
     cell_monitor_process.start()
 
-    congestion_process = Process(target=detect_and_handle_congestion, args=(network_state, command_queue))  # Start congestion monitoring
+    # Start the congestion detection process
+    congestion_process = Process(target=detect_and_handle_congestion, args=(network_state, command_queue))
     congestion_process.start()
+
+    # Start the system resource logging process
+    system_resource_logging_process = Process(target=log_system_resources)
+    system_resource_logging_process.start()
 
     # Wait for the processes to complete (if they ever complete)
     logging_process.join()
     cell_monitor_process.join()
-    congestion_process.join()  # Ensure the congestion process is joined
+    congestion_process.join()
+    system_resource_logging_process.join()  # Ensure the system resource logging process is joined
 
+    # Signal the network state manager process to exit
     command_queue.put('exit')
     ns_manager_process.join()
 

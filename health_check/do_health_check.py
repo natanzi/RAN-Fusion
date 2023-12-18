@@ -18,19 +18,19 @@ def check_time_utility():
 def perform_health_check(network_state):
     print("Performing health check...waiting for all components to be up...")
     server_status = check_server_status()
-    database_status = check_database_status(network_state)  # Pass network_state here
+    database_status = check_database_status(network_state)  
     system_resources = check_system_resources()
-    time_utility_status = check_time_utility()  # Perform the time utility check
+    time_utility_status = check_time_utility()  
 
     print("Server Status:", server_status)
     print("Database Status:", database_status)
     print("System Resources:", system_resources)
-    print("Time Utility Status:", time_utility_status)  # Print the status of the time utility
+    print("Time Utility Status:", time_utility_status)  
 
     # Check if any of the components report a status other than 'UP'
     if (server_status.get('status') != 'UP' or
         database_status.get('status') != 'UP' or
-        time_utility_status.get('status') != 'UP'):  # Include the time utility in the check
+        time_utility_status.get('status') != 'UP'):  
         print("Health check failed. Exiting...")
         sys.exit(1)  # Exit with a non-zero status to indicate an error
     else:

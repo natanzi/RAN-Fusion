@@ -9,7 +9,7 @@ from .ue import UE
 import logging
 from network.network_state import NetworkState
 from database.time_utils import get_current_time_ntp
-current_time = get_current_time_ntp
+current_time = get_current_time_ntp()
 # Create an instance of NetworkState
 network_state = NetworkState()
 
