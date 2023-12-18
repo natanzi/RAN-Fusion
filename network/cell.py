@@ -82,7 +82,7 @@ class Cell:
                 raise Exception(f"UE '{ue.ID}' is already connected to Cell '{cell_id}'.")
 
         if len(self.ConnectedUEs) < self.MaxConnectedUEs:
-            current_time =  get_current_time_ntp
+            current_time =  get_current_time_ntp()
             self.ConnectedUEs.append(ue)
             print(f"UE '{ue.ID}' has been attached to Cell '{self.ID}' at '{current_time}'.")
             self.update_ue_count()
@@ -94,7 +94,7 @@ class Cell:
             raise Exception("Maximum number of connected UEs reached for this cell.")
 
     def remove_ue(self, ue, network_state):
-        current_time =  get_current_time_ntp
+        current_time =  get_current_time_ntp()
         if ue in self.ConnectedUEs:
             self.ConnectedUEs.remove(ue)
             print(f"UE '{ue.ID}' has been detached from Cell '{self.ID}' at {current_time}.")
