@@ -1,4 +1,5 @@
 #time_utils.py located in database\time_utils.py
+# time_utils.py located in database\time_utils.py
 import ntplib
 import logging
 from datetime import datetime
@@ -14,9 +15,9 @@ CACHE_EXPIRY = 30 * 60  # 30 minutes
 RETRY_LIMIT = 3  # Number of retries for each NTP server
 
 server_pools = [
-    "pool1.ntp.org", 
-    "time1.google.com", 
-    "pool2.ntp.org", 
+    "pool1.ntp.org",
+    "time1.google.com",
+    "pool2.ntp.org",
     "time2.facebook.com"
 ]
 
@@ -29,7 +30,8 @@ def is_time_valid(time_to_check):
 def get_current_time_ntp(cache_expiry=CACHE_EXPIRY):
     global CACHED_TIME
 
-    if CACHED_TIME and (default_time() - CACHED_TIME[1]) < cache_expiry:
+    # Ensure CACHED_TIME is a tuple
+    if CACHED_TIME and isinstance(CACHED_TIME, tuple) and (default_time() - CACHED_TIME[1]) < cache_expiry:
         return CACHED_TIME[0]
 
     ntp_client = ntplib.NTPClient()
@@ -44,6 +46,7 @@ def get_current_time_ntp(cache_expiry=CACHE_EXPIRY):
                 formatted_time = est_time.strftime("%Y-%m-%d %H:%M:%S")
 
                 if is_time_valid(formatted_time):
+                    # Set CACHED_TIME as a tuple
                     CACHED_TIME = (formatted_time, default_time())
                     return formatted_time
 
@@ -52,9 +55,9 @@ def get_current_time_ntp(cache_expiry=CACHE_EXPIRY):
                 continue  # Retry
 
     logger.error("All NTP pools failed! Returning system default time")
+    # Return system time as a string
     return datetime.now(pytz.timezone('US/Eastern')).strftime("%Y-%m-%d %H:%M:%S")
 
 if __name__ == "__main__":
     current_time = get_current_time_ntp()
     print(f"Current Time: {current_time}")
-
