@@ -1,4 +1,3 @@
-#time_utils.py located in database\time_utils.py
 # time_utils.py located in database\time_utils.py
 import ntplib
 import logging
@@ -15,9 +14,9 @@ CACHE_EXPIRY = 30 * 60  # 30 minutes
 RETRY_LIMIT = 3  # Number of retries for each NTP server
 
 server_pools = [
-    "pool1.ntp.org",
-    "time1.google.com",
-    "pool2.ntp.org",
+    "pool1.ntp.org", 
+    "time1.google.com", 
+    "pool2.ntp.org", 
     "time2.facebook.com"
 ]
 
@@ -30,8 +29,8 @@ def is_time_valid(time_to_check):
 def get_current_time_ntp(cache_expiry=CACHE_EXPIRY):
     global CACHED_TIME
 
-    # Ensure CACHED_TIME is a tuple
-    if CACHED_TIME and isinstance(CACHED_TIME, tuple) and (default_time() - CACHED_TIME[1]) < cache_expiry:
+    # Ensure CACHED_TIME is a tuple and the second element is a float
+    if CACHED_TIME and isinstance(CACHED_TIME, tuple) and isinstance(CACHED_TIME[1], float) and (default_time() - CACHED_TIME[1]) < cache_expiry:
         return CACHED_TIME[0]
 
     ntp_client = ntplib.NTPClient()
@@ -46,7 +45,7 @@ def get_current_time_ntp(cache_expiry=CACHE_EXPIRY):
                 formatted_time = est_time.strftime("%Y-%m-%d %H:%M:%S")
 
                 if is_time_valid(formatted_time):
-                    # Set CACHED_TIME as a tuple
+                    # Set CACHED_TIME as a tuple with the second element as a float
                     CACHED_TIME = (formatted_time, default_time())
                     return formatted_time
 
