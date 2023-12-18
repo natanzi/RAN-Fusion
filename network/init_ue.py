@@ -164,13 +164,13 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
             # Handle the case where the cell is at maximum capacity
                 logging.error(f"Failed to add UE '{ue.ID}' to Cell '{selected_cell.ID}': {e}")
 
-        # You may want to implement additional logic to handle this case
-        ue.ConnectedCellID = selected_cell.ID
+            # You may want to implement additional logic to handle this case
+            ue.ConnectedCellID = selected_cell.ID
         
-        # Serialize and write to InfluxDB
-        point = new_ue.serialize_for_influxdb()
-        db_manager.insert_data(point)  # Corrected method call
-        ues.append(new_ue)
-        db_manager.close_connection()
+            # Serialize and write to InfluxDB
+            point = new_ue.serialize_for_influxdb()
+            db_manager.insert_data(point)  # Corrected method call
+            ues.append(new_ue)
+    db_manager.close_connection()
 
     return ues
