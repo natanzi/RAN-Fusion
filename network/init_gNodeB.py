@@ -11,6 +11,8 @@ def load_json_config(file_path):
 def initialize_gNodeBs(gNodeBs_config, db_manager):
     gNodeBs = {}
     for gNodeB_data in gNodeBs_config['gNodeBs']:
+        if gNodeB_data['gnodeb_id'] in gNodeBs:
+            raise ValueError(f"Duplicate gNodeB ID {gNodeB_data['gnodeb_id']} found during initialization.")
         gnodeb = gNodeB(**gNodeB_data)
         gNodeBs[gnodeb.ID] = gnodeb
         point = gnodeb.serialize_for_influxdb()  # Serialize for InfluxDB
