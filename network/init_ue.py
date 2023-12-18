@@ -8,7 +8,8 @@ from Config_files.config_load import load_all_configs
 from .ue import UE 
 import logging
 from network.network_state import NetworkState
-
+from database.time_utils import fetch_ntp_time
+current_time = fetch_ntp_time()
 # Create an instance of NetworkState
 network_state = NetworkState()
 
@@ -88,10 +89,10 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
             # The network_state should be updated here if necessary
             # network_state.update_state(...)
                 ue.ConnectedCellID = selected_cell.ID
-                logging.info(f"UE '{ue.ID}' has been attached to Cell '{ue.ConnectedCellID}'.")
+                logging.info(f"UE '{ue.ID}' has been attached to Cell '{ue.ConnectedCellID}' at '{current_time}'.")
             except Exception as e:
         # Handle the case where the cell is at maximum capacity
-                logging.error(f"Failed to add UE '{ue.ID}' to Cell '{selected_cell.ID}': {e}")
+                logging.error(f"Failed to add UE '{ue.ID}' to Cell '{selected_cell.ID}' at '{current_time}': {e}")
         
         # Serialize and write to InfluxDB
         point = ue.serialize_for_influxdb()
@@ -151,7 +152,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
             # Update the network state with the current state of gNodeBs, cells, and UEs
                 network_state.update_state(network_state.gNodeBs, list(network_state.cells.values()), list(network_state.ues.values()))
                 ue.ConnectedCellID = selected_cell.ID
-                logging.info(f"UE '{ue.ID}' has been attached to Cell '{ue.ConnectedCellID}'.")
+                logging.info(f"UE '{ue.ID}' has been attached to Cell '{ue.ConnectedCellID}' at '{current_time}'.")
             except Exception as e:
             # Handle the case where the cell is at maximum capacity
                 logging.error(f"Failed to add UE '{ue.ID}' to Cell '{selected_cell.ID}': {e}")
