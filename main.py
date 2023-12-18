@@ -9,6 +9,7 @@ from health_check.do_health_check import perform_health_check
 from network.network_state import NetworkState
 from network.handover_utils import handle_load_balancing
 from health_check.system_monitoring import SystemMonitor
+from database.database_manager import DatabaseManager
 
 # Moved to the top level so it can be pickled by multiprocessing
 def log_system_resources(system_monitor):
