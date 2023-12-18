@@ -10,7 +10,7 @@ import logging
 from network.network_state import NetworkState
 from database.time_utils import get_current_time_ntp, server_pools
 
-current_time = get_current_time_ntp(server_pools)
+current_time = current_time = get_current_time_ntp()
 
 # Create an instance of NetworkState
 network_state = NetworkState()
