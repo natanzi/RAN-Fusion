@@ -5,6 +5,7 @@ from database.database_manager import DatabaseManager
 from datetime import datetime
 from influxdb_client import Point, WritePrecision
 from logs.logger_config import database_logger
+from database.time_utils import get_current_time_ntp 
 
 class NetworkState:
     
@@ -99,31 +100,32 @@ class NetworkState:
                     .field("total_cells", len(gNodeB.Cells)) \
                     .field("last_update", gNodeB.last_update.strftime('%Y-%m-%d %H:%M:%S')) \
                     .field("cell_load", cell_load) \
-                    .time(datetime.datetime.utcnow(), WritePrecision.NS)
+                    .time(get_current_time_ntp(), WritePrecision.NS) 
                 points.append(cell_point)
                 database_logger.info(f"Serialized data for InfluxDB for Cell ID {cell_id} with load {cell_load}")
 
-        # Serialize gNodeB metrics
+    # Serialize gNodeB metrics
         for gNodeB_id, gNodeB in self.gNodeBs.items():
             gNodeB_point = Point("gnodeb_metrics") \
                 .tag("gNodeB_ID", gNodeB_id) \
                 .field("max_ues", gNodeB.MaxUEs) \
                 .field("cell_count", gNodeB.CellCount) \
                 .field("last_update", gNodeB.last_update.strftime('%Y-%m-%d %H:%M:%S')) \
-                .time(datetime.datetime.utcnow(), WritePrecision.NS)
+                .time(get_current_time_ntp(), WritePrecision.NS) 
             points.append(gNodeB_point)
 
-        # Serialize UE metrics
+    # Serialize UE metrics
         for ue_id, ue in self.ues.items():
             ue_point = Point("ue_metrics") \
                 .tag("UE_ID", ue_id) \
                 .field("connected_cell", ue.ConnectedCellID) \
-                .time(datetime.datetime.utcnow(), WritePrecision.NS)
+                .time(get_current_time_ntp(), WritePrecision.NS)
             points.append(ue_point)
 
         return points
 ########################################################################################################
     def save_state_to_influxdb(self):
+        start_time = get_current_time_ntp()  # Use your custom time utility function
         points = self.serialize_for_influxdb()
         try:
             self.db_manager.insert_data_batch(points)
@@ -132,6 +134,11 @@ class NetworkState:
             database_logger.error(f"Failed to save state to InfluxDB: {e}")  # Log any exceptions
         finally:
             self.db_manager.close_connection()
+        end_time = get_current_time_ntp()  # Use your custom time utility function again to get the end time
+
+    # Assuming you want to log the start and end times
+        database_logger.info(f"Start Time for saving state to InfluxDB: {start_time}")
+        database_logger.info(f"End Time for saving state to InfluxDB: {end_time}")
 ########################################################################################################    
     def print_state(self):
         print("Network State:")
