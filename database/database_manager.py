@@ -1,5 +1,5 @@
 import os
-from datetime import datetime
+from .time_utils import get_current_time_ntp
 from influxdb_client import InfluxDBClient, WritePrecision, Point
 from influxdb_client.client.write_api import SYNCHRONOUS
 from logs.logger_config import database_logger  # Import the configured logger
@@ -44,20 +44,22 @@ class DatabaseManager:
         """Inserts data into InfluxDB. Can handle both Point objects and separate parameters."""
         try:
             if isinstance(measurement_or_point, Point):
-                # If a Point object is provided
+            # If a Point object is provided
                 point = measurement_or_point
                 if timestamp:
                     point.time(timestamp)
             else:
-                # If separate parameters are provided
+            # If separate parameters are provided
                 measurement = measurement_or_point
-                timestamp = timestamp if timestamp is not None else int(datetime.utcnow().timestamp())
+            # Use NTP time or fallback to system time
+                timestamp = timestamp if timestamp is not None else get_current_time_ntp()
                 point = Point(measurement)
                 for tag_key, tag_value in (tags or {}).items():
                     point.tag(tag_key, tag_value)
                 for field_key, field_value in (fields or {}).items():
                     point.field(field_key, field_value)
-                point.time(timestamp, WritePrecision.S)
+                # Convert the timestamp to the correct format for InfluxDB
+                point.time(timestamp, WritePrecision.NS)
 
             self.write_api.write(bucket=self.bucket, record=point)
             # Log the measurement and the tags for context
