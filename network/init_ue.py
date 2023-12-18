@@ -8,8 +8,8 @@ from Config_files.config_load import load_all_configs
 from .ue import UE 
 import logging
 from network.network_state import NetworkState
-from database.time_utils import fetch_ntp_time
-current_time = fetch_ntp_time()
+from database.time_utils import get_current_time_ntp
+current_time = get_current_time_ntp
 # Create an instance of NetworkState
 network_state = NetworkState()
 
