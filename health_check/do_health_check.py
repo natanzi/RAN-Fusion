@@ -18,8 +18,5 @@ def perform_health_check(network_state):
     if server_status.get('status') != 'UP' or database_status.get('status') != 'UP':
         print("Health check failed. Exiting...")
         sys.exit(1)  # Exit with a non-zero status to indicate an error
-
-if __name__ == "__main__":
-    # Assuming network_state is provided or obtained elsewhere in the actual code
-    network_state = {}  # Placeholder for the actual network state
-    perform_health_check(network_state)
+    else:
+        return True  # Add this line to indicate the health check passed
