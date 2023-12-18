@@ -4,7 +4,7 @@ class UserEquipment:
     def __init__(self, battery_capacity_mAH, discharge_rate, power_amplifier_efficiency, max_transmit_power_dBm):
         # Initialize parameters with a random battery level
         self.battery_capacity = battery_capacity_mAH  # in mAH
-        self.battery_level = random.uniform(50, 100)  # Random initial battery level between 50% and 100%
+        self.battery_level = random.uniform(50, 100)  # Random initial battery level between 10% and 100%
         self.discharge_rate = discharge_rate  # as a percentage per minute
         self.power_amplifier_efficiency = power_amplifier_efficiency  # in percentage
         self.max_transmit_power = max_transmit_power_dBm  # in dBm

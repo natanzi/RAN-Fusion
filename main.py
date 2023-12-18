@@ -11,13 +11,20 @@ from network.network_state import NetworkState
 from network.handover_utils import handle_load_balancing
 from health_check.system_monitoring import SystemMonitor
 
+# Moved to the top level so it can be pickled by multiprocessing
+def log_system_resources(system_monitor):
+    while True:
+        system_monitor.log_resource_usage()
+        time.sleep(60)  # Log every 60 seconds
+
 def network_state_manager(network_state, command_queue):
-    
     while True:
         command = command_queue.get()  # Retrieve the command from the queue
         if command == 'save':
             network_state.save_state_to_influxdb()
+        elif command == 'exit':  # Handle exit command to break the loop
             break
+
 
 def log_traffic(ues, command_queue, traffic_increase_config=None):
     while True:
@@ -78,16 +85,11 @@ def main():
     # Instantiate the SystemMonitor
     system_monitor = SystemMonitor(network_state)
 
-    # Define a function to periodically log system resources
-    def log_system_resources():
-        while True:
-            system_monitor.log_resource_usage()
-            time.sleep(60)  # Log every 60 seconds
-
     # Start the network state manager process
     ns_manager_process = Process(target=network_state_manager, args=(network_state, command_queue))
     ns_manager_process.start()
 
+    # Start the traffic logging process
     logging_process = Process(target=log_traffic, args=(ues, command_queue, traffic_increase_config))
     logging_process.start()
 
@@ -99,15 +101,15 @@ def main():
     congestion_process = Process(target=detect_and_handle_congestion, args=(network_state, command_queue))
     congestion_process.start()
 
-    # Start the system resource logging process
-    system_resource_logging_process = Process(target=log_system_resources)
+    # Start the system resource logging process with system_monitor passed as an argument
+    system_resource_logging_process = Process(target=log_system_resources, args=(system_monitor,))
     system_resource_logging_process.start()
 
     # Wait for the processes to complete (if they ever complete)
     logging_process.join()
     cell_monitor_process.join()
     congestion_process.join()
-    system_resource_logging_process.join()  # Ensure the system resource logging process is joined
+    system_resource_logging_process.join()
 
     # Signal the network state manager process to exit
     command_queue.put('exit')
