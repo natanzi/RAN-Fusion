@@ -7,8 +7,8 @@ from database.time_utils import get_current_time_ntp, server_pools
 
 def check_time_utility():
     try:
-        # Attempt to fetch the time from the NTP server
-        time = current_time = get_current_time_ntp(server_pools)
+        # Corrected call to get_current_time_ntp without arguments
+        time = current_time = get_current_time_ntp()
         # If the time is successfully fetched, the utility is considered 'UP'
         return {'status': 'UP', 'time': time}
     except Exception as e:

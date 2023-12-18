@@ -11,7 +11,7 @@ from network.handover_utils import handle_load_balancing
 from health_check.system_monitoring import SystemMonitor
 from database.database_manager import DatabaseManager
 
-# Moved to the top level so it can be pickled by multiprocessing
+# pickled by multiprocessing
 def log_system_resources(system_monitor):
     while True:
         system_monitor.log_resource_usage()

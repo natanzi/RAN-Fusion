@@ -29,7 +29,7 @@ class Cell:
         self.assigned_UEs = []  # Initialize the list of assigned UEs
         self.last_ue_update = None
         self.last_update = None
-        current_time = get_current_time_ntp(server_pools)
+        current_time = get_current_time_ntp()
         # Logging statement should be here, after all attributes are set
         cell_logger.info(f" A Cell '{cell_id}' has been created at '{current_time}' in gNodeB '{self.ID}' with max capacity {self.MaxConnectedUEs}.")
         
