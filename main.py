@@ -88,7 +88,6 @@ def main():
     ns_manager_process = Process(target=network_state_manager, args=(network_state, command_queue))
     ns_manager_process.start()
 
-    # Start the traffic logging process
     logging_process = Process(target=log_traffic, args=(ues, command_queue, traffic_increase_config))
     logging_process.start()
 
