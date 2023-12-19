@@ -83,16 +83,17 @@ class TrafficController:
         jitter = random.uniform(0, self.voice_jitter) if self.voice_jitter > 0 else 0
         bitrate = random.uniform(*self.voice_traffic_params['bitrate'])
         interval = 0.02 # Interval duration in seconds
-        data_size = (bitrate * interval) / 8 / 1000  #MB
+        data_size = (bitrate * interval) / 8 / 1000  # Convert to MB
 
         # Apply jitter
         time.sleep(jitter)
 
         # Simulate packet loss
-        if random.random() < self.voice_packet_loss_rate:
+        packet_loss_occurred = random.random() < self.voice_packet_loss_rate
+        if packet_loss_occurred:
             data_size = 0  # Packet is lost
 
-        return data_size, interval, bitrate, jitter
+        return data_size, interval, self.voice_delay, jitter, self.voice_packet_loss_rate
 
     def generate_video_traffic(self):
         time.sleep(self.video_delay)  # Use video-specific delay
