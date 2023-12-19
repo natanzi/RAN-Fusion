@@ -103,10 +103,10 @@ class UE:
     def generate_traffic(self, traffic_multiplier=1):
         traffic_controller = TrafficController()  # Create an instance of TrafficController
 
-        # Convert service type to lowercase to ensure case-insensitive comparison
+    # Convert service type to lowercase to ensure case-insensitive comparison
         service_type_lower = self.ServiceType.lower()
 
-        # Initialize variables to store traffic data
+    # Initialize variables to store traffic data
         data_size = 0
         interval = 0
         delay = 0
@@ -114,9 +114,8 @@ class UE:
         packet_loss_rate = 0
 
         if service_type_lower == "voice":
-            data_size, interval, jitter = traffic_controller.generate_voice_traffic()
-            delay = traffic_controller.voice_delay
-            packet_loss_rate = traffic_controller.voice_packet_loss_rate
+        # Assuming generate_voice_traffic returns five values
+            data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_voice_traffic()
         elif service_type_lower == "video":
             data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_video_traffic()
         elif service_type_lower == "game":
@@ -127,8 +126,8 @@ class UE:
             data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_data_traffic()
         else:
             raise ValueError(f"Unknown service type: {self.ServiceType}")
-        
-        # Scale the data size by the traffic multiplier
+    
+    # Scale the data size by the traffic multiplier
         data_size *= traffic_multiplier
         return data_size, interval, delay, jitter, packet_loss_rate
     
