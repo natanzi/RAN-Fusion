@@ -133,9 +133,16 @@ class UE:
         return data_size, interval, delay, jitter, packet_loss_rate
     
     def get_traffic_volume(self):
-        # Implementation to return the traffic volume
-        # This could be a simple attribute access or a more complex calculation
-        return self.traffic_volume
+        # Assuming traffic_volume is calculated as the sum of data sizes from generate_traffic over time
+        traffic_volume = 0
+        traffic_multiplier = 1  # or some other logic to determine the multiplier
+
+        # Generate traffic for a certain number of intervals (for example, 60 intervals for an hour)
+        for _ in range(60):
+            data_size, _, _, _, _ = self.generate_traffic(traffic_multiplier)
+            traffic_volume += data_size
+
+        return traffic_volume
     ####################################################################################
     def perform_handover(self, old_cell, new_cell, network_state):
         try:
