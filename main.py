@@ -30,14 +30,18 @@ def log_traffic(ues, command_queue, traffic_increase_config=None):
     while True:
         for ue in ues:
             # Call the generate_traffic method and get the traffic details
-            traffic_details = ue.generate_traffic()
+            data_size, interval, delay, jitter, packet_loss_rate = ue.generate_traffic()
             
-            # Log the traffic details in the desired format
-            logging.info(f"u{ue.ID}, {ue.IMEI}, {ue.ServiceType}, {traffic_details['data_size']}MB, {traffic_details['interval']}s")
+            # Format the data size and interval to two decimal places
+            formatted_data_size = f"{data_size:.2f}"
+            formatted_interval = f"{interval:.2f}"
+            
+            # Log the traffic details in the desired format, including delay, jitter, and packet loss rate
+            logging.info(f"UE ID: {ue.ID}, IMEI: {ue.IMEI}, Service Type: {ue.ServiceType}, Data Size: {formatted_data_size}MB, Interval: {formatted_interval}s, Delay: {delay}ms, Jitter: {jitter}ms, Packet Loss Rate: {packet_loss_rate}%")
             
             # Save the state to the database
             command_queue.put('save')
-        time.sleep(1)
+        time.sleep(1)  # Logging interval
 
 def monitor_cell_load(gNodeBs, command_queue):
     while True:
