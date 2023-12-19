@@ -6,10 +6,14 @@ from logs.logger_config import setup_logger
 # Set up the system resource logger
 system_resource_logger = setup_logger('system_resource_logger', 'logs/system_resource.log')
 
+def default_resource_usage():
+    return {'cpu': [], 'memory': []}
+
 class SystemMonitor:
     def __init__(self, network_state):
         self.network_state = network_state
-        self.entity_resource_usage = defaultdict(lambda: {'cpu': [], 'memory': []})
+        # Replace lambda with a regular function
+        self.entity_resource_usage = defaultdict(default_resource_usage)
 
     def get_system_resources(self):
         cpu_usage = psutil.cpu_percent(interval=1)
