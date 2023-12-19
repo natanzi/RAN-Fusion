@@ -36,7 +36,7 @@ class DatabaseManager:
         """Inserts a batch of Point objects into InfluxDB."""
         try:
             self.write_api.write(bucket=self.bucket, record=points)
-            database_logger.info("Batch data inserted into InfluxDB")
+            #database_logger.info("Batch data inserted into InfluxDB")
         except Exception as e:
             database_logger.error(f"Failed to insert batch data into InfluxDB: {e}")
 

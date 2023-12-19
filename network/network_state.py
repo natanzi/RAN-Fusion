@@ -141,7 +141,7 @@ class NetworkState:
         points = self.serialize_for_influxdb()
         try:
             self.db_manager.insert_data_batch(points)
-            database_logger.info("Successfully saved state to InfluxDB")  # Log successful save
+            #database_logger.info("Successfully saved state to InfluxDB")  # Log successful save
         except Exception as e:
             database_logger.error(f"Failed to save state to InfluxDB: {e}")  # Log any exceptions
         finally:
@@ -149,8 +149,8 @@ class NetworkState:
         end_time = get_current_time_ntp()
 
     # Assuming you want to log the start and end times
-        database_logger.info(f"Start Time for saving state to InfluxDB: {start_time}")
-        database_logger.info(f"End Time for saving state to InfluxDB: {end_time}")
+        #database_logger.info(f"Start Time for saving state to InfluxDB: {start_time}")
+        #database_logger.info(f"End Time for saving state to InfluxDB: {end_time}")
 ########################################################################################################    
     def print_state(self):
         print("Network State:")
