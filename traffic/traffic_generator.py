@@ -2,6 +2,7 @@
 #traffic_generator.py in traffic folder
 import random
 import time
+
 class TrafficController:
     def __init__(self):
         # Initialize default traffic parameters
@@ -81,8 +82,8 @@ class TrafficController:
         time.sleep(self.voice_delay)  # Use voice-specific delay
         jitter = random.uniform(0, self.voice_jitter) if self.voice_jitter > 0 else 0
         bitrate = random.uniform(*self.voice_traffic_params['bitrate'])
-        interval = 0.02
-        data_size = (bitrate * interval) / 8 / 1000
+        interval = 0.02 # Interval duration in seconds
+        data_size = (bitrate * interval) / 8 / 1000  #MB
 
         # Apply jitter
         time.sleep(jitter)
@@ -91,14 +92,14 @@ class TrafficController:
         if random.random() < self.voice_packet_loss_rate:
             data_size = 0  # Packet is lost
 
-        return data_size, interval
+        return data_size, interval, bitrate, jitter
 
     def generate_video_traffic(self):
         time.sleep(self.video_delay)  # Use video-specific delay
         jitter = random.uniform(0, self.video_jitter) if self.video_jitter > 0 else 0
         num_streams = random.randint(*self.video_traffic_params['num_streams'])
         data_size = 0
-        interval = 1
+        interval = 1 # Interval duration in seconds
         for _ in range(num_streams):
             stream_bitrate = random.uniform(*self.video_traffic_params['stream_bitrate']) * 1024
         # Apply jitter
@@ -107,20 +108,20 @@ class TrafficController:
             if random.random() < self.video_packet_loss_rate:
                 continue  # Skip this stream due to packet loss
             data_size += (stream_bitrate * interval) / 8
-        return data_size, interval
+        return data_size, interval, self.video_delay, jitter, self.video_packet_loss_rate
 
     def generate_gaming_traffic(self):
         time.sleep(self.gaming_delay)  # Use gaming-specific delay
         jitter = random.uniform(0, self.gaming_jitter) if self.gaming_jitter > 0 else 0
         bitrate = random.uniform(*self.gaming_traffic_params['bitrate'])
-        interval = 0.1
+        interval = 0.1 # Interval duration in seconds
         data_size = (bitrate * interval) / 8 / 1000
         # Apply jitter
         time.sleep(jitter)
         # Simulate packet loss
         if random.random() < self.gaming_packet_loss_rate:
             data_size = 0  # Packet is lost
-        return data_size, interval
+        return data_size, interval, self.video_delay, jitter, self.video_packet_loss_rate
     
     def generate_iot_traffic(self):
         time.sleep(self.iot_delay)  # Use IoT-specific delay
@@ -132,7 +133,7 @@ class TrafficController:
         # Simulate packet loss
         if random.random() < self.iot_packet_loss_rate:
             data_size = 0  # Packet is lost
-        return data_size, interval
+        return data_size, interval, self.iot_delay, jitter, self.iot_packet_loss_rate
 
     def generate_data_traffic(self):
         time.sleep(self.data_delay)  # Use data-specific delay
@@ -145,7 +146,7 @@ class TrafficController:
         # Simulate packet loss
         if random.random() < self.data_packet_loss_rate:
             data_size = 0  # Packet is lost
-        return data_size, interval
+        return data_size, interval, self.data_delay, jitter, self.data_packet_loss_rate
 
 # Example usage
 #traffic_controller = TrafficController()

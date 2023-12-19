@@ -10,6 +10,7 @@ from network.network_state import NetworkState
 from network.handover_utils import handle_load_balancing
 from health_check.system_monitoring import SystemMonitor
 from database.database_manager import DatabaseManager
+from logs.logger_config import traffic_update
 
 # pickled by multiprocessing
 def log_system_resources(system_monitor):
@@ -28,9 +29,15 @@ def network_state_manager(network_state, command_queue):
 def log_traffic(ues, command_queue, traffic_increase_config=None):
     while True:
         for ue in ues:
-            # ... existing traffic logging logic ...
+            # Call the generate_traffic method and get the traffic details
+            traffic_details = ue.generate_traffic()
+            
+            # Log the traffic details in the desired format
+            logging.info(f"u{ue.ID}, {ue.IMEI}, {ue.ServiceType}, {traffic_details['data_size']}MB, {traffic_details['interval']}s")
+            
+            # Save the state to the database
             command_queue.put('save')
-        time.sleep(1)  # Logging interval
+        time.sleep(1)
 
 def monitor_cell_load(gNodeBs, command_queue):
     while True:

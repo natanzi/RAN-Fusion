@@ -12,7 +12,6 @@ def default_resource_usage():
 class SystemMonitor:
     def __init__(self, network_state):
         self.network_state = network_state
-        # Replace lambda with a regular function
         self.entity_resource_usage = defaultdict(default_resource_usage)
 
     def get_system_resources(self):
