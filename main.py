@@ -73,7 +73,7 @@ def main():
         print("Health check failed.")
         return  # Exit if health check fails
 
-    num_ues_to_launch = 40
+    num_ues_to_launch = 10
 
     gNodeBs, cells, ues = initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, ue_config, db_manager)
 

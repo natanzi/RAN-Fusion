@@ -16,3 +16,21 @@
 {"level": "INFO", "timestamp": "2023-12-20 14:46:35", "message": "System Resources: {'status': 'UP', 'cpu_usage': '13.5%', 'memory_usage': '28.6%'}"}
 {"level": "INFO", "timestamp": "2023-12-20 14:46:35", "message": "Time Utility Status: {'status': 'UP', 'time': '2023-12-20 14:46:35'}"}
 {"level": "INFO", "timestamp": "2023-12-20 14:46:35", "message": "All systems are operational."}
+{"level": "INFO", "timestamp": "2023-12-20 16:07:55", "message": "Performing health check...waiting for all components to be up..."}
+{"level": "INFO", "timestamp": "2023-12-20 16:07:55", "message": "Server Status: {'status': 'UP', 'uptime': 'System Boot Time:          12/19/2023, 10:20:46 PM'}"}
+{"level": "INFO", "timestamp": "2023-12-20 16:07:55", "message": "Database Status: {'status': 'UP', 'details': 'Successfully connected to the database'}"}
+{"level": "INFO", "timestamp": "2023-12-20 16:07:55", "message": "System Resources: {'status': 'UP', 'cpu_usage': '7.9%', 'memory_usage': '29.7%'}"}
+{"level": "INFO", "timestamp": "2023-12-20 16:07:55", "message": "Time Utility Status: {'status': 'UP', 'time': '2023-12-20 16:07:55'}"}
+{"level": "INFO", "timestamp": "2023-12-20 16:07:55", "message": "All systems are operational."}
+{"level": "INFO", "timestamp": "2023-12-20 16:08:38", "message": "Performing health check...waiting for all components to be up..."}
+{"level": "INFO", "timestamp": "2023-12-20 16:08:38", "message": "Server Status: {'status': 'UP', 'uptime': 'System Boot Time:          12/19/2023, 10:20:46 PM'}"}
+{"level": "INFO", "timestamp": "2023-12-20 16:08:38", "message": "Database Status: {'status': 'UP', 'details': 'Successfully connected to the database'}"}
+{"level": "INFO", "timestamp": "2023-12-20 16:08:38", "message": "System Resources: {'status': 'UP', 'cpu_usage': '10.2%', 'memory_usage': '29.7%'}"}
+{"level": "INFO", "timestamp": "2023-12-20 16:08:38", "message": "Time Utility Status: {'status': 'UP', 'time': '2023-12-20 16:08:38'}"}
+{"level": "INFO", "timestamp": "2023-12-20 16:08:38", "message": "All systems are operational."}
+{"level": "INFO", "timestamp": "2023-12-20 16:09:21", "message": "Performing health check...waiting for all components to be up..."}
+{"level": "INFO", "timestamp": "2023-12-20 16:09:21", "message": "Server Status: {'status': 'UP', 'uptime': 'System Boot Time:          12/19/2023, 10:20:46 PM'}"}
+{"level": "INFO", "timestamp": "2023-12-20 16:09:21", "message": "Database Status: {'status': 'UP', 'details': 'Successfully connected to the database'}"}
+{"level": "INFO", "timestamp": "2023-12-20 16:09:21", "message": "System Resources: {'status': 'UP', 'cpu_usage': '9.2%', 'memory_usage': '29.7%'}"}
+{"level": "INFO", "timestamp": "2023-12-20 16:09:21", "message": "Time Utility Status: {'status': 'UP', 'time': '2023-12-20 16:09:21'}"}
+{"level": "INFO", "timestamp": "2023-12-20 16:09:21", "message": "All systems are operational."}
