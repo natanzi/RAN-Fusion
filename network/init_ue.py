@@ -30,7 +30,13 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
 
     # Instantiate UEs from the configuration
     for _ in range(num_ues_to_launch):
-        ue_data = random.choice(ue_config['ues'])
+        ue_data = random.choice(ue_config['ues']).copy()  # Make a copy to avoid mutating the original
+        # Adjust the keys to match the UE constructor argument names
+        if isinstance(ue_data['location'], dict):
+            ue_data['location'] = (ue_data['location']['latitude'], ue_data['location']['longitude'])
+        else:
+            logging.error("Location data is not in the expected format (dictionary with latitude and longitude).")
+            continue
         # Adjust the keys to match the UE constructor argument names
         ue_data['location'] = (ue_data['location']['latitude'], ue_data['location']['longitude'])
         ue_data['connected_cell_id'] = ue_data.pop('connectedCellId')
