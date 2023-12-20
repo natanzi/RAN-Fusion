@@ -64,3 +64,15 @@
 {"level": "INFO", "timestamp": "2023-12-20 17:47:51", "message": "System Resources: {'status': 'UP', 'cpu_usage': '9.0%', 'memory_usage': '31.3%'}"}
 {"level": "INFO", "timestamp": "2023-12-20 17:47:51", "message": "Time Utility Status: {'status': 'UP', 'time': '2023-12-20 17:47:51'}"}
 {"level": "INFO", "timestamp": "2023-12-20 17:47:51", "message": "All systems are operational."}
+{"level": "INFO", "timestamp": "2023-12-20 18:03:34", "message": "Performing health check...waiting for all components to be up..."}
+{"level": "INFO", "timestamp": "2023-12-20 18:03:34", "message": "Server Status: {'status': 'UP', 'uptime': 'System Boot Time:          12/19/2023, 10:20:46 PM'}"}
+{"level": "INFO", "timestamp": "2023-12-20 18:03:34", "message": "Database Status: {'status': 'UP', 'details': 'Successfully connected to the database'}"}
+{"level": "INFO", "timestamp": "2023-12-20 18:03:34", "message": "System Resources: {'status': 'UP', 'cpu_usage': '7.6%', 'memory_usage': '31.5%'}"}
+{"level": "INFO", "timestamp": "2023-12-20 18:03:34", "message": "Time Utility Status: {'status': 'UP', 'time': '2023-12-20 18:03:34'}"}
+{"level": "INFO", "timestamp": "2023-12-20 18:03:34", "message": "All systems are operational."}
+{"level": "INFO", "timestamp": "2023-12-20 18:06:07", "message": "Performing health check...waiting for all components to be up..."}
+{"level": "INFO", "timestamp": "2023-12-20 18:06:07", "message": "Server Status: {'status': 'UP', 'uptime': 'System Boot Time:          12/19/2023, 10:20:46 PM'}"}
+{"level": "INFO", "timestamp": "2023-12-20 18:06:07", "message": "Database Status: {'status': 'UP', 'details': 'Successfully connected to the database'}"}
+{"level": "INFO", "timestamp": "2023-12-20 18:06:07", "message": "System Resources: {'status': 'UP', 'cpu_usage': '6.9%', 'memory_usage': '31.4%'}"}
+{"level": "INFO", "timestamp": "2023-12-20 18:06:07", "message": "Time Utility Status: {'status': 'UP', 'time': '2023-12-20 18:06:07'}"}
+{"level": "INFO", "timestamp": "2023-12-20 18:06:07", "message": "All systems are operational."}
