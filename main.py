@@ -11,7 +11,6 @@ from network.handover_utils import handle_load_balancing
 from health_check.system_monitoring import SystemMonitor
 from database.database_manager import DatabaseManager
 from logs.logger_config import traffic_update
-from network.cell_monitor import monitor_cell_load
 # pickled by multiprocessing
 def log_system_resources(system_monitor):
     while True:
@@ -118,9 +117,6 @@ def main():
     command_queue.put('exit')
     ns_manager_process.join()
 
-# Start the cell monitor process
-    cell_monitor_process = Process(target=monitor_cell_load, args=(network_state, gNodeBs, command_queue))
-    cell_monitor_process.start()
 
 if __name__ == "__main__":
     main()
