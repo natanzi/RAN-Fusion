@@ -162,18 +162,22 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
                 network_state.update_state(network_state.gNodeBs, list(network_state.cells.values()), list(network_state.ues.values()))
                 new_ue.ConnectedCellID = available_cell.ID
                 logging.info(f"UE '{new_ue.ID}' has been attached to Cell '{new_ue.ConnectedCellID}' at '{current_time}'.")
+
+                # Increment the ue_id_counter after successfully adding the UE
+                ue_id_counter += 1
+
             except Exception as e:
                 # Handle the case where the cell is at maximum capacity
                 logging.error(f"Failed to add UE '{new_ue.ID}' to Cell '{available_cell.ID}': {e}")
                 # Decrement the counter since the UE was not added successfully
                 ue_id_counter -= 1
             else:
-            # Serialize and write to InfluxDB
+                # Serialize and write to InfluxDB
                 point = new_ue.serialize_for_influxdb()
                 db_manager.insert_data(point)
                 ues.append(new_ue)
         else:
-                logging.error(f"No available cell found for UE '{new_ue.ID}' at '{current_time}'.")
+            logging.error(f"No available cell found for UE '{new_ue.ID}' at '{current_time}'.")
 
     db_manager.close_connection()
 
