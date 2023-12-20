@@ -7,7 +7,6 @@ from database.database_manager import DatabaseManager
 from datetime import datetime
 from influxdb_client.client.write_api import SYNCHRONOUS, WriteOptions
 
-
 # Haversine formula to calculate the great-circle distance between two points
 def haversine(lon1, lat1, lon2, lat2):
     # Convert decimal degrees to radians
@@ -34,6 +33,7 @@ def calculate_signal_strength(ue, gNodeB):
 #################################################################################################
 def calculate_cell_load(cell_id, gnodebs):
     # Find the cell with the matching cell_id
+    # the calculate_cell_load function is calculating the cell load by counting the number of connected UEs to a cell and comparing it to the maximum capacity of the cell.
     cell = find_cell_by_id(cell_id, gnodebs)
     
     if cell is None:
@@ -58,23 +58,40 @@ def find_cell_by_id(cell_id, gnodebs):
 ################################################################################################
 # Calculate the throughput for a UE based on traffic generation
 def calculate_and_write_ue_throughput(ue, network_load_impact, interval=1):
-
+    # Create an instance of DatabaseManager
     database_manager = DatabaseManager()
 
-    while True:
-        throughput = calculate_ue_throughput(ue, network_load_impact)
-        data = {
-            "measurement": "ue_throughput",
-            "tags": {
-                "ue_id": ue.id
-            },
-            "fields": {
-                "throughput": throughput
-            },
-            "time": datetime.utcnow().isoformat()
-        }
-        database_manager.insert_data(data)
-        time.sleep(interval)
+    # Calculate the throughput for a UE based on traffic generation
+    base_throughput = ue.data_size / ue.interval  # Throughput in bytes per second
+
+    # Adjust the throughput based on the network load impact
+    # Assuming network_load_impact is a value between 0 and 1, where 1 represents 100% load
+    throughput = base_throughput * (1 - network_load_impact)
+
+    # Prepare the data to be written to InfluxDB
+    data = {
+        "measurement": "ue_throughput",
+        "tags": {
+            "ue_id": ue.id
+        },
+        "fields": {
+            "throughput": throughput
+        },
+        "time": datetime.utcnow().isoformat()
+    }
+
+    # Write the data to InfluxDB
+    database_manager.insert_data(data)
+
+    # Close the database connection
+    database_manager.close_connection()
+
+    return throughput
+# To use this function, you would call it at regular intervals.
+# For example, you could use a loop or a scheduling library to call this function every second:
+#while True:
+    #calculate_and_write_ue_throughput(ue, network_load_impact)
+    #time.sleep(interval)
 ################################################################################################
 # Calculate the total throughput for all UEs in a cell based on traffic generation
 def calculate_cell_throughput(cell, gnodebs):

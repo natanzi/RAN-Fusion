@@ -11,7 +11,7 @@ from network.handover_utils import handle_load_balancing, monitor_and_log_cell_l
 from health_check.system_monitoring import SystemMonitor
 from database.database_manager import DatabaseManager
 from logs.logger_config import traffic_update
-
+#################################################################################################################################
 # pickled by multiprocessing
 def log_system_resources(system_monitor):
     while True:
@@ -25,7 +25,7 @@ def network_state_manager(network_state, command_queue):
             network_state.save_state_to_influxdb()
         elif command == 'exit':  # Handle exit command to break the loop
             break
-
+####################################################################################################################################
 def log_traffic(ues, command_queue, traffic_increase_config=None):
     while True:
         for ue in ues:
@@ -42,7 +42,7 @@ def log_traffic(ues, command_queue, traffic_increase_config=None):
             # Save the state to the database
             command_queue.put('save')
         time.sleep(1)  # Logging interval
-
+####################################################################################################################################
 def detect_and_handle_congestion(network_state, command_queue):
     while True:
         for cell_id, cell in network_state.cells.items():
@@ -52,12 +52,11 @@ def detect_and_handle_congestion(network_state, command_queue):
                 handle_load_balancing(cell.gNodeB_ID, network_state)
                 command_queue.put('save')  # Save state after handling congestion
         time.sleep(5)  # Check for congestion at regular intervals
-
+#####################################################################################
 def main():
     logo_text = create_logo()
-    print("Printing logo start")
     print(logo_text)
-    print("Printing logo end")
+#####################################################################################
 
     logging.basicConfig(level=logging.INFO)
 
