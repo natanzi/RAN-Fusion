@@ -46,9 +46,3 @@ def perform_health_check(network_state):
     else:
         print("All systems are operational.")
         return True
-
-if __name__ == "__main__":
-    # Example usage of perform_health_check
-    # You would need to pass the actual network_state object when calling this function
-    network_state = None  # Placeholder for the actual network state object
-    perform_health_check(network_state)
