@@ -64,7 +64,8 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         
         # Generate a unique UE ID
         ue_id = f"UE{ue_id_counter}"
-        while ue_id in network_state.ues:
+        existing_ue_ids = [ue.ID for ue in network_state.ues]
+        while ue_id in existing_ue_ids:
             ue_id_counter += 1
             ue_id = f"UE{ue_id_counter}"
         ue_data['ue_id'] = ue_id
