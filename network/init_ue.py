@@ -10,7 +10,7 @@ import logging
 from network.network_state import NetworkState
 from database.time_utils import get_current_time_ntp, server_pools
 
-current_time = current_time = get_current_time_ntp()
+current_time = get_current_time_ntp()
 
 # Create an instance of NetworkState
 network_state = NetworkState()
@@ -26,7 +26,6 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
     ues = []
     db_manager = DatabaseManager(network_state)
     DEFAULT_BANDWIDTH_PARTS = [1, 2, 3, 4]  # Example default values
-    # Initialize the UE ID counter outside of the loop
     ue_id_counter = len(network_state.ues) + 1
 
     # Instantiate UEs from the configuration
@@ -63,9 +62,9 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         ue_data['n311'] = ue_data.pop('n311')
         ue_data['model'] = ue_data.pop('model')
         ue_data['service_type'] = ue_data.get('serviceType', None)
-        ue_data.pop('IMEI', None)  # Ensure 'IMEI' is not passed to the constructor
-        ue_data.pop('screensize', None)  # Add this line to remove 'screensize' key
-        ue_data.pop('batterylevel', None)  # This line removes 'batterylevel' key
+        ue_data.pop('IMEI', None)
+        ue_data.pop('screensize', None)
+        ue_data.pop('batterylevel', None)
         # Assign sequential UE ID
         ue_data['ue_id'] = f"UE{ue_id_counter}" 
         
@@ -118,24 +117,21 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
 
         # Increment the UE ID counter for the next UE
         ue_id_counter += 1
-        # Calculate the number of additional UEs needed
-        additional_ues_needed = max(0, num_ues_to_launch - len(ues))
+    # Calculate the number of additional UEs needed
+    additional_ues_needed = max(0, num_ues_to_launch - len(ues))
 
-        # Create additional UEs if needed
-        for _ in range(additional_ues_needed):
-            selected_gNodeB = random.choice(list(gNodeBs.values()))
-            available_cell = selected_gNodeB.find_underloaded_cell()
-
-            # Assign a new random location for each additional UE
-            # This ensures that random_location has a value before it's used
-            random_location = random_location_within_radius(
+    # Create additional UEs if needed
+    for _ in range(additional_ues_needed):
+        selected_gNodeB = random.choice(list(gNodeBs.values()))
+        available_cell = selected_gNodeB.find_underloaded_cell()
+        random_location = random_location_within_radius(
             selected_gNodeB.Latitude, selected_gNodeB.Longitude, selected_gNodeB.CoverageRadius
-            )
+        )
             
         if 'bandwidthParts' in ue_config['ues'][0]:
             bandwidth_parts = random.choice(ue_config['ues'][0]['bandwidthParts'])
-    else:
-        bandwidth_parts = random.choice(DEFAULT_BANDWIDTH_PARTS)
+        else:
+            bandwidth_parts = random.choice(DEFAULT_BANDWIDTH_PARTS)
         
         new_ue = UE(
             ue_id=f"UE{ue_id_counter}",
@@ -169,23 +165,13 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
 
         if available_cell:
             try:
-                # Add the UE to the cell's ConnectedUEs list
                 available_cell.add_ue(new_ue, network_state)
-                # Update the network state with the current state of gNodeBs, cells, and UEs
-                network_state.update_state(network_state.gNodeBs, list(network_state.cells.values()), list(network_state.ues.values()))
                 new_ue.ConnectedCellID = available_cell.ID
                 logging.info(f"UE '{new_ue.ID}' has been attached to Cell '{new_ue.ConnectedCellID}' at '{current_time}'.")
-
-                    # Increment the ue_id_counter after successfully adding the UE
-                ue_id_counter += 1
-
+                ue_id_counter += 1  # Increment the ue_id_counter after successfully adding the UE
             except Exception as e:
-                # Handle the case where the cell is at maximum capacity
                 logging.error(f"Failed to add UE '{new_ue.ID}' to Cell '{available_cell.ID}': {e}")
-                # Do not decrement the counter since the UE was not added successfully
-                # ue_id_counter -= 1 (This line should be removed)
             else:
-                # Serialize and write to InfluxDB
                 point = new_ue.serialize_for_influxdb()
                 db_manager.insert_data(point)
                 ues.append(new_ue)
@@ -195,3 +181,4 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
     db_manager.close_connection()
 
     return ues
+
