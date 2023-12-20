@@ -29,7 +29,8 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
     ue_id_counter = 1  # Initialize the UE ID counter
 
     # Instantiate UEs from the configuration
-    for ue_data in ue_config['ues']:
+    for _ in range(num_ues_to_launch):
+        ue_data = random.choice(ue_config['ues'])
         # Adjust the keys to match the UE constructor argument names
         ue_data['location'] = (ue_data['location']['latitude'], ue_data['location']['longitude'])
         ue_data['connected_cell_id'] = ue_data.pop('connectedCellId')
