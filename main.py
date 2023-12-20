@@ -118,9 +118,9 @@ def main():
     command_queue.put('exit')
     ns_manager_process.join()
 
-    # Start the cell monitor process
+# Start the cell monitor process
     cell_monitor_process = Process(target=monitor_cell_load, args=(network_state, gNodeBs, command_queue))
     cell_monitor_process.start()
-    
+
 if __name__ == "__main__":
     main()
