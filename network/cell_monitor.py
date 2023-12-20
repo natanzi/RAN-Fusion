@@ -18,4 +18,4 @@ def monitor_cell_load(network_state, gNodeBs, command_queue):
                 if cell_load > CELL_LOAD_THRESHOLD:
                     handle_load_balancing(gNodeB_instance, network_state)
                 command_queue.put('save')
-        time.sleep(5)  # Adjust the sleep time as needed for your simulation
+        time.sleep(3)  # Adjust the sleep time as needed for your simulation
