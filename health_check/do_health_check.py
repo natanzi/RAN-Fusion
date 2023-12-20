@@ -1,5 +1,4 @@
 # do_health_check.py located in health_check directory
-# do_health_check.py located in health_check directory
 import sys
 import time
 from .server_status import check_server_status
