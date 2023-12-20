@@ -11,7 +11,7 @@ from network.handover_utils import handle_load_balancing
 from health_check.system_monitoring import SystemMonitor
 from database.database_manager import DatabaseManager
 from logs.logger_config import traffic_update
-
+from network.cell_monitor import monitor_cell_load
 # pickled by multiprocessing
 def log_system_resources(system_monitor):
     while True:
@@ -42,13 +42,6 @@ def log_traffic(ues, command_queue, traffic_increase_config=None):
             # Save the state to the database
             command_queue.put('save')
         time.sleep(1)  # Logging interval
-
-def monitor_cell_load(gNodeBs, command_queue):
-    while True:
-        for gNodeB_id, gNodeB_instance in gNodeBs.items():
-            # ... existing cell monitoring logic ...
-            command_queue.put('save')
-        time.sleep(5)  # Adjust the sleep time as needed for your simulation
 
 def detect_and_handle_congestion(network_state, command_queue):
     while True:
@@ -125,5 +118,9 @@ def main():
     command_queue.put('exit')
     ns_manager_process.join()
 
+    # Start the cell monitor process
+    cell_monitor_process = Process(target=monitor_cell_load, args=(network_state, gNodeBs, command_queue))
+    cell_monitor_process.start()
+    
 if __name__ == "__main__":
     main()
