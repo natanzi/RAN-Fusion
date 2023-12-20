@@ -115,16 +115,20 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         db_manager.insert_data(point)  # Corrected method call
         ues.append(ue)
     
-    # Calculate the number of additional UEs needed
-    additional_ues_needed = max(0, num_ues_to_launch - len(ues))
+        # Calculate the number of additional UEs needed
+        additional_ues_needed = max(0, num_ues_to_launch - len(ues))
 
-    # Create additional UEs if needed
-    for _ in range(additional_ues_needed):
-        selected_gNodeB = random.choice(list(gNodeBs.values()))
-        available_cell = selected_gNodeB.find_underloaded_cell()
-        random_location = random_location_within_radius(
+        # Create additional UEs if needed
+        for _ in range(additional_ues_needed):
+            selected_gNodeB = random.choice(list(gNodeBs.values()))
+            available_cell = selected_gNodeB.find_underloaded_cell()
+
+            # Assign a new random location for each additional UE
+            # This ensures that random_location has a value before it's used
+            random_location = random_location_within_radius(
             selected_gNodeB.Latitude, selected_gNodeB.Longitude, selected_gNodeB.CoverageRadius
-        )
+            )
+            
         if 'bandwidthParts' in ue_config['ues'][0]:
             bandwidth_parts = random.choice(ue_config['ues'][0]['bandwidthParts'])
     else:
