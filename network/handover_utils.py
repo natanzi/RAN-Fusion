@@ -95,12 +95,20 @@ def check_handover_feasibility(network_state, target_cell_id, ue):
     if len(target_cell.ConnectedUEs) >= target_cell.MaxConnectedUEs:
         return False
 
-    # Assuming the function is_in_restricted_region is defined in the Cell class
     if target_cell.is_in_restricted_region():
         return False
 
-    # Now using the method from the UE class
     if not ue.is_eligible_for_handover(network_state):
+        return False
+
+    # Retrieve the gNodeB object that the target cell belongs to
+    target_gnodeb = network_state.gnodebs.get(target_cell.gNodeB_ID)
+    if target_gnodeb is None:
+        return False
+
+    # Check the load of the gNodeB
+    gnodeb_load = target_gnodeb.calculate_gnodeb_load()
+    if gnodeb_load > 90:  # Define some_threshold as the maximum acceptable load
         return False
 
     return True
