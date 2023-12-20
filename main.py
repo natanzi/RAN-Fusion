@@ -7,10 +7,11 @@ import logging
 from logo import create_logo
 from health_check.do_health_check import perform_health_check
 from network.network_state import NetworkState
-from network.handover_utils import handle_load_balancing
+from network.handover_utils import handle_load_balancing, monitor_and_log_cell_load
 from health_check.system_monitoring import SystemMonitor
 from database.database_manager import DatabaseManager
 from logs.logger_config import traffic_update
+
 # pickled by multiprocessing
 def log_system_resources(system_monitor):
     while True:
@@ -95,9 +96,12 @@ def main():
     logging_process = Process(target=log_traffic, args=(ues, command_queue, traffic_increase_config))
     logging_process.start()
 
-    # Start the cell monitor process
-    cell_monitor_process = Process(target=monitor_cell_load, args=(gNodeBs, command_queue))
-    cell_monitor_process.start()
+    # Start the cell monitor processes using monitor_and_log_cell_load
+    cell_monitor_processes = []  # List to keep track of cell monitor processes
+    for gNodeB in gNodeBs.values():
+        cell_monitor_process = Process(target=monitor_and_log_cell_load, args=(gNodeB,))
+        cell_monitor_process.start()
+        cell_monitor_processes.append(cell_monitor_process)  # Add the process to the list
 
     # Start the congestion detection process
     congestion_process = Process(target=detect_and_handle_congestion, args=(network_state, command_queue))
@@ -109,14 +113,14 @@ def main():
 
     # Wait for the processes to complete (if they ever complete)
     logging_process.join()
-    cell_monitor_process.join()
+    for process in cell_monitor_processes:  # Join all cell monitor processes
+        process.join()
     congestion_process.join()
     system_resource_logging_process.join()
 
     # Signal the network state manager process to exit
     command_queue.put('exit')
     ns_manager_process.join()
-
 
 if __name__ == "__main__":
     main()
