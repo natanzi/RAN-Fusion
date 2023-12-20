@@ -120,8 +120,8 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         )
         if 'bandwidthParts' in ue_config['ues'][0]:
             bandwidth_parts = random.choice(ue_config['ues'][0]['bandwidthParts'])
-        else:
-            bandwidth_parts = random.choice(DEFAULT_BANDWIDTH_PARTS)
+    else:
+        bandwidth_parts = random.choice(DEFAULT_BANDWIDTH_PARTS)
         
         new_ue = UE(
             ue_id=f"UE{ue_id_counter}",
@@ -153,26 +153,27 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         )
         ue_id_counter += 1  # Increment the counter outside of any conditions
 
-        if selected_gNodeB.Cells:
-            selected_cell = random.choice(selected_gNodeB.Cells)
+        if available_cell:
             try:
-            # Add the UE to the cell's ConnectedUEs list
-                selected_cell.add_ue(ue, network_state)
-            # Update the network state with the current state of gNodeBs, cells, and UEs
+                # Add the UE to the cell's ConnectedUEs list
+                available_cell.add_ue(new_ue, network_state)
+                # Update the network state with the current state of gNodeBs, cells, and UEs
                 network_state.update_state(network_state.gNodeBs, list(network_state.cells.values()), list(network_state.ues.values()))
-                ue.ConnectedCellID = selected_cell.ID
-                logging.info(f"UE '{ue.ID}' has been attached to Cell '{ue.ConnectedCellID}' at '{current_time}'.")
+                new_ue.ConnectedCellID = available_cell.ID
+                logging.info(f"UE '{new_ue.ID}' has been attached to Cell '{new_ue.ConnectedCellID}' at '{current_time}'.")
             except Exception as e:
-            # Handle the case where the cell is at maximum capacity
-                logging.error(f"Failed to add UE '{ue.ID}' to Cell '{selected_cell.ID}': {e}")
-
-            # You may want to implement additional logic to handle this case
-            ue.ConnectedCellID = selected_cell.ID
-        
+                # Handle the case where the cell is at maximum capacity
+                logging.error(f"Failed to add UE '{new_ue.ID}' to Cell '{available_cell.ID}': {e}")
+                # Decrement the counter since the UE was not added successfully
+                ue_id_counter -= 1
+            else:
             # Serialize and write to InfluxDB
-            point = new_ue.serialize_for_influxdb()
-            db_manager.insert_data(point)  # Corrected method call
-            ues.append(new_ue)
+                point = new_ue.serialize_for_influxdb()
+                db_manager.insert_data(point)
+                ues.append(new_ue)
+        else:
+                logging.error(f"No available cell found for UE '{new_ue.ID}' at '{current_time}'.")
+
     db_manager.close_connection()
 
     return ues
