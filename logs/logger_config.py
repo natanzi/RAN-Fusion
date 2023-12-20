@@ -66,6 +66,7 @@ cell_load_logger = setup_logger('cell_load_logger', 'logs/cell_load.log')
 traffic_update = setup_logger('traffic_update', 'logs/traffic_update.log')
 database_logger = setup_logger('database_logger', 'logs/database_logger.log')
 system_resource_logger = setup_logger('system_resource_logger', 'logs/system_resource.log')
+health_check_logger = setup_logger('health_check_logger', 'logs/health_check_logger.log')
 
 # Dictionary to hold loggers and their respective log files for compression
 log_files = {
@@ -75,7 +76,8 @@ log_files = {
     'cell_load_logger': 'logs/cell_load.log',
     'traffic_update': 'logs/traffic_update.log',
     'database_logger': 'logs/database_logger.log',
-    'system_resource_logger': 'logs/system_resource.log'
+    'system_resource_logger': 'logs/system_resource.log',
+    'health_check_logger': 'logs/health_check_logger.log'
 }
 
 # Use ThreadPoolExecutor to compress log files
