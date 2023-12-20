@@ -328,3 +328,27 @@
 {"level": "INFO", "timestamp": "2023-12-20 18:08:24", "message": "Data inserted for measurement ue_metrics with tags ue_id=UE1, connected_cell_id=AX9980, entity_type=ue"}
 {"level": "INFO", "timestamp": "2023-12-20 18:08:24", "message": "Data inserted for measurement ue_metrics with tags ue_id=UE1, connected_cell_id=CX1873, entity_type=ue"}
 {"level": "INFO", "timestamp": "2023-12-20 18:08:24", "message": "Data inserted for measurement ue_metrics with tags ue_id=UE1, connected_cell_id=CX1873, entity_type=ue"}
+{"level": "INFO", "timestamp": "2023-12-20 18:15:22", "message": "Database connection successful."}
+{"level": "INFO", "timestamp": "2023-12-20 18:15:22", "message": "Data inserted for measurement gnodeb_metrics with tags gnodeb_id=W1140, entity_type=gnodeb"}
+{"level": "INFO", "timestamp": "2023-12-20 18:15:22", "message": "Data inserted for measurement gnodeb_metrics with tags gnodeb_id=W1320, entity_type=gnodeb"}
+{"level": "INFO", "timestamp": "2023-12-20 18:15:22", "message": "Data inserted for measurement gnodeb_metrics with tags gnodeb_id=W2018, entity_type=gnodeb"}
+{"level": "INFO", "timestamp": "2023-12-20 18:15:22", "message": "Data inserted for measurement cell_metrics with tags cell_id=Ax1242, gnodeb_id=W1140, entity_type=cell"}
+{"level": "INFO", "timestamp": "2023-12-20 18:15:22", "message": "Data inserted for measurement cell_metrics with tags cell_id=BX1453, gnodeb_id=W1140, entity_type=cell"}
+{"level": "INFO", "timestamp": "2023-12-20 18:15:22", "message": "Data inserted for measurement cell_metrics with tags cell_id=CX1352, gnodeb_id=W1140, entity_type=cell"}
+{"level": "INFO", "timestamp": "2023-12-20 18:15:22", "message": "Data inserted for measurement cell_metrics with tags cell_id=AX1112, gnodeb_id=W1320, entity_type=cell"}
+{"level": "INFO", "timestamp": "2023-12-20 18:15:22", "message": "Data inserted for measurement cell_metrics with tags cell_id=BX1334, gnodeb_id=W1320, entity_type=cell"}
+{"level": "INFO", "timestamp": "2023-12-20 18:15:22", "message": "Data inserted for measurement cell_metrics with tags cell_id=CX1873, gnodeb_id=W1320, entity_type=cell"}
+{"level": "INFO", "timestamp": "2023-12-20 18:15:22", "message": "Data inserted for measurement cell_metrics with tags cell_id=AX9980, gnodeb_id=W2018, entity_type=cell"}
+{"level": "INFO", "timestamp": "2023-12-20 18:15:22", "message": "Data inserted for measurement cell_metrics with tags cell_id=BX1230, gnodeb_id=W2018, entity_type=cell"}
+{"level": "INFO", "timestamp": "2023-12-20 18:15:22", "message": "Data inserted for measurement cell_metrics with tags cell_id=CX5103, gnodeb_id=W2018, entity_type=cell"}
+{"level": "INFO", "timestamp": "2023-12-20 18:15:22", "message": "Data inserted for measurement ue_metrics with tags ue_id=UE1, connected_cell_id=CX5103, entity_type=ue"}
+{"level": "INFO", "timestamp": "2023-12-20 18:15:22", "message": "Data inserted for measurement ue_metrics with tags ue_id=UE1, connected_cell_id=AX1112, entity_type=ue"}
+{"level": "INFO", "timestamp": "2023-12-20 18:15:22", "message": "Data inserted for measurement ue_metrics with tags ue_id=UE1, connected_cell_id=CX5103, entity_type=ue"}
+{"level": "INFO", "timestamp": "2023-12-20 18:15:22", "message": "Data inserted for measurement ue_metrics with tags ue_id=UE1, connected_cell_id=CX5103, entity_type=ue"}
+{"level": "INFO", "timestamp": "2023-12-20 18:15:22", "message": "Data inserted for measurement ue_metrics with tags ue_id=UE1, connected_cell_id=BX1230, entity_type=ue"}
+{"level": "INFO", "timestamp": "2023-12-20 18:15:22", "message": "Data inserted for measurement ue_metrics with tags ue_id=UE1, connected_cell_id=CX1873, entity_type=ue"}
+{"level": "INFO", "timestamp": "2023-12-20 18:15:22", "message": "Data inserted for measurement ue_metrics with tags ue_id=UE1, connected_cell_id=AX1112, entity_type=ue"}
+{"level": "INFO", "timestamp": "2023-12-20 18:15:22", "message": "Data inserted for measurement ue_metrics with tags ue_id=UE1, connected_cell_id=Ax1242, entity_type=ue"}
+{"level": "INFO", "timestamp": "2023-12-20 18:15:22", "message": "Data inserted for measurement ue_metrics with tags ue_id=UE1, connected_cell_id=BX1334, entity_type=ue"}
+{"level": "INFO", "timestamp": "2023-12-20 18:15:22", "message": "Data inserted for measurement ue_metrics with tags ue_id=UE1, connected_cell_id=CX1352, entity_type=ue"}
+{"level": "INFO", "timestamp": "2023-12-20 18:15:22", "message": "Data inserted for measurement ue_metrics with tags ue_id=UE1, connected_cell_id=BX1453, entity_type=ue"}

@@ -82,3 +82,9 @@
 {"level": "INFO", "timestamp": "2023-12-20 18:08:24", "message": "System Resources: {'status': 'UP', 'cpu_usage': '7.7%', 'memory_usage': '31.5%'}"}
 {"level": "INFO", "timestamp": "2023-12-20 18:08:24", "message": "Time Utility Status: {'status': 'UP', 'time': '2023-12-20 18:08:24'}"}
 {"level": "INFO", "timestamp": "2023-12-20 18:08:24", "message": "All systems are operational."}
+{"level": "INFO", "timestamp": "2023-12-20 18:15:22", "message": "Performing health check...waiting for all components to be up..."}
+{"level": "INFO", "timestamp": "2023-12-20 18:15:22", "message": "Server Status: {'status': 'UP', 'uptime': 'System Boot Time:          12/19/2023, 10:20:46 PM'}"}
+{"level": "INFO", "timestamp": "2023-12-20 18:15:22", "message": "Database Status: {'status': 'UP', 'details': 'Successfully connected to the database'}"}
+{"level": "INFO", "timestamp": "2023-12-20 18:15:22", "message": "System Resources: {'status': 'UP', 'cpu_usage': '7.1%', 'memory_usage': '31.5%'}"}
+{"level": "INFO", "timestamp": "2023-12-20 18:15:22", "message": "Time Utility Status: {'status': 'UP', 'time': '2023-12-20 18:15:22'}"}
+{"level": "INFO", "timestamp": "2023-12-20 18:15:22", "message": "All systems are operational."}

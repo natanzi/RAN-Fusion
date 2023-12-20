@@ -26,7 +26,8 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
     ues = []
     db_manager = DatabaseManager(network_state)
     DEFAULT_BANDWIDTH_PARTS = [1, 2, 3, 4]  # Example default values
-    ue_id_counter = 1  # Initialize the UE ID counter
+    # Initialize the UE ID counter outside of the loop
+    ue_id_counter = len(network_state.ues) + 1
 
     # Instantiate UEs from the configuration
     for _ in range(num_ues_to_launch):
@@ -114,7 +115,9 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         point = ue.serialize_for_influxdb()
         db_manager.insert_data(point)  # Corrected method call
         ues.append(ue)
-    
+
+        # Increment the UE ID counter for the next UE
+        ue_id_counter += 1
         # Calculate the number of additional UEs needed
         additional_ues_needed = max(0, num_ues_to_launch - len(ues))
 
