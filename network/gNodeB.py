@@ -249,6 +249,22 @@ class gNodeB:
 
         return best_cell
 #################################################
+    def calculate_gnodeb_load(self):
+        """
+        Calculate the load of the gNodeB by averaging the load of each cell.
+        :return: Load of the gNodeB as a percentage.
+        """
+        # Ensure there are cells to calculate the load
+        if not self.Cells:
+            return 0
+
+        # Calculate the load for each cell and sum them
+        total_load = sum(calculate_cell_load(cell.ID, [self]) for cell in self.Cells)
+
+        # Calculate the average load across all cells
+        average_load = total_load / len(self.Cells)
+
+        return average_load    
 #######################################Periodic Updates###############################################
     def update(self):
         from network.handover_utils import handle_load_balancing, monitor_and_log_cell_load
