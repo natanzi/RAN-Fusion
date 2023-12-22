@@ -70,3 +70,15 @@
 {"level": "INFO", "timestamp": "2023-12-22 17:37:34", "message": "Cell AX9980 @ gNodeB W2018 - Load: 50.0%", "test_id": "b576cfe0-6f24-4f8b-aeba-894d189052a1"}
 {"level": "INFO", "timestamp": "2023-12-22 17:37:34", "message": "Cell BX1230 @ gNodeB W2018 - Load: 50.0%", "test_id": "b576cfe0-6f24-4f8b-aeba-894d189052a1"}
 {"level": "INFO", "timestamp": "2023-12-22 17:37:34", "message": "Cell CX5103 @ gNodeB W2018 - Load: 50.0%", "test_id": "b576cfe0-6f24-4f8b-aeba-894d189052a1"}
+{"level": "INFO", "timestamp": "2023-12-22 17:42:11", "message": "Testing cell load logging.", "test_id": "eaff0d24-38c0-4fa4-9808-bccfd9843e1a"}
+{"level": "INFO", "timestamp": "2023-12-22 17:42:11", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 50.0%", "test_id": "eaff0d24-38c0-4fa4-9808-bccfd9843e1a"}
+{"level": "INFO", "timestamp": "2023-12-22 17:42:11", "message": "Cell BX1453 @ gNodeB W1140 - Load: 50.0%", "test_id": "eaff0d24-38c0-4fa4-9808-bccfd9843e1a"}
+{"level": "INFO", "timestamp": "2023-12-22 17:42:11", "message": "Cell CX1352 @ gNodeB W1140 - Load: 45.0%", "test_id": "eaff0d24-38c0-4fa4-9808-bccfd9843e1a"}
+{"level": "INFO", "timestamp": "2023-12-22 17:42:11", "message": "Testing cell load logging.", "test_id": "4c27c036-64e9-4a10-a1d6-f87374706896"}
+{"level": "INFO", "timestamp": "2023-12-22 17:42:11", "message": "Cell AX1112 @ gNodeB W1320 - Load: 50.0%", "test_id": "4c27c036-64e9-4a10-a1d6-f87374706896"}
+{"level": "INFO", "timestamp": "2023-12-22 17:42:11", "message": "Cell BX1334 @ gNodeB W1320 - Load: 45.0%", "test_id": "4c27c036-64e9-4a10-a1d6-f87374706896"}
+{"level": "INFO", "timestamp": "2023-12-22 17:42:11", "message": "Cell CX1873 @ gNodeB W1320 - Load: 45.0%", "test_id": "4c27c036-64e9-4a10-a1d6-f87374706896"}
+{"level": "INFO", "timestamp": "2023-12-22 17:42:11", "message": "Testing cell load logging.", "test_id": "b94903ec-a291-4710-b47d-bcef5048debd"}
+{"level": "INFO", "timestamp": "2023-12-22 17:42:11", "message": "Cell AX9980 @ gNodeB W2018 - Load: 50.0%", "test_id": "b94903ec-a291-4710-b47d-bcef5048debd"}
+{"level": "INFO", "timestamp": "2023-12-22 17:42:11", "message": "Cell BX1230 @ gNodeB W2018 - Load: 45.0%", "test_id": "b94903ec-a291-4710-b47d-bcef5048debd"}
+{"level": "INFO", "timestamp": "2023-12-22 17:42:11", "message": "Cell CX5103 @ gNodeB W2018 - Load: 45.0%", "test_id": "b94903ec-a291-4710-b47d-bcef5048debd"}
