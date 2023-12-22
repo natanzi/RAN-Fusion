@@ -49,11 +49,19 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
     # Adjust the keys to match the UE constructor argument names
         ue_data['ue_id'] = f"UE{ue_id_counter}"
 
-    # Check if 'location' is a dictionary and has 'latitude' and 'longitude' keys
-        if isinstance(ue_data['location'], dict):
-            ue_data['location'] = (ue_data['location']['latitude'], ue_data['location']['longitude'])
-
-    # Pop and rename keys to match the UE constructor parameters
+    # Check if 'bandwidthParts' exists in ue_data and handle it appropriately
+        if 'bandwidthParts' in ue_data:
+    # If 'bandwidthParts' exists and it's a list, choose a random element
+            if isinstance(ue_data['bandwidthParts'], list) and ue_data['bandwidthParts']:
+                ue_data['bandwidth_parts'] = random.choice(ue_data['bandwidthParts'])
+            else:
+            # If 'bandwidthParts' is not a list or is empty, use a default value
+                ue_data['bandwidth_parts'] = random.choice(DEFAULT_BANDWIDTH_PARTS)
+        else:
+        # If 'bandwidthParts' does not exist, provide a default value
+            ue_data['bandwidth_parts'] = random.choice(DEFAULT_BANDWIDTH_PARTS)
+        
+        # Pop and rename keys to match the UE constructor parameters
         ue_data['connected_cell_id'] = ue_data.pop('connectedCellId', None)
         ue_data['is_mobile'] = ue_data.pop('isMobile')
         ue_data['initial_signal_strength'] = ue_data.pop('initialSignalStrength')
@@ -65,7 +73,6 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
         ue_data['coding'] = ue_data.pop('coding')
         ue_data['mimo'] = ue_data.pop('mimo')
         ue_data['processing'] = ue_data.pop('processing')
-        ue_data['bandwidth_parts'] = ue_data.pop('bandwidthParts', DEFAULT_BANDWIDTH_PARTS)  # Use a default if not present
         ue_data['channel_model'] = ue_data.pop('channelModel')
         ue_data['velocity'] = ue_data.pop('velocity')
         ue_data['direction'] = ue_data.pop('direction')
