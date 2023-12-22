@@ -40,18 +40,22 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
     round_robin_queue = [gNodeB for gNodeB in gNodeBs.values()]
 
     for _ in range(num_ues_to_launch):
-        ue_data = random.choice(ue_config['ues'])  # Make a copy to avoid mutating the original
-    
-        # Remove the 'IMEI' key from ue_data if it exists
-            # Remove keys that are not used by the UE constructor
+        ue_data = random.choice(ue_config['ues']).copy()
+
+    # Remove keys that are not used by the UE constructor
         ue_data.pop('IMEI', None)
         ue_data.pop('screensize', None)
-        ue_data.pop('batterylevel', None)  # Use pop to remove 'IMEI' if it's in the dictionary, ignore if not present
-    
-        # Adjust the keys to match the UE constructor argument names
+        ue_data.pop('batterylevel', None)
+
+    # Adjust the keys to match the UE constructor argument names
         ue_data['ue_id'] = f"UE{ue_id_counter}"
-        ue_data['location'] = (ue_data['location']['latitude'], ue_data['location']['longitude'])
-        ue_data['connected_cell_id'] = ue_data.pop('connectedCellId', None)  # Use the correct parameter name
+
+    # Check if 'location' is a dictionary and has 'latitude' and 'longitude' keys
+        if isinstance(ue_data['location'], dict):
+            ue_data['location'] = (ue_data['location']['latitude'], ue_data['location']['longitude'])
+
+    # Pop and rename keys to match the UE constructor parameters
+        ue_data['connected_cell_id'] = ue_data.pop('connectedCellId', None)
         ue_data['is_mobile'] = ue_data.pop('isMobile')
         ue_data['initial_signal_strength'] = ue_data.pop('initialSignalStrength')
         ue_data['rat'] = ue_data.pop('rat')
@@ -62,7 +66,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
         ue_data['coding'] = ue_data.pop('coding')
         ue_data['mimo'] = ue_data.pop('mimo')
         ue_data['processing'] = ue_data.pop('processing')
-        ue_data['bandwidth_parts'] = ue_data.pop('bandwidthParts')
+        ue_data['bandwidth_parts'] = ue_data.pop('bandwidthParts', DEFAULT_BANDWIDTH_PARTS)  # Use a default if not present
         ue_data['channel_model'] = ue_data.pop('channelModel')
         ue_data['velocity'] = ue_data.pop('velocity')
         ue_data['direction'] = ue_data.pop('direction')
@@ -82,9 +86,10 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
         while ue_id in existing_ue_ids:
             ue_id_counter += 1
             ue_id = f"UE{ue_id_counter}"
-    
-        # Instantiate UE with the adjusted data only if there's an available cell
-        ue_data['ue_id'] = ue_id
+
+        ue_data['ue_id'] = ue_id  # Set the unique UE ID
+
+    # Instantiate UE with the adjusted data
         ue = UE(**ue_data)
         
         # Use round-robin selection with fallback to least-loaded cell
