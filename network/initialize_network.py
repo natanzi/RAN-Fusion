@@ -25,7 +25,7 @@ def initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, ue_confi
         return  # Exit the function if the capacity is exceeded
     
     # After initializing gNodeBs and cells, initialize UEs with the provided configuration
-    ues = initialize_ues(num_ues_to_launch, gNodeBs, ue_config)
+    ues = initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state)
     
     # Update the network state with the initialized elements
     network_state.update_state(gNodeBs, cells, ues)
