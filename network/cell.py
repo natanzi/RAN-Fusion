@@ -30,6 +30,7 @@ class Cell:
         self.last_ue_update = None
         self.last_update = None
         current_time = get_current_time_ntp()
+        self.IsActive = is_active
         # Logging statement should be here, after all attributes are set
         cell_logger.info(f" A Cell '{cell_id}' has been created at '{current_time}' in gNodeB '{self.ID}' with max capacity {self.MaxConnectedUEs}.")
         
@@ -61,6 +62,7 @@ class Cell:
             'MaxConnectedUEs': self.MaxConnectedUEs,
             'ChannelModel': self.ChannelModel,
             'TrackingArea': self.TrackingArea,
+            'CellisActive': self.IsActive
             # Assuming you don't need to include the 'ConnectedUEs' list
         }
     # Method to get the count of active UEs and update the last attached cell and its gNodeB
@@ -119,5 +121,6 @@ class Cell:
             .field("ssb_offset", self.SSBOffset) \
             .field("max_connect_ues", self.MaxConnectedUEs) \
             .field("channel_model", self.ChannelModel) \
-            .field("trackingArea", self.TrackingArea)
+            .field("trackingArea", self.TrackingArea) \
+            .field("CellisActive",self.IsActive)
         return point
