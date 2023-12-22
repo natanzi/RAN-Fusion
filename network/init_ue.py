@@ -32,7 +32,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
 
     # Check if the total number of UEs to be launched exceeds the total capacity
     if num_ues_to_launch > total_capacity:
-        logging.error(f"Cannot launch {num_ues_to_launch} UEs, as it exceeds the total capacity of {total_capacity} UEs across all cells.")
+        ue_logger.error(f"Cannot launch {num_ues_to_launch} UEs, as it exceeds the total capacity of {total_capacity} UEs across all cells.")
         return []  # Return an empty list if the capacity is exceeded
     
     # Prepare a round-robin queue for gNodeBs

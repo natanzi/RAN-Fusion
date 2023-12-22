@@ -1140,3 +1140,883 @@
 {"level": "ERROR", "timestamp": "2023-12-22 17:32:01", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:32:01'.", "test_id": "7b057249-cef0-43ec-bde1-d308467e175d"}
 {"level": "INFO", "timestamp": "2023-12-22 17:32:01", "message": "UE initialized with ID UE1 at 2023-12-22 17:32:16.095015", "test_id": "7b057249-cef0-43ec-bde1-d308467e175d"}
 {"level": "ERROR", "timestamp": "2023-12-22 17:32:01", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:32:01'.", "test_id": "7b057249-cef0-43ec-bde1-d308467e175d"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.836417", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.836930", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell Ax1242 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.838918", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell AX1112 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.839913", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell AX9980 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.841904", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.842900", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell BX1453 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'BX1453' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.843895", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell BX1334 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'BX1334' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.845887", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell BX1230 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'BX1230' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.847879", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.848874", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell CX1352 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'CX1352' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.849870", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell CX1873 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'CX1873' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.850866", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell CX5103 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'CX5103' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.852857", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.852857", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell Ax1242 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.854847", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell AX1112 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.855843", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell AX9980 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.857834", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.857834", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell BX1453 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'BX1453' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.858830", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell BX1334 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'BX1334' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.860821", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell BX1230 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'BX1230' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.861817", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.861817", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell CX1352 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'CX1352' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.863808", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell CX1873 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'CX1873' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.864804", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell CX5103 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'CX5103' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.866795", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.866795", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell Ax1242 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.868786", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell AX1112 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.869782", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell AX9980 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.871773", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.871773", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell BX1453 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'BX1453' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.873765", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell BX1334 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'BX1334' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.874760", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell BX1230 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'BX1230' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.875755", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.876751", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell CX1352 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'CX1352' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.877747", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell CX1873 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'CX1873' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.878742", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell CX5103 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'CX5103' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.880735", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.881729", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell Ax1242 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.882726", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell AX1112 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.884717", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell AX9980 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.886707", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.886707", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell BX1453 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'BX1453' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.887702", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell BX1334 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'BX1334' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.889694", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell BX1230 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'BX1230' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.890690", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.891685", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell CX1352 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'CX1352' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.892680", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell CX1873 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'CX1873' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.893676", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell CX5103 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'CX5103' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.895668", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.895668", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell Ax1242 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.897660", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell AX1112 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.898655", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell AX9980 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.900646", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.900646", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell BX1453 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'BX1453' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.902637", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell BX1334 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'BX1334' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.903633", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell BX1230 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'BX1230' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.905624", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.905624", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell CX1352 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'CX1352' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.906619", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell CX1873 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'CX1873' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.908611", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell CX5103 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'CX5103' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.909606", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.909606", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell Ax1242 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.911597", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell AX1112 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.912593", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell AX9980 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.914585", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.914585", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell BX1453 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'BX1453' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.916577", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell BX1334 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'BX1334' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.917571", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell BX1230 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'BX1230' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.919563", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.919563", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell CX1352 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'CX1352' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.921554", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell CX1873 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'CX1873' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.922549", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell CX5103 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'CX5103' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.924541", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.924541", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell Ax1242 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.925536", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell AX1112 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.927526", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell AX9980 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.928523", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.929519", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell BX1453 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'BX1453' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.930515", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell BX1334 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'BX1334' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.932506", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell BX1230 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'BX1230' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.934497", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.934497", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell CX1352 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'CX1352' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.935492", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell CX1873 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'CX1873' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.936488", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell CX5103 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'CX5103' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.938480", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.938480", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell Ax1242 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.940470", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell AX1112 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.941466", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell AX9980 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.943457", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.943457", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell BX1453 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'BX1453' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.944453", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell BX1334 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'BX1334' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.946444", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell BX1230 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'BX1230' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.948436", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.948436", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell CX1352 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'CX1352' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.949431", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell CX1873 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'CX1873' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.951422", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell CX5103 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'CX5103' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.953415", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.953415", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell Ax1242 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.954411", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell AX1112 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.956402", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell AX9980 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.957397", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.958392", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell BX1453 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'BX1453' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.959387", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell BX1334 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'BX1334' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.960383", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell BX1230 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'BX1230' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.962375", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.962375", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell CX1352 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'CX1352' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.964366", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell CX1873 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'CX1873' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.965361", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell CX5103 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'CX5103' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.967352", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.967352", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell Ax1242 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.968348", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell AX1112 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.970339", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell AX9980 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.971335", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.972330", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell BX1453 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'BX1453' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.973326", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell BX1334 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'BX1334' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.974321", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell BX1230 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'BX1230' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.976313", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.977308", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell CX1352 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'CX1352' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.978304", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell CX1873 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'CX1873' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.979300", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE with ID UE1 added to Cell CX5103 at '2023-12-22 17:34:05'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "Failed to add UE 'UE1' to Cell 'CX5103' at '2023-12-22 17:34:05': 'function' object has no attribute 'info'", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.981293", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.982287", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.983283", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.983283", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.984278", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.985273", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.985273", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.986269", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.987264", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.987264", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.988260", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.988260", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.989256", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.990251", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.991246", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.991246", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.992243", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.993237", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.993237", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.994234", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.995229", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.995229", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.996225", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.996225", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.997221", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.998217", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:22.999212", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:23.000208", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:23.001203", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:23.001203", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:23.002199", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:23.003194", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:23.003194", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:23.004190", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:23.004190", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:23.005186", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:23.006180", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:23.007177", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:23.007177", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:23.008173", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:23.009168", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:23.009168", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:23.010164", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:23.011159", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:23.011159", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:23.012155", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:23.013150", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:23.013150", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:23.014146", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:23.015142", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:23.016138", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:23.016138", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:23.017133", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:23.018129", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:34:05", "message": "UE initialized with ID UE1 at 2023-12-22 17:34:23.019124", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:34:05", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:34:05'.", "test_id": "a4471844-d642-458e-a3a4-4e1ae960de69"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.161959", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.162962", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell Ax1242 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.164949", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell AX1112 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.165945", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell AX9980 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.167936", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.168933", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell BX1453 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'BX1453' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.169929", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell BX1334 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'BX1334' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.171919", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell BX1230 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'BX1230' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.173911", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.173911", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell CX1352 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'CX1352' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.175901", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell CX1873 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'CX1873' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.177893", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell CX5103 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'CX5103' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.178888", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.179884", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell Ax1242 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.181876", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell AX1112 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.182871", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell AX9980 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.184862", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.184862", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell BX1453 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'BX1453' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.185857", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell BX1334 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'BX1334' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.187849", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell BX1230 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'BX1230' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.188844", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.189840", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell CX1352 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'CX1352' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.190836", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell CX1873 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'CX1873' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.191831", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell CX5103 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'CX5103' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.193822", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.193822", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell Ax1242 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.195814", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell AX1112 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.196810", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell AX9980 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.198801", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.198801", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell BX1453 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'BX1453' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.199796", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell BX1334 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'BX1334' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.201787", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell BX1230 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'BX1230' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.202783", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.203779", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell CX1352 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'CX1352' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.204775", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell CX1873 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'CX1873' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.205771", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell CX5103 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'CX5103' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.207761", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.208757", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell Ax1242 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.209752", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell AX1112 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.210748", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell AX9980 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.212739", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.213736", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell BX1453 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'BX1453' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.214731", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell BX1334 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'BX1334' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.215727", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell BX1230 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'BX1230' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.217718", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.217718", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell CX1352 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'CX1352' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.218714", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell CX1873 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'CX1873' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.220706", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell CX5103 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'CX5103' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.221700", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.222696", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell Ax1242 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.223692", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell AX1112 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.224688", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell AX9980 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.226679", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.226679", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell BX1453 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'BX1453' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.228670", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell BX1334 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'BX1334' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.229665", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell BX1230 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'BX1230' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.231656", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.231656", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell CX1352 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'CX1352' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.232651", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell CX1873 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'CX1873' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.234643", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell CX5103 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'CX5103' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.236634", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.236634", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell Ax1242 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.237650", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell AX1112 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.238625", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell AX9980 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.240616", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.240616", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell BX1453 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'BX1453' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.241612", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell BX1334 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'BX1334' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.243603", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell BX1230 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'BX1230' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.245595", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.245595", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell CX1352 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'CX1352' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.247587", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell CX1873 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'CX1873' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.248582", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell CX5103 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'CX5103' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.250572", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.250572", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell Ax1242 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.251569", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell AX1112 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.253560", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell AX9980 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.254555", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.255550", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell BX1453 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'BX1453' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.256546", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell BX1334 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'BX1334' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.257542", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell BX1230 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'BX1230' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.259533", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.259533", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell CX1352 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'CX1352' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.260529", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell CX1873 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'CX1873' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.262520", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell CX5103 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'CX5103' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.264511", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.264511", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell Ax1242 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.265507", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell AX1112 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.266503", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell AX9980 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.268494", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.268494", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell BX1453 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'BX1453' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.270485", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell BX1334 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'BX1334' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.271480", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell BX1230 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'BX1230' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.272476", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.273472", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell CX1352 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'CX1352' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.274467", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell CX1873 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'CX1873' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.275463", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell CX5103 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'CX5103' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.277454", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.278451", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell Ax1242 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.279447", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell AX1112 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.280441", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell AX9980 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.282432", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.282432", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell BX1453 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'BX1453' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.283429", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell BX1334 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'BX1334' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.285419", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell BX1230 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'BX1230' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.286415", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.287410", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell CX1352 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'CX1352' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.288407", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell CX1873 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'CX1873' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.289402", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell CX5103 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'CX5103' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.291393", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.291393", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell Ax1242 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.293386", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell AX1112 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.294380", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell AX9980 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.296370", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.296370", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell BX1453 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'BX1453' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.298362", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell BX1334 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'BX1334' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.299358", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell BX1230 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'BX1230' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.300353", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.301349", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell CX1352 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'CX1352' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.302345", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell CX1873 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'CX1873' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.303341", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE with ID UE1 added to Cell CX5103 at '2023-12-22 17:37:16'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "Failed to add UE 'UE1' to Cell 'CX5103' at '2023-12-22 17:37:16': 'function' object has no attribute 'info'", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.305333", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.306328", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.307323", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.307323", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.308318", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.309314", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.309314", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.310309", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.311305", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.312303", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.312303", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.313297", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.314292", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.315288", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.315288", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.316283", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.317279", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.317279", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.318275", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.319270", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.319270", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.320266", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.321262", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.321262", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.322257", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.323253", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.323253", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.324249", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.325244", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.325244", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.326239", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.327235", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.327235", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.328232", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.329228", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.329228", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.330222", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.331218", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.331218", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.332213", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.333209", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.333209", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.334205", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.335200", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.335200", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.336195", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.337191", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.337191", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.338186", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.339183", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.339183", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.340178", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.341174", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.341174", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "INFO", "timestamp": "2023-12-22 17:37:16", "message": "UE initialized with ID UE1 at 2023-12-22 17:37:31.342169", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
+{"level": "ERROR", "timestamp": "2023-12-22 17:37:16", "message": "No available cell found for UE 'UE1' at '2023-12-22 17:37:16'.", "test_id": "ada64bd6-774c-4ba8-99e8-7e07d8362069"}
