@@ -6,10 +6,9 @@ from database.database_manager import DatabaseManager
 from .utils import random_location_within_radius
 from Config_files.config_load import load_all_configs
 from .ue import UE
-import logging
 from network.network_state import NetworkState
 from database.time_utils import get_current_time_ntp, server_pools
-
+from logs.logger_config import cell_load_logger, cell_logger, gnodeb_logger, ue_logger
 current_time = get_current_time_ntp()
 
 # Create an instance of NetworkState
@@ -107,14 +106,14 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
                 try:
                     least_loaded_cell.add_ue(ue, network_state)
                     ue.ConnectedCellID = least_loaded_cell.ID
-                    logging.info(f"UE '{ue.ID}' has been attached to Cell '{least_loaded_cell.ID}' at '{current_time}'.")
+                    ue.Loggwer.info(f"UE '{ue.ID}' has been attached to Cell '{least_loaded_cell.ID}' at '{current_time}'.")
                     assigned = True
                     break
                 except Exception as e:
-                    logging.error(f"Failed to add UE '{ue.ID}' to Cell '{least_loaded_cell.ID}' at '{current_time}': {e}")
+                    ue_logger.error(f"Failed to add UE '{ue.ID}' to Cell '{least_loaded_cell.ID}' at '{current_time}': {e}")
 
         if not assigned:
-            logging.error(f"No available cell found for UE '{ue_id}' at '{current_time}'.")
+            ue_logger.error(f"No available cell found for UE '{ue_id}' at '{current_time}'.")
             continue  # Skip the rest of the loop if no cell is available
 
         # Serialize and write to InfluxDB
