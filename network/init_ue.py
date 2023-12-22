@@ -43,7 +43,10 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
         ue_data = random.choice(ue_config['ues']).copy()  # Make a copy to avoid mutating the original
     
         # Remove the 'IMEI' key from ue_data if it exists
-        ue_data.pop('IMEI', None)  # Use pop to remove 'IMEI' if it's in the dictionary, ignore if not present
+            # Remove keys that are not used by the UE constructor
+        ue_data.pop('IMEI', None)
+        ue_data.pop('screensize', None)
+        ue_data.pop('batterylevel', None)  # Use pop to remove 'IMEI' if it's in the dictionary, ignore if not present
     
         # Adjust the keys to match the UE constructor argument names
         ue_data['ue_id'] = f"UE{ue_id_counter}"
