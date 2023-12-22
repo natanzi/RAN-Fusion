@@ -77,7 +77,6 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
         ue_data['ue_id'] = ue_id
 
         # Ensure modulation is a single scalar value, not a list
-        
         if isinstance(ue_data['modulation'], list):
             ue_data['modulation'] = random.choice(ue_data['modulation'])
         
@@ -103,16 +102,33 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
                 # Add the UE to the cell's ConnectedUEs list
                 selected_cell.add_ue(ue, network_state)  # Pass the network_state object to the add_ue method
             # The network_state should be updated here if necessary
-            # network_state.update_state(...)
+            
                 ue.ConnectedCellID = selected_cell.ID
                 logging.info(f"UE '{ue.ID}' has been attached to Cell '{ue.ConnectedCellID}' at '{current_time}'.")
             except Exception as e:
         # Handle the case where the cell is at maximum capacity
                 logging.error(f"Failed to add UE '{ue.ID}' to Cell '{selected_cell.ID}' at '{current_time}': {e}")
-        
+        ###########################new change##############
+        # Assign UE to a cell of a gNodeB, considering the capacity and availability
+        for gNodeB in gNodeBs.values():
+            available_cells = [cell for cell in gNodeB.Cells if cell.current_ue_count < cell.max_connected_ues and cell.is_active]
+            if not available_cells:
+                continue  # Skip to the next gNodeB if no available cells in the current one
+            selected_cell = random.choice(available_cells)
+            try:
+                selected_cell.add_ue(ue, network_state)
+                ue.ConnectedCellID = selected_cell.ID
+                logging.info(f"UE '{ue.ID}' has been attached to Cell '{ue.ConnectedCellID}' at '{current_time}'.")
+                break  # Break the loop once the UE is successfully assigned
+            except Exception as e:
+                logging.error(f"Failed to add UE '{ue.ID}' to Cell '{selected_cell.ID}' at '{current_time}': {e}")
+        else:
+            logging.error(f"No available cell found for UE '{ue.ID}' at '{current_time}'.")
+            continue  # Skip the rest of the loop and try with the next UE        
+        ##################################################        
         # Serialize and write to InfluxDB
         point = ue.serialize_for_influxdb()
-        db_manager.insert_data(point)  # Corrected method call
+        db_manager.insert_data(point) 
         ues.append(ue)
 
         # Increment the UE ID counter for the next UE
