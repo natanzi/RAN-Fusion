@@ -106,7 +106,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
                 try:
                     least_loaded_cell.add_ue(ue, network_state)
                     ue.ConnectedCellID = least_loaded_cell.ID
-                    ue.Loggwer.info(f"UE '{ue.ID}' has been attached to Cell '{least_loaded_cell.ID}' at '{current_time}'.")
+                    ue_logger.info(f"UE '{ue.ID}' has been attached to Cell '{least_loaded_cell.ID}' at '{current_time}'.")
                     assigned = True
                     break
                 except Exception as e:
