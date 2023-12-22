@@ -52,9 +52,31 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
                 ue_data['bandwidth_parts'] = random.choice(DEFAULT_BANDWIDTH_PARTS)
             # Remove the 'bandwidthParts' key as it's not expected by the UE constructor
             del ue_data['bandwidthParts']
-        
-        # Pop and rename keys to match the UE constructor parameters
-        # ... [rest of the code to rename other keys] ...
+        if isinstance(ue_data['modulation'], list):
+            ue_data['modulation'] = random.choice(ue_data['modulation'])
+        ue_data['connected_cell_id'] = ue_data.pop('connectedCellId', None)  
+        ue_data['is_mobile'] = ue_data.pop('isMobile')
+        ue_data['initial_signal_strength'] = ue_data.pop('initialSignalStrength')
+        ue_data['rat'] = ue_data.pop('rat')
+        ue_data['max_bandwidth'] = ue_data.pop('maxBandwidth')
+        ue_data['duplex_mode'] = ue_data.pop('duplexMode')
+        ue_data['tx_power'] = ue_data.pop('txPower')
+        #ue_data['modulation'] = ue_data.pop('modulation')
+        ue_data['coding'] = ue_data.pop('coding')
+        ue_data['mimo'] = ue_data.pop('mimo')
+        ue_data['processing'] = ue_data.pop('processing')
+        ue_data['channel_model'] = ue_data.pop('channelModel')
+        ue_data['velocity'] = ue_data.pop('velocity')
+        ue_data['direction'] = ue_data.pop('direction')
+        ue_data['traffic_model'] = ue_data.pop('trafficModel')
+        ue_data['scheduling_requests'] = ue_data.pop('schedulingRequests')
+        ue_data['rlc_mode'] = ue_data.pop('rlcMode')
+        ue_data['snr_thresholds'] = ue_data.pop('snrThresholds')
+        ue_data['ho_margin'] = ue_data.pop('hoMargin')
+        ue_data['n310'] = ue_data.pop('n310')
+        ue_data['n311'] = ue_data.pop('n311')
+        ue_data['model'] = ue_data.pop('model')
+        ue_data['service_type'] = ue_data.get('serviceType', None)  # Optional, with a default of None if not present
 
         # Generate a unique UE ID
         ue_id = f"UE{ue_id_counter}"
