@@ -1,5 +1,5 @@
 #Defines the Cell class, which is part of a gNodeB.// this is located inside network directory
-import logging
+from logs.logger_config import cell_logger
 from .network_state import NetworkState
 import datetime
 from logs.logger_config import ue_logger
@@ -80,22 +80,26 @@ class Cell:
 #########################################################################################        
     def add_ue(self, ue, network_state):
     # Check if the UE is already connected to any cell
-        for cell_id, cell in network_state.cells.items():
-            if ue in cell.ConnectedUEs:
-                raise Exception(f"UE '{ue.ID}' is already connected to Cell '{cell_id}'.")
+        if any(ue in cell.ConnectedUEs for cell in network_state.cells.values()):
+            raise Exception(f"UE '{ue.ID}' is already connected to a cell.")
 
-        if len(self.ConnectedUEs) < self.MaxConnectedUEs:
-            current_time = get_current_time_ntp()
-            self.ConnectedUEs.append(ue)
-            self.current_ue_count += 1
-            print(f"UE '{ue.ID}' has been attached to Cell '{self.ID}' at '{current_time}'.")
-            self.update_ue_count()
-            # Update the network state here
-            network_state.update_state(network_state.gNodeBs, list(network_state.cells.values()), list(network_state.ues.values()))
-            ue_logger.info(f"UE with ID {ue.ID} added to Cell {self.ID} at '{current_time}'")
-            cell_logger.info(f"UE '{ue.ID}' has been added to Cell '{self.ID}'.")
-        else:
-            raise Exception("Maximum number of connected UEs reached for this cell.")
+        # Check if the cell has reached its maximum capacity
+        if len(self.ConnectedUEs) >= self.MaxConnectedUEs:
+            raise Exception(f"Cell '{self.ID}' has reached its maximum capacity.")
+
+        # Add the UE to the cell
+        current_time = get_current_time_ntp()
+        self.ConnectedUEs.append(ue)
+        self.current_ue_count = self.update_ue_count()  # Update the UE count after adding
+        ue_logger.info(f"UE with ID {ue.ID} added to Cell {self.ID} at '{current_time}'")
+        cell_logger.info(f"UE '{ue.ID}' has been added to Cell '{self.ID}'.")
+
+        # Update the network state here
+        network_state.update_state(network_state.gNodeBs, list(network_state.cells.values()), list(network_state.ues.values()))
+
+        # Log the addition
+        ue_logger.info(f"UE '{ue.ID}' has been attached to Cell '{self.ID}' at '{current_time}'.")
+        print(f"UE '{ue.ID}' has been attached to Cell '{self.ID}' at '{current_time}'.")
 
     def remove_ue(self, ue, network_state):
         current_time = get_current_time_ntp()
