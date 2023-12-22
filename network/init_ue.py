@@ -40,7 +40,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
     round_robin_queue = [gNodeB for gNodeB in gNodeBs.values()]
 
     for _ in range(num_ues_to_launch):
-        ue_data = random.choice(ue_config['ues']).copy()  # Make a copy to avoid mutating the original
+        ue_data = random.choice(ue_config['ues'])  # Make a copy to avoid mutating the original
     
         # Remove the 'IMEI' key from ue_data if it exists
             # Remove keys that are not used by the UE constructor
@@ -51,7 +51,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
         # Adjust the keys to match the UE constructor argument names
         ue_data['ue_id'] = f"UE{ue_id_counter}"
         ue_data['location'] = (ue_data['location']['latitude'], ue_data['location']['longitude'])
-        ue_data['connected_cell_id'] = None  # This will be set when the UE is added to a cell
+        ue_data['connected_cell_id'] = ue_data.pop('connectedCellId', None)  # Use the correct parameter name
         ue_data['is_mobile'] = ue_data.pop('isMobile')
         ue_data['initial_signal_strength'] = ue_data.pop('initialSignalStrength')
         ue_data['rat'] = ue_data.pop('rat')
