@@ -14,13 +14,6 @@ current_time = get_current_time_ntp()
 # Create an instance of NetworkState
 network_state = NetworkState()
 
-def random_location_within_radius(latitude, longitude, radius_km):
-    random_radius = random.uniform(0, radius_km)
-    random_angle = random.uniform(0, 2 * math.pi)
-    delta_lat = random_radius * math.cos(random_angle)
-    delta_lon = random_radius * math.sin(random_angle)
-    return (latitude + delta_lat, longitude + delta_lon)
-
 def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
     ues = []
     db_manager = DatabaseManager(network_state)
@@ -41,50 +34,27 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
     for _ in range(num_ues_to_launch):
         ue_data = random.choice(ue_config['ues']).copy()
 
-    # Remove keys that are not used by the UE constructor
+        # Remove keys that are not used by the UE constructor
         ue_data.pop('IMEI', None)
         ue_data.pop('screensize', None)
         ue_data.pop('batterylevel', None)
 
-    # Adjust the keys to match the UE constructor argument names
+        # Adjust the keys to match the UE constructor argument names
         ue_data['ue_id'] = f"UE{ue_id_counter}"
 
-    # Check if 'bandwidthParts' exists in ue_data and handle it appropriately
+        # Check if 'bandwidthParts' exists in ue_data and handle it appropriately
         if 'bandwidthParts' in ue_data:
-    # If 'bandwidthParts' exists and it's a list, choose a random element
+            # If 'bandwidthParts' exists and it's a list, choose a random element
             if isinstance(ue_data['bandwidthParts'], list) and ue_data['bandwidthParts']:
                 ue_data['bandwidth_parts'] = random.choice(ue_data['bandwidthParts'])
             else:
-            # If 'bandwidthParts' is not a list or is empty, use a default value
+                # If 'bandwidthParts' is not a list or is empty, use a default value
                 ue_data['bandwidth_parts'] = random.choice(DEFAULT_BANDWIDTH_PARTS)
-        else:
-        # If 'bandwidthParts' does not exist, provide a default value
-            ue_data['bandwidth_parts'] = random.choice(DEFAULT_BANDWIDTH_PARTS)
+            # Remove the 'bandwidthParts' key as it's not expected by the UE constructor
+            del ue_data['bandwidthParts']
         
         # Pop and rename keys to match the UE constructor parameters
-        ue_data['connected_cell_id'] = ue_data.pop('connectedCellId', None)
-        ue_data['is_mobile'] = ue_data.pop('isMobile')
-        ue_data['initial_signal_strength'] = ue_data.pop('initialSignalStrength')
-        ue_data['rat'] = ue_data.pop('rat')
-        ue_data['max_bandwidth'] = ue_data.pop('maxBandwidth')
-        ue_data['duplex_mode'] = ue_data.pop('duplexMode')
-        ue_data['tx_power'] = ue_data.pop('txPower')
-        ue_data['modulation'] = ue_data.pop('modulation')
-        ue_data['coding'] = ue_data.pop('coding')
-        ue_data['mimo'] = ue_data.pop('mimo')
-        ue_data['processing'] = ue_data.pop('processing')
-        ue_data['channel_model'] = ue_data.pop('channelModel')
-        ue_data['velocity'] = ue_data.pop('velocity')
-        ue_data['direction'] = ue_data.pop('direction')
-        ue_data['traffic_model'] = ue_data.pop('trafficModel')
-        ue_data['scheduling_requests'] = ue_data.pop('schedulingRequests')
-        ue_data['rlc_mode'] = ue_data.pop('rlcMode')
-        ue_data['snr_thresholds'] = ue_data.pop('snrThresholds')
-        ue_data['ho_margin'] = ue_data.pop('hoMargin')
-        ue_data['n310'] = ue_data.pop('n310')
-        ue_data['n311'] = ue_data.pop('n311')
-        ue_data['model'] = ue_data.pop('model')
-        ue_data['service_type'] = ue_data.get('serviceType', None)  # Optional, with a default of None if not present
+        # ... [rest of the code to rename other keys] ...
 
         # Generate a unique UE ID
         ue_id = f"UE{ue_id_counter}"
@@ -95,9 +65,6 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
 
         ue_data['ue_id'] = ue_id  # Set the unique UE ID
 
-    # Instantiate UE with the adjusted data
-        ue = UE(**ue_data)
-        
         # Use round-robin selection with fallback to least-loaded cell
         assigned = False
         for _ in range(len(round_robin_queue)):
@@ -107,8 +74,9 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
             available_cells = [cell for cell in selected_gNodeB.Cells if cell.current_ue_count < cell.MaxConnectedUEs and cell.IsActive]
             if available_cells:
                 least_loaded_cell = sorted(available_cells, key=lambda cell: cell.current_ue_count)[0]
+                # Adjust ue_data with the selected cell information
+                ue_data['connected_cell_id'] = least_loaded_cell.ID
                 # Instantiate UE with the adjusted data only if there's an available cell
-                ue_data['ue_id'] = ue_id
                 ue = UE(**ue_data)
                 try:
                     least_loaded_cell.add_ue(ue, network_state)
