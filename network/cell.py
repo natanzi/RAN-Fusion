@@ -31,6 +31,7 @@ class Cell:
         self.last_update = None
         current_time = get_current_time_ntp()
         self.IsActive = is_active
+        self.current_ue_count = 0
         # Logging statement should be here, after all attributes are set
         cell_logger.info(f" A Cell '{cell_id}' has been created at '{current_time}' in gNodeB '{self.ID}' with max capacity {self.MaxConnectedUEs}.")
         
@@ -86,6 +87,7 @@ class Cell:
         if len(self.ConnectedUEs) < self.MaxConnectedUEs:
             current_time = get_current_time_ntp()
             self.ConnectedUEs.append(ue)
+            self.current_ue_count += 1
             print(f"UE '{ue.ID}' has been attached to Cell '{self.ID}' at '{current_time}'.")
             self.update_ue_count()
             # Update the network state here
@@ -99,6 +101,7 @@ class Cell:
         current_time = get_current_time_ntp()
         if ue in self.ConnectedUEs:
             self.ConnectedUEs.remove(ue)
+            self.current_ue_count -= 1
             print(f"UE '{ue.ID}' has been detached from Cell '{self.ID}' at {current_time}.")
             self.update_ue_count()
             # Update the network state here if necessary
