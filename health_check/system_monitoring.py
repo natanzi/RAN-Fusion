@@ -2,9 +2,11 @@
 import psutil
 from collections import defaultdict
 from logs.logger_config import setup_logger 
+from logs.logger_config import setup_logger, TEST_RUN_ID
 
 # Set up the system resource logger
-system_resource_logger = setup_logger('system_resource_logger', 'logs/system_resource.log')
+system_resource_logger = setup_logger('system_resource_logger', 'logs/system_resource.log', TEST_RUN_ID)
+
 
 def default_resource_usage():
     return {'cpu': [], 'memory': []}
