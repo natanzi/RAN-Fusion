@@ -108,7 +108,6 @@ def main():
 
     # Start the system resource logging process with system_monitor passed as an argument
     system_resource_logging_process = Process(target=log_system_resources, args=(system_monitor,))
-    system_resource_logging_process.start()
 
     # Wait for the processes to complete (if they ever complete)
     logging_process.join()
