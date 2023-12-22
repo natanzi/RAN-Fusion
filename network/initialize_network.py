@@ -14,10 +14,10 @@ def initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, ue_confi
     gNodeBs = initialize_gNodeBs(gNodeBs_config, db_manager)
 
     # Initialize Cells with the provided configuration and link them to gNodeBs
-    cells = initialize_cells(gNodeBs, network_state)  # Pass network_state as an argument
+    cells = initialize_cells(gNodeBs, network_state)  # This returns a list, not a dictionary
     
     # Calculate the total capacity of all cells
-    total_capacity = sum(cell.max_connected_ues for cell in cells.values())
+    total_capacity = sum(cell.max_connected_ues for cell in cells)  # Iterate directly over the list
 
     # Check if the total capacity is less than the number of UEs to launch
     if num_ues_to_launch > total_capacity:
