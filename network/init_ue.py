@@ -29,7 +29,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
     ue_id_counter = len(network_state.ues) + 1
     
     # Calculate the total capacity of all cells
-    total_capacity = sum(cell.max_connected_ues for gNodeB in gNodeBs.values() for cell in gNodeB.Cells if cell.is_active)
+    total_capacity = sum(cell.MaxConnectedUEs for gNodeB in gNodeBs.values() for cell in gNodeB.Cells if cell.IsActive)
 
     # Check if the total number of UEs to be launched exceeds the total capacity
     if num_ues_to_launch > total_capacity:

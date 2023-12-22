@@ -11,7 +11,8 @@
       "ssbPeriodicity": 20,
       "ssbOffset": 2,
       "maxConnectUes": 10,
-      "channelModel": "UMa"
+      "channelModel": "UMa",
+      "is_active": true
     },
     {
       "cell_id": "BX1453",
@@ -24,7 +25,8 @@
       "ssbPeriodicity": 20,
       "ssbOffset": 2,
       "maxConnectUes": 10,
-      "channelModel": "UMa"
+      "channelModel": "UMa",
+      "is_active": true
     },
     {
       "cell_id": "CX1352",
@@ -37,7 +39,8 @@
       "ssbPeriodicity": 20,
       "ssbOffset": 2,
       "maxConnectUes": 10,
-      "channelModel": "UMa"
+      "channelModel": "UMa",
+      "is_active": true
     },
     {
       "cell_id": "AX1112",
@@ -50,7 +53,8 @@
       "ssbPeriodicity": 20,
       "ssbOffset": 2,
       "maxConnectUes": 10,
-      "channelModel": "UMa"
+      "channelModel": "UMa",
+      "is_active": true
     },
     {
       "cell_id": "BX1334",
@@ -63,7 +67,8 @@
       "ssbPeriodicity": 20,
       "ssbOffset": 2,
       "maxConnectUes": 10,
-      "channelModel": "UMa"
+      "channelModel": "UMa",
+      "is_active": true
     },
     {
       "cell_id": "CX1873",
@@ -76,7 +81,8 @@
       "ssbPeriodicity": 20,
       "ssbOffset": 2,
       "maxConnectUes": 10,
-      "channelModel": "UMa"
+      "channelModel": "UMa",
+      "is_active": true
     },
     {
       "cell_id": "AX9980",
@@ -89,7 +95,8 @@
       "ssbPeriodicity": 20,
       "ssbOffset": 2,
       "maxConnectUes": 10,
-      "channelModel": "UMa"
+      "channelModel": "UMa",
+      "is_active": true
     },
     {
       "cell_id": "BX1230",
@@ -102,7 +109,8 @@
       "ssbPeriodicity": 20,
       "ssbOffset": 2,
       "maxConnectUes": 10,
-      "channelModel": "UMa"
+      "channelModel": "UMa",
+      "is_active": true
     },
     {
       "cell_id": "CX5103",
@@ -115,7 +123,8 @@
       "ssbPeriodicity": 20,
       "ssbOffset": 2,
       "maxConnectUes": 10,
-      "channelModel": "UMa"
+      "channelModel": "UMa",
+      "is_active": true
     }
   ]
 }
