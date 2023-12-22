@@ -22,7 +22,7 @@ def random_location_within_radius(latitude, longitude, radius_km):
     delta_lon = random_radius * math.sin(random_angle)
     return (latitude + delta_lat, longitude + delta_lon)
 
-def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
+def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
     ues = []
     db_manager = DatabaseManager(network_state)
     DEFAULT_BANDWIDTH_PARTS = [1, 2, 3, 4]  # Example default values

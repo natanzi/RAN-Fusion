@@ -1,9 +1,9 @@
 # initialize_network.py
 # Initialization of gNodeBs, Cells, and UEs // this file located in network directory
-from .init_gNodeB import initialize_gNodeBs  # Import the new initialization function
-from .init_cell import initialize_cells  # Import the new Cell initialization function
-from .init_ue import initialize_ues  # Import the new UE initialization function
-from .network_state import NetworkState  # Import the NetworkState class
+from .init_gNodeB import initialize_gNodeBs  
+from .init_cell import initialize_cells 
+from .init_ue import initialize_ues  
+from .network_state import NetworkState  
 
 def initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, ue_config, db_manager):
     
@@ -13,10 +13,17 @@ def initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, ue_confi
     # Initialize gNodeBs with the provided configuration
     gNodeBs = initialize_gNodeBs(gNodeBs_config, db_manager)
 
-
     # Initialize Cells with the provided configuration and link them to gNodeBs
     cells = initialize_cells(gNodeBs, network_state)  # Pass network_state as an argument
+    
+    # Calculate the total capacity of all cells
+    total_capacity = sum(cell.max_connected_ues for cell in cells.values())
 
+    # Check if the total capacity is less than the number of UEs to launch
+    if num_ues_to_launch > total_capacity:
+        print(f"Cannot launch {num_ues_to_launch} UEs, as it exceeds the total capacity of {total_capacity} UEs across all cells.")
+        return  # Exit the function if the capacity is exceeded
+    
     # After initializing gNodeBs and cells, initialize UEs with the provided configuration
     ues = initialize_ues(num_ues_to_launch, gNodeBs, ue_config)
     
