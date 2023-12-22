@@ -41,29 +41,49 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
 
     for _ in range(num_ues_to_launch):
         ue_data = random.choice(ue_config['ues']).copy()  # Make a copy to avoid mutating the original
+    
+        # Remove the 'IMEI' key from ue_data if it exists
+        ue_data.pop('IMEI', None)  # Use pop to remove 'IMEI' if it's in the dictionary, ignore if not present
+    
         # Adjust the keys to match the UE constructor argument names
-        # ... [adjustments to ue_data] ...
-        
+        ue_data['ue_id'] = f"UE{ue_id_counter}"
+        ue_data['location'] = (ue_data['location']['latitude'], ue_data['location']['longitude'])
+        ue_data['connected_cell_id'] = None  # This will be set when the UE is added to a cell
+        ue_data['is_mobile'] = ue_data.pop('isMobile')
+        ue_data['initial_signal_strength'] = ue_data.pop('initialSignalStrength')
+        ue_data['rat'] = ue_data.pop('rat')
+        ue_data['max_bandwidth'] = ue_data.pop('maxBandwidth')
+        ue_data['duplex_mode'] = ue_data.pop('duplexMode')
+        ue_data['tx_power'] = ue_data.pop('txPower')
+        ue_data['modulation'] = ue_data.pop('modulation')
+        ue_data['coding'] = ue_data.pop('coding')
+        ue_data['mimo'] = ue_data.pop('mimo')
+        ue_data['processing'] = ue_data.pop('processing')
+        ue_data['bandwidth_parts'] = ue_data.pop('bandwidthParts')
+        ue_data['channel_model'] = ue_data.pop('channelModel')
+        ue_data['velocity'] = ue_data.pop('velocity')
+        ue_data['direction'] = ue_data.pop('direction')
+        ue_data['traffic_model'] = ue_data.pop('trafficModel')
+        ue_data['scheduling_requests'] = ue_data.pop('schedulingRequests')
+        ue_data['rlc_mode'] = ue_data.pop('rlcMode')
+        ue_data['snr_thresholds'] = ue_data.pop('snrThresholds')
+        ue_data['ho_margin'] = ue_data.pop('hoMargin')
+        ue_data['n310'] = ue_data.pop('n310')
+        ue_data['n311'] = ue_data.pop('n311')
+        ue_data['model'] = ue_data.pop('model')
+        ue_data['service_type'] = ue_data.get('serviceType', None)  # Optional, with a default of None if not present
+
         # Generate a unique UE ID
         ue_id = f"UE{ue_id_counter}"
         existing_ue_ids = set(ue.ID for ue in network_state.ues)
         while ue_id in existing_ue_ids:
             ue_id_counter += 1
             ue_id = f"UE{ue_id_counter}"
+    
+        # Instantiate UE with the adjusted data only if there's an available cell
+        ue_data['ue_id'] = ue_id
+        ue = UE(**ue_data)
         
-        # Ensure modulation is a single scalar value, not a list
-        if isinstance(ue_data['modulation'], list):
-            ue_data['modulation'] = random.choice(ue_data['modulation'])
-        
-        # Check if 'bandwidthParts' exists in ue_data and handle it appropriately
-        if 'bandwidthParts' not in ue_data:
-            ue_data['bandwidth_parts'] = random.choice(DEFAULT_BANDWIDTH_PARTS)
-        else:
-            if isinstance(ue_data['bandwidthParts'], list):
-                ue_data['bandwidth_parts'] = random.choice(ue_data['bandwidthParts'])
-            else:
-                ue_data['bandwidth_parts'] = ue_data['bandwidthParts']
-
         # Use round-robin selection with fallback to least-loaded cell
         assigned = False
         for _ in range(len(round_robin_queue)):
