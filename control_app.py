@@ -7,6 +7,12 @@ from logs.logger_config import traffic_update
 app = Flask(__name__)
 traffic_controller = TrafficController()
 
+def validate_traffic_parameters(params, param_types):
+    for param, param_type in param_types.items():
+        if param not in params or not isinstance(params[param], param_type):
+            return False, f"Invalid or missing parameter: {param}"
+    return True, ""
+
 @app.route('/', methods=['GET'])
 def index():
     return 'Welcome to the 5G RAN Simulator!', 200
@@ -14,65 +20,115 @@ def index():
 @app.route('/update_voice_traffic', methods=['POST'])
 def update_voice_traffic():
     data = request.json
-    bitrate_range = data.get('bitrate_range')
-    jitter = data.get('jitter')
-    delay = data.get('delay')
-    packet_loss_rate = data.get('packet_loss_rate')
-    traffic_controller.update_voice_traffic(bitrate_range)
-    traffic_controller.update_voice_traffic_parameters(jitter, delay, packet_loss_rate)
-    traffic_update.info(f'Voice traffic updated: bitrate_range={bitrate_range}, jitter={jitter}, delay={delay}, packet_loss_rate={packet_loss_rate}')
-    return {'message': 'Voice traffic parameters updated successfully'}, 200
+    expected_types = {
+        'bitrate_range': list,
+        'jitter': (int, float),
+        'delay': (int, float),
+        'packet_loss_rate': (int, float)
+    }
+    is_valid, message = validate_traffic_parameters(data, expected_types)
+    if not is_valid:
+        return {'error': message}, 400
+
+    try:
+        traffic_controller.update_voice_traffic(data['bitrate_range'])
+        traffic_controller.update_voice_traffic_parameters(data['jitter'], data['delay'], data['packet_loss_rate'])
+        traffic_update.info(f"Voice traffic updated: {data}")
+        return {'message': 'Voice traffic parameters updated successfully'}, 200
+    except Exception as e:
+        traffic_update.error(f'Failed to update voice traffic: {e}')
+        return {'error': str(e)}, 500
 
 @app.route('/update_video_traffic', methods=['POST'])
 def update_video_traffic():
     data = request.json
-    num_streams_range = data.get('num_streams_range')
-    stream_bitrate_range = data.get('stream_bitrate_range')
-    jitter = data.get('jitter')
-    delay = data.get('delay')
-    packet_loss_rate = data.get('packet_loss_rate')
-    traffic_controller.update_video_traffic(num_streams_range, stream_bitrate_range)
-    traffic_controller.update_video_traffic_parameters(jitter, delay, packet_loss_rate)
-    traffic_update.info(f'Video traffic updated: num_streams_range={num_streams_range}, stream_bitrate_range={stream_bitrate_range}, jitter={jitter}, delay={delay}, packet_loss_rate={packet_loss_rate}')
-    return {'message': 'Video traffic parameters updated successfully'}, 200
+    expected_types = {
+        'num_streams_range': list,
+        'stream_bitrate_range': list,
+        'jitter': (int, float),
+        'delay': (int, float),
+        'packet_loss_rate': (int, float)
+    }
+    is_valid, message = validate_traffic_parameters(data, expected_types)
+    if not is_valid:
+        return {'error': message}, 400
+
+    try:
+        traffic_controller.update_video_traffic(data['num_streams_range'], data['stream_bitrate_range'])
+        traffic_controller.update_video_traffic_parameters(data['jitter'], data['delay'], data['packet_loss_rate'])
+        traffic_update.info(f"Video traffic updated: {data}")
+        return {'message': 'Video traffic parameters updated successfully'}, 200
+    except Exception as e:
+        traffic_update.error(f'Failed to update video traffic: {e}')
+        return {'error': str(e)}, 500
 
 @app.route('/update_gaming_traffic', methods=['POST'])
 def update_gaming_traffic():
     data = request.json
-    bitrate_range = data.get('bitrate_range')
-    jitter = data.get('jitter')
-    delay = data.get('delay')
-    packet_loss_rate = data.get('packet_loss_rate')
-    traffic_controller.update_gaming_traffic(bitrate_range)
-    traffic_controller.update_gaming_traffic_parameters(jitter, delay, packet_loss_rate)
-    traffic_update.info(f'Gaming traffic updated: bitrate_range={bitrate_range}, jitter={jitter}, delay={delay}, packet_loss_rate={packet_loss_rate}')
-    return {'message': 'Gaming traffic parameters updated successfully'}, 200
+    expected_types = {
+        'bitrate_range': list,
+        'jitter': (int, float),
+        'delay': (int, float),
+        'packet_loss_rate': (int, float)
+    }
+    is_valid, message = validate_traffic_parameters(data, expected_types)
+    if not is_valid:
+        return {'error': message}, 400
+
+    try:
+        traffic_controller.update_gaming_traffic(data['bitrate_range'])
+        traffic_controller.update_gaming_traffic_parameters(data['jitter'], data['delay'], data['packet_loss_rate'])
+        traffic_update.info(f"Gaming traffic updated: {data}")
+        return {'message': 'Gaming traffic parameters updated successfully'}, 200
+    except Exception as e:
+        traffic_update.error(f'Failed to update gaming traffic: {e}')
+        return {'error': str(e)}, 500
 
 @app.route('/update_iot_traffic', methods=['POST'])
 def update_iot_traffic():
     data = request.json
-    packet_size_range = data.get('packet_size_range')
-    interval_range = data.get('interval_range')
-    jitter = data.get('jitter')
-    delay = data.get('delay')
-    packet_loss_rate = data.get('packet_loss_rate')
-    traffic_controller.update_iot_traffic(packet_size_range, interval_range)
-    traffic_controller.update_iot_traffic_parameters(jitter, delay, packet_loss_rate)
-    traffic_update.info(f'IoT traffic updated: packet_size_range={packet_size_range}, interval_range={interval_range}, jitter={jitter}, delay={delay}, packet_loss_rate={packet_loss_rate}')
-    return {'message': 'IoT traffic parameters updated successfully'}, 200
+    expected_types = {
+        'packet_size_range': list,
+        'interval_range': list,
+        'jitter': (int, float),
+        'delay': (int, float),
+        'packet_loss_rate': (int, float)
+    }
+    is_valid, message = validate_traffic_parameters(data, expected_types)
+    if not is_valid:
+        return {'error': message}, 400
+
+    try:
+        traffic_controller.update_iot_traffic(data['packet_size_range'], data['interval_range'])
+        traffic_controller.update_iot_traffic_parameters(data['jitter'], data['delay'], data['packet_loss_rate'])
+        traffic_update.info(f"IoT traffic updated: {data}")
+        return {'message': 'IoT traffic parameters updated successfully'}, 200
+    except Exception as e:
+        traffic_update.error(f'Failed to update IoT traffic: {e}')
+        return {'error': str(e)}, 500
 
 @app.route('/update_data_traffic', methods=['POST'])
 def update_data_traffic():
     data = request.json
-    bitrate_range = data.get('bitrate_range')
-    interval_range = data.get('interval_range')
-    jitter = data.get('jitter')
-    delay = data.get('delay')
-    packet_loss_rate = data.get('packet_loss_rate')
-    traffic_controller.update_data_traffic(bitrate_range, interval_range)
-    traffic_controller.update_data_traffic_parameters(jitter, delay, packet_loss_rate)
-    traffic_update.info(f'Data traffic updated: bitrate_range={bitrate_range}, interval_range={interval_range}, jitter={jitter}, delay={delay}, packet_loss_rate={packet_loss_rate}')
-    return {'message': 'Data traffic parameters updated successfully'}, 200
+    expected_types = {
+        'bitrate_range': list,
+        'interval_range': list,
+        'jitter': (int, float),
+        'delay': (int, float),
+        'packet_loss_rate': (int, float)
+    }
+    is_valid, message = validate_traffic_parameters(data, expected_types)
+    if not is_valid:
+        return {'error': message}, 400
+
+    try:
+        traffic_controller.update_data_traffic(data['bitrate_range'], data['interval_range'])
+        traffic_controller.update_data_traffic_parameters(data['jitter'], data['delay'], data['packet_loss_rate'])
+        traffic_update.info(f"Data traffic updated: {data}")
+        return {'message': 'Data traffic parameters updated successfully'}, 200
+    except Exception as e:
+        traffic_update.error(f'Failed to update data traffic: {e}')
+        return {'error': str(e)}, 500
 
 if __name__ == '__main__':
     app.run(debug=True)
