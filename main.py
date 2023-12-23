@@ -16,7 +16,7 @@ from logs.logger_config import traffic_update
 def log_system_resources(system_monitor):
     while True:
         system_monitor.log_resource_usage()
-        time.sleep(60)  # Log every 60 seconds
+        time.sleep(4)  # Log every 60 seconds
 
 def network_state_manager(network_state, command_queue):
     while True:
@@ -73,7 +73,7 @@ def main():
         print("Health check failed.")
         return  # Exit if health check fails
 
-    num_ues_to_launch = 85
+    num_ues_to_launch = 90
 
     gNodeBs, cells, ues = initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, ue_config, db_manager)
 
