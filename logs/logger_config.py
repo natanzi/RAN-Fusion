@@ -30,7 +30,7 @@ class JsonFormatter(logging.Formatter):
         return json.dumps(log_record)
 
 
-def setup_logger(name, log_file, test_id, level=logging.INFO, max_log_size=10 * 1024 * 1024, backup_count=5):
+def setup_logger(name, log_file, test_id, level=logging.INFO, max_log_size=100 * 1024 * 1024, backup_count=10):
     """Function to set up a logger with asynchronous and buffered logging."""
     logger = logging.getLogger(name)
     logger.setLevel(level)

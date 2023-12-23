@@ -11,6 +11,8 @@ from network.handover_utils import handle_load_balancing, monitor_and_log_cell_l
 from health_check.system_monitoring import SystemMonitor
 from database.database_manager import DatabaseManager
 from logs.logger_config import traffic_update
+import threading
+
 #################################################################################################################################
 # pickled by multiprocessing
 def log_system_resources(system_monitor):
@@ -56,7 +58,6 @@ def detect_and_handle_congestion(network_state, command_queue):
 def main():
     logo_text = create_logo()
     print(logo_text)
-#####################################################################################
 
     logging.basicConfig(level=logging.INFO)
 
@@ -91,16 +92,15 @@ def main():
     ns_manager_process = Process(target=network_state_manager, args=(network_state, command_queue))
     ns_manager_process.start()
 
-    # Start the traffic logging process
+# Start the traffic logging process
     logging_process = Process(target=log_traffic, args=(ues, command_queue, traffic_increase_config))
     logging_process.start()
 
-    # Start the cell monitor processes using monitor_and_log_cell_load
-    cell_monitor_processes = []  # List to keep track of cell monitor processes
+    # Start the cell monitor threads using monitor_and_log_cell_load
     for gNodeB in gNodeBs.values():
-        cell_monitor_process = Process(target=monitor_and_log_cell_load, args=(gNodeB,))
-        cell_monitor_process.start()
-        cell_monitor_processes.append(cell_monitor_process)  # Add the process to the list
+        cell_load_thread = threading.Thread(target=monitor_and_log_cell_load, args=(gNodeB,))
+        cell_load_thread.daemon = True  # This ensures the thread will exit when the main program does
+        cell_load_thread.start()
 
     # Start the congestion detection process
     congestion_process = Process(target=detect_and_handle_congestion, args=(network_state, command_queue))
@@ -108,11 +108,10 @@ def main():
 
     # Start the system resource logging process with system_monitor passed as an argument
     system_resource_logging_process = Process(target=log_system_resources, args=(system_monitor,))
+    system_resource_logging_process.start()
 
     # Wait for the processes to complete (if they ever complete)
     logging_process.join()
-    for process in cell_monitor_processes:  # Join all cell monitor processes
-        process.join()
     congestion_process.join()
     system_resource_logging_process.join()
 
