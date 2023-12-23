@@ -93,6 +93,11 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
             selected_gNodeB = round_robin_queue.pop(0)
             round_robin_queue.append(selected_gNodeB)
 
+            # Generate a random location within the coverage radius of the selected gNodeB
+            ue_location = random_location_within_radius(selected_gNodeB.location, selected_gNodeB.coverageRadius)
+            # Set the UE's location
+            ue_data['location'] = ue_location
+            
             available_cells = [cell for cell in selected_gNodeB.Cells if cell.current_ue_count < cell.MaxConnectedUEs and cell.IsActive]
             if available_cells:
                 least_loaded_cell = sorted(available_cells, key=lambda cell: cell.current_ue_count)[0]
