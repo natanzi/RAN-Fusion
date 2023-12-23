@@ -1,6 +1,6 @@
-{"level": "INFO", "timestamp": "2023-12-22 19:41:38", "message": "Performing health check...waiting for all components to be up...", "test_id": "19859e8d-e721-486f-92ef-77364fc58124"}
-{"level": "INFO", "timestamp": "2023-12-22 19:41:38", "message": "Server Status: {'status': 'UP', 'uptime': 'System Boot Time:          12/19/2023, 10:20:46 PM'}", "test_id": "19859e8d-e721-486f-92ef-77364fc58124"}
-{"level": "INFO", "timestamp": "2023-12-22 19:41:38", "message": "Database Status: {'status': 'UP', 'details': 'Successfully connected to the database'}", "test_id": "19859e8d-e721-486f-92ef-77364fc58124"}
-{"level": "INFO", "timestamp": "2023-12-22 19:41:38", "message": "System Resources: {'status': 'UP', 'cpu_usage': '8.2%', 'memory_usage': '39.3%'}", "test_id": "19859e8d-e721-486f-92ef-77364fc58124"}
-{"level": "INFO", "timestamp": "2023-12-22 19:41:38", "message": "Time Utility Status: {'status': 'UP', 'time': '2023-12-22 19:41:38'}", "test_id": "19859e8d-e721-486f-92ef-77364fc58124"}
-{"level": "INFO", "timestamp": "2023-12-22 19:41:38", "message": "All systems are operational.", "test_id": "19859e8d-e721-486f-92ef-77364fc58124"}
+{"level": "INFO", "timestamp": "2023-12-23 17:39:33", "message": "Performing health check...waiting for all components to be up...", "test_id": "61654e0f-2940-46ec-bb59-4a1f7c10e47d"}
+{"level": "INFO", "timestamp": "2023-12-23 17:39:33", "message": "Server Status: {'status': 'UP', 'uptime': 'System Boot Time:          12/23/2023, 5:02:28 PM'}", "test_id": "61654e0f-2940-46ec-bb59-4a1f7c10e47d"}
+{"level": "INFO", "timestamp": "2023-12-23 17:39:33", "message": "Database Status: {'status': 'UP', 'details': 'Successfully connected to the database'}", "test_id": "61654e0f-2940-46ec-bb59-4a1f7c10e47d"}
+{"level": "INFO", "timestamp": "2023-12-23 17:39:33", "message": "System Resources: {'status': 'UP', 'cpu_usage': '14.4%', 'memory_usage': '26.6%'}", "test_id": "61654e0f-2940-46ec-bb59-4a1f7c10e47d"}
+{"level": "INFO", "timestamp": "2023-12-23 17:39:33", "message": "Time Utility Status: {'status': 'UP', 'time': '2023-12-23 17:39:33'}", "test_id": "61654e0f-2940-46ec-bb59-4a1f7c10e47d"}
+{"level": "INFO", "timestamp": "2023-12-23 17:39:33", "message": "All systems are operational.", "test_id": "61654e0f-2940-46ec-bb59-4a1f7c10e47d"}

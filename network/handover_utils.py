@@ -5,7 +5,9 @@ from .cell import Cell
 from .network_state import NetworkState
 from traffic.network_metrics import calculate_cell_throughput  # If needed
 from logs.logger_config import cell_load_logger, cell_logger, gnodeb_logger, ue_logger
-from database.database_manager import DatabaseManager  
+from database.database_manager import DatabaseManager
+import time
+
 ################################################Handover Execution#######################################################
 def perform_handover(gnodeb, ue, target_cell, network_state):
     handover_successful = False
@@ -66,24 +68,27 @@ def update_handover_counts(gnodeb, handover_successful, network_state):
         gnodeb.handover_failure_count += 1
 ###########################################################################################################################################
 def monitor_and_log_cell_load(gnodeb):
-    cell_load_logger.info("Testing cell load logging.")
-    for cell in gnodeb.Cells:
-        # Use the gNodeB class method to calculate cell load
-        cell_load_percentage = gnodeb.calculate_cell_load(cell) * 100  # Convert to percentage
+    while True:  # Run indefinitely
+        cell_load_logger.info("Testing cell load logging.")
+        for cell in gnodeb.Cells:
+            # Use the gNodeB class method to calculate cell load
+            cell_load_percentage = gnodeb.calculate_cell_load(cell) * 100  # Convert to percentage
 
-        # Log the cell load percentage using cell_load_logger
-        cell_load_logger.info(f'Cell {cell.ID} @ gNodeB {gnodeb.ID} - Load: {cell_load_percentage}%')
+            # Log the cell load percentage using cell_load_logger
+            cell_load_logger.info(f'Cell {cell.ID} @ gNodeB {gnodeb.ID} - Load: {cell_load_percentage}%')
 
-        # Check if the cell load exceeds the congestion threshold
-        if cell_load_percentage > 80:  # Use the correct congestion threshold of 80%
-            # Construct and log the congestion message
-            congestion_message = f"gNodeB ID {gnodeb.ID} - Cell ID {cell.ID} is congested with a load of {cell_load_percentage}%."
-            print(congestion_message)
-            cell_logger.warning(congestion_message)
-            gnodeb_logger.warning(congestion_message)  # Assuming gnodeb_logger is set up in logger_config.py
-            
-            # Trigger load balancing
-            handle_load_balancing(gnodeb, gnodeb.calculate_cell_load, gnodeb.find_underloaded_cell, gnodeb.select_ues_for_load_balancing)
+            # Check if the cell load exceeds the congestion threshold
+            if cell_load_percentage > 80:  # Use the correct congestion threshold of 80%
+                # Construct and log the congestion message
+                congestion_message = f"gNodeB ID {gnodeb.ID} - Cell ID {cell.ID} is congested with a load of {cell_load_percentage}%."
+                print(congestion_message)
+                cell_logger.warning(congestion_message)
+                gnodeb_logger.warning(congestion_message)  # Assuming gnodeb_logger is set up in logger_config.py
+                
+                # Trigger load balancing
+                handle_load_balancing(gnodeb, gnodeb.calculate_cell_load, gnodeb.find_underloaded_cell, gnodeb.select_ues_for_load_balancing)
+        
+        time.sleep(1)  # Sleep for one second before the next iteration
 ##########################################################################################################################################
 def check_handover_feasibility(network_state, target_cell_id, ue):
     # Retrieve the target cell object using its ID
