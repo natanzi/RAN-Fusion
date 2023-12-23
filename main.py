@@ -18,7 +18,7 @@ import threading
 def log_system_resources(system_monitor):
     while True:
         system_monitor.log_resource_usage()
-        time.sleep(4)  # Log every 60 seconds
+        time.sleep(5)  # Log every 5 seconds
 
 def network_state_manager(network_state, command_queue):
     while True:
