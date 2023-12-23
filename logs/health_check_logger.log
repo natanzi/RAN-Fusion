@@ -1,24 +1,6 @@
-{"level": "INFO", "timestamp": "2023-12-22 18:59:08", "message": "Performing health check...waiting for all components to be up...", "test_id": "90538ee9-bcbc-4bf3-b09e-7d2affd6bcdf"}
-{"level": "INFO", "timestamp": "2023-12-22 18:59:08", "message": "Server Status: {'status': 'UP', 'uptime': 'System Boot Time:          12/19/2023, 10:20:46 PM'}", "test_id": "90538ee9-bcbc-4bf3-b09e-7d2affd6bcdf"}
-{"level": "INFO", "timestamp": "2023-12-22 18:59:08", "message": "Database Status: {'status': 'UP', 'details': 'Successfully connected to the database'}", "test_id": "90538ee9-bcbc-4bf3-b09e-7d2affd6bcdf"}
-{"level": "INFO", "timestamp": "2023-12-22 18:59:08", "message": "System Resources: {'status': 'UP', 'cpu_usage': '7.2%', 'memory_usage': '39.1%'}", "test_id": "90538ee9-bcbc-4bf3-b09e-7d2affd6bcdf"}
-{"level": "INFO", "timestamp": "2023-12-22 18:59:08", "message": "Time Utility Status: {'status': 'UP', 'time': '2023-12-22 18:59:08'}", "test_id": "90538ee9-bcbc-4bf3-b09e-7d2affd6bcdf"}
-{"level": "INFO", "timestamp": "2023-12-22 18:59:08", "message": "All systems are operational.", "test_id": "90538ee9-bcbc-4bf3-b09e-7d2affd6bcdf"}
-{"level": "INFO", "timestamp": "2023-12-22 19:00:03", "message": "Performing health check...waiting for all components to be up...", "test_id": "f1f6ed27-0786-46a8-9b42-ca96fb6f9dba"}
-{"level": "INFO", "timestamp": "2023-12-22 19:00:03", "message": "Server Status: {'status': 'UP', 'uptime': 'System Boot Time:          12/19/2023, 10:20:46 PM'}", "test_id": "f1f6ed27-0786-46a8-9b42-ca96fb6f9dba"}
-{"level": "INFO", "timestamp": "2023-12-22 19:00:03", "message": "Database Status: {'status': 'UP', 'details': 'Successfully connected to the database'}", "test_id": "f1f6ed27-0786-46a8-9b42-ca96fb6f9dba"}
-{"level": "INFO", "timestamp": "2023-12-22 19:00:03", "message": "System Resources: {'status': 'UP', 'cpu_usage': '10.9%', 'memory_usage': '38.9%'}", "test_id": "f1f6ed27-0786-46a8-9b42-ca96fb6f9dba"}
-{"level": "INFO", "timestamp": "2023-12-22 19:00:03", "message": "Time Utility Status: {'status': 'UP', 'time': '2023-12-22 19:00:03'}", "test_id": "f1f6ed27-0786-46a8-9b42-ca96fb6f9dba"}
-{"level": "INFO", "timestamp": "2023-12-22 19:00:03", "message": "All systems are operational.", "test_id": "f1f6ed27-0786-46a8-9b42-ca96fb6f9dba"}
-{"level": "INFO", "timestamp": "2023-12-22 19:01:34", "message": "Performing health check...waiting for all components to be up...", "test_id": "19777baf-efec-4373-8519-4954bca2fcb5"}
-{"level": "INFO", "timestamp": "2023-12-22 19:01:34", "message": "Server Status: {'status': 'UP', 'uptime': 'System Boot Time:          12/19/2023, 10:20:46 PM'}", "test_id": "19777baf-efec-4373-8519-4954bca2fcb5"}
-{"level": "INFO", "timestamp": "2023-12-22 19:01:34", "message": "Database Status: {'status': 'UP', 'details': 'Successfully connected to the database'}", "test_id": "19777baf-efec-4373-8519-4954bca2fcb5"}
-{"level": "INFO", "timestamp": "2023-12-22 19:01:34", "message": "System Resources: {'status': 'UP', 'cpu_usage': '9.2%', 'memory_usage': '38.8%'}", "test_id": "19777baf-efec-4373-8519-4954bca2fcb5"}
-{"level": "INFO", "timestamp": "2023-12-22 19:01:34", "message": "Time Utility Status: {'status': 'UP', 'time': '2023-12-22 19:01:34'}", "test_id": "19777baf-efec-4373-8519-4954bca2fcb5"}
-{"level": "INFO", "timestamp": "2023-12-22 19:01:34", "message": "All systems are operational.", "test_id": "19777baf-efec-4373-8519-4954bca2fcb5"}
-{"level": "INFO", "timestamp": "2023-12-22 19:23:55", "message": "Performing health check...waiting for all components to be up...", "test_id": "3ec90c0b-b3bd-457a-9d04-0157764f283b"}
-{"level": "INFO", "timestamp": "2023-12-22 19:23:55", "message": "Server Status: {'status': 'UP', 'uptime': 'System Boot Time:          12/19/2023, 10:20:46 PM'}", "test_id": "3ec90c0b-b3bd-457a-9d04-0157764f283b"}
-{"level": "INFO", "timestamp": "2023-12-22 19:23:55", "message": "Database Status: {'status': 'UP', 'details': 'Successfully connected to the database'}", "test_id": "3ec90c0b-b3bd-457a-9d04-0157764f283b"}
-{"level": "INFO", "timestamp": "2023-12-22 19:23:55", "message": "System Resources: {'status': 'UP', 'cpu_usage': '9.0%', 'memory_usage': '39.2%'}", "test_id": "3ec90c0b-b3bd-457a-9d04-0157764f283b"}
-{"level": "INFO", "timestamp": "2023-12-22 19:23:55", "message": "Time Utility Status: {'status': 'UP', 'time': '2023-12-22 19:23:55'}", "test_id": "3ec90c0b-b3bd-457a-9d04-0157764f283b"}
-{"level": "INFO", "timestamp": "2023-12-22 19:23:55", "message": "All systems are operational.", "test_id": "3ec90c0b-b3bd-457a-9d04-0157764f283b"}
+{"level": "INFO", "timestamp": "2023-12-22 19:41:38", "message": "Performing health check...waiting for all components to be up...", "test_id": "19859e8d-e721-486f-92ef-77364fc58124"}
+{"level": "INFO", "timestamp": "2023-12-22 19:41:38", "message": "Server Status: {'status': 'UP', 'uptime': 'System Boot Time:          12/19/2023, 10:20:46 PM'}", "test_id": "19859e8d-e721-486f-92ef-77364fc58124"}
+{"level": "INFO", "timestamp": "2023-12-22 19:41:38", "message": "Database Status: {'status': 'UP', 'details': 'Successfully connected to the database'}", "test_id": "19859e8d-e721-486f-92ef-77364fc58124"}
+{"level": "INFO", "timestamp": "2023-12-22 19:41:38", "message": "System Resources: {'status': 'UP', 'cpu_usage': '8.2%', 'memory_usage': '39.3%'}", "test_id": "19859e8d-e721-486f-92ef-77364fc58124"}
+{"level": "INFO", "timestamp": "2023-12-22 19:41:38", "message": "Time Utility Status: {'status': 'UP', 'time': '2023-12-22 19:41:38'}", "test_id": "19859e8d-e721-486f-92ef-77364fc58124"}
+{"level": "INFO", "timestamp": "2023-12-22 19:41:38", "message": "All systems are operational.", "test_id": "19859e8d-e721-486f-92ef-77364fc58124"}

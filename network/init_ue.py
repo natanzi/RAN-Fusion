@@ -94,7 +94,9 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
             round_robin_queue.append(selected_gNodeB)
 
             # Generate a random location within the coverage radius of the selected gNodeB
-            ue_location = random_location_within_radius(selected_gNodeB.location, selected_gNodeB.coverageRadius)
+            # Assuming selected_gNodeB.Location is a tuple (latitude, longitude)
+            latitude, longitude = selected_gNodeB.Location
+            ue_location = random_location_within_radius(latitude, longitude, selected_gNodeB.CoverageRadius)
             # Set the UE's location
             ue_data['location'] = ue_location
             
