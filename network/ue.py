@@ -193,8 +193,22 @@ def is_eligible_for_handover(self, network_state):
 ######################################################################################
 def update_traffic_model(self, traffic_params):
         # Update the UE's traffic model with the new parameters
-        # This is a placeholder; you'll need to adjust it based on how your traffic model is defined
-    self.TrafficModel = traffic_params
+        # traffic_params is expected to be a dictionary containing the new traffic parameters
+
+        # Check if the required keys are present in the traffic_params dictionary
+        required_keys = ['data_size', 'interval', 'delay', 'jitter', 'packet_loss_rate']
+        if not all(key in traffic_params for key in required_keys):
+            raise ValueError("Missing traffic parameters for updating the traffic model.")
+
+        # Update the traffic model parameters
+        self.TrafficModel['data_size'] = traffic_params['data_size']
+        self.TrafficModel['interval'] = traffic_params['interval']
+        self.TrafficModel['delay'] = traffic_params['delay']
+        self.TrafficModel['jitter'] = traffic_params['jitter']
+        self.TrafficModel['packet_loss_rate'] = traffic_params['packet_loss_rate']
+
+        # Log the update
+        ue_logger.info(f"Traffic model updated for UE {self.ID} with parameters: {traffic_params}")
 ######################################################################################
 def serialize_for_influxdb(self):
         point = Point("ue_metrics") \
