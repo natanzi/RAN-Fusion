@@ -46,7 +46,6 @@ class UE:
         ue_logger.info(f"UE initialized with ID {ue_id} at {datetime.now()}")
 
     @staticmethod
-    
     def allocate_imei():
         # Generate and return a random IMEI during UE initialization
         while True:
@@ -101,48 +100,48 @@ class UE:
             ues.append(ue)
         return ues
 #########################################################################################
-def generate_traffic(self, traffic_controller, traffic_multiplier=1):
-    # Convert service type to lowercase to ensure case-insensitive comparison
-    service_type_lower = self.ServiceType.lower()
+    def generate_traffic(self, traffic_controller, traffic_multiplier=1):
+        # Convert service type to lowercase to ensure case-insensitive comparison
+        service_type_lower = self.ServiceType.lower()
 
-    # Initialize variables to store traffic data
-    data_size = 0
-    interval = 0
-    delay = 0
-    jitter = 0
-    packet_loss_rate = 0
+        # Initialize variables to store traffic data
+        data_size = 0
+        interval = 0
+        delay = 0
+        jitter = 0
+        packet_loss_rate = 0
 
-    if service_type_lower == "voice":
+        if service_type_lower == "voice":
         # Assuming generate_voice_traffic returns five values
-        data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_voice_traffic()
-    elif service_type_lower == "video":
-        data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_video_traffic()
-    elif service_type_lower == "game":
-        data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_gaming_traffic()
-    elif service_type_lower == "iot":
-        data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_iot_traffic()
-    elif service_type_lower == "data":  
-        data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_data_traffic()
-    else:
-        raise ValueError(f"Unknown service type: {self.ServiceType}")
+            data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_voice_traffic()
+        elif service_type_lower == "video":
+            data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_video_traffic()
+        elif service_type_lower == "game":
+            data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_gaming_traffic()
+        elif service_type_lower == "iot":
+            data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_iot_traffic()
+        elif service_type_lower == "data":  
+            data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_data_traffic()
+        else:
+            raise ValueError(f"Unknown service type: {self.ServiceType}")
 
-    # Scale the data size by the traffic multiplier
-    data_size *= traffic_multiplier
-    return data_size, interval, delay, jitter, packet_loss_rate
+        # Scale the data size by the traffic multiplier
+        data_size *= traffic_multiplier
+        return data_size, interval, delay, jitter, packet_loss_rate
 
-def get_traffic_volume(self, traffic_controller):
-    # Assuming traffic_volume is calculated as the sum of data sizes from generate_traffic over time
-    traffic_volume = 0
-    traffic_multiplier = 1  # or some other logic to determine the multiplier
+    def get_traffic_volume(self, traffic_controller):
+        # Assuming traffic_volume is calculated as the sum of data sizes from generate_traffic over time
+        traffic_volume = 0
+        traffic_multiplier = 1  # or some other logic to determine the multiplier
 
-    # Generate traffic for a certain number of intervals (for example, 60 intervals for an hour)
-    for _ in range(60):
-        data_size, _, _, _, _ = self.generate_traffic(traffic_controller, traffic_multiplier)
-        traffic_volume += data_size
+        # Generate traffic for a certain number of intervals (for example, 60 intervals for an hour)
+        for _ in range(60):
+            data_size, _, _, _, _ = self.generate_traffic(traffic_controller, traffic_multiplier)
+            traffic_volume += data_size
 
-    return traffic_volume
+        return traffic_volume
 ####################################################################################
-def perform_handover(self, old_cell, new_cell, network_state):
+    def perform_handover(self, old_cell, new_cell, network_state):
         try:
             # Check if the handover is feasible (this method should be implemented)
             handover_successful = self.check_handover_feasibility(old_cell, new_cell)
@@ -168,12 +167,12 @@ def perform_handover(self, old_cell, new_cell, network_state):
             ue_logger.error(f"Handover exception for UE {self.ID}: {e}")
         return False
 ######################################################################################
-def is_in_restricted_region(self):
+    def is_in_restricted_region(self):
         # Logic to determine if the cell is in a restricted region
         # ...
-    return False
+        return False
 ######################################################################################
-def is_eligible_for_handover(self, network_state):
+    def is_eligible_for_handover(self, network_state):
         """
         Determines if the UE is eligible for handover based on its properties 
         and the network state.
@@ -191,7 +190,7 @@ def is_eligible_for_handover(self, network_state):
 
         return True
 ######################################################################################
-def update_traffic_model(self, traffic_params):
+    def update_traffic_model(self, traffic_params):
         # Update the UE's traffic model with the new parameters
         # traffic_params is expected to be a dictionary containing the new traffic parameters
 
@@ -210,7 +209,7 @@ def update_traffic_model(self, traffic_params):
         # Log the update
         ue_logger.info(f"Traffic model updated for UE {self.ID} with parameters: {traffic_params}")
 ######################################################################################
-def serialize_for_influxdb(self):
+    def serialize_for_influxdb(self):
         point = Point("ue_metrics") \
             .tag("ue_id", self.ID) \
             .tag("connected_cell_id", self.ConnectedCellID) \
