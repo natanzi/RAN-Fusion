@@ -42,15 +42,16 @@ def update_voice_traffic():
         return {'error': message}, 400
 
     try:
-        traffic_controller.update_voice_traffic(data['bitrate_range'])
-        traffic_controller.update_voice_traffic_parameters(data['jitter'], data['delay'], data['packet_loss_rate'])
-        traffic_update.info(f"Voice traffic updated: {data}")
-        return {'message': 'Voice traffic parameters updated successfully'}, 200
+        success = traffic_controller.update_voice_traffic(data['bitrate_range'])
+        if success:
+            # Send a command to restart the traffic generation process
+            command_queue.put('restart')
+            return {'message': 'Voice traffic parameters updated successfully', 'acknowledged': True}, 200
+        else:
+            return {'error': 'Failed to update parameters', 'acknowledged': False}, 500
     except Exception as e:
         traffic_update.error(f'Failed to update voice traffic: {e}')
-        # Send a command to restart the traffic generation process
-        command_queue.put('restart')
-        return {'error': str(e)}, 500
+        return {'error': str(e), 'acknowledged': False}, 500
 
 @app.route('/update_video_traffic', methods=['POST'])
 def update_video_traffic():
@@ -67,15 +68,18 @@ def update_video_traffic():
         return {'error': message}, 400
 
     try:
-        traffic_controller.update_video_traffic(data['num_streams_range'], data['stream_bitrate_range'])
-        traffic_controller.update_video_traffic_parameters(data['jitter'], data['delay'], data['packet_loss_rate'])
-        traffic_update.info(f"Video traffic updated: {data}")
-        return {'message': 'Video traffic parameters updated successfully'}, 200
+        success = traffic_controller.update_video_traffic(data['num_streams_range'], data['stream_bitrate_range'])
+        if success:
+            traffic_controller.update_video_traffic_parameters(data['jitter'], data['delay'], data['packet_loss_rate'])
+            traffic_update.info(f"Video traffic updated: {data}")
+            # Send a command to restart the traffic generation process
+            command_queue.put('restart')
+            return {'message': 'Video traffic parameters updated successfully', 'acknowledged': True}, 200
+        else:
+            return {'error': 'Failed to update parameters', 'acknowledged': False}, 500
     except Exception as e:
         traffic_update.error(f'Failed to update video traffic: {e}')
-        # Send a command to restart the traffic generation process
-        command_queue.put('restart')
-        return {'error': str(e)}, 500
+        return {'error': str(e), 'acknowledged': False}, 500
 
 @app.route('/update_gaming_traffic', methods=['POST'])
 def update_gaming_traffic():
@@ -91,15 +95,18 @@ def update_gaming_traffic():
         return {'error': message}, 400
 
     try:
-        traffic_controller.update_gaming_traffic(data['bitrate_range'])
-        traffic_controller.update_gaming_traffic_parameters(data['jitter'], data['delay'], data['packet_loss_rate'])
-        traffic_update.info(f"Gaming traffic updated: {data}")
-        return {'message': 'Gaming traffic parameters updated successfully'}, 200
+        success = traffic_controller.update_gaming_traffic(data['bitrate_range'])
+        if success:
+            traffic_controller.update_gaming_traffic_parameters(data['jitter'], data['delay'], data['packet_loss_rate'])
+            traffic_update.info(f"Gaming traffic updated: {data}")
+            # Send a command to restart the traffic generation process
+            command_queue.put('restart')
+            return {'message': 'Gaming traffic parameters updated successfully', 'acknowledged': True}, 200
+        else:
+            return {'error': 'Failed to update parameters', 'acknowledged': False}, 500
     except Exception as e:
         traffic_update.error(f'Failed to update gaming traffic: {e}')
-        # Send a command to restart the traffic generation process
-        command_queue.put('restart')
-        return {'error': str(e)}, 500
+        return {'error': str(e), 'acknowledged': False}, 500
 
 @app.route('/update_iot_traffic', methods=['POST'])
 def update_iot_traffic():
@@ -116,15 +123,18 @@ def update_iot_traffic():
         return {'error': message}, 400
 
     try:
-        traffic_controller.update_iot_traffic(data['packet_size_range'], data['interval_range'])
-        traffic_controller.update_iot_traffic_parameters(data['jitter'], data['delay'], data['packet_loss_rate'])
-        traffic_update.info(f"IoT traffic updated: {data}")
-        return {'message': 'IoT traffic parameters updated successfully'}, 200
+        success = traffic_controller.update_iot_traffic(data['packet_size_range'], data['interval_range'])
+        if success:
+            traffic_controller.update_iot_traffic_parameters(data['jitter'], data['delay'], data['packet_loss_rate'])
+            traffic_update.info(f"IoT traffic updated: {data}")
+            # Send a command to restart the traffic generation process
+            command_queue.put('restart')
+            return {'message': 'IoT traffic parameters updated successfully', 'acknowledged': True}, 200
+        else:
+            return {'error': 'Failed to update parameters', 'acknowledged': False}, 500
     except Exception as e:
         traffic_update.error(f'Failed to update IoT traffic: {e}')
-        # Send a command to restart the traffic generation process
-        command_queue.put('restart')
-        return {'error': str(e)}, 500
+        return {'error': str(e), 'acknowledged': False}, 500
 
 @app.route('/update_data_traffic', methods=['POST'])
 def update_data_traffic():
@@ -141,15 +151,18 @@ def update_data_traffic():
         return {'error': message}, 400
 
     try:
-        traffic_controller.update_data_traffic(data['bitrate_range'], data['interval_range'])
-        traffic_controller.update_data_traffic_parameters(data['jitter'], data['delay'], data['packet_loss_rate'])
-        traffic_update.info(f"Data traffic updated: {data}")
-        return {'message': 'Data traffic parameters updated successfully'}, 200
+        success = traffic_controller.update_data_traffic(data['bitrate_range'], data['interval_range'])
+        if success:
+            traffic_controller.update_data_traffic_parameters(data['jitter'], data['delay'], data['packet_loss_rate'])
+            traffic_update.info(f"Data traffic updated: {data}")
+            # Send a command to restart the traffic generation process
+            command_queue.put('restart')
+            return {'message': 'Data traffic parameters updated successfully', 'acknowledged': True}, 200
+        else:
+            return {'error': 'Failed to update parameters', 'acknowledged': False}, 500
     except Exception as e:
         traffic_update.error(f'Failed to update data traffic: {e}')
-        # Send a command to restart the traffic generation process
-        command_queue.put('restart')
-        return {'error': str(e)}, 500
+        return {'error': str(e), 'acknowledged': False}, 500
 
 if __name__ == '__main__':
     app.run(debug=True)

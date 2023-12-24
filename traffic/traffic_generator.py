@@ -6,6 +6,7 @@ from logs.logger_config import cell_load_logger, cell_logger, gnodeb_logger, ue_
 from threading import Lock
 from multiprocessing import Queue
 from network.network_state import NetworkState
+from threading import Thread
 
 class TrafficController:
 
@@ -98,8 +99,29 @@ class TrafficController:
     
     def restart_traffic_generation(self):
         with self.lock:
+            # Stop the current traffic generation
+            self.stop_traffic_generation()
+            # Start traffic generation with new parameters
+            self.start_traffic_generation()
+            # Put a 'restart' command in the queue
             self.command_queue.put('restart')
-            # Additional logic for handling the restart can be added here if needed
+            traffic_update.info("Traffic generation restarted with new parameters.")
+    
+    def stop_traffic_generation(self):
+        # Logic to stop the traffic generation
+        traffic_update.info("Stopping traffic generation.")
+
+    def start_traffic_generation(self):
+        # Logic to start the traffic generation with new parameters
+        traffic_update.info("Starting traffic generation with new parameters.")
+
+    # Function to handle commands from the command queue
+    def handle_commands(command_queue, traffic_controller):
+        while True:
+            command = command_queue.get()
+            if command == 'restart':
+                traffic_controller.restart_traffic_generation()
+                traffic_update.info("Handled 'restart' command.")
 
     def generate_traffic(self, ue):
         from network.ue import UE
@@ -249,3 +271,17 @@ class TrafficController:
         cell_logger.info(f"Data Traffic: Data Size: {data_size}MB, Interval: {interval}s, Delay: {self.data_delay}ms, Jitter: {jitter}ms, Packet Loss Rate: {self.data_packet_loss_rate}%")
 
         return data_size, interval, self.data_delay, jitter, self.data_packet_loss_rate
+    
+    @staticmethod
+    def handle_commands(command_queue, traffic_controller):
+        while True:
+            command = command_queue.get()
+            if command == 'restart':
+                traffic_controller.restart_traffic_generation()
+                traffic_update.info("Handled 'restart' command.")
+                
+    # Function to start the command handler in a separate thread
+    def start_command_handler(self):
+        command_handler_thread = Thread(target=TrafficController.handle_commands, args=(self.command_queue, self))
+        command_handler_thread.daemon = True
+        command_handler_thread.start()    
