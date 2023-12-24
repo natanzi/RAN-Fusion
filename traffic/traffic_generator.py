@@ -1,16 +1,16 @@
-#Functions for generating different types of traffic (voice, video, gaming, IoT).
-#traffic_generator.py in traffic folder
+# Functions for generating different types of traffic (voice, video, gaming, IoT).
+# traffic_generator.py in traffic folder
 import random
 import time
 
 class TrafficController:
     def __init__(self):
         # Initialize default traffic parameters
-        self.voice_traffic_params = {'bitrate': (8, 16)}
-        self.video_traffic_params = {'num_streams': (1, 5), 'stream_bitrate': (3, 8)}
-        self.gaming_traffic_params = {'bitrate': (30, 70)}
-        self.iot_traffic_params = {'packet_size': (5, 15), 'interval': (10, 60)}
-        self.data_traffic_params = {'bitrate': (1, 10), 'interval': (0.5, 2)}
+        self.voice_traffic_params = {'bitrate': (8, 16)}  # in Kbps
+        self.video_traffic_params = {'num_streams': (1, 5), 'stream_bitrate': (3, 8)}  # in Mbps
+        self.gaming_traffic_params = {'bitrate': (30, 70)}  # in Kbps
+        self.iot_traffic_params = {'packet_size': (5, 15), 'interval': (10, 60)}  # packet size in KB, interval in seconds
+        self.data_traffic_params = {'bitrate': (1, 10), 'interval': (0.5, 2)}  # in Mbps
 
         # Initialize jitter, delay, and packet loss for each traffic type
         self.voice_jitter = 0
@@ -53,12 +53,12 @@ class TrafficController:
         self.iot_jitter = jitter
         self.iot_delay = delay
         self.iot_packet_loss_rate = packet_loss_rate
+
     def update_data_traffic_parameters(self, jitter, delay, packet_loss_rate):
         self.data_jitter = jitter
         self.data_delay = delay
         self.data_packet_loss_rate = packet_loss_rate 
 
-        
     def update_voice_traffic(self, bitrate_range):
         self.voice_traffic_params['bitrate'] = bitrate_range
 
@@ -81,9 +81,9 @@ class TrafficController:
     def generate_voice_traffic(self):
         time.sleep(self.voice_delay)  # Use voice-specific delay
         jitter = random.uniform(0, self.voice_jitter) if self.voice_jitter > 0 else 0
-        bitrate = random.uniform(*self.voice_traffic_params['bitrate'])
-        interval = 0.02 # Interval duration in seconds
-        data_size = (bitrate * interval) / 8 / 1000  # Convert to MB
+        bitrate = random.uniform(*self.voice_traffic_params['bitrate'])  # in Kbps
+        interval = 0.02  # Interval duration in seconds
+        data_size = (bitrate * interval) / 8  # Convert to KB
 
         # Apply jitter
         time.sleep(jitter)
@@ -99,77 +99,85 @@ class TrafficController:
         time.sleep(self.video_delay)  # Use video-specific delay
         jitter = random.uniform(0, self.video_jitter) if self.video_jitter > 0 else 0
         num_streams = random.randint(*self.video_traffic_params['num_streams'])
-        data_size = 0
-        interval = 1 # Interval duration in seconds
+        data_size = 0  # in MB
+        interval = 1  # Interval duration in seconds
         for _ in range(num_streams):
-            stream_bitrate = random.uniform(*self.video_traffic_params['stream_bitrate']) * 1024
-        # Apply jitter
+            stream_bitrate = random.uniform(*self.video_traffic_params['stream_bitrate'])  # in Mbps
+            # Apply jitter
             time.sleep(jitter)
-        # Simulate packet loss
+            # Simulate packet loss
             if random.random() < self.video_packet_loss_rate:
                 continue  # Skip this stream due to packet loss
-            data_size += (stream_bitrate * interval) / 8
+            data_size += (stream_bitrate * interval) / 8  # Convert to MB
+
         return data_size, interval, self.video_delay, jitter, self.video_packet_loss_rate
 
     def generate_gaming_traffic(self):
         time.sleep(self.gaming_delay)  # Use gaming-specific delay
         jitter = random.uniform(0, self.gaming_jitter) if self.gaming_jitter > 0 else 0
-        bitrate = random.uniform(*self.gaming_traffic_params['bitrate'])
-        interval = 0.1 # Interval duration in seconds
-        data_size = (bitrate * interval) / 8 / 1000
+        bitrate = random.uniform(*self.gaming_traffic_params['bitrate'])  # in Kbps
+        interval = 0.1  # Interval duration in seconds
+        data_size = (bitrate * interval) / 8  # Convert to KB
+
         # Apply jitter
         time.sleep(jitter)
+
         # Simulate packet loss
         if random.random() < self.gaming_packet_loss_rate:
             data_size = 0  # Packet is lost
+
         return data_size, interval, self.gaming_delay, jitter, self.gaming_packet_loss_rate
 
-    
     def generate_iot_traffic(self):
         time.sleep(self.iot_delay)  # Use IoT-specific delay
         jitter = random.uniform(0, self.iot_jitter) if self.iot_jitter > 0 else 0
-        data_size = random.randint(*self.iot_traffic_params['packet_size'])
-        interval = random.uniform(*self.iot_traffic_params['interval'])
+        packet_size = random.randint(*self.iot_traffic_params['packet_size'])  # in KB
+        interval = random.uniform(*self.iot_traffic_params['interval'])  # in seconds
+        data_size = packet_size  # Already in KB, no need for conversion
+
         # Apply jitter
         time.sleep(jitter)
+
         # Simulate packet loss
         if random.random() < self.iot_packet_loss_rate:
             data_size = 0  # Packet is lost
+
         return data_size, interval, self.iot_delay, jitter, self.iot_packet_loss_rate
 
     def generate_data_traffic(self):
         time.sleep(self.data_delay)  # Use data-specific delay
         jitter = random.uniform(0, self.data_jitter) if self.data_jitter > 0 else 0
-        bitrate = random.uniform(*self.data_traffic_params['bitrate']) * 1024
-        interval = random.uniform(*self.data_traffic_params['interval'])
-        data_size = (bitrate * interval) / 8
+        bitrate = random.uniform(*self.data_traffic_params['bitrate'])  # in Mbps
+        interval = random.uniform(*self.data_traffic_params['interval'])  # in seconds
+        data_size = (bitrate * interval) / 8  # Convert to MB
+
         # Apply jitter
         time.sleep(jitter)
+
         # Simulate packet loss
         if random.random() < self.data_packet_loss_rate:
             data_size = 0  # Packet is lost
+
         return data_size, interval, self.data_delay, jitter, self.data_packet_loss_rate
 
 # Example usage
-#traffic_controller = TrafficController()
+# traffic_controller = TrafficController()
 
 # Update traffic parameters as needed, for example:
-#traffic_controller.update_voice_traffic_parameters(jitter=0.1, delay=1, packet_loss_rate=0.01)
-#traffic_controller.update_video_traffic_parameters(jitter=0.1, delay=1, packet_loss_rate=0.01)
+# traffic_controller.update_voice_traffic_parameters(jitter=0.1, delay=1, packet_loss_rate=0.01)
+# traffic_controller.update_video_traffic_parameters(jitter=0.1, delay=1, packet_loss_rate=0.01)
 # ... and so on for other traffic types
 
 # Generate traffic and print the results
-#voice_data, voice_interval = traffic_controller.generate_voice_traffic()
-#video_data, video_interval = traffic_controller.generate_video_traffic()
-#gaming_data, gaming_interval = traffic_controller.generate_gaming_traffic()
-#iot_data, iot_interval = traffic_controller.generate_iot_traffic()
-#data_data, data_interval = traffic_controller.generate_data_traffic()
+# voice_data, voice_interval = traffic_controller.generate_voice_traffic()
+# video_data, video_interval = traffic_controller.generate_video_traffic()
+# gaming_data, gaming_interval = traffic_controller.generate_gaming_traffic()
+# iot_data, iot_interval = traffic_controller.generate_iot_traffic()
+# data_data, data_interval = traffic_controller.generate_data_traffic()
 
 # Print statements to see the output
-#print("Voice Traffic:", voice_data, "KB, Interval:", voice_interval, "seconds")
-#print("Video Traffic:", video_data, "MB, Interval:", video_interval, "second")
-#print("Gaming Traffic:", gaming_data, "KB, Interval:", gaming_interval, "seconds")
-#print("IoT Traffic:", iot_data, "KB, Interval:", iot_interval, "seconds")
-#print("Data Traffic:", data_data, "MB, Interval:", data_interval, "seconds")
-
-
+# print("Voice Traffic:", voice_data, "KB, Interval:", voice_interval, "seconds")
+# print("Video Traffic:", video_data, "MB, Interval:", video_interval, "second")
+# print("Gaming Traffic:", gaming_data, "KB, Interval:", gaming_interval, "seconds")
+# print("IoT Traffic:", iot_data, "KB, Interval:", iot_interval, "seconds")
+# print("Data Traffic:", data_data, "MB, Interval:", data_interval, "seconds")

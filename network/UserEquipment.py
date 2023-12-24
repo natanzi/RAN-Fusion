@@ -40,7 +40,7 @@ max_transmit_power_range = (15, 25)  # dBm
 
 # Creating a single UE instance as an example
 ue = UserEquipment(random.uniform(*battery_capacity_range), random.uniform(*discharge_rate_range), 
-                   random.uniform(*amplifier_efficiency_range), random.uniform(*max_transmit_power_range))
+        random.uniform(*amplifier_efficiency_range), random.uniform(*max_transmit_power_range))
 
 # Update UE usage (e.g., for 10 minutes of operation with specific power model settings)
 ue.update_power_model(RF=5, Baseband=3, Processor=2, Display=1)
