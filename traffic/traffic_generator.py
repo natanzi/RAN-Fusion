@@ -3,8 +3,13 @@
 import random
 import time
 from logs.logger_config import cell_load_logger, cell_logger, gnodeb_logger, ue_logger
+from threading import Lock
+from multiprocessing import Queue
+
 class TrafficController:
-    def __init__(self):
+    def __init__(self, command_queue):
+        self.lock = Lock()
+        self.command_queue = command_queue
         # Initialize default traffic parameters
         self.voice_traffic_params = {'bitrate': (8, 16)}  # in Kbps
         self.video_traffic_params = {'num_streams': (1, 5), 'stream_bitrate': (3, 8)}  # in Mbps
@@ -32,7 +37,16 @@ class TrafficController:
         self.data_jitter = 0
         self.data_delay = 0
         self.data_packet_loss_rate = 0
-    
+
+    # Update methods for jitter, delay, and packet loss
+    # ... (existing update methods) ...
+
+    # Add a new method to restart the traffic generation
+    def restart_traffic_generation(self):
+        with self.lock:
+            self.command_queue.put('restart')
+            # Additional logic for handling the restart can be added here if needed
+            
     # Update methods for jitter, delay, and packet loss
     def update_voice_traffic_parameters(self, jitter, delay, packet_loss_rate):
         self.voice_jitter = jitter
@@ -165,25 +179,3 @@ class TrafficController:
         cell_logger.info(f"Data Traffic: Data Size: {data_size}MB, Interval: {interval}s, Delay: {self.data_delay}ms, Jitter: {jitter}ms, Packet Loss Rate: {self.data_packet_loss_rate}%")
 
         return data_size, interval, self.data_delay, jitter, self.data_packet_loss_rate
-
-# Example usage
-# traffic_controller = TrafficController()
-
-# Update traffic parameters as needed, for example:
-# traffic_controller.update_voice_traffic_parameters(jitter=0.1, delay=1, packet_loss_rate=0.01)
-# traffic_controller.update_video_traffic_parameters(jitter=0.1, delay=1, packet_loss_rate=0.01)
-# ... and so on for other traffic types
-
-# Generate traffic and print the results
-# voice_data, voice_interval = traffic_controller.generate_voice_traffic()
-# video_data, video_interval = traffic_controller.generate_video_traffic()
-# gaming_data, gaming_interval = traffic_controller.generate_gaming_traffic()
-# iot_data, iot_interval = traffic_controller.generate_iot_traffic()
-# data_data, data_interval = traffic_controller.generate_data_traffic()
-
-# Print statements to see the output
-# print("Voice Traffic:", voice_data, "KB, Interval:", voice_interval, "seconds")
-# print("Video Traffic:", video_data, "MB, Interval:", video_interval, "second")
-# print("Gaming Traffic:", gaming_data, "KB, Interval:", gaming_interval, "seconds")
-# print("IoT Traffic:", iot_data, "KB, Interval:", iot_interval, "seconds")
-# print("Data Traffic:", data_data, "MB, Interval:", data_interval, "seconds")

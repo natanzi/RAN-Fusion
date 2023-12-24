@@ -9,6 +9,9 @@ from multiprocessing import Queue
 # Assuming command_queue is made accessible here, for example, as a global variable
 command_queue = Queue()
 
+# Ensure TrafficController instance is accessible here, possibly as a global or through an application context
+global traffic_controller
+
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 traffic_controller = TrafficController()
