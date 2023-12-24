@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5G RAN Simulator Control Panel</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="body-background">
+    <div class="container">
+        <h1>5G RAN Simulator Control Panel</h1>
+        <div class="form-container" id="formContainer">
+
+        <!-- Voice Traffic Form -->
+        <form id="voiceTrafficForm">
+            <h3>Voice Traffic</h3>
+            <!-- Add input fields for voice traffic parameters -->
+            <input type="number" id="voice_min_bitrate" placeholder="Min Bitrate" required><br>
+            <input type="number" id="voice_max_bitrate" placeholder="Max Bitrate" required><br>
+            <input type="number" id="voice_jitter" placeholder="Jitter" required><br>
+            <input type="number" id="voice_delay" placeholder="Delay" required><br>
+            <input type="number" step="0.01" id="voice_packet_loss_rate" placeholder="Packet Loss Rate" required><br>
+            <button type="submit">Update Voice Traffic</button>
+        </form>
+
+        <!-- Video Traffic Form -->
+        <form id="videoTrafficForm">
+        <h3>Video Traffic</h3>
+        <input type="number" id="video_min_streams" placeholder="Min Streams" required><br>
+        <input type="number" id="video_max_streams" placeholder="Max Streams" required><br>
+        <input type="number" id="video_min_bitrate" placeholder="Min Stream Bitrate" required><br>
+        <input type="number" id="video_max_bitrate" placeholder="Max Stream Bitrate" required><br>
+        <input type="number" id="video_jitter" placeholder="Jitter" required><br>
+        <input type="number" id="video_delay" placeholder="Delay" required><br>
+        <input type="number" step="0.01" id="video_packet_loss_rate" placeholder="Packet Loss Rate" required><br>
+        <button type="submit">Update Video Traffic</button>
+        </form>
+
+        <!-- Gaming Traffic Form -->
+        <form id="gamingTrafficForm">
+        <h3>Gaming Traffic</h3>
+        <input type="number" id="gaming_min_bitrate" placeholder="Min Bitrate" required><br>
+        <input type="number" id="gaming_max_bitrate" placeholder="Max Bitrate" required><br>
+        <input type="number" id="gaming_jitter" placeholder="Jitter" required><br>
+        <input type="number" id="gaming_delay" placeholder="Delay" required><br>
+        <input type="number" step="0.01" id="gaming_packet_loss_rate" placeholder="Packet Loss Rate" required><br>
+        <button type="submit">Update Gaming Traffic</button>
+        </form>
+
+        <!-- IoT Traffic Form -->
+        <form id="iotTrafficForm">
+        <h3>IoT Traffic</h3>
+        <input type="number" id="iot_min_packet_size" placeholder="Min Packet Size" required><br>
+        <input type="number" id="iot_max_packet_size" placeholder="Max Packet Size" required><br>
+        <input type="number" id="iot_min_interval" placeholder="Min Interval" required><br>
+        <input type="number" id="iot_max_interval" placeholder="Max Interval" required><br>
+        <input type="number" id="iot_jitter" placeholder="Jitter" required><br>
+        <input type="number" id="iot_delay" placeholder="Delay" required><br>
+        <input type="number" step="0.01" id="iot_packet_loss_rate" placeholder="Packet Loss Rate" required><br>
+        <button type="submit">Update IoT Traffic</button>
+        </form>
+
+        <!-- Data Traffic Form -->
+        <form id="dataTrafficForm">
+        <h3>Data Traffic</h3>
+        <input type="number" id="data_min_bitrate" placeholder="Min Bitrate" required><br>
+        <input type="number" id="data_max_bitrate" placeholder="Max Bitrate" required><br>
+        <input type="number" id="data_min_interval" placeholder="Min Interval" required><br>
+        <input type="number" id="data_max_interval" placeholder="Max Interval" required><br>
+        <input type="number" id="data_jitter" placeholder="Jitter" required><br>
+        <input type="number" id="data_delay" placeholder="Delay" required><br>
+        <input type="number" step="0.01" id="data_packet_loss_rate" placeholder="Packet Loss Rate" required><br>
+        <button type="submit">Update Data Traffic</button>
+        </form>
+
+        <script>
+            $(document).ready(function() {
+                // Voice Traffic Form Handler
+                $('#voiceTrafficForm').submit(function(event) {
+                    event.preventDefault();
+                    var data = {
+                        "bitrate_range": [parseInt($('#voice_min_bitrate').val()), parseInt($('#voice_max_bitrate').val())],
+                        "jitter": parseFloat($('#voice_jitter').val()),
+                        "delay": parseFloat($('#voice_delay').val()),
+                        "packet_loss_rate": parseFloat($('#voice_packet_loss_rate').val())
+                    };
+                    sendPostRequest('update_voice_traffic', data);
+                });
+        
+                // Video Traffic Form Handler
+                $('#videoTrafficForm').submit(function(event) {
+                    event.preventDefault();
+                    var data = {
+                        "num_streams_range": [parseInt($('#video_min_streams').val()), parseInt($('#video_max_streams').val())],
+                        "stream_bitrate_range": [parseInt($('#video_min_bitrate').val()), parseInt($('#video_max_bitrate').val())],
+                        "jitter": parseFloat($('#video_jitter').val()),
+                        "delay": parseFloat($('#video_delay').val()),
+                        "packet_loss_rate": parseFloat($('#video_packet_loss_rate').val())
+                    };
+                    sendPostRequest('update_video_traffic', data);
+                });
+        
+                // Gaming Traffic Form Handler
+                $('#gamingTrafficForm').submit(function(event) {
+                    event.preventDefault();
+                    var data = {
+                        "bitrate_range": [parseInt($('#gaming_min_bitrate').val()), parseInt($('#gaming_max_bitrate').val())],
+                        "jitter": parseFloat($('#gaming_jitter').val()),
+                        "delay": parseFloat($('#gaming_delay').val()),
+                        "packet_loss_rate": parseFloat($('#gaming_packet_loss_rate').val())
+                    };
+                    sendPostRequest('update_gaming_traffic', data);
+                });
+        
+                // IoT Traffic Form Handler
+                $('#iotTrafficForm').submit(function(event) {
+                    event.preventDefault();
+                    var data = {
+                        "packet_size_range": [parseInt($('#iot_min_packet_size').val()), parseInt($('#iot_max_packet_size').val())],
+                        "interval_range": [parseInt($('#iot_min_interval').val()), parseInt($('#iot_max_interval').val())],
+                        "jitter": parseFloat($('#iot_jitter').val()),
+                        "delay": parseFloat($('#iot_delay').val()),
+                        "packet_loss_rate": parseFloat($('#iot_packet_loss_rate').val())
+                    };
+                    sendPostRequest('update_iot_traffic', data);
+                });
+        
+                // Data Traffic Form Handler
+                $('#dataTrafficForm').submit(function(event) {
+                    event.preventDefault();
+                    var data = {
+                        "bitrate_range": [parseInt($('#data_min_bitrate').val()), parseInt($('#data_max_bitrate').val())],
+                        "interval_range": [parseInt($('#data_min_interval').val()), parseInt($('#data_max_interval').val())],
+                        "jitter": parseFloat($('#data_jitter').val()),
+                        "delay": parseFloat($('#data_delay').val()),
+                        "packet_loss_rate": parseFloat($('#data_packet_loss_rate').val())
+                    };
+                    sendPostRequest('update_data_traffic', data);
+                });
+        
+                function sendPostRequest(endpoint, data) {
+                    $.ajax({
+                        url: `http://localhost:5000/${endpoint}`,
+                        type: 'POST',
+                        contentType: 'application/json',
+                        data: JSON.stringify(data),
+                        success: function(response) {
+                            alert('Traffic updated successfully');
+                        },
+                        error: function(response) {
+                            alert('Error updating traffic');
+                        }
+                    });
+                }
+            });
+        </script>
