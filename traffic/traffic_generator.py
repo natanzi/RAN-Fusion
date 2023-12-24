@@ -49,11 +49,31 @@ class TrafficController:
                 ue.jitter = self.voice_jitter
                 ue.delay = self.voice_delay
                 ue.packet_loss_rate = self.voice_packet_loss_rate
-            # Repeat for other service types: video, game, iot, data
-            # ...
+            elif ue.ServiceType.lower() == 'video':
+                ue.traffic_params = self.video_traffic_params
+                ue.jitter = self.video_jitter
+                ue.delay = self.video_delay
+                ue.packet_loss_rate = self.video_packet_loss_rate
+            elif ue.ServiceType.lower() == 'game':
+                ue.traffic_params = self.gaming_traffic_params
+                ue.jitter = self.gaming_jitter
+                ue.delay = self.gaming_delay
+                ue.packet_loss_rate = self.gaming_packet_loss_rate
+            elif ue.ServiceType.lower() == 'iot':
+                ue.traffic_params = self.iot_traffic_params
+                ue.jitter = self.iot_jitter
+                ue.delay = self.iot_delay
+                ue.packet_loss_rate = self.iot_packet_loss_rate
+            elif ue.ServiceType.lower() == 'data':
+                ue.traffic_params = self.data_traffic_params
+                ue.jitter = self.data_jitter
+                ue.delay = self.data_delay
+                ue.packet_loss_rate = self.data_packet_loss_rate
+            else:
+                raise ValueError(f"Unknown service type: {ue.ServiceType}")
 
         # Return the updated UEs
-        return network_state.ues.values()
+        return list(network_state.ues.values())
     
     def restart_traffic_generation(self):
         with self.lock:
