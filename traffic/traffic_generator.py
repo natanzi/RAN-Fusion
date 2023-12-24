@@ -2,7 +2,7 @@
 # traffic_generator.py in traffic folder
 import random
 import time
-from logs.logger_config import cell_load_logger, cell_logger, gnodeb_logger, ue_logger
+from logs.logger_config import cell_load_logger, cell_logger, gnodeb_logger, ue_logger, traffic_update 
 from threading import Lock
 from multiprocessing import Queue
 from network.network_state import NetworkState
@@ -46,33 +46,53 @@ class TrafficController:
         for ue_id, ue in network_state.ues.items():
             # Update the UE's traffic parameters based on its service type
             if ue.ServiceType.lower() == 'voice':
-                ue.traffic_params = self.voice_traffic_params
-                ue.jitter = self.voice_jitter
-                ue.delay = self.voice_delay
-                ue.packet_loss_rate = self.voice_packet_loss_rate
+                ue.update_traffic_model({
+                    'data_size': self.voice_traffic_params['data_size'],
+                    'interval': self.voice_traffic_params['interval'],
+                    'delay': self.voice_delay,
+                    'jitter': self.voice_jitter,
+                    'packet_loss_rate': self.voice_packet_loss_rate
+                })
+                traffic_update.info(f"UE {ue_id} updated with new voice traffic parameters.")
             elif ue.ServiceType.lower() == 'video':
-                ue.traffic_params = self.video_traffic_params
-                ue.jitter = self.video_jitter
-                ue.delay = self.video_delay
-                ue.packet_loss_rate = self.video_packet_loss_rate
+                ue.update_traffic_model({
+                    'data_size': self.video_traffic_params['data_size'],
+                    'interval': self.video_traffic_params['interval'],
+                    'delay': self.video_delay,
+                    'jitter': self.video_jitter,
+                    'packet_loss_rate': self.video_packet_loss_rate
+                })
+                traffic_update.info(f"UE {ue_id} updated with new video traffic parameters.")
             elif ue.ServiceType.lower() == 'game':
-                ue.traffic_params = self.gaming_traffic_params
-                ue.jitter = self.gaming_jitter
-                ue.delay = self.gaming_delay
-                ue.packet_loss_rate = self.gaming_packet_loss_rate
+                ue.update_traffic_model({
+                    'data_size': self.gaming_traffic_params['data_size'],
+                    'interval': self.gaming_traffic_params['interval'],
+                    'delay': self.gaming_delay,
+                    'jitter': self.gaming_jitter,
+                    'packet_loss_rate': self.gaming_packet_loss_rate
+                })
+                traffic_update.info(f"UE {ue_id} updated with new gaming traffic parameters.")
             elif ue.ServiceType.lower() == 'iot':
-                ue.traffic_params = self.iot_traffic_params
-                ue.jitter = self.iot_jitter
-                ue.delay = self.iot_delay
-                ue.packet_loss_rate = self.iot_packet_loss_rate
+                ue.update_traffic_model({
+                    'data_size': self.iot_traffic_params['data_size'],
+                    'interval': self.iot_traffic_params['interval'],
+                    'delay': self.iot_delay,
+                    'jitter': self.iot_jitter,
+                    'packet_loss_rate': self.iot_packet_loss_rate
+                })
+                traffic_update.info(f"UE {ue_id} updated with new IoT traffic parameters.")
             elif ue.ServiceType.lower() == 'data':
-                ue.traffic_params = self.data_traffic_params
-                ue.jitter = self.data_jitter
-                ue.delay = self.data_delay
-                ue.packet_loss_rate = self.data_packet_loss_rate
+                ue.update_traffic_model({
+                    'data_size': self.data_traffic_params['data_size'],
+                    'interval': self.data_traffic_params['interval'],
+                    'delay': self.data_delay,
+                    'jitter': self.data_jitter,
+                    'packet_loss_rate': self.data_packet_loss_rate
+                })
+                traffic_update.info(f"UE {ue_id} updated with new data traffic parameters.")
             else:
                 raise ValueError(f"Unknown service type: {ue.ServiceType}")
-
+        
         # Return the updated UEs
         return list(network_state.ues.values())
     
