@@ -28,9 +28,10 @@ def network_state_manager(network_state, command_queue):
         elif command == 'exit':  # Handle exit command to break the loop
             break
 ####################################################################################################################################
-def log_traffic(ues, command_queue, traffic_controller, network_state):
+def log_traffic(ues, command_queue, network_state):
+    # Initialize the TrafficController inside the child process
+    traffic_controller = TrafficController(command_queue)
     while True:
-        # ... existing code ...
         if not command_queue.empty():
             command = command_queue.get()
             if command == 'restart':
@@ -53,7 +54,7 @@ def log_traffic(ues, command_queue, traffic_controller, network_state):
             # Save the state to the database
             command_queue.put('save')
         time.sleep(1)  # Logging interval
-####################################################################################################################################
+######################################################################################
 def detect_and_handle_congestion(network_state, command_queue):
     while True:
         for cell_id, cell in network_state.cells.items():
@@ -104,8 +105,8 @@ def main():
     ns_manager_process = Process(target=network_state_manager, args=(network_state, command_queue))
     ns_manager_process.start()
 
-    # Start the traffic logging process with the traffic_controller
-    logging_process = Process(target=log_traffic, args=(ues, command_queue, traffic_controller, network_state))
+    # Start the traffic logging process without passing the traffic_controller
+    logging_process = Process(target=log_traffic, args=(ues, command_queue, network_state))
     logging_process.start()
 
     # Start the cell monitor threads using monitor_and_log_cell_load

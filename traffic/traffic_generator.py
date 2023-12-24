@@ -41,6 +41,7 @@ class TrafficController:
         self.data_packet_loss_rate = 0
     
     def get_updated_ues(self, network_state):
+        from network.ue import UE
         # Assuming network_state.ues is a dictionary with UE IDs as keys
         for ue_id, ue in network_state.ues.items():
             # Update the UE's traffic parameters based on its service type
@@ -81,6 +82,7 @@ class TrafficController:
             # Additional logic for handling the restart can be added here if needed
 
     def generate_traffic(self, ue):
+        from network.ue import UE
         # Determine the type of traffic to generate based on the UE's service type
         if ue.ServiceType.lower() == 'voice':
             return self.generate_voice_traffic()

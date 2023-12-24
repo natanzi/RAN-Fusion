@@ -33,7 +33,7 @@ class Cell:
         self.IsActive = is_active
         self.current_ue_count = 0
         # Logging statement should be here, after all attributes are set
-        cell_logger.info(f" A Cell '{cell_id}' has been created at '{current_time}' in gNodeB '{self.ID}' with max capacity {self.MaxConnectedUEs}.")
+        cell_logger.info(f" A Cell '{cell_id}' has been created at '{current_time}' in gNodeB '{gnodeb_id}' with max capacity {self.MaxConnectedUEs}.")
         
     @staticmethod
     def from_json(json_data):
