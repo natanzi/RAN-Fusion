@@ -30,6 +30,7 @@ def network_state_manager(network_state, command_queue):
 ####################################################################################################################################
 def log_traffic(ues, command_queue, traffic_controller, network_state):
     while True:
+        # ... existing code ...
         if not command_queue.empty():
             command = command_queue.get()
             if command == 'restart':

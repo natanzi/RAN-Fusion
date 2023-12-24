@@ -101,8 +101,6 @@ class UE:
             ues.append(ue)
         return ues
 #########################################################################################
-# ... (other parts of the UE class) ...
-
 def generate_traffic(self, traffic_controller, traffic_multiplier=1):
     # Convert service type to lowercase to ensure case-insensitive comparison
     service_type_lower = self.ServiceType.lower()
@@ -144,7 +142,7 @@ def get_traffic_volume(self, traffic_controller):
 
     return traffic_volume
 ####################################################################################
-    def perform_handover(self, old_cell, new_cell, network_state):
+def perform_handover(self, old_cell, new_cell, network_state):
         try:
             # Check if the handover is feasible (this method should be implemented)
             handover_successful = self.check_handover_feasibility(old_cell, new_cell)
@@ -169,13 +167,13 @@ def get_traffic_volume(self, traffic_controller):
         # Log any exception that occurs during the handover
             ue_logger.error(f"Handover exception for UE {self.ID}: {e}")
         return False
-    ##################################################################################
-    def is_in_restricted_region(self):
+######################################################################################
+def is_in_restricted_region(self):
         # Logic to determine if the cell is in a restricted region
         # ...
-        return False
-    ##################################################################################
-    def is_eligible_for_handover(self, network_state):
+    return False
+######################################################################################
+def is_eligible_for_handover(self, network_state):
         """
         Determines if the UE is eligible for handover based on its properties 
         and the network state.
@@ -192,8 +190,13 @@ def get_traffic_volume(self, traffic_controller):
         # ...
 
         return True
-    ###################################################################################
-    def serialize_for_influxdb(self):
+######################################################################################
+def update_traffic_model(self, traffic_params):
+        # Update the UE's traffic model with the new parameters
+        # This is a placeholder; you'll need to adjust it based on how your traffic model is defined
+    self.TrafficModel = traffic_params
+######################################################################################
+def serialize_for_influxdb(self):
         point = Point("ue_metrics") \
             .tag("ue_id", self.ID) \
             .tag("connected_cell_id", self.ConnectedCellID) \
