@@ -1,2 +1,4 @@
 {"level": "INFO", "timestamp": "2023-12-23 19:50:28", "message": "Voice traffic updated: {'bitrate_range': [800, 1200], 'jitter': 20, 'delay': 100, 'packet_loss_rate': 0.2}", "test_id": "cf35b6f8-68c6-4afb-bf20-1b45072c5db4"}
 {"level": "INFO", "timestamp": "2023-12-23 19:50:28", "message": "Voice traffic updated: {'bitrate_range': [800, 1200], 'jitter': 20, 'delay': 100, 'packet_loss_rate': 0.2}", "test_id": "cf35b6f8-68c6-4afb-bf20-1b45072c5db4"}
+{"level": "INFO", "timestamp": "2023-12-23 20:07:53", "message": "Video traffic updated: {'num_streams_range': [3, 4], 'stream_bitrate_range': [4, 8], 'jitter': 3, 'delay': 3, 'packet_loss_rate': 2}", "test_id": "5496ceac-bacc-493c-b3a9-53bd932305f3"}
+{"level": "INFO", "timestamp": "2023-12-23 20:07:53", "message": "Video traffic updated: {'num_streams_range': [3, 5], 'stream_bitrate_range': [8, 8], 'jitter': 4, 'delay': 4, 'packet_loss_rate': 5}", "test_id": "5496ceac-bacc-493c-b3a9-53bd932305f3"}
