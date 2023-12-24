@@ -1270,3 +1270,159 @@
 {"level": "INFO", "timestamp": "2023-12-23 21:06:47", "message": "Cell BX1230 @ gNodeB W2018 - Load: 5.0%", "test_id": "424d7500-a996-4134-8c0f-f8f1e0a2da0f"}
 {"level": "INFO", "timestamp": "2023-12-23 21:06:47", "message": "Cell CX1873 @ gNodeB W1320 - Load: 5.0%", "test_id": "424d7500-a996-4134-8c0f-f8f1e0a2da0f"}
 {"level": "INFO", "timestamp": "2023-12-23 21:06:47", "message": "Cell CX5103 @ gNodeB W2018 - Load: 5.0%", "test_id": "424d7500-a996-4134-8c0f-f8f1e0a2da0f"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 10.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell AX1112 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell AX9980 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1453 @ gNodeB W1140 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1334 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1230 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX1352 @ gNodeB W1140 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX1873 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX5103 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 10.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell AX1112 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1453 @ gNodeB W1140 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1334 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell AX9980 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX1352 @ gNodeB W1140 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX1873 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1230 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX5103 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 10.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell AX1112 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell AX9980 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1453 @ gNodeB W1140 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1334 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1230 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX1352 @ gNodeB W1140 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX1873 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX5103 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell AX1112 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 10.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1334 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1453 @ gNodeB W1140 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell AX9980 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX1873 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX1352 @ gNodeB W1140 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1230 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX5103 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 10.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell AX1112 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1453 @ gNodeB W1140 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1334 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell AX9980 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX1352 @ gNodeB W1140 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX1873 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1230 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX5103 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 10.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell AX1112 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell AX9980 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1453 @ gNodeB W1140 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1334 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1230 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX1352 @ gNodeB W1140 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX1873 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX5103 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell AX9980 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 10.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell AX1112 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1230 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1453 @ gNodeB W1140 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1334 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX5103 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX1352 @ gNodeB W1140 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX1873 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell AX9980 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 10.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell AX1112 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1230 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1453 @ gNodeB W1140 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1334 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX5103 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX1352 @ gNodeB W1140 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX1873 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell AX9980 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 10.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1230 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1453 @ gNodeB W1140 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell AX1112 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX5103 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX1352 @ gNodeB W1140 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1334 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX1873 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell AX9980 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1230 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell AX1112 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 10.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX5103 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1334 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1453 @ gNodeB W1140 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX1873 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX1352 @ gNodeB W1140 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell AX9980 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell AX1112 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1230 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 10.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1334 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX5103 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1453 @ gNodeB W1140 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX1873 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX1352 @ gNodeB W1140 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell AX9980 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1230 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 10.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell AX1112 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX5103 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1453 @ gNodeB W1140 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1334 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX1352 @ gNodeB W1140 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX1873 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell Ax1242 @ gNodeB W1140 - Load: 10.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell AX9980 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Testing cell load logging.", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1453 @ gNodeB W1140 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1230 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell AX1112 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX1352 @ gNodeB W1140 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX5103 @ gNodeB W2018 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell BX1334 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}
+{"level": "INFO", "timestamp": "2023-12-23 21:12:51", "message": "Cell CX1873 @ gNodeB W1320 - Load: 5.0%", "test_id": "c1f8cf8c-7de0-4f8b-ae0a-ec10bbc00f96"}

@@ -122,7 +122,8 @@ class TrafficController:
         # Simulate packet loss
         if random.random() < self.gaming_packet_loss_rate:
             data_size = 0  # Packet is lost
-        return data_size, interval, self.video_delay, jitter, self.video_packet_loss_rate
+        return data_size, interval, self.gaming_delay, jitter, self.gaming_packet_loss_rate
+
     
     def generate_iot_traffic(self):
         time.sleep(self.iot_delay)  # Use IoT-specific delay
