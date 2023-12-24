@@ -4,6 +4,10 @@ from flask import Flask, request
 from traffic.traffic_generator import TrafficController
 from logs.logger_config import setup_logger
 from logs.logger_config import traffic_update
+from multiprocessing import Queue
+
+# Assuming command_queue is made accessible here, for example, as a global variable
+command_queue = Queue()
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
@@ -39,6 +43,8 @@ def update_voice_traffic():
         return {'message': 'Voice traffic parameters updated successfully'}, 200
     except Exception as e:
         traffic_update.error(f'Failed to update voice traffic: {e}')
+        # Send a command to restart the traffic generation process
+        command_queue.put('restart')
         return {'error': str(e)}, 500
 
 @app.route('/update_video_traffic', methods=['POST'])
@@ -62,6 +68,8 @@ def update_video_traffic():
         return {'message': 'Video traffic parameters updated successfully'}, 200
     except Exception as e:
         traffic_update.error(f'Failed to update video traffic: {e}')
+        # Send a command to restart the traffic generation process
+        command_queue.put('restart')
         return {'error': str(e)}, 500
 
 @app.route('/update_gaming_traffic', methods=['POST'])
@@ -84,6 +92,8 @@ def update_gaming_traffic():
         return {'message': 'Gaming traffic parameters updated successfully'}, 200
     except Exception as e:
         traffic_update.error(f'Failed to update gaming traffic: {e}')
+        # Send a command to restart the traffic generation process
+        command_queue.put('restart')
         return {'error': str(e)}, 500
 
 @app.route('/update_iot_traffic', methods=['POST'])
@@ -107,6 +117,8 @@ def update_iot_traffic():
         return {'message': 'IoT traffic parameters updated successfully'}, 200
     except Exception as e:
         traffic_update.error(f'Failed to update IoT traffic: {e}')
+        # Send a command to restart the traffic generation process
+        command_queue.put('restart')
         return {'error': str(e)}, 500
 
 @app.route('/update_data_traffic', methods=['POST'])
@@ -130,6 +142,8 @@ def update_data_traffic():
         return {'message': 'Data traffic parameters updated successfully'}, 200
     except Exception as e:
         traffic_update.error(f'Failed to update data traffic: {e}')
+        # Send a command to restart the traffic generation process
+        command_queue.put('restart')
         return {'error': str(e)}, 500
 
 if __name__ == '__main__':
