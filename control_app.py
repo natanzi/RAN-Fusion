@@ -14,7 +14,9 @@ global traffic_controller
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
-traffic_controller = TrafficController()
+
+# Pass the command_queue to the TrafficController
+traffic_controller = TrafficController(command_queue)
 
 def validate_traffic_parameters(params, param_types):
     for param, param_type in param_types.items():
