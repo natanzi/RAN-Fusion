@@ -7,6 +7,7 @@ from threading import Lock
 from multiprocessing import Queue
 
 class TrafficController:
+
     def __init__(self, command_queue):
         self.lock = Lock()
         self.command_queue = command_queue
@@ -37,13 +38,34 @@ class TrafficController:
         self.data_jitter = 0
         self.data_delay = 0
         self.data_packet_loss_rate = 0
-
+    
+    def get_updated_ues(self):
+    # Placeholder for the logic to fetch and update UEs with new parameters
+    # This method should return the updated list of UEs
+    # The actual implementation will depend on how UEs are managed in the system
+        pass
+    
     # Add a new method to restart the traffic generation
     def restart_traffic_generation(self):
         with self.lock:
             self.command_queue.put('restart')
             # Additional logic for handling the restart can be added here if needed
-            
+
+    def generate_traffic(self, ue):
+    # Determine the type of traffic to generate based on the UE's service type
+        if ue.ServiceType.lower() == 'voice':
+            return self.generate_voice_traffic()
+        elif ue.ServiceType.lower() == 'video':
+            return self.generate_video_traffic()
+        elif ue.ServiceType.lower() == 'game':
+            return self.generate_gaming_traffic()
+        elif ue.ServiceType.lower() == 'iot':
+            return self.generate_iot_traffic()
+        elif ue.ServiceType.lower() == 'data':
+            return self.generate_data_traffic()
+        else:
+            raise ValueError(f"Unknown service type: {ue.ServiceType}")        
+    
     # Update methods for jitter, delay, and packet loss
     def update_voice_traffic_parameters(self, jitter, delay, packet_loss_rate):
         self.voice_jitter = jitter

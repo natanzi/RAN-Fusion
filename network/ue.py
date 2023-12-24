@@ -100,50 +100,50 @@ class UE:
             )
             ues.append(ue)
         return ues
+#########################################################################################
+# ... (other parts of the UE class) ...
 
-    def generate_traffic(self, traffic_multiplier=1):
-        traffic_controller = TrafficController()  # Create an instance of TrafficController
-
+def generate_traffic(self, traffic_controller, traffic_multiplier=1):
     # Convert service type to lowercase to ensure case-insensitive comparison
-        service_type_lower = self.ServiceType.lower()
+    service_type_lower = self.ServiceType.lower()
 
     # Initialize variables to store traffic data
-        data_size = 0
-        interval = 0
-        delay = 0
-        jitter = 0
-        packet_loss_rate = 0
+    data_size = 0
+    interval = 0
+    delay = 0
+    jitter = 0
+    packet_loss_rate = 0
 
-        if service_type_lower == "voice":
+    if service_type_lower == "voice":
         # Assuming generate_voice_traffic returns five values
-            data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_voice_traffic()
-        elif service_type_lower == "video":
-            data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_video_traffic()
-        elif service_type_lower == "game":
-            data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_gaming_traffic()
-        elif service_type_lower == "iot":
-            data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_iot_traffic()
-        elif service_type_lower == "data":  
-            data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_data_traffic()
-        else:
-            raise ValueError(f"Unknown service type: {self.ServiceType}")
-    
+        data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_voice_traffic()
+    elif service_type_lower == "video":
+        data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_video_traffic()
+    elif service_type_lower == "game":
+        data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_gaming_traffic()
+    elif service_type_lower == "iot":
+        data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_iot_traffic()
+    elif service_type_lower == "data":  
+        data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_data_traffic()
+    else:
+        raise ValueError(f"Unknown service type: {self.ServiceType}")
+
     # Scale the data size by the traffic multiplier
-        data_size *= traffic_multiplier
-        return data_size, interval, delay, jitter, packet_loss_rate
-    
-    def get_traffic_volume(self):
-        # Assuming traffic_volume is calculated as the sum of data sizes from generate_traffic over time
-        traffic_volume = 0
-        traffic_multiplier = 1  # or some other logic to determine the multiplier
+    data_size *= traffic_multiplier
+    return data_size, interval, delay, jitter, packet_loss_rate
 
-        # Generate traffic for a certain number of intervals (for example, 60 intervals for an hour)
-        for _ in range(60):
-            data_size, _, _, _, _ = self.generate_traffic(traffic_multiplier)
-            traffic_volume += data_size
+def get_traffic_volume(self, traffic_controller):
+    # Assuming traffic_volume is calculated as the sum of data sizes from generate_traffic over time
+    traffic_volume = 0
+    traffic_multiplier = 1  # or some other logic to determine the multiplier
 
-        return traffic_volume
-    ####################################################################################
+    # Generate traffic for a certain number of intervals (for example, 60 intervals for an hour)
+    for _ in range(60):
+        data_size, _, _, _, _ = self.generate_traffic(traffic_controller, traffic_multiplier)
+        traffic_volume += data_size
+
+    return traffic_volume
+####################################################################################
     def perform_handover(self, old_cell, new_cell, network_state):
         try:
             # Check if the handover is feasible (this method should be implemented)

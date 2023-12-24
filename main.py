@@ -30,19 +30,13 @@ def network_state_manager(network_state, command_queue):
 ####################################################################################################################################
 def log_traffic(ues, command_queue, traffic_controller):
     while True:
-        # Check for new commands in the queue
         if not command_queue.empty():
             command = command_queue.get()
-            # If a 'restart' command is received, reinitialize the traffic generation
             if command == 'restart':
                 logging.info("Received restart command. Reinitializing traffic generation with updated parameters.")
-                # Reinitialize the UEs or the traffic_controller here with updated parameters
-                # This could involve refreshing the 'ues' list or updating the traffic_controller instance
-                # For example:
-                # ues = traffic_controller.get_updated_ues()
-                # Note: The get_updated_ues method should be implemented in the TrafficController class
-                continue  # Skip the current iteration and start the loop again with updated UEs
-
+                # Use the get_updated_ues method to update the UEs
+                ues = traffic_controller.get_updated_ues()
+                continue
         # Generate traffic using the traffic_controller
         for ue in ues:
             # Assuming generate_traffic is a method of TrafficController that simulates traffic for a UE
