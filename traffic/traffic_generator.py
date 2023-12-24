@@ -5,6 +5,7 @@ import time
 from logs.logger_config import cell_load_logger, cell_logger, gnodeb_logger, ue_logger
 from threading import Lock
 from multiprocessing import Queue
+from network.network_state import NetworkState
 
 class TrafficController:
 
@@ -39,11 +40,20 @@ class TrafficController:
         self.data_delay = 0
         self.data_packet_loss_rate = 0
     
-    def get_updated_ues(self):
-        # Placeholder for the logic to fetch and update UEs with new parameters
-        # This method should return the updated list of UEs
-        # The actual implementation will depend on how UEs are managed in the system
-        pass
+    def get_updated_ues(self, network_state):
+        # Assuming network_state.ues is a dictionary with UE IDs as keys
+        for ue_id, ue in network_state.ues.items():
+            # Update the UE's traffic parameters based on its service type
+            if ue.ServiceType.lower() == 'voice':
+                ue.traffic_params = self.voice_traffic_params
+                ue.jitter = self.voice_jitter
+                ue.delay = self.voice_delay
+                ue.packet_loss_rate = self.voice_packet_loss_rate
+            # Repeat for other service types: video, game, iot, data
+            # ...
+
+        # Return the updated UEs
+        return network_state.ues.values()
     
     def restart_traffic_generation(self):
         with self.lock:

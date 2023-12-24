@@ -28,14 +28,14 @@ def network_state_manager(network_state, command_queue):
         elif command == 'exit':  # Handle exit command to break the loop
             break
 ####################################################################################################################################
-def log_traffic(ues, command_queue, traffic_controller):
+def log_traffic(ues, command_queue, traffic_controller, network_state):
     while True:
         if not command_queue.empty():
             command = command_queue.get()
             if command == 'restart':
                 logging.info("Received restart command. Reinitializing traffic generation with updated parameters.")
                 # Use the get_updated_ues method to update the UEs
-                ues = traffic_controller.get_updated_ues()
+                ues = traffic_controller.get_updated_ues(network_state)
                 continue
         # Generate traffic using the traffic_controller
         for ue in ues:
@@ -104,7 +104,7 @@ def main():
     ns_manager_process.start()
 
     # Start the traffic logging process with the traffic_controller
-    logging_process = Process(target=log_traffic, args=(ues, command_queue, traffic_controller))
+    logging_process = Process(target=log_traffic, args=(ues, command_queue, traffic_controller, network_state))
     logging_process.start()
 
     # Start the cell monitor threads using monitor_and_log_cell_load
