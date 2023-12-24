@@ -28,8 +28,20 @@ def network_state_manager(network_state, command_queue):
         elif command == 'exit':  # Handle exit command to break the loop
             break
 ####################################################################################################################################
-def log_traffic(ues, command_queue, traffic_increase_config=None):
+def log_traffic(ues, command_queue, traffic_controller, traffic_increase_config=None):
     while True:
+        # Check for new commands in the queue
+        if not command_queue.empty():
+            command = command_queue.get()
+            # If a 'restart' command is received, reinitialize the traffic generation
+            if command == 'restart':
+                logging.info("Received restart command. Reinitializing traffic generation with updated parameters.")
+                # Reinitialize the UEs or the traffic_controller here with updated parameters
+                # This could involve refreshing the 'ues' list or updating the traffic_controller instance
+                # For example:
+                # ues = traffic_controller.get_updated_ues()
+                continue  # Skip the current iteration and start the loop again with updated UEs
+
         for ue in ues:
             # Call the generate_traffic method and get the traffic details
             data_size, interval, delay, jitter, packet_loss_rate = ue.generate_traffic()

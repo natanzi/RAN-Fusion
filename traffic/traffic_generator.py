@@ -2,7 +2,7 @@
 # traffic_generator.py in traffic folder
 import random
 import time
-
+from logs.logger_config import cell_load_logger, cell_logger, gnodeb_logger, ue_logger
 class TrafficController:
     def __init__(self):
         # Initialize default traffic parameters
@@ -84,7 +84,7 @@ class TrafficController:
         bitrate = random.uniform(*self.voice_traffic_params['bitrate'])  # in Kbps
         interval = 0.02  # Interval duration in seconds
         data_size = (bitrate * interval) / 8  # Convert to KB
-
+        cell_logger.info(f"Voice Traffic: Data Size: {data_size}KB, Interval: {interval}s, Delay: {self.voice_delay}ms, Jitter: {jitter}ms, Packet Loss Rate: {self.voice_packet_loss_rate}%")
         # Apply jitter
         time.sleep(jitter)
 
@@ -109,6 +109,7 @@ class TrafficController:
             if random.random() < self.video_packet_loss_rate:
                 continue  # Skip this stream due to packet loss
             data_size += (stream_bitrate * interval) / 8  # Convert to MB
+        cell_logger.info(f"Video Traffic: Data Size: {data_size}MB, Streams: {num_streams}, Interval: {interval}s, Delay: {self.video_delay}ms, Jitter: {jitter}ms, Packet Loss Rate: {self.video_packet_loss_rate}%")
 
         return data_size, interval, self.video_delay, jitter, self.video_packet_loss_rate
 
@@ -125,6 +126,7 @@ class TrafficController:
         # Simulate packet loss
         if random.random() < self.gaming_packet_loss_rate:
             data_size = 0  # Packet is lost
+        cell_logger.info(f"Gaming Traffic: Data Size: {data_size}KB, Interval: {interval}s, Delay: {self.gaming_delay}ms, Jitter: {jitter}ms, Packet Loss Rate: {self.gaming_packet_loss_rate}%")
 
         return data_size, interval, self.gaming_delay, jitter, self.gaming_packet_loss_rate
 
@@ -142,6 +144,8 @@ class TrafficController:
         if random.random() < self.iot_packet_loss_rate:
             data_size = 0  # Packet is lost
 
+        cell_logger.info(f"IoT Traffic: Data Size: {data_size}KB, Interval: {interval}s, Delay: {self.iot_delay}ms, Jitter: {jitter}ms, Packet Loss Rate: {self.iot_packet_loss_rate}%")
+
         return data_size, interval, self.iot_delay, jitter, self.iot_packet_loss_rate
 
     def generate_data_traffic(self):
@@ -157,6 +161,8 @@ class TrafficController:
         # Simulate packet loss
         if random.random() < self.data_packet_loss_rate:
             data_size = 0  # Packet is lost
+        
+        cell_logger.info(f"Data Traffic: Data Size: {data_size}MB, Interval: {interval}s, Delay: {self.data_delay}ms, Jitter: {jitter}ms, Packet Loss Rate: {self.data_packet_loss_rate}%")
 
         return data_size, interval, self.data_delay, jitter, self.data_packet_loss_rate
 
