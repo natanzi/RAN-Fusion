@@ -38,9 +38,6 @@ class TrafficController:
         self.data_delay = 0
         self.data_packet_loss_rate = 0
 
-    # Update methods for jitter, delay, and packet loss
-    # ... (existing update methods) ...
-
     # Add a new method to restart the traffic generation
     def restart_traffic_generation(self):
         with self.lock:

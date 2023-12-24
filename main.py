@@ -12,7 +12,7 @@ from health_check.system_monitoring import SystemMonitor
 from database.database_manager import DatabaseManager
 from logs.logger_config import traffic_update
 import threading
-
+from traffic.traffic_generator import TrafficController
 #################################################################################################################################
 # pickled by multiprocessing
 def log_system_resources(system_monitor):
@@ -28,7 +28,7 @@ def network_state_manager(network_state, command_queue):
         elif command == 'exit':  # Handle exit command to break the loop
             break
 ####################################################################################################################################
-def log_traffic(ues, command_queue, traffic_controller, traffic_increase_config=None):
+def log_traffic(ues, command_queue, traffic_controller):
     while True:
         # Check for new commands in the queue
         if not command_queue.empty():
@@ -40,11 +40,13 @@ def log_traffic(ues, command_queue, traffic_controller, traffic_increase_config=
                 # This could involve refreshing the 'ues' list or updating the traffic_controller instance
                 # For example:
                 # ues = traffic_controller.get_updated_ues()
+                # Note: The get_updated_ues method should be implemented in the TrafficController class
                 continue  # Skip the current iteration and start the loop again with updated UEs
 
+        # Generate traffic using the traffic_controller
         for ue in ues:
-            # Call the generate_traffic method and get the traffic details
-            data_size, interval, delay, jitter, packet_loss_rate = ue.generate_traffic()
+            # Assuming generate_traffic is a method of TrafficController that simulates traffic for a UE
+            data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_traffic(ue)
             
             # Format the data size and interval to two decimal places
             formatted_data_size = f"{data_size:.2f}"
@@ -96,6 +98,9 @@ def main():
     traffic_increase_config = {1: 2, 3: 1.5}
 
     command_queue = Queue()
+    
+    # Create an instance of TrafficController and pass the command_queue
+    traffic_controller = TrafficController(command_queue)
 
     # Instantiate the SystemMonitor
     system_monitor = SystemMonitor(network_state)
@@ -104,8 +109,8 @@ def main():
     ns_manager_process = Process(target=network_state_manager, args=(network_state, command_queue))
     ns_manager_process.start()
 
-# Start the traffic logging process
-    logging_process = Process(target=log_traffic, args=(ues, command_queue, traffic_increase_config))
+    # Start the traffic logging process with the traffic_controller
+    logging_process = Process(target=log_traffic, args=(ues, command_queue, traffic_controller))
     logging_process.start()
 
     # Start the cell monitor threads using monitor_and_log_cell_load
