@@ -1,10 +1,12 @@
 # control_app.py in root directory
+from flask_cors import CORS
 from flask import Flask, request
 from traffic.traffic_generator import TrafficController
 from logs.logger_config import setup_logger
 from logs.logger_config import traffic_update
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
 traffic_controller = TrafficController()
 
 def validate_traffic_parameters(params, param_types):
