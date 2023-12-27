@@ -5,6 +5,7 @@ from traffic.traffic_generator import TrafficController
 from logs.logger_config import setup_logger
 from logs.logger_config import traffic_update
 from multiprocessing import Queue
+import traceback
 
 # Create Flask app
 app = Flask(__name__)
