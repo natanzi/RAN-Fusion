@@ -82,6 +82,7 @@ def update_video_traffic():
 
 @app.route('/update_gaming_traffic', methods=['POST'])
 def update_gaming_traffic():
+    print("Received data:", request.json)
     data = request.json
     expected_types = {
         'bitrate_range': list,
@@ -91,6 +92,7 @@ def update_gaming_traffic():
     }
     is_valid, message = validate_traffic_parameters(data, expected_types)
     if not is_valid:
+        print("Validation failed:", message) 
         return {'error': message}, 400
 
     try:
@@ -105,6 +107,8 @@ def update_gaming_traffic():
             return {'error': 'Failed to update parameters', 'acknowledged': False}, 500
     except Exception as e:
         traffic_update.error(f'Failed to update gaming traffic: {e}')
+        print("Exception:", e)
+        print(traceback.format_exc())
         return {'error': str(e), 'acknowledged': False}, 500
 
 @app.route('/update_iot_traffic', methods=['POST'])
