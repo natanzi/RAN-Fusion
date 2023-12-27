@@ -114,7 +114,45 @@ function handleFormSubmit(event) {
         alert('Error updating traffic');
     });
 }
+// Function to handle form submission
+function handleFormSubmit(event) {
+    event.preventDefault();
+    const form = event.target;
+    const formId = form.id;
+    const validation = validateFormData(formId);
 
+    if (!validation.isValid) {
+        alert(validation.errorMessage);
+        return;
+    }
+
+    const data = serializeFormData(form);
+
+    // Log the data to the console before sending it
+    console.log('Data being sent to the server:', data);
+
+    fetch(`/update_${formId.replace('Form', '')}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Success:', data);
+        alert('Traffic updated successfully');
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        alert('Error updating traffic');
+    });
+}
 // Attach event listeners to forms
 document.addEventListener('DOMContentLoaded', function() {
     const forms = document.querySelectorAll('form');
