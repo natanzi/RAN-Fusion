@@ -19,9 +19,9 @@ global traffic_controller
 traffic_controller = TrafficController(command_queue)
 
 def validate_traffic_parameters(params, param_types):
-    for param, param_type in param_types.items():
-        if param not in params or not isinstance(params[param], param_type):
-            return False, f"Invalid or missing parameter: {param}"
+    missing_params = [param for param, param_type in param_types.items() if param not in params or not isinstance(params[param], param_type)]
+    if missing_params:
+        return False, f"Missing or invalid parameters: {', '.join(missing_params)}"
     return True, ""
 
 @app.route('/', methods=['GET'])
