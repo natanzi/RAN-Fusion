@@ -239,19 +239,20 @@ class TrafficController:
     def generate_video_traffic(self):
         time.sleep(self.video_delay)  # Use video-specific delay
         jitter = random.uniform(0, self.video_jitter) if self.video_jitter > 0 else 0
+        # Apply jitter
+        time.sleep(jitter)
+    
         num_streams = random.randint(*self.video_traffic_params['num_streams'])
         data_size = 0  # in MB
         interval = 1  # Interval duration in seconds
         for _ in range(num_streams):
             stream_bitrate = random.uniform(*self.video_traffic_params['stream_bitrate'])  # in Mbps
-            # Apply jitter
-            time.sleep(jitter)
             # Simulate packet loss
             if random.random() < self.video_packet_loss_rate:
                 continue  # Skip this stream due to packet loss
             data_size += (stream_bitrate * interval) / 8  # Convert to MB
-        cell_logger.info(f"Video Traffic: Data Size: {data_size}MB, Streams: {num_streams}, Interval: {interval}s, Delay: {self.video_delay}ms, Jitter: {jitter}ms, Packet Loss Rate: {self.video_packet_loss_rate}%")
-        traffic_update.info(f"Generated video traffic with parameters: {self.video_traffic_params}")
+            cell_logger.info(f"Video Traffic: Data Size: {data_size}MB, Streams: {num_streams}, Interval: {interval}s, Delay: {self.video_delay}ms, Jitter: {jitter}ms, Packet Loss Rate: {self.video_packet_loss_rate}%")
+            traffic_update.info(f"Generated video traffic with parameters: {self.video_traffic_params}")
         return data_size, interval, self.video_delay, jitter, self.video_packet_loss_rate
 
     def generate_gaming_traffic(self):
