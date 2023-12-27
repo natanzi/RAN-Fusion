@@ -223,7 +223,20 @@
                     };
                     sendPostRequest('update_data_traffic', data);
                 });
-        
+                
+                // Function to handle form submission
+                function handleFormSubmit(event, endpoint) {
+                    event.preventDefault();
+                    var formData = $(event.target).serializeArray();
+                    var data = {};
+                    formData.forEach(function(item) {
+                        data[item.name] = item.value;
+                    });
+
+                    sendPostRequest(endpoint, data);
+                }
+                
+                // Function to send POST request
                 function sendPostRequest(endpoint, data) {
                     $.ajax({
                         url: `http://localhost:5000/${endpoint}`,
@@ -231,12 +244,38 @@
                         contentType: 'application/json',
                         data: JSON.stringify(data),
                         success: function(response) {
-                            alert('Traffic updated successfully');
+                            console.log('Success:', response.message);
+                            alert('Traffic updated successfully'); // Consider replacing with a more dynamic feedback mechanism
                         },
-                        error: function(response) {
-                            alert('Error updating traffic');
+                        error: function(xhr, status, error) {
+                            console.error('Error:', xhr.responseText);
+                            alert('Error updating traffic'); // Consider replacing with a more dynamic feedback mechanism
                         }
                     });
                 }
-            });
-        </script>
+
+                // Event listeners for forms
+                $('#voiceTrafficForm').submit(function(event) {
+                    handleFormSubmit(event, 'update_voice_traffic');
+                });
+
+                $('#videoTrafficForm').submit(function(event) {
+                    handleFormSubmit(event, 'update_video_traffic');
+                });
+
+                $('#gamingTrafficForm').submit(function(event) {
+                    handleFormSubmit(event, 'update_gaming_traffic');
+                });
+
+                $('#iotTrafficForm').submit(function(event) {
+                    handleFormSubmit(event, 'update_iot_traffic');
+                });
+
+                $('#dataTrafficForm').submit(function(event) {
+                    handleFormSubmit(event, 'update_data_traffic');
+                });
+                });
+</script>
+    </div>
+</body>
+</html>

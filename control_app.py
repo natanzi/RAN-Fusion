@@ -1,21 +1,20 @@
 # control_app.py in root directory
 from flask_cors import CORS
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from traffic.traffic_generator import TrafficController
 from logs.logger_config import setup_logger
 from logs.logger_config import traffic_update
 from multiprocessing import Queue
+
+# Create Flask app
+app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
 
 # Assuming command_queue is made accessible here, for example, as a global variable
 command_queue = Queue()
 
 # Ensure TrafficController instance is accessible here, possibly as a global or through an application context
 global traffic_controller
-
-app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
-
-# Pass the command_queue to the TrafficController
 traffic_controller = TrafficController(command_queue)
 
 def validate_traffic_parameters(params, param_types):
