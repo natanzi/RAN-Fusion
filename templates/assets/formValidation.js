@@ -115,30 +115,6 @@ function handleFormSubmit(event) {
     });
 }
 
-    // Replace '/your-endpoint' with the correct server endpoint
-    fetch(`/update_${formId.replace('Form', '')}`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log('Success:', data);
-        alert('Traffic updated successfully');
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-        alert('Error updating traffic');
-    });
-
-
 // Attach event listeners to forms
 document.addEventListener('DOMContentLoaded', function() {
     const forms = document.querySelectorAll('form');
