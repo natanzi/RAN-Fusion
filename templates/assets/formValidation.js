@@ -64,14 +64,25 @@ function validateFormData(formId) {
             isValid = false;
         }
     }
-
+    
+function serializeFormData(form) {
+        const formData = new FormData(form);
+        const data = {};
+    
+        for (const [key, value] of formData.entries()) {
+            data[key] = value;
+        }
+    
+        return data;
+    }  
     return { isValid, errorMessage };
 }
 
 // Function to handle form submission
 function handleFormSubmit(event) {
     event.preventDefault();
-    const formId = event.target.id;
+    const form = event.target;
+    const formId = form.id;
     const validation = validateFormData(formId);
 
     if (!validation.isValid) {
@@ -79,12 +90,30 @@ function handleFormSubmit(event) {
         return;
     }
 
-    const formData = new FormData(event.target);
-    const data = {};
+    const data = serializeFormData(form);
 
-    for (const [key, value] of formData.entries()) {
-        data[key] = value;
-    }
+    fetch(`/update_${formId.replace('Form', '')}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Success:', data);
+        alert('Traffic updated successfully');
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        alert('Error updating traffic');
+    });
+}
 
     // Replace '/your-endpoint' with the correct server endpoint
     fetch(`/update_${formId.replace('Form', '')}`, {
@@ -108,7 +137,7 @@ function handleFormSubmit(event) {
         console.error('Error:', error);
         alert('Error updating traffic');
     });
-}
+
 
 // Attach event listeners to forms
 document.addEventListener('DOMContentLoaded', function() {
