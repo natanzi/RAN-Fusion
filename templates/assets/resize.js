@@ -50,9 +50,28 @@ function serializeForm(formId) {
 
     for (var i = 0; i < elements.length; i++) {
         if (elements[i].type !== 'submit') {
-            data[elements[i].id] = elements[i].value;
+            var value = elements[i].value;
+            // Parse numerical values appropriately
+            if (elements[i].type === 'number') {
+                value = elements[i].step && elements[i].step.indexOf('.') >= 0 ? parseFloat(value) : parseInt(value, 10);
+            }
+            data[elements[i].id] = value;
         }
     }
+
+    // Adjust the data structure for specific forms to match server expectations
+    switch(formId) {
+        case 'gamingTrafficForm':
+            data = {
+                bitrate_range: [data.gaming_min_bitrate, data.gaming_max_bitrate],
+                jitter: data.gaming_jitter,
+                delay: data.gaming_delay,
+                packet_loss_rate: data.gaming_packet_loss_rate
+            };
+            break;
+        // Add similar adjustments for other forms if necessary
+    }
+
     return data;
 }
 
@@ -64,7 +83,7 @@ function validatePayload(data) {
 }
 
 function sendPostRequest(endpoint, data) {
-    fetch(endpoint, {
+    fetch(`http://127.0.0.1:5000/${endpoint}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -72,6 +91,12 @@ function sendPostRequest(endpoint, data) {
         body: JSON.stringify(data)
     })
     .then(response => response.json())
-    .then(data => console.log('Success:', data))
-    .catch(error => console.error('Error:', error));
+    .then(data => {
+        console.log('Success:', data);
+        alert('Traffic updated successfully');
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error updating traffic');
+    });
 }

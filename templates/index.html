@@ -151,69 +151,69 @@
 
 
         <script>
-            $(document).ready(function() {
-                // Voice Traffic Form Handler
-                $('#voiceTrafficForm').submit(function(event) {
-                    event.preventDefault();
-                    var data = {
-                        "bitrate_range": [parseInt($('#voice_min_bitrate').val()), parseInt($('#voice_max_bitrate').val())],
-                        "jitter": parseFloat($('#voice_jitter').val()),
-                        "delay": parseFloat($('#voice_delay').val()),
-                        "packet_loss_rate": parseFloat($('#voice_packet_loss_rate').val())
-                    };
-                    sendPostRequest('update_voice_traffic', data);
-                });
+            $('#voiceTrafficForm').submit(function(event) {
+                event.preventDefault();
+                var voiceData = {
+                    "bitrate_range": [parseInt($('#voice_min_bitrate').val(), 10), parseInt($('#voice_max_bitrate').val(), 10)],
+                    "jitter": parseFloat($('#voice_jitter').val()),
+                    "delay": parseFloat($('#voice_delay').val()),
+                    "packet_loss_rate": parseFloat($('#voice_packet_loss_rate').val())
+                };
+                sendPostRequest('update_voice_traffic', voiceData);
+            });
         
                 // Video Traffic Form Handler
                 $('#videoTrafficForm').submit(function(event) {
                     event.preventDefault();
-                    var data = {
-                        "num_streams_range": [parseInt($('#video_min_streams').val()), parseInt($('#video_max_streams').val())],
-                        "stream_bitrate_range": [parseInt($('#video_min_bitrate').val()), parseInt($('#video_max_bitrate').val())],
+                    var videoData = {
+                        "num_streams_range": [parseInt($('#video_min_streams').val(), 10), parseInt($('#video_max_streams').val(), 10)],
+                        "stream_bitrate_range": [parseInt($('#video_min_bitrate').val(), 10), parseInt($('#video_max_bitrate').val(), 10)],
                         "jitter": parseFloat($('#video_jitter').val()),
                         "delay": parseFloat($('#video_delay').val()),
                         "packet_loss_rate": parseFloat($('#video_packet_loss_rate').val())
-                    };
-                    sendPostRequest('update_video_traffic', data);
-                });
+                };
+                sendPostRequest('update_video_traffic', videoData);
+            });
         
                 // Gaming Traffic Form Handler
                 $('#gamingTrafficForm').submit(function(event) {
                     event.preventDefault();
-                    var data = {
-                        "bitrate_range": [parseInt($('#gaming_min_bitrate').val()), parseInt($('#gaming_max_bitrate').val())],
+                    var gamingData = {
+                        "bitrate_range": [parseInt($('#gaming_min_bitrate').val(), 10), parseInt($('#gaming_max_bitrate').val(), 10)],
                         "jitter": parseFloat($('#gaming_jitter').val()),
                         "delay": parseFloat($('#gaming_delay').val()),
                         "packet_loss_rate": parseFloat($('#gaming_packet_loss_rate').val())
-                    };
-                    sendPostRequest('update_gaming_traffic', data);
+                };
+                    sendPostRequest('update_gaming_traffic', gamingData);
                 });
         
                 // IoT Traffic Form Handler
                 $('#iotTrafficForm').submit(function(event) {
                     event.preventDefault();
-                    var data = {
-                        "packet_size_range": [parseInt($('#iot_min_packet_size').val()), parseInt($('#iot_max_packet_size').val())],
-                        "interval_range": [parseInt($('#iot_min_interval').val()), parseInt($('#iot_max_interval').val())],
+                    var iotData = {
+                        "packet_size_range": [parseInt($('#iot_min_packet_size').val(), 10), parseInt($('#iot_max_packet_size').val(), 10)],
+                        "interval_range": [parseInt($('#iot_min_interval').val(), 10), parseInt($('#iot_max_interval').val(), 10)],
                         "jitter": parseFloat($('#iot_jitter').val()),
                         "delay": parseFloat($('#iot_delay').val()),
                         "packet_loss_rate": parseFloat($('#iot_packet_loss_rate').val())
                 };
-                    sendPostRequest('update_iot_traffic', data);
+                    sendPostRequest('update_iot_traffic', iotData);
                 });
+
         
                 // Data Traffic Form Handler
                 $('#dataTrafficForm').submit(function(event) {
                     event.preventDefault();
-                    var data = {
-                        "bitrate_range": [parseInt($('#data_min_bitrate').val()), parseInt($('#data_max_bitrate').val())],
-                        "interval_range": [parseInt($('#data_min_interval').val()), parseInt($('#data_max_interval').val())],
+                    var dataTrafficData = {
+                        "bitrate_range": [parseInt($('#data_min_bitrate').val(), 10), parseInt($('#data_max_bitrate').val(), 10)],
+                        "interval_range": [parseInt($('#data_min_interval').val(), 10), parseInt($('#data_max_interval').val(), 10)],
                         "jitter": parseFloat($('#data_jitter').val()),
                         "delay": parseFloat($('#data_delay').val()),
                         "packet_loss_rate": parseFloat($('#data_packet_loss_rate').val())
                 };
-                    sendPostRequest('update_data_traffic', data);
+                    sendPostRequest('update_data_traffic', dataTrafficData);
                 });
+
                 
                 // Function to handle form submission
                 function handleFormSubmit(event, endpoint) {

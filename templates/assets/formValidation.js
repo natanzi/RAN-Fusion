@@ -1,4 +1,4 @@
-// Function to validate numerical input within a range
+// formValidation.js///Function to validate numerical input within a range
 function validateRangeInput(value, min, max) {
     return value >= min && value <= max;
 }
@@ -131,11 +131,11 @@ function handleFormSubmit(event) {
         };
     }
 
-    // Log the data to the console before sending it
+// Log the data to the console before sending it
 console.log('Data being sent to the server:', data);
 
-// Construct the correct endpoint based on the formId
-const service = formId.replace('Form', ''); // This should match the naming convention used in Flask routes
+// Correct the endpoint based on the formId
+const service = formId.replace('Form', '').toLowerCase(); // Ensure it matches the Flask route naming
 const endpoint = `http://127.0.0.1:5000/update_${service}_traffic`;
 
 fetch(endpoint, {
@@ -155,10 +155,10 @@ fetch(endpoint, {
     console.log('Success:', data);
     alert('Traffic updated successfully');
 })
-    .catch((error) => {
-        console.error('Error:', error);
-        alert('Error updating traffic');
-    });
+.catch((error) => {
+    console.error('Error:', error);
+    alert('Error updating traffic');
+});
 }
 
 // Attach event listeners to forms
