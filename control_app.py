@@ -1,15 +1,12 @@
 # control_app.py in root directory
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 from flask import Flask, request, jsonify
 from traffic.traffic_generator import TrafficController
 from logs.logger_config import setup_logger
 from logs.logger_config import traffic_update,server_logger 
 from multiprocessing import Queue
 import traceback
-import logging
 
-# Set up logging
-logging.basicConfig(filename='server.log', level=logging.INFO)
 
 # Create Flask app
 app = Flask(__name__)
@@ -86,6 +83,7 @@ def update_video_traffic():
         return {'error': str(e), 'acknowledged': False}, 500
 
 @app.route('/update_gaming_traffic', methods=['POST'])
+@cross_origin()
 def update_gaming_traffic():
     app.logger.info('Processing request for /some_endpoint')
     print("Received data:", request.json)
