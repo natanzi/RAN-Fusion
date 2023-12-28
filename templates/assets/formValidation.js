@@ -32,18 +32,46 @@ function validateFormData(formId) {
         const maxStreams = parseInt(document.getElementById('video_max_streams').value, 10);
         const minBitrate = parseInt(document.getElementById('video_min_bitrate').value, 10);
         const maxBitrate = parseInt(document.getElementById('video_max_bitrate').value, 10);
+        const jitter = parseFloat(document.getElementById('video_jitter').value); // Assuming there is an input with id 'video_jitter'
         if (!validateRangeInput(minStreams, 1, 5) || !validateRangeInput(maxStreams, 1, 5) ||
-            !validateRangeInput(minBitrate, 3, 8) || !validateRangeInput(maxBitrate, 3, 8)) {
-            errorMessage = 'Number of streams must be between 1 and 5, and bitrate must be between 3 and 8 Mbps.';
+            !validateRangeInput(minBitrate, 3, 8) || !validateRangeInput(maxBitrate, 3, 8) ||
+            isNaN(jitter)) { // Add validation for jitter if needed
+            errorMessage = 'Number of streams must be between 1 and 5, bitrate must be between 3 and 8 Mbps, and jitter must be a valid number.';
             isValid = false;
         }
+    
     } else if (formId === 'gamingTrafficForm') {
         const minBitrate = parseInt(document.getElementById('gaming_min_bitrate').value, 10);
         const maxBitrate = parseInt(document.getElementById('gaming_max_bitrate').value, 10);
-        if (!validateRangeInput(minBitrate, 30, 70) || !validateRangeInput(maxBitrate, 30, 70)) {
-            errorMessage = 'Bitrate for gaming traffic must be between 30 and 70 Mbps.';
+        const jitter = parseFloat(document.getElementById('gaming_jitter').value);
+        const delay = parseFloat(document.getElementById('gaming_delay').value);
+        const packetLossRate = parseFloat(document.getElementById('gaming_packet_loss_rate').value);
+
+        if (!validateRangeInput(minBitrate, 30, 70)) {
+            errorMessage = 'Minimum bitrate for gaming traffic must be between 30 and 70 Mbps.';
             isValid = false;
         }
+        if (!validateRangeInput(maxBitrate, 30, 70)) {
+            errorMessage += errorMessage ? '\n' : '';
+            errorMessage += 'Maximum bitrate for gaming traffic must be between 30 and 70 Mbps.';
+            isValid = false;
+        }
+        if (!validateRangeInput(jitter, 0, 100)) {
+            errorMessage += errorMessage ? '\n' : '';
+            errorMessage += 'Jitter for gaming traffic must be between 0 and 100 ms.';
+            isValid = false;
+        }
+        if (!validateRangeInput(delay, 0, 1000)) {
+            errorMessage += errorMessage ? '\n' : '';
+            errorMessage += 'Delay for gaming traffic must be between 0 and 1000 ms.';
+            isValid = false;
+        }
+        if (!validateRangeInput(packetLossRate, 0, 1)) {
+            errorMessage += errorMessage ? '\n' : '';
+            errorMessage += 'Packet loss rate for gaming traffic must be between 0 and 1.';
+            isValid = false;
+        }
+    
     } else if (formId === 'iotTrafficForm') {
         const minPacketSize = parseInt(document.getElementById('iot_min_packet_size').value, 10);
         const maxPacketSize = parseInt(document.getElementById('iot_max_packet_size').value, 10);
@@ -54,7 +82,8 @@ function validateFormData(formId) {
             isValid = false;
         }
         if (!validateRangeInput(minInterval, 1, 60) || !validateRangeInput(maxInterval, 1, 60)) {
-            errorMessage += '\nInterval for IoT traffic must be between 1 and 60 seconds.';
+            errorMessage += errorMessage ? '\n' : '';
+            errorMessage += 'Interval for IoT traffic must be between 1 and 60 seconds.';
             isValid = false;
         }
     } else if (formId === 'dataTrafficForm') {
@@ -62,18 +91,18 @@ function validateFormData(formId) {
         const maxBitrate = parseInt(document.getElementById('data_max_bitrate').value, 10);
         const minInterval = parseInt(document.getElementById('data_min_interval').value, 10);
         const maxInterval = parseInt(document.getElementById('data_max_interval').value, 10);
+        // Add any additional validations if the backend expects more parameters
         if (!validateRangeInput(minBitrate, 10, 1000) || !validateRangeInput(maxBitrate, 10, 1000)) {
             errorMessage = 'Bitrate for data traffic must be between 10 and 1000 Mbps.';
             isValid = false;
         }
         if (!validateRangeInput(minInterval, 1, 60) || !validateRangeInput(maxInterval, 1, 60)) {
-            if (errorMessage.length > 0) {
-                errorMessage += '\n';
-            }
+            errorMessage += errorMessage ? '\n' : '';
             errorMessage += 'Interval for data traffic must be between 1 and 60 seconds.';
             isValid = false;
         }
     }
+
 
     return { isValid, errorMessage };
 }
