@@ -50,16 +50,12 @@ function serializeForm(formId) {
 
     for (var i = 0; i < elements.length; i++) {
         if (elements[i].type !== 'submit') {
-            var value = elements[i].value;
-            // Parse numerical values appropriately
-            if (elements[i].type === 'number') {
-                value = elements[i].step && elements[i].step.indexOf('.') >= 0 ? parseFloat(value) : parseInt(value, 10);
-            }
-            data[elements[i].id] = value;
+            // Parsing numerical values as floats for precision
+            data[elements[i].id] = elements[i].type === 'number' ? parseFloat(elements[i].value) : elements[i].value;
         }
     }
 
-    // Adjust the data structure for specific forms to match server expectations
+    // Adjusting the data structure based on the formId
     switch(formId) {
         case 'gamingTrafficForm':
             data = {
@@ -69,7 +65,42 @@ function serializeForm(formId) {
                 packet_loss_rate: data.gaming_packet_loss_rate
             };
             break;
-        // Add similar adjustments for other forms if necessary
+        case 'videoTrafficForm':
+            data = {
+                num_streams_range: [data.video_min_streams, data.video_max_streams],
+                stream_bitrate_range: [data.video_min_bitrate, data.video_max_bitrate],
+                jitter: data.video_jitter,
+                delay: data.video_delay,
+                packet_loss_rate: data.video_packet_loss_rate
+            };
+            break;
+        case 'voiceTrafficForm':
+            data = {
+                bitrate_range: [data.voice_min_bitrate, data.voice_max_bitrate],
+                jitter: data.voice_jitter,
+                delay: data.voice_delay,
+                packet_loss_rate: data.voice_packet_loss_rate
+            };
+            break;
+        case 'iotTrafficForm':
+            data = {
+                packet_size_range: [data.iot_min_packet_size, data.iot_max_packet_size],
+                interval_range: [data.iot_min_interval, data.iot_max_interval],
+                jitter: data.iot_jitter,
+                delay: data.iot_delay,
+                packet_loss_rate: data.iot_packet_loss_rate
+            };
+            break;
+        case 'dataTrafficForm':
+            data = {
+                bitrate_range: [data.data_min_bitrate, data.data_max_bitrate],
+                interval_range: [data.data_min_interval, data.data_max_interval],
+                jitter: data.data_jitter,
+                delay: data.data_delay,
+                packet_loss_rate: data.data_packet_loss_rate
+            };
+            break;
+        // Add any additional form adjustments here if needed
     }
 
     return data;
