@@ -134,10 +134,9 @@ function handleFormSubmit(event) {
 // Log the data to the console before sending it
 console.log('Data being sent to the server:', data);
 
-// Correct the endpoint based on the formId
-const service = formId.replace('Form', '').toLowerCase(); // Ensure it matches the Flask route naming
-const endpoint = `http://127.0.0.1:5000/update_${service}_traffic`;
-
+//endpoint based on the formId
+const service = formId.replace('Form', ''); // Remove 'Form', resulting in 'Gaming' or 'Voice'
+const endpoint = `http://127.0.0.1:5000/update_${service.toLowerCase()}_traffic`; // Correctly appends '_traffic' after making the service lowercase
 fetch(endpoint, {
     method: 'POST',
     headers: {

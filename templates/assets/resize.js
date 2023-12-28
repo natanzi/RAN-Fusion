@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 var data = serializeForm(formId);
 
                 try {
-                    validatePayload(data);
+                    validatePayload(data, formId); // Pass formId as an argument
                     sendPostRequest('/update_' + formId.replace('TrafficForm', ''), data);
                 } catch (error) {
                     console.error('Validation Error:', error);
@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
 function validatePayload(data, formId) {
     // Common validation for all forms
     if ('bitrate_range' in data && (!Array.isArray(data.bitrate_range) || data.bitrate_range.length !== 2 || data.bitrate_range.some(isNaN))) {
@@ -145,13 +146,18 @@ function sendPostRequest(endpoint, data) {
         },
         body: JSON.stringify(data)
     })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok: ' + response.statusText);
+        }
+        return response.json();
+    })
     .then(data => {
         console.log('Success:', data);
         alert('Traffic updated successfully');
     })
     .catch(error => {
         console.error('Error:', error);
-        alert('Error updating traffic');
+        alert('Error updating traffic: ' + error.message);
     });
 }

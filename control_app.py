@@ -3,9 +3,13 @@ from flask_cors import CORS
 from flask import Flask, request, jsonify
 from traffic.traffic_generator import TrafficController
 from logs.logger_config import setup_logger
-from logs.logger_config import traffic_update
+from logs.logger_config import traffic_update,server_logger 
 from multiprocessing import Queue
 import traceback
+import logging
+
+# Set up logging
+logging.basicConfig(filename='server.log', level=logging.INFO)
 
 # Create Flask app
 app = Flask(__name__)
@@ -83,6 +87,7 @@ def update_video_traffic():
 
 @app.route('/update_gaming_traffic', methods=['POST'])
 def update_gaming_traffic():
+    app.logger.info('Processing request for /some_endpoint')
     print("Received data:", request.json)
     data = request.json
     expected_types = {
