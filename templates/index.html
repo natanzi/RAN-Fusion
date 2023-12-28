@@ -73,6 +73,7 @@
             <!-- Min Bitrate with placeholder and title for range information -->
             <label for="gaming_min_bitrate">Min Bitrate (30-70 Mbps):</label>
             <input type="number" id="gaming_min_bitrate" name="gaming_min_bitrate" placeholder="30-70 Mbps, e.g., 35" required title="Range: 30-70 Mbps, just enter the number like 35" min="30" max="70"><br>
+            <input type="number" id="gaming_max_bitrate" name="bitrate_range_max" placeholder="30-70 Mbps, e.g., 65" required min="30" max="70">
 
             <!-- Max Bitrate with placeholder and title for range information -->
             <label for="gaming_max_bitrate">Max Bitrate (30-70 Mbps):</label>
@@ -90,7 +91,6 @@
 
             <button type="submit">Update Gaming Traffic</button>
         </form>
-
 
         <!-- IoT Traffic Form -->
         <form id="iotTrafficForm">
@@ -198,7 +198,7 @@
                         "jitter": parseFloat($('#iot_jitter').val()),
                         "delay": parseFloat($('#iot_delay').val()),
                         "packet_loss_rate": parseFloat($('#iot_packet_loss_rate').val())
-                    };
+                };
                     sendPostRequest('update_iot_traffic', data);
                 });
         
@@ -211,7 +211,7 @@
                         "jitter": parseFloat($('#data_jitter').val()),
                         "delay": parseFloat($('#data_delay').val()),
                         "packet_loss_rate": parseFloat($('#data_packet_loss_rate').val())
-                    };
+                };
                     sendPostRequest('update_data_traffic', data);
                 });
                 
@@ -227,24 +227,23 @@
                     sendPostRequest(endpoint, data);
                 }
                 
-                // Function to send POST request
+                        // Function to send POST request
                 function sendPostRequest(endpoint, data) {
                     $.ajax({
-                        url: `http://localhost:5000/${endpoint}`,
-                        type: 'POST',
-                        contentType: 'application/json',
-                        data: JSON.stringify(data),
-                        success: function(response) {
-                            console.log('Success:', response.message);
-                            alert('Traffic updated successfully'); // Consider replacing with a more dynamic feedback mechanism
-                        },
-                        error: function(xhr, status, error) {
-                            console.error('Error:', xhr.responseText);
-                            alert('Error updating traffic'); // Consider replacing with a more dynamic feedback mechanism
-                        }
-                    });
+                    url: `http://localhost:5000/${endpoint}`,
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(data),
+                    success: function(response) {
+                        console.log('Success:', response.message);
+                        alert('Traffic updated successfully');
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error:', xhr.responseText);
+                    alert('Error updating traffic');
                 }
-
+            });
+        }
                 // Event listeners for forms
                 $('#voiceTrafficForm').submit(function(event) {
                     handleFormSubmit(event, 'update_voice_traffic');

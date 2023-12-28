@@ -1,8 +1,18 @@
-// formValidation.js
-
 // Function to validate numerical input within a range
 function validateRangeInput(value, min, max) {
     return value >= min && value <= max;
+}
+
+// Function to serialize form data
+function serializeFormData(form) {
+    const formData = new FormData(form);
+    const data = {};
+
+    for (const [key, value] of formData.entries()) {
+        data[key] = value;
+    }
+
+    return data;
 }
 
 // Function to validate form data
@@ -47,10 +57,7 @@ function validateFormData(formId) {
             errorMessage += '\nInterval for IoT traffic must be between 1 and 60 seconds.';
             isValid = false;
         }
-    }
-    
-    // Add validation for Data form
-    if (formId === 'dataTrafficForm') {
+    } else if (formId === 'dataTrafficForm') {
         const minBitrate = parseInt(document.getElementById('data_min_bitrate').value, 10);
         const maxBitrate = parseInt(document.getElementById('data_max_bitrate').value, 10);
         const minInterval = parseInt(document.getElementById('data_min_interval').value, 10);
@@ -60,60 +67,17 @@ function validateFormData(formId) {
             isValid = false;
         }
         if (!validateRangeInput(minInterval, 1, 60) || !validateRangeInput(maxInterval, 1, 60)) {
-            errorMessage += '\nInterval for data traffic must be between 1 and 60 seconds.';
+            if (errorMessage.length > 0) {
+                errorMessage += '\n';
+            }
+            errorMessage += 'Interval for data traffic must be between 1 and 60 seconds.';
             isValid = false;
         }
     }
-    
-function serializeFormData(form) {
-        const formData = new FormData(form);
-        const data = {};
-    
-        for (const [key, value] of formData.entries()) {
-            data[key] = value;
-        }
-    
-        return data;
-    }  
+
     return { isValid, errorMessage };
 }
-
-// Function to handle form submission
-function handleFormSubmit(event) {
-    event.preventDefault();
-    const form = event.target;
-    const formId = form.id;
-    const validation = validateFormData(formId);
-
-    if (!validation.isValid) {
-        alert(validation.errorMessage);
-        return;
-    }
-
-    const data = serializeFormData(form);
-
-    fetch(`/update_${formId.replace('Form', '')}`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log('Success:', data);
-        alert('Traffic updated successfully');
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-        alert('Error updating traffic');
-    });
-}
+    
 // Function to handle form submission
 function handleFormSubmit(event) {
     event.preventDefault();
@@ -153,6 +117,7 @@ function handleFormSubmit(event) {
         alert('Error updating traffic');
     });
 }
+
 // Attach event listeners to forms
 document.addEventListener('DOMContentLoaded', function() {
     const forms = document.querySelectorAll('form');
