@@ -30,6 +30,7 @@ def index():
     return 'Welcome to the 5G RAN Simulator!', 200
 
 @app.route('/update_voice_traffic', methods=['POST'])
+@cross_origin()
 def update_voice_traffic():
     data = request.json
     expected_types = {
@@ -55,6 +56,7 @@ def update_voice_traffic():
         return {'error': str(e), 'acknowledged': False}, 500
 
 @app.route('/update_video_traffic', methods=['POST'])
+@cross_origin()
 def update_video_traffic():
     data = request.json
     expected_types = {
@@ -116,6 +118,7 @@ def update_gaming_traffic():
         return {'error': str(e), 'acknowledged': False}, 500
 
 @app.route('/update_iot_traffic', methods=['POST'])
+@cross_origin()
 def update_iot_traffic():
     data = request.json
     expected_types = {
@@ -144,6 +147,7 @@ def update_iot_traffic():
         return {'error': str(e), 'acknowledged': False}, 500
 
 @app.route('/update_data_traffic', methods=['POST'])
+@cross_origin()
 def update_data_traffic():
     data = request.json
     expected_types = {
