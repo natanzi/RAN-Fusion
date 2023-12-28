@@ -119,12 +119,22 @@ function handleFormSubmit(event) {
         return;
     }
 
-    const data = serializeFormData(form);
+    let data = serializeFormData(form);
+
+     // Adjust the keys for gaming traffic form
+    if (formId === 'gamingTrafficForm') {
+        data = {
+            bitrate_range: [parseInt(data.gaming_min_bitrate, 10), parseInt(data.gaming_max_bitrate, 10)],
+            jitter: parseFloat(data.gaming_jitter),
+            delay: parseFloat(data.gaming_delay),
+            packet_loss_rate: parseFloat(data.gaming_packet_loss_rate)
+        };
+    }
 
     // Log the data to the console before sending it
     console.log('Data being sent to the server:', data);
 
-    fetch(`/update_${formId.replace('Form', '')}`, {
+    fetch(`http://127.0.0.1:5000/update_${formId.replace('Form', '')}_traffic`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
