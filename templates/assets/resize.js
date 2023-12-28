@@ -42,6 +42,37 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+function validatePayload(data, formId) {
+    // Common validation for all forms
+    if ('bitrate_range' in data && (!Array.isArray(data.bitrate_range) || data.bitrate_range.length !== 2 || data.bitrate_range.some(isNaN))) {
+        throw new Error("Bitrate range must be an array of two numbers.");
+    }
+    if ('jitter' in data && typeof data.jitter !== 'number') {
+        throw new Error("Jitter must be a number.");
+    }
+    if ('delay' in data && typeof data.delay !== 'number') {
+        throw new Error("Delay must be a number.");
+    }
+    if ('packet_loss_rate' in data && typeof data.packet_loss_rate !== 'number') {
+        throw new Error("Packet loss rate must be a number.");
+    }
+
+    // Specific validation for video traffic form
+    if (formId === 'videoTrafficForm') {
+        if (!Array.isArray(data.num_streams_range) || data.num_streams_range.length !== 2 || data.num_streams_range.some(isNaN)) {
+            throw new Error("Number of streams range must be an array of two numbers.");
+        }
+        if (!Array.isArray(data.stream_bitrate_range) || data.stream_bitrate_range.length !== 2 || data.stream_bitrate_range.some(isNaN)) {
+            throw new Error("Stream bitrate range must be an array of two numbers.");
+        }
+    }
+
+    // Add additional specific validations for other forms if necessary
+    // ...
+
+    // If all validations pass, return true
+    return true;
+}
 
 function serializeForm(formId) {
     var form = document.getElementById(formId);
@@ -104,13 +135,6 @@ function serializeForm(formId) {
     }
 
     return data;
-}
-
-function validatePayload(data) {
-    // Implement specific validation logic here
-    // Throw an error if validation fails
-    // Example: if (!data.bitrate_range) throw new Error("Bitrate range is required.");
-    // Return nothing if validation passes
 }
 
 function sendPostRequest(endpoint, data) {
