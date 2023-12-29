@@ -237,7 +237,7 @@
                         // Function to send POST request
                 function sendPostRequest(endpoint, data) {
                     $.ajax({
-                    url: `http://localhost:5000/${endpoint}`,
+                    url: `http://localhost:5000${endpoint}`,
                     type: 'POST',
                     contentType: 'application/json',
                     data: JSON.stringify(data),
