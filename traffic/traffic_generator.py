@@ -19,7 +19,8 @@ class TrafficController:
         self.gaming_traffic_params = {'bitrate': (30, 70)}  # in Kbps
         self.iot_traffic_params = {'packet_size': (5, 15), 'interval': (10, 60)}  # packet size in KB, interval in seconds
         self.data_traffic_params = {'bitrate': (1, 10), 'interval': (0.5, 2)}  # in Mbps
-        self.is_updated = False
+        self.updated_parameters = {}  # Add this to store updated parameters
+        self.is_updated = False       # Add this flag to track updates
 
         # Initialize jitter, delay, and packet loss for each traffic type
         self.voice_jitter = 0
@@ -123,7 +124,14 @@ class TrafficController:
             if command == 'restart':
                 traffic_controller.restart_traffic_generation()
                 traffic_update.info("Handled 'restart' command.")
+    
+    def update_parameters(self, new_params):
+        self.updated_parameters = new_params
+        self.is_updated = True
 
+    def parameters_updated(self):
+        return self.is_updated    
+    
     def generate_traffic(self, ue):
         from network.ue import UE
         # Determine the type of traffic to generate based on the UE's service type
