@@ -131,13 +131,13 @@ function handleFormSubmit(event) {
         };
     }
 
-// Log the data to the console before sending it
+// Log the data to the server before sending it
 console.log('Data being sent to the server:', data);
 
-//endpoint based on the formId
+// Endpoint based on the formId
 const service = formId.replace('Form', '');
 // Ensure the service name is formatted correctly to match the Flask route
-const formattedServiceName = service.charAt(0).toLowerCase() + service.slice(1);
+const formattedServiceName = service.replace(/([A-Z])/g, '_$1').toLowerCase(); // Converts 'gamingTraffic' to 'gaming_traffic'
 const endpoint = `http://127.0.0.1:5000/update_${formattedServiceName}_traffic`;
 
 fetch(endpoint, {
