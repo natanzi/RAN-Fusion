@@ -3,7 +3,6 @@ from datetime import datetime
 import logging
 from .cell import Cell
 from .network_state import NetworkState
-from traffic.network_metrics import calculate_cell_throughput  # If needed
 from logs.logger_config import cell_load_logger, cell_logger, gnodeb_logger, ue_logger
 from database.database_manager import DatabaseManager
 import time

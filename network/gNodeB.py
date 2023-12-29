@@ -10,7 +10,6 @@ from network.cell import Cell
 from network.init_cell import initialize_cells
 from .init_cell import load_json_config
 from network.network_state import NetworkState
-from traffic.network_metrics import calculate_cell_load
 from time import sleep
 from logs.logger_config import cell_logger, gnodeb_logger
 from datetime import datetime
