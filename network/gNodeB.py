@@ -206,7 +206,9 @@ class gNodeB:
             # Assume a function to calculate UE throughput exists
             ue_throughput = self.calculate_ue_throughput(ue)
             total_throughput += ue_throughput
-        throughput_based_load = total_throughput / cell.MaxThroughput if cell.MaxThroughput > 0 else 0
+        # Convert MaxThroughput to bytes (100 MB = 100 * 1024 * 1024 bytes)
+        max_throughput_bytes = 100 * 1024 * 1024
+        throughput_based_load = total_throughput / max_throughput_bytes if cell.MaxThroughput > 0 else 0
 
         # Calculate quality metrics (jitter, packet loss, delay)
         jitter = self.calculate_jitter(cell)
@@ -217,7 +219,10 @@ class gNodeB:
         # Combine all loads with appropriate weights
         combined_load = (0.4 * ue_based_load) + (0.4 * throughput_based_load) + (0.2 * quality_metric_load)
 
-        return combined_load
+        # Convert combined load to a percentage
+        combined_load_percentage = combined_load * 100
+
+        return combined_load_percentage
 ##########################################################################################################################
     def find_underloaded_cell(self):
         underloaded_cell = None
