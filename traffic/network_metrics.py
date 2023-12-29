@@ -56,17 +56,18 @@ def find_cell_by_id(cell_id, gnodebs):
                 return cell
     return None
 ################################################################################################
-# Calculate the throughput for a UE based on traffic generation
-def calculate_and_write_ue_throughput(ue, network_load_impact, interval=1):
+# Calculate the throughput for a UE based on traffic generation and network quality metrics
+def calculate_and_write_ue_throughput(ue, network_load_impact, jitter, packet_loss, delay, interval=1):
     # Create an instance of DatabaseManager
     database_manager = DatabaseManager()
 
-    # Calculate the throughput for a UE based on traffic generation
-    base_throughput = ue.data_size / ue.interval  # Throughput in bytes per second
+    # Calculate the base throughput in bytes per second
+    base_throughput = ue.data_size / ue.interval
 
-    # Adjust the throughput based on the network load impact
-    # Assuming network_load_impact is a value between 0 and 1, where 1 represents 100% load
-    throughput = base_throughput * (1 - network_load_impact)
+    # Adjust the throughput based on network load impact, jitter, packet loss, and delay
+    # Assuming these are values between 0 and 1, where 1 represents the worst case
+    quality_impact = (1 - jitter) * (1 - packet_loss) * (1 - delay)
+    adjusted_throughput = base_throughput * (1 - network_load_impact) * quality_impact
 
     # Prepare the data to be written to InfluxDB
     data = {
@@ -75,7 +76,10 @@ def calculate_and_write_ue_throughput(ue, network_load_impact, interval=1):
             "ue_id": ue.id
         },
         "fields": {
-            "throughput": throughput
+            "throughput": adjusted_throughput,
+            "jitter": jitter,
+            "packet_loss": packet_loss,
+            "delay": delay
         },
         "time": datetime.utcnow().isoformat()
     }
@@ -86,7 +90,7 @@ def calculate_and_write_ue_throughput(ue, network_load_impact, interval=1):
     # Close the database connection
     database_manager.close_connection()
 
-    return throughput
+    return adjusted_throughput
 # To use this function, you would call it at regular intervals.
 # For example, you could use a loop or a scheduling library to call this function every second:
 #while True:
