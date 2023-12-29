@@ -13,6 +13,9 @@ from database.database_manager import DatabaseManager
 from logs.logger_config import traffic_update
 import threading
 from traffic.traffic_generator import TrafficController
+
+update_received = False
+
 #################################################################################################################################
 # pickled by multiprocessing
 def log_system_resources(system_monitor):
@@ -29,30 +32,24 @@ def network_state_manager(network_state, command_queue):
             break
 ####################################################################################################################################
 def log_traffic(ues, command_queue, network_state):
-    # Initialize the TrafficController inside the child process
+    global update_received
     traffic_controller = TrafficController(command_queue)
     while True:
         if not command_queue.empty():
             command = command_queue.get()
             if command == 'restart':
                 logging.info("Received restart command. Reinitializing traffic generation with updated parameters.")
-                # Use the get_updated_ues method to update the UEs
                 ues = traffic_controller.get_updated_ues(network_state)
+                update_received = True  # Set the flag to True when an update is received
                 continue
-        # Generate traffic using the traffic_controller
-        for ue in ues:
-            # Assuming generate_traffic is a method of TrafficController that simulates traffic for a UE
-            data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_traffic(ue)
-            
-            # Format the data size and interval to two decimal places
-            formatted_data_size = f"{data_size:.2f}"
-            formatted_interval = f"{interval:.2f}"
-            
-            # Log the traffic details in the desired format, including delay, jitter, and packet loss rate
-            logging.info(f"UE ID: {ue.ID}, IMEI: {ue.IMEI}, Service Type: {ue.ServiceType}, Data Size: {formatted_data_size}MB, Interval: {formatted_interval}s, Delay: {delay}ms, Jitter: {jitter}ms, Packet Loss Rate: {packet_loss_rate}%")
-            
-            # Save the state to the database
-            command_queue.put('save')
+        if update_received:  # Check the flag before logging
+            for ue in ues:
+                data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_traffic(ue)
+                formatted_data_size = f"{data_size:.2f}"
+                formatted_interval = f"{interval:.2f}"
+                logging.info(f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Data Size: {formatted_data_size}MB, Interval: {formatted_interval}s, Delay: {delay}ms, Jitter: {jitter}ms, Packet Loss Rate: {packet_loss_rate}%")
+                command_queue.put('save')
+            update_received = False  # Reset the flag after logging
         time.sleep(1)  # Logging interval
 ######################################################################################
 def detect_and_handle_congestion(network_state, command_queue):

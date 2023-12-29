@@ -7,6 +7,8 @@ from logs.logger_config import traffic_update,server_logger
 from multiprocessing import Queue
 import traceback
 
+# Global flag to indicate if an update has been received
+update_received = False
 
 # Create Flask app
 app = Flask(__name__)
@@ -31,6 +33,7 @@ def index():
 
 @app.route('/update_voice_traffic', methods=['POST'])
 def update_voice_traffic():
+    global update_received
     data = request.json
     expected_types = {
         'bitrate_range': list,
@@ -45,9 +48,14 @@ def update_voice_traffic():
     try:
         success = traffic_controller.update_voice_traffic(data['bitrate_range'])
         if success:
-            # Send a command to restart the traffic generation process
-            command_queue.put('restart')
-            return {'message': 'Voice traffic parameters updated successfully', 'acknowledged': True}, 200
+            if update_received:
+                traffic_update.info(f"Voice traffic updated: {data}")
+                # Send a command to restart the traffic generation process
+                command_queue.put('restart')
+                update_received = False  # Reset the flag after sending the command
+                return {'message': 'Voice traffic parameters updated successfully', 'acknowledged': True}, 200
+            else:
+                return {'message': 'Update received but not processed', 'acknowledged': False}, 200
         else:
             return {'error': 'Failed to update parameters', 'acknowledged': False}, 500
     except Exception as e:
@@ -56,6 +64,7 @@ def update_voice_traffic():
 
 @app.route('/update_video_traffic', methods=['POST'])
 def update_video_traffic():
+    global update_received
     data = request.json
     expected_types = {
         'num_streams_range': list,
@@ -72,9 +81,11 @@ def update_video_traffic():
         success = traffic_controller.update_video_traffic(data['num_streams_range'], data['stream_bitrate_range'])
         if success:
             traffic_controller.update_video_traffic_parameters(data['jitter'], data['delay'], data['packet_loss_rate'])
-            traffic_update.info(f"Video traffic updated: {data}")
-            # Send a command to restart the traffic generation process
-            command_queue.put('restart')
+            if update_received:
+                traffic_update.info(f"Video traffic updated: {data}")
+                # Send a command to restart the traffic generation process
+                command_queue.put('restart')
+                update_received = False  # Reset the flag after logging and sending the command
             return {'message': 'Video traffic parameters updated successfully', 'acknowledged': True}, 200
         else:
             return {'error': 'Failed to update parameters', 'acknowledged': False}, 500
@@ -84,7 +95,8 @@ def update_video_traffic():
 
 @app.route('/update_gaming_traffic', methods=['POST'])
 def update_gaming_traffic():
-    app.logger.info('Processing request for /some_endpoint')
+    global update_received
+    app.logger.info('Processing request for /update_gaming_traffic')
     print("Received data:", request.json)
     data = request.json
     expected_types = {
@@ -102,10 +114,14 @@ def update_gaming_traffic():
         success = traffic_controller.update_gaming_traffic(data['bitrate_range'])
         if success:
             traffic_controller.update_gaming_traffic_parameters(data['jitter'], data['delay'], data['packet_loss_rate'])
-            traffic_update.info(f"Gaming traffic updated: {data}")
-            # Send a command to restart the traffic generation process
-            command_queue.put('restart')
-            return {'message': 'Gaming traffic parameters updated successfully', 'acknowledged': True}, 200
+            if update_received:
+                traffic_update.info(f"Gaming traffic updated: {data}")
+                # Send a command to restart the traffic generation process
+                command_queue.put('restart')
+                update_received = False  # Reset the flag after processing the update
+                return {'message': 'Gaming traffic parameters updated successfully', 'acknowledged': True}, 200
+            else:
+                return {'message': 'Update received but not processed', 'acknowledged': False}, 200
         else:
             return {'error': 'Failed to update parameters', 'acknowledged': False}, 500
     except Exception as e:
@@ -116,6 +132,7 @@ def update_gaming_traffic():
 
 @app.route('/update_iot_traffic', methods=['POST'])
 def update_iot_traffic():
+    global update_received
     data = request.json
     expected_types = {
         'packet_size_range': list,
@@ -132,10 +149,15 @@ def update_iot_traffic():
         success = traffic_controller.update_iot_traffic(data['packet_size_range'], data['interval_range'])
         if success:
             traffic_controller.update_iot_traffic_parameters(data['jitter'], data['delay'], data['packet_loss_rate'])
-            traffic_update.info(f"IoT traffic updated: {data}")
-            # Send a command to restart the traffic generation process
-            command_queue.put('restart')
-            return {'message': 'IoT traffic parameters updated successfully', 'acknowledged': True}, 200
+            if update_received:
+                traffic_update.info(f"IoT traffic updated: {data}")
+                # Send a command to restart the traffic generation process
+                command_queue.put('restart')
+                update_received = False  # Reset the flag after processing the update
+                return {'message': 'IoT traffic parameters updated successfully', 'acknowledged': True}, 200
+            else:
+                # Handle the case where update_received might be False
+                return {'error': 'Update received but not processed', 'acknowledged': False}, 500
         else:
             return {'error': 'Failed to update parameters', 'acknowledged': False}, 500
     except Exception as e:
@@ -144,6 +166,7 @@ def update_iot_traffic():
 
 @app.route('/update_data_traffic', methods=['POST'])
 def update_data_traffic():
+    global update_received
     data = request.json
     expected_types = {
         'bitrate_range': list,
@@ -160,10 +183,15 @@ def update_data_traffic():
         success = traffic_controller.update_data_traffic(data['bitrate_range'], data['interval_range'])
         if success:
             traffic_controller.update_data_traffic_parameters(data['jitter'], data['delay'], data['packet_loss_rate'])
-            traffic_update.info(f"Data traffic updated: {data}")
-            # Send a command to restart the traffic generation process
-            command_queue.put('restart')
-            return {'message': 'Data traffic parameters updated successfully', 'acknowledged': True}, 200
+            if update_received:
+                traffic_update.info(f"Data traffic updated: {data}")
+                # Send a command to restart the traffic generation process
+                command_queue.put('restart')
+                update_received = False  # Reset the flag after processing the update
+                return {'message': 'Data traffic parameters updated successfully', 'acknowledged': True}, 200
+            else:
+                # Handle the case where update_received might be False
+                return {'message': 'Update received but not processed', 'acknowledged': False}, 200
         else:
             return {'error': 'Failed to update parameters', 'acknowledged': False}, 500
     except Exception as e:
