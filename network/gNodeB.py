@@ -18,6 +18,7 @@ from datetime import datetime
 from influxdb_client import Point
 from influxdb_client.client.write_api import SYNCHRONOUS, WritePrecision
 from database.time_utils import get_current_time_ntp, server_pools
+
 current_time = get_current_time_ntp()
 
 def load_gNodeB_config():
@@ -252,7 +253,7 @@ class gNodeB:
     def calculate_cell_load(self, cell):
         # Existing load calculations
         ue_based_load = len(cell.ConnectedUEs) / cell.MaxConnectedUEs if cell.MaxConnectedUEs > 0 else 0
-        throughput_based_load = self.calculate_cell_throughput(cell)
+        throughput_based_load = calculate_cell_throughput(cell, gnodebs)
 
         # New quality metric calculations
         jitter = self.calculate_jitter(cell)

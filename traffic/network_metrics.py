@@ -97,7 +97,6 @@ def calculate_and_write_ue_throughput(ue, network_load_impact, jitter, packet_lo
     #calculate_and_write_ue_throughput(ue, network_load_impact)
     #time.sleep(interval)
 ################################################################################################
-# Calculate the total throughput for all UEs in a cell based on traffic generation
 def calculate_cell_throughput(cell, gnodebs):
     total_throughput = 0
     network_load_impact = calculate_cell_load(cell.ID, gnodebs) / 100  # Convert percentage to a value between 0 and 1
