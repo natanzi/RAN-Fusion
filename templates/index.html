@@ -158,7 +158,7 @@
 
 
         <script>
-            $('#voiceTrafficForm').submit(function(event) {
+                $('#1').submit(function(event) {
                 event.preventDefault();
                 var voiceData = {
                     "bitrate_range": [parseInt($('#voice_min_bitrate').val(), 10), parseInt($('#voice_max_bitrate').val(), 10)],
@@ -170,7 +170,7 @@
             });
         
                 // Video Traffic Form Handler
-                $('#videoTrafficForm').submit(function(event) {
+                $('#2').submit(function(event) {
                     event.preventDefault();
                     var videoData = {
                         "num_streams_range": [parseInt($('#video_min_streams').val(), 10), parseInt($('#video_max_streams').val(), 10)],
@@ -183,7 +183,7 @@
             });
         
                 // Gaming Traffic Form Handler
-                $('#gamingTrafficForm').submit(function(event) {
+                $('#3').submit(function(event) {
                     event.preventDefault();
                     var gamingData = {
                         "bitrate_range": [parseInt($('#gaming_min_bitrate').val(), 10), parseInt($('#gaming_max_bitrate').val(), 10)],
@@ -195,7 +195,7 @@
                 });
         
                 // IoT Traffic Form Handler
-                $('#iotTrafficForm').submit(function(event) {
+                $('#4').submit(function(event) {
                     event.preventDefault();
                     var iotData = {
                         "packet_size_range": [parseInt($('#iot_min_packet_size').val(), 10), parseInt($('#iot_max_packet_size').val(), 10)],
@@ -209,7 +209,7 @@
 
         
                 // Data Traffic Form Handler
-                $('#dataTrafficForm').submit(function(event) {
+                $('#5').submit(function(event) {
                     event.preventDefault();
                     var dataTrafficData = {
                         "bitrate_range": [parseInt($('#data_min_bitrate').val(), 10), parseInt($('#data_max_bitrate').val(), 10)],

@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Form Submission Handling
-    var forms = ['voiceTrafficForm', 'videoTrafficForm', 'gamingTrafficForm', 'iotTrafficForm', 'dataTrafficForm'];
+    var forms = ['1', '2', '3', '4', '5']; 
     forms.forEach(function(formId) {
         var form = document.getElementById(formId);
         if (form) {
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 try {
                     validatePayload(data, formId); // Pass formId as an argument
-                    sendPostRequest('/update_' + formId.replace('TrafficForm', ''), data);
+                    sendPostRequest(formId, data);
                 } catch (error) {
                     console.error('Validation Error:', error);
                     // Handle validation error (e.g., show error message to user)
@@ -59,7 +59,7 @@ function validatePayload(data, formId) {
     }
 
     // Specific validation for video traffic form
-    if (formId === 'videoTrafficForm') {
+    if (formId === '2') {
         if (!Array.isArray(data.num_streams_range) || data.num_streams_range.length !== 2 || data.num_streams_range.some(isNaN)) {
             throw new Error("Number of streams range must be an array of two numbers.");
         }
@@ -82,14 +82,13 @@ function serializeForm(formId) {
 
     for (var i = 0; i < elements.length; i++) {
         if (elements[i].type !== 'submit') {
-            // Parsing numerical values as floats for precision
-            data[elements[i].id] = elements[i].type === 'number' ? parseFloat(elements[i].value) : elements[i].value;
+            data[elements[i].name] = elements[i].type === 'number' ? parseFloat(elements[i].value) : elements[i].value;
         }
     }
 
     // Adjusting the data structure based on the formId
     switch(formId) {
-        case 'gamingTrafficForm':
+        case '3':
             data = {
                 bitrate_range: [data.gaming_min_bitrate, data.gaming_max_bitrate],
                 jitter: data.gaming_jitter,
@@ -97,7 +96,7 @@ function serializeForm(formId) {
                 packet_loss_rate: data.gaming_packet_loss_rate
             };
             break;
-        case 'videoTrafficForm':
+        case '2':
             data = {
                 num_streams_range: [data.video_min_streams, data.video_max_streams],
                 stream_bitrate_range: [data.video_min_bitrate, data.video_max_bitrate],
@@ -106,7 +105,7 @@ function serializeForm(formId) {
                 packet_loss_rate: data.video_packet_loss_rate
             };
             break;
-        case 'voiceTrafficForm':
+        case '1':
             data = {
                 bitrate_range: [data.voice_min_bitrate, data.voice_max_bitrate],
                 jitter: data.voice_jitter,
@@ -114,7 +113,7 @@ function serializeForm(formId) {
                 packet_loss_rate: data.voice_packet_loss_rate
             };
             break;
-        case 'iotTrafficForm':
+        case '4':
             data = {
                 packet_size_range: [data.iot_min_packet_size, data.iot_max_packet_size],
                 interval_range: [data.iot_min_interval, data.iot_max_interval],
@@ -123,7 +122,7 @@ function serializeForm(formId) {
                 packet_loss_rate: data.iot_packet_loss_rate
             };
             break;
-        case 'dataTrafficForm':
+        case '5':
             data = {
                 bitrate_range: [data.data_min_bitrate, data.data_max_bitrate],
                 interval_range: [data.data_min_interval, data.data_max_interval],

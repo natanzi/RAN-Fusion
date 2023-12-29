@@ -20,14 +20,14 @@ function validateFormData(formId) {
     let isValid = true;
     let errorMessage = '';
 
-    if (formId === 'voiceTrafficForm') {
+    if (formId === '1') {
         const minBitrate = parseInt(document.getElementById('voice_min_bitrate').value, 10);
         const maxBitrate = parseInt(document.getElementById('voice_max_bitrate').value, 10);
         if (!validateRangeInput(minBitrate, 8, 16) || !validateRangeInput(maxBitrate, 8, 16)) {
             errorMessage = 'Bitrate for voice traffic must be between 8 and 16 kbps.';
             isValid = false;
         }
-    } else if (formId === 'videoTrafficForm') {
+    } else if (formId === '2') {
         const minStreams = parseInt(document.getElementById('video_min_streams').value, 10);
         const maxStreams = parseInt(document.getElementById('video_max_streams').value, 10);
         const minBitrate = parseInt(document.getElementById('video_min_bitrate').value, 10);
@@ -40,7 +40,7 @@ function validateFormData(formId) {
             isValid = false;
         }
     
-    } else if (formId === 'gamingTrafficForm') {
+    } else if (formId === '3') {
         const minBitrate = parseInt(document.getElementById('gaming_min_bitrate').value, 10);
         const maxBitrate = parseInt(document.getElementById('gaming_max_bitrate').value, 10);
         const jitter = parseFloat(document.getElementById('gaming_jitter').value);
@@ -72,7 +72,7 @@ function validateFormData(formId) {
             isValid = false;
         }
     
-    } else if (formId === 'iotTrafficForm') {
+    } else if (formId === '4') {
         const minPacketSize = parseInt(document.getElementById('iot_min_packet_size').value, 10);
         const maxPacketSize = parseInt(document.getElementById('iot_max_packet_size').value, 10);
         const minInterval = parseInt(document.getElementById('iot_min_interval').value, 10);
@@ -86,7 +86,7 @@ function validateFormData(formId) {
             errorMessage += 'Interval for IoT traffic must be between 1 and 60 seconds.';
             isValid = false;
         }
-    } else if (formId === 'dataTrafficForm') {
+    } else if (formId === '5') {
         const minBitrate = parseInt(document.getElementById('data_min_bitrate').value, 10);
         const maxBitrate = parseInt(document.getElementById('data_max_bitrate').value, 10);
         const minInterval = parseInt(document.getElementById('data_min_interval').value, 10);
@@ -122,7 +122,7 @@ function handleFormSubmit(event) {
     let data = serializeFormData(form);
 
      // Adjust the keys for gaming traffic form
-    if (formId === 'gamingTrafficForm') {
+    if (formId === '3') {
         data = {
             bitrate_range: [parseInt(data.gaming_min_bitrate, 10), parseInt(data.gaming_max_bitrate, 10)],
             jitter: parseFloat(data.gaming_jitter),
@@ -137,8 +137,8 @@ console.log('Data being sent to the server:', data);
 // Endpoint based on the formId
 const service = formId.replace('Form', '');
 // Ensure the service name is formatted correctly to match the Flask route
-const formattedServiceName = service.replace(/([A-Z])/g, '_$1').toLowerCase(); // Converts 'gamingTraffic' to 'gaming_traffic'
-const endpoint = `http://127.0.0.1:5000/update_${formattedServiceName}_traffic`;
+const endpoint = `http://127.0.0.1:5000/update_${getEndpointSuffix(formId)}`;
+
 
 fetch(endpoint, {
     method: 'POST',
@@ -161,6 +161,24 @@ fetch(endpoint, {
     console.error('Error:', error);
     alert('Error updating traffic');
 });
+}
+
+// Function to determine the endpoint suffix based on the formId
+function getEndpointSuffix(formId) {
+    switch (formId) {
+        case '1':
+            return 'voice_traffic';
+        case '2':
+            return 'video_traffic';
+        case '3':
+            return 'gaming_traffic';
+        case '4':
+            return 'iot_traffic';
+        case '5':
+            return 'data_traffic';
+        default:
+            return 'unknown';
+    }
 }
 
 // Attach event listeners to forms
