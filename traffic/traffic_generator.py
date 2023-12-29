@@ -19,6 +19,7 @@ class TrafficController:
         self.gaming_traffic_params = {'bitrate': (30, 70)}  # in Kbps
         self.iot_traffic_params = {'packet_size': (5, 15), 'interval': (10, 60)}  # packet size in KB, interval in seconds
         self.data_traffic_params = {'bitrate': (1, 10), 'interval': (0.5, 2)}  # in Mbps
+        self.is_updated = False
 
         # Initialize jitter, delay, and packet loss for each traffic type
         self.voice_jitter = 0
