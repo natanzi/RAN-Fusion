@@ -234,43 +234,31 @@
                     sendPostRequest(endpoint, data);
                 }
                 
-                        // Function to send POST request
-                function sendPostRequest(endpoint, data) {
-                    $.ajax({
-                    url: `http://localhost:5000${endpoint}`,
-                    type: 'POST',
-                    contentType: 'application/json',
-                    data: JSON.stringify(data),
-                    success: function(response) {
-                        console.log('Success:', response.message);
+                // Function to send POST request
+                function sendPostRequest(formId, data) {
+                    const endpoint = `http://127.0.0.1:5000/${endpointMap[formId]}`;
+                    fetch(endpoint, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok: ' + response.statusText);
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log('Success:', data);
                         alert('Traffic updated successfully');
-                },
-                error: function(xhr, status, error) {
-                    console.error('Error:', xhr.responseText);
-                    alert('Error updating traffic');
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Error updating traffic: ' + error.message);
+                    });
                 }
-            });
-        }
-                // Event listeners for forms
-                $('#voiceTrafficForm').submit(function(event) {
-                    handleFormSubmit(event, 'update_voice_traffic');
-                });
-
-                $('#videoTrafficForm').submit(function(event) {
-                    handleFormSubmit(event, 'update_video_traffic');
-                });
-
-                $('#gamingTrafficForm').submit(function(event) {
-                    handleFormSubmit(event, 'update_gaming_traffic');
-                });
-
-                $('#iotTrafficForm').submit(function(event) {
-                    handleFormSubmit(event, 'update_iot_traffic');
-                });
-
-                $('#dataTrafficForm').submit(function(event) {
-                    handleFormSubmit(event, 'update_data_traffic');
-                });
 </script>
     </div>
 </body>

@@ -718,3 +718,43 @@
 {"level": "INFO", "timestamp": "2023-12-28 20:13:52", "message": "UE with ID UE10 added to Cell Ax1242 at '2023-12-28 20:13:52'", "test_id": "4dd6c2a8-d0c3-4fb5-be29-6467ed4e394c"}
 {"level": "INFO", "timestamp": "2023-12-28 20:13:52", "message": "UE 'UE10' has been attached to Cell 'Ax1242' at '2023-12-28 20:13:52'.", "test_id": "4dd6c2a8-d0c3-4fb5-be29-6467ed4e394c"}
 {"level": "INFO", "timestamp": "2023-12-28 20:13:52", "message": "UE 'UE10' has been attached to Cell 'Ax1242' at '2023-12-28 20:13:52'.", "test_id": "4dd6c2a8-d0c3-4fb5-be29-6467ed4e394c"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE initialized with ID UE1 at 2023-12-28 20:22:38.654001", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE with ID UE1 added to Cell Ax1242 at '2023-12-28 20:22:21'", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE 'UE1' has been attached to Cell 'Ax1242' at '2023-12-28 20:22:21'.", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE 'UE1' has been attached to Cell 'Ax1242' at '2023-12-28 20:22:21'.", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE initialized with ID UE2 at 2023-12-28 20:22:38.676546", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE with ID UE2 added to Cell AX1112 at '2023-12-28 20:22:21'", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE 'UE2' has been attached to Cell 'AX1112' at '2023-12-28 20:22:21'.", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE 'UE2' has been attached to Cell 'AX1112' at '2023-12-28 20:22:21'.", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE initialized with ID UE3 at 2023-12-28 20:22:38.683351", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE with ID UE3 added to Cell AX9980 at '2023-12-28 20:22:21'", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE 'UE3' has been attached to Cell 'AX9980' at '2023-12-28 20:22:21'.", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE 'UE3' has been attached to Cell 'AX9980' at '2023-12-28 20:22:21'.", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE initialized with ID UE4 at 2023-12-28 20:22:38.689969", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE with ID UE4 added to Cell BX1453 at '2023-12-28 20:22:21'", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE 'UE4' has been attached to Cell 'BX1453' at '2023-12-28 20:22:21'.", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE 'UE4' has been attached to Cell 'BX1453' at '2023-12-28 20:22:21'.", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE initialized with ID UE5 at 2023-12-28 20:22:38.696653", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE with ID UE5 added to Cell BX1334 at '2023-12-28 20:22:21'", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE 'UE5' has been attached to Cell 'BX1334' at '2023-12-28 20:22:21'.", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE 'UE5' has been attached to Cell 'BX1334' at '2023-12-28 20:22:21'.", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE initialized with ID UE6 at 2023-12-28 20:22:38.703192", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE with ID UE6 added to Cell BX1230 at '2023-12-28 20:22:21'", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE 'UE6' has been attached to Cell 'BX1230' at '2023-12-28 20:22:21'.", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE 'UE6' has been attached to Cell 'BX1230' at '2023-12-28 20:22:21'.", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE initialized with ID UE7 at 2023-12-28 20:22:38.709495", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE with ID UE7 added to Cell CX1352 at '2023-12-28 20:22:21'", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE 'UE7' has been attached to Cell 'CX1352' at '2023-12-28 20:22:21'.", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE 'UE7' has been attached to Cell 'CX1352' at '2023-12-28 20:22:21'.", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE initialized with ID UE8 at 2023-12-28 20:22:38.716169", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE with ID UE8 added to Cell CX1873 at '2023-12-28 20:22:21'", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE 'UE8' has been attached to Cell 'CX1873' at '2023-12-28 20:22:21'.", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE 'UE8' has been attached to Cell 'CX1873' at '2023-12-28 20:22:21'.", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE initialized with ID UE9 at 2023-12-28 20:22:38.722013", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE with ID UE9 added to Cell CX5103 at '2023-12-28 20:22:21'", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE 'UE9' has been attached to Cell 'CX5103' at '2023-12-28 20:22:21'.", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE 'UE9' has been attached to Cell 'CX5103' at '2023-12-28 20:22:21'.", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE initialized with ID UE10 at 2023-12-28 20:22:38.728328", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE with ID UE10 added to Cell Ax1242 at '2023-12-28 20:22:21'", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE 'UE10' has been attached to Cell 'Ax1242' at '2023-12-28 20:22:21'.", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}
+{"level": "INFO", "timestamp": "2023-12-28 20:22:21", "message": "UE 'UE10' has been attached to Cell 'Ax1242' at '2023-12-28 20:22:21'.", "test_id": "d11fa5dd-cd16-4f11-aabe-240a5260f03a"}

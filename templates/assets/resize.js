@@ -137,9 +137,19 @@ function serializeForm(formId) {
 
     return data;
 }
+// Endpoint map
+const endpointMap = {
+    voiceTrafficForm: 'update_voiceTraffic_traffic',
+    videoTrafficForm: 'update_videoTraffic_traffic',
+    gamingTrafficForm: 'update_gamingTraffic_traffic',
+    iotTrafficForm: 'update_iotTraffic_traffic',
+    dataTrafficForm: 'update_dataTraffic_traffic'
+};
 
-function sendPostRequest(endpoint, data) {
-    fetch(`http://127.0.0.1:5000${endpoint}`, {
+// Function to send POST request
+function sendPostRequest(formId, data) {
+    const endpoint = `http://127.0.0.1:5000/${endpointMap[formId]}`;
+    fetch(endpoint, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
