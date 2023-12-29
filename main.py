@@ -50,13 +50,14 @@ def log_traffic(ues, command_queue, network_state):
             if update_received and ue.ServiceType == command['service_type']:
                 data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_updated_traffic(ue)
                 # Log the updated traffic generation message
-                logging.info(f"Generated {ue.ServiceType} traffic with updated parameters: {command['data']}")
+                logging.getLogger('traffic_update').info(f"Generated {ue.ServiceType} traffic with updated parameters: {command['data']}")
             else:
                 # Otherwise, use normal traffic generation
                 data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_traffic(ue)
             
             formatted_data_size = f"{data_size:.2f}"
             formatted_interval = f"{interval:.2f}"
+            # Use the root logger for normal traffic logging
             logging.info(f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Data Size: {formatted_data_size}MB, Interval: {formatted_interval}s, Delay: {delay}ms, Jitter: {jitter}ms, Packet Loss Rate: {packet_loss_rate}%")
             command_queue.put('save')
 
