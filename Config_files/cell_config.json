@@ -11,6 +11,7 @@
       "ssbPeriodicity": 20,
       "ssbOffset": 2,
       "maxConnectUes": 10,
+      "max_throughput": 100,
       "channelModel": "UMa",
       "is_active": true
     },
@@ -25,6 +26,7 @@
       "ssbPeriodicity": 20,
       "ssbOffset": 2,
       "maxConnectUes": 10,
+      "max_throughput": 100,
       "channelModel": "UMa",
       "is_active": true
     },
@@ -39,6 +41,7 @@
       "ssbPeriodicity": 20,
       "ssbOffset": 2,
       "maxConnectUes": 10,
+      "max_throughput": 100,
       "channelModel": "UMa",
       "is_active": true
     },
@@ -53,6 +56,7 @@
       "ssbPeriodicity": 20,
       "ssbOffset": 2,
       "maxConnectUes": 10,
+      "max_throughput": 100,
       "channelModel": "UMa",
       "is_active": true
     },
@@ -67,6 +71,7 @@
       "ssbPeriodicity": 20,
       "ssbOffset": 2,
       "maxConnectUes": 10,
+      "max_throughput": 100,
       "channelModel": "UMa",
       "is_active": true
     },
@@ -81,6 +86,7 @@
       "ssbPeriodicity": 20,
       "ssbOffset": 2,
       "maxConnectUes": 10,
+      "max_throughput": 100,
       "channelModel": "UMa",
       "is_active": true
     },
@@ -95,6 +101,7 @@
       "ssbPeriodicity": 20,
       "ssbOffset": 2,
       "maxConnectUes": 10,
+      "max_throughput": 100,
       "channelModel": "UMa",
       "is_active": true
     },
@@ -109,6 +116,7 @@
       "ssbPeriodicity": 20,
       "ssbOffset": 2,
       "maxConnectUes": 10,
+      "max_throughput": 100,
       "channelModel": "UMa",
       "is_active": true
     },
@@ -123,6 +131,7 @@
       "ssbPeriodicity": 20,
       "ssbOffset": 2,
       "maxConnectUes": 10,
+      "max_throughput": 100,
       "channelModel": "UMa",
       "is_active": true
     }

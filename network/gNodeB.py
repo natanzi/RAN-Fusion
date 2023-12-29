@@ -194,8 +194,8 @@ class gNodeB:
             time.sleep(1)  # Delay for 1 second
         else:
             print(f"gNodeB '{self.ID}' has reached its maximum cell capacity.")
-##################################################################################################
-#####################################Load Calculation#############################################
+###################################################################################################
+#####################################Load Calculation##############################################
     def calculate_cell_load(self, cell):
         # Calculate the load based on the number of connected UEs
         ue_based_load = len(cell.ConnectedUEs) / cell.MaxConnectedUEs if cell.MaxConnectedUEs > 0 else 0
@@ -209,7 +209,6 @@ class gNodeB:
         throughput_based_load = total_throughput / cell.MaxThroughput if cell.MaxThroughput > 0 else 0
 
         # Calculate quality metrics (jitter, packet loss, delay)
-        # Assume functions to calculate jitter, packet loss, and delay exist
         jitter = self.calculate_jitter(cell)
         packet_loss = self.calculate_packet_loss(cell)
         delay = self.calculate_delay(cell)

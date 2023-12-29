@@ -23,15 +23,16 @@ class Cell:
         self.SSBPeriodicity = ssb_periodicity
         self.SSBOffset = ssb_offset
         self.MaxConnectedUEs = max_connect_ues
+        self.MaxThroughput = max_throughput
         self.ChannelModel = channel_model
         self.TrackingArea = trackingArea 
         self.ConnectedUEs = []
         self.assigned_UEs = []  # Initialize the list of assigned UEs
         self.last_ue_update = None
         self.last_update = None
-        current_time = get_current_time_ntp()
         self.IsActive = is_active
         self.current_ue_count = 0
+        current_time = get_current_time_ntp()
         # Logging statement should be here, after all attributes are set
         cell_logger.info(f" A Cell '{cell_id}' has been created at '{current_time}' in gNodeB '{gnodeb_id}' with max capacity {self.MaxConnectedUEs}.")
         
@@ -129,6 +130,7 @@ class Cell:
             .field("ssb_periodicity", self.SSBPeriodicity) \
             .field("ssb_offset", self.SSBOffset) \
             .field("max_connect_ues", self.MaxConnectedUEs) \
+            .field("max_throughput", self.MaxThroughput) \
             .field("channel_model", self.ChannelModel) \
             .field("trackingArea", self.TrackingArea) \
             .field("CellisActive",self.IsActive)
