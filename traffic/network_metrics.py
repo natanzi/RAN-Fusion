@@ -96,13 +96,15 @@ def calculate_and_write_ue_throughput(ue, network_load_impact, interval=1):
 # Calculate the total throughput for all UEs in a cell based on traffic generation
 def calculate_cell_throughput(cell, gnodebs):
     total_throughput = 0
-    # Calculate the network load impact once for the cell to avoid recalculating it for each UE
     network_load_impact = calculate_cell_load(cell.ID, gnodebs) / 100  # Convert percentage to a value between 0 and 1
 
     for ue in cell.assigned_UEs:
-        # Calculate throughput for each UE based on traffic generation
+        # Calculate throughput for each UE based on traffic generation and quality metrics
         ue_throughput = calculate_ue_throughput(ue, network_load_impact)
+        # Adjust the throughput based on the quality metrics
+        ue_throughput *= (1 - cell.jitter - cell.packet_loss - cell.delay)
         total_throughput += ue_throughput
+
     return total_throughput
 ######################################################################################################
 # Calculate the total throughput for all cells in a gNodeB

@@ -248,23 +248,36 @@ class gNodeB:
                 lowest_load = cell_load
 
         return best_cell
-#################################################
-    def calculate_gnodeb_load(self):
-        """
-        Calculate the load of the gNodeB by averaging the load of each cell.
-        :return: Load of the gNodeB as a percentage.
-        """
-        # Ensure there are cells to calculate the load
-        if not self.Cells:
-            return 0
+#########################################################################################################
+    def calculate_cell_load(self, cell):
+        # Existing load calculations
+        ue_based_load = len(cell.ConnectedUEs) / cell.MaxConnectedUEs if cell.MaxConnectedUEs > 0 else 0
+        throughput_based_load = self.calculate_cell_throughput(cell)
 
-        # Calculate the load for each cell and sum them
-        total_load = sum(calculate_cell_load(cell.ID, [self]) for cell in self.Cells)
+        # New quality metric calculations
+        jitter = self.calculate_jitter(cell)
+        packet_loss = self.calculate_packet_loss(cell)
+        delay = self.calculate_delay(cell)
 
-        # Calculate the average load across all cells
-        average_load = total_load / len(self.Cells)
+        # Normalize the quality metrics between 0 and 1 and calculate the quality metric load
+        quality_metric_load = (jitter + packet_loss + delay) / 3
 
-        return average_load    
+        # Combine all loads with appropriate weights
+        combined_load = (0.4 * ue_based_load) + (0.4 * throughput_based_load) + (0.2 * quality_metric_load)
+
+        return combined_load
+##############################################################################################
+    def calculate_quality_metric(self, cell):
+        # Placeholder for actual quality metric calculation
+        # This should take into account delay, jitter, packet loss, etc.
+        # For example, a simple average of normalized metrics (each metric scaled to be between 0 and 1)
+        delay = self.get_average_delay(cell)
+        jitter = self.get_average_jitter(cell)
+        packet_loss = self.get_packet_loss_rate(cell)
+
+        # Normalize and calculate the quality metric
+        quality_metric = (delay + jitter + packet_loss) / 3
+        return quality_metric  
 #######################################Periodic Updates###############################################
     def update(self):
         from network.handover_utils import handle_load_balancing, monitor_and_log_cell_load
