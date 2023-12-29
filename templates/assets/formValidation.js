@@ -165,6 +165,7 @@ fetch(endpoint, {
 
 // Function to determine the endpoint suffix based on the formId
 function getEndpointSuffix(formId) {
+    console.log("Received formId in getEndpointSuffix:", formId);
     switch (formId) {
         case '1':
             return 'voice_traffic';

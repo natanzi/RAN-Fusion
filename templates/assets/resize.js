@@ -148,6 +148,7 @@ const endpointMap = {
 // Function to send POST request
 function sendPostRequest(formId, data) {
     const endpoint = `http://127.0.0.1:5000/${endpointMap[formId.toString()]}`;
+    console.log("Endpoint URL:", endpoint); // Log the endpoint URL
     fetch(endpoint, {
         method: 'POST',
         headers: {

@@ -225,6 +225,9 @@
                 // Function to handle form submission
                 function handleFormSubmit(event, endpoint) {
                     event.preventDefault();
+                    const form = event.target;
+                    const formId = form.id;
+                    console.log("Form ID:", formId);
                     var formData = $(event.target).serializeArray();
                     var data = {};
                     formData.forEach(function(item) {
