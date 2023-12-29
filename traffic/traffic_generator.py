@@ -7,6 +7,7 @@ from threading import Lock
 from multiprocessing import Queue
 from network.network_state import NetworkState
 from threading import Thread
+import datetime
 
 class TrafficController:
 
@@ -226,46 +227,81 @@ class TrafficController:
         self.data_jitter = jitter
         self.data_delay = delay
         self.data_packet_loss_rate = packet_loss_rate 
-        
+##############################################################################################################################
     # Traffic generation methods with conditional application of jitter, delay, and packet loss
     def generate_voice_traffic(self):
+        # Record the start timestamp
+        start_time = datetime.datetime.now()
         time.sleep(self.voice_delay)  # Use voice-specific delay
         jitter = random.uniform(0, self.voice_jitter) if self.voice_jitter > 0 else 0
         bitrate = random.uniform(*self.voice_traffic_params['bitrate'])  # in Kbps
         interval = 0.02  # Interval duration in seconds
         data_size = (bitrate * interval) / 8  # Convert to KB
         #cell_logger.info(f"Voice Traffic: Data Size: {data_size}KB, Interval: {interval}s, Delay: {self.voice_delay}ms, Jitter: {jitter}ms, Packet Loss Rate: {self.voice_packet_loss_rate}%")
+        
         # Apply jitter
         time.sleep(jitter)
 
         # Simulate packet loss
         packet_loss_occurred = random.random() < self.voice_packet_loss_rate
+
         if packet_loss_occurred:
             data_size = 0  # Packet is lost
-        #traffic_update.info(f"Generated voice traffic with parameters: {self.voice_traffic_params}")
-        return data_size, interval, self.voice_delay, jitter, self.voice_packet_loss_rate
 
+        # Record the end timestamp
+        end_time = datetime.datetime.now()
+
+        traffic_data = {
+            'data_size': data_size,
+            'start_timestamp': start_time,
+            'end_timestamp': end_time,
+            'interval': interval,
+            'delay': self.voice_delay,
+            'jitter': jitter,
+            'packet_loss_rate': self.voice_packet_loss_rate
+        }
+
+        return traffic_data
+###################################################################################################################
     def generate_video_traffic(self):
+        # Record the start timestamp
+        start_time = datetime.datetime.now()
+
         time.sleep(self.video_delay)  # Use video-specific delay
         jitter = random.uniform(0, self.video_jitter) if self.video_jitter > 0 else 0
-        # Apply jitter
-        time.sleep(jitter)
-    
+        time.sleep(jitter)  # Apply jitter
+
         num_streams = random.randint(*self.video_traffic_params['num_streams'])
         data_size = 0  # in MB
         interval = 1  # Interval duration in seconds
+
         for _ in range(num_streams):
             stream_bitrate = random.uniform(*self.video_traffic_params['stream_bitrate'])  # in Mbps
-            # Simulate packet loss
             if random.random() < self.video_packet_loss_rate:
                 continue  # Skip this stream due to packet loss
             data_size += (stream_bitrate * interval) / 8  # Convert to MB
-            #cell_logger.info(f"Video Traffic: Data Size: {data_size}MB, Streams: {num_streams}, Interval: {interval}s, Delay: {self.video_delay}ms, Jitter: {jitter}ms, Packet Loss Rate: {self.video_packet_loss_rate}%")
-            #traffic_update.info(f"Generated video traffic with parameters: {self.video_traffic_params}")
-        return data_size, interval, self.video_delay, jitter, self.video_packet_loss_rate
 
+        # Record the end timestamp
+        end_time = datetime.datetime.now()
+
+        traffic_data = {
+            'data_size': data_size,  # Total data size of all streams
+            'start_timestamp': start_time,
+            'end_timestamp': end_time,
+            'num_streams': num_streams,
+            'interval': interval,
+            'delay': self.video_delay,
+            'jitter': jitter,
+            'packet_loss_rate': self.video_packet_loss_rate
+        }
+
+        return traffic_data
+###################################################################################################################
     def generate_gaming_traffic(self):
         try:
+            # Record the start timestamp
+            start_time = datetime.datetime.now()
+
             time.sleep(self.gaming_delay)  # Use gaming-specific delay
             jitter = random.uniform(0, self.gaming_jitter) if self.gaming_jitter > 0 else 0
             bitrate = random.uniform(*self.gaming_traffic_params['bitrate'])  # in Kbps
@@ -280,13 +316,38 @@ class TrafficController:
             if packet_loss_occurred:
                 data_size = 0  # Packet is lost
 
-            #traffic_update.info(f"Gaming Traffic: Data Size: {data_size}KB, Interval: {interval}s, Delay: {self.gaming_delay}ms, Jitter: {jitter}ms, Packet Loss Rate: {self.gaming_packet_loss_rate}%")
-            return data_size, interval, self.gaming_delay, jitter, self.gaming_packet_loss_rate
+            # Record the end timestamp
+            end_time = datetime.datetime.now()
+
+            traffic_data = {
+                'data_size': data_size,
+                'start_timestamp': start_time,
+                'end_timestamp': end_time,
+                'interval': interval,
+                'delay': self.gaming_delay,
+                'jitter': jitter,
+                'packet_loss_rate': self.gaming_packet_loss_rate
+            }
+
+            return traffic_data
+
         except Exception as e:
             traffic_update.error(f"Failed to generate gaming traffic: {e}")
-            return 0, 0.1, self.gaming_delay, 0, self.gaming_packet_loss_rate
-
+            # Handle the exception by returning a default data structure
+            return {
+                'data_size': 0,
+                'start_timestamp': datetime.datetime.now(),
+                'end_timestamp': datetime.datetime.now(),
+                'interval': 0.1,
+                'delay': self.gaming_delay,
+                'jitter': 0,
+                'packet_loss_rate': self.gaming_packet_loss_rate
+            }
+###########################################################################################
     def generate_iot_traffic(self):
+        # Record the start timestamp
+        start_time = datetime.datetime.now()
+
         time.sleep(self.iot_delay)  # Use IoT-specific delay
         jitter = random.uniform(0, self.iot_jitter) if self.iot_jitter > 0 else 0
         packet_size = random.randint(*self.iot_traffic_params['packet_size'])  # in KB
@@ -300,11 +361,25 @@ class TrafficController:
         if random.random() < self.iot_packet_loss_rate:
             data_size = 0  # Packet is lost
 
-        #cell_logger.info(f"IoT Traffic: Data Size: {data_size}KB, Interval: {interval}s, Delay: {self.iot_delay}ms, Jitter: {jitter}ms, Packet Loss Rate: {self.iot_packet_loss_rate}%")
+        # Record the end timestamp
+        end_time = datetime.datetime.now()
 
-        return data_size, interval, self.iot_delay, jitter, self.iot_packet_loss_rate
+        traffic_data = {
+            'data_size': data_size,
+            'start_timestamp': start_time,
+            'end_timestamp': end_time,
+            'interval': interval,
+            'delay': self.iot_delay,
+            'jitter': jitter,
+            'packet_loss_rate': self.iot_packet_loss_rate
+        }
 
+        return traffic_data
+###########################################################################################
     def generate_data_traffic(self):
+        # Record the start timestamp
+        start_time = datetime.datetime.now()
+
         time.sleep(self.data_delay)  # Use data-specific delay
         jitter = random.uniform(0, self.data_jitter) if self.data_jitter > 0 else 0
         bitrate = random.uniform(*self.data_traffic_params['bitrate'])  # in Mbps
@@ -317,11 +392,23 @@ class TrafficController:
         # Simulate packet loss
         if random.random() < self.data_packet_loss_rate:
             data_size = 0  # Packet is lost
-        
-        #traffic_update.info(f"Data Traffic: Data Size: {data_size}MB, Interval: {interval}s, Delay: {self.data_delay}ms, Jitter: {jitter}ms, Packet Loss Rate: {self.data_packet_loss_rate}%")
 
-        return data_size, interval, self.data_delay, jitter, self.data_packet_loss_rate
-    
+        # Record the end timestamp
+        end_time = datetime.datetime.now()
+
+        traffic_data = {
+            'data_size': data_size,
+            'start_timestamp': start_time,
+            'end_timestamp': end_time,
+            'interval': interval,
+            'delay': self.data_delay,
+            'jitter': jitter,
+            'packet_loss_rate': self.data_packet_loss_rate
+        }
+
+        return traffic_data
+###########################################################################################
+
     @staticmethod
     def handle_commands(command_queue, traffic_controller):
         while True:
