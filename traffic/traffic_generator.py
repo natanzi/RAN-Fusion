@@ -234,7 +234,7 @@ class TrafficController:
         bitrate = random.uniform(*self.voice_traffic_params['bitrate'])  # in Kbps
         interval = 0.02  # Interval duration in seconds
         data_size = (bitrate * interval) / 8  # Convert to KB
-        cell_logger.info(f"Voice Traffic: Data Size: {data_size}KB, Interval: {interval}s, Delay: {self.voice_delay}ms, Jitter: {jitter}ms, Packet Loss Rate: {self.voice_packet_loss_rate}%")
+        #cell_logger.info(f"Voice Traffic: Data Size: {data_size}KB, Interval: {interval}s, Delay: {self.voice_delay}ms, Jitter: {jitter}ms, Packet Loss Rate: {self.voice_packet_loss_rate}%")
         # Apply jitter
         time.sleep(jitter)
 
@@ -242,7 +242,7 @@ class TrafficController:
         packet_loss_occurred = random.random() < self.voice_packet_loss_rate
         if packet_loss_occurred:
             data_size = 0  # Packet is lost
-        traffic_update.info(f"Generated voice traffic with parameters: {self.voice_traffic_params}")
+        #traffic_update.info(f"Generated voice traffic with parameters: {self.voice_traffic_params}")
         return data_size, interval, self.voice_delay, jitter, self.voice_packet_loss_rate
 
     def generate_video_traffic(self):
@@ -260,8 +260,8 @@ class TrafficController:
             if random.random() < self.video_packet_loss_rate:
                 continue  # Skip this stream due to packet loss
             data_size += (stream_bitrate * interval) / 8  # Convert to MB
-            cell_logger.info(f"Video Traffic: Data Size: {data_size}MB, Streams: {num_streams}, Interval: {interval}s, Delay: {self.video_delay}ms, Jitter: {jitter}ms, Packet Loss Rate: {self.video_packet_loss_rate}%")
-            traffic_update.info(f"Generated video traffic with parameters: {self.video_traffic_params}")
+            #cell_logger.info(f"Video Traffic: Data Size: {data_size}MB, Streams: {num_streams}, Interval: {interval}s, Delay: {self.video_delay}ms, Jitter: {jitter}ms, Packet Loss Rate: {self.video_packet_loss_rate}%")
+            #traffic_update.info(f"Generated video traffic with parameters: {self.video_traffic_params}")
         return data_size, interval, self.video_delay, jitter, self.video_packet_loss_rate
 
     def generate_gaming_traffic(self):
@@ -280,7 +280,7 @@ class TrafficController:
             if packet_loss_occurred:
                 data_size = 0  # Packet is lost
 
-            traffic_update.info(f"Gaming Traffic: Data Size: {data_size}KB, Interval: {interval}s, Delay: {self.gaming_delay}ms, Jitter: {jitter}ms, Packet Loss Rate: {self.gaming_packet_loss_rate}%")
+            #traffic_update.info(f"Gaming Traffic: Data Size: {data_size}KB, Interval: {interval}s, Delay: {self.gaming_delay}ms, Jitter: {jitter}ms, Packet Loss Rate: {self.gaming_packet_loss_rate}%")
             return data_size, interval, self.gaming_delay, jitter, self.gaming_packet_loss_rate
         except Exception as e:
             traffic_update.error(f"Failed to generate gaming traffic: {e}")
@@ -300,7 +300,7 @@ class TrafficController:
         if random.random() < self.iot_packet_loss_rate:
             data_size = 0  # Packet is lost
 
-        cell_logger.info(f"IoT Traffic: Data Size: {data_size}KB, Interval: {interval}s, Delay: {self.iot_delay}ms, Jitter: {jitter}ms, Packet Loss Rate: {self.iot_packet_loss_rate}%")
+        #cell_logger.info(f"IoT Traffic: Data Size: {data_size}KB, Interval: {interval}s, Delay: {self.iot_delay}ms, Jitter: {jitter}ms, Packet Loss Rate: {self.iot_packet_loss_rate}%")
 
         return data_size, interval, self.iot_delay, jitter, self.iot_packet_loss_rate
 

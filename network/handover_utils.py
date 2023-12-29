@@ -69,7 +69,7 @@ def update_handover_counts(gnodeb, handover_successful, network_state):
 ###########################################################################################################################################
 def monitor_and_log_cell_load(gnodeb):
     while True:  # Run indefinitely
-        cell_load_logger.info("Testing cell load logging.")
+        #cell_load_logger.info("Testing cell load logging.")
         for cell in gnodeb.Cells:
             # Use the gNodeB class method to calculate cell load
             cell_load_percentage = gnodeb.calculate_cell_load(cell) * 100  # Convert to percentage
