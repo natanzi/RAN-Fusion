@@ -170,5 +170,9 @@ def update_data_traffic():
         traffic_update.error(f'Failed to update data traffic: {e}')
         return {'error': str(e), 'acknowledged': False}, 500
 
+@app.route('/test', methods=['GET'])
+def test_endpoint():
+    return jsonify({'message': 'CORS Test successful'}), 200    
+
 if __name__ == '__main__':
     app.run(debug=True)
