@@ -104,7 +104,7 @@ def calculate_cell_throughput(cell, gnodebs):
 
     for ue in cell.assigned_UEs:
         # Calculate throughput for each UE based on traffic generation and quality metrics
-        ue_throughput = calculate_ue_throughput(ue, network_load_impact)
+        ue_throughput = calculate_and_write_ue_throughput(ue, network_load_impact)
         # Adjust the throughput based on the quality metrics
         ue_throughput *= (1 - cell.jitter - cell.packet_loss - cell.delay)
         total_throughput += ue_throughput

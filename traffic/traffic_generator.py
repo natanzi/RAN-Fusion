@@ -148,32 +148,6 @@ class TrafficController:
         else:
             raise ValueError(f"Unknown service type: {ue.ServiceType}")           
     
-    # Update methods for jitter, delay, and packet loss
-    def update_voice_traffic_parameters(self, jitter, delay, packet_loss_rate):
-        self.voice_jitter = jitter
-        self.voice_delay = delay
-        self.voice_packet_loss_rate = packet_loss_rate
-
-    def update_video_traffic_parameters(self, jitter, delay, packet_loss_rate):
-        self.video_jitter = jitter
-        self.video_delay = delay
-        self.video_packet_loss_rate = packet_loss_rate
-
-    def update_gaming_traffic_parameters(self, jitter, delay, packet_loss_rate):
-        self.gaming_jitter = jitter
-        self.gaming_delay = delay
-        self.gaming_packet_loss_rate = packet_loss_rate
-        
-    def update_iot_traffic_parameters(self, jitter, delay, packet_loss_rate):
-        self.iot_jitter = jitter
-        self.iot_delay = delay
-        self.iot_packet_loss_rate = packet_loss_rate
-
-    def update_data_traffic_parameters(self, jitter, delay, packet_loss_rate):
-        self.data_jitter = jitter
-        self.data_delay = delay
-        self.data_packet_loss_rate = packet_loss_rate 
-
     def update_voice_traffic(self, bitrate_range):
         try:
             with self.lock:
@@ -226,7 +200,33 @@ class TrafficController:
         except Exception as e:
             traffic_update.error(f"Failed to update data traffic parameters: {e}")
         return False
+    
+        # Update methods for jitter, delay, and packet loss
+    def update_voice_traffic_parameters(self, jitter, delay, packet_loss_rate):
+        self.voice_jitter = jitter
+        self.voice_delay = delay
+        self.voice_packet_loss_rate = packet_loss_rate
 
+    def update_video_traffic_parameters(self, jitter, delay, packet_loss_rate):
+        self.video_jitter = jitter
+        self.video_delay = delay
+        self.video_packet_loss_rate = packet_loss_rate
+
+    def update_gaming_traffic_parameters(self, jitter, delay, packet_loss_rate):
+        self.gaming_jitter = jitter
+        self.gaming_delay = delay
+        self.gaming_packet_loss_rate = packet_loss_rate
+        
+    def update_iot_traffic_parameters(self, jitter, delay, packet_loss_rate):
+        self.iot_jitter = jitter
+        self.iot_delay = delay
+        self.iot_packet_loss_rate = packet_loss_rate
+
+    def update_data_traffic_parameters(self, jitter, delay, packet_loss_rate):
+        self.data_jitter = jitter
+        self.data_delay = delay
+        self.data_packet_loss_rate = packet_loss_rate 
+        
     # Traffic generation methods with conditional application of jitter, delay, and packet loss
     def generate_voice_traffic(self):
         time.sleep(self.voice_delay)  # Use voice-specific delay

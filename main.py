@@ -14,7 +14,7 @@ from logs.logger_config import traffic_update
 import threading
 from traffic.traffic_generator import TrafficController
 
-update_received = False
+#update_received = False
 
 #################################################################################################################################
 # pickled by multiprocessing
@@ -32,40 +32,35 @@ def network_state_manager(network_state, command_queue):
             break
 ####################################################################################################################################
 def log_traffic(ues, command_queue, network_state):
-    global update_received
     traffic_controller = TrafficController(command_queue)
     while True:
         # Check for new commands and apply updates if necessary
         if not command_queue.empty():
             command = command_queue.get()
             if command['type'] == 'update':
-                logging.info(f"Received update for {command['service_type']} traffic. Updating parameters.")
+                logging.info(f"Received update for {command['service_type']} traffic. Updating parameters. Update ID: {command['update_id']}")
                 traffic_controller.update_parameters(command['data'])
-                update_received = True  # Set the flag to True when an update is received
-                continue
-
-        # Log traffic for all UEs
-        for ue in ues:
-            # If the UE service type matches the updated service type, use updated parameters
-            if update_received and ue.ServiceType == command['service_type']:
-                data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_updated_traffic(ue)
-                # Log the updated traffic generation message
-                logging.getLogger('traffic_update').info(f"Generated {ue.ServiceType} traffic with updated parameters: {command['data']}")
-            else:
-                # Otherwise, use normal traffic generation
-                data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_traffic(ue)
-            
-            formatted_data_size = f"{data_size:.2f}"
-            formatted_interval = f"{interval:.2f}"
-            # Use the root logger for normal traffic logging
-            logging.info(f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Data Size: {formatted_data_size}MB, Interval: {formatted_interval}s, Delay: {delay}ms, Jitter: {jitter}ms, Packet Loss Rate: {packet_loss_rate}%")
-            command_queue.put('save')
-
-        # Reset the flag after logging
-        if update_received:
-            update_received = False
-
-        time.sleep(1)  # Logging interval
+                # Apply the update for matching UEs
+                for ue in ues:
+                    if ue.ServiceType.lower() == command['service_type'].lower():
+                        data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_updated_traffic(ue)
+                        logging.getLogger('traffic_update').info(
+                            f"UE ID: {ue.ID} - Updated {ue.ServiceType} traffic with parameters: {command['data']} (Update ID: {command['update_id']})"
+                        )
+                    else:
+                        # Generate normal traffic for other UEs
+                        data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_traffic(ue)
+                    formatted_data_size = f"{data_size:.2f}"
+                    formatted_interval = f"{interval:.2f}"
+                    logging.info(
+                        f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Data Size: {formatted_data_size}MB, Interval: {formatted_interval}s, Delay: {delay}ms, Jitter: {jitter}ms, Packet Loss Rate: {packet_loss_rate}%"
+                    )
+                command_queue.put('save')
+            elif command == 'save':
+                network_state.save_state_to_influxdb()
+            elif command == 'exit':
+                break
+        time.sleep(1)
 ######################################################################################
 def detect_and_handle_congestion(network_state, command_queue):
     while True:
