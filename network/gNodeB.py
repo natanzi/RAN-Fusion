@@ -174,7 +174,7 @@ class gNodeB:
         :param cell_id: The ID of the cell to find.
         :return: The cell with the matching ID or None if not found.
         """
-        return next((cell for cell in self.Cells if cell.ID == cell_id), None)
+        #return next((cell for cell in self.Cells if cell.ID == cell_id), None)
         
     def update_cell_capacity(self, new_capacity):
         # Check if the new capacity is valid
@@ -201,14 +201,25 @@ class gNodeB:
     def calculate_cell_load(self, cell):
         # Calculate the load based on the number of connected UEs
         ue_based_load = len(cell.ConnectedUEs) / cell.MaxConnectedUEs if cell.MaxConnectedUEs > 0 else 0
-        
+
         # Calculate the load based on the throughput
-        throughput_based_load = calculate_cell_throughput(cell, [self])  # Assuming 'self' is the only gNodeB for simplicity
-        
-        # Combine the UE-based load and throughput-based load for a more accurate load calculation
-        # The weights can be adjusted based on which factor is deemed more important
-        combined_load = (0.5 * ue_based_load) + (0.5 * throughput_based_load)
-        
+        total_throughput = 0
+        for ue in cell.assigned_UEs:
+            # Assume a function to calculate UE throughput exists
+            ue_throughput = self.calculate_ue_throughput(ue)
+            total_throughput += ue_throughput
+        throughput_based_load = total_throughput / cell.MaxThroughput if cell.MaxThroughput > 0 else 0
+
+        # Calculate quality metrics (jitter, packet loss, delay)
+        # Assume functions to calculate jitter, packet loss, and delay exist
+        jitter = self.calculate_jitter(cell)
+        packet_loss = self.calculate_packet_loss(cell)
+        delay = self.calculate_delay(cell)
+        quality_metric_load = (jitter + packet_loss + delay) / 3
+
+        # Combine all loads with appropriate weights
+        combined_load = (0.4 * ue_based_load) + (0.4 * throughput_based_load) + (0.2 * quality_metric_load)
+
         return combined_load
 ##########################################################################################################################
     def find_underloaded_cell(self):
@@ -250,35 +261,6 @@ class gNodeB:
 
         return best_cell
 #########################################################################################################
-    def calculate_cell_load(self, cell):
-        # Existing load calculations
-        ue_based_load = len(cell.ConnectedUEs) / cell.MaxConnectedUEs if cell.MaxConnectedUEs > 0 else 0
-        throughput_based_load = calculate_cell_throughput(cell, gnodebs)
-
-        # New quality metric calculations
-        jitter = self.calculate_jitter(cell)
-        packet_loss = self.calculate_packet_loss(cell)
-        delay = self.calculate_delay(cell)
-
-        # Normalize the quality metrics between 0 and 1 and calculate the quality metric load
-        quality_metric_load = (jitter + packet_loss + delay) / 3
-
-        # Combine all loads with appropriate weights
-        combined_load = (0.4 * ue_based_load) + (0.4 * throughput_based_load) + (0.2 * quality_metric_load)
-
-        return combined_load
-##############################################################################################
-    def calculate_quality_metric(self, cell):
-        # Placeholder for actual quality metric calculation
-        # This should take into account delay, jitter, packet loss, etc.
-        # For example, a simple average of normalized metrics (each metric scaled to be between 0 and 1)
-        delay = self.get_average_delay(cell)
-        jitter = self.get_average_jitter(cell)
-        packet_loss = self.get_packet_loss_rate(cell)
-
-        # Normalize and calculate the quality metric
-        quality_metric = (delay + jitter + packet_loss) / 3
-        return quality_metric  
 #######################################Periodic Updates###############################################
     def update(self):
         from network.handover_utils import handle_load_balancing, monitor_and_log_cell_load
@@ -286,5 +268,5 @@ class gNodeB:
         handle_load_balancing(self, self.calculate_cell_load, self.find_underloaded_cell, self.select_ues_for_load_balancing)
     # Now also call monitor_and_log_cell_load to log the cell load
         monitor_and_log_cell_load(self)
-    # handle_qos_based_handover(self, self.all_ues, self.find_cell_by_id)
+    #handle_qos_based_handover(self, self.all_ues, self.find_cell_by_id)
 ######################################################################################################

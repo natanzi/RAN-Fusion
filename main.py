@@ -98,7 +98,7 @@ def main():
     print(f"Number of UEs returned: {len(ues)}")
     time.sleep(2)
 
-    traffic_increase_config = {1: 2, 3: 1.5}
+    #traffic_increase_config = {1: 2, 3: 1.5}
 
     command_queue = Queue()
     
