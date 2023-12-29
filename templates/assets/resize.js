@@ -139,16 +139,16 @@ function serializeForm(formId) {
 }
 // Endpoint map
 const endpointMap = {
-    voiceTrafficForm: 'update_voiceTraffic_traffic',
-    videoTrafficForm: 'update_videoTraffic_traffic',
-    gamingTrafficForm: 'update_gamingTraffic_traffic',
-    iotTrafficForm: 'update_iotTraffic_traffic',
-    dataTrafficForm: 'update_dataTraffic_traffic'
+    "1": 'update_voice_traffic',
+    "2": 'update_video_traffic',
+    "3": 'update_game_traffic',
+    "4": 'update_iot_traffic',
+    "5": 'update_data_traffic',
 };
 
 // Function to send POST request
 function sendPostRequest(formId, data) {
-    const endpoint = `http://127.0.0.1:5000/${endpointMap[formId]}`;
+    const endpoint = `http://127.0.0.1:5000/${endpointMap[formId.toString()]}`;
     fetch(endpoint, {
         method: 'POST',
         headers: {

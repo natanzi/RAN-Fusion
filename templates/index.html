@@ -17,7 +17,7 @@
         <div class="form-container" id="formContainer">
 
         <!-- Voice Traffic Form -->
-        <form id="voiceTrafficForm">
+        <form id="1">
             <h3>Voice Traffic</h3>
             <!-- Input fields with name attributes for voice traffic -->
             <label for="voice_min_bitrate">Min Bitrate (8-16 kbps):</label>
@@ -39,7 +39,7 @@
         </form>
 
         <!-- Video Traffic Form -->
-        <form id="videoTrafficForm">
+        <form id="2">
             <h3>Video Traffic</h3>
             <!-- Input fields with name attributes for video traffic -->
             <label for="video_min_streams">Min Number of Streams (1-5):</label>
@@ -67,7 +67,7 @@
         </form>
 
         <!-- Gaming Traffic Form -->
-            <form id="gamingTrafficForm">
+            <form id="3">
             <h3>Gaming Traffic</h3>
 
             <!-- Min Bitrate with placeholder and title for range information -->
@@ -92,7 +92,7 @@
         </form>
 
         <!-- IoT Traffic Form -->
-        <form id="iotTrafficForm">
+        <form id="4">
             <h3>IoT Traffic</h3>
             <!-- Input fields with name attributes for IoT traffic -->
             <label for="iot_min_packet_size">Min Packet Size (5-15 bytes):</label>
@@ -121,7 +121,7 @@
 
 
         <!-- Data Traffic Form -->
-        <form id="dataTrafficForm">
+        <form id="5">
             <h3>Data Traffic</h3>
             <!-- Input fields with name attributes for data traffic -->
             <label for="data_min_bitrate">Min Bitrate (1-10 Mbps):</label>
@@ -237,6 +237,7 @@
                 // Function to send POST request
                 function sendPostRequest(formId, data) {
                     const endpoint = `http://127.0.0.1:5000/${endpointMap[formId]}`;
+                    
                     fetch(endpoint, {
                         method: 'POST',
                         headers: {

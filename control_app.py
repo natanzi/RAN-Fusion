@@ -29,7 +29,7 @@ def validate_traffic_parameters(params, param_types):
 def index():
     return 'Welcome to the 5G RAN Simulator!', 200
 
-@app.route('/update_voiceTraffic_traffic', methods=['POST'])
+@app.route('/update_voice_traffic', methods=['POST'])
 def update_voice_traffic():
     data = request.json
     expected_types = {
@@ -54,7 +54,7 @@ def update_voice_traffic():
         traffic_update.error(f'Failed to update voice traffic: {e}')
         return {'error': str(e), 'acknowledged': False}, 500
 
-@app.route('/update_videoTraffic_traffic', methods=['POST'])
+@app.route('/update_video_traffic', methods=['POST'])
 def update_video_traffic():
     data = request.json
     expected_types = {
@@ -82,7 +82,7 @@ def update_video_traffic():
         traffic_update.error(f'Failed to update video traffic: {e}')
         return {'error': str(e), 'acknowledged': False}, 500
 
-@app.route('/update_gamingTraffic_traffic', methods=['POST'])
+@app.route('/update_gaming_traffic', methods=['POST'])
 def update_gaming_traffic():
     app.logger.info('Processing request for /some_endpoint')
     print("Received data:", request.json)
@@ -114,7 +114,7 @@ def update_gaming_traffic():
         print(traceback.format_exc())
         return {'error': str(e), 'acknowledged': False}, 500
 
-@app.route('/update_iotTraffic_traffic', methods=['POST'])
+@app.route('/update_iot_traffic', methods=['POST'])
 def update_iot_traffic():
     data = request.json
     expected_types = {
@@ -142,7 +142,7 @@ def update_iot_traffic():
         traffic_update.error(f'Failed to update IoT traffic: {e}')
         return {'error': str(e), 'acknowledged': False}, 500
 
-@app.route('/update_dataTraffic_traffic', methods=['POST'])
+@app.route('/update_data_traffic', methods=['POST'])
 def update_data_traffic():
     data = request.json
     expected_types = {
