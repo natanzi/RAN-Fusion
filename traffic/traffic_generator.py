@@ -318,7 +318,7 @@ class TrafficController:
         if random.random() < self.data_packet_loss_rate:
             data_size = 0  # Packet is lost
         
-        traffic_update.info(f"Data Traffic: Data Size: {data_size}MB, Interval: {interval}s, Delay: {self.data_delay}ms, Jitter: {jitter}ms, Packet Loss Rate: {self.data_packet_loss_rate}%")
+        #traffic_update.info(f"Data Traffic: Data Size: {data_size}MB, Interval: {interval}s, Delay: {self.data_delay}ms, Jitter: {jitter}ms, Packet Loss Rate: {self.data_packet_loss_rate}%")
 
         return data_size, interval, self.data_delay, jitter, self.data_packet_loss_rate
     
