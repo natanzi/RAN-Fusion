@@ -10,7 +10,7 @@ import traceback
 
 # Create Flask app
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app, resources={r"/*": {"origins": "*"}})  # This line allows all domains
 
 # Assuming command_queue is made accessible here, for example, as a global variable
 command_queue = Queue()
