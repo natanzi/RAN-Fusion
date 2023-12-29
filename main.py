@@ -35,21 +35,33 @@ def log_traffic(ues, command_queue, network_state):
     global update_received
     traffic_controller = TrafficController(command_queue)
     while True:
+        # Check for new commands and apply updates if necessary
         if not command_queue.empty():
             command = command_queue.get()
-            if command == 'restart':
-                logging.info("Received restart command. Reinitializing traffic generation with updated parameters.")
-                ues = traffic_controller.get_updated_ues(network_state)
+            if command['type'] == 'update':
+                logging.info(f"Received update for {command['service_type']} traffic. Updating parameters.")
+                traffic_controller.update_parameters(command['data'])
                 update_received = True  # Set the flag to True when an update is received
                 continue
-        if update_received:  # Check the flag before logging
-            for ue in ues:
+
+        # Log traffic for all UEs
+        for ue in ues:
+            # If the UE service type matches the updated service type, use updated parameters
+            if update_received and ue.ServiceType == command['service_type']:
+                data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_updated_traffic(ue)
+            else:
+                # Otherwise, use normal traffic generation
                 data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_traffic(ue)
-                formatted_data_size = f"{data_size:.2f}"
-                formatted_interval = f"{interval:.2f}"
-                logging.info(f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Data Size: {formatted_data_size}MB, Interval: {formatted_interval}s, Delay: {delay}ms, Jitter: {jitter}ms, Packet Loss Rate: {packet_loss_rate}%")
-                command_queue.put('save')
-            update_received = False  # Reset the flag after logging
+            
+            formatted_data_size = f"{data_size:.2f}"
+            formatted_interval = f"{interval:.2f}"
+            logging.info(f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Data Size: {formatted_data_size}MB, Interval: {formatted_interval}s, Delay: {delay}ms, Jitter: {jitter}ms, Packet Loss Rate: {packet_loss_rate}%")
+            command_queue.put('save')
+
+        # Reset the flag after logging
+        if update_received:
+            update_received = False
+
         time.sleep(1)  # Logging interval
 ######################################################################################
 def detect_and_handle_congestion(network_state, command_queue):
