@@ -182,3 +182,5 @@
 {"level": "INFO", "timestamp": "2023-12-28 18:27:37", "message": "Data inserted for measurement ue_metrics with tags ue_id=UE8, connected_cell_id=CX1873, entity_type=ue", "test_id": "61a1d9e3-b8b4-47fb-a413-621f6a7c91d1"}
 {"level": "INFO", "timestamp": "2023-12-28 18:27:37", "message": "Data inserted for measurement ue_metrics with tags ue_id=UE9, connected_cell_id=CX5103, entity_type=ue", "test_id": "61a1d9e3-b8b4-47fb-a413-621f6a7c91d1"}
 {"level": "INFO", "timestamp": "2023-12-28 18:27:37", "message": "Data inserted for measurement ue_metrics with tags ue_id=UE10, connected_cell_id=Ax1242, entity_type=ue", "test_id": "61a1d9e3-b8b4-47fb-a413-621f6a7c91d1"}
+{"level": "INFO", "timestamp": "2023-12-28 18:42:00", "message": "Database connection successful.", "test_id": "97433b87-2213-4fa1-b468-a5a5a7c790ea"}
+{"level": "INFO", "timestamp": "2023-12-28 18:42:00", "message": "Data inserted for measurement gnodeb_metrics with tags gnodeb_id=W1140, entity_type=gnodeb", "test_id": "97433b87-2213-4fa1-b468-a5a5a7c790ea"}
