@@ -84,7 +84,7 @@ def update_video_traffic():
         traffic_update.error(f'Failed to update video traffic: {e}')
         return {'error': str(e), 'acknowledged': False}, 500
 
-@app.route('/update_gaming_traffic', methods=['POST'])
+@app.route('/update_gamingTraffic_traffic', methods=['POST'])
 @cross_origin()
 def update_gaming_traffic():
     app.logger.info('Processing request for /some_endpoint')
