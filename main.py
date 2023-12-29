@@ -49,6 +49,8 @@ def log_traffic(ues, command_queue, network_state):
             # If the UE service type matches the updated service type, use updated parameters
             if update_received and ue.ServiceType == command['service_type']:
                 data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_updated_traffic(ue)
+                # Log the updated traffic generation message
+                logging.info(f"Generated {ue.ServiceType} traffic with updated parameters: {command['data']}")
             else:
                 # Otherwise, use normal traffic generation
                 data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_traffic(ue)
