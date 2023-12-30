@@ -408,7 +408,6 @@ class TrafficController:
 
         return traffic_data
 ###########################################################################################
-
     @staticmethod
     def handle_commands(command_queue, traffic_controller):
         while True:
@@ -421,4 +420,11 @@ class TrafficController:
     def start_command_handler(self):
         command_handler_thread = Thread(target=TrafficController.handle_commands, args=(self.command_queue, self))
         command_handler_thread.daemon = True
-        command_handler_thread.start()    
+        command_handler_thread.start() 
+###########################################################################################
+    def get_traffic_parameters(self, ue):
+        return {
+            'jitter': ue.jitter,
+            'packet_loss': ue.packet_loss,
+            'delay': ue.delay
+        }

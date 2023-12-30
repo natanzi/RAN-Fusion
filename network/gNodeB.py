@@ -197,28 +197,22 @@ class gNodeB:
 ###################################################################################################
 #####################################Load Calculation##############################################
     def calculate_cell_load(self, cell, traffic_controller):
-        # Calculate the load based on the number of connected UEs
+    # Calculate the load based on the number of connected UEs
         ue_based_load = len(cell.ConnectedUEs) / cell.MaxConnectedUEs if cell.MaxConnectedUEs > 0 else 0
 
-        # Calculate the load based on the throughput
+    # Calculate the load based on the throughput
         total_throughput = 0
         for ue in cell.assigned_UEs:
-            # Assume a function to calculate UE throughput exists
+        # Assume a function to calculate UE throughput exists
             ue_throughput = self.calculate_ue_throughput(ue)
             total_throughput += ue_throughput
         max_throughput_bytes = 100 * 1024 * 1024
         throughput_based_load = total_throughput / max_throughput_bytes if cell.max_throughput > 0 else 0
 
-        # Calculate quality metrics (jitter, packet loss, delay) for each UE
-        jitter_total = 0
-        packet_loss_total = 0
-        delay_total = 0
-        for ue in cell.assigned_UEs:
-            # Retrieve traffic parameters for each UE from the TrafficController
-            traffic_params = traffic_controller.get_traffic_parameters(ue)
-            jitter_total += traffic_params['jitter']
-            packet_loss_total += traffic_params['packet_loss']
-            delay_total += traffic_params['delay']
+        # Retrieve quality metrics (jitter, packet loss, delay) for each UE from the TrafficController
+        jitter_total = sum(traffic_controller.get_traffic_parameters(ue)['jitter'] for ue in cell.assigned_UEs)
+        packet_loss_total = sum(traffic_controller.get_traffic_parameters(ue)['packet_loss'] for ue in cell.assigned_UEs)
+        delay_total = sum(traffic_controller.get_traffic_parameters(ue)['delay'] for ue in cell.assigned_UEs)
 
         # Calculate average quality metrics across all UEs
         num_ues = len(cell.assigned_UEs)
