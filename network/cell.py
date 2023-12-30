@@ -49,7 +49,7 @@ class Cell:
             ssb_offset=json_data["ssbOffset"],
             max_connect_ues=json_data["maxConnectUes"],
             channel_model=json_data["channelModel"],
-            trackingArea=json_data.get("trackingArea")
+            trackingArea=json_data.get("trackingArea"),
             max_throughput=json_data["max_throughput"],
 
         )
@@ -133,7 +133,7 @@ class Cell:
             .field("ssb_periodicity", self.SSBPeriodicity) \
             .field("ssb_offset", self.SSBOffset) \
             .field("max_connect_ues", self.MaxConnectedUEs) \
-            .field("max_throughput", self.MaxThroughput) \
+            .field("max_throughput", self.max_throughput) \
             .field("channel_model", self.ChannelModel) \
             .field("trackingArea", self.TrackingArea) \
             .field("CellisActive",self.IsActive)
