@@ -104,7 +104,12 @@ def main():
     
     # Create an instance of TrafficController and pass the command_queue
     traffic_controller = TrafficController(command_queue)
-
+    
+    # Assuming traffic_controller is already created and available in this scope
+    for gNodeB in gNodeBs.values():
+        cell_load_thread = threading.Thread(target=monitor_and_log_cell_load, args=(gNodeB, traffic_controller))
+        cell_load_thread.daemon = True  # This ensures the thread will exit when the main program does
+        cell_load_thread.start()
     # Instantiate the SystemMonitor
     system_monitor = SystemMonitor(network_state)
 
