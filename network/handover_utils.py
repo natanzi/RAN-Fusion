@@ -67,11 +67,11 @@ def update_handover_counts(gnodeb, handover_successful, network_state):
         gnodeb.handover_failure_count += 1
 ###########################################################################################################################################
 def monitor_and_log_cell_load(gnodeb):
-    while True:  # Run indefinitely
-        #cell_load_logger.info("Testing cell load logging.")
+    while True: 
+        
         for cell in gnodeb.Cells:
-            # Use the gNodeB class method to calculate cell load
-            cell_load_percentage = gnodeb.calculate_cell_load(cell) * 100  # Convert to percentage
+            # Assume cell_load is a pre-calculated property or method in the Cell class
+            cell_load_percentage = cell.load 
 
             # Log the cell load percentage using cell_load_logger
             cell_load_logger.info(f'Cell {cell.ID} @ gNodeB {gnodeb.ID} - Load: {cell_load_percentage}%')
@@ -82,7 +82,7 @@ def monitor_and_log_cell_load(gnodeb):
                 congestion_message = f"gNodeB ID {gnodeb.ID} - Cell ID {cell.ID} is congested with a load of {cell_load_percentage}%."
                 print(congestion_message)
                 cell_logger.warning(congestion_message)
-                gnodeb_logger.warning(congestion_message)  # Assuming gnodeb_logger is set up in logger_config.py
+                gnodeb_logger.warning(congestion_message)
                 
                 # Trigger load balancing
                 handle_load_balancing(gnodeb, gnodeb.calculate_cell_load, gnodeb.find_underloaded_cell, gnodeb.select_ues_for_load_balancing)
