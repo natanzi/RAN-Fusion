@@ -23,7 +23,7 @@ class Cell:
         self.SSBPeriodicity = ssb_periodicity
         self.SSBOffset = ssb_offset
         self.MaxConnectedUEs = max_connect_ues
-        self.MaxThroughput = max_throughput
+        self.max_throughput = max_throughput
         self.ChannelModel = channel_model
         self.TrackingArea = trackingArea 
         self.ConnectedUEs = []
@@ -50,6 +50,8 @@ class Cell:
             max_connect_ues=json_data["maxConnectUes"],
             channel_model=json_data["channelModel"],
             trackingArea=json_data.get("trackingArea")
+            max_throughput=json_data["max_throughput"],
+
         )
     def to_dict(self):
         return {
@@ -62,10 +64,11 @@ class Cell:
             'SSBPeriodicity': self.SSBPeriodicity,
             'SSBOffset': self.SSBOffset,
             'MaxConnectedUEs': self.MaxConnectedUEs,
+            'max_throughput': self.max_throughput,
             'ChannelModel': self.ChannelModel,
             'TrackingArea': self.TrackingArea,
             'CellisActive': self.IsActive
-            # Assuming you don't need to include the 'ConnectedUEs' list
+
         }
     # Method to get the count of active UEs and update the last attached cell and its gNodeB
     def update_ue_count(self):
