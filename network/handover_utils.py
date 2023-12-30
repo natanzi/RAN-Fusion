@@ -66,12 +66,11 @@ def update_handover_counts(gnodeb, handover_successful, network_state):
     else:
         gnodeb.handover_failure_count += 1
 ###########################################################################################################################################
-def monitor_and_log_cell_load(gnodeb):
+def monitor_and_log_cell_load(gnodeb, traffic_controller):
     while True: 
-        
         for cell in gnodeb.Cells:
-            # Assume cell_load is a pre-calculated property or method in the Cell class
-            cell_load_percentage = cell.load 
+            # Directly calculate the cell load percentage using the calculate_cell_load method
+            cell_load_percentage = gnodeb.calculate_cell_load(cell, traffic_controller)
 
             # Log the cell load percentage using cell_load_logger
             cell_load_logger.info(f'Cell {cell.ID} @ gNodeB {gnodeb.ID} - Load: {cell_load_percentage}%')
@@ -87,7 +86,7 @@ def monitor_and_log_cell_load(gnodeb):
                 # Trigger load balancing
                 handle_load_balancing(gnodeb, gnodeb.calculate_cell_load, gnodeb.find_underloaded_cell, gnodeb.select_ues_for_load_balancing)
         
-        time.sleep(1)  # Sleep for one second before the next iteration
+        time.sleep(1)  
 ##########################################################################################################################################
 def check_handover_feasibility(network_state, target_cell_id, ue):
     # Retrieve the target cell object using its ID
