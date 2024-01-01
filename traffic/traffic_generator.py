@@ -427,37 +427,37 @@ class TrafficController:
         data_size_kb_or_mb = traffic_data['data_size']
         interval = traffic_data['interval']
 
-        # Retrieve jitter, packet loss, and delay from the UE
+    # Retrieve jitter, packet loss, and delay from the UE
         jitter = ue.jitter
         packet_loss = ue.packet_loss
         delay = ue.delay
 
-        # Convert data size to bytes
+    # Convert data size to bytes
         if ue.ServiceType.lower() in ['voice', 'gaming', 'iot']:
-           data_size_bytes = data_size_kb_or_mb * 1024  # KB to bytes
+            data_size_bytes = data_size_kb_or_mb * 1024  # KB to bytes
         elif ue.ServiceType.lower() in ['video', 'data']:
             data_size_bytes = data_size_kb_or_mb * 1024 * 1024  # MB to bytes
 
-        # Adjust the throughput based on quality metrics
+    # Adjust the throughput based on quality metrics
         quality_impact = (1 - jitter) * (1 - packet_loss) * (1 - delay)
         adjusted_throughput = (data_size_bytes / interval) * quality_impact
 
-        # Prepare the data for InfluxDB
+    # Prepare the data for InfluxDB
         influxdb_data = {
             "measurement": "ue_throughput",
             "tags": {
                 "ue_id": ue.id
-            },
-            "fields": {
+        },
+        "fields": {
                 "throughput": adjusted_throughput,
                 "jitter": jitter,
                 "packet_loss": packet_loss,
                 "delay": delay
-            },
-            "time": datetime.datetime.utcnow().isoformat()
-        }
+        },
+        "time": datetime.datetime.utcnow().isoformat()
+    }
 
-    # Create a DatabaseManager instance, write data, and close connection
+        # Create a DatabaseManager instance, write data, and close connection
         database_manager = DatabaseManager()
         database_manager.insert_data(influxdb_data)
         database_manager.close_connection()
