@@ -8,7 +8,7 @@ from multiprocessing import Queue
 from network.network_state import NetworkState
 from threading import Thread
 import datetime
-
+from database.database_manager import DatabaseManager
 class TrafficController:
 
     def __init__(self, command_queue):
@@ -20,8 +20,8 @@ class TrafficController:
         self.gaming_traffic_params = {'bitrate': (30, 70)}  # in Kbps
         self.iot_traffic_params = {'packet_size': (5, 15), 'interval': (10, 60)}  # packet size in KB, interval in seconds
         self.data_traffic_params = {'bitrate': (1, 10), 'interval': (0.5, 2)}  # in Mbps
-        self.updated_parameters = {}  # Add this to store updated parameters
-        self.is_updated = False       # Add this flag to track updates
+        self.updated_parameters = {}  # to store updated parameters
+        self.is_updated = False       # flag to track updates
 
         # Initialize jitter, delay, and packet loss for each traffic type
         self.voice_jitter = 0
@@ -422,9 +422,44 @@ class TrafficController:
         command_handler_thread.daemon = True
         command_handler_thread.start() 
 ###########################################################################################
-    def get_traffic_parameters(self, ue):
-        return {
-            'jitter': ue.jitter,
-            'packet_loss': ue.packet_loss,
-            'delay': ue.delay
+    def calculate_and_write_ue_throughput(self, ue):
+        traffic_data = self.generate_traffic(ue)
+        data_size_kb_or_mb = traffic_data['data_size']
+        interval = traffic_data['interval']
+
+        # Retrieve jitter, packet loss, and delay from the UE
+        jitter = ue.jitter
+        packet_loss = ue.packet_loss
+        delay = ue.delay
+
+        # Convert data size to bytes
+        if ue.ServiceType.lower() in ['voice', 'gaming', 'iot']:
+           data_size_bytes = data_size_kb_or_mb * 1024  # KB to bytes
+        elif ue.ServiceType.lower() in ['video', 'data']:
+            data_size_bytes = data_size_kb_or_mb * 1024 * 1024  # MB to bytes
+
+        # Adjust the throughput based on quality metrics
+        quality_impact = (1 - jitter) * (1 - packet_loss) * (1 - delay)
+        adjusted_throughput = (data_size_bytes / interval) * quality_impact
+
+        # Prepare the data for InfluxDB
+        influxdb_data = {
+            "measurement": "ue_throughput",
+            "tags": {
+                "ue_id": ue.id
+            },
+            "fields": {
+                "throughput": adjusted_throughput,
+                "jitter": jitter,
+                "packet_loss": packet_loss,
+                "delay": delay
+            },
+            "time": datetime.datetime.utcnow().isoformat()
         }
+
+    # Create a DatabaseManager instance, write data, and close connection
+        database_manager = DatabaseManager()
+        database_manager.insert_data(influxdb_data)
+        database_manager.close_connection()
+
+        return adjusted_throughput

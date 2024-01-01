@@ -127,20 +127,20 @@ class UE:
             raise ValueError(f"Unknown service type: {self.ServiceType}")
 
         # Scale the data size by the traffic multiplier
-        data_size *= traffic_multiplier
-        return data_size, interval, delay, jitter, packet_loss_rate
+        #data_size *= traffic_multiplier
+        #return data_size, interval, delay, jitter, packet_loss_rate
 
-    def get_traffic_volume(self, traffic_controller):
+    #d#ef get_traffic_volume(self, traffic_controller):
         # Assuming traffic_volume is calculated as the sum of data sizes from generate_traffic over time
-        traffic_volume = 0
-        traffic_multiplier = 1  # or some other logic to determine the multiplier
+        #traffic_volume = 0
+        #traffic_multiplier = 1  # or some other logic to determine the multiplier
 
         # Generate traffic for a certain number of intervals (for example, 60 intervals for an hour)
-        for _ in range(60):
-            data_size, _, _, _, _ = self.generate_traffic(traffic_controller, traffic_multiplier)
-            traffic_volume += data_size
+        #for _ in range(60):
+            #data_size, _, _, _, _ = self.generate_traffic(traffic_controller, traffic_multiplier)
+            #traffic_volume += data_size
 
-        return traffic_volume
+        #return traffic_volume
 ####################################################################################
     def perform_handover(self, old_cell, new_cell, network_state):
         try:
