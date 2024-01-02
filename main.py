@@ -13,6 +13,7 @@ from database.database_manager import DatabaseManager
 from logs.logger_config import traffic_update
 import threading
 from traffic.traffic_generator import TrafficController
+from threading import Lock
 
 #update_received = False
 
@@ -80,7 +81,8 @@ def main():
 
     base_dir = os.path.dirname(os.path.abspath(__file__))
     gNodeBs_config, cells_config, ue_config = load_all_configs(base_dir)
-
+    
+    network_state_lock = Lock()
     network_state = NetworkState()
 
     db_manager = DatabaseManager(network_state)
@@ -114,8 +116,8 @@ def main():
     system_monitor = SystemMonitor(network_state)
 
     # Start the network state manager process
-    ns_manager_process = Process(target=network_state_manager, args=(network_state, command_queue))
-    ns_manager_process.start()
+    logging_process = Process(target=log_traffic, args=(ues, command_queue, network_state, network_state_lock))
+    logging_process.start()
 
     # Start the traffic logging process without passing the traffic_controller
     logging_process = Process(target=log_traffic, args=(ues, command_queue, network_state))

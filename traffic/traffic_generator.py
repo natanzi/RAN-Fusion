@@ -9,11 +9,13 @@ from network.network_state import NetworkState
 from threading import Thread
 import datetime
 from database.database_manager import DatabaseManager
+from threading import Lock
+
 class TrafficController:
 
     def __init__(self, command_queue):
-        self.lock = Lock()
         self.command_queue = command_queue
+        self.lock = Lock()
         # Initialize default traffic parameters
         self.voice_traffic_params = {'bitrate': (8, 16)}  # in Kbps
         self.video_traffic_params = {'num_streams': (1, 5), 'stream_bitrate': (3, 8)}  # in Mbps

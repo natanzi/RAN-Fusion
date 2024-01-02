@@ -10,7 +10,8 @@ time = current_time = get_current_time_ntp()
 
 class NetworkState:
     
-    def __init__(self):
+    def __init__(self, lock):
+        self.lock = lock
         self.gNodeBs = {}
         self.cells = {}
         self.ues = {}
@@ -99,7 +100,8 @@ class NetworkState:
         return None
 ########################################################################################################
     def serialize_for_influxdb(self):
-        points = []
+        with self.lock:
+            points = []
 
         # Serialize cell metrics
         for cell_id, cell in self.cells.items():
