@@ -11,9 +11,6 @@ from database.time_utils import get_current_time_ntp, server_pools
 from logs.logger_config import cell_load_logger, cell_logger, gnodeb_logger, ue_logger
 current_time = get_current_time_ntp()
 
-# Create an instance of NetworkState
-network_state = NetworkState()
-
 def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
     ues = []
     db_manager = DatabaseManager(network_state)

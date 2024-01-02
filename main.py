@@ -83,7 +83,7 @@ def main():
     gNodeBs_config, cells_config, ue_config = load_all_configs(base_dir)
     
     network_state_lock = Lock()
-    network_state = NetworkState()
+    network_state = NetworkState(network_state_lock)
 
     db_manager = DatabaseManager(network_state)
 
