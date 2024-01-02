@@ -4,11 +4,15 @@ from .init_gNodeB import initialize_gNodeBs
 from .init_cell import initialize_cells 
 from .init_ue import initialize_ues  
 from .network_state import NetworkState  
+from threading import Lock
 
 def initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, ue_config, db_manager):
     
+    # Create a lock for the NetworkState
+    network_state_lock = Lock()
+
     # Create an instance of NetworkState
-    network_state = NetworkState()
+    network_state = NetworkState(network_state_lock)
 
     # Initialize gNodeBs with the provided configuration
     gNodeBs = initialize_gNodeBs(gNodeBs_config, db_manager)
