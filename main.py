@@ -36,23 +36,23 @@ def log_traffic(ues, command_queue, network_state):
     traffic_controller = TrafficController(command_queue)
     while True:
         for ue in ues:
-            traffic_data = traffic_controller.generate_traffic(ue)
-            # Extract the required values from the traffic_data dictionary
-            data_size = traffic_data['data_size']
-            interval = traffic_data['interval']
-            delay = traffic_data['delay']
-            jitter = traffic_data['jitter']
-            packet_loss_rate = traffic_data['packet_loss_rate']
+            # Calculate throughput instead of generating traffic
+            throughput = traffic_controller.calculate_and_write_ue_throughput(ue)
             
-            # Now you can format these values and log them as before
-            formatted_data_size = f"{data_size:.2f}"
-            formatted_interval = f"{interval:.2f}"
+            # Extract the required values from the traffic_data dictionary
+            # Assuming throughput calculation also provides delay, jitter, and packet_loss_rate
+            delay = throughput['delay']
+            jitter = throughput['jitter']
+            packet_loss_rate = throughput['packet_loss_rate']
+            
+            # Now you can format the throughput value and log it
+            formatted_throughput = f"{throughput['throughput']:.2f}"
             logging.info(
-                f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Data Size: {formatted_data_size}MB, "
-                f"Interval: {formatted_interval}s, Delay: {delay}ms, Jitter: {jitter}ms, "
+                f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Throughput: {formatted_throughput}Mbps, "
+                f"Interval: {throughput['interval']}s, Delay: {delay}ms, Jitter: {jitter}ms, "
                 f"Packet Loss Rate: {packet_loss_rate}%"
             )
-
+        
         # Check for new commands and apply updates if necessary
         if not command_queue.empty():
             command = command_queue.get()
@@ -62,15 +62,16 @@ def log_traffic(ues, command_queue, network_state):
                 # Apply the update for matching UEs
                 for ue in ues:
                     if ue.ServiceType.lower() == command['service_type'].lower():
-                        data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_updated_traffic(ue)
+                        # Assuming generate_updated_traffic now returns throughput and other parameters
+                        updated_traffic = traffic_controller.generate_updated_traffic(ue)
                         logging.getLogger('traffic_update').info(
                             f"UE ID: {ue.ID} - Updated {ue.ServiceType} traffic with parameters: {command['data']} (Update ID: {command['update_id']})"
                         )
-            elif command == 'save':
+            elif command['type'] == 'save':
                 network_state.save_state_to_influxdb()
-            elif command == 'exit':
+            elif command['type'] == 'exit':
                 break
-
+        
         time.sleep(1)  # Sleep for a second before the next iteration
 ######################################################################################
 def detect_and_handle_congestion(network_state, command_queue):

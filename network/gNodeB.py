@@ -197,10 +197,10 @@ class gNodeB:
 ###################################################################################################
 #####################################Load Calculation##############################################
     def calculate_cell_load(self, cell, traffic_controller):
-    # Calculate the load based on the number of connected UEs
+        # Calculate the load based on the number of connected UEs
         ue_based_load = len(cell.ConnectedUEs) / cell.MaxConnectedUEs if cell.MaxConnectedUEs > 0 else 0
 
-    # Calculate the load based on the throughput
+        # Calculate the load based on the throughput
         total_throughput = 0
         for ue in cell.assigned_UEs:
         # Assume a function to calculate UE throughput exists
@@ -209,21 +209,21 @@ class gNodeB:
         max_throughput_bytes = 100 * 1024 * 1024
         throughput_based_load = total_throughput / max_throughput_bytes if cell.max_throughput > 0 else 0
 
-        # Retrieve quality metrics (jitter, packet loss, delay) for each UE from the TrafficController
+    # Retrieve quality metrics (jitter, packet loss, delay) for each UE from the TrafficController
         jitter_total = sum(traffic_controller.get_traffic_parameters(ue)['jitter'] for ue in cell.assigned_UEs)
         packet_loss_total = sum(traffic_controller.get_traffic_parameters(ue)['packet_loss'] for ue in cell.assigned_UEs)
         delay_total = sum(traffic_controller.get_traffic_parameters(ue)['delay'] for ue in cell.assigned_UEs)
 
-        # Calculate average quality metrics across all UEs
+    # Calculate average quality metrics across all UEs
         num_ues = len(cell.assigned_UEs)
         jitter_avg = jitter_total / num_ues if num_ues > 0 else 0
         packet_loss_avg = packet_loss_total / num_ues if num_ues > 0 else 0
         delay_avg = delay_total / num_ues if num_ues > 0 else 0
 
-        # Combine all loads with appropriate weights
+    # Combine all loads with appropriate weights
         combined_load = (0.4 * ue_based_load) + (0.4 * throughput_based_load) + (0.2 * (jitter_avg + packet_loss_avg + delay_avg) / 3)
 
-        # Convert combined load to a percentage
+    # Convert combined load to a percentage
         combined_load_percentage = combined_load * 100
 
         return combined_load_percentage

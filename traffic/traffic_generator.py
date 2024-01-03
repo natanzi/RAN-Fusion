@@ -102,6 +102,41 @@ class TrafficController:
         # Return the updated UEs
         return list(network_state.ues.values())
     
+    def get_traffic_parameters(self, ue):
+        # Check the service type of the UE and return the corresponding updated parameters
+        if ue.ServiceType.lower() == 'voice':
+            return {
+                'jitter': self.voice_jitter,
+                'delay': self.voice_delay,
+                'packet_loss_rate': self.voice_packet_loss_rate
+            }
+        elif ue.ServiceType.lower() == 'video':
+            return {
+                'jitter': self.video_jitter,
+                'delay': self.video_delay,
+                'packet_loss_rate': self.video_packet_loss_rate
+            }
+        elif ue.ServiceType.lower() == 'game':
+            return {
+                'jitter': self.gaming_jitter,
+                'delay': self.gaming_delay,
+                'packet_loss_rate': self.gaming_packet_loss_rate
+            }
+        elif ue.ServiceType.lower() == 'iot':
+            return {
+                'jitter': self.iot_jitter,
+                'delay': self.iot_delay,
+                'packet_loss_rate': self.iot_packet_loss_rate
+            }
+        elif ue.ServiceType.lower() == 'data':
+            return {
+                'jitter': self.data_jitter,
+                'delay': self.data_delay,
+                'packet_loss_rate': self.data_packet_loss_rate
+            }
+        else:
+            raise ValueError(f"Unknown service type: {ue.ServiceType}")
+        
     def restart_traffic_generation(self):
         with self.lock:
             # Stop the current traffic generation
@@ -424,13 +459,17 @@ class TrafficController:
         command_handler_thread.daemon = True
         command_handler_thread.start() 
 ###########################################################################################
-    def calculate_and_write_ue_throughput(self, ue):
+    def calculate_and_write_ue_throughput(self, ue, traffic_controller):
+
+        # Retrieve traffic parameters for the UE
+        traffic_parameters = traffic_controller.get_traffic_parameters(ue)
+
         traffic_data = self.generate_traffic(ue)
-        data_size_kb_or_mb = traffic_data['data_size']
+        packet_loss = traffic_parameters['packet_loss']
         interval = traffic_data['interval']
 
     # Retrieve jitter, packet loss, and delay from the UE
-        jitter = ue.jitter
+        jitter = traffic_data['jitter']
         packet_loss = ue.packet_loss
         delay = ue.delay
 
