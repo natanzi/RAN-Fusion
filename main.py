@@ -15,8 +15,6 @@ import threading
 from traffic.traffic_generator import TrafficController
 from multiprocessing import Lock
 
-#update_received = False
-
 #################################################################################################################################
 # pickled by multiprocessing
 def log_system_resources(system_monitor):
@@ -46,10 +44,12 @@ def log_traffic(ues, command_queue, network_state):
             packet_loss_rate = throughput_data['packet_loss_rate']
             formatted_throughput = f"{throughput_data['throughput']:.2f}"
 
+
             logging.info(
-                f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Throughput: {formatted_throughput}Mbps, "
-                f"Interval: {throughput['interval']}s, Delay: {delay}ms, Jitter: {jitter}ms, "
-                f"Packet Loss Rate: {packet_loss_rate}%"
+
+            f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Throughput: {formatted_throughput}Mbps, "
+            f"Interval: {throughput_data['interval']}s, Delay: {delay}ms, Jitter: {jitter}ms, "
+            f"Packet Loss Rate: {packet_loss_rate}%"
             )
         
         # Check for new commands and apply updates if necessary

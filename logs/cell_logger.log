@@ -1,608 +1,76 @@
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": " A Cell 'Ax1242' has been created at '2024-01-02 18:09:00' in gNodeB 'W1140' with max capacity 10.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": " A Cell 'BX1453' has been created at '2024-01-02 18:09:00' in gNodeB 'W1140' with max capacity 10.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": " A Cell 'CX1352' has been created at '2024-01-02 18:09:00' in gNodeB 'W1140' with max capacity 10.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": " A Cell 'AX1112' has been created at '2024-01-02 18:09:00' in gNodeB 'W1320' with max capacity 10.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": " A Cell 'BX1334' has been created at '2024-01-02 18:09:00' in gNodeB 'W1320' with max capacity 10.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": " A Cell 'CX1873' has been created at '2024-01-02 18:09:00' in gNodeB 'W1320' with max capacity 10.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": " A Cell 'AX9980' has been created at '2024-01-02 18:09:00' in gNodeB 'W2018' with max capacity 10.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": " A Cell 'BX1230' has been created at '2024-01-02 18:09:00' in gNodeB 'W2018' with max capacity 10.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": " A Cell 'CX5103' has been created at '2024-01-02 18:09:00' in gNodeB 'W2018' with max capacity 10.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": "Cell 'Ax1242' has been added to gNodeB 'W1140'.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": "Cell 'BX1453' has been added to gNodeB 'W1140'.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": "Cell 'CX1352' has been added to gNodeB 'W1140'.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": "Cell 'AX1112' has been added to gNodeB 'W1320'.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": "Cell 'BX1334' has been added to gNodeB 'W1320'.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": "Cell 'CX1873' has been added to gNodeB 'W1320'.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": "Cell 'AX9980' has been added to gNodeB 'W2018'.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": "Cell 'BX1230' has been added to gNodeB 'W2018'.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": "Cell 'CX5103' has been added to gNodeB 'W2018'.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": "UE 'UE1' has been added to Cell 'Ax1242'.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": "UE 'UE1' has been attached to Cell 'Ax1242' at '2024-01-02 18:09:00'.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": "UE 'UE2' has been added to Cell 'AX1112'.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": "UE 'UE2' has been attached to Cell 'AX1112' at '2024-01-02 18:09:00'.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": "UE 'UE3' has been added to Cell 'AX9980'.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": "UE 'UE3' has been attached to Cell 'AX9980' at '2024-01-02 18:09:00'.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": "UE 'UE4' has been added to Cell 'BX1453'.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": "UE 'UE4' has been attached to Cell 'BX1453' at '2024-01-02 18:09:00'.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": "UE 'UE5' has been added to Cell 'BX1334'.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": "UE 'UE5' has been attached to Cell 'BX1334' at '2024-01-02 18:09:00'.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": "UE 'UE6' has been added to Cell 'BX1230'.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": "UE 'UE6' has been attached to Cell 'BX1230' at '2024-01-02 18:09:00'.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": "UE 'UE7' has been added to Cell 'CX1352'.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": "UE 'UE7' has been attached to Cell 'CX1352' at '2024-01-02 18:09:00'.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": "UE 'UE8' has been added to Cell 'CX1873'.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": "UE 'UE8' has been attached to Cell 'CX1873' at '2024-01-02 18:09:00'.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": "UE 'UE9' has been added to Cell 'CX5103'.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": "UE 'UE9' has been attached to Cell 'CX5103' at '2024-01-02 18:09:00'.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": "UE 'UE10' has been added to Cell 'Ax1242'.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:09:00", "message": "UE 'UE10' has been attached to Cell 'Ax1242' at '2024-01-02 18:09:00'.", "test_id": "7d149af0-b509-4851-be85-5898bddccd37"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": " A Cell 'Ax1242' has been created at '2024-01-02 18:54:39' in gNodeB 'W1140' with max capacity 10.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": " A Cell 'BX1453' has been created at '2024-01-02 18:54:39' in gNodeB 'W1140' with max capacity 10.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": " A Cell 'CX1352' has been created at '2024-01-02 18:54:39' in gNodeB 'W1140' with max capacity 10.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": " A Cell 'AX1112' has been created at '2024-01-02 18:54:39' in gNodeB 'W1320' with max capacity 10.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": " A Cell 'BX1334' has been created at '2024-01-02 18:54:39' in gNodeB 'W1320' with max capacity 10.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": " A Cell 'CX1873' has been created at '2024-01-02 18:54:39' in gNodeB 'W1320' with max capacity 10.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": " A Cell 'AX9980' has been created at '2024-01-02 18:54:39' in gNodeB 'W2018' with max capacity 10.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": " A Cell 'BX1230' has been created at '2024-01-02 18:54:39' in gNodeB 'W2018' with max capacity 10.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": " A Cell 'CX5103' has been created at '2024-01-02 18:54:39' in gNodeB 'W2018' with max capacity 10.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": "Cell 'Ax1242' has been added to gNodeB 'W1140'.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": "Cell 'BX1453' has been added to gNodeB 'W1140'.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": "Cell 'CX1352' has been added to gNodeB 'W1140'.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": "Cell 'AX1112' has been added to gNodeB 'W1320'.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": "Cell 'BX1334' has been added to gNodeB 'W1320'.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": "Cell 'CX1873' has been added to gNodeB 'W1320'.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": "Cell 'AX9980' has been added to gNodeB 'W2018'.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": "Cell 'BX1230' has been added to gNodeB 'W2018'.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": "Cell 'CX5103' has been added to gNodeB 'W2018'.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": "UE 'UE1' has been added to Cell 'Ax1242'.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": "UE 'UE1' has been attached to Cell 'Ax1242' at '2024-01-02 18:54:39'.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": "UE 'UE2' has been added to Cell 'AX1112'.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": "UE 'UE2' has been attached to Cell 'AX1112' at '2024-01-02 18:54:39'.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": "UE 'UE3' has been added to Cell 'AX9980'.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": "UE 'UE3' has been attached to Cell 'AX9980' at '2024-01-02 18:54:39'.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": "UE 'UE4' has been added to Cell 'BX1453'.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": "UE 'UE4' has been attached to Cell 'BX1453' at '2024-01-02 18:54:39'.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": "UE 'UE5' has been added to Cell 'BX1334'.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": "UE 'UE5' has been attached to Cell 'BX1334' at '2024-01-02 18:54:39'.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": "UE 'UE6' has been added to Cell 'BX1230'.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": "UE 'UE6' has been attached to Cell 'BX1230' at '2024-01-02 18:54:39'.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": "UE 'UE7' has been added to Cell 'CX1352'.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": "UE 'UE7' has been attached to Cell 'CX1352' at '2024-01-02 18:54:39'.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": "UE 'UE8' has been added to Cell 'CX1873'.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": "UE 'UE8' has been attached to Cell 'CX1873' at '2024-01-02 18:54:39'.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": "UE 'UE9' has been added to Cell 'CX5103'.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": "UE 'UE9' has been attached to Cell 'CX5103' at '2024-01-02 18:54:39'.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": "UE 'UE10' has been added to Cell 'Ax1242'.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:54:39", "message": "UE 'UE10' has been attached to Cell 'Ax1242' at '2024-01-02 18:54:39'.", "test_id": "70791fd4-785d-481f-8bf4-1198139373ed"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": " A Cell 'Ax1242' has been created at '2024-01-02 18:57:06' in gNodeB 'W1140' with max capacity 10.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": " A Cell 'BX1453' has been created at '2024-01-02 18:57:06' in gNodeB 'W1140' with max capacity 10.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": " A Cell 'CX1352' has been created at '2024-01-02 18:57:06' in gNodeB 'W1140' with max capacity 10.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": " A Cell 'AX1112' has been created at '2024-01-02 18:57:06' in gNodeB 'W1320' with max capacity 10.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": " A Cell 'BX1334' has been created at '2024-01-02 18:57:06' in gNodeB 'W1320' with max capacity 10.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": " A Cell 'CX1873' has been created at '2024-01-02 18:57:06' in gNodeB 'W1320' with max capacity 10.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": " A Cell 'AX9980' has been created at '2024-01-02 18:57:06' in gNodeB 'W2018' with max capacity 10.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": " A Cell 'BX1230' has been created at '2024-01-02 18:57:06' in gNodeB 'W2018' with max capacity 10.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": " A Cell 'CX5103' has been created at '2024-01-02 18:57:06' in gNodeB 'W2018' with max capacity 10.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": "Cell 'Ax1242' has been added to gNodeB 'W1140'.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": "Cell 'BX1453' has been added to gNodeB 'W1140'.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": "Cell 'CX1352' has been added to gNodeB 'W1140'.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": "Cell 'AX1112' has been added to gNodeB 'W1320'.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": "Cell 'BX1334' has been added to gNodeB 'W1320'.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": "Cell 'CX1873' has been added to gNodeB 'W1320'.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": "Cell 'AX9980' has been added to gNodeB 'W2018'.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": "Cell 'BX1230' has been added to gNodeB 'W2018'.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": "Cell 'CX5103' has been added to gNodeB 'W2018'.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": "UE 'UE1' has been added to Cell 'Ax1242'.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": "UE 'UE1' has been attached to Cell 'Ax1242' at '2024-01-02 18:57:06'.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": "UE 'UE2' has been added to Cell 'AX1112'.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": "UE 'UE2' has been attached to Cell 'AX1112' at '2024-01-02 18:57:06'.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": "UE 'UE3' has been added to Cell 'AX9980'.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": "UE 'UE3' has been attached to Cell 'AX9980' at '2024-01-02 18:57:06'.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": "UE 'UE4' has been added to Cell 'BX1453'.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": "UE 'UE4' has been attached to Cell 'BX1453' at '2024-01-02 18:57:06'.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": "UE 'UE5' has been added to Cell 'BX1334'.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": "UE 'UE5' has been attached to Cell 'BX1334' at '2024-01-02 18:57:06'.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": "UE 'UE6' has been added to Cell 'BX1230'.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": "UE 'UE6' has been attached to Cell 'BX1230' at '2024-01-02 18:57:06'.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": "UE 'UE7' has been added to Cell 'CX1352'.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": "UE 'UE7' has been attached to Cell 'CX1352' at '2024-01-02 18:57:06'.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": "UE 'UE8' has been added to Cell 'CX1873'.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": "UE 'UE8' has been attached to Cell 'CX1873' at '2024-01-02 18:57:06'.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": "UE 'UE9' has been added to Cell 'CX5103'.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": "UE 'UE9' has been attached to Cell 'CX5103' at '2024-01-02 18:57:06'.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": "UE 'UE10' has been added to Cell 'Ax1242'.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 18:57:06", "message": "UE 'UE10' has been attached to Cell 'Ax1242' at '2024-01-02 18:57:06'.", "test_id": "96b799ec-2b67-4027-b71d-e37bc8214c2e"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": " A Cell 'Ax1242' has been created at '2024-01-02 19:03:20' in gNodeB 'W1140' with max capacity 10.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": " A Cell 'BX1453' has been created at '2024-01-02 19:03:20' in gNodeB 'W1140' with max capacity 10.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": " A Cell 'CX1352' has been created at '2024-01-02 19:03:20' in gNodeB 'W1140' with max capacity 10.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": " A Cell 'AX1112' has been created at '2024-01-02 19:03:20' in gNodeB 'W1320' with max capacity 10.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": " A Cell 'BX1334' has been created at '2024-01-02 19:03:20' in gNodeB 'W1320' with max capacity 10.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": " A Cell 'CX1873' has been created at '2024-01-02 19:03:20' in gNodeB 'W1320' with max capacity 10.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": " A Cell 'AX9980' has been created at '2024-01-02 19:03:20' in gNodeB 'W2018' with max capacity 10.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": " A Cell 'BX1230' has been created at '2024-01-02 19:03:20' in gNodeB 'W2018' with max capacity 10.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": " A Cell 'CX5103' has been created at '2024-01-02 19:03:20' in gNodeB 'W2018' with max capacity 10.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": "Cell 'Ax1242' has been added to gNodeB 'W1140'.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": "Cell 'BX1453' has been added to gNodeB 'W1140'.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": "Cell 'CX1352' has been added to gNodeB 'W1140'.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": "Cell 'AX1112' has been added to gNodeB 'W1320'.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": "Cell 'BX1334' has been added to gNodeB 'W1320'.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": "Cell 'CX1873' has been added to gNodeB 'W1320'.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": "Cell 'AX9980' has been added to gNodeB 'W2018'.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": "Cell 'BX1230' has been added to gNodeB 'W2018'.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": "Cell 'CX5103' has been added to gNodeB 'W2018'.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": "UE 'UE1' has been added to Cell 'Ax1242'.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": "UE 'UE1' has been attached to Cell 'Ax1242' at '2024-01-02 19:03:20'.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": "UE 'UE2' has been added to Cell 'AX1112'.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": "UE 'UE2' has been attached to Cell 'AX1112' at '2024-01-02 19:03:20'.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": "UE 'UE3' has been added to Cell 'AX9980'.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": "UE 'UE3' has been attached to Cell 'AX9980' at '2024-01-02 19:03:20'.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": "UE 'UE4' has been added to Cell 'BX1453'.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": "UE 'UE4' has been attached to Cell 'BX1453' at '2024-01-02 19:03:20'.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": "UE 'UE5' has been added to Cell 'BX1334'.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": "UE 'UE5' has been attached to Cell 'BX1334' at '2024-01-02 19:03:20'.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": "UE 'UE6' has been added to Cell 'BX1230'.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": "UE 'UE6' has been attached to Cell 'BX1230' at '2024-01-02 19:03:20'.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": "UE 'UE7' has been added to Cell 'CX1352'.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": "UE 'UE7' has been attached to Cell 'CX1352' at '2024-01-02 19:03:20'.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": "UE 'UE8' has been added to Cell 'CX1873'.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": "UE 'UE8' has been attached to Cell 'CX1873' at '2024-01-02 19:03:20'.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": "UE 'UE9' has been added to Cell 'CX5103'.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": "UE 'UE9' has been attached to Cell 'CX5103' at '2024-01-02 19:03:20'.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": "UE 'UE10' has been added to Cell 'Ax1242'.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:03:20", "message": "UE 'UE10' has been attached to Cell 'Ax1242' at '2024-01-02 19:03:20'.", "test_id": "5d6aa5d0-288b-46ff-bbae-91f329fb78ba"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": " A Cell 'Ax1242' has been created at '2024-01-02 19:16:08' in gNodeB 'W1140' with max capacity 10.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": " A Cell 'BX1453' has been created at '2024-01-02 19:16:08' in gNodeB 'W1140' with max capacity 10.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": " A Cell 'CX1352' has been created at '2024-01-02 19:16:08' in gNodeB 'W1140' with max capacity 10.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": " A Cell 'AX1112' has been created at '2024-01-02 19:16:08' in gNodeB 'W1320' with max capacity 10.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": " A Cell 'BX1334' has been created at '2024-01-02 19:16:08' in gNodeB 'W1320' with max capacity 10.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": " A Cell 'CX1873' has been created at '2024-01-02 19:16:08' in gNodeB 'W1320' with max capacity 10.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": " A Cell 'AX9980' has been created at '2024-01-02 19:16:08' in gNodeB 'W2018' with max capacity 10.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": " A Cell 'BX1230' has been created at '2024-01-02 19:16:08' in gNodeB 'W2018' with max capacity 10.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": " A Cell 'CX5103' has been created at '2024-01-02 19:16:08' in gNodeB 'W2018' with max capacity 10.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": "Cell 'Ax1242' has been added to gNodeB 'W1140'.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": "Cell 'BX1453' has been added to gNodeB 'W1140'.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": "Cell 'CX1352' has been added to gNodeB 'W1140'.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": "Cell 'AX1112' has been added to gNodeB 'W1320'.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": "Cell 'BX1334' has been added to gNodeB 'W1320'.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": "Cell 'CX1873' has been added to gNodeB 'W1320'.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": "Cell 'AX9980' has been added to gNodeB 'W2018'.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": "Cell 'BX1230' has been added to gNodeB 'W2018'.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": "Cell 'CX5103' has been added to gNodeB 'W2018'.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": "UE 'UE1' has been added to Cell 'Ax1242'.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": "UE 'UE1' has been attached to Cell 'Ax1242' at '2024-01-02 19:16:08'.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": "UE 'UE2' has been added to Cell 'AX1112'.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": "UE 'UE2' has been attached to Cell 'AX1112' at '2024-01-02 19:16:08'.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": "UE 'UE3' has been added to Cell 'AX9980'.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": "UE 'UE3' has been attached to Cell 'AX9980' at '2024-01-02 19:16:08'.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": "UE 'UE4' has been added to Cell 'BX1453'.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": "UE 'UE4' has been attached to Cell 'BX1453' at '2024-01-02 19:16:08'.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": "UE 'UE5' has been added to Cell 'BX1334'.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": "UE 'UE5' has been attached to Cell 'BX1334' at '2024-01-02 19:16:08'.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": "UE 'UE6' has been added to Cell 'BX1230'.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": "UE 'UE6' has been attached to Cell 'BX1230' at '2024-01-02 19:16:08'.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": "UE 'UE7' has been added to Cell 'CX1352'.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": "UE 'UE7' has been attached to Cell 'CX1352' at '2024-01-02 19:16:08'.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": "UE 'UE8' has been added to Cell 'CX1873'.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": "UE 'UE8' has been attached to Cell 'CX1873' at '2024-01-02 19:16:08'.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": "UE 'UE9' has been added to Cell 'CX5103'.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": "UE 'UE9' has been attached to Cell 'CX5103' at '2024-01-02 19:16:08'.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": "UE 'UE10' has been added to Cell 'Ax1242'.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:16:08", "message": "UE 'UE10' has been attached to Cell 'Ax1242' at '2024-01-02 19:16:08'.", "test_id": "154df674-06c2-47bd-9789-3decfac8982a"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": " A Cell 'Ax1242' has been created at '2024-01-02 19:34:21' in gNodeB 'W1140' with max capacity 10.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": " A Cell 'BX1453' has been created at '2024-01-02 19:34:21' in gNodeB 'W1140' with max capacity 10.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": " A Cell 'CX1352' has been created at '2024-01-02 19:34:21' in gNodeB 'W1140' with max capacity 10.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": " A Cell 'AX1112' has been created at '2024-01-02 19:34:21' in gNodeB 'W1320' with max capacity 10.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": " A Cell 'BX1334' has been created at '2024-01-02 19:34:21' in gNodeB 'W1320' with max capacity 10.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": " A Cell 'CX1873' has been created at '2024-01-02 19:34:21' in gNodeB 'W1320' with max capacity 10.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": " A Cell 'AX9980' has been created at '2024-01-02 19:34:21' in gNodeB 'W2018' with max capacity 10.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": " A Cell 'BX1230' has been created at '2024-01-02 19:34:21' in gNodeB 'W2018' with max capacity 10.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": " A Cell 'CX5103' has been created at '2024-01-02 19:34:21' in gNodeB 'W2018' with max capacity 10.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": "Cell 'Ax1242' has been added to gNodeB 'W1140'.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": "Cell 'BX1453' has been added to gNodeB 'W1140'.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": "Cell 'CX1352' has been added to gNodeB 'W1140'.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": "Cell 'AX1112' has been added to gNodeB 'W1320'.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": "Cell 'BX1334' has been added to gNodeB 'W1320'.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": "Cell 'CX1873' has been added to gNodeB 'W1320'.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": "Cell 'AX9980' has been added to gNodeB 'W2018'.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": "Cell 'BX1230' has been added to gNodeB 'W2018'.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": "Cell 'CX5103' has been added to gNodeB 'W2018'.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": "UE 'UE1' has been added to Cell 'Ax1242'.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": "UE 'UE1' has been attached to Cell 'Ax1242' at '2024-01-02 19:34:21'.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": "UE 'UE2' has been added to Cell 'AX1112'.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": "UE 'UE2' has been attached to Cell 'AX1112' at '2024-01-02 19:34:21'.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": "UE 'UE3' has been added to Cell 'AX9980'.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": "UE 'UE3' has been attached to Cell 'AX9980' at '2024-01-02 19:34:21'.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": "UE 'UE4' has been added to Cell 'BX1453'.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": "UE 'UE4' has been attached to Cell 'BX1453' at '2024-01-02 19:34:21'.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": "UE 'UE5' has been added to Cell 'BX1334'.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": "UE 'UE5' has been attached to Cell 'BX1334' at '2024-01-02 19:34:21'.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": "UE 'UE6' has been added to Cell 'BX1230'.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": "UE 'UE6' has been attached to Cell 'BX1230' at '2024-01-02 19:34:21'.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": "UE 'UE7' has been added to Cell 'CX1352'.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": "UE 'UE7' has been attached to Cell 'CX1352' at '2024-01-02 19:34:21'.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": "UE 'UE8' has been added to Cell 'CX1873'.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": "UE 'UE8' has been attached to Cell 'CX1873' at '2024-01-02 19:34:21'.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": "UE 'UE9' has been added to Cell 'CX5103'.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": "UE 'UE9' has been attached to Cell 'CX5103' at '2024-01-02 19:34:21'.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": "UE 'UE10' has been added to Cell 'Ax1242'.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:34:21", "message": "UE 'UE10' has been attached to Cell 'Ax1242' at '2024-01-02 19:34:21'.", "test_id": "6251a924-73ae-4190-94a0-2d9d3b600c99"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": " A Cell 'Ax1242' has been created at '2024-01-02 19:38:46' in gNodeB 'W1140' with max capacity 10.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": " A Cell 'BX1453' has been created at '2024-01-02 19:38:46' in gNodeB 'W1140' with max capacity 10.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": " A Cell 'CX1352' has been created at '2024-01-02 19:38:46' in gNodeB 'W1140' with max capacity 10.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": " A Cell 'AX1112' has been created at '2024-01-02 19:38:46' in gNodeB 'W1320' with max capacity 10.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": " A Cell 'BX1334' has been created at '2024-01-02 19:38:46' in gNodeB 'W1320' with max capacity 10.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": " A Cell 'CX1873' has been created at '2024-01-02 19:38:46' in gNodeB 'W1320' with max capacity 10.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": " A Cell 'AX9980' has been created at '2024-01-02 19:38:46' in gNodeB 'W2018' with max capacity 10.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": " A Cell 'BX1230' has been created at '2024-01-02 19:38:46' in gNodeB 'W2018' with max capacity 10.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": " A Cell 'CX5103' has been created at '2024-01-02 19:38:46' in gNodeB 'W2018' with max capacity 10.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": "Cell 'Ax1242' has been added to gNodeB 'W1140'.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": "Cell 'BX1453' has been added to gNodeB 'W1140'.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": "Cell 'CX1352' has been added to gNodeB 'W1140'.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": "Cell 'AX1112' has been added to gNodeB 'W1320'.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": "Cell 'BX1334' has been added to gNodeB 'W1320'.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": "Cell 'CX1873' has been added to gNodeB 'W1320'.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": "Cell 'AX9980' has been added to gNodeB 'W2018'.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": "Cell 'BX1230' has been added to gNodeB 'W2018'.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": "Cell 'CX5103' has been added to gNodeB 'W2018'.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": "UE 'UE1' has been added to Cell 'Ax1242'.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": "UE 'UE1' has been attached to Cell 'Ax1242' at '2024-01-02 19:38:46'.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": "UE 'UE2' has been added to Cell 'AX1112'.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": "UE 'UE2' has been attached to Cell 'AX1112' at '2024-01-02 19:38:46'.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": "UE 'UE3' has been added to Cell 'AX9980'.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": "UE 'UE3' has been attached to Cell 'AX9980' at '2024-01-02 19:38:46'.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": "UE 'UE4' has been added to Cell 'BX1453'.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": "UE 'UE4' has been attached to Cell 'BX1453' at '2024-01-02 19:38:46'.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": "UE 'UE5' has been added to Cell 'BX1334'.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": "UE 'UE5' has been attached to Cell 'BX1334' at '2024-01-02 19:38:46'.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": "UE 'UE6' has been added to Cell 'BX1230'.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": "UE 'UE6' has been attached to Cell 'BX1230' at '2024-01-02 19:38:46'.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": "UE 'UE7' has been added to Cell 'CX1352'.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": "UE 'UE7' has been attached to Cell 'CX1352' at '2024-01-02 19:38:46'.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": "UE 'UE8' has been added to Cell 'CX1873'.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": "UE 'UE8' has been attached to Cell 'CX1873' at '2024-01-02 19:38:46'.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": "UE 'UE9' has been added to Cell 'CX5103'.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": "UE 'UE9' has been attached to Cell 'CX5103' at '2024-01-02 19:38:46'.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": "UE 'UE10' has been added to Cell 'Ax1242'.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-02 19:38:46", "message": "UE 'UE10' has been attached to Cell 'Ax1242' at '2024-01-02 19:38:46'.", "test_id": "1030408e-c9fb-45fe-96a7-479ca1fd553c"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": " A Cell 'Ax1242' has been created at '2024-01-03 10:18:16' in gNodeB 'W1140' with max capacity 10.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": " A Cell 'BX1453' has been created at '2024-01-03 10:18:16' in gNodeB 'W1140' with max capacity 10.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": " A Cell 'CX1352' has been created at '2024-01-03 10:18:16' in gNodeB 'W1140' with max capacity 10.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": " A Cell 'AX1112' has been created at '2024-01-03 10:18:16' in gNodeB 'W1320' with max capacity 10.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": " A Cell 'BX1334' has been created at '2024-01-03 10:18:16' in gNodeB 'W1320' with max capacity 10.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": " A Cell 'CX1873' has been created at '2024-01-03 10:18:16' in gNodeB 'W1320' with max capacity 10.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": " A Cell 'AX9980' has been created at '2024-01-03 10:18:16' in gNodeB 'W2018' with max capacity 10.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": " A Cell 'BX1230' has been created at '2024-01-03 10:18:16' in gNodeB 'W2018' with max capacity 10.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": " A Cell 'CX5103' has been created at '2024-01-03 10:18:16' in gNodeB 'W2018' with max capacity 10.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": "Cell 'Ax1242' has been added to gNodeB 'W1140'.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": "Cell 'BX1453' has been added to gNodeB 'W1140'.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": "Cell 'CX1352' has been added to gNodeB 'W1140'.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": "Cell 'AX1112' has been added to gNodeB 'W1320'.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": "Cell 'BX1334' has been added to gNodeB 'W1320'.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": "Cell 'CX1873' has been added to gNodeB 'W1320'.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": "Cell 'AX9980' has been added to gNodeB 'W2018'.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": "Cell 'BX1230' has been added to gNodeB 'W2018'.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": "Cell 'CX5103' has been added to gNodeB 'W2018'.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": "UE 'UE1' has been added to Cell 'Ax1242'.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": "UE 'UE1' has been attached to Cell 'Ax1242' at '2024-01-03 10:18:16'.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": "UE 'UE2' has been added to Cell 'AX1112'.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": "UE 'UE2' has been attached to Cell 'AX1112' at '2024-01-03 10:18:16'.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": "UE 'UE3' has been added to Cell 'AX9980'.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": "UE 'UE3' has been attached to Cell 'AX9980' at '2024-01-03 10:18:16'.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": "UE 'UE4' has been added to Cell 'BX1453'.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": "UE 'UE4' has been attached to Cell 'BX1453' at '2024-01-03 10:18:16'.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": "UE 'UE5' has been added to Cell 'BX1334'.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": "UE 'UE5' has been attached to Cell 'BX1334' at '2024-01-03 10:18:16'.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": "UE 'UE6' has been added to Cell 'BX1230'.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": "UE 'UE6' has been attached to Cell 'BX1230' at '2024-01-03 10:18:16'.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": "UE 'UE7' has been added to Cell 'CX1352'.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": "UE 'UE7' has been attached to Cell 'CX1352' at '2024-01-03 10:18:16'.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": "UE 'UE8' has been added to Cell 'CX1873'.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": "UE 'UE8' has been attached to Cell 'CX1873' at '2024-01-03 10:18:16'.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": "UE 'UE9' has been added to Cell 'CX5103'.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": "UE 'UE9' has been attached to Cell 'CX5103' at '2024-01-03 10:18:16'.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": "UE 'UE10' has been added to Cell 'Ax1242'.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:18:16", "message": "UE 'UE10' has been attached to Cell 'Ax1242' at '2024-01-03 10:18:16'.", "test_id": "fe7f2080-ca35-4958-b614-10848062534b"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": " A Cell 'Ax1242' has been created at '2024-01-03 10:36:17' in gNodeB 'W1140' with max capacity 10.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": " A Cell 'BX1453' has been created at '2024-01-03 10:36:17' in gNodeB 'W1140' with max capacity 10.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": " A Cell 'CX1352' has been created at '2024-01-03 10:36:17' in gNodeB 'W1140' with max capacity 10.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": " A Cell 'AX1112' has been created at '2024-01-03 10:36:17' in gNodeB 'W1320' with max capacity 10.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": " A Cell 'BX1334' has been created at '2024-01-03 10:36:17' in gNodeB 'W1320' with max capacity 10.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": " A Cell 'CX1873' has been created at '2024-01-03 10:36:17' in gNodeB 'W1320' with max capacity 10.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": " A Cell 'AX9980' has been created at '2024-01-03 10:36:17' in gNodeB 'W2018' with max capacity 10.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": " A Cell 'BX1230' has been created at '2024-01-03 10:36:17' in gNodeB 'W2018' with max capacity 10.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": " A Cell 'CX5103' has been created at '2024-01-03 10:36:17' in gNodeB 'W2018' with max capacity 10.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": "Cell 'Ax1242' has been added to gNodeB 'W1140'.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": "Cell 'BX1453' has been added to gNodeB 'W1140'.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": "Cell 'CX1352' has been added to gNodeB 'W1140'.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": "Cell 'AX1112' has been added to gNodeB 'W1320'.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": "Cell 'BX1334' has been added to gNodeB 'W1320'.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": "Cell 'CX1873' has been added to gNodeB 'W1320'.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": "Cell 'AX9980' has been added to gNodeB 'W2018'.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": "Cell 'BX1230' has been added to gNodeB 'W2018'.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": "Cell 'CX5103' has been added to gNodeB 'W2018'.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": "UE 'UE1' has been added to Cell 'Ax1242'.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": "UE 'UE1' has been attached to Cell 'Ax1242' at '2024-01-03 10:36:17'.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": "UE 'UE2' has been added to Cell 'AX1112'.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": "UE 'UE2' has been attached to Cell 'AX1112' at '2024-01-03 10:36:17'.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": "UE 'UE3' has been added to Cell 'AX9980'.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": "UE 'UE3' has been attached to Cell 'AX9980' at '2024-01-03 10:36:17'.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": "UE 'UE4' has been added to Cell 'BX1453'.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": "UE 'UE4' has been attached to Cell 'BX1453' at '2024-01-03 10:36:17'.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": "UE 'UE5' has been added to Cell 'BX1334'.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": "UE 'UE5' has been attached to Cell 'BX1334' at '2024-01-03 10:36:17'.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": "UE 'UE6' has been added to Cell 'BX1230'.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": "UE 'UE6' has been attached to Cell 'BX1230' at '2024-01-03 10:36:17'.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": "UE 'UE7' has been added to Cell 'CX1352'.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": "UE 'UE7' has been attached to Cell 'CX1352' at '2024-01-03 10:36:17'.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": "UE 'UE8' has been added to Cell 'CX1873'.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": "UE 'UE8' has been attached to Cell 'CX1873' at '2024-01-03 10:36:17'.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": "UE 'UE9' has been added to Cell 'CX5103'.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": "UE 'UE9' has been attached to Cell 'CX5103' at '2024-01-03 10:36:17'.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": "UE 'UE10' has been added to Cell 'Ax1242'.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:36:17", "message": "UE 'UE10' has been attached to Cell 'Ax1242' at '2024-01-03 10:36:17'.", "test_id": "38b01a9c-40ce-47aa-864d-ddbd3d32a17d"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": " A Cell 'Ax1242' has been created at '2024-01-03 10:39:19' in gNodeB 'W1140' with max capacity 10.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": " A Cell 'BX1453' has been created at '2024-01-03 10:39:19' in gNodeB 'W1140' with max capacity 10.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": " A Cell 'CX1352' has been created at '2024-01-03 10:39:19' in gNodeB 'W1140' with max capacity 10.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": " A Cell 'AX1112' has been created at '2024-01-03 10:39:19' in gNodeB 'W1320' with max capacity 10.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": " A Cell 'BX1334' has been created at '2024-01-03 10:39:19' in gNodeB 'W1320' with max capacity 10.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": " A Cell 'CX1873' has been created at '2024-01-03 10:39:19' in gNodeB 'W1320' with max capacity 10.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": " A Cell 'AX9980' has been created at '2024-01-03 10:39:19' in gNodeB 'W2018' with max capacity 10.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": " A Cell 'BX1230' has been created at '2024-01-03 10:39:19' in gNodeB 'W2018' with max capacity 10.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": " A Cell 'CX5103' has been created at '2024-01-03 10:39:19' in gNodeB 'W2018' with max capacity 10.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": "Cell 'Ax1242' has been added to gNodeB 'W1140'.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": "Cell 'BX1453' has been added to gNodeB 'W1140'.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": "Cell 'CX1352' has been added to gNodeB 'W1140'.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": "Cell 'AX1112' has been added to gNodeB 'W1320'.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": "Cell 'BX1334' has been added to gNodeB 'W1320'.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": "Cell 'CX1873' has been added to gNodeB 'W1320'.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": "Cell 'AX9980' has been added to gNodeB 'W2018'.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": "Cell 'BX1230' has been added to gNodeB 'W2018'.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": "Cell 'CX5103' has been added to gNodeB 'W2018'.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": "UE 'UE1' has been added to Cell 'Ax1242'.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": "UE 'UE1' has been attached to Cell 'Ax1242' at '2024-01-03 10:39:19'.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": "UE 'UE2' has been added to Cell 'AX1112'.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": "UE 'UE2' has been attached to Cell 'AX1112' at '2024-01-03 10:39:19'.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": "UE 'UE3' has been added to Cell 'AX9980'.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": "UE 'UE3' has been attached to Cell 'AX9980' at '2024-01-03 10:39:19'.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": "UE 'UE4' has been added to Cell 'BX1453'.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": "UE 'UE4' has been attached to Cell 'BX1453' at '2024-01-03 10:39:19'.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": "UE 'UE5' has been added to Cell 'BX1334'.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": "UE 'UE5' has been attached to Cell 'BX1334' at '2024-01-03 10:39:19'.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": "UE 'UE6' has been added to Cell 'BX1230'.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": "UE 'UE6' has been attached to Cell 'BX1230' at '2024-01-03 10:39:19'.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": "UE 'UE7' has been added to Cell 'CX1352'.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": "UE 'UE7' has been attached to Cell 'CX1352' at '2024-01-03 10:39:19'.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": "UE 'UE8' has been added to Cell 'CX1873'.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": "UE 'UE8' has been attached to Cell 'CX1873' at '2024-01-03 10:39:19'.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": "UE 'UE9' has been added to Cell 'CX5103'.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": "UE 'UE9' has been attached to Cell 'CX5103' at '2024-01-03 10:39:19'.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": "UE 'UE10' has been added to Cell 'Ax1242'.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:39:19", "message": "UE 'UE10' has been attached to Cell 'Ax1242' at '2024-01-03 10:39:19'.", "test_id": "e087a498-e3c9-4c9d-b76a-e2477e1c20d6"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": " A Cell 'Ax1242' has been created at '2024-01-03 10:49:54' in gNodeB 'W1140' with max capacity 10.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": " A Cell 'BX1453' has been created at '2024-01-03 10:49:54' in gNodeB 'W1140' with max capacity 10.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": " A Cell 'CX1352' has been created at '2024-01-03 10:49:54' in gNodeB 'W1140' with max capacity 10.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": " A Cell 'AX1112' has been created at '2024-01-03 10:49:54' in gNodeB 'W1320' with max capacity 10.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": " A Cell 'BX1334' has been created at '2024-01-03 10:49:54' in gNodeB 'W1320' with max capacity 10.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": " A Cell 'CX1873' has been created at '2024-01-03 10:49:54' in gNodeB 'W1320' with max capacity 10.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": " A Cell 'AX9980' has been created at '2024-01-03 10:49:54' in gNodeB 'W2018' with max capacity 10.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": " A Cell 'BX1230' has been created at '2024-01-03 10:49:54' in gNodeB 'W2018' with max capacity 10.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": " A Cell 'CX5103' has been created at '2024-01-03 10:49:54' in gNodeB 'W2018' with max capacity 10.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": "Cell 'Ax1242' has been added to gNodeB 'W1140'.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": "Cell 'BX1453' has been added to gNodeB 'W1140'.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": "Cell 'CX1352' has been added to gNodeB 'W1140'.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": "Cell 'AX1112' has been added to gNodeB 'W1320'.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": "Cell 'BX1334' has been added to gNodeB 'W1320'.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": "Cell 'CX1873' has been added to gNodeB 'W1320'.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": "Cell 'AX9980' has been added to gNodeB 'W2018'.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": "Cell 'BX1230' has been added to gNodeB 'W2018'.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": "Cell 'CX5103' has been added to gNodeB 'W2018'.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": "UE 'UE1' has been added to Cell 'Ax1242'.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": "UE 'UE1' has been attached to Cell 'Ax1242' at '2024-01-03 10:49:54'.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": "UE 'UE2' has been added to Cell 'AX1112'.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": "UE 'UE2' has been attached to Cell 'AX1112' at '2024-01-03 10:49:54'.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": "UE 'UE3' has been added to Cell 'AX9980'.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": "UE 'UE3' has been attached to Cell 'AX9980' at '2024-01-03 10:49:54'.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": "UE 'UE4' has been added to Cell 'BX1453'.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": "UE 'UE4' has been attached to Cell 'BX1453' at '2024-01-03 10:49:54'.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": "UE 'UE5' has been added to Cell 'BX1334'.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": "UE 'UE5' has been attached to Cell 'BX1334' at '2024-01-03 10:49:54'.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": "UE 'UE6' has been added to Cell 'BX1230'.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": "UE 'UE6' has been attached to Cell 'BX1230' at '2024-01-03 10:49:54'.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": "UE 'UE7' has been added to Cell 'CX1352'.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": "UE 'UE7' has been attached to Cell 'CX1352' at '2024-01-03 10:49:54'.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": "UE 'UE8' has been added to Cell 'CX1873'.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": "UE 'UE8' has been attached to Cell 'CX1873' at '2024-01-03 10:49:54'.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": "UE 'UE9' has been added to Cell 'CX5103'.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": "UE 'UE9' has been attached to Cell 'CX5103' at '2024-01-03 10:49:54'.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": "UE 'UE10' has been added to Cell 'Ax1242'.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 10:49:54", "message": "UE 'UE10' has been attached to Cell 'Ax1242' at '2024-01-03 10:49:54'.", "test_id": "87b701a3-2085-4d5d-8a76-40a0e973d2d7"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": " A Cell 'Ax1242' has been created at '2024-01-03 11:02:24' in gNodeB 'W1140' with max capacity 10.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": " A Cell 'BX1453' has been created at '2024-01-03 11:02:24' in gNodeB 'W1140' with max capacity 10.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": " A Cell 'CX1352' has been created at '2024-01-03 11:02:24' in gNodeB 'W1140' with max capacity 10.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": " A Cell 'AX1112' has been created at '2024-01-03 11:02:24' in gNodeB 'W1320' with max capacity 10.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": " A Cell 'BX1334' has been created at '2024-01-03 11:02:24' in gNodeB 'W1320' with max capacity 10.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": " A Cell 'CX1873' has been created at '2024-01-03 11:02:24' in gNodeB 'W1320' with max capacity 10.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": " A Cell 'AX9980' has been created at '2024-01-03 11:02:24' in gNodeB 'W2018' with max capacity 10.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": " A Cell 'BX1230' has been created at '2024-01-03 11:02:24' in gNodeB 'W2018' with max capacity 10.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": " A Cell 'CX5103' has been created at '2024-01-03 11:02:24' in gNodeB 'W2018' with max capacity 10.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": "Cell 'Ax1242' has been added to gNodeB 'W1140'.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": "Cell 'BX1453' has been added to gNodeB 'W1140'.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": "Cell 'CX1352' has been added to gNodeB 'W1140'.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": "Cell 'AX1112' has been added to gNodeB 'W1320'.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": "Cell 'BX1334' has been added to gNodeB 'W1320'.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": "Cell 'CX1873' has been added to gNodeB 'W1320'.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": "Cell 'AX9980' has been added to gNodeB 'W2018'.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": "Cell 'BX1230' has been added to gNodeB 'W2018'.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": "Cell 'CX5103' has been added to gNodeB 'W2018'.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": "UE 'UE1' has been added to Cell 'Ax1242'.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": "UE 'UE1' has been attached to Cell 'Ax1242' at '2024-01-03 11:02:24'.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": "UE 'UE2' has been added to Cell 'AX1112'.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": "UE 'UE2' has been attached to Cell 'AX1112' at '2024-01-03 11:02:24'.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": "UE 'UE3' has been added to Cell 'AX9980'.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": "UE 'UE3' has been attached to Cell 'AX9980' at '2024-01-03 11:02:24'.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": "UE 'UE4' has been added to Cell 'BX1453'.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": "UE 'UE4' has been attached to Cell 'BX1453' at '2024-01-03 11:02:24'.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": "UE 'UE5' has been added to Cell 'BX1334'.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": "UE 'UE5' has been attached to Cell 'BX1334' at '2024-01-03 11:02:24'.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": "UE 'UE6' has been added to Cell 'BX1230'.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": "UE 'UE6' has been attached to Cell 'BX1230' at '2024-01-03 11:02:24'.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": "UE 'UE7' has been added to Cell 'CX1352'.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": "UE 'UE7' has been attached to Cell 'CX1352' at '2024-01-03 11:02:24'.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": "UE 'UE8' has been added to Cell 'CX1873'.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": "UE 'UE8' has been attached to Cell 'CX1873' at '2024-01-03 11:02:24'.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": "UE 'UE9' has been added to Cell 'CX5103'.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": "UE 'UE9' has been attached to Cell 'CX5103' at '2024-01-03 11:02:24'.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": "UE 'UE10' has been added to Cell 'Ax1242'.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:02:24", "message": "UE 'UE10' has been attached to Cell 'Ax1242' at '2024-01-03 11:02:24'.", "test_id": "513be09a-264a-472d-99da-471b884c83d0"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": " A Cell 'Ax1242' has been created at '2024-01-03 11:17:03' in gNodeB 'W1140' with max capacity 10.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": " A Cell 'BX1453' has been created at '2024-01-03 11:17:03' in gNodeB 'W1140' with max capacity 10.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": " A Cell 'CX1352' has been created at '2024-01-03 11:17:03' in gNodeB 'W1140' with max capacity 10.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": " A Cell 'AX1112' has been created at '2024-01-03 11:17:03' in gNodeB 'W1320' with max capacity 10.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": " A Cell 'BX1334' has been created at '2024-01-03 11:17:03' in gNodeB 'W1320' with max capacity 10.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": " A Cell 'CX1873' has been created at '2024-01-03 11:17:03' in gNodeB 'W1320' with max capacity 10.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": " A Cell 'AX9980' has been created at '2024-01-03 11:17:03' in gNodeB 'W2018' with max capacity 10.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": " A Cell 'BX1230' has been created at '2024-01-03 11:17:03' in gNodeB 'W2018' with max capacity 10.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": " A Cell 'CX5103' has been created at '2024-01-03 11:17:03' in gNodeB 'W2018' with max capacity 10.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": "Cell 'Ax1242' has been added to gNodeB 'W1140'.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": "Cell 'BX1453' has been added to gNodeB 'W1140'.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": "Cell 'CX1352' has been added to gNodeB 'W1140'.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": "Cell 'AX1112' has been added to gNodeB 'W1320'.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": "Cell 'BX1334' has been added to gNodeB 'W1320'.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": "Cell 'CX1873' has been added to gNodeB 'W1320'.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": "Cell 'AX9980' has been added to gNodeB 'W2018'.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": "Cell 'BX1230' has been added to gNodeB 'W2018'.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": "Cell 'CX5103' has been added to gNodeB 'W2018'.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": "UE 'UE1' has been added to Cell 'Ax1242'.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": "UE 'UE1' has been attached to Cell 'Ax1242' at '2024-01-03 11:17:03'.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": "UE 'UE2' has been added to Cell 'AX1112'.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": "UE 'UE2' has been attached to Cell 'AX1112' at '2024-01-03 11:17:03'.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": "UE 'UE3' has been added to Cell 'AX9980'.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": "UE 'UE3' has been attached to Cell 'AX9980' at '2024-01-03 11:17:03'.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": "UE 'UE4' has been added to Cell 'BX1453'.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": "UE 'UE4' has been attached to Cell 'BX1453' at '2024-01-03 11:17:03'.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": "UE 'UE5' has been added to Cell 'BX1334'.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": "UE 'UE5' has been attached to Cell 'BX1334' at '2024-01-03 11:17:03'.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": "UE 'UE6' has been added to Cell 'BX1230'.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": "UE 'UE6' has been attached to Cell 'BX1230' at '2024-01-03 11:17:03'.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": "UE 'UE7' has been added to Cell 'CX1352'.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": "UE 'UE7' has been attached to Cell 'CX1352' at '2024-01-03 11:17:03'.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": "UE 'UE8' has been added to Cell 'CX1873'.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": "UE 'UE8' has been attached to Cell 'CX1873' at '2024-01-03 11:17:03'.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": "UE 'UE9' has been added to Cell 'CX5103'.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": "UE 'UE9' has been attached to Cell 'CX5103' at '2024-01-03 11:17:03'.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": "UE 'UE10' has been added to Cell 'Ax1242'.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:17:03", "message": "UE 'UE10' has been attached to Cell 'Ax1242' at '2024-01-03 11:17:03'.", "test_id": "019d94aa-9e49-45f8-9268-23ac52547cca"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": " A Cell 'Ax1242' has been created at '2024-01-03 11:58:31' in gNodeB 'W1140' with max capacity 10.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": " A Cell 'BX1453' has been created at '2024-01-03 11:58:31' in gNodeB 'W1140' with max capacity 10.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": " A Cell 'CX1352' has been created at '2024-01-03 11:58:31' in gNodeB 'W1140' with max capacity 10.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": " A Cell 'AX1112' has been created at '2024-01-03 11:58:31' in gNodeB 'W1320' with max capacity 10.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": " A Cell 'BX1334' has been created at '2024-01-03 11:58:31' in gNodeB 'W1320' with max capacity 10.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": " A Cell 'CX1873' has been created at '2024-01-03 11:58:31' in gNodeB 'W1320' with max capacity 10.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": " A Cell 'AX9980' has been created at '2024-01-03 11:58:31' in gNodeB 'W2018' with max capacity 10.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": " A Cell 'BX1230' has been created at '2024-01-03 11:58:31' in gNodeB 'W2018' with max capacity 10.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": " A Cell 'CX5103' has been created at '2024-01-03 11:58:31' in gNodeB 'W2018' with max capacity 10.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": "Cell 'Ax1242' has been added to gNodeB 'W1140'.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": "Cell 'BX1453' has been added to gNodeB 'W1140'.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": "Cell 'CX1352' has been added to gNodeB 'W1140'.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": "Cell 'AX1112' has been added to gNodeB 'W1320'.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": "Cell 'BX1334' has been added to gNodeB 'W1320'.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": "Cell 'CX1873' has been added to gNodeB 'W1320'.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": "Cell 'AX9980' has been added to gNodeB 'W2018'.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": "Cell 'BX1230' has been added to gNodeB 'W2018'.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": "Cell 'CX5103' has been added to gNodeB 'W2018'.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": "UE 'UE1' has been added to Cell 'Ax1242'.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": "UE 'UE1' has been attached to Cell 'Ax1242' at '2024-01-03 11:58:31'.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": "UE 'UE2' has been added to Cell 'AX1112'.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": "UE 'UE2' has been attached to Cell 'AX1112' at '2024-01-03 11:58:31'.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": "UE 'UE3' has been added to Cell 'AX9980'.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": "UE 'UE3' has been attached to Cell 'AX9980' at '2024-01-03 11:58:31'.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": "UE 'UE4' has been added to Cell 'BX1453'.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": "UE 'UE4' has been attached to Cell 'BX1453' at '2024-01-03 11:58:31'.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": "UE 'UE5' has been added to Cell 'BX1334'.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": "UE 'UE5' has been attached to Cell 'BX1334' at '2024-01-03 11:58:31'.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": "UE 'UE6' has been added to Cell 'BX1230'.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": "UE 'UE6' has been attached to Cell 'BX1230' at '2024-01-03 11:58:31'.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": "UE 'UE7' has been added to Cell 'CX1352'.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": "UE 'UE7' has been attached to Cell 'CX1352' at '2024-01-03 11:58:31'.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": "UE 'UE8' has been added to Cell 'CX1873'.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": "UE 'UE8' has been attached to Cell 'CX1873' at '2024-01-03 11:58:31'.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": "UE 'UE9' has been added to Cell 'CX5103'.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": "UE 'UE9' has been attached to Cell 'CX5103' at '2024-01-03 11:58:31'.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": "UE 'UE10' has been added to Cell 'Ax1242'.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:58:31", "message": "UE 'UE10' has been attached to Cell 'Ax1242' at '2024-01-03 11:58:31'.", "test_id": "1c852559-e1de-457d-924b-ee45c84d7876"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": " A Cell 'Ax1242' has been created at '2024-01-03 11:59:10' in gNodeB 'W1140' with max capacity 10.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": " A Cell 'BX1453' has been created at '2024-01-03 11:59:10' in gNodeB 'W1140' with max capacity 10.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": " A Cell 'CX1352' has been created at '2024-01-03 11:59:10' in gNodeB 'W1140' with max capacity 10.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": " A Cell 'AX1112' has been created at '2024-01-03 11:59:10' in gNodeB 'W1320' with max capacity 10.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": " A Cell 'BX1334' has been created at '2024-01-03 11:59:10' in gNodeB 'W1320' with max capacity 10.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": " A Cell 'CX1873' has been created at '2024-01-03 11:59:10' in gNodeB 'W1320' with max capacity 10.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": " A Cell 'AX9980' has been created at '2024-01-03 11:59:10' in gNodeB 'W2018' with max capacity 10.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": " A Cell 'BX1230' has been created at '2024-01-03 11:59:10' in gNodeB 'W2018' with max capacity 10.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": " A Cell 'CX5103' has been created at '2024-01-03 11:59:10' in gNodeB 'W2018' with max capacity 10.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": "Cell 'Ax1242' has been added to gNodeB 'W1140'.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": "Cell 'BX1453' has been added to gNodeB 'W1140'.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": "Cell 'CX1352' has been added to gNodeB 'W1140'.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": "Cell 'AX1112' has been added to gNodeB 'W1320'.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": "Cell 'BX1334' has been added to gNodeB 'W1320'.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": "Cell 'CX1873' has been added to gNodeB 'W1320'.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": "Cell 'AX9980' has been added to gNodeB 'W2018'.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": "Cell 'BX1230' has been added to gNodeB 'W2018'.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": "Cell 'CX5103' has been added to gNodeB 'W2018'.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": "UE 'UE1' has been added to Cell 'Ax1242'.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": "UE 'UE1' has been attached to Cell 'Ax1242' at '2024-01-03 11:59:10'.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": "UE 'UE2' has been added to Cell 'AX1112'.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": "UE 'UE2' has been attached to Cell 'AX1112' at '2024-01-03 11:59:10'.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": "UE 'UE3' has been added to Cell 'AX9980'.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": "UE 'UE3' has been attached to Cell 'AX9980' at '2024-01-03 11:59:10'.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": "UE 'UE4' has been added to Cell 'BX1453'.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": "UE 'UE4' has been attached to Cell 'BX1453' at '2024-01-03 11:59:10'.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": "UE 'UE5' has been added to Cell 'BX1334'.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": "UE 'UE5' has been attached to Cell 'BX1334' at '2024-01-03 11:59:10'.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": "UE 'UE6' has been added to Cell 'BX1230'.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": "UE 'UE6' has been attached to Cell 'BX1230' at '2024-01-03 11:59:10'.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": "UE 'UE7' has been added to Cell 'CX1352'.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": "UE 'UE7' has been attached to Cell 'CX1352' at '2024-01-03 11:59:10'.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": "UE 'UE8' has been added to Cell 'CX1873'.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": "UE 'UE8' has been attached to Cell 'CX1873' at '2024-01-03 11:59:10'.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": "UE 'UE9' has been added to Cell 'CX5103'.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": "UE 'UE9' has been attached to Cell 'CX5103' at '2024-01-03 11:59:10'.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": "UE 'UE10' has been added to Cell 'Ax1242'.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 11:59:10", "message": "UE 'UE10' has been attached to Cell 'Ax1242' at '2024-01-03 11:59:10'.", "test_id": "b5b2a944-94ff-40f4-852a-7f224cf35af1"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": " A Cell 'Ax1242' has been created at '2024-01-03 12:02:44' in gNodeB 'W1140' with max capacity 10.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": " A Cell 'BX1453' has been created at '2024-01-03 12:02:44' in gNodeB 'W1140' with max capacity 10.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": " A Cell 'CX1352' has been created at '2024-01-03 12:02:44' in gNodeB 'W1140' with max capacity 10.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": " A Cell 'AX1112' has been created at '2024-01-03 12:02:44' in gNodeB 'W1320' with max capacity 10.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": " A Cell 'BX1334' has been created at '2024-01-03 12:02:44' in gNodeB 'W1320' with max capacity 10.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": " A Cell 'CX1873' has been created at '2024-01-03 12:02:44' in gNodeB 'W1320' with max capacity 10.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": " A Cell 'AX9980' has been created at '2024-01-03 12:02:44' in gNodeB 'W2018' with max capacity 10.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": " A Cell 'BX1230' has been created at '2024-01-03 12:02:44' in gNodeB 'W2018' with max capacity 10.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": " A Cell 'CX5103' has been created at '2024-01-03 12:02:44' in gNodeB 'W2018' with max capacity 10.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": "Cell 'Ax1242' has been added to gNodeB 'W1140'.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": "Cell 'BX1453' has been added to gNodeB 'W1140'.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": "Cell 'CX1352' has been added to gNodeB 'W1140'.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": "Cell 'AX1112' has been added to gNodeB 'W1320'.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": "Cell 'BX1334' has been added to gNodeB 'W1320'.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": "Cell 'CX1873' has been added to gNodeB 'W1320'.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": "Cell 'AX9980' has been added to gNodeB 'W2018'.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": "Cell 'BX1230' has been added to gNodeB 'W2018'.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": "Cell 'CX5103' has been added to gNodeB 'W2018'.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": "UE 'UE1' has been added to Cell 'Ax1242'.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": "UE 'UE1' has been attached to Cell 'Ax1242' at '2024-01-03 12:02:44'.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": "UE 'UE2' has been added to Cell 'AX1112'.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": "UE 'UE2' has been attached to Cell 'AX1112' at '2024-01-03 12:02:44'.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": "UE 'UE3' has been added to Cell 'AX9980'.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": "UE 'UE3' has been attached to Cell 'AX9980' at '2024-01-03 12:02:44'.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": "UE 'UE4' has been added to Cell 'BX1453'.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": "UE 'UE4' has been attached to Cell 'BX1453' at '2024-01-03 12:02:44'.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": "UE 'UE5' has been added to Cell 'BX1334'.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": "UE 'UE5' has been attached to Cell 'BX1334' at '2024-01-03 12:02:44'.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": "UE 'UE6' has been added to Cell 'BX1230'.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": "UE 'UE6' has been attached to Cell 'BX1230' at '2024-01-03 12:02:44'.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": "UE 'UE7' has been added to Cell 'CX1352'.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": "UE 'UE7' has been attached to Cell 'CX1352' at '2024-01-03 12:02:44'.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": "UE 'UE8' has been added to Cell 'CX1873'.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": "UE 'UE8' has been attached to Cell 'CX1873' at '2024-01-03 12:02:44'.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": "UE 'UE9' has been added to Cell 'CX5103'.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": "UE 'UE9' has been attached to Cell 'CX5103' at '2024-01-03 12:02:44'.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": "UE 'UE10' has been added to Cell 'Ax1242'.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
-{"level": "INFO", "timestamp": "2024-01-03 12:02:44", "message": "UE 'UE10' has been attached to Cell 'Ax1242' at '2024-01-03 12:02:44'.", "test_id": "39f696b7-f49c-40ec-9a7b-2ef9afc914d7"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": " A Cell 'Ax1242' has been created at '2024-01-03 12:21:08' in gNodeB 'W1140' with max capacity 10.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": " A Cell 'BX1453' has been created at '2024-01-03 12:21:08' in gNodeB 'W1140' with max capacity 10.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": " A Cell 'CX1352' has been created at '2024-01-03 12:21:08' in gNodeB 'W1140' with max capacity 10.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": " A Cell 'AX1112' has been created at '2024-01-03 12:21:08' in gNodeB 'W1320' with max capacity 10.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": " A Cell 'BX1334' has been created at '2024-01-03 12:21:08' in gNodeB 'W1320' with max capacity 10.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": " A Cell 'CX1873' has been created at '2024-01-03 12:21:08' in gNodeB 'W1320' with max capacity 10.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": " A Cell 'AX9980' has been created at '2024-01-03 12:21:08' in gNodeB 'W2018' with max capacity 10.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": " A Cell 'BX1230' has been created at '2024-01-03 12:21:08' in gNodeB 'W2018' with max capacity 10.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": " A Cell 'CX5103' has been created at '2024-01-03 12:21:08' in gNodeB 'W2018' with max capacity 10.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": "Cell 'Ax1242' has been added to gNodeB 'W1140'.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": "Cell 'BX1453' has been added to gNodeB 'W1140'.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": "Cell 'CX1352' has been added to gNodeB 'W1140'.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": "Cell 'AX1112' has been added to gNodeB 'W1320'.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": "Cell 'BX1334' has been added to gNodeB 'W1320'.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": "Cell 'CX1873' has been added to gNodeB 'W1320'.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": "Cell 'AX9980' has been added to gNodeB 'W2018'.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": "Cell 'BX1230' has been added to gNodeB 'W2018'.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": "Cell 'CX5103' has been added to gNodeB 'W2018'.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": "UE 'UE1' has been added to Cell 'Ax1242'.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": "UE 'UE1' has been attached to Cell 'Ax1242' at '2024-01-03 12:21:08'.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": "UE 'UE2' has been added to Cell 'AX1112'.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": "UE 'UE2' has been attached to Cell 'AX1112' at '2024-01-03 12:21:08'.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": "UE 'UE3' has been added to Cell 'AX9980'.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": "UE 'UE3' has been attached to Cell 'AX9980' at '2024-01-03 12:21:08'.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": "UE 'UE4' has been added to Cell 'BX1453'.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": "UE 'UE4' has been attached to Cell 'BX1453' at '2024-01-03 12:21:08'.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": "UE 'UE5' has been added to Cell 'BX1334'.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": "UE 'UE5' has been attached to Cell 'BX1334' at '2024-01-03 12:21:08'.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": "UE 'UE6' has been added to Cell 'BX1230'.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": "UE 'UE6' has been attached to Cell 'BX1230' at '2024-01-03 12:21:08'.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": "UE 'UE7' has been added to Cell 'CX1352'.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": "UE 'UE7' has been attached to Cell 'CX1352' at '2024-01-03 12:21:08'.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": "UE 'UE8' has been added to Cell 'CX1873'.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": "UE 'UE8' has been attached to Cell 'CX1873' at '2024-01-03 12:21:08'.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": "UE 'UE9' has been added to Cell 'CX5103'.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": "UE 'UE9' has been attached to Cell 'CX5103' at '2024-01-03 12:21:08'.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": "UE 'UE10' has been added to Cell 'Ax1242'.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:21:08", "message": "UE 'UE10' has been attached to Cell 'Ax1242' at '2024-01-03 12:21:08'.", "test_id": "520dccbb-9450-437b-b490-36fda43b7b0c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": " A Cell 'Ax1242' has been created at '2024-01-03 12:30:08' in gNodeB 'W1140' with max capacity 10.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": " A Cell 'BX1453' has been created at '2024-01-03 12:30:08' in gNodeB 'W1140' with max capacity 10.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": " A Cell 'CX1352' has been created at '2024-01-03 12:30:08' in gNodeB 'W1140' with max capacity 10.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": " A Cell 'AX1112' has been created at '2024-01-03 12:30:08' in gNodeB 'W1320' with max capacity 10.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": " A Cell 'BX1334' has been created at '2024-01-03 12:30:08' in gNodeB 'W1320' with max capacity 10.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": " A Cell 'CX1873' has been created at '2024-01-03 12:30:08' in gNodeB 'W1320' with max capacity 10.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": " A Cell 'AX9980' has been created at '2024-01-03 12:30:08' in gNodeB 'W2018' with max capacity 10.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": " A Cell 'BX1230' has been created at '2024-01-03 12:30:08' in gNodeB 'W2018' with max capacity 10.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": " A Cell 'CX5103' has been created at '2024-01-03 12:30:08' in gNodeB 'W2018' with max capacity 10.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": "Cell 'Ax1242' has been added to gNodeB 'W1140'.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": "Cell 'BX1453' has been added to gNodeB 'W1140'.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": "Cell 'CX1352' has been added to gNodeB 'W1140'.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": "Cell 'AX1112' has been added to gNodeB 'W1320'.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": "Cell 'BX1334' has been added to gNodeB 'W1320'.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": "Cell 'CX1873' has been added to gNodeB 'W1320'.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": "Cell 'AX9980' has been added to gNodeB 'W2018'.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": "Cell 'BX1230' has been added to gNodeB 'W2018'.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": "Cell 'CX5103' has been added to gNodeB 'W2018'.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": "UE 'UE1' has been added to Cell 'Ax1242'.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": "UE 'UE1' has been attached to Cell 'Ax1242' at '2024-01-03 12:30:08'.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": "UE 'UE2' has been added to Cell 'AX1112'.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": "UE 'UE2' has been attached to Cell 'AX1112' at '2024-01-03 12:30:08'.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": "UE 'UE3' has been added to Cell 'AX9980'.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": "UE 'UE3' has been attached to Cell 'AX9980' at '2024-01-03 12:30:08'.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": "UE 'UE4' has been added to Cell 'BX1453'.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": "UE 'UE4' has been attached to Cell 'BX1453' at '2024-01-03 12:30:08'.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": "UE 'UE5' has been added to Cell 'BX1334'.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": "UE 'UE5' has been attached to Cell 'BX1334' at '2024-01-03 12:30:08'.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": "UE 'UE6' has been added to Cell 'BX1230'.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": "UE 'UE6' has been attached to Cell 'BX1230' at '2024-01-03 12:30:08'.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": "UE 'UE7' has been added to Cell 'CX1352'.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": "UE 'UE7' has been attached to Cell 'CX1352' at '2024-01-03 12:30:08'.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": "UE 'UE8' has been added to Cell 'CX1873'.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": "UE 'UE8' has been attached to Cell 'CX1873' at '2024-01-03 12:30:08'.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": "UE 'UE9' has been added to Cell 'CX5103'.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": "UE 'UE9' has been attached to Cell 'CX5103' at '2024-01-03 12:30:08'.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": "UE 'UE10' has been added to Cell 'Ax1242'.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
+{"level": "INFO", "timestamp": "2024-01-03 12:30:08", "message": "UE 'UE10' has been attached to Cell 'Ax1242' at '2024-01-03 12:30:08'.", "test_id": "df101192-ed13-4e9c-93f6-0ebbf714884c"}
