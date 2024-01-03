@@ -460,43 +460,36 @@ class TrafficController:
         command_handler_thread.start() 
 ###########################################################################################
     def calculate_and_write_ue_throughput(self, ue, traffic_controller):
-
-        # Retrieve traffic parameters for the UE
-        traffic_parameters = traffic_controller.get_traffic_parameters(ue)
-
+        # Generate traffic and retrieve traffic parameters for the UE
         traffic_data = self.generate_traffic(ue)
-        packet_loss = traffic_parameters['packet_loss']
-        interval = traffic_data['interval']
 
-    # Retrieve jitter, packet loss, and delay from the UE
+        # Retrieve jitter, packet loss, and delay from the traffic data
         jitter = traffic_data['jitter']
-        packet_loss = ue.packet_loss
-        delay = ue.delay
+        packet_loss_rate = traffic_data['packet_loss_rate']
+        delay = traffic_data['delay']
+        interval = traffic_data['interval']
+        data_size_bytes = traffic_data['data_size']
 
-    # Convert data size to bytes
-        if ue.ServiceType.lower() in ['voice', 'gaming', 'iot']:
-            data_size_bytes = data_size_kb_or_mb * 1024  # KB to bytes
-        elif ue.ServiceType.lower() in ['video', 'data']:
-            data_size_bytes = data_size_kb_or_mb * 1024 * 1024  # MB to bytes
-
-    # Adjust the throughput based on quality metrics
-        quality_impact = (1 - jitter) * (1 - packet_loss) * (1 - delay)
+        # Adjust the throughput based on quality metrics
+        # Assuming jitter, packet_loss_rate, and delay are expressed as percentages (0 to 1)
+        # If they are not, you will need to convert them to a percentage.
+        quality_impact = (1 - jitter) * (1 - packet_loss_rate) * (1 - delay)
         adjusted_throughput = (data_size_bytes / interval) * quality_impact
 
-    # Prepare the data for InfluxDB
+        # Prepare the data for InfluxDB
         influxdb_data = {
             "measurement": "ue_throughput",
             "tags": {
                 "ue_id": ue.id
-        },
-        "fields": {
+            },
+            "fields": {
                 "throughput": adjusted_throughput,
                 "jitter": jitter,
-                "packet_loss": packet_loss,
+                "packet_loss": packet_loss_rate,
                 "delay": delay
-        },
-        "time": datetime.datetime.utcnow().isoformat()
-    }
+            },
+            "time": datetime.datetime.utcnow().isoformat()
+        }
 
         # Create a DatabaseManager instance, write data, and close connection
         database_manager = DatabaseManager()
