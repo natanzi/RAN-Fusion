@@ -31,14 +31,20 @@ def network_state_manager(network_state, command_queue):
             network_state.save_state_to_influxdb()
         elif command == 'exit':  # Handle exit command to break the loop
             break
-####################################################################################################################################
+#####################################################################################################################################
 def log_traffic(ues, command_queue, network_state):
     traffic_controller = TrafficController(command_queue)
     while True:
-        # Log traffic for all UEs at regular intervals
         for ue in ues:
-            # Generate normal traffic for all UEs
-            data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_traffic(ue)
+            traffic_data = traffic_controller.generate_traffic(ue)
+            # Extract the required values from the traffic_data dictionary
+            data_size = traffic_data['data_size']
+            interval = traffic_data['interval']
+            delay = traffic_data['delay']
+            jitter = traffic_data['jitter']
+            packet_loss_rate = traffic_data['packet_loss_rate']
+            
+            # Now you can format these values and log them as before
             formatted_data_size = f"{data_size:.2f}"
             formatted_interval = f"{interval:.2f}"
             logging.info(
