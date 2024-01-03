@@ -35,6 +35,18 @@ def network_state_manager(network_state, command_queue):
 def log_traffic(ues, command_queue, network_state):
     traffic_controller = TrafficController(command_queue)
     while True:
+        # Log traffic for all UEs at regular intervals
+        for ue in ues:
+            # Generate normal traffic for all UEs
+            data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_traffic(ue)
+            formatted_data_size = f"{data_size:.2f}"
+            formatted_interval = f"{interval:.2f}"
+            logging.info(
+                f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Data Size: {formatted_data_size}MB, "
+                f"Interval: {formatted_interval}s, Delay: {delay}ms, Jitter: {jitter}ms, "
+                f"Packet Loss Rate: {packet_loss_rate}%"
+            )
+
         # Check for new commands and apply updates if necessary
         if not command_queue.empty():
             command = command_queue.get()
@@ -48,20 +60,12 @@ def log_traffic(ues, command_queue, network_state):
                         logging.getLogger('traffic_update').info(
                             f"UE ID: {ue.ID} - Updated {ue.ServiceType} traffic with parameters: {command['data']} (Update ID: {command['update_id']})"
                         )
-                    else:
-                        # Generate normal traffic for other UEs
-                        data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_traffic(ue)
-                    formatted_data_size = f"{data_size:.2f}"
-                    formatted_interval = f"{interval:.2f}"
-                    logging.info(
-                        f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Data Size: {formatted_data_size}MB, Interval: {formatted_interval}s, Delay: {delay}ms, Jitter: {jitter}ms, Packet Loss Rate: {packet_loss_rate}%"
-                    )
-                command_queue.put('save')
             elif command == 'save':
                 network_state.save_state_to_influxdb()
             elif command == 'exit':
                 break
-        time.sleep(1)
+
+        time.sleep(1)  # Sleep for a second before the next iteration
 ######################################################################################
 def detect_and_handle_congestion(network_state, command_queue):
     while True:
@@ -128,6 +132,10 @@ def main():
     # Start the congestion detection process
     congestion_process = Process(target=detect_and_handle_congestion, args=(network_state, command_queue))
     congestion_process.start()
+    
+    # Start the network state manager process
+    ns_manager_process = Process(target=network_state_manager, args=(network_state, command_queue))
+    ns_manager_process.start()
 
     # Start the system resource logging process with system_monitor passed as an argument
     system_resource_logging_process = Process(target=log_system_resources, args=(system_monitor,))
