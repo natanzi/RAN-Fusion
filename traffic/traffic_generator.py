@@ -459,7 +459,7 @@ class TrafficController:
         command_handler_thread.daemon = True
         command_handler_thread.start() 
 ###########################################################################################
-    def calculate_and_write_ue_throughput(self, ue, traffic_controller):
+    def calculate_and_write_ue_throughput(self, ue):
         # Generate traffic and retrieve traffic parameters for the UE
         traffic_data = self.generate_traffic(ue)
 
@@ -480,7 +480,7 @@ class TrafficController:
         influxdb_data = {
             "measurement": "ue_throughput",
             "tags": {
-                "ue_id": ue.id
+                "ue_id": ue.ID
             },
             "fields": {
                 "throughput": adjusted_throughput,
@@ -496,4 +496,10 @@ class TrafficController:
         database_manager.insert_data(influxdb_data)
         database_manager.close_connection()
 
-        return adjusted_throughput
+        return {
+            'throughput': adjusted_throughput,
+            'jitter': jitter,
+            'packet_loss_rate': packet_loss_rate,
+            'delay': delay,
+            'interval': interval
+        }
