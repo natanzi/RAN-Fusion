@@ -24,13 +24,18 @@ class NetworkState:
             return gNodeB.calculate_cell_load(cell)
         return None
     
+    def check_for_duplicate_cells(self):
+        seen_cell_ids = set()
+        for cell_id in self.cells.keys():
+            if cell_id in seen_cell_ids:
+                raise ValueError(f"Duplicate cell ID {cell_id} found in network state.")
+        seen_cell_ids.add(cell_id)
+
     def update_state(self, gNodeBs, cells, ues):
-        # Update gNodeBs and cells normally
         self.gNodeBs.update(gNodeBs)
-    
-        # Since cells is already a dictionary, we can directly update self.cells with it
         self.cells.update(cells)
-    
+        self.check_for_duplicate_cells()
+
         # Update UEs, but check for duplicates first
         new_ues = {}
         for ue in ues:
