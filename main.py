@@ -60,6 +60,7 @@ def log_traffic(ues, command_queue, network_state):
         # Check for new commands and apply updates if necessary
         if not command_queue.empty():
             command = command_queue.get()
+            logging.debug(f"Processing command: {command}")
             # Log the received command
             logging.debug(f"Received command from queue: {command}")
 

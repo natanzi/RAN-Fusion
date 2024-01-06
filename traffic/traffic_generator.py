@@ -10,6 +10,7 @@ from threading import Thread
 import datetime
 from database.database_manager import DatabaseManager
 from threading import Lock
+import logging
 
 class TrafficController:
 
@@ -170,6 +171,7 @@ class TrafficController:
                 traffic_update.info("Handled 'restart' command.")
     
     def update_parameters(self, new_params):
+        logging.debug(f"Updating parameters with: {new_params}")
         self.updated_parameters = new_params
         self.is_updated = True
 
