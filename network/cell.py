@@ -70,6 +70,8 @@ class Cell:
             'CellisActive': self.IsActive
 
         }
+    add_sector
+    
     # Method to get the count of active UEs and update the last attached cell and its gNodeB
     def update_ue_count(self):
         self.last_update = get_current_time_ntp()

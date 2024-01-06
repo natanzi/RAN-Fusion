@@ -186,8 +186,12 @@ class gNodeB:
         cell_logger.info(f"gNodeB '{self.ID}' cell capacity updated to {self.CellCount}.")
 
     def add_cell_to_gNodeB(self, cell):
-    # Assuming 'cell' is an instance of Cell
-        if len(self.Cells) < self.CellCount:  # Use CellCount to check the capacity for cells
+        # Assuming 'cell' is an instance of Cell
+        existing_cell_ids = [existing_cell.ID for existing_cell in self.Cells]
+        if cell.ID in existing_cell_ids:
+            print(f"Cell '{cell.ID}' is already added to gNodeB '{self.ID}'.")
+            cell_logger.info(f"Cell '{cell.ID}' is already added to gNodeB '{self.ID}'.")
+        elif len(self.Cells) < self.CellCount:  # Use CellCount to check the capacity for cells
             self.Cells.append(cell)
             print(f"Cell '{cell.ID}' has been added to gNodeB '{self.ID}'.")
             cell_logger.info(f"Cell '{cell.ID}' has been added to gNodeB '{self.ID}'.")

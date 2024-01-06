@@ -12,9 +12,11 @@ def load_all_configs(base_dir):
     gNodeB_json_path = os.path.join(config_dir, 'gNodeB_config.json')
     cell_json_path = os.path.join(config_dir, 'cell_config.json')
     ue_json_path = os.path.join(config_dir, 'ue_config.json')
+    sector_json_path = os.path.join(config_dir,'sector_config.json')
 
     gNodeBs_config = load_json_config(gNodeB_json_path)
     cells_config = load_json_config(cell_json_path)
     ue_config = load_json_config(ue_json_path)
+    sector_config = load_json_config(sector_json_path)
+    return gNodeBs_config, cells_config, ue_config, sector_config
 
-    return gNodeBs_config, cells_config, ue_config
