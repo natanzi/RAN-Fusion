@@ -104,6 +104,10 @@ def main():
     base_dir = os.path.dirname(os.path.abspath(__file__))
     gNodeBs_config, cells_config, ue_config = load_all_configs(base_dir)
     
+    # Create a lock for the network state
+    #network_state_lock = Lock()
+    
+    # Pass the lock to the NetworkState instance
     network_state = NetworkState()
 
     db_manager = DatabaseManager(network_state)
@@ -147,8 +151,12 @@ def main():
         cell_load_thread.start()
 
     # Start the congestion detection process using monitor_and_log_cell_load
+    # Make sure to pass a serializable object or reconstruct the gNodeB objects within the child process
     congestion_process = Process(target=monitor_and_log_cell_load, args=(gNodeBs, traffic_controller))
-    congestion_process.start()
+    try:
+        congestion_process.start()
+    except TypeError as e:
+        logging.error(f"Failed to start congestion_process: {e}")
     
     # Start the network state manager process
     ns_manager_process = Process(target=network_state_manager, args=(network_state, command_queue))
