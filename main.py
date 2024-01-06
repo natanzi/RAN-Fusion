@@ -1,6 +1,6 @@
 import os
 import time
-from multiprocessing import Process, Queue, Lock
+from multiprocessing import Process, Queue, Manager
 from network.initialize_network import initialize_network
 from Config_files.config_load import load_all_configs
 import logging
@@ -13,7 +13,6 @@ from database.database_manager import DatabaseManager
 from logs.logger_config import traffic_update
 import threading
 from traffic.traffic_generator import TrafficController
-from multiprocessing import Lock
 
 #################################################################################################################################
 # pickled by multiprocessing
@@ -29,6 +28,15 @@ def network_state_manager(network_state, command_queue):
             network_state.save_state_to_influxdb()
         elif command == 'exit':  # Handle exit command to break the loop
             break
+def create_shared_network_state(manager):
+    # Create a proxy NetworkState object using the Manager
+    network_state = manager.Namespace()
+    # Initialize the NetworkState properties within the proxy object
+    network_state.gNodeBs = manager.dict()
+    network_state.cells = manager.dict()
+    network_state.ues = manager.dict()
+    network_state.last_update = manager.Value('i', time.time())
+    return network_state     
 #####################################################################################################################################
 def log_traffic(ues, command_queue, network_state):
     traffic_controller = TrafficController(command_queue)
@@ -104,14 +112,13 @@ def main():
 
     base_dir = os.path.dirname(os.path.abspath(__file__))
     gNodeBs_config, cells_config, ue_config = load_all_configs(base_dir)
-    
-    # Create a lock for the network state
-    network_state_lock = Lock()
 
+    # Initialize the Manager
+    manager = Manager()
+    shared_network_state = create_shared_network_state(manager)
 
-    
-    # Pass the lock to the NetworkState instance
-    network_state = NetworkState(network_state_lock)
+    # Pass the proxy network_state to the NetworkState instance
+    network_state = NetworkState(shared_network_state)
 
     db_manager = DatabaseManager(network_state)
 

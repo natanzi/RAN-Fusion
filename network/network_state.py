@@ -6,18 +6,16 @@ from datetime import datetime
 from influxdb_client import Point, WritePrecision
 from logs.logger_config import database_logger
 from database.time_utils import get_current_time_ntp, server_pools
+from multiprocessing import Manager
 time = current_time = get_current_time_ntp()
 
 class NetworkState:
-    
-    def __init__(self, lock):
-        self.lock = lock
-        self.gNodeBs = {}
-        self.cells = {}
-        self.ues = {}
-        self.last_update = datetime.min 
-        self.db_manager = DatabaseManager(self)
-        self.db_manager.set_network_state(self)
+    def __init__(self, shared_state):
+        # shared_state is the proxy object from the Manager
+        self.gNodeBs = shared_state.gNodeBs
+        self.cells = shared_state.cells
+        self.ues = shared_state.ues
+        self.last_update = shared_state.last_update
 
     def get_cell_load(self, cell):
         # Assuming there's a method in gNodeB to calculate cell load
