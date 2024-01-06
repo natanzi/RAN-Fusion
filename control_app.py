@@ -31,11 +31,13 @@ def validate_traffic_parameters(params, param_types):
 @app.route('/', methods=['GET'])
 def index():
     return 'Welcome to the 5G RAN Simulator!', 200
-
+############################################################################################################
 @app.route('/update_voice_traffic', methods=['POST'])
 def update_voice_traffic():
     global update_received
     data = request.json
+    print("Received data for voice traffic update:", data)  # Print received data to the terminal
+
     expected_types = {
         'bitrate_range': list,
         'jitter': (int, float),
@@ -44,6 +46,7 @@ def update_voice_traffic():
     }
     is_valid, message = validate_traffic_parameters(data, expected_types)
     if not is_valid:
+        print("Validation failed for voice traffic update:", message)  # Print validation failure to the terminal
         return {'error': message}, 400
 
     try:
@@ -58,17 +61,23 @@ def update_voice_traffic():
             }
             command_queue.put(command)  # Send the structured command to the command queue
             traffic_update.info(f"Voice traffic update command sent: {command}")
+            print(f"Voice traffic update command sent with ID: {update_id}")  # Print success message to the terminal
             return {'message': 'Voice traffic update command sent', 'acknowledged': True, 'update_id': update_id}, 200
         else:
+            print("Failed to apply voice traffic update.")  # Print failure message to the terminal
             return {'error': 'Failed to update parameters', 'acknowledged': False}, 500
     except Exception as e:
         traffic_update.error(f'Failed to update voice traffic: {e}')
+        print("Exception occurred during voice traffic update:", e)  # Print exception message to the terminal
+        print(traceback.format_exc())  # Print stack trace to the terminal
         return {'error': str(e), 'acknowledged': False}, 500
-
+#############################################################################################################
 @app.route('/update_video_traffic', methods=['POST'])
 def update_video_traffic():
     global update_received
     data = request.json
+    print("Received data for video traffic update:", data)  # Print received data to the terminal
+
     expected_types = {
         'num_streams_range': list,
         'stream_bitrate_range': list,
@@ -78,6 +87,7 @@ def update_video_traffic():
     }
     is_valid, message = validate_traffic_parameters(data, expected_types)
     if not is_valid:
+        print("Validation failed for video traffic update:", message)  # Print validation failure to the terminal
         return {'error': message}, 400
 
     try:
@@ -92,18 +102,22 @@ def update_video_traffic():
             }
             command_queue.put(command)  # Send the structured command to the command queue
             traffic_update.info(f"Video traffic update command sent: {command}")
+            print(f"Video traffic update command sent with ID: {update_id}")  # Print success message to the terminal
             return {'message': 'Video traffic update command sent', 'acknowledged': True, 'update_id': update_id}, 200
         else:
+            print("Failed to apply video traffic update.")  # Print failure message to the terminal
             return {'error': 'Failed to update parameters', 'acknowledged': False}, 500
     except Exception as e:
         traffic_update.error(f'Failed to update video traffic: {e}')
+        print("Exception occurred during video traffic update:", e)  # Print exception message to the terminal
+        print(traceback.format_exc())  # Print stack trace to the terminal
         return {'error': str(e), 'acknowledged': False}, 500
-
+######################################################################################################
 @app.route('/update_gaming_traffic', methods=['POST'])
 def update_gaming_traffic():
     app.logger.info('Processing request for /update_gaming_traffic')
     data = request.json
-    print("Received data:", data)
+    print("Received data:", data)  # This will print the received data to the terminal
 
     expected_types = {
         'bitrate_range': list,
@@ -113,7 +127,7 @@ def update_gaming_traffic():
     }
     is_valid, message = validate_traffic_parameters(data, expected_types)
     if not is_valid:
-        print("Validation failed:", message) 
+        print("Validation failed:", message)  # This will print the validation failure message to the terminal
         return {'error': message}, 400
 
     try:
@@ -128,18 +142,22 @@ def update_gaming_traffic():
             }
             command_queue.put(command)  # Send the structured command to the command queue
             traffic_update.info(f"Gaming traffic update command sent: {command}")
+            print(f"Gaming traffic update command sent with ID: {update_id}")  # This will print the success message to the terminal
             return {'message': 'Gaming traffic update command sent', 'acknowledged': True, 'update_id': update_id}, 200
         else:
+            print("Failed to apply gaming traffic update.")  # This will print the failure message to the terminal
             return {'error': 'Failed to update parameters', 'acknowledged': False}, 500
     except Exception as e:
         traffic_update.error(f'Failed to update gaming traffic: {e}')
-        print("Exception:", e)
-        print(traceback.format_exc())
+        print("Exception occurred:", e)  # This will print the exception message to the terminal
+        print(traceback.format_exc())  # This will print the stack trace to the terminal
         return {'error': str(e), 'acknowledged': False}, 500
-
+###########################################################################################################################
 @app.route('/update_iot_traffic', methods=['POST'])
 def update_iot_traffic():
     data = request.json
+    print("Received data for IoT traffic update:", data)  # Print received data to the terminal
+
     expected_types = {
         'packet_size_range': list,
         'interval_range': list,
@@ -149,6 +167,7 @@ def update_iot_traffic():
     }
     is_valid, message = validate_traffic_parameters(data, expected_types)
     if not is_valid:
+        print("Validation failed for IoT traffic update:", message)  # Print validation failure to the terminal
         return {'error': message}, 400
 
     try:
@@ -163,16 +182,22 @@ def update_iot_traffic():
             }
             command_queue.put(command)  # Send the structured command to the command queue
             traffic_update.info(f"IoT traffic update command sent: {command}")
+            print(f"IoT traffic update command sent with ID: {update_id}")  # Print success message to the terminal
             return {'message': 'IoT traffic update command sent', 'acknowledged': True, 'update_id': update_id}, 200
         else:
+            print("Failed to apply IoT traffic update.")  # Print failure message to the terminal
             return {'error': 'Failed to update parameters', 'acknowledged': False}, 500
     except Exception as e:
         traffic_update.error(f'Failed to update IoT traffic: {e}')
+        print("Exception occurred during IoT traffic update:", e)  # Print exception message to the terminal
+        print(traceback.format_exc())  # Print stack trace to the terminal
         return {'error': str(e), 'acknowledged': False}, 500
-
+###########################################################################################################################
 @app.route('/update_data_traffic', methods=['POST'])
 def update_data_traffic():
     data = request.json
+    print("Received data for data traffic update:", data)  # Print received data to the terminal
+
     expected_types = {
         'bitrate_range': list,
         'interval_range': list,
@@ -182,6 +207,7 @@ def update_data_traffic():
     }
     is_valid, message = validate_traffic_parameters(data, expected_types)
     if not is_valid:
+        print("Validation failed for data traffic update:", message)  # Print validation failure to the terminal
         return {'error': message}, 400
 
     try:
@@ -196,12 +222,26 @@ def update_data_traffic():
             }
             command_queue.put(command)  # Send the structured command to the command queue
             traffic_update.info(f"Data traffic update command sent: {command}")
+            print(f"Data traffic update command sent with ID: {update_id}")  # Print success message to the terminal
             return {'message': 'Data traffic update command sent', 'acknowledged': True, 'update_id': update_id}, 200
         else:
+            print("Failed to apply data traffic update.")  # Print failure message to the terminal
             return {'error': 'Failed to update parameters', 'acknowledged': False}, 500
     except Exception as e:
         traffic_update.error(f'Failed to update data traffic: {e}')
+        print("Exception occurred during data traffic update:", e)  # Print exception message to the terminal
+        print(traceback.format_exc())  # Print stack trace to the terminal
         return {'error': str(e), 'acknowledged': False}, 500
+###########################################################################################################################
+@app.route('/check_update_status', methods=['GET'])
+def check_update_status():
+    update_id = request.args.get('update_id')
+    if update_id and update_id in traffic_controller.update_statuses:
+        status = traffic_controller.update_statuses[update_id]
+        return jsonify({'update_id': update_id, 'status': status}), 200
+    else:
+        return jsonify({'error': 'Invalid or unknown update ID'}), 404
+###########################################################################################################################
 
 @app.route('/test', methods=['GET'])
 def test_endpoint():

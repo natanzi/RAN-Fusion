@@ -16,7 +16,6 @@ class TrafficController:
     def __init__(self, command_queue):
         self.command_queue = command_queue
         self.lock = Lock()
-        # Initialize default traffic parameters
         self.voice_traffic_params = {'bitrate': (8, 16)}  # in Kbps
         self.video_traffic_params = {'num_streams': (1, 5), 'stream_bitrate': (3, 8)}  # in Mbps
         self.gaming_traffic_params = {'bitrate': (30, 70)}  # in Kbps
@@ -24,6 +23,7 @@ class TrafficController:
         self.data_traffic_params = {'bitrate': (1, 10), 'interval': (0.5, 2)}  # in Mbps
         self.updated_parameters = {}  # to store updated parameters
         self.is_updated = False       # flag to track updates
+        self.update_statuses = {}
 
         # Initialize jitter, delay, and packet loss for each traffic type
         self.voice_jitter = 0
@@ -45,7 +45,13 @@ class TrafficController:
         self.data_jitter = 0
         self.data_delay = 0
         self.data_packet_loss_rate = 0
-    
+##########################################################################################################
+    def apply_update(self, update_id, data):
+        # Logic to apply the update
+        # ...
+        self.update_statuses[update_id] = 'applied'  # Update the status to 'applied'
+#######################################################################################################
+
     def get_updated_ues(self, network_state):
         from network.ue import UE
         # Assuming network_state.ues is a dictionary with UE IDs as keys
