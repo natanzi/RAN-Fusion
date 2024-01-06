@@ -23,7 +23,6 @@ Welcome to the Next Generation Radio Access Network (RAN) Simulator! This simple
 3. **Install Dependencies**
 
 pip install -r requirements.txt
-Milad
 
 
 
