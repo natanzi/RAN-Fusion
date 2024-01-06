@@ -46,17 +46,12 @@ def log_traffic(ues, command_queue, network_state):
             formatted_throughput = f"{throughput_data['throughput']:.2f}"
 
             # Check if the UE has been updated and change the log color to red
-            if ue.ID in updated_ue_ids:
-                # ANSI escape code to set text color to red
-                log_color = "\033[91m"
-            else:
-                # ANSI escape code to reset text color
-                log_color = "\033[0m"
+            log_color = "\033[91m" if ue.ID in updated_ue_ids else "\033[0m"
 
             logging.info(
                 f"{log_color}UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Throughput: {formatted_throughput}Mbps, "
                 f"Interval: {throughput_data['interval']}s, Delay: {delay}ms, Jitter: {jitter}ms, "
-                f"Packet Loss Rate: {packet_loss_rate}%{log_color}"
+                f"Packet Loss Rate: {packet_loss_rate}%\033[0m"
             )
 
         # Check for new commands and apply updates if necessary

@@ -42,7 +42,9 @@ class UE:
         self.ScreenSize = f"{random.uniform(5.0, 7.0):.1f} inches"  # Always randomly generate screen size
         self.BatteryLevel = random.randint(10, 100)  # Always randomly generate battery level
         self.traffic_volume = 0  # Initialize with a default value or a calculated value
+        self.updated = False  # Add this line to track if the UE has been updated
         ue_logger.info(f"UE initialized with ID {ue_id} at {datetime.now()}")
+        
 
     @staticmethod
     def allocate_imei():
@@ -126,21 +128,6 @@ class UE:
         else:
             raise ValueError(f"Unknown service type: {self.ServiceType}")
 
-        # Scale the data size by the traffic multiplier
-        #data_size *= traffic_multiplier
-        #return data_size, interval, delay, jitter, packet_loss_rate
-
-    #d#ef get_traffic_volume(self, traffic_controller):
-        # Assuming traffic_volume is calculated as the sum of data sizes from generate_traffic over time
-        #traffic_volume = 0
-        #traffic_multiplier = 1  # or some other logic to determine the multiplier
-
-        # Generate traffic for a certain number of intervals (for example, 60 intervals for an hour)
-        #for _ in range(60):
-            #data_size, _, _, _, _ = self.generate_traffic(traffic_controller, traffic_multiplier)
-            #traffic_volume += data_size
-
-        #return traffic_volume
 ####################################################################################
     def perform_handover(self, old_cell, new_cell, network_state):
         try:
@@ -206,7 +193,7 @@ class UE:
         self.TrafficModel['delay'] = traffic_params['delay']
         self.TrafficModel['jitter'] = traffic_params['jitter']
         self.TrafficModel['packet_loss_rate'] = traffic_params['packet_loss_rate']
-
+        self.updated = True
         # Log the update
         ue_logger.info(f"Traffic model updated for UE {self.ID} with parameters: {traffic_params}")
 ######################################################################################
