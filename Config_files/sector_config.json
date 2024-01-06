@@ -1,0 +1,46 @@
+{
+    "sectors": [
+      {
+        "sector_id": "sector1",
+        "cell_id": "AX1242",
+        "azimuth_angle": 120, 
+        "beamwidth": 60,
+        "frequency": 3500000000,
+        "duplex_mode": "TDD",  
+        "tx_power": 20,
+        "bandwidth": 20,
+        "mimo_layers": 2,
+        "beamforming": true,
+        "ho_margin": 3,
+        "load_balancing": 10  
+      },
+      {
+        "sector_id": "sector2", 
+        "cell_id": "AX1242",
+        "azimuth_angle": 240,
+        "beamwidth": 60,
+        "frequency": 3500000000, 
+        "duplex_mode": "TDD",   
+        "tx_power": 20,
+        "bandwidth": 20,
+        "mimo_layers": 2,
+        "beamforming": true,
+        "ho_margin": 3, 
+        "load_balancing": 10   
+      },
+      {
+        "sector_id": "sector3",
+        "cell_id": "AX1242",
+        "azimuth_angle": 0,
+        "beamwidth": 60,
+        "frequency": 3500000000,
+        "duplex_mode": "TDD",    
+        "tx_power": 20,
+        "bandwidth": 20,
+        "mimo_layers": 2,
+        "beamforming": true,
+        "ho_margin": 3,  
+        "load_balancing": 10 
+      }
+    ] 
+  }

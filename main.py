@@ -104,8 +104,7 @@ def main():
     base_dir = os.path.dirname(os.path.abspath(__file__))
     gNodeBs_config, cells_config, ue_config = load_all_configs(base_dir)
     
-    network_state_lock = Lock()
-    network_state = NetworkState(network_state_lock)
+    network_state = NetworkState()
 
     db_manager = DatabaseManager(network_state)
 
@@ -148,7 +147,7 @@ def main():
         cell_load_thread.start()
 
     # Start the congestion detection process using monitor_and_log_cell_load
-    congestion_process = Process(target=monitor_and_log_cell_load, args=(gNodeB , traffic_controller))
+    congestion_process = Process(target=monitor_and_log_cell_load, args=(gNodeBs, traffic_controller))
     congestion_process.start()
     
     # Start the network state manager process
