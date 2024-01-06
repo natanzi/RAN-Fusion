@@ -32,22 +32,31 @@ def network_state_manager(network_state, command_queue):
 #####################################################################################################################################
 def log_traffic(ues, command_queue, network_state):
     traffic_controller = TrafficController(command_queue)
+    updated_ue_ids = set()  # Keep track of updated UE IDs
+
     while True:
         for ue in ues:
             # Calculate throughput instead of generating traffic
             throughput_data = traffic_controller.calculate_and_write_ue_throughput(ue)
 
             # Extract the required values from the traffic_data dictionary
-            # Assuming throughput calculation also provides delay, jitter, and packet_loss_rate
             delay = throughput_data['delay']
             jitter = throughput_data['jitter']
             packet_loss_rate = throughput_data['packet_loss_rate']
             formatted_throughput = f"{throughput_data['throughput']:.2f}"
 
+            # Check if the UE has been updated and change the log color to red
+            if ue.ID in updated_ue_ids:
+                # ANSI escape code to set text color to red
+                log_color = "\033[91m"
+            else:
+                # ANSI escape code to reset text color
+                log_color = "\033[0m"
+
             logging.info(
-                f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Throughput: {formatted_throughput}Mbps, "
+                f"{log_color}UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Throughput: {formatted_throughput}Mbps, "
                 f"Interval: {throughput_data['interval']}s, Delay: {delay}ms, Jitter: {jitter}ms, "
-                f"Packet Loss Rate: {packet_loss_rate}%"
+                f"Packet Loss Rate: {packet_loss_rate}%{log_color}"
             )
 
         # Check for new commands and apply updates if necessary
@@ -58,15 +67,15 @@ def log_traffic(ues, command_queue, network_state):
                 traffic_controller.update_parameters(command['data'])
 
                 # Call get_updated_ues to apply the updates to the UEs
-                updated_ues = traffic_controller.get_updated_ues()  # Assuming get_updated_ues does not require arguments
+                updated_ues = traffic_controller.get_updated_ues()
 
-                # Apply the update for matching UEs
+                # Apply the update for matching UEs and add their IDs to the updated_ue_ids set
                 for ue in updated_ues:
                     if ue.ServiceType.lower() == command['service_type'].lower():
-                        # Assuming generate_updated_traffic now returns throughput and other parameters
+                        updated_ue_ids.add(ue.ID)
                         updated_traffic = traffic_controller.generate_updated_traffic(ue)
                         logging.getLogger('traffic_update').info(
-                            f"UE ID: {ue.ID} - Updated {ue.ServiceType} traffic with parameters: {command['data']} (Update ID: {command['update_id']})"
+                            f"\033[91mUE ID: {ue.ID} - Updated {ue.ServiceType} traffic with parameters: {command['data']} (Update ID: {command['update_id']})\033[0m"
                         )
             elif command['type'] == 'save':
                 network_state.save_state_to_influxdb()
