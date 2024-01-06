@@ -13,6 +13,7 @@ from database.database_manager import DatabaseManager
 from logs.logger_config import traffic_update
 import threading
 from traffic.traffic_generator import TrafficController
+from multiprocessing import Lock
 
 #################################################################################################################################
 # pickled by multiprocessing
@@ -107,6 +108,7 @@ def main():
     # Create a lock for the network state
     network_state_lock = Lock()
 
+
     
     # Pass the lock to the NetworkState instance
     network_state = NetworkState(network_state_lock)
@@ -156,7 +158,7 @@ def main():
     congestion_process = Process(target=monitor_and_log_cell_load, args=(gNodeBs, traffic_controller))
     try:
         congestion_process.start()
-    except TypeError as e:
+    except Exception as e:
         logging.error(f"Failed to start congestion_process: {e}")
     
     # Start the network state manager process
