@@ -398,3 +398,403 @@
 {"level": "INFO", "timestamp": "2024-01-05 23:44:44", "message": "UE with ID UE10 added to Cell Ax1242 at '2024-01-05 23:44:44'", "test_id": "8b7d6d78-8dbe-4070-a00a-193e197f7fc4"}
 {"level": "INFO", "timestamp": "2024-01-05 23:44:44", "message": "UE 'UE10' has been attached to Cell 'Ax1242' at '2024-01-05 23:44:44'.", "test_id": "8b7d6d78-8dbe-4070-a00a-193e197f7fc4"}
 {"level": "INFO", "timestamp": "2024-01-05 23:44:44", "message": "UE 'UE10' has been attached to Cell 'Ax1242' at '2024-01-05 23:44:44'.", "test_id": "8b7d6d78-8dbe-4070-a00a-193e197f7fc4"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE initialized with ID UE1 at 2024-01-06 00:09:36.970463", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE with ID UE1 added to Cell Ax1242 at '2024-01-06 00:09:20'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2024-01-06 00:09:20': 'ListProxy' object has no attribute 'values'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE initialized with ID UE1 at 2024-01-06 00:09:36.973445", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE with ID UE1 added to Cell AX1112 at '2024-01-06 00:09:20'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2024-01-06 00:09:20': 'ListProxy' object has no attribute 'values'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE initialized with ID UE1 at 2024-01-06 00:09:36.975436", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE with ID UE1 added to Cell AX9980 at '2024-01-06 00:09:20'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2024-01-06 00:09:20': 'ListProxy' object has no attribute 'values'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:09:20'.", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE initialized with ID UE1 at 2024-01-06 00:09:36.977428", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE with ID UE1 added to Cell BX1453 at '2024-01-06 00:09:20'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "Failed to add UE 'UE1' to Cell 'BX1453' at '2024-01-06 00:09:20': 'ListProxy' object has no attribute 'values'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE initialized with ID UE1 at 2024-01-06 00:09:36.979419", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE with ID UE1 added to Cell BX1334 at '2024-01-06 00:09:20'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "Failed to add UE 'UE1' to Cell 'BX1334' at '2024-01-06 00:09:20': 'ListProxy' object has no attribute 'values'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE initialized with ID UE1 at 2024-01-06 00:09:36.981410", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE with ID UE1 added to Cell BX1230 at '2024-01-06 00:09:20'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "Failed to add UE 'UE1' to Cell 'BX1230' at '2024-01-06 00:09:20': 'ListProxy' object has no attribute 'values'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:09:20'.", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE initialized with ID UE1 at 2024-01-06 00:09:36.984397", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE with ID UE1 added to Cell CX1352 at '2024-01-06 00:09:20'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "Failed to add UE 'UE1' to Cell 'CX1352' at '2024-01-06 00:09:20': 'ListProxy' object has no attribute 'values'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE initialized with ID UE1 at 2024-01-06 00:09:36.986388", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE with ID UE1 added to Cell CX1873 at '2024-01-06 00:09:20'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "Failed to add UE 'UE1' to Cell 'CX1873' at '2024-01-06 00:09:20': 'ListProxy' object has no attribute 'values'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE initialized with ID UE1 at 2024-01-06 00:09:36.987385", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE with ID UE1 added to Cell CX5103 at '2024-01-06 00:09:20'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "Failed to add UE 'UE1' to Cell 'CX5103' at '2024-01-06 00:09:20': 'ListProxy' object has no attribute 'values'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:09:20'.", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE initialized with ID UE1 at 2024-01-06 00:09:36.990376", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE with ID UE1 added to Cell Ax1242 at '2024-01-06 00:09:20'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2024-01-06 00:09:20': 'ListProxy' object has no attribute 'values'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE initialized with ID UE1 at 2024-01-06 00:09:36.991367", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE with ID UE1 added to Cell AX1112 at '2024-01-06 00:09:20'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2024-01-06 00:09:20': 'ListProxy' object has no attribute 'values'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE initialized with ID UE1 at 2024-01-06 00:09:36.993358", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE with ID UE1 added to Cell AX9980 at '2024-01-06 00:09:20'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2024-01-06 00:09:20': 'ListProxy' object has no attribute 'values'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:09:20'.", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE initialized with ID UE1 at 2024-01-06 00:09:36.995349", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE with ID UE1 added to Cell BX1453 at '2024-01-06 00:09:20'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "Failed to add UE 'UE1' to Cell 'BX1453' at '2024-01-06 00:09:20': 'ListProxy' object has no attribute 'values'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE initialized with ID UE1 at 2024-01-06 00:09:36.997340", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE with ID UE1 added to Cell BX1334 at '2024-01-06 00:09:20'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "Failed to add UE 'UE1' to Cell 'BX1334' at '2024-01-06 00:09:20': 'ListProxy' object has no attribute 'values'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE initialized with ID UE1 at 2024-01-06 00:09:36.999331", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE with ID UE1 added to Cell BX1230 at '2024-01-06 00:09:20'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "Failed to add UE 'UE1' to Cell 'BX1230' at '2024-01-06 00:09:20': 'ListProxy' object has no attribute 'values'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:09:20'.", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE initialized with ID UE1 at 2024-01-06 00:09:37.002319", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE with ID UE1 added to Cell CX1352 at '2024-01-06 00:09:20'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "Failed to add UE 'UE1' to Cell 'CX1352' at '2024-01-06 00:09:20': 'ListProxy' object has no attribute 'values'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE initialized with ID UE1 at 2024-01-06 00:09:37.004310", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE with ID UE1 added to Cell CX1873 at '2024-01-06 00:09:20'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "Failed to add UE 'UE1' to Cell 'CX1873' at '2024-01-06 00:09:20': 'ListProxy' object has no attribute 'values'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE initialized with ID UE1 at 2024-01-06 00:09:37.006301", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE with ID UE1 added to Cell CX5103 at '2024-01-06 00:09:20'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "Failed to add UE 'UE1' to Cell 'CX5103' at '2024-01-06 00:09:20': 'ListProxy' object has no attribute 'values'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:09:20'.", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE initialized with ID UE1 at 2024-01-06 00:09:37.008292", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE with ID UE1 added to Cell Ax1242 at '2024-01-06 00:09:20'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2024-01-06 00:09:20': 'ListProxy' object has no attribute 'values'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE initialized with ID UE1 at 2024-01-06 00:09:37.009287", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE with ID UE1 added to Cell AX1112 at '2024-01-06 00:09:20'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2024-01-06 00:09:20': 'ListProxy' object has no attribute 'values'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE initialized with ID UE1 at 2024-01-06 00:09:37.011279", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE with ID UE1 added to Cell AX9980 at '2024-01-06 00:09:20'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2024-01-06 00:09:20': 'ListProxy' object has no attribute 'values'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:09:20'.", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE initialized with ID UE1 at 2024-01-06 00:09:37.013270", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE with ID UE1 added to Cell BX1453 at '2024-01-06 00:09:20'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "Failed to add UE 'UE1' to Cell 'BX1453' at '2024-01-06 00:09:20': 'ListProxy' object has no attribute 'values'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE initialized with ID UE1 at 2024-01-06 00:09:37.015260", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE with ID UE1 added to Cell BX1334 at '2024-01-06 00:09:20'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "Failed to add UE 'UE1' to Cell 'BX1334' at '2024-01-06 00:09:20': 'ListProxy' object has no attribute 'values'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE initialized with ID UE1 at 2024-01-06 00:09:37.017253", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE with ID UE1 added to Cell BX1230 at '2024-01-06 00:09:20'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "Failed to add UE 'UE1' to Cell 'BX1230' at '2024-01-06 00:09:20': 'ListProxy' object has no attribute 'values'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:09:20'.", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE initialized with ID UE1 at 2024-01-06 00:09:37.019244", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE with ID UE1 added to Cell CX1352 at '2024-01-06 00:09:20'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "Failed to add UE 'UE1' to Cell 'CX1352' at '2024-01-06 00:09:20': 'ListProxy' object has no attribute 'values'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE initialized with ID UE1 at 2024-01-06 00:09:37.021236", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE with ID UE1 added to Cell CX1873 at '2024-01-06 00:09:20'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "Failed to add UE 'UE1' to Cell 'CX1873' at '2024-01-06 00:09:20': 'ListProxy' object has no attribute 'values'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE initialized with ID UE1 at 2024-01-06 00:09:37.023227", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE with ID UE1 added to Cell CX5103 at '2024-01-06 00:09:20'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "Failed to add UE 'UE1' to Cell 'CX5103' at '2024-01-06 00:09:20': 'ListProxy' object has no attribute 'values'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:09:20'.", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE initialized with ID UE1 at 2024-01-06 00:09:37.025218", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE with ID UE1 added to Cell Ax1242 at '2024-01-06 00:09:20'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2024-01-06 00:09:20': 'ListProxy' object has no attribute 'values'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE initialized with ID UE1 at 2024-01-06 00:09:37.027209", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE with ID UE1 added to Cell AX1112 at '2024-01-06 00:09:20'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2024-01-06 00:09:20': 'ListProxy' object has no attribute 'values'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE initialized with ID UE1 at 2024-01-06 00:09:37.028205", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:09:20", "message": "UE with ID UE1 added to Cell AX9980 at '2024-01-06 00:09:20'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2024-01-06 00:09:20': 'ListProxy' object has no attribute 'values'", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:09:20", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:09:20'.", "test_id": "c5c9427b-5bea-4269-9ea8-987ee059340c"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:15:14.396526", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE with ID UE1 added to Cell Ax1242 at '2024-01-06 00:14:55'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2024-01-06 00:14:55': 'ListProxy' object has no attribute 'values'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:15:14.399508", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE with ID UE1 added to Cell AX1112 at '2024-01-06 00:14:55'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2024-01-06 00:14:55': 'ListProxy' object has no attribute 'values'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:15:14.401499", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE with ID UE1 added to Cell AX9980 at '2024-01-06 00:14:55'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2024-01-06 00:14:55': 'ListProxy' object has no attribute 'values'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:14:55'.", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:15:14.404486", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE with ID UE1 added to Cell BX1453 at '2024-01-06 00:14:55'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "Failed to add UE 'UE1' to Cell 'BX1453' at '2024-01-06 00:14:55': 'ListProxy' object has no attribute 'values'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:15:14.406477", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE with ID UE1 added to Cell BX1334 at '2024-01-06 00:14:55'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "Failed to add UE 'UE1' to Cell 'BX1334' at '2024-01-06 00:14:55': 'ListProxy' object has no attribute 'values'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:15:14.409464", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE with ID UE1 added to Cell BX1230 at '2024-01-06 00:14:55'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "Failed to add UE 'UE1' to Cell 'BX1230' at '2024-01-06 00:14:55': 'ListProxy' object has no attribute 'values'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:14:55'.", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:15:14.411455", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE with ID UE1 added to Cell CX1352 at '2024-01-06 00:14:55'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "Failed to add UE 'UE1' to Cell 'CX1352' at '2024-01-06 00:14:55': 'ListProxy' object has no attribute 'values'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:15:14.413447", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE with ID UE1 added to Cell CX1873 at '2024-01-06 00:14:55'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "Failed to add UE 'UE1' to Cell 'CX1873' at '2024-01-06 00:14:55': 'ListProxy' object has no attribute 'values'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:15:14.415438", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE with ID UE1 added to Cell CX5103 at '2024-01-06 00:14:55'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "Failed to add UE 'UE1' to Cell 'CX5103' at '2024-01-06 00:14:55': 'ListProxy' object has no attribute 'values'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:14:55'.", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:15:14.418425", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE with ID UE1 added to Cell Ax1242 at '2024-01-06 00:14:55'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2024-01-06 00:14:55': 'ListProxy' object has no attribute 'values'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:15:14.420416", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE with ID UE1 added to Cell AX1112 at '2024-01-06 00:14:55'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2024-01-06 00:14:55': 'ListProxy' object has no attribute 'values'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:15:14.422407", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE with ID UE1 added to Cell AX9980 at '2024-01-06 00:14:55'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2024-01-06 00:14:55': 'ListProxy' object has no attribute 'values'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:14:55'.", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:15:14.424399", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE with ID UE1 added to Cell BX1453 at '2024-01-06 00:14:55'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "Failed to add UE 'UE1' to Cell 'BX1453' at '2024-01-06 00:14:55': 'ListProxy' object has no attribute 'values'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:15:14.425394", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE with ID UE1 added to Cell BX1334 at '2024-01-06 00:14:55'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "Failed to add UE 'UE1' to Cell 'BX1334' at '2024-01-06 00:14:55': 'ListProxy' object has no attribute 'values'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:15:14.427397", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE with ID UE1 added to Cell BX1230 at '2024-01-06 00:14:55'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "Failed to add UE 'UE1' to Cell 'BX1230' at '2024-01-06 00:14:55': 'ListProxy' object has no attribute 'values'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:14:55'.", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:15:14.429376", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE with ID UE1 added to Cell CX1352 at '2024-01-06 00:14:55'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "Failed to add UE 'UE1' to Cell 'CX1352' at '2024-01-06 00:14:55': 'ListProxy' object has no attribute 'values'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:15:14.431368", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE with ID UE1 added to Cell CX1873 at '2024-01-06 00:14:55'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "Failed to add UE 'UE1' to Cell 'CX1873' at '2024-01-06 00:14:55': 'ListProxy' object has no attribute 'values'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:15:14.433359", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE with ID UE1 added to Cell CX5103 at '2024-01-06 00:14:55'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "Failed to add UE 'UE1' to Cell 'CX5103' at '2024-01-06 00:14:55': 'ListProxy' object has no attribute 'values'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:14:55'.", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:15:14.435350", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE with ID UE1 added to Cell Ax1242 at '2024-01-06 00:14:55'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2024-01-06 00:14:55': 'ListProxy' object has no attribute 'values'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:15:14.437343", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE with ID UE1 added to Cell AX1112 at '2024-01-06 00:14:55'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2024-01-06 00:14:55': 'ListProxy' object has no attribute 'values'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:15:14.439334", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE with ID UE1 added to Cell AX9980 at '2024-01-06 00:14:55'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2024-01-06 00:14:55': 'ListProxy' object has no attribute 'values'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:14:55'.", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:15:14.441324", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE with ID UE1 added to Cell BX1453 at '2024-01-06 00:14:55'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "Failed to add UE 'UE1' to Cell 'BX1453' at '2024-01-06 00:14:55': 'ListProxy' object has no attribute 'values'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:15:14.443316", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE with ID UE1 added to Cell BX1334 at '2024-01-06 00:14:55'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "Failed to add UE 'UE1' to Cell 'BX1334' at '2024-01-06 00:14:55': 'ListProxy' object has no attribute 'values'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:15:14.445306", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE with ID UE1 added to Cell BX1230 at '2024-01-06 00:14:55'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "Failed to add UE 'UE1' to Cell 'BX1230' at '2024-01-06 00:14:55': 'ListProxy' object has no attribute 'values'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:14:55'.", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:15:14.447298", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE with ID UE1 added to Cell CX1352 at '2024-01-06 00:14:55'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "Failed to add UE 'UE1' to Cell 'CX1352' at '2024-01-06 00:14:55': 'ListProxy' object has no attribute 'values'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:15:14.449289", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE with ID UE1 added to Cell CX1873 at '2024-01-06 00:14:55'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "Failed to add UE 'UE1' to Cell 'CX1873' at '2024-01-06 00:14:55': 'ListProxy' object has no attribute 'values'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:15:14.450285", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE with ID UE1 added to Cell CX5103 at '2024-01-06 00:14:55'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "Failed to add UE 'UE1' to Cell 'CX5103' at '2024-01-06 00:14:55': 'ListProxy' object has no attribute 'values'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:14:55'.", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:15:14.453271", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE with ID UE1 added to Cell Ax1242 at '2024-01-06 00:14:55'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2024-01-06 00:14:55': 'ListProxy' object has no attribute 'values'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:15:14.455263", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE with ID UE1 added to Cell AX1112 at '2024-01-06 00:14:55'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2024-01-06 00:14:55': 'ListProxy' object has no attribute 'values'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:15:14.456258", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:14:55", "message": "UE with ID UE1 added to Cell AX9980 at '2024-01-06 00:14:55'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2024-01-06 00:14:55': 'ListProxy' object has no attribute 'values'", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:14:55", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:14:55'.", "test_id": "ea14a6b6-ac1e-4130-bb60-8b572d00dc4e"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:16:12.007694", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE with ID UE1 added to Cell Ax1242 at '2024-01-06 00:15:55'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2024-01-06 00:15:55': 'ListProxy' object has no attribute 'values'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:16:12.009686", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE with ID UE1 added to Cell AX1112 at '2024-01-06 00:15:55'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2024-01-06 00:15:55': 'ListProxy' object has no attribute 'values'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:16:12.011677", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE with ID UE1 added to Cell AX9980 at '2024-01-06 00:15:55'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2024-01-06 00:15:55': 'ListProxy' object has no attribute 'values'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:15:55'.", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:16:12.014664", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE with ID UE1 added to Cell BX1453 at '2024-01-06 00:15:55'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "Failed to add UE 'UE1' to Cell 'BX1453' at '2024-01-06 00:15:55': 'ListProxy' object has no attribute 'values'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:16:12.015660", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE with ID UE1 added to Cell BX1334 at '2024-01-06 00:15:55'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "Failed to add UE 'UE1' to Cell 'BX1334' at '2024-01-06 00:15:55': 'ListProxy' object has no attribute 'values'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:16:12.017651", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE with ID UE1 added to Cell BX1230 at '2024-01-06 00:15:55'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "Failed to add UE 'UE1' to Cell 'BX1230' at '2024-01-06 00:15:55': 'ListProxy' object has no attribute 'values'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:15:55'.", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:16:12.020638", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE with ID UE1 added to Cell CX1352 at '2024-01-06 00:15:55'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "Failed to add UE 'UE1' to Cell 'CX1352' at '2024-01-06 00:15:55': 'ListProxy' object has no attribute 'values'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:16:12.021634", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE with ID UE1 added to Cell CX1873 at '2024-01-06 00:15:55'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "Failed to add UE 'UE1' to Cell 'CX1873' at '2024-01-06 00:15:55': 'ListProxy' object has no attribute 'values'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:16:12.023625", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE with ID UE1 added to Cell CX5103 at '2024-01-06 00:15:55'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "Failed to add UE 'UE1' to Cell 'CX5103' at '2024-01-06 00:15:55': 'ListProxy' object has no attribute 'values'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:15:55'.", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:16:12.025616", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE with ID UE1 added to Cell Ax1242 at '2024-01-06 00:15:55'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2024-01-06 00:15:55': 'ListProxy' object has no attribute 'values'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:16:12.027607", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE with ID UE1 added to Cell AX1112 at '2024-01-06 00:15:55'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2024-01-06 00:15:55': 'ListProxy' object has no attribute 'values'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:16:12.029599", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE with ID UE1 added to Cell AX9980 at '2024-01-06 00:15:55'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2024-01-06 00:15:55': 'ListProxy' object has no attribute 'values'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:15:55'.", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:16:12.031590", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE with ID UE1 added to Cell BX1453 at '2024-01-06 00:15:55'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "Failed to add UE 'UE1' to Cell 'BX1453' at '2024-01-06 00:15:55': 'ListProxy' object has no attribute 'values'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:16:12.033582", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE with ID UE1 added to Cell BX1334 at '2024-01-06 00:15:55'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "Failed to add UE 'UE1' to Cell 'BX1334' at '2024-01-06 00:15:55': 'ListProxy' object has no attribute 'values'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:16:12.035573", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE with ID UE1 added to Cell BX1230 at '2024-01-06 00:15:55'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "Failed to add UE 'UE1' to Cell 'BX1230' at '2024-01-06 00:15:55': 'ListProxy' object has no attribute 'values'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:15:55'.", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:16:12.038560", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE with ID UE1 added to Cell CX1352 at '2024-01-06 00:15:55'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "Failed to add UE 'UE1' to Cell 'CX1352' at '2024-01-06 00:15:55': 'ListProxy' object has no attribute 'values'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:16:12.040550", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE with ID UE1 added to Cell CX1873 at '2024-01-06 00:15:55'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "Failed to add UE 'UE1' to Cell 'CX1873' at '2024-01-06 00:15:55': 'ListProxy' object has no attribute 'values'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:16:12.042542", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE with ID UE1 added to Cell CX5103 at '2024-01-06 00:15:55'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "Failed to add UE 'UE1' to Cell 'CX5103' at '2024-01-06 00:15:55': 'ListProxy' object has no attribute 'values'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:15:55'.", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:16:12.044533", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE with ID UE1 added to Cell Ax1242 at '2024-01-06 00:15:55'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2024-01-06 00:15:55': 'ListProxy' object has no attribute 'values'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:16:12.046524", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE with ID UE1 added to Cell AX1112 at '2024-01-06 00:15:55'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2024-01-06 00:15:55': 'ListProxy' object has no attribute 'values'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:16:12.048516", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE with ID UE1 added to Cell AX9980 at '2024-01-06 00:15:55'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2024-01-06 00:15:55': 'ListProxy' object has no attribute 'values'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:15:55'.", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:16:12.051503", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE with ID UE1 added to Cell BX1453 at '2024-01-06 00:15:55'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "Failed to add UE 'UE1' to Cell 'BX1453' at '2024-01-06 00:15:55': 'ListProxy' object has no attribute 'values'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:16:12.053494", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE with ID UE1 added to Cell BX1334 at '2024-01-06 00:15:55'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "Failed to add UE 'UE1' to Cell 'BX1334' at '2024-01-06 00:15:55': 'ListProxy' object has no attribute 'values'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:16:12.055485", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE with ID UE1 added to Cell BX1230 at '2024-01-06 00:15:55'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "Failed to add UE 'UE1' to Cell 'BX1230' at '2024-01-06 00:15:55': 'ListProxy' object has no attribute 'values'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:15:55'.", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:16:12.057476", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE with ID UE1 added to Cell CX1352 at '2024-01-06 00:15:55'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "Failed to add UE 'UE1' to Cell 'CX1352' at '2024-01-06 00:15:55': 'ListProxy' object has no attribute 'values'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:16:12.059467", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE with ID UE1 added to Cell CX1873 at '2024-01-06 00:15:55'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "Failed to add UE 'UE1' to Cell 'CX1873' at '2024-01-06 00:15:55': 'ListProxy' object has no attribute 'values'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:16:12.061459", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE with ID UE1 added to Cell CX5103 at '2024-01-06 00:15:55'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "Failed to add UE 'UE1' to Cell 'CX5103' at '2024-01-06 00:15:55': 'ListProxy' object has no attribute 'values'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:15:55'.", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:16:12.064446", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE with ID UE1 added to Cell Ax1242 at '2024-01-06 00:15:55'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2024-01-06 00:15:55': 'ListProxy' object has no attribute 'values'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:16:12.067434", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE with ID UE1 added to Cell AX1112 at '2024-01-06 00:15:55'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2024-01-06 00:15:55': 'ListProxy' object has no attribute 'values'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE initialized with ID UE1 at 2024-01-06 00:16:12.069424", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:15:55", "message": "UE with ID UE1 added to Cell AX9980 at '2024-01-06 00:15:55'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2024-01-06 00:15:55': 'ListProxy' object has no attribute 'values'", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:15:55", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:15:55'.", "test_id": "6aef2976-87bf-41a0-a369-6b6637179274"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE initialized with ID UE1 at 2024-01-06 00:26:52.753316", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE with ID UE1 added to Cell Ax1242 at '2024-01-06 00:26:36'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2024-01-06 00:26:36': 'ListProxy' object has no attribute 'values'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE initialized with ID UE1 at 2024-01-06 00:26:52.755303", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE with ID UE1 added to Cell AX1112 at '2024-01-06 00:26:36'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2024-01-06 00:26:36': 'ListProxy' object has no attribute 'values'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE initialized with ID UE1 at 2024-01-06 00:26:52.758289", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE with ID UE1 added to Cell AX9980 at '2024-01-06 00:26:36'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2024-01-06 00:26:36': 'ListProxy' object has no attribute 'values'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:26:36'.", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE initialized with ID UE1 at 2024-01-06 00:26:52.760282", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE with ID UE1 added to Cell BX1453 at '2024-01-06 00:26:36'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "Failed to add UE 'UE1' to Cell 'BX1453' at '2024-01-06 00:26:36': 'ListProxy' object has no attribute 'values'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE initialized with ID UE1 at 2024-01-06 00:26:52.762273", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE with ID UE1 added to Cell BX1334 at '2024-01-06 00:26:36'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "Failed to add UE 'UE1' to Cell 'BX1334' at '2024-01-06 00:26:36': 'ListProxy' object has no attribute 'values'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE initialized with ID UE1 at 2024-01-06 00:26:52.763267", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE with ID UE1 added to Cell BX1230 at '2024-01-06 00:26:36'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "Failed to add UE 'UE1' to Cell 'BX1230' at '2024-01-06 00:26:36': 'ListProxy' object has no attribute 'values'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:26:36'.", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE initialized with ID UE1 at 2024-01-06 00:26:52.766254", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE with ID UE1 added to Cell CX1352 at '2024-01-06 00:26:36'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "Failed to add UE 'UE1' to Cell 'CX1352' at '2024-01-06 00:26:36': 'ListProxy' object has no attribute 'values'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE initialized with ID UE1 at 2024-01-06 00:26:52.768245", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE with ID UE1 added to Cell CX1873 at '2024-01-06 00:26:36'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "Failed to add UE 'UE1' to Cell 'CX1873' at '2024-01-06 00:26:36': 'ListProxy' object has no attribute 'values'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE initialized with ID UE1 at 2024-01-06 00:26:52.769241", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE with ID UE1 added to Cell CX5103 at '2024-01-06 00:26:36'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "Failed to add UE 'UE1' to Cell 'CX5103' at '2024-01-06 00:26:36': 'ListProxy' object has no attribute 'values'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:26:36'.", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE initialized with ID UE1 at 2024-01-06 00:26:52.772228", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE with ID UE1 added to Cell Ax1242 at '2024-01-06 00:26:36'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2024-01-06 00:26:36': 'ListProxy' object has no attribute 'values'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE initialized with ID UE1 at 2024-01-06 00:26:52.773223", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE with ID UE1 added to Cell AX1112 at '2024-01-06 00:26:36'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2024-01-06 00:26:36': 'ListProxy' object has no attribute 'values'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE initialized with ID UE1 at 2024-01-06 00:26:52.775214", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE with ID UE1 added to Cell AX9980 at '2024-01-06 00:26:36'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2024-01-06 00:26:36': 'ListProxy' object has no attribute 'values'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:26:36'.", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE initialized with ID UE1 at 2024-01-06 00:26:52.777206", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE with ID UE1 added to Cell BX1453 at '2024-01-06 00:26:36'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "Failed to add UE 'UE1' to Cell 'BX1453' at '2024-01-06 00:26:36': 'ListProxy' object has no attribute 'values'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE initialized with ID UE1 at 2024-01-06 00:26:52.779197", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE with ID UE1 added to Cell BX1334 at '2024-01-06 00:26:36'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "Failed to add UE 'UE1' to Cell 'BX1334' at '2024-01-06 00:26:36': 'ListProxy' object has no attribute 'values'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE initialized with ID UE1 at 2024-01-06 00:26:52.781188", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE with ID UE1 added to Cell BX1230 at '2024-01-06 00:26:36'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "Failed to add UE 'UE1' to Cell 'BX1230' at '2024-01-06 00:26:36': 'ListProxy' object has no attribute 'values'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:26:36'.", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE initialized with ID UE1 at 2024-01-06 00:26:52.783180", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE with ID UE1 added to Cell CX1352 at '2024-01-06 00:26:36'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "Failed to add UE 'UE1' to Cell 'CX1352' at '2024-01-06 00:26:36': 'ListProxy' object has no attribute 'values'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE initialized with ID UE1 at 2024-01-06 00:26:52.785171", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE with ID UE1 added to Cell CX1873 at '2024-01-06 00:26:36'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "Failed to add UE 'UE1' to Cell 'CX1873' at '2024-01-06 00:26:36': 'ListProxy' object has no attribute 'values'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE initialized with ID UE1 at 2024-01-06 00:26:52.786166", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE with ID UE1 added to Cell CX5103 at '2024-01-06 00:26:36'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "Failed to add UE 'UE1' to Cell 'CX5103' at '2024-01-06 00:26:36': 'ListProxy' object has no attribute 'values'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:26:36'.", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE initialized with ID UE1 at 2024-01-06 00:26:52.789153", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE with ID UE1 added to Cell Ax1242 at '2024-01-06 00:26:36'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2024-01-06 00:26:36': 'ListProxy' object has no attribute 'values'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE initialized with ID UE1 at 2024-01-06 00:26:52.791144", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE with ID UE1 added to Cell AX1112 at '2024-01-06 00:26:36'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2024-01-06 00:26:36': 'ListProxy' object has no attribute 'values'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE initialized with ID UE1 at 2024-01-06 00:26:52.792140", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE with ID UE1 added to Cell AX9980 at '2024-01-06 00:26:36'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2024-01-06 00:26:36': 'ListProxy' object has no attribute 'values'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:26:36'.", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE initialized with ID UE1 at 2024-01-06 00:26:52.794131", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE with ID UE1 added to Cell BX1453 at '2024-01-06 00:26:36'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "Failed to add UE 'UE1' to Cell 'BX1453' at '2024-01-06 00:26:36': 'ListProxy' object has no attribute 'values'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE initialized with ID UE1 at 2024-01-06 00:26:52.796122", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE with ID UE1 added to Cell BX1334 at '2024-01-06 00:26:36'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "Failed to add UE 'UE1' to Cell 'BX1334' at '2024-01-06 00:26:36': 'ListProxy' object has no attribute 'values'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE initialized with ID UE1 at 2024-01-06 00:26:52.798114", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE with ID UE1 added to Cell BX1230 at '2024-01-06 00:26:36'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "Failed to add UE 'UE1' to Cell 'BX1230' at '2024-01-06 00:26:36': 'ListProxy' object has no attribute 'values'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:26:36'.", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE initialized with ID UE1 at 2024-01-06 00:26:52.800104", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE with ID UE1 added to Cell CX1352 at '2024-01-06 00:26:36'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "Failed to add UE 'UE1' to Cell 'CX1352' at '2024-01-06 00:26:36': 'ListProxy' object has no attribute 'values'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE initialized with ID UE1 at 2024-01-06 00:26:52.802096", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE with ID UE1 added to Cell CX1873 at '2024-01-06 00:26:36'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "Failed to add UE 'UE1' to Cell 'CX1873' at '2024-01-06 00:26:36': 'ListProxy' object has no attribute 'values'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE initialized with ID UE1 at 2024-01-06 00:26:52.803671", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE with ID UE1 added to Cell CX5103 at '2024-01-06 00:26:36'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "Failed to add UE 'UE1' to Cell 'CX5103' at '2024-01-06 00:26:36': 'ListProxy' object has no attribute 'values'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:26:36'.", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE initialized with ID UE1 at 2024-01-06 00:26:52.805657", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE with ID UE1 added to Cell Ax1242 at '2024-01-06 00:26:36'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2024-01-06 00:26:36': 'ListProxy' object has no attribute 'values'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE initialized with ID UE1 at 2024-01-06 00:26:52.807649", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE with ID UE1 added to Cell AX1112 at '2024-01-06 00:26:36'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2024-01-06 00:26:36': 'ListProxy' object has no attribute 'values'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE initialized with ID UE1 at 2024-01-06 00:26:52.809640", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "INFO", "timestamp": "2024-01-06 00:26:36", "message": "UE with ID UE1 added to Cell AX9980 at '2024-01-06 00:26:36'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2024-01-06 00:26:36': 'ListProxy' object has no attribute 'values'", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}
+{"level": "ERROR", "timestamp": "2024-01-06 00:26:36", "message": "No available cell found for UE 'UE1' at '2024-01-06 00:26:36'.", "test_id": "f6717a6b-1f1d-4379-9a97-4511e2515bb2"}

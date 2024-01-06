@@ -36,7 +36,7 @@ def create_shared_network_state(manager):
     network_state.cells = manager.dict()
     network_state.ues = manager.dict()
     network_state.last_update = manager.Value('i', time.time())
-    return network_state     
+    return network_state  
 #####################################################################################################################################
 def log_traffic(ues, command_queue, network_state):
     traffic_controller = TrafficController(command_queue)
