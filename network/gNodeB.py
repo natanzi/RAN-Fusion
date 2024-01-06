@@ -266,7 +266,6 @@ class gNodeB:
                 lowest_load = cell_load
 
         return best_cell
-#########################################################################################################
 #######################################Periodic Updates###############################################
     def update(self):
         from network.handover_utils import handle_load_balancing, monitor_and_log_cell_load

@@ -1,6 +1,6 @@
 import os
 import time
-from multiprocessing import Process, Queue
+from multiprocessing import Process, Queue, Lock
 from network.initialize_network import initialize_network
 from Config_files.config_load import load_all_configs
 import logging
@@ -13,7 +13,6 @@ from database.database_manager import DatabaseManager
 from logs.logger_config import traffic_update
 import threading
 from traffic.traffic_generator import TrafficController
-from multiprocessing import Lock
 
 #################################################################################################################################
 # pickled by multiprocessing
@@ -148,8 +147,8 @@ def main():
         cell_load_thread.daemon = True  # This ensures the thread will exit when the main program does
         cell_load_thread.start()
 
-    # Start the congestion detection process
-    congestion_process = Process(target=detect_and_handle_congestion, args=(network_state, command_queue))
+    # Start the congestion detection process using monitor_and_log_cell_load
+    congestion_process = Process(target=monitor_and_log_cell_load, args=(gNodeB , traffic_controller))
     congestion_process.start()
     
     # Start the network state manager process
