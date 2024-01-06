@@ -105,10 +105,11 @@ def main():
     gNodeBs_config, cells_config, ue_config = load_all_configs(base_dir)
     
     # Create a lock for the network state
-    #network_state_lock = Lock()
+    network_state_lock = Lock()
+
     
     # Pass the lock to the NetworkState instance
-    network_state = NetworkState()
+    network_state = NetworkState(network_state_lock)
 
     db_manager = DatabaseManager(network_state)
 
