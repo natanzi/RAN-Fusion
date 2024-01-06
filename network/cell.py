@@ -70,8 +70,11 @@ class Cell:
             'CellisActive': self.IsActive
 
         }
-    add_sector
-    
+    def add_sector(self, sector):
+        if not hasattr(self, 'sectors'):
+            self.sectors = []
+        self.sectors.append(sector)
+
     # Method to get the count of active UEs and update the last attached cell and its gNodeB
     def update_ue_count(self):
         self.last_update = get_current_time_ntp()

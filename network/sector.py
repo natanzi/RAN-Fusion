@@ -14,17 +14,29 @@ class Sector:
         self.ho_margin = ho_margin
         self.load_balancing = load_balancing
 
-# Example of loading sectors and associating them with cells
-def load_sectors(sector_config_path):
-    with open(sector_config_path, 'r') as file:
-        sector_config = json.load(file)
-    sectors = {}
-    for sector_info in sector_config['sectors']:
-        sector = Sector(**sector_info)
-        sectors[sector.sector_id] = sector
-    return sectors
+    @classmethod
+    def from_json(cls, data):
+        return cls(**data)
 
-# Assuming cells is a dictionary of Cell objects keyed by cell_id
-sectors = load_sectors('path_to_sector_config.json')
-for sector in sectors.values():
-    cells[sector.cell_id].add_sector(sector)
+    def serialize_for_influxdb(self):
+        # This method should return a data structure that is compatible with your InfluxDB schema
+        # The following is a placeholder example
+        return {
+            'measurement': 'sector',
+            'tags': {
+                'sector_id': self.sector_id,
+                'cell_id': self.cell_id
+            },
+            'fields': {
+                'azimuth_angle': self.azimuth_angle,
+                'beamwidth': self.beamwidth,
+                'frequency': self.frequency,
+                'duplex_mode': self.duplex_mode,
+                'tx_power': self.tx_power,
+                'bandwidth': self.bandwidth,
+                'mimo_layers': self.mimo_layers,
+                'beamforming': int(self.beamforming),  # Convert boolean to int for InfluxDB
+                'ho_margin': self.ho_margin,
+                'load_balancing': self.load_balancing
+            }
+        }
