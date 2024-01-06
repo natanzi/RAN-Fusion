@@ -44,7 +44,6 @@ def log_traffic(ues, command_queue, network_state):
             packet_loss_rate = throughput_data['packet_loss_rate']
             formatted_throughput = f"{throughput_data['throughput']:.2f}"
 
-
             logging.info(
 
             f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Throughput: {formatted_throughput}Mbps, "
@@ -58,19 +57,23 @@ def log_traffic(ues, command_queue, network_state):
             if command['type'] == 'update':
                 logging.info(f"Received update for {command['service_type']} traffic. Updating parameters. Update ID: {command['update_id']}")
                 traffic_controller.update_parameters(command['data'])
-                # Apply the update for matching UEs
-                for ue in ues:
+
+        # Call get_updated_ues to apply the updates to the UEs
+                updated_ues = traffic_controller.get_updated_ues()  # Assuming get_updated_ues does not require arguments
+
+        # Apply the update for matching UEs
+                for ue in updated_ues:
                     if ue.ServiceType.lower() == command['service_type'].lower():
-                        # Assuming generate_updated_traffic now returns throughput and other parameters
+                # Assuming generate_updated_traffic now returns throughput and other parameters
                         updated_traffic = traffic_controller.generate_updated_traffic(ue)
                         logging.getLogger('traffic_update').info(
                             f"UE ID: {ue.ID} - Updated {ue.ServiceType} traffic with parameters: {command['data']} (Update ID: {command['update_id']})"
                         )
-            elif command['type'] == 'save':
-                network_state.save_state_to_influxdb()
-            elif command['type'] == 'exit':
-                break
-        
+        elif command['type'] == 'save':
+            network_state.save_state_to_influxdb()
+        elif command['type'] == 'exit':
+            break
+
         time.sleep(1)  # Sleep for a second before the next iteration
 ######################################################################################
 def detect_and_handle_congestion(network_state, command_queue):
