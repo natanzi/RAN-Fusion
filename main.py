@@ -35,6 +35,9 @@ def log_traffic(ues, command_queue, network_state):
     updated_ue_ids = set()  # Keep track of updated UE IDs
 
     while True:
+        # Log to confirm the loop is running
+        logging.debug("Starting traffic logging loop iteration.")
+
         for ue in ues:
             # Calculate throughput instead of generating traffic
             throughput_data = traffic_controller.calculate_and_write_ue_throughput(ue)
@@ -57,9 +60,15 @@ def log_traffic(ues, command_queue, network_state):
         # Check for new commands and apply updates if necessary
         if not command_queue.empty():
             command = command_queue.get()
+            # Log the received command
+            logging.debug(f"Received command from queue: {command}")
+
             if command['type'] == 'update':
                 logging.info(f"Received update for {command['service_type']} traffic. Updating parameters. Update ID: {command['update_id']}")
                 traffic_controller.update_parameters(command['data'])
+
+                # Log the updated_ue_ids set before the update
+                logging.debug(f"Updated UE IDs before update: {updated_ue_ids}")
 
                 # Call get_updated_ues to apply the updates to the UEs
                 updated_ues = traffic_controller.get_updated_ues()
@@ -72,22 +81,19 @@ def log_traffic(ues, command_queue, network_state):
                         logging.getLogger('traffic_update').info(
                             f"\033[91mUE ID: {ue.ID} - Updated {ue.ServiceType} traffic with parameters: {command['data']} (Update ID: {command['update_id']})\033[0m"
                         )
+
+                # Log the updated_ue_ids set after the update
+                logging.debug(f"Updated UE IDs after update: {updated_ue_ids}")
+
             elif command['type'] == 'save':
                 network_state.save_state_to_influxdb()
             elif command['type'] == 'exit':
+                # Log the exit command before breaking the loop
+                logging.debug("Received 'exit' command. Exiting traffic logging loop.")
                 break
 
-        time.sleep(1)  # Sleep for a second before the next iteration
-######################################################################################
-def detect_and_handle_congestion(network_state, command_queue):
-    while True:
-        for cell_id, cell in network_state.cells.items():
-            cell_load = network_state.get_cell_load(cell)
-            if cell_load > 0.8:  # Assuming 0.8 is the congestion threshold
-                # Call the load balancing function from handover_utils.py
-                handle_load_balancing(cell.gNodeB_ID, network_state)
-                command_queue.put('save')  # Save state after handling congestion
-        time.sleep(5)  # Check for congestion at regular intervals
+        # Sleep for a second before the next iteration
+        time.sleep(1)
 #####################################################################################
 def main():
     logo_text = create_logo()
