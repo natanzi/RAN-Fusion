@@ -5,25 +5,34 @@ from .init_cell import initialize_cells
 from .init_ue import initialize_ues  
 from .network_state import NetworkState  
 from multiprocessing import Manager
+import time
+from threading import Lock
 
 def initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, ue_config, db_manager):
-    import time
+
+    # Create a lock for the NetworkState
     
-    # Initialize the Manager and create a shared state
+    network_state_lock = Lock()
+
+    # Create a Manager and its proxies
+    from multiprocessing import Manager
     manager = Manager()
     shared_state = manager.Namespace()
     shared_state.gNodeBs = manager.dict()
     shared_state.cells = manager.dict()
-    shared_state.ues = manager.dict()
-    shared_state.last_update = manager.Value('i', time.time())
+    shared_state.ues = manager.list()
+    shared_state.last_update = manager.Value('i', 0)
     
     # Create an instance of NetworkState with the shared state
+    from .network_state import NetworkState
     network_state = NetworkState(shared_state)
     
     # Initialize gNodeBs with the provided configuration
+    from .init_gNodeB import initialize_gNodeBs
     gNodeBs = initialize_gNodeBs(gNodeBs_config, db_manager)
     
     # Initialize Cells with the provided configuration and link them to gNodeBs
+    from .init_cell import initialize_cells
     cells = initialize_cells(gNodeBs, network_state)  # This returns a list, not a dictionary
     
     # Calculate the total capacity of all cells
@@ -35,6 +44,7 @@ def initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, ue_confi
         return  # Exit the function if the capacity is exceeded
     
     # After initializing gNodeBs and cells, initialize UEs with the provided configuration
+    from .init_ue import initialize_ues
     ues = initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state)
     
     # Update the network state with the initialized elements
@@ -44,3 +54,4 @@ def initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, ue_confi
     network_state.print_state()
 
     return gNodeBs, cells, ues
+s
