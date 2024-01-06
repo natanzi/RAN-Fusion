@@ -26,9 +26,11 @@ class NetworkState:
     
     def update_state(self, gNodeBs, cells, ues):
         # Update gNodeBs and cells normally
-        self.gNodeBs = gNodeBs
-        self.cells = {cell.ID: cell for cell in cells}
-
+        self.gNodeBs.update(gNodeBs)
+    
+        # Since cells is already a dictionary, we can directly update self.cells with it
+        self.cells.update(cells)
+    
         # Update UEs, but check for duplicates first
         new_ues = {}
         for ue in ues:
@@ -36,8 +38,8 @@ class NetworkState:
                 raise ValueError(f"Duplicate UE ID {ue.ID} found during state update.")
             new_ues[ue.ID] = ue
         self.ues = new_ues
-
-        # Assign neighbors to cells and update the last update timestamp
+    
+    # Assign neighbors to cells and update the last update timestamp
         self.assign_neighbors_to_cells()
         self.last_update = get_current_time_ntp()
 
