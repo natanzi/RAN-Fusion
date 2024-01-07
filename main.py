@@ -13,7 +13,8 @@ from database.database_manager import DatabaseManager
 from logs.logger_config import traffic_update
 import threading
 from traffic.traffic_generator import TrafficController
-from network.init_sector import initialize_sector
+from network.init_sector import initialize_sectors
+
 #################################################################################################################################
 # pickled by multiprocessing
 def log_system_resources(system_monitor):

@@ -1,8 +1,9 @@
 # init_cell.py
-# Initialization of the cells in network directory
+# Initialization of the cells in the network directory
 import os
 import json
 from .cell import Cell
+from datetime import datetime
 from database.database_manager import DatabaseManager
 
 def load_json_config(file_path):
@@ -13,6 +14,7 @@ def initialize_cells(gNodeBs, network_state):
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     config_dir = os.path.join(base_dir, 'Config_files')
     cells_config = load_json_config(os.path.join(config_dir, 'cell_config.json'))
+    sectors_config = load_json_config(os.path.join(config_dir, 'sector_config.json'))
 
     # Initialize the DatabaseManager with the required parameters
     db_manager = DatabaseManager(network_state)
@@ -21,11 +23,27 @@ def initialize_cells(gNodeBs, network_state):
     cells_dict = {}  # Initialize an empty dictionary for cells
     for cell_data in cells_config['cells']:
         cell_id = cell_data['cell_id']
-        if cell_id in network_state.cells:
-            raise ValueError(f"Duplicate cell ID {cell_id} found during initialization.")
+        print(f"Attempting to add cell ID {cell_id} to network state.")
+        if cell_id in cells_dict:
+            print(f"Warning: Duplicate cell ID {cell_id} found in configuration. Skipping this cell.")
+            continue
         new_cell = Cell.from_json(cell_data)
         cells_dict[cell_id] = new_cell  # Add the new cell to the dictionary with cell_id as key
         network_state.cells[cell_id] = new_cell
+
+        # Check for exactly 3 sectors per cell
+        cell_sectors = [sector for sector in sectors_config['sectors'] if sector['cell_id'] == cell_id]
+        if len(cell_sectors) != 3:
+            raise ValueError(f"Cell ID {cell_id} does not have exactly 3 sectors. Found {len(cell_sectors)} sectors.")
+
+    # Initialize Sectors and print their creation details
+    for sector_data in sectors_config['sectors']:
+        sector_id = sector_data['sector_id']
+        cell_id = sector_data['cell_id']
+        # Assuming each sector has a max capacity of 3
+        max_capacity = 3
+        creation_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        print(f"A sector '{sector_id}' has been created at '{creation_time}' in '{cell_id}' with max capacity {max_capacity}.")
 
     # Update the network state with the new cells
     network_state.update_state(gNodeBs, cells_dict, network_state.ues)  # Assuming ues is already a part of network_state
