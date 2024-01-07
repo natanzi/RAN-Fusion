@@ -18,10 +18,11 @@ from network.gNodeB import gNodeB, load_gNodeB_config
 
 #################################################################################################################################
 # pickled by multiprocessing
-def log_system_resources(system_monitor):
+def log_system_resources(system_monitor, manager):
     while True:
         system_monitor.log_resource_usage()
-        time.sleep(5)  # Log every 5 seconds
+        time.sleep(5)  
+    manager.shutdown()
 
 def network_state_manager(network_state, command_queue):
     while True:

@@ -82,7 +82,7 @@ class gNodeB:
         state = self.__dict__.copy()  
         if 'lock' in state:
             del state['lock']
-        print("State during pickling:", state) # Print state
+        #print("State during pickling:", state) # Print state
         return state
 
     def __setstate__(self, state):
