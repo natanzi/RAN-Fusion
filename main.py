@@ -13,7 +13,7 @@ from database.database_manager import DatabaseManager
 from logs.logger_config import traffic_update
 import threading
 from traffic.traffic_generator import TrafficController
-
+from network.init_sector import initialize_sector
 #################################################################################################################################
 # pickled by multiprocessing
 def log_system_resources(system_monitor):
@@ -111,7 +111,7 @@ def main():
     logging.basicConfig(level=logging.INFO)
 
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    gNodeBs_config, cells_config, ue_config = load_all_configs(base_dir)
+    gNodeBs_config, cells_config, ue_config, sectors_config = load_all_configs(base_dir)
 
     # Initialize the Manager
     manager = Manager()
@@ -131,6 +131,7 @@ def main():
     num_ues_to_launch = 10
 
     gNodeBs, cells, ues = initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, ue_config, db_manager)
+
 
     print(f"Number of UEs returned: {len(ues)}")
     time.sleep(2)
