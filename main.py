@@ -109,74 +109,69 @@ def log_traffic(ues, command_queue, network_state):
 def main():
     logo_text = create_logo()
     print(logo_text)
-
     logging.basicConfig(level=logging.INFO)
-
     base_dir = os.path.dirname(os.path.abspath(__file__))
     gNodeBs_config, cells_config, ue_config, sectors_config = load_all_configs(base_dir)
-
+    
     # Initialize the Manager
     manager = Manager()
     shared_network_state = create_shared_network_state(manager)
-
+    
     # Pass the proxy network_state to the NetworkState instance
     network_state = NetworkState(shared_network_state)
-
     db_manager = DatabaseManager(network_state)
-
+    
     if perform_health_check(network_state):
         print("Health check passed.")
     else:
         print("Health check failed.")
         return  # Exit if health check fails
-
+    
     num_ues_to_launch = 10
-
     # Initialize gNodeBs, cells, and UEs
     gNodeBs, cells, ues = initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, ue_config, db_manager)
-
     print(f"Number of UEs returned: {len(ues)}")
     time.sleep(2)
-
+    
     command_queue = Queue()
-
     # Create an instance of TrafficController and pass the command_queue
     traffic_controller = TrafficController(command_queue)
-
+    
     # Start the network state manager process
     logging_process = Process(target=log_traffic, args=(ues, command_queue, network_state))
     logging_process.start()
-
+    
     # Start the cell monitor threads using monitor_and_log_cell_load
-    for gNodeB in gNodeBs.values():
-        cell_load_thread = threading.Thread(target=monitor_and_log_cell_load, args=(gNodeB, traffic_controller))
+    for gNodeB_instance in gNodeBs.values():
+        cell_load_thread = threading.Thread(target=monitor_and_log_cell_load, args=(gNodeB_instance, traffic_controller))
         cell_load_thread.daemon = True  # This ensures the thread will exit when the main program does
         cell_load_thread.start()
-
+    
     # Instantiate the SystemMonitor
     system_monitor = SystemMonitor(network_state)
-
+    
     # Start the system resource logging process with system_monitor passed as an argument
     system_resource_logging_process = Process(target=log_system_resources, args=(system_monitor,))
     system_resource_logging_process.start()
-
+    
     # Start the congestion detection process using monitor_and_log_cell_load
     # Make sure to pass a serializable object or reconstruct the gNodeB objects within the child process
-    congestion_process = Process(target=monitor_and_log_cell_load, args=(gNodeBs, traffic_controller))
+    congestion_process = Process(target=monitor_and_log_cell_load, args=(shared_network_state.gNodeBs, traffic_controller))
+
     try:
         congestion_process.start()
     except Exception as e:
         logging.error(f"Failed to start congestion_process: {e}")
-
+    
     # Start the network state manager process
     ns_manager_process = Process(target=network_state_manager, args=(network_state, command_queue))
     ns_manager_process.start()
-
+    
     # Wait for the processes to complete (if they ever complete)
     logging_process.join()
     congestion_process.join()
     system_resource_logging_process.join()
-
+    
     # Signal the network state manager process to exit
     command_queue.put('exit')
     ns_manager_process.join()
