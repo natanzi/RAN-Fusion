@@ -16,6 +16,7 @@ from datetime import datetime
 from influxdb_client import Point
 from influxdb_client.client.write_api import SYNCHRONOUS, WritePrecision
 from database.time_utils import get_current_time_ntp, server_pools
+from multiprocessing import Manager
 
 current_time = get_current_time_ntp()
 
@@ -271,11 +272,15 @@ class gNodeB:
 
         return best_cell
 #######################################Periodic Updates###############################################
-    def update(self):
+    def update(self, shared_state=None):
         from network.handover_utils import handle_load_balancing, monitor_and_log_cell_load
-    # Call this method regularly to update handover decisions
-        handle_load_balancing(self, self.calculate_cell_load, self.find_underloaded_cell, self.select_ues_for_load_balancing)
-    # Now also call monitor_and_log_cell_load to log the cell load
-        monitor_and_log_cell_load(self)
-    #handle_qos_based_handover(self, self.all_ues, self.find_cell_by_id)
+
+        # If shared_state is provided, use it; otherwise, continue with the current state
+        state = shared_state if shared_state is not None else self
+
+        # Call this method regularly to update handover decisions
+        handle_load_balancing(state, state.calculate_cell_load, state.find_underloaded_cell, state.select_ues_for_load_balancing)
+
+        # Now also call monitor_and_log_cell_load to log the cell load
+        monitor_and_log_cell_load(state)
 ######################################################################################################

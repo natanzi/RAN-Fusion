@@ -14,6 +14,7 @@ from logs.logger_config import traffic_update
 import threading
 from traffic.traffic_generator import TrafficController
 from network.init_sector import initialize_sectors
+from network.gNodeB import gNodeB, load_gNodeB_config
 
 #################################################################################################################################
 # pickled by multiprocessing
@@ -131,26 +132,16 @@ def main():
 
     num_ues_to_launch = 10
 
+    # Initialize gNodeBs, cells, and UEs
     gNodeBs, cells, ues = initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, ue_config, db_manager)
-
 
     print(f"Number of UEs returned: {len(ues)}")
     time.sleep(2)
 
-    #traffic_increase_config = {1: 2, 3: 1.5}
-
     command_queue = Queue()
-    
+
     # Create an instance of TrafficController and pass the command_queue
     traffic_controller = TrafficController(command_queue)
-
-    # Assuming traffic_controller is already created and available in this scope
-    for gNodeB in gNodeBs.values():
-        cell_load_thread = threading.Thread(target=monitor_and_log_cell_load, args=(gNodeB, traffic_controller))
-        cell_load_thread.daemon = True  # This ensures the thread will exit when the main program does
-        cell_load_thread.start()
-    # Instantiate the SystemMonitor
-    system_monitor = SystemMonitor(network_state)
 
     # Start the network state manager process
     logging_process = Process(target=log_traffic, args=(ues, command_queue, network_state))
@@ -162,6 +153,13 @@ def main():
         cell_load_thread.daemon = True  # This ensures the thread will exit when the main program does
         cell_load_thread.start()
 
+    # Instantiate the SystemMonitor
+    system_monitor = SystemMonitor(network_state)
+
+    # Start the system resource logging process with system_monitor passed as an argument
+    system_resource_logging_process = Process(target=log_system_resources, args=(system_monitor,))
+    system_resource_logging_process.start()
+
     # Start the congestion detection process using monitor_and_log_cell_load
     # Make sure to pass a serializable object or reconstruct the gNodeB objects within the child process
     congestion_process = Process(target=monitor_and_log_cell_load, args=(gNodeBs, traffic_controller))
@@ -169,14 +167,10 @@ def main():
         congestion_process.start()
     except Exception as e:
         logging.error(f"Failed to start congestion_process: {e}")
-    
+
     # Start the network state manager process
     ns_manager_process = Process(target=network_state_manager, args=(network_state, command_queue))
     ns_manager_process.start()
-
-    # Start the system resource logging process with system_monitor passed as an argument
-    system_resource_logging_process = Process(target=log_system_resources, args=(system_monitor,))
-    system_resource_logging_process.start()
 
     # Wait for the processes to complete (if they ever complete)
     logging_process.join()
