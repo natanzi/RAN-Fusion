@@ -80,16 +80,18 @@ class gNodeB:
     ###############################################################################################################
     def __getstate__(self):
         state = self.__dict__.copy()
-        # Remove the unpickleable entries.
-        del state['lock']  # Assuming 'lock' is the non-pickleable field
+        # Remove the lock from the state dictionary
+        if 'lock' in state:
+            del state['lock']
+        # Debug: Print the state to ensure 'lock' is not present
+        print("State during pickling:", state)
         return state
 
-
     def __setstate__(self, state):
-    # Restore instance attributes (i.e., filename and lineno).
+        # Restore instance attributes
         self.__dict__.update(state)
-    # Restore the unpickleable entries.
-        self.lock = threading.Lock()  # Re-create the lock
+        # Re-create the lock
+        self.lock = threading.Lock()
 
     ###############################################################################################################
     # add serialization methods to the gNodeB class to convert gNodeB instances into a format suitable for InfluxDB
