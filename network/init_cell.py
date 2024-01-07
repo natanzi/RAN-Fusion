@@ -5,6 +5,7 @@ import json
 from .cell import Cell
 from datetime import datetime
 from database.database_manager import DatabaseManager
+from logs.logger_config import sector_logger
 
 def load_json_config(file_path):
     with open(file_path, 'r') as file:
@@ -44,6 +45,7 @@ def initialize_cells(gNodeBs, network_state):
         max_capacity = 3
         creation_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         print(f"A sector '{sector_id}' has been created at '{creation_time}' in '{cell_id}' with max capacity {max_capacity}.")
+        sector_logger.info(f"A sector '{sector_id}' has been created at '{creation_time}' in '{cell_id}' with max capacity {max_capacity}.")
 
     # Update the network state with the new cells
     network_state.update_state(gNodeBs, cells_dict, network_state.ues)  # Assuming ues is already a part of network_state

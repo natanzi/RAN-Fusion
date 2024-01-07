@@ -71,6 +71,7 @@ gnodeb_logger = setup_logger('gnodeb_logger', 'logs/gnodeb_logger.log', TEST_RUN
 cell_load_logger = setup_logger('cell_load_logger', 'logs/cell_load.log', TEST_RUN_ID)
 traffic_update = setup_logger('traffic_update', 'logs/traffic_update.log', TEST_RUN_ID)
 database_logger = setup_logger('database_logger', 'logs/database_logger.log', TEST_RUN_ID)
+sector_logger = setup_logger('sector_logger', 'logs/sector_logger.log', TEST_RUN_ID)
 system_resource_logger = setup_logger('system_resource_logger', 'logs/system_resource.log', TEST_RUN_ID)
 health_check_logger = setup_logger('health_check_logger', 'logs/health_check_logger.log', TEST_RUN_ID)
 server_logger = setup_logger('server_logger', 'logs/server_logger.log', TEST_RUN_ID)
@@ -83,6 +84,7 @@ log_files = {
     'cell_load_logger': 'logs/cell_load.log',
     'traffic_update': 'logs/traffic_update.log',
     'database_logger': 'logs/database_logger.log',
+    'sector_logger': 'logs/sector_logger.log',
     'system_resource_logger': 'logs/system_resource.log',
     'server_logger': 'logs/server_logger.log'
 }

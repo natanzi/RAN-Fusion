@@ -39,7 +39,3 @@ def initialize_sectors(cells_dict, network_state):
 
     # Close the database connection
     db_manager.close_connection()
-
-# This function would be called after initializing cells
-# cells_dict is the dictionary of Cell objects returned from initialize_cells()
-# network_state is the current state of the network
