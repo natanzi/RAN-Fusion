@@ -79,18 +79,14 @@ class gNodeB:
         return gNodeBs
     ###############################################################################################################
     def __getstate__(self):
-        state = self.__dict__.copy()
-        # Remove the lock from the state dictionary
+        state = self.__dict__.copy()  
         if 'lock' in state:
             del state['lock']
-        # Debug: Print the state to ensure 'lock' is not present
-        print("State during pickling:", state)
+        print("State during pickling:", state) # Print state
         return state
 
     def __setstate__(self, state):
-        # Restore instance attributes
         self.__dict__.update(state)
-        # Re-create the lock
         self.lock = threading.Lock()
 
     ###############################################################################################################

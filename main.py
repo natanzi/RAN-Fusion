@@ -142,10 +142,10 @@ def main():
     logging_process.start()
     
     # Start the cell monitor threads using monitor_and_log_cell_load
-    for gNodeB_instance in gNodeBs.values():
-        cell_load_thread = threading.Thread(target=monitor_and_log_cell_load, args=(gNodeB_instance, traffic_controller))
-        cell_load_thread.daemon = True  # This ensures the thread will exit when the main program does
-        cell_load_thread.start()
+    #for gNodeB_instance in gNodeBs.values():
+        #cell_load_thread = threading.Thread(target=monitor_and_log_cell_load, args=(gNodeB_instance, traffic_controller))
+        #cell_load_thread.daemon = True  # This ensures the thread will exit when the main program does
+        #cell_load_thread.start()
     
     # Instantiate the SystemMonitor
     system_monitor = SystemMonitor(network_state)
@@ -157,6 +157,7 @@ def main():
     # Start the congestion detection process using monitor_and_log_cell_load
     # Make sure to pass a serializable object or reconstruct the gNodeB objects within the child process
     congestion_process = Process(target=monitor_and_log_cell_load, args=(shared_network_state.gNodeBs, traffic_controller))
+
 
     try:
         congestion_process.start()
