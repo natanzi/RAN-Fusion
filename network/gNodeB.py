@@ -17,6 +17,7 @@ from influxdb_client import Point
 from influxdb_client.client.write_api import SYNCHRONOUS, WritePrecision
 from database.time_utils import get_current_time_ntp, server_pools
 from multiprocessing import Manager
+import threading
 
 current_time = get_current_time_ntp()
 
@@ -76,6 +77,20 @@ class gNodeB:
             gnodeb = gNodeB(**item)  # Unpack the dictionary directly
             gNodeBs.append(gnodeb)
         return gNodeBs
+    ###############################################################################################################
+    def __getstate__(self):
+        state = self.__dict__.copy()
+        # Remove the unpickleable entries.
+        del state['lock']  # Assuming 'lock' is the non-pickleable field
+        return state
+
+
+    def __setstate__(self, state):
+    # Restore instance attributes (i.e., filename and lineno).
+        self.__dict__.update(state)
+    # Restore the unpickleable entries.
+        self.lock = threading.Lock()  # Re-create the lock
+
     ###############################################################################################################
     # add serialization methods to the gNodeB class to convert gNodeB instances into a format suitable for InfluxDB
     def serialize_for_influxdb(self):
