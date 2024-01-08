@@ -10,7 +10,7 @@ from influxdb_client.client.write_api import SYNCHRONOUS
 from database.time_utils import get_current_time_ntp, server_pools
 
 class Cell:
-    def __init__(self, cell_id, gnodeb_id, frequencyBand, duplexMode, tx_power, bandwidth, ssb_periodicity, ssb_offset, max_connect_ues, max_throughput,  channel_model, trackingArea=None, network_state=None, is_active=True):
+    def __init__(self, cell_id, gnodeb_id, frequencyBand, duplexMode, tx_power, bandwidth, ssb_periodicity, ssb_offset, max_connect_ues, max_throughput,  channel_model, trackingArea=None, network_state=None, is_active=True, sectors=None):
         # Check if the cell ID already exists in the network state
         if network_state and network_state.get_cell_info(cell_id):
             raise ValueError(f"Duplicate cell ID {cell_id} is not allowed.")
@@ -32,6 +32,7 @@ class Cell:
         self.last_update = None
         self.IsActive = is_active
         self.current_ue_count = 0
+        self.Sectors = sectors if sectors is not None else []
         current_time = get_current_time_ntp()
         # Logging statement should be here, after all attributes are set
         cell_logger.info(f" A Cell '{cell_id}' has been created at '{current_time}' in gNodeB '{gnodeb_id}' with max capacity {self.MaxConnectedUEs}.")
@@ -51,6 +52,7 @@ class Cell:
             channel_model=json_data["channelModel"],
             trackingArea=json_data.get("trackingArea"),
             max_throughput=json_data["max_throughput"],
+            sectors=json_data.get("sectors"),
 
         )
     def to_dict(self):
