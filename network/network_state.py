@@ -185,11 +185,11 @@ def update_and_save(self, gNodeBs, cells, ues):
 def serialize_for_logging(self):
         # Serialize the network state for logging
         serialized_gNodeBs = {gNodeB_id: {'MaxUEs': gNodeB.MaxUEs, 'CellCount': gNodeB.CellCount} 
-                              for gNodeB_id, gNodeB in self.gNodeBs.items()}
+                        for gNodeB_id, gNodeB in self.gNodeBs.items()}
         serialized_cells = {cell_id: {'gNodeB_ID': cell.gNodeB_ID, 'Neighbors': cell.Neighbors} 
-                            for cell_id, cell in self.cells.items()}
+                        for cell_id, cell in self.cells.items()}
         serialized_ues = {ue_id: {'ConnectedCellID': ue.ConnectedCellID} 
-                          for ue_id, ue in self.ues.items()}
+                        for ue_id, ue in self.ues.items()}
         last_update_str = self.last_update.isoformat() if self.last_update else None
 
         return {
