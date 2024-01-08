@@ -38,7 +38,7 @@ def initialize_cells(gNodeBs, network_state):
         if len(cell_sectors) != 3:
             raise ValueError(f"Cell ID {cell_id} does not have exactly 3 sectors. Found {len(cell_sectors)} sectors.")
         
-        new_cell = Cell.from_json(cell_data)
+        new_cell = Cell.from_json({**cell_data, "sectors": cell_sectors})
         cells_dict[cell_id] = new_cell  # Add the new cell to the dictionary with cell_id as key
         network_state.cells[cell_id] = new_cell
 
