@@ -140,19 +140,22 @@ def main():
     traffic_controller = TrafficController(command_queue)
     
     # Start the network state manager process
-    logging_process = Process(target=log_traffic, args=(network_state, command_queue))
+    logging_process = Process(target=log_traffic, args=(ues, command_queue, network_state))
     logging_process.start()
+
 
     # Instantiate the SystemMonitor
     system_monitor = SystemMonitor(network_state)
     
     # Start the system resource logging process with system_monitor passed as an argument
-    system_resource_logging_process = Process(target=log_system_resources, args=(system_monitor,))
+    system_resource_logging_process = Process(target=log_system_resources, args=(system_monitor, manager))
     system_resource_logging_process.start()
+
     
     # Start the congestion detection process using monitor_and_log_cell_load
     # Make sure to pass a serializable object or reconstruct the gNodeB objects within the child process
     congestion_process = Process(target=monitor_and_log_cell_load, args=(shared_network_state.gNodeBs, traffic_controller))
+
     try:
         congestion_process.start()
     except Exception as e:
@@ -164,7 +167,9 @@ def main():
     
     # Wait for the processes to complete (if they ever complete)
     logging_process.join()
-    congestion_process.join()
+    # Only join the processes that have been successfully started
+    if congestion_process.is_alive():
+        congestion_process.join()
     system_resource_logging_process.join()
     
     # Signal the network state manager process to exit
