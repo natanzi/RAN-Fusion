@@ -168,7 +168,9 @@ class NetworkState:
         for cell_id, cell in self.cells.items():
             gNodeB = self.gNodeBs.get(cell.gNodeB_ID)
             neighbors = ', '.join(cell.Neighbors) if hasattr(cell, 'Neighbors') and cell.Neighbors else 'None'
-            print(f"ID: {cell_id}, gNodeB: {cell.gNodeB_ID}, Neighbors: {neighbors}")
+            # Assuming 'sectors' is a list of sector identifiers within the cell object
+            sectors = ', '.join(cell.sectors) if hasattr(cell, 'sectors') and cell.sectors else 'None'
+        print(f"ID: {cell_id}, gNodeB: {cell.gNodeB_ID}, Neighbors: {neighbors}, Sectors: {sectors}")
 
         print("\nUEs:")
         for ue_id, ue in self.ues.items():

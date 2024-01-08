@@ -5,6 +5,8 @@ from .cell import Cell
 from .network_state import NetworkState
 from logs.logger_config import cell_load_logger, cell_logger, gnodeb_logger, ue_logger
 from database.database_manager import DatabaseManager
+from network.gNodeB import gNodeB
+
 import time
 
 ################################################Handover Execution#######################################################
@@ -68,8 +70,9 @@ def update_handover_counts(gnodeb, handover_successful, network_state):
 ###########################################################################################################################################
 def monitor_and_log_cell_load(serialized_gnodeb, traffic_controller):
     # Deserialize the gNodeB object from the serialized data
-    gnodeb = gNodeB.from_dict(serialized_gnodeb)  # You need to implement from_dict method in gNodeB class
-    while True:  
+    gnodeb = gNodeB.from_dict(serialized_gnodeb)
+
+    while True:
         for cell in gnodeb.Cells:
             # Directly calculate the cell load percentage using the calculate_cell_load method
             cell_load_percentage = gnodeb.calculate_cell_load(cell, traffic_controller)
@@ -88,7 +91,9 @@ def monitor_and_log_cell_load(serialized_gnodeb, traffic_controller):
                 # Trigger load balancing
                 handle_load_balancing(gnodeb, gnodeb.calculate_cell_load, gnodeb.find_underloaded_cell, gnodeb.select_ues_for_load_balancing)
         
-        time.sleep(1)  
+        time.sleep(1)
+
+
 ##########################################################################################################################################
 def check_handover_feasibility(network_state, target_cell_id, ue):
     # Retrieve the target cell object using its ID

@@ -70,21 +70,28 @@ class gNodeB:
         #logging.info(f"gNodeB '{self.ID}' has been launched with {self.CellCount} cells.")
         
         time.sleep(1)  # Delay for 1 second
-    #@staticmethod
-    #def from_json(json_data):
-        #gNodeBs = []
-        #for item in json_data["gNodeBs"]:
-            #gnodeb = gNodeB(**item)  # Unpack the dictionary directly
-            #gNodeBs.append(gnodeb)
-        #return gNodeBs
+    @staticmethod
+    def from_json(json_data):
+        gNodeBs = []
+        for item in json_data["gNodeBs"]:
+            gnodeb = gNodeB(**item)  # Unpack the dictionary directly
+            gNodeBs.append(gnodeb)
+        return gNodeBs
+    
     @classmethod
     def from_dict(cls, data):
         # Create an instance of gNodeB from serialized data
-        obj = cls()
-        obj.MaxUEs = data['MaxUEs']
-        obj.CellCount = data['CellCount']
-        # Set other necessary attributes
-        return obj
+        gnodeb_instance = cls()  # You may need to pass appropriate arguments to the constructor
+
+        # Assuming data is a dictionary with keys corresponding to the names of the gNodeB attributes
+        for key, value in data.items():
+            setattr(gnodeb_instance, key, value)
+
+        # Reconstruct Cells and other complex attributes if necessary
+        # For example, if Cells are serialized as a list of dictionaries:
+        gnodeb_instance.Cells = [Cell.from_dict(cell_data) for cell_data in data.get('Cells', [])]
+
+        return gnodeb_instance
     ###############################################################################################################
     def __getstate__(self):
         state = self.__dict__.copy()  
