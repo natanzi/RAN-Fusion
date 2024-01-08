@@ -118,9 +118,9 @@ def main():
     # Initialize the Manager
     manager = Manager()
     shared_network_state = create_shared_network_state(manager)
+    network_state = NetworkState(shared_network_state)
     
     # Pass the proxy network_state to the NetworkState instance
-    network_state = NetworkState()
     db_manager = DatabaseManager(network_state)
     
     if perform_health_check(network_state):
