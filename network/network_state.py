@@ -6,7 +6,6 @@ from datetime import datetime
 from influxdb_client import Point, WritePrecision
 from logs.logger_config import database_logger
 from database.time_utils import get_current_time_ntp, server_pools
-from network.network_state import NetworkState
 from multiprocessing.managers import BaseManager
 from multiprocessing import Manager
 
@@ -21,7 +20,12 @@ def create_network_state():
     shared_state.ues = manager.dict()
     shared_state.last_update = manager.Value('i', 0)  # Assuming last_update is an integer timestamp
 
+    # Define NetworkState class
+    class NetworkState:
+        pass
+
     return NetworkState(shared_state)
+
 
 # Custom manager class that knows about the NetworkState
 class MyManager(BaseManager): pass
