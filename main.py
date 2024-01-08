@@ -1,6 +1,6 @@
 import os
 import time
-from multiprocessing import Process, Queue, Manager
+from multiprocessing import Process, Queue, Manager, BaseManager
 from network.initialize_network import initialize_network
 from Config_files.config_load import load_all_configs
 import logging
@@ -16,31 +16,33 @@ from traffic.traffic_generator import TrafficController
 from network.init_sector import initialize_sectors
 from network.gNodeB import gNodeB, load_gNodeB_config
 from network.network_state import NetworkState
-
 #################################################################################################################################
 # pickled by multiprocessing
-def log_system_resources(system_monitor, manager):
+def log_system_resources(system_monitor):
     while True:
         system_monitor.log_resource_usage()
-        time.sleep(5)  
-    manager.shutdown()
+        time.sleep(5)
+# Custom manager class that knows about the NetworkState
+class MyManager(BaseManager): pass
+
+# Register the NetworkState with the custom manager
+MyManager.register('NetworkState', NetworkState)
 
 def network_state_manager(network_state, command_queue):
     while True:
-        command = command_queue.get()  # Retrieve the command from the queue
+        command = command_queue.get()
         if command == 'save':
             network_state.save_state_to_influxdb()
-        elif command == 'exit':  # Handle exit command to break the loop
+        elif command == 'exit':
             break
+        else:
+            # Handle unexpected commands
+            logging.warning(f"Received unexpected command: {command}")
+
 def create_shared_network_state(manager):
     # Create a proxy NetworkState object using the Manager
-    network_state = manager.Namespace()
-    # Initialize the NetworkState properties within the proxy object
-    network_state.gNodeBs = manager.dict()
-    network_state.cells = manager.dict()
-    network_state.ues = manager.dict()
-    network_state.last_update = manager.Value('i', time.time())
-    return network_state  
+    network_state = manager.NetworkState()
+    return network_state
 #####################################################################################################################################
 def log_traffic(ues, command_queue, network_state):
     traffic_controller = TrafficController(command_queue)
@@ -115,15 +117,21 @@ def main():
     base_dir = os.path.dirname(os.path.abspath(__file__))
     gNodeBs_config, cells_config, ue_config, sectors_config = load_all_configs(base_dir)
     
-    # Initialize the Manager
-    manager = Manager()
-    shared_network_state = create_shared_network_state(manager)
-    network_state = NetworkState(shared_network_state)
+    # Initialize the custom Manager
+    manager = MyManager()
+    manager.start()  # Start the manager
     
-    # Pass the proxy network_state to the NetworkState instance
-    db_manager = DatabaseManager(network_state)
+    # Register the NetworkState with the Manager
+    manager.register('NetworkState', NetworkState)
     
-    if perform_health_check(network_state):
+    # Create a shared NetworkState object
+    shared_network_state = manager.NetworkState()
+    
+    # Pass the shared_network_state to the DatabaseManager and SystemMonitor
+    db_manager = DatabaseManager(shared_network_state)
+    system_monitor = SystemMonitor(shared_network_state)
+    
+    if perform_health_check(shared_network_state):
         print("Health check passed.")
     else:
         print("Health check failed.")
@@ -140,33 +148,29 @@ def main():
     traffic_controller = TrafficController(command_queue)
     
     # Start the network state manager process
-    logging_process = Process(target=log_traffic, args=(ues, command_queue, network_state))
+    logging_process = Process(target=log_traffic, args=(ues, command_queue, shared_network_state))
     logging_process.start()
-
-
-    # Instantiate the SystemMonitor
-    system_monitor = SystemMonitor(network_state)
     
     # Start the system resource logging process with system_monitor passed as an argument
     system_resource_logging_process = Process(target=log_system_resources, args=(system_monitor, manager))
     system_resource_logging_process.start()
-
     
     # Start the congestion detection process using monitor_and_log_cell_load
     # Make sure to pass a serializable object or reconstruct the gNodeB objects within the child process
     congestion_process = Process(target=monitor_and_log_cell_load, args=(shared_network_state.gNodeBs, traffic_controller))
-
+    
     try:
         congestion_process.start()
     except Exception as e:
         logging.error(f"Failed to start congestion_process: {e}")
     
     # Start the network state manager process
-    ns_manager_process = Process(target=network_state_manager, args=(network_state, command_queue))
+    ns_manager_process = Process(target=network_state_manager, args=(shared_network_state, command_queue))
     ns_manager_process.start()
     
     # Wait for the processes to complete (if they ever complete)
     logging_process.join()
+    
     # Only join the processes that have been successfully started
     if congestion_process.is_alive():
         congestion_process.join()
