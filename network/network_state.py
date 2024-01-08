@@ -18,10 +18,15 @@ class NetworkState:
         self.last_update = shared_state.last_update
 
     def get_cell_load(self, cell):
-        # Assuming there's a method in gNodeB to calculate cell load
-        gNodeB = self.gNodeBs.get(cell.gNodeB_ID)
-        if gNodeB:
-            return gNodeB.calculate_cell_load(cell)
+    # Check if the cell already has a 'load' attribute
+        if hasattr(cell, 'load'):
+            return cell.load
+        else:
+        # If not, calculate the load using the gNodeB's method
+            gNodeB = self.gNodeBs.get(cell.gNodeB_ID)
+            if gNodeB:
+                cell.load = gNodeB.calculate_cell_load(cell)  # Store the calculated load in the cell's attribute
+                return cell.load
         return None
     
     def check_for_duplicate_cells(self):
@@ -184,13 +189,13 @@ def update_and_save(self, gNodeBs, cells, ues):
 ##########################################################
 def serialize_for_logging(self):
     try:
-        serialized_gNodeBs = {gNodeB_id: {'MaxUEs': gNodeB.MaxUEs, 'CellCount': gNodeB.CellCount} 
-                        for gNodeB_id, gNodeB in self.gNodeBs.items()}
-        serialized_cells = {cell_id: {'gNodeB_ID': cell.gNodeB_ID, 'Neighbors': cell.Neighbors} 
-                        for cell_id, cell in self.cells.items()}
-        serialized_ues = {ue_id: {'ConnectedCellID': ue.ConnectedCellID} 
+        serialized_gNodeBs = {gNodeB_id: {'MaxUEs': gNodeB.MaxUEs, 'CellCount': gNodeB.CellCount}
+                            for gNodeB_id, gNodeB in self.gNodeBs.items()}
+        serialized_cells = {cell_id: {'gNodeB_ID': cell.gNodeB_ID, 'Neighbors': cell.Neighbors}
+                            for cell_id, cell in self.cells.items()}
+        serialized_ues = {ue_id: {'ConnectedCellID': ue.ConnectedCellID}
                         for ue_id, ue in self.ues.items()}
-        
+
         if self.last_update:
             last_update_str = self.last_update.isoformat()
         else:
@@ -198,10 +203,10 @@ def serialize_for_logging(self):
 
         return {
             'gNodeBs': serialized_gNodeBs,
-            'cells': serialized_cells, 
+            'cells': serialized_cells,
             'ues': serialized_ues,
-            'last_update': last_update_str 
+            'last_update': last_update_str
         }
-    except Exception as e:
-        #logging.error("Failed to serialize network state: %s", e)
-        return None
+    except (AttributeError, KeyError) as e:
+        database_logger("Failed to serialize network state: %s", e)
+        raise

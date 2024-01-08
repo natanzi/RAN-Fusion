@@ -153,7 +153,6 @@ def main():
     # Start the congestion detection process using monitor_and_log_cell_load
     # Make sure to pass a serializable object or reconstruct the gNodeB objects within the child process
     congestion_process = Process(target=monitor_and_log_cell_load, args=(shared_network_state.gNodeBs, traffic_controller))
-
     try:
         congestion_process.start()
     except Exception as e:
