@@ -32,20 +32,15 @@ def initialize_cells(gNodeBs, network_state):
         if cell_id in cells_dict:
             print(f"Warning: Duplicate cell ID {cell_id} found in configuration. Skipping this cell.")
             continue
-        
-        # Find sectors for this cell
+    
+    # Find sectors for this cell
         cell_sectors = [sector['sector_id'] for sector in sectors_config['sectors'] if sector['cell_id'] == cell_id]
         if len(cell_sectors) != 3:
             raise ValueError(f"Cell ID {cell_id} does not have exactly 3 sectors. Found {len(cell_sectors)} sectors.")
-        
+    
         new_cell = Cell.from_json({**cell_data, "sectors": cell_sectors})
         cells_dict[cell_id] = new_cell  # Add the new cell to the dictionary with cell_id as key
         network_state.cells[cell_id] = new_cell
-
-        # Check for exactly 3 sectors per cell
-        cell_sectors = [sector for sector in sectors_config['sectors'] if sector['cell_id'] == cell_id]
-        if len(cell_sectors) != 3:
-            raise ValueError(f"Cell ID {cell_id} does not have exactly 3 sectors. Found {len(cell_sectors)} sectors.")
 
     # Initialize Sectors and print their creation details
     for sector_data in sectors_config['sectors']:
