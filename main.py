@@ -1,6 +1,7 @@
 import os
 import time
-from multiprocessing import Process, Queue, Manager, BaseManager
+from multiprocessing import Process, Queue, Manager
+from multiprocessing.managers import BaseManager
 from network.initialize_network import initialize_network
 from Config_files.config_load import load_all_configs
 import logging
