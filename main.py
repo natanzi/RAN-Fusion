@@ -15,6 +15,7 @@ import threading
 from traffic.traffic_generator import TrafficController
 from network.init_sector import initialize_sectors
 from network.gNodeB import gNodeB, load_gNodeB_config
+from network.network_state import NetworkState
 
 #################################################################################################################################
 # pickled by multiprocessing
@@ -119,7 +120,7 @@ def main():
     shared_network_state = create_shared_network_state(manager)
     
     # Pass the proxy network_state to the NetworkState instance
-    network_state = NetworkState(shared_network_state)
+    network_state = NetworkState()
     db_manager = DatabaseManager(network_state)
     
     if perform_health_check(network_state):
@@ -139,16 +140,9 @@ def main():
     traffic_controller = TrafficController(command_queue)
     
     # Start the network state manager process
-    logging_process = Process(target=log_traffic, args=(network_state.serialize_for_logging(), command_queue))
+    logging_process = Process(target=log_traffic, args=(network_state, command_queue))
     logging_process.start()
 
-    
-    # Start the cell monitor threads using monitor_and_log_cell_load
-    #for gNodeB_instance in gNodeBs.values():
-        #cell_load_thread = threading.Thread(target=monitor_and_log_cell_load, args=(gNodeB_instance, traffic_controller))
-        #cell_load_thread.daemon = True  # This ensures the thread will exit when the main program does
-        #cell_load_thread.start()
-    
     # Instantiate the SystemMonitor
     system_monitor = SystemMonitor(network_state)
     
@@ -159,7 +153,6 @@ def main():
     # Start the congestion detection process using monitor_and_log_cell_load
     # Make sure to pass a serializable object or reconstruct the gNodeB objects within the child process
     congestion_process = Process(target=monitor_and_log_cell_load, args=(shared_network_state.gNodeBs, traffic_controller))
-
 
     try:
         congestion_process.start()
