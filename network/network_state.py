@@ -183,18 +183,18 @@ def update_and_save(self, gNodeBs, cells, ues):
     self.save_state_to_influxdb()
 ##########################################################
 def serialize_for_logging(self):
-        # Serialize the network state for logging
-        serialized_gNodeBs = {gNodeB_id: {'MaxUEs': gNodeB.MaxUEs, 'CellCount': gNodeB.CellCount} 
-                        for gNodeB_id, gNodeB in self.gNodeBs.items()}
-        serialized_cells = {cell_id: {'gNodeB_ID': cell.gNodeB_ID, 'Neighbors': cell.Neighbors} 
-                        for cell_id, cell in self.cells.items()}
-        serialized_ues = {ue_id: {'ConnectedCellID': ue.ConnectedCellID} 
-                        for ue_id, ue in self.ues.items()}
-        last_update_str = self.last_update.isoformat() if self.last_update else None
+    # Serialize the network state for logging
+    serialized_gNodeBs = {gNodeB_id: {'MaxUEs': gNodeB.MaxUEs, 'CellCount': gNodeB.CellCount} 
+                    for gNodeB_id, gNodeB in self.gNodeBs.items()}
+    serialized_cells = {cell_id: {'gNodeB_ID': cell.gNodeB_ID, 'Neighbors': cell.Neighbors} 
+                    for cell_id, cell in self.cells.items()}
+    serialized_ues = {ue_id: {'ConnectedCellID': ue.ConnectedCellID} 
+                    for ue_id, ue in self.ues.items()}
+    last_update_str = self.last_update.isoformat() if self.last_update else None
 
-        return {
-            'gNodeBs': serialized_gNodeBs,
-            'cells': serialized_cells,
-            'ues': serialized_ues,
-            'last_update': last_update_str
-        }
+    return {
+        'gNodeBs': serialized_gNodeBs,
+        'cells': serialized_cells,
+        'ues': serialized_ues,
+        'last_update': last_update_str
+    }
