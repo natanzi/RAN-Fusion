@@ -139,8 +139,9 @@ def main():
     traffic_controller = TrafficController(command_queue)
     
     # Start the network state manager process
-    logging_process = Process(target=log_traffic, args=(ues, command_queue, network_state))
+    logging_process = Process(target=log_traffic, args=(network_state.serialize_for_logging(), command_queue))
     logging_process.start()
+
     
     # Start the cell monitor threads using monitor_and_log_cell_load
     #for gNodeB_instance in gNodeBs.values():

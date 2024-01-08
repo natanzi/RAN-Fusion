@@ -70,13 +70,21 @@ class gNodeB:
         #logging.info(f"gNodeB '{self.ID}' has been launched with {self.CellCount} cells.")
         
         time.sleep(1)  # Delay for 1 second
-    @staticmethod
-    def from_json(json_data):
-        gNodeBs = []
-        for item in json_data["gNodeBs"]:
-            gnodeb = gNodeB(**item)  # Unpack the dictionary directly
-            gNodeBs.append(gnodeb)
-        return gNodeBs
+    #@staticmethod
+    #def from_json(json_data):
+        #gNodeBs = []
+        #for item in json_data["gNodeBs"]:
+            #gnodeb = gNodeB(**item)  # Unpack the dictionary directly
+            #gNodeBs.append(gnodeb)
+        #return gNodeBs
+    @classmethod
+    def from_dict(cls, data):
+        # Create an instance of gNodeB from serialized data
+        obj = cls()
+        obj.MaxUEs = data['MaxUEs']
+        obj.CellCount = data['CellCount']
+        # Set other necessary attributes
+        return obj
     ###############################################################################################################
     def __getstate__(self):
         state = self.__dict__.copy()  

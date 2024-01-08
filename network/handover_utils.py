@@ -66,8 +66,10 @@ def update_handover_counts(gnodeb, handover_successful, network_state):
     else:
         gnodeb.handover_failure_count += 1
 ###########################################################################################################################################
-def monitor_and_log_cell_load(gnodeb, traffic_controller):
-    while True: 
+def monitor_and_log_cell_load(serialized_gnodeb, traffic_controller):
+    # Deserialize the gNodeB object from the serialized data
+    gnodeb = gNodeB.from_dict(serialized_gnodeb)  # You need to implement from_dict method in gNodeB class
+    while True:  
         for cell in gnodeb.Cells:
             # Directly calculate the cell load percentage using the calculate_cell_load method
             cell_load_percentage = gnodeb.calculate_cell_load(cell, traffic_controller)
