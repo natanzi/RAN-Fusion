@@ -125,7 +125,7 @@ def main():
     # Register the NetworkState with the Manager
     manager.register('NetworkState', NetworkState)
     
-    # Create a shared NetworkState object
+    # Create a shared NetworkState object using the custom manager
     shared_network_state = manager.NetworkState()
     
     # Pass the shared_network_state to the DatabaseManager and SystemMonitor
