@@ -21,6 +21,10 @@ def initialize_cells(gNodeBs, network_state):
     db_manager = DatabaseManager(network_state)
 
     # Initialize Cells and link them to gNodeBs
+    # `cells_dict` is a dictionary that stores the cells in the network. Each cell is added to the
+    # dictionary with its cell ID as the key and the cell object as the value. This dictionary is used
+    # to keep track of the cells in the network and is returned at the end of the `initialize_cells`
+    # function.
     cells_dict = {}  # Initialize an empty dictionary for cells
     for cell_data in cells_config['cells']:
         cell_id = cell_data['cell_id']
@@ -28,6 +32,12 @@ def initialize_cells(gNodeBs, network_state):
         if cell_id in cells_dict:
             print(f"Warning: Duplicate cell ID {cell_id} found in configuration. Skipping this cell.")
             continue
+        
+        # Find sectors for this cell
+        cell_sectors = [sector['sector_id'] for sector in sectors_config['sectors'] if sector['cell_id'] == cell_id]
+        if len(cell_sectors) != 3:
+            raise ValueError(f"Cell ID {cell_id} does not have exactly 3 sectors. Found {len(cell_sectors)} sectors.")
+        
         new_cell = Cell.from_json(cell_data)
         cells_dict[cell_id] = new_cell  # Add the new cell to the dictionary with cell_id as key
         network_state.cells[cell_id] = new_cell
