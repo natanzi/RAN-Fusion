@@ -104,7 +104,7 @@ class Cell:
         cell_logger.info(f"UE '{ue.ID}' has been added to Cell '{self.ID}'.")
 
         # Update the network state here
-        network_state.update_state(network_state.gNodeBs, list(network_state.cells.values()), list(network_state.ues.values()))
+        network_state.update_state({**network_state.gNodeBs}, {**network_state.cells}, {**network_state.ues})
 
         # Log the addition
         cell_logger.info(f"UE '{ue.ID}' has been attached to Cell '{self.ID}' at '{current_time}'.")

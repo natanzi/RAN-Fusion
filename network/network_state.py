@@ -32,17 +32,16 @@ class NetworkState:
         seen_cell_ids.add(cell_id)
 
     def update_state(self, gNodeBs, cells, ues):
-        self.gNodeBs.update(gNodeBs)
-        self.cells.update(cells)
+        self.gNodeBs = {**self.gNodeBs, **gNodeBs}
+        self.cells = {**self.cells, **cells}
         self.check_for_duplicate_cells()
-
-        # Update UEs, but check for duplicates first
-        new_ues = {}
-        for ue in ues:
-            if ue.ID in self.ues:
-                raise ValueError(f"Duplicate UE ID {ue.ID} found during state update.")
-            new_ues[ue.ID] = ue
-        self.ues = new_ues
+        new_ues = {ue.ID: ue for ue in ues}
+        for ue_id in new_ues:
+            if ue_id in self.ues:
+                raise ValueError(f"Duplicate UE ID {ue_id} found during state update.")
+        self.ues = {**self.ues, **new_ues}
+        self.assign_neighbors_to_cells()
+        self.last_update = get_current_time_ntp()
     
     # Assign neighbors to cells and update the last update timestamp
         self.assign_neighbors_to_cells()
