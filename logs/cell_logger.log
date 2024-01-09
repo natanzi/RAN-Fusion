@@ -2018,3 +2018,4 @@
 {"level": "INFO", "timestamp": "2024-01-08 16:10:33", "message": "UE 'UE9' has been attached to Cell 'CX5103' at '2024-01-08 16:10:33'.", "test_id": "524418d4-7c5f-4de9-840c-6790838e71b1"}
 {"level": "INFO", "timestamp": "2024-01-08 16:10:33", "message": "UE 'UE10' has been added to Cell 'Ax1242'.", "test_id": "524418d4-7c5f-4de9-840c-6790838e71b1"}
 {"level": "INFO", "timestamp": "2024-01-08 16:10:33", "message": "UE 'UE10' has been attached to Cell 'Ax1242' at '2024-01-08 16:10:33'.", "test_id": "524418d4-7c5f-4de9-840c-6790838e71b1"}
+{"level": "INFO", "timestamp": "2024-01-08 21:24:01", "message": " A Cell 'Ax1242' has been created at '2024-01-08 21:24:01' in gNodeB 'W1140' with max capacity 10.", "test_id": "95015547-a44f-4930-b432-f63ea2f7636c"}

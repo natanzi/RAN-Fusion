@@ -21,8 +21,7 @@ def create_network_state():
     shared_state.gNodeBs = manager.dict()
     shared_state.cells = manager.dict()
     shared_state.ues = manager.dict()
-    shared_state.last_update = manager.Value('i', 0)   # Assuming last_update is an integer timestamp
-
+    shared_state.last_update = manager.Value('i', 0)
     return NetworkState(shared_state)
 
 

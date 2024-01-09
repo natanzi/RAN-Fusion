@@ -1,13 +1,13 @@
 import os
 import time
-from multiprocessing import Process, Queue, Manager
+from multiprocessing import Process, Queue
 from multiprocessing.managers import BaseManager
 from network.initialize_network import initialize_network
 from Config_files.config_load import load_all_configs
 import logging
 from logo import create_logo
 from health_check.do_health_check import perform_health_check
-from network.network_state import NetworkState
+from network.network_state import create_network_state  # Import the create_network_state function
 from network.handover_utils import handle_load_balancing, monitor_and_log_cell_load
 from health_check.system_monitoring import SystemMonitor
 from database.database_manager import DatabaseManager
@@ -16,18 +16,20 @@ import threading
 from traffic.traffic_generator import TrafficController
 from network.init_sector import initialize_sectors
 from network.gNodeB import gNodeB, load_gNodeB_config
-from network.network_state import NetworkState
+
+# Custom manager class that knows about the NetworkState
+class MyManager(BaseManager): pass
+
+# Register the NetworkState with the custom manager using the create_network_state function
+MyManager.register('NetworkState', create_network_state)
+
 #################################################################################################################################
+
 # pickled by multiprocessing
 def log_system_resources(system_monitor):
     while True:
         system_monitor.log_resource_usage()
         time.sleep(5)
-# Custom manager class that knows about the NetworkState
-class MyManager(BaseManager): pass
-
-# Register the NetworkState with the custom manager
-MyManager.register('NetworkState', NetworkState)
 
 def network_state_manager(network_state, command_queue):
     while True:
@@ -122,8 +124,6 @@ def main():
     manager = MyManager()
     manager.start()  # Start the manager
     
-    # Register the NetworkState with the Manager
-    manager.register('NetworkState', NetworkState)
     
     # Create a shared NetworkState object using the custom manager
     shared_network_state = manager.NetworkState()
