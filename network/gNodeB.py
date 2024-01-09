@@ -8,7 +8,6 @@ import logging
 from utils.location_utils import get_nearest_gNodeB, get_ue_location_info
 from network.init_cell import initialize_cells
 from .init_cell import load_json_config
-from network.network_state import NetworkState
 from time import sleep
 from logs.logger_config import cell_logger, gnodeb_logger
 from datetime import datetime

@@ -6,12 +6,12 @@ from database.database_manager import DatabaseManager
 from .utils import random_location_within_radius
 from Config_files.config_load import load_all_configs
 from .ue import UE
-from network.network_state import NetworkState
 from database.time_utils import get_current_time_ntp, server_pools
 from logs.logger_config import cell_load_logger, cell_logger, gnodeb_logger, ue_logger
 current_time = get_current_time_ntp()
 
 def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
+    from network.network_state import NetworkState
     ues = []
     db_manager = DatabaseManager(network_state)
     DEFAULT_BANDWIDTH_PARTS = [1, 2, 3, 4]  # Example default values
