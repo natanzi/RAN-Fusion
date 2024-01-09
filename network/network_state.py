@@ -14,12 +14,16 @@ time = current_time = get_current_time_ntp()
 class NetworkState:
     def __init__(self, shared_state):
         self.shared_state = shared_state
+        self.gNodeBs = shared_state.gNodeBs
+        self.cells = shared_state.cells 
+        self.ues = shared_state.ues
+        self.last_update = shared_state.last_update
 
 def create_network_state():
     manager = Manager()
     shared_state = manager.Namespace()
     shared_state.gNodeBs = manager.dict()
-    shared_state.cells = manager.dict()
+    shared_state.cells = manager.dict() 
     shared_state.ues = manager.dict()
     shared_state.last_update = manager.Value('i', 0)
     return NetworkState(shared_state)
@@ -50,18 +54,29 @@ def check_for_duplicate_cells(self):
     seen_cell_ids.add(cell_id)
 
 def update_state(self, gNodeBs, cells, ues):
-    self.gNodeBs = {**self.gNodeBs, **gNodeBs}
-    self.cells = {**self.cells, **cells}
-    self.check_for_duplicate_cells()
-    new_ues = {ue.ID: ue for ue in ues}
-    # Ensure self.ues is a dictionary before updating
-    self.ues = {**dict(self.ues), **new_ues}
-    self.assign_neighbors_to_cells()
+        # Merge gNodeBs dictionaries
+        self.gNodeBs.update(gNodeBs)
+        
+        # Merge cells dictionaries, checking for duplicates
+        for cell_id, cell in cells.items():
+            if cell_id not in self.cells:
+                self.cells[cell_id] = cell
+            else:
+                # Handle the duplicate cell case if necessary
+                pass  # Replace with actual duplicate handling code if needed
+        
+        # Merge ues dictionaries, ensuring no duplicates
+        for ue_id, ue in ues.items():
+            self.ues[ue_id] = ue  # This will overwrite any existing UE with the same ID
+        
+        # Call the methods to check for duplicate cells and assign neighbors
+        self.check_for_duplicate_cells()
+        self.assign_neighbors_to_cells()
 
     
-    # Assign neighbors to cells and update the last update timestamp
-    self.assign_neighbors_to_cells()
-    self.last_update = get_current_time_ntp()
+        # Assign neighbors to cells and update the last update timestamp
+        self.assign_neighbors_to_cells()
+        self.last_update = get_current_time_ntp()
 
     
 def assign_neighbors_to_cells(self):
