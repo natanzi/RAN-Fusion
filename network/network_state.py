@@ -55,8 +55,8 @@ def check_for_duplicate_cells(self):
 
 def update_state(self, gNodeBs, cells, ues):
         # Merge gNodeBs dictionaries
-        self.gNodeBs.update(gNodeBs)
-        
+        self.gNodeBs = {**self.gNodeBs, **gNodeBs}
+
         # Merge cells dictionaries, checking for duplicates
         for cell_id, cell in cells.items():
             if cell_id not in self.cells:
@@ -64,19 +64,18 @@ def update_state(self, gNodeBs, cells, ues):
             else:
                 # Handle the duplicate cell case if necessary
                 pass  # Replace with actual duplicate handling code if needed
-        
+
         # Merge ues dictionaries, ensuring no duplicates
         for ue_id, ue in ues.items():
             self.ues[ue_id] = ue  # This will overwrite any existing UE with the same ID
-        
+
         # Call the methods to check for duplicate cells and assign neighbors
         self.check_for_duplicate_cells()
         self.assign_neighbors_to_cells()
 
-    
-        # Assign neighbors to cells and update the last update timestamp
-        self.assign_neighbors_to_cells()
-        self.last_update = get_current_time_ntp()
+        # Update the last update timestamp
+        self.last_update.value = get_current_time_ntp()
+
 
     
 def assign_neighbors_to_cells(self):
