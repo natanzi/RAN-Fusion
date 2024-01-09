@@ -6,7 +6,6 @@ import time
 from database.time_utils import get_current_time_ntp
 import logging
 from utils.location_utils import get_nearest_gNodeB, get_ue_location_info
-from network.cell import Cell
 from network.init_cell import initialize_cells
 from .init_cell import load_json_config
 from network.network_state import NetworkState
@@ -35,6 +34,7 @@ gNodeBs_config = load_gNodeB_config()
 
 class gNodeB:
     def __init__(self, gnodeb_id, latitude, longitude, coverageRadius, power, frequency, bandwidth, location, region, maxUEs, cellCount, handoverMargin, handoverHysteresis, timeToTrigger, interFreqHandover, xnInterface, sonCapabilities, loadBalancingOffset, cellIds, MeasurementBandwidth=None, BlacklistedCells=None, **kwargs):
+        from network.cell import Cell
         self.ID = gnodeb_id
         self.Latitude = latitude
         self.Longitude = longitude
@@ -80,6 +80,7 @@ class gNodeB:
     
     @classmethod
     def from_dict(cls, data):
+        from network.cell import Cell
         # Create an instance of gNodeB from serialized data
         gnodeb_instance = cls()  # You may need to pass appropriate arguments to the constructor
 
@@ -89,6 +90,7 @@ class gNodeB:
 
         # Reconstruct Cells and other complex attributes if necessary
         # For example, if Cells are serialized as a list of dictionaries:
+        
         gnodeb_instance.Cells = [Cell.from_dict(cell_data) for cell_data in data.get('Cells', [])]
 
         return gnodeb_instance

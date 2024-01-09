@@ -1,6 +1,5 @@
 #Defines the Cell class, which is part of a gNodeB.// this is located inside network directory
 from logs.logger_config import cell_logger
-from .network_state import NetworkState
 import datetime
 from logs.logger_config import ue_logger
 from logs.logger_config import cell_logger
@@ -12,6 +11,7 @@ from database.time_utils import get_current_time_ntp, server_pools
 class Cell:
     def __init__(self, cell_id, gnodeb_id, frequencyBand, duplexMode, tx_power, bandwidth, ssb_periodicity, ssb_offset, max_connect_ues, max_throughput,  channel_model, trackingArea=None, network_state=None, is_active=True, sectors=None):
         # Check if the cell ID already exists in the network state
+        from .network_state import NetworkState
         if network_state and network_state.get_cell_info(cell_id):
             raise ValueError(f"Duplicate cell ID {cell_id} is not allowed.")
         self.ID = cell_id
