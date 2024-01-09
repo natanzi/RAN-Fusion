@@ -11,18 +11,17 @@ from multiprocessing import Manager
 
 time = current_time = get_current_time_ntp()
 
+class NetworkState:
+    def __init__(self, shared_state):
+        self.shared_state = shared_state
+
 def create_network_state():
-    # You need to create a shared state that matches the expected structure
     manager = Manager()
     shared_state = manager.Namespace()
     shared_state.gNodeBs = manager.dict()
     shared_state.cells = manager.dict()
     shared_state.ues = manager.dict()
-    shared_state.last_update = manager.Value('i', 0)  # Assuming last_update is an integer timestamp
-
-    # Define NetworkState class
-    class NetworkState:
-        pass
+    shared_state.last_update = manager.Value('i', 0)   # Assuming last_update is an integer timestamp
 
     return NetworkState(shared_state)
 
