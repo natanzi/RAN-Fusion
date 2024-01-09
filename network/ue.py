@@ -3,9 +3,7 @@ import random
 import math
 import json
 from database.database_manager import DatabaseManager
-from .network_state import NetworkState
 from .utils import random_location_within_radius
-from network.network_state import NetworkState
 from logs.logger_config import ue_logger
 from datetime import datetime
 from influxdb_client import Point
@@ -101,7 +99,7 @@ class UE:
             ues.append(ue)
         return ues
 #########################################################################################
-    def generate_traffic(self, traffic_multiplier=1):
+    def generate_traffic(self):
         from traffic.traffic_generator import TrafficController
         traffic_controller = TrafficController()
         # Convert service type to lowercase to ensure case-insensitive comparison
