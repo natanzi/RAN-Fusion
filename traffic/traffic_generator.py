@@ -462,7 +462,7 @@ class TrafficController:
         command_handler_thread.daemon = True
         command_handler_thread.start() 
 ############################################################################################
-    def calculate_and_write_ue_throughput(self, ue, network_state):
+def calculate_and_write_ue_throughput(self, ue, network_state, gnodeb):
     # Generate traffic and retrieve traffic parameters for the UE
     traffic_data = self.generate_traffic(ue)
     # Retrieve jitter, packet loss, and delay from the traffic data
@@ -486,6 +486,7 @@ class TrafficController:
     if network_delay > handover_threshold:
         # Assuming gnodeb is accessible here, otherwise, you need to pass it to the function
         success = perform_handover(gnodeb, ue, ue.cell, network_state)
+
         if success:
             # Assuming the perform_handover function updates the UE's connected cell ID
             pass  # No need to manually update ue.ConnectedCellID here
@@ -494,7 +495,7 @@ class TrafficController:
     quality_impact = (1 - jitter / 100) * (1 - packet_loss_rate / 100) * (1 - delay / 100)
     adjusted_throughput = (data_size_bytes / interval) * quality_impact
 
-    # Prepare the data for InfluxDB
+# Prepare the data for InfluxDB
     influxdb_data = {
         "measurement": "ue_throughput",
         "tags": {
@@ -523,4 +524,4 @@ class TrafficController:
         'application_delay': delay,
         'network_delay': network_delay,
         'interval': interval
-    }
+}
