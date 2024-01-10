@@ -131,3 +131,27 @@ def handle_load_balancing(gnodeb, network_state):
                     if cell_load <= 0.8:
                         break
 ###########################################################################################################################################
+def is_handover_required(network_state, ue, handover_threshold):
+    """
+    Determine if a handover is required based on the current network state and UE conditions.
+
+    :param network_state: The current state of the network.
+    :param ue: The user equipment (UE) instance.
+    :param handover_threshold: The threshold for triggering a handover.
+    :return: A tuple (Boolean, Cell) where the boolean indicates if handover is required,
+    and Cell is the target cell for handover if one is required.
+    """
+    current_cell = network_state.cells.get(ue.ConnectedCellID)
+    if current_cell is None:
+        return False, None
+
+    # Check if the current cell load exceeds the handover threshold
+    current_cell_load = current_cell.calculate_cell_load()
+    if current_cell_load > handover_threshold:
+        # Find a target cell with a load below the threshold
+        for cell_id, cell in network_state.cells.items():
+            if cell.calculate_cell_load() < handover_threshold:
+                # Check if handover to this cell is feasible
+                if check_handover_feasibility(network_state, cell_id, ue):
+                    return True, cell
+    return False, None

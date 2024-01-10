@@ -12,6 +12,7 @@ from database.database_manager import DatabaseManager
 from threading import Lock
 from network.network_delay import NetworkDelay
 from datetime import datetime
+from network.handover_utils import is_handover_required
 
 class TrafficController:
 
@@ -460,7 +461,7 @@ class TrafficController:
         command_handler_thread = Thread(target=TrafficController.handle_commands, args=(self.command_queue, self))
         command_handler_thread.daemon = True
         command_handler_thread.start() 
-###########################################################################################
+############################################################################################
     def calculate_and_write_ue_throughput(self, ue, network_state):
         # Generate traffic and retrieve traffic parameters for the UE
         traffic_data = self.generate_traffic(ue)
