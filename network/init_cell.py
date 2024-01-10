@@ -4,6 +4,7 @@ import os
 import json
 from .cell import Cell
 from database.database_manager import DatabaseManager
+from .network_state import NetworkState
 
 def load_json_config(file_path):
     with open(file_path, 'r') as file:
@@ -13,7 +14,8 @@ def initialize_cells(gNodeBs, network_state):
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     config_dir = os.path.join(base_dir, 'Config_files')
     cells_config = load_json_config(os.path.join(config_dir, 'cell_config.json'))
-
+    network_state.add_cells(cells)  # Add the cells to the network state
+    
     # Initialize the DatabaseManager with the required parameters
     db_manager = DatabaseManager(network_state)
 

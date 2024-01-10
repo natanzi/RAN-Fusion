@@ -10,6 +10,8 @@ from threading import Thread
 import datetime
 from database.database_manager import DatabaseManager
 from threading import Lock
+from network.network_delay import NetworkDelay
+import datetime
 
 class TrafficController:
 
@@ -466,13 +468,23 @@ class TrafficController:
         # Retrieve jitter, packet loss, and delay from the traffic data
         jitter = traffic_data['jitter']
         packet_loss_rate = traffic_data['packet_loss_rate']
-        delay = traffic_data['delay']
+        delay = traffic_data['delay']  # This is the application layer delay
         interval = traffic_data['interval']
         data_size_bytes = traffic_data['data_size']
 
-        # Adjust the throughput based on quality metrics
-        # Assuming jitter, packet_loss_rate, and delay are expressed as percentages (0 to 1)
-        # If they are not, you will need to convert them to a percentage.
+        # Instantiate the NetworkDelay class
+        network_delay_calculator = NetworkDelay()
+
+        # Calculate the network delay based on the cell load
+        network_delay = network_delay_calculator.calculate_delay(ue.cell.load)
+
+        # Check if a handover is needed and perform it if necessary
+        if network_delay_calculator.is_handover_required(network_delay, handover_threshold=20):  # Example threshold
+            success, new_cell = network_delay_calculator.perform_handover(ue, ue.cell, all_cells, handover_threshold=20)
+            if success:
+                ue.cell = new_cell  # Update the UE's cell to the new cell after handover
+
+        # Adjust the throughput based on quality metrics and network delay
         quality_impact = (1 - jitter) * (1 - packet_loss_rate) * (1 - delay)
         adjusted_throughput = (data_size_bytes / interval) * quality_impact
 
@@ -486,7 +498,8 @@ class TrafficController:
                 "throughput": adjusted_throughput,
                 "jitter": jitter,
                 "packet_loss": packet_loss_rate,
-                "delay": delay
+                "application_delay": delay,  # Renamed for clarity
+                "network_delay": network_delay  # Save the network delay
             },
             "time": datetime.datetime.utcnow().isoformat()
         }
@@ -500,6 +513,7 @@ class TrafficController:
             'throughput': adjusted_throughput,
             'jitter': jitter,
             'packet_loss_rate': packet_loss_rate,
-            'delay': delay,
+            'application_delay': delay,  # Renamed for clarity
+            'network_delay': network_delay,  # Include network delay in the return data
             'interval': interval
         }

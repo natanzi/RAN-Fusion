@@ -1,5 +1,6 @@
 # this is network_delay.py in network folder
 class NetworkDelay:
+
     def __init__(self, base_delay=10):
         self.base_delay = base_delay
         # Additional attributes can be added here if needed
@@ -27,5 +28,6 @@ class NetworkDelay:
             # Logic to perform the handover, e.g., update the UE's cell association
             # This may involve interacting with other classes/methods in your codebase
             # ...
+            ue.update_cell(target_cell)
             return True, target_cell
         return False, current_cell

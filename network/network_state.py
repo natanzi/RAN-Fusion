@@ -19,6 +19,11 @@ class NetworkState:
         self.db_manager = DatabaseManager(self)
         self.db_manager.set_network_state(self)
 
+    def add_cells(self, cells):
+        with self.lock:
+            for cell in cells:
+                self.cells[cell.ID] = cell
+
     def get_cell_load(self, cell):
         # Assuming there's a method in gNodeB to calculate cell load
         gNodeB = self.gNodeBs.get(cell.gNodeB_ID)
@@ -175,6 +180,6 @@ class NetworkState:
             print(f"ID: {ue_id}, Cell: {ue.ConnectedCellID}, gNodeB: {gNodeB_id}")
 #############################################################################################################
 # Add this method to the NetworkState class
-def update_and_save(self, gNodeBs, cells, ues):
-    self.update_state(gNodeBs, cells, ues)
-    self.save_state_to_influxdb()
+    def update_and_save(self, gNodeBs, cells, ues):
+        self.update_state(gNodeBs, cells, ues)
+        self.save_state_to_influxdb()

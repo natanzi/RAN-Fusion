@@ -12,7 +12,9 @@ def perform_handover(gnodeb, ue, target_cell, network_state):
     handover_successful = False
     current_cell_id = ue.ConnectedCellID
     original_cell = next((cell for cell in gnodeb.Cells if cell.ID == current_cell_id), None)
-
+    # Retrieve all_cells from the network_state
+    all_cells = list(network_state.cells.values())
+    
     # Ensure target_cell is provided
     if not target_cell:
         return False  # Optionally, handle this situation more gracefully
