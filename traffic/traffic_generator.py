@@ -477,20 +477,16 @@ class TrafficController:
 
         # Use the new method from NetworkState to get the cell load
         cell_load = network_state.get_cell_load_for_ue(ue.ID)
+        network_delay = 0
         if cell_load is not None:
             network_delay = network_delay_calculator.calculate_delay(cell_load)
-        else:
-            # Handle the case where the cell load could not be retrieved
-            network_delay = 0  # or some default handling
 
         # Check if a handover is needed and perform it if necessary
-        if network_delay_calculator.is_handover_required(network_delay, handover_threshold=20):  # Example threshold
+        if network_delay_calculator.is_handover_required(network_delay, handover_threshold=20):
             all_cells = list(network_state.cells.values())
             success, new_cell = network_delay_calculator.perform_handover(ue, ue.cell, all_cells, handover_threshold=20)
             if success:
-                # Update the UE's cell to the new cell after handover
-                # This assumes that the perform_handover method returns the new cell object
-                ue.ConnectedCellID = new_cell.ID  # Update the UE's connected cell ID
+                ue.ConnectedCellID = new_cell.ID
 
         # Adjust the throughput based on quality metrics and network delay
         quality_impact = (1 - jitter / 100) * (1 - packet_loss_rate / 100) * (1 - delay / 100)
@@ -517,11 +513,9 @@ class TrafficController:
         database_manager.insert_data(influxdb_data)
         database_manager.close_connection()
 
-        # Format the throughput for better readability for returning or logging
-        formatted_throughput = "{:.2f} Mbps".format(adjusted_throughput * 8 / 1e6)  # Convert bytes/sec to Mbps
-
+        # Return the raw numeric value of throughput
         return {
-            'throughput': formatted_throughput,  # Use formatted string for display
+            'throughput': adjusted_throughput,  # Use raw numeric value for return
             'jitter': jitter,
             'packet_loss_rate': packet_loss_rate,
             'application_delay': delay,

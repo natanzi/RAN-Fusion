@@ -44,15 +44,23 @@ def log_traffic(ues, command_queue, network_state):
             network_delay = throughput_data['network_delay']
             jitter = throughput_data['jitter']
             packet_loss_rate = throughput_data['packet_loss_rate']
-            formatted_throughput = f"{throughput_data['throughput']:.2f}"
+
+            # Ensure that throughput is a float before formatting
+            try:
+                numeric_throughput = float(throughput_data['throughput'])
+                formatted_throughput = f"{throughput_data['throughput']:.2f}"
+            except ValueError:
+                logging.error(f"Invalid throughput data: {throughput_data['throughput']}")
+                # Handle the error appropriately, for example, by skipping this iteration
+                continue
 
             logging.info(
-                f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Throughput: {formatted_throughput}Mbps, "
+                f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Throughput: {formatted_throughput} Mbps, "
                 f"Interval: {throughput_data['interval']}s, Application Delay: {application_delay}ms, "
                 f"Network Delay: {network_delay}ms, Jitter: {jitter}ms, "
                 f"Packet Loss Rate: {packet_loss_rate}%"
             )
-        
+
         # Check for new commands and apply updates if necessary
         if not command_queue.empty():
             command = command_queue.get()
@@ -62,7 +70,6 @@ def log_traffic(ues, command_queue, network_state):
                 # Apply the update for matching UEs
                 for ue in ues:
                     if ue.ServiceType.lower() == command['service_type'].lower():
-                        # Assuming generate_updated_traffic now returns throughput and other parameters
                         updated_traffic = traffic_controller.generate_updated_traffic(ue)
                         logging.getLogger('traffic_update').info(
                             f"UE ID: {ue.ID} - Updated {ue.ServiceType} traffic with parameters: {command['data']} (Update ID: {command['update_id']})"
@@ -71,8 +78,8 @@ def log_traffic(ues, command_queue, network_state):
                 network_state.save_state_to_influxdb()
             elif command['type'] == 'exit':
                 break
-        
-        time.sleep(1)  # Sleep for a second before the next iteration
+
+        time.sleep(1)
 ######################################################################################
 def detect_and_handle_congestion(network_state, command_queue):
     while True:
