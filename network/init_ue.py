@@ -102,6 +102,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
                 least_loaded_cell = sorted(available_cells, key=lambda cell: cell.current_ue_count)[0]
                 # Adjust ue_data with the selected cell information
                 ue_data['connected_cell_id'] = least_loaded_cell.ID
+                ue_data['gnodeb_id'] = selected_gNodeB.ID
                 # Instantiate UE with the adjusted data only if there's an available cell
                 ue = UE(**ue_data)
                 try:
