@@ -5033,3 +5033,5 @@
 {"level": "INFO", "timestamp": "2024-01-10 15:01:40", "message": "Data inserted for measurement {'measurement': 'ue_throughput', 'tags': {'ue_id': 'UE10'}, 'fields': {'throughput': 3.7397814692465836, 'jitter': 0, 'packet_loss': 0, 'application_delay': 0, 'network_delay': 0}, 'time': '2024-01-10T20:01:52.964660'} with tags ", "test_id": "30d814e4-4145-44c9-980e-90fda5121689"}
 {"level": "INFO", "timestamp": "2024-01-10 15:17:36", "message": "Database connection successful.", "test_id": "b6f381c0-0d33-4c7f-aa01-a69080e51fbe"}
 {"level": "INFO", "timestamp": "2024-01-10 16:11:14", "message": "Database connection successful.", "test_id": "0797e3eb-1eac-4701-bfe1-3cb4518591c0"}
+{"level": "INFO", "timestamp": "2024-01-10 16:30:30", "message": "Database connection successful.", "test_id": "c2d018bb-3a99-4be9-b885-41319ac0198e"}
+{"level": "INFO", "timestamp": "2024-01-10 16:32:00", "message": "Database connection successful.", "test_id": "a0a634bf-0005-4f82-929a-045ee02dfe98"}

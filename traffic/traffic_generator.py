@@ -462,66 +462,66 @@ class TrafficController:
         command_handler_thread.daemon = True
         command_handler_thread.start() 
 ############################################################################################
-def calculate_and_write_ue_throughput(self, ue, network_state, gnodeb):
-    # Generate traffic and retrieve traffic parameters for the UE
-    traffic_data = self.generate_traffic(ue)
-    # Retrieve jitter, packet loss, and delay from the traffic data
-    jitter = traffic_data['jitter']
-    packet_loss_rate = traffic_data['packet_loss_rate']
-    delay = traffic_data['delay']  # This is the application layer delay
-    interval = traffic_data['interval']
-    data_size_bytes = traffic_data['data_size']
+    def calculate_and_write_ue_throughput(self, ue, network_state, gnodeb):
+        # Generate traffic and retrieve traffic parameters for the UE
+        traffic_data = self.generate_traffic(ue)
+        # Retrieve jitter, packet loss, and delay from the traffic data
+        jitter = traffic_data['jitter']
+        packet_loss_rate = traffic_data['packet_loss_rate']
+        delay = traffic_data['delay']  # This is the application layer delay
+        interval = traffic_data['interval']
+        data_size_bytes = traffic_data['data_size']
 
-    # Instantiate the NetworkDelay class
-    network_delay_calculator = NetworkDelay()
+        # Instantiate the NetworkDelay class
+        network_delay_calculator = NetworkDelay()
 
-    # Use the new method from NetworkState to get the cell load
-    cell_load = network_state.get_cell_load_for_ue(ue.ID)
-    network_delay = 0
-    if cell_load is not None:
-        network_delay = network_delay_calculator.calculate_delay(cell_load)
+        # Use the new method from NetworkState to get the cell load
+        cell_load = network_state.get_cell_load_for_ue(ue.ID)
+        network_delay = 0
+        if cell_load is not None:
+            network_delay = network_delay_calculator.calculate_delay(cell_load)
 
-    # Check if a handover is needed and perform it if necessary
-    handover_threshold = 20  # This value can be adjusted as needed
-    if network_delay > handover_threshold:
-        # Assuming gnodeb is accessible here, otherwise, you need to pass it to the function
-        success = perform_handover(gnodeb, ue, ue.cell, network_state)
+        # Check if a handover is needed and perform it if necessary
+        handover_threshold = 20  # This value can be adjusted as needed
+        if network_delay > handover_threshold:
+            # Assuming gnodeb is accessible here, otherwise, you need to pass it to the function
+            success = perform_handover(gnodeb, ue, ue.cell, network_state)
 
-        if success:
-            # Assuming the perform_handover function updates the UE's connected cell ID
-            pass  # No need to manually update ue.ConnectedCellID here
+            if success:
+                # Assuming the perform_handover function updates the UE's connected cell ID
+                pass  # No need to manually update ue.ConnectedCellID here
 
-    # Adjust the throughput based on quality metrics and network delay
-    quality_impact = (1 - jitter / 100) * (1 - packet_loss_rate / 100) * (1 - delay / 100)
-    adjusted_throughput = (data_size_bytes / interval) * quality_impact
+        # Adjust the throughput based on quality metrics and network delay
+        quality_impact = (1 - jitter / 100) * (1 - packet_loss_rate / 100) * (1 - delay / 100)
+        adjusted_throughput = (data_size_bytes / interval) * quality_impact
 
-# Prepare the data for InfluxDB
-    influxdb_data = {
-        "measurement": "ue_throughput",
-        "tags": {
-            "ue_id": ue.ID
-        },
-        "fields": {
-            "throughput": adjusted_throughput,  # Use raw numeric value for database
-            "jitter": jitter,
-            "packet_loss": packet_loss_rate,
-            "application_delay": delay,
-            "network_delay": network_delay
-        },
-        "time": datetime.utcnow().isoformat()
+    # Prepare the data for InfluxDB
+        influxdb_data = {
+            "measurement": "ue_throughput",
+            "tags": {
+                "ue_id": ue.ID
+            },
+            "fields": {
+                "throughput": adjusted_throughput,  # Use raw numeric value for database
+                "jitter": jitter,
+                "packet_loss": packet_loss_rate,
+                "application_delay": delay,
+                "network_delay": network_delay
+            },
+            "time": datetime.utcnow().isoformat()
+        }
+
+        # Create a DatabaseManager instance, write data, and close connection
+        database_manager = DatabaseManager()
+        database_manager.insert_data(influxdb_data)
+        database_manager.close_connection()
+
+        # Return the raw numeric value of throughput
+        return {
+            'throughput': adjusted_throughput,  # Use raw numeric value for return
+            'jitter': jitter,
+            'packet_loss_rate': packet_loss_rate,
+            'application_delay': delay,
+            'network_delay': network_delay,
+            'interval': interval
     }
-
-    # Create a DatabaseManager instance, write data, and close connection
-    database_manager = DatabaseManager()
-    database_manager.insert_data(influxdb_data)
-    database_manager.close_connection()
-
-    # Return the raw numeric value of throughput
-    return {
-        'throughput': adjusted_throughput,  # Use raw numeric value for return
-        'jitter': jitter,
-        'packet_loss_rate': packet_loss_rate,
-        'application_delay': delay,
-        'network_delay': network_delay,
-        'interval': interval
-}
