@@ -39,18 +39,18 @@ def log_traffic(ues, command_queue, network_state):
             throughput_data = traffic_controller.calculate_and_write_ue_throughput(ue, network_state)
 
             # Extract the required values from the traffic_data dictionary
-            # Assuming throughput calculation also provides delay, jitter, and packet_loss_rate
-            delay = throughput_data['delay']
+            # Assuming throughput calculation also provides application_delay and network_delay
+            application_delay = throughput_data['application_delay']
+            network_delay = throughput_data['network_delay']
             jitter = throughput_data['jitter']
             packet_loss_rate = throughput_data['packet_loss_rate']
             formatted_throughput = f"{throughput_data['throughput']:.2f}"
 
-
             logging.info(
-
-            f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Throughput: {formatted_throughput}Mbps, "
-            f"Interval: {throughput_data['interval']}s, Delay: {delay}ms, Jitter: {jitter}ms, "
-            f"Packet Loss Rate: {packet_loss_rate}%"
+                f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Throughput: {formatted_throughput}Mbps, "
+                f"Interval: {throughput_data['interval']}s, Application Delay: {application_delay}ms, "
+                f"Network Delay: {network_delay}ms, Jitter: {jitter}ms, "
+                f"Packet Loss Rate: {packet_loss_rate}%"
             )
         
         # Check for new commands and apply updates if necessary

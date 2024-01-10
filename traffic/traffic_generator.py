@@ -270,7 +270,7 @@ class TrafficController:
     # Traffic generation methods with conditional application of jitter, delay, and packet loss
     def generate_voice_traffic(self):
         # Record the start timestamp
-        start_time = datetime.datetime.now()
+        start_time = datetime.now()
         time.sleep(self.voice_delay)  # Use voice-specific delay
         jitter = random.uniform(0, self.voice_jitter) if self.voice_jitter > 0 else 0
         bitrate = random.uniform(*self.voice_traffic_params['bitrate'])  # in Kbps
@@ -288,7 +288,7 @@ class TrafficController:
             data_size = 0  # Packet is lost
 
         # Record the end timestamp
-        end_time = datetime.datetime.now()
+        end_time = datetime.now()
 
         traffic_data = {
             'data_size': data_size,
@@ -375,8 +375,8 @@ class TrafficController:
             # Handle the exception by returning a default data structure
             return {
                 'data_size': 0,
-                'start_timestamp': datetime.datetime.now(),
-                'end_timestamp': datetime.datetime.now(),
+                'start_timestamp': datetime.now(),
+                'end_timestamp': datetime.now(),
                 'interval': 0.1,
                 'delay': self.gaming_delay,
                 'jitter': 0,
@@ -521,7 +521,7 @@ class TrafficController:
             'throughput': adjusted_throughput,
             'jitter': jitter,
             'packet_loss_rate': packet_loss_rate,
-            'application_delay': delay,  # Renamed for clarity
-            'network_delay': network_delay,  # Include network delay in the return data
+            'application_delay': delay,  
+            'network_delay': network_delay,
             'interval': interval
         }
