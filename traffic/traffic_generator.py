@@ -304,7 +304,7 @@ class TrafficController:
 ###################################################################################################################
     def generate_video_traffic(self):
         # Record the start timestamp
-        start_time = datetime.datetime.now()
+        start_time = datetime.now() 
 
         time.sleep(self.video_delay)  # Use video-specific delay
         jitter = random.uniform(0, self.video_jitter) if self.video_jitter > 0 else 0
@@ -321,7 +321,7 @@ class TrafficController:
             data_size += (stream_bitrate * interval) / 8  # Convert to MB
 
         # Record the end timestamp
-        end_time = datetime.datetime.now()
+        end_time = datetime.now() 
 
         traffic_data = {
             'data_size': data_size,  # Total data size of all streams
@@ -339,7 +339,7 @@ class TrafficController:
     def generate_gaming_traffic(self):
         try:
             # Record the start timestamp
-            start_time = datetime.datetime.now()
+            start_time = datetime.now() 
 
             time.sleep(self.gaming_delay)  # Use gaming-specific delay
             jitter = random.uniform(0, self.gaming_jitter) if self.gaming_jitter > 0 else 0
@@ -356,7 +356,7 @@ class TrafficController:
                 data_size = 0  # Packet is lost
 
             # Record the end timestamp
-            end_time = datetime.datetime.now()
+            end_time = datetime.now() 
 
             traffic_data = {
                 'data_size': data_size,
@@ -385,7 +385,7 @@ class TrafficController:
 ###########################################################################################
     def generate_iot_traffic(self):
         # Record the start timestamp
-        start_time = datetime.datetime.now()
+        start_time = datetime.now() 
 
         time.sleep(self.iot_delay)  # Use IoT-specific delay
         jitter = random.uniform(0, self.iot_jitter) if self.iot_jitter > 0 else 0
@@ -401,7 +401,7 @@ class TrafficController:
             data_size = 0  # Packet is lost
 
         # Record the end timestamp
-        end_time = datetime.datetime.now()
+        end_time = datetime.now() 
 
         traffic_data = {
             'data_size': data_size,
@@ -417,7 +417,7 @@ class TrafficController:
 ###########################################################################################
     def generate_data_traffic(self):
         # Record the start timestamp
-        start_time = datetime.now()
+        start_time = datetime.now() 
 
         time.sleep(self.data_delay)  # Use data-specific delay
         jitter = random.uniform(0, self.data_jitter) if self.data_jitter > 0 else 0
@@ -433,7 +433,7 @@ class TrafficController:
             data_size = 0  # Packet is lost
 
         # Record the end timestamp
-        end_time = datetime.datetime.now()
+        end_time = datetime.now() 
 
         traffic_data = {
             'data_size': data_size,
