@@ -461,7 +461,7 @@ class TrafficController:
         command_handler_thread.daemon = True
         command_handler_thread.start() 
 ###########################################################################################
-    def calculate_and_write_ue_throughput(self, ue):
+    def calculate_and_write_ue_throughput(self, ue, network_state):
         # Generate traffic and retrieve traffic parameters for the UE
         traffic_data = self.generate_traffic(ue)
 
@@ -477,6 +477,8 @@ class TrafficController:
 
         # Calculate the network delay based on the cell load
         network_delay = network_delay_calculator.calculate_delay(ue.cell.load)
+        # Access all_cells from network_state
+        all_cells = list(network_state.cells.values())
 
         # Check if a handover is needed and perform it if necessary
         if network_delay_calculator.is_handover_required(network_delay, handover_threshold=20):  # Example threshold
