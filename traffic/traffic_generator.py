@@ -472,9 +472,6 @@ class TrafficController:
         interval = traffic_data['interval']
         data_size_bytes = traffic_data['data_size']
 
-        # Format the throughput for better readability
-        formatted_throughput = "{:.2f}Mbps".format(traffic_data['throughput'])
-
         # Instantiate the NetworkDelay class
         network_delay_calculator = NetworkDelay()
 
@@ -496,8 +493,8 @@ class TrafficController:
                 ue.ConnectedCellID = new_cell.ID  # Update the UE's connected cell ID
 
         # Adjust the throughput based on quality metrics and network delay
-        quality_impact = (1 - jitter) * (1 - packet_loss_rate) * (1 - delay)
-        formatted_throughput = (data_size_bytes / interval) * quality_impact
+        quality_impact = (1 - jitter / 100) * (1 - packet_loss_rate / 100) * (1 - delay / 100)
+        adjusted_throughput = (data_size_bytes / interval) * quality_impact
 
         # Prepare the data for InfluxDB
         influxdb_data = {
@@ -506,25 +503,28 @@ class TrafficController:
                 "ue_id": ue.ID
             },
             "fields": {
-                "throughput": formatted_throughput,
+                "throughput": adjusted_throughput,  # Use raw numeric value for database
                 "jitter": jitter,
                 "packet_loss": packet_loss_rate,
-                "application_delay": delay,  # Renamed for clarity
-                "network_delay": network_delay  # Save the network delay
+                "application_delay": delay,
+                "network_delay": network_delay
             },
-            "time": datetime.utcnow().isoformat()  
-    }
+            "time": datetime.utcnow().isoformat()
+        }
 
         # Create a DatabaseManager instance, write data, and close connection
         database_manager = DatabaseManager()
         database_manager.insert_data(influxdb_data)
         database_manager.close_connection()
 
+        # Format the throughput for better readability for returning or logging
+        formatted_throughput = "{:.2f} Mbps".format(adjusted_throughput * 8 / 1e6)  # Convert bytes/sec to Mbps
+
         return {
-            'throughput': formatted_throughput,
+            'throughput': formatted_throughput,  # Use formatted string for display
             'jitter': jitter,
             'packet_loss_rate': packet_loss_rate,
-            'application_delay': delay,  
+            'application_delay': delay,
             'network_delay': network_delay,
             'interval': interval
         }
