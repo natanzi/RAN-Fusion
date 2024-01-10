@@ -35,7 +35,7 @@ def log_traffic(ues, command_queue, network_state):
     while True:
         for ue in ues:
             # Calculate throughput instead of generating traffic
-            throughput_data = traffic_controller.calculate_and_write_ue_throughput(ue)
+            throughput_data = traffic_controller.calculate_and_write_ue_throughput(ue, network_state)
 
             # Extract the required values from the traffic_data dictionary
             # Assuming throughput calculation also provides delay, jitter, and packet_loss_rate
