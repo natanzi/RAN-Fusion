@@ -11,11 +11,12 @@ from datetime import datetime
 from influxdb_client import Point
 
 class UE:
-    def __init__(self, ue_id, location, connected_cell_id, is_mobile, initial_signal_strength, rat, max_bandwidth, duplex_mode, tx_power, modulation, coding, mimo, processing, bandwidth_parts, channel_model, velocity, direction, traffic_model, scheduling_requests, rlc_mode, snr_thresholds, ho_margin, n310, n311, model, service_type=None):
+    def __init__(self, ue_id, location, connected_cell_id, gnodeb_id, is_mobile, initial_signal_strength, rat, max_bandwidth, duplex_mode, tx_power, modulation, coding, mimo, processing, bandwidth_parts, channel_model, velocity, direction, traffic_model, scheduling_requests, rlc_mode, snr_thresholds, ho_margin, n310, n311, model, service_type=None):
         self.ID = ue_id
         self.IMEI = self.allocate_imei()  # Always generate a new IMEI
         self.Location = location
         self.ConnectedCellID = connected_cell_id
+        self.gNodeB_ID = gnodeb_id
         self.IsMobile = is_mobile
         self.ServiceType = service_type if service_type else random.choice(["video", "game", "voice", "data", "IoT"])  # Use provided service type or randomly pick one
         self.SignalStrength = initial_signal_strength
@@ -66,12 +67,14 @@ class UE:
     def from_json(json_data):
         ues = []
         for item in json_data["ues"]:
-            ue_id = item["ue_id"]  # Use the provided UE ID
+            ue_id = item["ue_id"] 
+            gnodeb_id = item.get("gNodeB_ID")  # Extract gNodeB_ID from the JSON item
             ue = UE(
                 ue_id=ue_id,
                 location=(item["location"]["latitude"], item["location"]["longitude"]),
                 connected_cell_id=item["connectedCellId"],
                 is_mobile=item["isMobile"],
+                gnodeb_id=gnodeb_id, 
                 service_type=item.get("serviceType"),  # Check if serviceType is provided
                 initial_signal_strength=item["initialSignalStrength"],
                 rat=item["rat"],
@@ -99,7 +102,7 @@ class UE:
             ues.append(ue)
         return ues
 #########################################################################################
-    def generate_traffic(self, traffic_multiplier=1):
+    def generate_traffic(self):
         from traffic.traffic_generator import TrafficController
         traffic_controller = TrafficController()
         # Convert service type to lowercase to ensure case-insensitive comparison
@@ -126,21 +129,6 @@ class UE:
         else:
             raise ValueError(f"Unknown service type: {self.ServiceType}")
 
-        # Scale the data size by the traffic multiplier
-        #data_size *= traffic_multiplier
-        #return data_size, interval, delay, jitter, packet_loss_rate
-
-    #d#ef get_traffic_volume(self, traffic_controller):
-        # Assuming traffic_volume is calculated as the sum of data sizes from generate_traffic over time
-        #traffic_volume = 0
-        #traffic_multiplier = 1  # or some other logic to determine the multiplier
-
-        # Generate traffic for a certain number of intervals (for example, 60 intervals for an hour)
-        #for _ in range(60):
-            #data_size, _, _, _, _ = self.generate_traffic(traffic_controller, traffic_multiplier)
-            #traffic_volume += data_size
-
-        #return traffic_volume
 ####################################################################################
     def perform_handover(self, old_cell, new_cell, network_state):
         try:
@@ -215,6 +203,7 @@ class UE:
             .tag("ue_id", self.ID) \
             .tag("connected_cell_id", self.ConnectedCellID) \
             .tag("entity_type", "ue") \
+            .tag("gnb_id", self.gNodeB_ID)\
             .field("imei", self.IMEI) \
             .field("service_type", self.ServiceType) \
             .field("signal_strength", self.SignalStrength) \

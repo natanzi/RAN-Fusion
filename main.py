@@ -31,12 +31,21 @@ def network_state_manager(network_state, command_queue):
         elif command == 'exit':  # Handle exit command to break the loop
             break
 #####################################################################################################################################
-def log_traffic(ues, command_queue, network_state):
+def log_traffic(ues, command_queue, network_state, gNodeBs):
+
     traffic_controller = TrafficController(command_queue)
     while True:
         for ue in ues:
+            # Find the gNodeB instance associated with the current ue
+            # Assuming each UE has an attribute 'gNodeB_ID' which stores the ID of the gNodeB it is connected to
+            gnodeb = gNodeBs.get(ue.gNodeB_ID, None)
+            if gnodeb is None:
+                logging.error(f"gNodeB instance for UE ID {ue.ID} not found.")
+                continue
             # Calculate throughput instead of generating traffic
-            throughput_data = traffic_controller.calculate_and_write_ue_throughput(ue, network_state)
+            throughput_data = traffic_controller.calculate_and_write_ue_throughput(ue, network_state, gnodeb)
+
+
 
             # Extract the required values from the traffic_data dictionary
             # Assuming throughput calculation also provides application_delay and network_delay
@@ -134,8 +143,9 @@ def main():
     system_monitor = SystemMonitor(network_state)
 
     # Start the network state manager process
-    logging_process = Process(target=log_traffic, args=(ues, command_queue, network_state))
+    logging_process = Process(target=log_traffic, args=(ues, command_queue, network_state, gNodeBs))
     logging_process.start()
+
 
     # Start the cell monitor threads using monitor_and_log_cell_load
     for gNodeB in gNodeBs.values():
