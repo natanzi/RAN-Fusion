@@ -472,6 +472,9 @@ class TrafficController:
         interval = traffic_data['interval']
         data_size_bytes = traffic_data['data_size']
 
+        # Format the throughput for better readability
+        formatted_throughput = "{:.2f}Mbps".format(traffic_data['throughput'])
+
         # Instantiate the NetworkDelay class
         network_delay_calculator = NetworkDelay()
 
@@ -494,7 +497,7 @@ class TrafficController:
 
         # Adjust the throughput based on quality metrics and network delay
         quality_impact = (1 - jitter) * (1 - packet_loss_rate) * (1 - delay)
-        adjusted_throughput = (data_size_bytes / interval) * quality_impact
+        formatted_throughput = (data_size_bytes / interval) * quality_impact
 
         # Prepare the data for InfluxDB
         influxdb_data = {
@@ -503,7 +506,7 @@ class TrafficController:
                 "ue_id": ue.ID
             },
             "fields": {
-                "throughput": adjusted_throughput,
+                "throughput": formatted_throughput,
                 "jitter": jitter,
                 "packet_loss": packet_loss_rate,
                 "application_delay": delay,  # Renamed for clarity
@@ -518,7 +521,7 @@ class TrafficController:
         database_manager.close_connection()
 
         return {
-            'throughput': adjusted_throughput,
+            'throughput': formatted_throughput,
             'jitter': jitter,
             'packet_loss_rate': packet_loss_rate,
             'application_delay': delay,  
