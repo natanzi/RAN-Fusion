@@ -25,10 +25,13 @@ class NetworkState:
                 self.cells[cell.ID] = cell
 
     def get_cell_load_for_ue(self, ue_id):
-        # Find the cell for the given UE
-        for cell in self.cells.values():
-            if ue_id in [ue.ID for ue in cell.assigned_UEs]:
-                # Use the existing calculate_cell_load method from the gNodeB class
+    # Find the cell for the given UE
+        ue = self.ues.get(ue_id)
+        if ue:
+            cell_id = ue.ConnectedCellID
+            cell = self.cells.get(cell_id)
+            if cell:
+            # Use the existing calculate_cell_load method from the gNodeB class
                 return self.gNodeBs[cell.gNodeB_id].calculate_cell_load(cell, self.traffic_controller)
         return None  # or an appropriate default value if the UE is not found
     
