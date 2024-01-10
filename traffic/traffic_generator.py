@@ -11,7 +11,7 @@ import datetime
 from database.database_manager import DatabaseManager
 from threading import Lock
 from network.network_delay import NetworkDelay
-import datetime
+from datetime import datetime
 
 class TrafficController:
 
@@ -417,7 +417,7 @@ class TrafficController:
 ###########################################################################################
     def generate_data_traffic(self):
         # Record the start timestamp
-        start_time = datetime.datetime.now()
+        start_time = datetime.now()
 
         time.sleep(self.data_delay)  # Use data-specific delay
         jitter = random.uniform(0, self.data_jitter) if self.data_jitter > 0 else 0
@@ -509,8 +509,8 @@ class TrafficController:
                 "application_delay": delay,  # Renamed for clarity
                 "network_delay": network_delay  # Save the network delay
             },
-            "time": datetime.utcnow().isoformat()
-        }
+            "time": datetime.utcnow().isoformat()  
+    }
 
         # Create a DatabaseManager instance, write data, and close connection
         database_manager = DatabaseManager()

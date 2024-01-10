@@ -14,6 +14,7 @@ from logs.logger_config import traffic_update
 import threading
 from traffic.traffic_generator import TrafficController
 from multiprocessing import Lock
+from datetime import datetime
 
 #################################################################################################################################
 # pickled by multiprocessing
