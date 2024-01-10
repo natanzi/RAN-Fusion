@@ -475,16 +475,22 @@ class TrafficController:
         # Instantiate the NetworkDelay class
         network_delay_calculator = NetworkDelay()
 
-        # Calculate the network delay based on the cell load
-        network_delay = network_delay_calculator.calculate_delay(ue.cell.load)
-        # Access all_cells from network_state
-        all_cells = list(network_state.cells.values())
+        # Use the new method from NetworkState to get the cell load
+        cell_load = network_state.get_cell_load_for_ue(ue.ID)
+        if cell_load is not None:
+            network_delay = network_delay_calculator.calculate_delay(cell_load)
+        else:
+            # Handle the case where the cell load could not be retrieved
+            network_delay = 0  # or some default handling
 
         # Check if a handover is needed and perform it if necessary
         if network_delay_calculator.is_handover_required(network_delay, handover_threshold=20):  # Example threshold
+            all_cells = list(network_state.cells.values())
             success, new_cell = network_delay_calculator.perform_handover(ue, ue.cell, all_cells, handover_threshold=20)
             if success:
-                ue.cell = new_cell  # Update the UE's cell to the new cell after handover
+                # Update the UE's cell to the new cell after handover
+                # This assumes that the perform_handover method returns the new cell object
+                ue.ConnectedCellID = new_cell.ID  # Update the UE's connected cell ID
 
         # Adjust the throughput based on quality metrics and network delay
         quality_impact = (1 - jitter) * (1 - packet_loss_rate) * (1 - delay)
@@ -503,7 +509,7 @@ class TrafficController:
                 "application_delay": delay,  # Renamed for clarity
                 "network_delay": network_delay  # Save the network delay
             },
-            "time": datetime.datetime.utcnow().isoformat()
+            "time": datetime.utcnow().isoformat()
         }
 
         # Create a DatabaseManager instance, write data, and close connection
