@@ -107,6 +107,32 @@ class NetworkState:
                 'Allocated_Cells': allocated_cells
             }
         return None
+    def add_ue(self, ue):
+        with self.lock:
+            if ue.ID in self.ues:
+                return False  # UE already exists
+            self.ues[ue.ID] = ue
+            return True
+
+    def remove_ue(self, ue_id):
+        with self.lock:
+            if ue_id in self.ues:
+                del self.ues[ue_id]
+                return True
+            return False
+
+    def update_ue(self, ue_id, updated_data):
+        with self.lock:
+            if ue_id not in self.ues:
+                return False  # UE does not exist
+            # Assuming `updated_data` is a dictionary with the attributes to be updated
+            for key, value in updated_data.items():
+                setattr(self.ues[ue_id], key, value)
+            return True
+
+    def get_ue(self, ue_id):
+        with self.lock:
+            return self.ues.get(ue_id, None)
 ########################################################################################################
     def serialize_for_influxdb(self):
         with self.lock:

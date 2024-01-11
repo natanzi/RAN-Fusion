@@ -7,6 +7,9 @@ from logs.logger_config import traffic_update,server_logger
 from multiprocessing import Queue
 import traceback
 from datetime import datetime
+from network.network_state import NetworkState
+from network.ue import UE
+from threading import Lock
 
 # Global flag to indicate if an update has been received
 update_received = False
@@ -14,6 +17,8 @@ update_received = False
 # Create Flask app
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})  # This line allows all domains
+lock = Lock()
+network_state = NetworkState(lock)
 
 # Assuming command_queue is made accessible here, for example, as a global variable
 command_queue = Queue()
@@ -206,42 +211,48 @@ def update_data_traffic():
 @app.route('/test', methods=['GET'])
 def test_endpoint():
     return jsonify({'message': 'CORS Test successful'}), 200    
-
+##############################################################################################################
 @app.route('/add_ue', methods=['POST'])
 def add_ue():
     data = request.json
     try:
-        ue = UE(**data)  # Assuming UE class can take keyword arguments directly from JSON
-        success = traffic_controller.network_state.add_ue(ue)
+        ue_data = {'ues': [data]}
+        ue = UE.from_json(ue_data)[0]
+        success = network_state.add_ue(ue)  # This method should be implemented in NetworkState
         if success:
             return jsonify({'message': 'UE added successfully'}), 200
         else:
-            return jsonify({'error': 'Failed to add UE'}), 500
+            return jsonify({'error': 'Failed to add UE'}), 409  # Use appropriate status code
     except Exception as e:
+        # Log the exception here
         return jsonify({'error': str(e)}), 500
+##############################################################################################################
 
 @app.route('/remove_ue/<ue_id>', methods=['DELETE'])
 def remove_ue(ue_id):
     try:
-        success = traffic_controller.network_state.remove_ue(ue_id)
+        success = network_state.remove_ue(ue_id)  # This method should be implemented in NetworkState
         if success:
             return jsonify({'message': 'UE removed successfully'}), 200
         else:
             return jsonify({'error': 'Failed to remove UE'}), 500
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+##############################################################################################################
 
 @app.route('/update_ue/<ue_id>', methods=['PATCH'])
 def update_ue(ue_id):
     data = request.json
     try:
-        success = traffic_controller.network_state.update_ue(ue_id, data)
-        if success:
-            return jsonify({'message': 'UE updated successfully'}), 200
-        else:
-            return jsonify({'error': 'Failed to update UE'}), 500
+        ue = network_state.get_ue(ue_id)  # This method should be implemented in NetworkState
+        ue.update_parameters(data)
+        return jsonify({'message': 'UE updated successfully'}), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
+if __name__ == '__main__':
+    app.run(debug=True)
+##############################################################################################################
 
 if __name__ == '__main__':
     app.run(debug=True)
