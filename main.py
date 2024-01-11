@@ -16,7 +16,7 @@ from traffic.traffic_generator import TrafficController
 from multiprocessing import Lock
 from datetime import datetime
 
-#################################################################################################################################
+#####################################################################################################################################
 # pickled by multiprocessing
 def log_system_resources(system_monitor):
     while True:
