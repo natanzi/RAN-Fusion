@@ -244,9 +244,11 @@ def remove_ue(ue_id):
 def update_ue(ue_id):
     data = request.json
     try:
-        ue = network_state.get_ue(ue_id)  # This method should be implemented in NetworkState
-        ue.update_parameters(data)
-        return jsonify({'message': 'UE updated successfully'}), 200
+        success = network_state.update_ue(ue_id, data)  # Use the update_ue method from NetworkState
+        if success:
+            return jsonify({'message': 'UE updated successfully'}), 200
+        else:
+            return jsonify({'error': 'Failed to update UE'}), 400  # Use 400 for client-side errors
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
