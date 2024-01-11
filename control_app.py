@@ -207,5 +207,41 @@ def update_data_traffic():
 def test_endpoint():
     return jsonify({'message': 'CORS Test successful'}), 200    
 
+@app.route('/add_ue', methods=['POST'])
+def add_ue():
+    data = request.json
+    try:
+        ue = UE(**data)  # Assuming UE class can take keyword arguments directly from JSON
+        success = traffic_controller.network_state.add_ue(ue)
+        if success:
+            return jsonify({'message': 'UE added successfully'}), 200
+        else:
+            return jsonify({'error': 'Failed to add UE'}), 500
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/remove_ue/<ue_id>', methods=['DELETE'])
+def remove_ue(ue_id):
+    try:
+        success = traffic_controller.network_state.remove_ue(ue_id)
+        if success:
+            return jsonify({'message': 'UE removed successfully'}), 200
+        else:
+            return jsonify({'error': 'Failed to remove UE'}), 500
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/update_ue/<ue_id>', methods=['PATCH'])
+def update_ue(ue_id):
+    data = request.json
+    try:
+        success = traffic_controller.network_state.update_ue(ue_id, data)
+        if success:
+            return jsonify({'message': 'UE updated successfully'}), 200
+        else:
+            return jsonify({'error': 'Failed to update UE'}), 500
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
 if __name__ == '__main__':
     app.run(debug=True)

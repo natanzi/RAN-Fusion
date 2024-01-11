@@ -197,7 +197,11 @@ class UE:
 
         # Log the update
         ue_logger.info(f"Traffic model updated for UE {self.ID} with parameters: {traffic_params}")
-######################################################################################
+####################################################################################################
+    def update_parameters(self, params):
+        for key, value in params.items():
+            setattr(self, key, value)
+####################################################################################################        
     def serialize_for_influxdb(self):
         point = Point("ue_metrics") \
             .tag("ue_id", self.ID) \
