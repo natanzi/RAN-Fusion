@@ -14,7 +14,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
     ues = []
     db_manager = DatabaseManager(network_state)
     DEFAULT_BANDWIDTH_PARTS = [1, 2, 3, 4]  # Example default values
-    
+
     # Initialize ue_id_counter based on the highest existing UE ID to avoid duplicates
     existing_ue_ids = [int(ue.ID[2:]) for ue in network_state.ues.values()]  # Extract numbers from UE IDs
     ue_id_counter = max(existing_ue_ids) + 1 if existing_ue_ids else 1
@@ -82,7 +82,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
         while ue_id in network_state.ues:
             ue_id_counter += 1
             ue_id = f"UE{ue_id_counter}"
-        ue_data['ue_id'] = ue_id  # Set the unique UE ID
+        ue_data['ue_id'] = ue_id    # Set the unique UE ID
 
         # Check if specific gNodeB and Cell IDs are provided and not empty
         specified_gnodeb_id = ue_data.get('gnodeb_id')
@@ -137,8 +137,16 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
         db_manager.insert_data(point)
         ues.append(ue)
 
-        # Increment the UE ID counter for the next UE
-        ue_id_counter += 1
+        # Create the UE object
+        ue = UE(**ue_data)
+
+        # Add the UE to the network state
+        if network_state.add_ue(ue):
+            # Successfully added the UE, now increment the UE ID counter for the next UE
+            ue_id_counter += 1
+        else:
+            # Handle the case where the UE could not be added
+            ue_logger.error(f"Failed to add UE '{ue_id}' to the network.")
 
     db_manager.close_connection()
     return ues
