@@ -1206,3 +1206,11 @@
 {"level": "INFO", "timestamp": "2024-01-12 12:04:49", "message": "UE initialized with ID UE1 at 2024-01-12 12:05:05.059302", "test_id": "51c13d87-ab46-46ca-a80c-d62a3b0d5811"}
 {"level": "ERROR", "timestamp": "2024-01-12 12:04:49", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2024-01-12 12:04:49': UE with ID 'UE1' already exists in the network.", "test_id": "51c13d87-ab46-46ca-a80c-d62a3b0d5811"}
 {"level": "ERROR", "timestamp": "2024-01-12 12:04:49", "message": "No available cell found for UE 'UE1' at '2024-01-12 12:04:49'.", "test_id": "51c13d87-ab46-46ca-a80c-d62a3b0d5811"}
+{"level": "INFO", "timestamp": "2024-01-12 13:58:45", "message": "UE initialized with ID UE1 at 2024-01-12 13:59:02.255450", "test_id": "bb96f465-8180-490d-8323-d1a11090df14"}
+{"level": "INFO", "timestamp": "2024-01-12 13:58:45", "message": "UE with ID UE1 added to Cell Ax1242 at '2024-01-12 13:58:45'", "test_id": "bb96f465-8180-490d-8323-d1a11090df14"}
+{"level": "ERROR", "timestamp": "2024-01-12 13:58:45", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2024-01-12 13:58:45': Duplicate UE ID UE1 found during state update.", "test_id": "bb96f465-8180-490d-8323-d1a11090df14"}
+{"level": "INFO", "timestamp": "2024-01-12 13:58:45", "message": "UE initialized with ID UE1 at 2024-01-12 13:59:02.257437", "test_id": "bb96f465-8180-490d-8323-d1a11090df14"}
+{"level": "ERROR", "timestamp": "2024-01-12 13:58:45", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2024-01-12 13:58:45': UE with ID 'UE1' already exists in the network.", "test_id": "bb96f465-8180-490d-8323-d1a11090df14"}
+{"level": "INFO", "timestamp": "2024-01-12 13:58:45", "message": "UE initialized with ID UE1 at 2024-01-12 13:59:02.258434", "test_id": "bb96f465-8180-490d-8323-d1a11090df14"}
+{"level": "ERROR", "timestamp": "2024-01-12 13:58:45", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2024-01-12 13:58:45': UE with ID 'UE1' already exists in the network.", "test_id": "bb96f465-8180-490d-8323-d1a11090df14"}
+{"level": "ERROR", "timestamp": "2024-01-12 13:58:45", "message": "No available cell found for UE 'UE1' at '2024-01-12 13:58:45'.", "test_id": "bb96f465-8180-490d-8323-d1a11090df14"}
