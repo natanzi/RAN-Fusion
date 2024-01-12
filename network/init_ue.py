@@ -1,14 +1,13 @@
 # init_ue.py
 # Initialization of UEs
 import random
-import math
 from database.database_manager import DatabaseManager
 from .utils import random_location_within_radius
-from Config_files.config_load import load_all_configs
 from .ue import UE
 from network.network_state import NetworkState
-from database.time_utils import get_current_time_ntp, server_pools
-from logs.logger_config import cell_load_logger, cell_logger, gnodeb_logger, ue_logger
+from database.time_utils import get_current_time_ntp
+from logs.logger_config import ue_logger
+
 current_time = get_current_time_ntp()
 
 def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
@@ -16,7 +15,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
     db_manager = DatabaseManager(network_state)
     DEFAULT_BANDWIDTH_PARTS = [1, 2, 3, 4]  # Example default values
     ue_id_counter = len(network_state.ues) + 1
-    
+
     # Calculate the total capacity of all cells
     total_capacity = sum(cell.MaxConnectedUEs for gNodeB in gNodeBs.values() for cell in gNodeB.Cells if cell.IsActive)
 
@@ -24,7 +23,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
     if num_ues_to_launch > total_capacity:
         ue_logger.error(f"Cannot launch {num_ues_to_launch} UEs, as it exceeds the total capacity of {total_capacity} UEs across all cells.")
         return []  # Return an empty list if the capacity is exceeded
-    
+
     # Prepare a round-robin queue for gNodeBs
     round_robin_queue = [gNodeB for gNodeB in gNodeBs.values()]
 
@@ -81,42 +80,55 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
         while ue_id in existing_ue_ids:
             ue_id_counter += 1
             ue_id = f"UE{ue_id_counter}"
-
         ue_data['ue_id'] = ue_id  # Set the unique UE ID
 
-        # Use round-robin selection with fallback to least-loaded cell
-        assigned = False
-        for _ in range(len(round_robin_queue)):
-            selected_gNodeB = round_robin_queue.pop(0)
-            round_robin_queue.append(selected_gNodeB)
+        # Check if specific gNodeB and Cell IDs are provided and not empty
+        specified_gnodeb_id = ue_data.get('gnodeb_id')
+        specified_connected_cell_id = ue_data.get('connectedCellId')
 
-            # Generate a random location within the coverage radius of the selected gNodeB
-            # Assuming selected_gNodeB.Location is a tuple (latitude, longitude)
-            latitude, longitude = selected_gNodeB.Location
-            ue_location = random_location_within_radius(latitude, longitude, selected_gNodeB.CoverageRadius)
-            # Set the UE's location
-            ue_data['location'] = ue_location
-            
-            available_cells = [cell for cell in selected_gNodeB.Cells if cell.current_ue_count < cell.MaxConnectedUEs and cell.IsActive]
-            if available_cells:
-                least_loaded_cell = sorted(available_cells, key=lambda cell: cell.current_ue_count)[0]
-                # Adjust ue_data with the selected cell information
-                ue_data['connected_cell_id'] = least_loaded_cell.ID
-                ue_data['gnodeb_id'] = selected_gNodeB.ID
-                # Instantiate UE with the adjusted data only if there's an available cell
-                ue = UE(**ue_data)
-                try:
-                    least_loaded_cell.add_ue(ue, network_state)
-                    ue.ConnectedCellID = least_loaded_cell.ID
-                    ue_logger.info(f"UE '{ue.ID}' has been attached to Cell '{least_loaded_cell.ID}' at '{current_time}'.")
-                    assigned = True
-                    break
-                except Exception as e:
-                    ue_logger.error(f"Failed to add UE '{ue.ID}' to Cell '{least_loaded_cell.ID}' at '{current_time}': {e}")
+        if specified_gnodeb_id and specified_connected_cell_id:
+            # Find the specified gNodeB and cell
+            selected_gNodeB = gNodeBs.get(specified_gnodeb_id)
+            selected_cell = next((cell for cell in selected_gNodeB.Cells if cell.ID == specified_connected_cell_id and cell.IsActive), None)
 
-        if not assigned:
-            ue_logger.error(f"No available cell found for UE '{ue_id}' at '{current_time}'.")
-            continue  # Skip the rest of the loop if no cell is available
+            if selected_cell and selected_cell.current_ue_count < selected_cell.MaxConnectedUEs:
+                # Adjust ue_data with the specified cell information
+                ue_data['connected_cell_id'] = specified_connected_cell_id
+                ue_data['gnodeb_id'] = specified_gnodeb_id
+            else:
+                ue_logger.error(f"Specified gNodeB or cell cannot be found or is at capacity for UE '{ue_id}'.")
+                continue  # Skip to the next UE if the specified gNodeB or cell is not available
+        else:
+            # Use round-robin selection with fallback to least-loaded cell
+            assigned = False
+            for _ in range(len(round_robin_queue)):
+                selected_gNodeB = round_robin_queue.pop(0)
+                round_robin_queue.append(selected_gNodeB)
+
+                # Generate a random location within the coverage radius of the selected gNodeB
+                latitude, longitude = selected_gNodeB.Location
+                ue_location = random_location_within_radius(latitude, longitude, selected_gNodeB.CoverageRadius)
+                ue_data['location'] = ue_location
+
+                available_cells = [cell for cell in selected_gNodeB.Cells if cell.current_ue_count < cell.MaxConnectedUEs and cell.IsActive]
+                if available_cells:
+                    least_loaded_cell = sorted(available_cells, key=lambda cell: cell.current_ue_count)[0]
+                    ue_data['connected_cell_id'] = least_loaded_cell.ID
+                    ue_data['gnodeb_id'] = selected_gNodeB.ID
+
+                    ue = UE(**ue_data)
+                    try:
+                        least_loaded_cell.add_ue(ue, network_state)
+                        ue.ConnectedCellID = least_loaded_cell.ID
+                        ue_logger.info(f"UE '{ue.ID}' has been attached to Cell '{least_loaded_cell.ID}' at '{current_time}'.")
+                        assigned = True
+                        break
+                    except Exception as e:
+                        ue_logger.error(f"Failed to add UE '{ue.ID}' to Cell '{least_loaded_cell.ID}' at '{current_time}': {e}")
+
+            if not assigned:
+                ue_logger.error(f"No available cell found for UE '{ue_id}' at '{current_time}'.")
+                continue  # Skip the rest of the loop if no cell is available
 
         # Serialize and write to InfluxDB
         point = ue.serialize_for_influxdb()
@@ -125,7 +137,6 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
 
         # Increment the UE ID counter for the next UE
         ue_id_counter += 1
-    
-    db_manager.close_connection()
 
+    db_manager.close_connection()
     return ues

@@ -1198,3 +1198,11 @@
 {"level": "INFO", "timestamp": "2024-01-11 13:23:49", "message": "UE with ID UE10 added to Cell Ax1242 at '2024-01-11 13:23:49'", "test_id": "1c8c0372-beab-4bd1-9cac-84b0a03c0c41"}
 {"level": "INFO", "timestamp": "2024-01-11 13:23:49", "message": "UE 'UE10' has been attached to Cell 'Ax1242' at '2024-01-11 13:23:49'.", "test_id": "1c8c0372-beab-4bd1-9cac-84b0a03c0c41"}
 {"level": "INFO", "timestamp": "2024-01-11 13:23:49", "message": "UE 'UE10' has been attached to Cell 'Ax1242' at '2024-01-11 13:23:49'.", "test_id": "1c8c0372-beab-4bd1-9cac-84b0a03c0c41"}
+{"level": "INFO", "timestamp": "2024-01-12 12:04:49", "message": "UE initialized with ID UE1 at 2024-01-12 12:05:05.056315", "test_id": "51c13d87-ab46-46ca-a80c-d62a3b0d5811"}
+{"level": "INFO", "timestamp": "2024-01-12 12:04:49", "message": "UE with ID UE1 added to Cell Ax1242 at '2024-01-12 12:04:49'", "test_id": "51c13d87-ab46-46ca-a80c-d62a3b0d5811"}
+{"level": "ERROR", "timestamp": "2024-01-12 12:04:49", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2024-01-12 12:04:49': Duplicate UE ID UE1 found during state update.", "test_id": "51c13d87-ab46-46ca-a80c-d62a3b0d5811"}
+{"level": "INFO", "timestamp": "2024-01-12 12:04:49", "message": "UE initialized with ID UE1 at 2024-01-12 12:05:05.058306", "test_id": "51c13d87-ab46-46ca-a80c-d62a3b0d5811"}
+{"level": "ERROR", "timestamp": "2024-01-12 12:04:49", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2024-01-12 12:04:49': UE with ID 'UE1' already exists in the network.", "test_id": "51c13d87-ab46-46ca-a80c-d62a3b0d5811"}
+{"level": "INFO", "timestamp": "2024-01-12 12:04:49", "message": "UE initialized with ID UE1 at 2024-01-12 12:05:05.059302", "test_id": "51c13d87-ab46-46ca-a80c-d62a3b0d5811"}
+{"level": "ERROR", "timestamp": "2024-01-12 12:04:49", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2024-01-12 12:04:49': UE with ID 'UE1' already exists in the network.", "test_id": "51c13d87-ab46-46ca-a80c-d62a3b0d5811"}
+{"level": "ERROR", "timestamp": "2024-01-12 12:04:49", "message": "No available cell found for UE 'UE1' at '2024-01-12 12:04:49'.", "test_id": "51c13d87-ab46-46ca-a80c-d62a3b0d5811"}
