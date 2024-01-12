@@ -107,6 +107,7 @@ class NetworkState:
                 'Allocated_Cells': allocated_cells
             }
         return None
+    
     def add_ue(self, ue):
         with self.lock:
             if ue.ID in self.ues:
