@@ -14,7 +14,10 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
     ues = []
     db_manager = DatabaseManager(network_state)
     DEFAULT_BANDWIDTH_PARTS = [1, 2, 3, 4]  # Example default values
-    ue_id_counter = len(network_state.ues) + 1
+    
+    # Initialize ue_id_counter based on the highest existing UE ID to avoid duplicates
+    existing_ue_ids = [int(ue.ID[2:]) for ue in network_state.ues.values()]  # Extract numbers from UE IDs
+    ue_id_counter = max(existing_ue_ids) + 1 if existing_ue_ids else 1
 
     # Calculate the total capacity of all cells
     total_capacity = sum(cell.MaxConnectedUEs for gNodeB in gNodeBs.values() for cell in gNodeB.Cells if cell.IsActive)
@@ -76,8 +79,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
 
         # Generate a unique UE ID
         ue_id = f"UE{ue_id_counter}"
-        existing_ue_ids = set(network_state.ues)
-        while ue_id in existing_ue_ids:
+        while ue_id in network_state.ues:
             ue_id_counter += 1
             ue_id = f"UE{ue_id_counter}"
         ue_data['ue_id'] = ue_id  # Set the unique UE ID
