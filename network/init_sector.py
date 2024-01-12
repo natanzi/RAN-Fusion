@@ -30,12 +30,15 @@ def initialize_sectors(cells_dict, network_state):
         if any(sector.sector_id == sector_id for sector in cells_dict[cell_id].sectors):
             raise ValueError(f"Duplicate sector ID {sector_id} found during initialization.")
         
+        # Create a new sector instance from the JSON data
         new_sector = Sector.from_json(sector_data)
-        cells_dict[cell_id].add_sector(new_sector)  # Add the new sector to the corresponding cell
-
+        
+        # Add the new sector to the corresponding cell
+        cells_dict[cell_id].add_sector(new_sector)
+        
         # Serialize and write to InfluxDB
         point = new_sector.serialize_for_influxdb()
         db_manager.insert_data(point)
 
     # Close the database connection
-    db_manager.close_connection()
+        db_manager.close_connection()
