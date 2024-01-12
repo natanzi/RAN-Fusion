@@ -84,6 +84,7 @@ class Cell:
 #########################################################################################        
     def add_ue(self, ue, network_state):
     # Check if the UE ID is already in use in the network
+        # Check if the UE ID is already in use in the network
         if ue.ID in [existing_ue.ID for existing_ue in network_state.ues.values()]:
             raise Exception(f"UE with ID '{ue.ID}' already exists in the network.")
 

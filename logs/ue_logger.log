@@ -1534,3 +1534,83 @@
 {"level": "INFO", "timestamp": "2024-01-12 14:41:50", "message": "UE initialized with ID UE10 at 2024-01-12 14:42:07.988073", "test_id": "cd51bf6c-d890-414a-97f6-6045f5d908b6"}
 {"level": "ERROR", "timestamp": "2024-01-12 14:41:50", "message": "Failed to add UE 'UE10' to Cell 'AX9980' at '2024-01-12 14:41:50': UE with ID 'UE10' already exists in the network.", "test_id": "cd51bf6c-d890-414a-97f6-6045f5d908b6"}
 {"level": "ERROR", "timestamp": "2024-01-12 14:41:50", "message": "No available cell found for UE 'UE10' at '2024-01-12 14:41:50'.", "test_id": "cd51bf6c-d890-414a-97f6-6045f5d908b6"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE1 at 2024-01-12 14:48:18.467470", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE1 at 2024-01-12 14:48:18.468832", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "Failed to add UE 'UE1' to Cell 'Ax1242' at '2024-01-12 14:48:03': UE with ID 'UE1' already exists in the network.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE1 at 2024-01-12 14:48:18.469831", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "Failed to add UE 'UE1' to Cell 'AX1112' at '2024-01-12 14:48:03': UE with ID 'UE1' already exists in the network.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE1 at 2024-01-12 14:48:18.470827", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "Failed to add UE 'UE1' to Cell 'AX9980' at '2024-01-12 14:48:03': UE with ID 'UE1' already exists in the network.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "No available cell found for UE 'UE1' at '2024-01-12 14:48:03'.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE2 at 2024-01-12 14:48:18.472819", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE2 at 2024-01-12 14:48:18.472819", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "Failed to add UE 'UE2' to Cell 'Ax1242' at '2024-01-12 14:48:03': UE with ID 'UE2' already exists in the network.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE2 at 2024-01-12 14:48:18.473814", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "Failed to add UE 'UE2' to Cell 'AX1112' at '2024-01-12 14:48:03': UE with ID 'UE2' already exists in the network.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE2 at 2024-01-12 14:48:18.474810", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "Failed to add UE 'UE2' to Cell 'AX9980' at '2024-01-12 14:48:03': UE with ID 'UE2' already exists in the network.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "No available cell found for UE 'UE2' at '2024-01-12 14:48:03'.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE3 at 2024-01-12 14:48:18.475806", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE3 at 2024-01-12 14:48:18.475806", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "Failed to add UE 'UE3' to Cell 'Ax1242' at '2024-01-12 14:48:03': UE with ID 'UE3' already exists in the network.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE3 at 2024-01-12 14:48:18.476801", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "Failed to add UE 'UE3' to Cell 'AX1112' at '2024-01-12 14:48:03': UE with ID 'UE3' already exists in the network.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE3 at 2024-01-12 14:48:18.477797", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "Failed to add UE 'UE3' to Cell 'AX9980' at '2024-01-12 14:48:03': UE with ID 'UE3' already exists in the network.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "No available cell found for UE 'UE3' at '2024-01-12 14:48:03'.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE4 at 2024-01-12 14:48:18.479788", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE4 at 2024-01-12 14:48:18.479788", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "Failed to add UE 'UE4' to Cell 'Ax1242' at '2024-01-12 14:48:03': UE with ID 'UE4' already exists in the network.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE4 at 2024-01-12 14:48:18.480784", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "Failed to add UE 'UE4' to Cell 'AX1112' at '2024-01-12 14:48:03': UE with ID 'UE4' already exists in the network.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE4 at 2024-01-12 14:48:18.481779", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "Failed to add UE 'UE4' to Cell 'AX9980' at '2024-01-12 14:48:03': UE with ID 'UE4' already exists in the network.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "No available cell found for UE 'UE4' at '2024-01-12 14:48:03'.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE5 at 2024-01-12 14:48:18.482775", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE5 at 2024-01-12 14:48:18.482775", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "Failed to add UE 'UE5' to Cell 'Ax1242' at '2024-01-12 14:48:03': UE with ID 'UE5' already exists in the network.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE5 at 2024-01-12 14:48:18.483770", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "Failed to add UE 'UE5' to Cell 'AX1112' at '2024-01-12 14:48:03': UE with ID 'UE5' already exists in the network.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE5 at 2024-01-12 14:48:18.484767", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "Failed to add UE 'UE5' to Cell 'AX9980' at '2024-01-12 14:48:03': UE with ID 'UE5' already exists in the network.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "No available cell found for UE 'UE5' at '2024-01-12 14:48:03'.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE6 at 2024-01-12 14:48:18.485762", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE6 at 2024-01-12 14:48:18.485762", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "Failed to add UE 'UE6' to Cell 'Ax1242' at '2024-01-12 14:48:03': UE with ID 'UE6' already exists in the network.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE6 at 2024-01-12 14:48:18.486758", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "Failed to add UE 'UE6' to Cell 'AX1112' at '2024-01-12 14:48:03': UE with ID 'UE6' already exists in the network.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE6 at 2024-01-12 14:48:18.487753", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "Failed to add UE 'UE6' to Cell 'AX9980' at '2024-01-12 14:48:03': UE with ID 'UE6' already exists in the network.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "No available cell found for UE 'UE6' at '2024-01-12 14:48:03'.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE7 at 2024-01-12 14:48:18.488749", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE7 at 2024-01-12 14:48:18.488749", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "Failed to add UE 'UE7' to Cell 'Ax1242' at '2024-01-12 14:48:03': UE with ID 'UE7' already exists in the network.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE7 at 2024-01-12 14:48:18.489744", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "Failed to add UE 'UE7' to Cell 'AX1112' at '2024-01-12 14:48:03': UE with ID 'UE7' already exists in the network.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE7 at 2024-01-12 14:48:18.490740", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "Failed to add UE 'UE7' to Cell 'AX9980' at '2024-01-12 14:48:03': UE with ID 'UE7' already exists in the network.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "No available cell found for UE 'UE7' at '2024-01-12 14:48:03'.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE8 at 2024-01-12 14:48:18.491736", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE8 at 2024-01-12 14:48:18.491736", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "Failed to add UE 'UE8' to Cell 'Ax1242' at '2024-01-12 14:48:03': UE with ID 'UE8' already exists in the network.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE8 at 2024-01-12 14:48:18.492731", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "Failed to add UE 'UE8' to Cell 'AX1112' at '2024-01-12 14:48:03': UE with ID 'UE8' already exists in the network.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE8 at 2024-01-12 14:48:18.493727", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "Failed to add UE 'UE8' to Cell 'AX9980' at '2024-01-12 14:48:03': UE with ID 'UE8' already exists in the network.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "No available cell found for UE 'UE8' at '2024-01-12 14:48:03'.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE9 at 2024-01-12 14:48:18.494722", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE9 at 2024-01-12 14:48:18.494722", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "Failed to add UE 'UE9' to Cell 'Ax1242' at '2024-01-12 14:48:03': UE with ID 'UE9' already exists in the network.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE9 at 2024-01-12 14:48:18.495719", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "Failed to add UE 'UE9' to Cell 'AX1112' at '2024-01-12 14:48:03': UE with ID 'UE9' already exists in the network.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE9 at 2024-01-12 14:48:18.496714", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "Failed to add UE 'UE9' to Cell 'AX9980' at '2024-01-12 14:48:03': UE with ID 'UE9' already exists in the network.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "No available cell found for UE 'UE9' at '2024-01-12 14:48:03'.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE10 at 2024-01-12 14:48:18.497710", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE10 at 2024-01-12 14:48:18.497710", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "Failed to add UE 'UE10' to Cell 'Ax1242' at '2024-01-12 14:48:03': UE with ID 'UE10' already exists in the network.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE10 at 2024-01-12 14:48:18.498705", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "Failed to add UE 'UE10' to Cell 'AX1112' at '2024-01-12 14:48:03': UE with ID 'UE10' already exists in the network.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "INFO", "timestamp": "2024-01-12 14:48:03", "message": "UE initialized with ID UE10 at 2024-01-12 14:48:18.499701", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "Failed to add UE 'UE10' to Cell 'AX9980' at '2024-01-12 14:48:03': UE with ID 'UE10' already exists in the network.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
+{"level": "ERROR", "timestamp": "2024-01-12 14:48:03", "message": "No available cell found for UE 'UE10' at '2024-01-12 14:48:03'.", "test_id": "3a8783ee-348e-444d-bbe8-0180b7f4bc94"}
