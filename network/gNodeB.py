@@ -211,13 +211,21 @@ class gNodeB:
         time.sleep(1)
 
     def add_sector_to_cell(self, sector, cell):
-        # Add the sector to the cell's list of sectors
+    # Check if the cell exists in this gNodeB
+        if cell not in self.Cells:
+            raise ValueError(f"Cell '{cell.ID}' does not exist in gNodeB '{self.ID}'")
+    
+    # Check if the sector already exists in the cell
+        if cell.has_sector(sector):
+            raise ValueError(f"Sector '{sector.ID}' already exists in Cell '{cell.ID}'")
+    
+    # Add the sector to the cell's list of sectors
         cell.add_sector(sector)
-
-        # Update the NetworkState to include the new sector
+    
+    # Update the NetworkState to include the new sector
         network_state.add_sector(sector)
-
-        # Log the addition of the sector
+    
+    # Log the addition of the sector
         cell_logger.info(f"Sector '{sector.ID}' has been added to Cell '{cell.ID}' in gNodeB '{self.ID}'.")
 
 ####
