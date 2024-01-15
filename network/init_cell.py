@@ -28,7 +28,8 @@ def initialize_cells(gNodeBs, network_state):
         network_state.cells[cell_id] = new_cell  # Add the new cell to the network state
 
     # Now that cells list is populated, add it to the network state
-    network_state.add_cells(cells)
+    for cell in cells:
+        network_state.add_cell(cell)
     
     # Initialize the DatabaseManager with the required parameters
     db_manager = DatabaseManager(network_state)
