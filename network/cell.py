@@ -16,6 +16,7 @@ class Cell:
             raise ValueError(f"Duplicate cell ID {cell_id} is not allowed.")
         self.ID = cell_id
         self.gNodeB_ID = gnodeb_id
+        self.sectors = []
         self.FrequencyBand = frequencyBand
         self.DuplexMode = duplexMode
         self.TxPower = tx_power
@@ -122,6 +123,19 @@ class Cell:
             print(f"UE '{ue.ID}' is not connected to Cell '{self.ID}' and cannot be removed.")
             ue_logger.warning(f"Attempted to remove UE with ID {ue.ID} from Cell {self.ID} which is not connected.")
     #########################################################################################
+    def add_sector(self, sector):
+        self.sectors.append(sector)  
+        sector.set_cell(self)
+        
+    def remove_sector(self, sector_id):
+        self.sectors = [sector for sector in self.sectors if sector.sector_id != sector_id]
+
+    def get_sector(self, sector_id):
+        for sector in self.sectors:
+            if sector.sector_id == sector_id:
+                return sector
+        return None
+    #########################################################################################    
     def serialize_for_influxdb(self):
         point = Point("cell_metrics") \
             .tag("cell_id", self.ID) \

@@ -18,6 +18,7 @@ class NetworkState:
         self.last_update = datetime.min 
         self.db_manager = DatabaseManager(self)
         self.db_manager.set_network_state(self)
+        self.sectors = {}  # Add this line to store sectors by sector_id
 
     def add_cells(self, cells):
         with self.lock:
@@ -134,6 +135,33 @@ class NetworkState:
     def get_ue(self, ue_id):
         with self.lock:
             return self.ues.get(ue_id, None)
+########################################################################################################
+    def add_sector(self, sector):
+        with self.lock:
+            if sector.sector_id in self.sectors:
+                raise ValueError(f"Duplicate sector ID {sector.sector_id} found.")
+            self.sectors[sector.sector_id] = sector
+            self.cells[sector.cell_id].add_sector(sector)
+
+    def remove_sector(self, sector_id):
+        with self.lock:
+            sector = self.sectors.pop(sector_id, None)
+            if sector:
+                self.cells[sector.cell_id].remove_sector(sector_id)
+
+    def get_sector_info(self, sector_id):
+        with self.lock:
+            sector = self.sectors.get(sector_id)
+            if sector:
+                cell = self.cells.get(sector.cell_id)
+                gNodeB = self.gNodeBs.get(cell.gNodeB_ID) if cell else None
+                return {
+                    'Sector_ID': sector_id,
+                    'Cell_ID': sector.cell_id,
+                    'gNodeB_ID': cell.gNodeB_ID if cell else None,
+                    'gNodeB_Info': gNodeB.to_dict() if gNodeB else None
+                }
+        return None       
 ########################################################################################################
     def serialize_for_influxdb(self):
         with self.lock:
