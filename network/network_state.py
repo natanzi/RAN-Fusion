@@ -20,10 +20,11 @@ class NetworkState:
         self.db_manager.set_network_state(self)
         self.sectors = {}  # Add this line to store sectors by sector_id
 
-    def add_cells(self, cells):
+    def add_cell(self, cell):
         with self.lock:
-            for cell in cells:
-                self.cells[cell.ID] = cell
+            if cell.ID in self.cells:
+                raise ValueError(f"Duplicate cell ID {cell.ID} found.")
+            self.cells[cell.ID] = cell
 
     def get_cell_load_for_ue(self, ue_id):
     # Find the cell for the given UE
@@ -140,6 +141,8 @@ class NetworkState:
         with self.lock:
             if sector.sector_id in self.sectors:
                 raise ValueError(f"Duplicate sector ID {sector.sector_id} found.")
+            if sector.cell_id not in self.cells:
+                raise ValueError(f"Cell ID {sector.cell_id} not found.")
             self.sectors[sector.sector_id] = sector
             self.cells[sector.cell_id].add_sector(sector)
 
