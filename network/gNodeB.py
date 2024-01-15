@@ -185,7 +185,7 @@ class gNodeB:
         # Log the change
         cell_logger.info(f"gNodeB '{self.ID}' cell capacity updated to {self.CellCount}.")
 
-    def add_cell_to_gNodeB(self, cell):
+    def add_cell_to_gNodeB(self, cell, network_state):
         # Assuming 'cell' is an instance of Cell
         if len(self.Cells) >= self.CellCount:  # Check if the gNodeB can accommodate more cells
             print(f"gNodeB '{self.ID}' has reached its maximum cell capacity.")
@@ -210,7 +210,7 @@ class gNodeB:
         # Delay for 1 second as per the original requirement
         time.sleep(1)
 
-    def add_sector_to_cell(self, sector, cell):
+    def add_sector_to_cell(self, sector, cell, network_state):
     # Check if the cell exists in this gNodeB
         if cell not in self.Cells:
             raise ValueError(f"Cell '{cell.ID}' does not exist in gNodeB '{self.ID}'")
