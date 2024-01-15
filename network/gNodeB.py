@@ -186,9 +186,9 @@ class gNodeB:
         cell_logger.info(f"gNodeB '{self.ID}' cell capacity updated to {self.CellCount}.")
 
     def add_cell_to_gNodeB(self, cell, network_state):
-        # Assuming 'cell' is an instance of Cell
-        if len(self.Cells) >= self.CellCount:  # Check if the gNodeB can accommodate more cells
-            print(f"gNodeB '{self.ID}' has reached its maximum cell capacity.")
+    # Check if the cell has already been added to the gNodeB
+        if self.find_cell_by_id(cell.ID):
+            cell_logger.warning(f"Cell {cell.ID} is already added to gNodeB {self.ID}. Ignoring.")
             return
 
         # Set the parent gNodeB reference for the cell

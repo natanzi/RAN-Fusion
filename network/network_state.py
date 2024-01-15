@@ -6,6 +6,7 @@ from datetime import datetime
 from influxdb_client import Point, WritePrecision
 from logs.logger_config import database_logger
 from database.time_utils import get_current_time_ntp, server_pools
+from logs.logger_config import cell_logger
 time = current_time = get_current_time_ntp()
 
 class NetworkState:
@@ -23,7 +24,8 @@ class NetworkState:
     def add_cell(self, cell):
         with self.lock:
             if cell.ID in self.cells:
-                raise ValueError(f"Duplicate cell ID {cell.ID} found.")
+                cell_logger.warning(f"Attempted to add duplicate cell ID {cell.ID}. Ignoring.")
+                return
             self.cells[cell.ID] = cell
 
     def get_cell_load_for_ue(self, ue_id):
