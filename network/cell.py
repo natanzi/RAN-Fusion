@@ -135,7 +135,10 @@ class Cell:
             if sector.sector_id == sector_id:
                 return sector
         return None
-    #########################################################################################    
+    ######################################################################################### 
+    def set_gNodeB(self, gNodeB):
+        self.gNodeB = gNodeB
+    ######################################################################################### 
     def serialize_for_influxdb(self):
         point = Point("cell_metrics") \
             .tag("cell_id", self.ID) \
