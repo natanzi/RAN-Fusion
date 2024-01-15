@@ -5,6 +5,7 @@ import json
 from .cell import Cell
 from database.database_manager import DatabaseManager
 from .network_state import NetworkState
+from logs.logger_config import cell_logger
 
 def load_json_config(file_path):
     with open(file_path, 'r') as file:
@@ -14,18 +15,26 @@ def initialize_cells(gNodeBs, network_state):
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     config_dir = os.path.join(base_dir, 'Config_files')
     cells_config = load_json_config(os.path.join(config_dir, 'cell_config.json'))
-    
+
     # Initialize Cells and link them to gNodeBs
     for cell_data in cells_config['cells']:
         cell_id = cell_data['cell_id']
+        # Log the cell ID before attempting to add
+        cell_logger.info(f"Attempting to add cell with ID: {cell_id}")
         # Create the Cell instance
         new_cell = Cell.from_json(cell_data)
         # Add the new cell to the network state using add_cell method
-        network_state.add_cell(new_cell)
-    
+        try:
+            network_state.add_cell(new_cell)
+            # Log the successful addition
+            cell_logger.info(f"Successfully added cell with ID: {cell_id}")
+        except ValueError as e:
+            # Log the error if a duplicate is found
+            cell_logger.error(e)
+            continue  # Skip adding this cell and continue with the next
+
     # Initialize the DatabaseManager with the required parameters
     db_manager = DatabaseManager(network_state)
-
     for cell_id, cell in network_state.cells.items():
         # Serialize and write to InfluxDB
         point = cell.serialize_for_influxdb()
@@ -34,8 +43,6 @@ def initialize_cells(gNodeBs, network_state):
         gnodeb = gNodeBs.get(cell.gNodeB_ID)
         if gnodeb:
             gnodeb.add_cell_to_gNodeB(cell, network_state)
-
     # Close the database connection
     db_manager.close_connection()
-
     return list(network_state.cells.values())
