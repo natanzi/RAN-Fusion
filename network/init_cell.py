@@ -21,7 +21,7 @@ def initialize_cells(gNodeBs, network_state):
         cell_id = cell_data['cell_id']
         # Check if the cell already exists in the network state
         if cell_id in network_state.cells:
-            cell_logger.warning(f"Cell with ID {cell_id} already exists in network state. Skipping addition.")
+            cell_logger.warning(f"Cell with ID {cell_id} already exists. Skipping addition.")
             continue
         # Log the cell ID before attempting to add
         cell_logger.info(f"Attempting to add cell with ID: {cell_id}")

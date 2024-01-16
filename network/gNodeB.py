@@ -173,7 +173,10 @@ class gNodeB:
         :return: The cell with the matching ID or None if not found.
         """
         #return next((cell for cell in self.Cells if cell.ID == cell_id), None)
-        
+        for cell in self.Cells:
+            if cell.ID == cell_id:
+                return cell
+        return None
     def update_cell_capacity(self, new_capacity):
         # Check if the new capacity is valid
         if new_capacity < 0:
