@@ -6,7 +6,7 @@ from datetime import datetime
 from influxdb_client import Point, WritePrecision
 from logs.logger_config import database_logger
 from database.time_utils import get_current_time_ntp, server_pools
-from logs.logger_config import cell_logger
+from logs.logger_config import cell_logger, ue_logger
 time = current_time = get_current_time_ntp()
 
 class NetworkState:
@@ -22,16 +22,12 @@ class NetworkState:
         self.sectors = {}  # Add this line to store sectors by sector_id
 
     def add_cell(self, cell):
-        # Check if the cell already exists in the network state
-        existing_cell = self.find_cell_by_id(cell.ID)
-        if existing_cell is not None:
+        if cell.ID not in self.cells:
+            self.cells[cell.ID] = cell
+            cell_logger.info(f"Cell {cell.ID} added to the network state.")
+        else:
             cell_logger.warning(f"Cell {cell.ID} is already in the network state. Ignoring.")
-            return
 
-        # Add the cell to the network state
-        self.cells.append(cell)
-        cell_logger.info(f"Cell {cell.ID} added to the network state.")
-    
     def find_cell_by_id(self, cell_id):
         """
         Finds a cell by its ID within the network state's list of cells.
@@ -126,11 +122,11 @@ class NetworkState:
         return None
     
     def add_ue(self, ue):
-        with self.lock:
-            if ue.ID in self.ues:
-                return False  # UE already exists
+        if ue.ID not in self.ues:
             self.ues[ue.ID] = ue
-            return True
+            ue_logger.info(f"UE {ue.ID} added to the network state.")
+        else:
+            ue_logger.error(f"Failed to add UE '{ue.ID}': UE with ID '{ue.ID}' already exists in the network.")
 
     def remove_ue(self, ue_id):
         with self.lock:
