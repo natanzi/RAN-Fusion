@@ -37,4 +37,5 @@ def initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, ue_confi
     # Print the network state
     network_state.print_state()
 
+    # Return the list of initialized UEs for further processing or verification
     return gNodeBs, cells, ues

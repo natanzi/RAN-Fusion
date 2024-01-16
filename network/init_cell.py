@@ -1,4 +1,4 @@
- #init_cell.py
+#init_cell.py
 # Initialization of the cells in network directory
 import os
 import json
