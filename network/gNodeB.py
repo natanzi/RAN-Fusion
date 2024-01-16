@@ -172,11 +172,12 @@ class gNodeB:
         :param cell_id: The ID of the cell to find.
         :return: The cell with the matching ID or None if not found.
         """
-        #return next((cell for cell in self.Cells if cell.ID == cell_id), None)
         for cell in self.Cells:
             if cell.ID == cell_id:
                 return cell
         return None
+
+    
     def update_cell_capacity(self, new_capacity):
         # Check if the new capacity is valid
         if new_capacity < 0:
@@ -193,6 +194,7 @@ class gNodeB:
         if self.find_cell_by_id(cell.ID):
             cell_logger.warning(f"Cell {cell.ID} is already added to gNodeB {self.ID}. Ignoring.")
             return
+
 
         # Set the parent gNodeB reference for the cell
         cell.set_gNodeB(self)

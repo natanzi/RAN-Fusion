@@ -22,12 +22,25 @@ class NetworkState:
         self.sectors = {}  # Add this line to store sectors by sector_id
 
     def add_cell(self, cell):
-        with self.lock:
-            if cell.ID in self.cells:
-                cell_logger.warning(f"Attempted to add duplicate cell ID {cell.ID}. Ignoring.")
-                return
-            self.cells[cell.ID] = cell
+        # Check if the cell already exists in the network state
+        existing_cell = self.find_cell_by_id(cell.ID)
+        if existing_cell is not None:
+            cell_logger.warning(f"Cell {cell.ID} is already in the network state. Ignoring.")
+            return
 
+        # Add the cell to the network state
+        self.cells.append(cell)
+        cell_logger.info(f"Cell {cell.ID} added to the network state.")
+    
+    def find_cell_by_id(self, cell_id):
+        """
+        Finds a cell by its ID within the network state's list of cells.
+
+        :param cell_id: The ID of the cell to find.
+        :return: The cell with the matching ID or None if not found.
+        """
+        return self.cells.get(cell_id, None)
+    
     def get_cell_load_for_ue(self, ue_id):
     # Find the cell for the given UE
         ue = self.ues.get(ue_id)
