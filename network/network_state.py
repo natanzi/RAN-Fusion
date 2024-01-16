@@ -22,11 +22,12 @@ class NetworkState:
         self.sectors = {}  # Add this line to store sectors by sector_id
 
     def add_cell(self, cell):
-        if cell.ID not in self.cells:
-            self.cells[cell.ID] = cell
-            cell_logger.info(f"Cell {cell.ID} added to the network state.")
-        else:
-            cell_logger.warning(f"Cell {cell.ID} is already in the network state. Ignoring.")
+        with self.lock:
+            if cell.ID not in self.cells:
+                self.cells[cell.ID] = cell
+                cell_logger.info(f"Cell {cell.ID} added to the network state.")
+            else:
+                cell_logger.warning(f"Cell {cell.ID} is already in the network state. Ignoring.")
 
     def find_cell_by_id(self, cell_id):
         """
