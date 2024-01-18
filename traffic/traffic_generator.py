@@ -448,6 +448,38 @@ class TrafficController:
 
         return traffic_data
 ###########################################################################################
+# Method to start traffic generation for a specific UE
+    def start_ue_traffic(self, ue_id):
+        # Logic to start traffic generation for the specified UE
+        # Assuming network_state is accessible and has a method to get a UE by ID
+        ue = self.network_state.get_ue_by_id(ue_id)
+        if ue:
+            ue.start_traffic()  # Assuming UE class has a method to start traffic
+            traffic_update.info(f"Starting traffic generation for UE {ue_id}.")
+        else:
+            traffic_update.error(f"UE with ID {ue_id} not found.")
+
+    # Method to update traffic generation for a specific UE
+    def update_ue_traffic(self, ue_id, new_params):
+        # Logic to update traffic generation parameters for the specified UE
+        with self.lock:
+            ue = self.network_state.get_ue_by_id(ue_id)
+            if ue:
+                ue.update_traffic_model(new_params)  # Assuming UE class has a method to update traffic model
+                traffic_update.info(f"Updated traffic parameters for UE {ue_id}: {new_params}")
+            else:
+                traffic_update.error(f"UE with ID {ue_id} not found.")
+
+    # Method to stop traffic generation for a specific UE
+    def stop_ue_traffic(self, ue_id):
+        # Logic to stop traffic generation for the specified UE
+        ue = self.network_state.get_ue_by_id(ue_id)
+        if ue:
+            ue.stop_traffic()  # Assuming UE class has a method to stop traffic
+            traffic_update.info(f"Stopping traffic generation for UE {ue_id}.")
+        else:
+            traffic_update.error(f"UE with ID {ue_id} not found.")    
+###########################################################################################
     @staticmethod
     def handle_commands(command_queue, traffic_controller):
         while True:

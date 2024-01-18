@@ -9,9 +9,11 @@ from network.network_state import NetworkState
 from logs.logger_config import ue_logger
 from datetime import datetime
 from influxdb_client import Point
+import threading
 
 class UE:
     def __init__(self, ue_id, location, connected_cell_id, gnodeb_id, is_mobile, initial_signal_strength, rat, max_bandwidth, duplex_mode, tx_power, modulation, coding, mimo, processing, bandwidth_parts, channel_model, velocity, direction, traffic_model, scheduling_requests, rlc_mode, snr_thresholds, ho_margin, n310, n311, model, service_type=None):
+        self.lock = threading.Lock()
         self.ID = ue_id
         self.IMEI = self.allocate_imei()  # Always generate a new IMEI
         self.Location = location
@@ -199,8 +201,25 @@ class UE:
         ue_logger.info(f"Traffic model updated for UE {self.ID} with parameters: {traffic_params}")
 ####################################################################################################
     def update_parameters(self, params):
-        for key, value in params.items():
-            setattr(self, key, value)
+        with self.lock:
+            for key, value in params.items():
+                if hasattr(self, key):
+                    setattr(self, key, value)
+                else:
+                    ue_logger.warning(f"Attempt to update non-existing parameter '{key}' for UE {self.ID}")
+            ue_logger.info(f"Parameters updated for UE {self.ID}: {params}")
+####################################################################################################
+    def start_traffic(self):
+        # Logic to start traffic generation for this UE
+        # This could involve setting a flag or starting a traffic generation thread
+        self.is_traffic_active = True
+        ue_logger.info(f"Traffic generation started for UE {self.ID}.")
+
+    def stop_traffic(self):
+        # Logic to stop traffic generation for this UE
+        # This could involve clearing a flag or stopping a traffic generation thread
+        self.is_traffic_active = False
+        ue_logger.info(f"Traffic generation stopped for UE {self.ID}.")
 ####################################################################################################        
     def serialize_for_influxdb(self):
         point = Point("ue_metrics") \
