@@ -45,6 +45,7 @@ class UE:
         self.ScreenSize = f"{random.uniform(5.0, 7.0):.1f} inches"  # Always randomly generate screen size
         self.BatteryLevel = random.randint(10, 100)  # Always randomly generate battery level
         self.traffic_volume = 0  # Initialize with a default value or a calculated value
+        
         ue_logger.info(f"UE initialized with ID {ue_id} at {datetime.now()}")
 
     @staticmethod
