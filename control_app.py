@@ -218,42 +218,48 @@ def add_ue():
     try:
         ue_data = {'ues': [data]}
         ue = UE.from_json(ue_data)[0]
-        success = network_state.add_ue(ue)  # This method should be implemented in NetworkState
+        with lock:  # Ensure thread safety
+            success = network_state.add_ue(ue)
         if success:
+            server_logger.info(f'UE {ue.ue_id} added successfully')
             return jsonify({'message': 'UE added successfully'}), 200
         else:
-            return jsonify({'error': 'Failed to add UE'}), 409  # Use appropriate status code
+            server_logger.error(f'Failed to add UE: {data}')
+            return jsonify({'error': 'Failed to add UE'}), 409
     except Exception as e:
-        # Log the exception here
+        server_logger.exception('Failed to add UE')
         return jsonify({'error': str(e)}), 500
 ##############################################################################################################
-
 @app.route('/remove_ue/<ue_id>', methods=['DELETE'])
 def remove_ue(ue_id):
     try:
-        success = network_state.remove_ue(ue_id)  # This method should be implemented in NetworkState
+        with lock:  # Ensure thread safety
+            success = network_state.remove_ue(ue_id)
         if success:
+            server_logger.info(f'UE {ue_id} removed successfully')
             return jsonify({'message': 'UE removed successfully'}), 200
         else:
+            server_logger.error(f'Failed to remove UE: {ue_id}')
             return jsonify({'error': 'Failed to remove UE'}), 500
     except Exception as e:
+        server_logger.exception('Failed to remove UE')
         return jsonify({'error': str(e)}), 500
 ##############################################################################################################
-
 @app.route('/update_ue/<ue_id>', methods=['PATCH'])
 def update_ue(ue_id):
     data = request.json
     try:
-        success = network_state.update_ue(ue_id, data)  # Use the update_ue method from NetworkState
+        with lock:  # Ensure thread safety
+            success = network_state.update_ue(ue_id, data)
         if success:
+            server_logger.info(f'UE {ue_id} updated successfully')
             return jsonify({'message': 'UE updated successfully'}), 200
         else:
+            server_logger.error(f'Failed to update UE: {ue_id}')
             return jsonify({'error': 'Failed to update UE'}), 400  # Use 400 for client-side errors
     except Exception as e:
+        server_logger.exception(f'Exception occurred while updating UE: {ue_id}')
         return jsonify({'error': str(e)}), 500
-
-if __name__ == '__main__':
-    app.run(debug=True)
 ##############################################################################################################
 
 if __name__ == '__main__':
