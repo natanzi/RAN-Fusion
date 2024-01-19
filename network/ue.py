@@ -12,7 +12,7 @@ from influxdb_client import Point
 import threading
 
 class UE:
-    def __init__(self, ue_id, location, connected_cell_id, gnodeb_id, is_mobile, initial_signal_strength, rat, max_bandwidth, duplex_mode, tx_power, modulation, coding, mimo, processing, bandwidth_parts, channel_model, velocity, direction, traffic_model, scheduling_requests, rlc_mode, snr_thresholds, ho_margin, n310, n311, model, service_type=None):
+    def __init__(self, ue_id, location, connected_cell_id, gnodeb_id, is_mobile, initial_signal_strength, rat, max_bandwidth, duplex_mode, tx_power, modulation, coding, mimo, processing, bandwidth_parts, channel_model, velocity, direction, traffic_model, scheduling_requests, rlc_mode, snr_thresholds, ho_margin, n310, n311, model, service_type=None, datasize=None):
         self.lock = threading.Lock()
         self.ID = ue_id
         self.IMEI = self.allocate_imei()  # Always generate a new IMEI
@@ -45,7 +45,7 @@ class UE:
         self.ScreenSize = f"{random.uniform(5.0, 7.0):.1f} inches"  # Always randomly generate screen size
         self.BatteryLevel = random.randint(10, 100)  # Always randomly generate battery level
         self.traffic_volume = 0  # Initialize with a default value or a calculated value
-        
+        self.DataSize = datasize
         ue_logger.info(f"UE initialized with ID {ue_id} at {datetime.now()}")
 
     @staticmethod
@@ -72,6 +72,8 @@ class UE:
         for item in json_data["ues"]:
             ue_id = item["ue_id"] 
             gnodeb_id = item.get("gNodeB_ID")  # Extract gNodeB_ID from the JSON item
+            service_class = item.get("serviceClass")
+            datasize = item.get("datasize")
             ue = UE(
                 ue_id=ue_id,
                 location=(item["location"]["latitude"], item["location"]["longitude"]),
