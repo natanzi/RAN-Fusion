@@ -72,7 +72,7 @@ class UE:
         for item in json_data["ues"]:
             ue_id = item["ue_id"] 
             gnodeb_id = item.get("gNodeB_ID")  # Extract gNodeB_ID from the JSON item
-            service_class = item.get("serviceClass")
+            service_type = item.get("serviceType")
             datasize = item.get("datasize")
             ue = UE(
                 ue_id=ue_id,
