@@ -25,9 +25,10 @@ class NetworkState:
         with self.lock:  # Assuming a threading lock is used for thread-safe operations
             if cell.ID in self.cells:
                 cell_logger.error(f"Duplicate cell ID {cell.ID} detected. Skipping addition.")
-            raise ValueError(f"Cell {cell.ID} already exists in the network state.")
-            self.cells[cell.ID] = cell
-            cell_logger.info(f"Cell {cell.ID} added to the network state.")
+                raise ValueError(f"Cell {cell.ID} already exists in the network state.")
+            else:
+                self.cells[cell.ID] = cell
+                cell_logger.info(f"Cell {cell.ID} added to the network state.")
 
     def find_cell_by_id(self, cell_id):
         """
@@ -229,9 +230,6 @@ class NetworkState:
             self.db_manager.close_connection()
         end_time = get_current_time_ntp()
 
-    # Assuming you want to log the start and end times
-        #database_logger.info(f"Start Time for saving state to InfluxDB: {start_time}")
-        #database_logger.info(f"End Time for saving state to InfluxDB: {end_time}")
 ########################################################################################################    
     def print_state(self):
         print("Network State:")
