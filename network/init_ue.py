@@ -87,6 +87,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
 
         # Create the UE object
         ue = UE(**ue_data)
+
         # Attempt to add the UE to the network state
         if network_state.add_ue(ue):
             ue_logger.info(f"Successfully added UE '{ue.ID}' to the network.")
@@ -94,11 +95,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
             ue_logger.error(f"Failed to add UE '{ue.ID}' to the network.")
             continue  # Skip to the next UE if adding failed
 
-        # Add the UE to the network state
-        if not network_state.add_ue(ue):
-            ue_logger.error(f"Failed to add UE '{ue_id}' to the network.")
-            continue  # Skip to the next UE if adding failed
-            
+        
         # Check if specific gNodeB and Cell IDs are provided and not empty
         specified_gnodeb_id = ue_data.get('gnodeb_id')
         specified_connected_cell_id = ue_data.get('connectedCellId')
