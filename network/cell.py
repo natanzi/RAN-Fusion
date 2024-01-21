@@ -8,6 +8,7 @@ import time
 from influxdb_client import Point
 from influxdb_client.client.write_api import SYNCHRONOUS
 from database.time_utils import get_current_time_ntp, server_pools
+from handover_utils import perform_handover, handle_load_balancing
 
 class Cell:
     def __init__(self, cell_id, gnodeb_id, frequencyBand, duplexMode, tx_power, bandwidth, ssb_periodicity, ssb_offset, max_connect_ues, max_throughput,  channel_model, trackingArea=None, network_state=None, is_active=True):
@@ -87,6 +88,20 @@ class Cell:
         # Check if the UE ID is already in use in the network
         if ue.ID in [existing_ue.ID for existing_ue in network_state.ues.values()]:
             raise Exception(f"UE with ID '{ue.ID}' already exists in the network.")
+
+        # Check if the cell is at or above 80% capacity
+        if len(self.ConnectedUEs) >= (0.8 * self.MaxConnectedUEs):
+            capacity_pct = len(self.ConnectedUEs) / self.MaxConnectedUEs * 100
+            warning_msg = f"Cell '{self.ID}' is at {capacity_pct:.2f}% capacity but will still accept UE '{ue.ID}'"
+            ue_logger.warning(warning_msg)
+        # Trigger the handover process
+            
+        if handle_load_balancing(self.gNodeB_ID, network_state):
+            # Handover was successful, no need to add UE to this cell
+            return
+        else:
+            # Handover was not possible, proceed with caution
+            ue_logger.warning(f"Handover failed or not feasible for UE '{ue.ID}'. Adding to Cell '{self.ID}' with caution.")
 
         # Check if the cell has reached its maximum capacity
         if len(self.ConnectedUEs) >= self.MaxConnectedUEs:
