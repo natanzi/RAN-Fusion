@@ -87,7 +87,6 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
 
         # Create the UE object
         ue = UE(**ue_data)
-
         # Attempt to add the UE to the network state
         if network_state.add_ue(ue):
             ue_logger.info(f"Successfully added UE '{ue.ID}' to the network.")
@@ -123,18 +122,19 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
                 ue_location = random_location_within_radius(latitude, longitude, selected_gNodeB.CoverageRadius)
                 ue_data['location'] = ue_location
                 available_cells = [cell for cell in selected_gNodeB.Cells if cell.current_ue_count < cell.MaxConnectedUEs and cell.IsActive]
+                
                 if available_cells:
                     least_loaded_cell = sorted(available_cells, key=lambda cell: cell.current_ue_count)[0]
                     ue_data['connected_cell_id'] = least_loaded_cell.ID
                     ue_data['gnodeb_id'] = selected_gNodeB.ID
                     ue = UE(**ue_data)
-                    try:
+                try:
                         least_loaded_cell.add_ue(ue, network_state)
                         ue_logger.info(f"UE '{ue.ID}' has been attached to Cell '{least_loaded_cell.ID}' at '{current_time}'.")
                         ue.ConnectedCellID = least_loaded_cell.ID
                         assigned = True
                         break  # Exit the loop as the UE has been successfully assigned
-                    except Exception as e:
+                except Exception as e:
                         ue_logger.error(f"Failed to add UE '{ue.ID}' to Cell '{least_loaded_cell.ID}' at '{current_time}': {e}")
 
                 if not assigned:
