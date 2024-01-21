@@ -15,7 +15,15 @@ def initialize_cells(gNodeBs, network_state):
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     config_dir = os.path.join(base_dir, 'Config_files')
     cells_config = load_json_config(os.path.join(config_dir, 'cell_config.json'))
-
+    
+    # Pre-validation to check for duplicate cell IDs in the configuration
+    seen_cell_ids = set()
+    for cell_data in cells_config['cells']:
+        cell_id = cell_data['cell_id']
+        if cell_id in seen_cell_ids:
+            raise ValueError(f"Duplicate cell ID {cell_id} found in cell configuration.")
+        seen_cell_ids.add(cell_id)
+        
     # Initialize Cells and link them to gNodeBs
     for cell_data in cells_config['cells']:
         cell_id = cell_data['cell_id']
