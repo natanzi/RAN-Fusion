@@ -1,7 +1,6 @@
 # handover_utils.py and it is inside the network folder
 from datetime import datetime
 import logging
-from .cell import Cell
 from .network_state import NetworkState
 from logs.logger_config import cell_load_logger, cell_logger, gnodeb_logger, ue_logger
 from database.database_manager import DatabaseManager
@@ -9,6 +8,7 @@ import time
 
 ################################################Handover Execution#######################################################
 def perform_handover(gnodeb, ue, target_cell, network_state):
+    from .cell import Cell
     handover_successful = False
     current_cell_id = ue.ConnectedCellID
     original_cell = next((cell for cell in gnodeb.Cells if cell.ID == current_cell_id), None)
@@ -61,6 +61,7 @@ def log_handover_failure(message, ue, original_cell, target_cell, rollback=False
             gnodeb_logger.critical(f"Rollback failed for UE {ue.ID} to original cell {original_cell.ID}.")
 
 def update_handover_counts(gnodeb, handover_successful, network_state):
+    from .cell import Cell
     if handover_successful:
         gnodeb.handover_success_count += 1
         # Assuming handle_load_balancing is defined elsewhere and is relevant here

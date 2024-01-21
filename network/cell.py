@@ -8,7 +8,6 @@ import time
 from influxdb_client import Point
 from influxdb_client.client.write_api import SYNCHRONOUS
 from database.time_utils import get_current_time_ntp, server_pools
-from handover_utils import perform_handover, handle_load_balancing
 
 class Cell:
     def __init__(self, cell_id, gnodeb_id, frequencyBand, duplexMode, tx_power, bandwidth, ssb_periodicity, ssb_offset, max_connect_ues, max_throughput,  channel_model, trackingArea=None, network_state=None, is_active=True):
@@ -85,6 +84,8 @@ class Cell:
         return len(self.ConnectedUEs)
 #########################################################################################        
     def add_ue(self, ue, network_state):
+        from .handover_utils import perform_handover, handle_load_balancing
+
         # Check if the UE ID is already in use in the network
         if ue.ID in [existing_ue.ID for existing_ue in network_state.ues.values()]:
             raise Exception(f"UE with ID '{ue.ID}' already exists in the network.")
