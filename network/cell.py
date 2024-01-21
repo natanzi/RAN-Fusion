@@ -84,27 +84,28 @@ class Cell:
         return len(self.ConnectedUEs)
 #########################################################################################        
     def add_ue(self, ue, network_state):
-    # Check if the UE ID is already in use in the network
         # Check if the UE ID is already in use in the network
         if ue.ID in [existing_ue.ID for existing_ue in network_state.ues.values()]:
             raise Exception(f"UE with ID '{ue.ID}' already exists in the network.")
 
-    # Check if the cell has reached its maximum capacity
+        # Check if the cell has reached its maximum capacity
         if len(self.ConnectedUEs) >= self.MaxConnectedUEs:
             raise Exception(f"Cell '{self.ID}' has reached its maximum capacity.")
 
-    # Add the UE to the cell
+        # Add the UE to the cell
         current_time = get_current_time_ntp()
         self.ConnectedUEs.append(ue)
         self.current_ue_count = self.update_ue_count()  # Update the UE count after adding
+
+        # Log the addition of the UE
         ue_logger.info(f"UE with ID {ue.ID} added to Cell {self.ID} at '{current_time}'")
         cell_logger.info(f"UE '{ue.ID}' has been added to Cell '{self.ID}'.")
 
-    # Update the network state here
+        # Update the network state here
         network_state.ues[ue.ID] = ue  # Add the UE to the network state
         network_state.update_state(network_state.gNodeBs, list(network_state.cells.values()), list(network_state.ues.values()))
 
-    # Log the addition
+        # Log the successful attachment
         cell_logger.info(f"UE '{ue.ID}' has been attached to Cell '{self.ID}' at '{current_time}'.")
         ue_logger.info(f"UE '{ue.ID}' has been attached to Cell '{self.ID}' at '{current_time}'.")
         print(f"UE '{ue.ID}' has been attached to Cell '{self.ID}' at '{current_time}'.")
