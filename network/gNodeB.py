@@ -189,31 +189,30 @@ class gNodeB:
         # Log the change
         cell_logger.info(f"gNodeB '{self.ID}' cell capacity updated to {self.CellCount}.")
 
-    def add_cell_to_gNodeB(self, cell, network_state):
-    # Check if the cell has already been added to the gNodeB
-        if self.find_cell_by_id(cell.ID):
-            cell_logger.warning(f"Cell {cell.ID} is already added to gNodeB {self.ID}. Ignoring.")
-            return
+def add_cell_to_gNodeB(self, cell, network_state):
+    if cell.ID in [c.ID for c in self.Cells]:
+        cell_logger.warning(f"Cell {cell.ID} is already added to gNodeB {self.ID}. Ignoring.")
+        return
 
+    # Set the parent gNodeB reference for the cell
+    cell.set_gNodeB(self)
 
-        # Set the parent gNodeB reference for the cell
-        cell.set_gNodeB(self)
+    # Add the cell to the gNodeB's list of cells 
+    self.Cells.append(cell)
+    print(f"Cell '{cell.ID}' has been added to gNodeB '{self.ID}'.")
+    cell_logger.info(f"Cell '{cell.ID}' has been added to gNodeB '{self.ID}'.")
 
-        # Add the cell to the gNodeB's list of cells
-        self.Cells.append(cell)
-        print(f"Cell '{cell.ID}' has been added to gNodeB '{self.ID}'.")
-        cell_logger.info(f"Cell '{cell.ID}' has been added to gNodeB '{self.ID}'.")
+    # Update the NetworkState to include the new cell
+    network_state.add_cell(cell)
 
-        # Update the NetworkState to include the new cell
-        network_state.add_cell(cell)
+    # Add sectors to the cell if they are not already present
+    for sector in cell.sectors:
+        if not cell.has_sector(sector):
+            self.add_sector_to_cell(sector, cell)
 
-        # Add sectors to the cell if they are not already present
-        for sector in cell.sectors:
-            if not cell.has_sector(sector):
-                self.add_sector_to_cell(sector, cell)
+    # Delay for 1 second as per the original requirement
+    time.sleep(1)
 
-        # Delay for 1 second as per the original requirement
-        time.sleep(1)
 
     def add_sector_to_cell(self, sector, cell, network_state):
     # Check if the cell exists in this gNodeB
@@ -232,9 +231,6 @@ class gNodeB:
     
     # Log the addition of the sector
         cell_logger.info(f"Sector '{sector.ID}' has been added to Cell '{cell.ID}' in gNodeB '{self.ID}'.")
-
-####
-
 
 ###################################################################################################
 #####################################Load Calculation##############################################
