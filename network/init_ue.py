@@ -121,12 +121,10 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
             for _ in range(len(round_robin_queue)):
                 selected_gNodeB = round_robin_queue.pop(0)
                 round_robin_queue.append(selected_gNodeB)
-
                 # Generate a random location within the coverage radius of the selected gNodeB
                 latitude, longitude = selected_gNodeB.Location
                 ue_location = random_location_within_radius(latitude, longitude, selected_gNodeB.CoverageRadius)
                 ue_data['location'] = ue_location
-
                 available_cells = [cell for cell in selected_gNodeB.Cells if cell.current_ue_count < cell.MaxConnectedUEs and cell.IsActive]
                 if available_cells:
                     least_loaded_cell = sorted(available_cells, key=lambda cell: cell.current_ue_count)[0]
@@ -138,17 +136,12 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
                         ue_logger.info(f"UE '{ue.ID}' has been attached to Cell '{least_loaded_cell.ID}' at '{current_time}'.")
                         ue.ConnectedCellID = least_loaded_cell.ID
                         assigned = True
-                        break                 # Exit the loop as the UE has been successfully assigned
+                        break  # Exit the loop as the UE has been successfully assigned
                     except Exception as e:
                         ue_logger.error(f"Failed to add UE '{ue.ID}' to Cell '{least_loaded_cell.ID}' at '{current_time}': {e}")
-                        ue_logger.info(f"UE '{ue.ID}' has been attached to Cell '{least_loaded_cell.ID}' at '{current_time}'.")
-                        assigned = True
-                        break
-                    except Exception as e:
-                        ue_logger.error(f"Failed to add UE '{ue.ID}' to Cell '{least_loaded_cell.ID}' at '{current_time}': {e}")
-                        # Do not set assigned to True or break here, as the addition failed
+
                 if not assigned:
-                    ue_logger.error(f"No available cell found for UE '{ue_id}' at '{current_time}'.")
+                    ue_logger.error(f"No available cell found for UE '{ue.ID}' at '{current_time}'.")
                     continue  # Skip the rest of the loop if no cell is available
 
         # Serialize and write to InfluxDB
