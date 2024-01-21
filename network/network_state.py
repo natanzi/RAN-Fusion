@@ -51,18 +51,27 @@ class NetworkState:
         return None  # or an appropriate default value if the UE is not found
     
     def update_state(self, gNodeBs, cells, ues):
-        # Update gNodeBs and cells normally
+        # Update gNodeBs normally
         self.gNodeBs = gNodeBs
-        self.cells = {cell.ID: cell for cell in cells}
-
-        # Update UEs, but check for duplicates first
+    
+    # Update cells, but check for duplicates first
+        new_cells = {}
+        for cell in cells:
+            if cell.ID in self.cells:
+                cell_logger.error(f"Duplicate cell ID {cell.ID} detected during state update.")
+            raise ValueError(f"Duplicate cell ID {cell.ID} found during state update.")
+        new_cells[cell.ID] = cell
+        self.cells = new_cells
+    
+    # Update UEs, but check for duplicates first
         new_ues = {}
         for ue in ues:
             if ue.ID in self.ues:
+                ue_logger.error(f"Duplicate UE ID {ue.ID} detected during state update.")
                 raise ValueError(f"Duplicate UE ID {ue.ID} found during state update.")
             new_ues[ue.ID] = ue
         self.ues = new_ues
-
+    
         # Assign neighbors to cells and update the last update timestamp
         self.assign_neighbors_to_cells()
         self.last_update = get_current_time_ntp()
