@@ -1,6 +1,7 @@
 # init_ue.py
 # Initialization of UEs
 import random
+import string
 from database.database_manager import DatabaseManager
 from .utils import random_location_within_radius
 from .ue import UE
@@ -89,8 +90,8 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
 
         # Add the UE to the network state
         if not network_state.add_ue(ue):
-            # Handle the case where the UE could not be added
             ue_logger.error(f"Failed to add UE '{ue_id}' to the network.")
+            continue  # Skip to the next UE if adding failed
             
         # Check if specific gNodeB and Cell IDs are provided and not empty
         specified_gnodeb_id = ue_data.get('gnodeb_id')
@@ -141,9 +142,20 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
                 continue  # Skip the rest of the loop if no cell is available
 
         # Serialize and write to InfluxDB
-        point = ue.serialize_for_influxdb()
-        db_manager.insert_data(point)
-        ues.append(ue)
+        try:
+            point = ue.serialize_for_influxdb()
+            db_manager.insert_data(point)
+            ues.append(ue)
+        except Exception as e:
+            ue_logger.error(f"Failed to serialize or write UE '{ue.ID}' to InfluxDB at '{current_time}': {e}")
 
     db_manager.close_connection()
+    expected_ues = num_ues_to_launch
+    actual_ues = len(ues)
+
+    if actual_ues != expected_ues:
+        ue_logger.error(f"Expected {expected_ues} UEs, got {actual_ues}")
+    else:  
+        ue_logger.info(f"Initialized {expected_ues} UEs successfully")
+
     return ues
