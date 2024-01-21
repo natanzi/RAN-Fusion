@@ -6,20 +6,68 @@ from datetime import datetime
 from influxdb_client import Point, WritePrecision
 from logs.logger_config import database_logger
 from database.time_utils import get_current_time_ntp, server_pools
-from logs.logger_config import cell_logger, ue_logger
+from logs.logger_config import cell_logger, ue_logger, gnodeb_logger, sector_logger
 time = current_time = get_current_time_ntp()
 
 class NetworkState:
-    
     def __init__(self, lock):
         self.lock = lock
         self.gNodeBs = {}
         self.cells = {}
         self.ues = {}
-        self.last_update = datetime.min 
+        self.last_update = datetime.min
         self.db_manager = DatabaseManager(self)
         self.db_manager.set_network_state(self)
-        self.sectors = {}  # Add this line to store sectors by sector_id
+        self.sectors = {}  # Store sectors by sector_id
+
+    def update_state(self, gNodeBs, cells, ues):
+        with self.lock:  # Ensure thread-safe operations
+            # Check for duplicates before updating
+            self.check_for_duplicate_gNodeBs(gNodeBs)
+            self.check_for_duplicate_cells(cells)
+            self.check_for_duplicate_ues(ues)
+            self.check_for_duplicate_sectors()
+
+            # Update gNodeBs, cells, and UEs
+            self.gNodeBs = gNodeBs
+            self.cells = cells
+            self.ues = ues
+
+            # Assign neighbors to cells and update the last update timestamp
+            self.assign_neighbors_to_cells()
+            self.last_update = get_current_time_ntp()
+
+    def check_for_duplicate_cells(self, cells):
+        seen_cell_ids = set()
+        for cell in cells:
+            if cell.ID in seen_cell_ids:
+                cell_logger.error(f"Duplicate cell ID {cell.ID} detected during state update.")
+                raise ValueError(f"Duplicate cell ID {cell.ID} found during state update.")
+            seen_cell_ids.add(cell.ID)
+
+    def check_for_duplicate_gNodeBs(self, gNodeBs):
+        seen_gNodeB_ids = set()
+        for gNodeB in gNodeBs:
+            if gNodeB.ID in seen_gNodeB_ids:
+                gnodeb_logger.error(f"Duplicate gNodeB ID {gNodeB.ID} detected during state update.")
+                raise ValueError(f"Duplicate gNodeB ID {gNodeB.ID} found during state update.")
+            seen_gNodeB_ids.add(gNodeB.ID)
+
+    def check_for_duplicate_ues(self, ues):
+        seen_ue_ids = set()
+        for ue in ues:
+            if ue.ID in seen_ue_ids:
+                ue_logger.error(f"Duplicate UE ID {ue.ID} detected during state update.")
+                raise ValueError(f"Duplicate UE ID {ue.ID} found during state update.")
+            seen_ue_ids.add(ue.ID)
+
+    def check_for_duplicate_sectors(self):
+        seen_sector_ids = set()
+        for sector_id, sector in self.sectors.items():
+            if sector_id in seen_sector_ids:
+                sector_logger.error(f"Duplicate sector ID {sector_id} detected during state update.")
+                raise ValueError(f"Duplicate sector ID {sector_id} found during state update.")
+            seen_sector_ids.add(sector_id)
 
     def add_cell(self, cell):
         with self.lock:  # Assuming a threading lock is used for thread-safe operations
@@ -31,13 +79,23 @@ class NetworkState:
                 cell_logger.info(f"Cell {cell.ID} added to the network state.")
 
     def find_cell_by_id(self, cell_id):
-        """
-        Finds a cell by its ID within the network state's list of cells.
-
-        :param cell_id: The ID of the cell to find.
-        :return: The cell with the matching ID or None if not found.
-        """
-        return self.cells.get(cell_id, None)
+    #"""
+    #Finds a cell by its ID within the network state's list of cells.
+    
+    #:param cell_id: The ID of the cell to find.
+    #:return: The cell with the matching ID or None if not found.
+    #"""
+        try:
+            # Attempt to retrieve the cell by ID
+            cell = self.cells.get(cell_id, None)
+            if cell is None:
+                # Log if the cell was not found
+                cell_logger.warning(f"Cell with ID {cell_id} not found in the network state.")
+            return cell
+        except Exception as e:
+        # Log any exception that occurs during the retrieval
+            cell_logger.error(f"An error occurred while finding cell with ID {cell_id}: {e}")
+        return None
     
     def get_cell_load_for_ue(self, ue_id):
     # Find the cell for the given UE
@@ -49,33 +107,6 @@ class NetworkState:
             # Use the existing calculate_cell_load method from the gNodeB class
                 return self.gNodeBs[cell.gNodeB_id].calculate_cell_load(cell, self.traffic_controller)
         return None  # or an appropriate default value if the UE is not found
-    
-    def update_state(self, gNodeBs, cells, ues):
-        # Update gNodeBs normally
-        self.gNodeBs = gNodeBs
-    
-    # Update cells, but check for duplicates first
-        new_cells = {}
-        for cell in cells:
-            if cell.ID in self.cells:
-                cell_logger.error(f"Duplicate cell ID {cell.ID} detected during state update.")
-            raise ValueError(f"Duplicate cell ID {cell.ID} found during state update.")
-        new_cells[cell.ID] = cell
-        self.cells = new_cells
-    
-    # Update UEs, but check for duplicates first
-        new_ues = {}
-        for ue in ues:
-            if ue.ID in self.ues:
-                ue_logger.error(f"Duplicate UE ID {ue.ID} detected during state update.")
-                raise ValueError(f"Duplicate UE ID {ue.ID} found during state update.")
-            new_ues[ue.ID] = ue
-        self.ues = new_ues
-    
-        # Assign neighbors to cells and update the last update timestamp
-        self.assign_neighbors_to_cells()
-        self.last_update = get_current_time_ntp()
-
     
     def assign_neighbors_to_cells(self):
         for gNodeB_id, gNodeB in self.gNodeBs.items():
