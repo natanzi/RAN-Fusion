@@ -1,4 +1,4 @@
-#init_cell.py
+# init_cell.py
 # Initialization of the cells in network directory
 import os
 import json
@@ -6,6 +6,7 @@ from .cell import Cell
 from database.database_manager import DatabaseManager
 from .network_state import NetworkState
 from logs.logger_config import cell_logger
+from network.gNodeB import gNodeB  # Ensure this import is correct
 
 def load_json_config(file_path):
     with open(file_path, 'r') as file:
@@ -15,7 +16,7 @@ def initialize_cells(gNodeBs, network_state):
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     config_dir = os.path.join(base_dir, 'Config_files')
     cells_config = load_json_config(os.path.join(config_dir, 'cell_config.json'))
-    
+
     # Pre-validation to check for duplicate cell IDs in the configuration
     seen_cell_ids = set()
     for cell_data in cells_config['cells']:
@@ -23,7 +24,7 @@ def initialize_cells(gNodeBs, network_state):
         if cell_id in seen_cell_ids:
             raise ValueError(f"Duplicate cell ID {cell_id} found in cell configuration.")
         seen_cell_ids.add(cell_id)
-        
+
     # Initialize Cells and link them to gNodeBs
     for cell_data in cells_config['cells']:
         cell_id = cell_data['cell_id']
@@ -54,7 +55,11 @@ def initialize_cells(gNodeBs, network_state):
         # Link cells to gNodeBs
         gnodeb = gNodeBs.get(cell.gNodeB_ID)
         if gnodeb:
+            # Check if the gNodeB instance has the 'add_cell_to_gNodeB' method
+            if not hasattr(gnodeb, 'add_cell_to_gNodeB'):
+                raise AttributeError(f"gNodeB object does not have 'add_cell_to_gNodeB' method.")
             gnodeb.add_cell_to_gNodeB(cell, network_state)
+
     # Close the database connection
     db_manager.close_connection()
     return list(network_state.cells.values())
