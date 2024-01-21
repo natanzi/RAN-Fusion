@@ -122,9 +122,13 @@ def main():
 
     num_ues_to_launch = 10
 
-    gNodeBs, cells, ues = initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, ue_config, db_manager)
-
-    print(f"Number of UEs returned: {len(ues)}")
+    try:
+        gNodeBs, cells, ues = initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, ue_config, db_manager)
+        print(f"Number of UEs returned: {len(ues)}")
+    except ValueError as e:
+        logging.error(f"Failed to initialize network: {e}")
+        return  # Exit the main function if network initialization fails
+    
     time.sleep(2)
 
     #traffic_increase_config = {1: 2, 3: 1.5}
