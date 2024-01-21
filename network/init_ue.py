@@ -132,20 +132,24 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config, network_state):
                     least_loaded_cell = sorted(available_cells, key=lambda cell: cell.current_ue_count)[0]
                     ue_data['connected_cell_id'] = least_loaded_cell.ID
                     ue_data['gnodeb_id'] = selected_gNodeB.ID
-
                     ue = UE(**ue_data)
                     try:
                         least_loaded_cell.add_ue(ue, network_state)
+                        ue_logger.info(f"UE '{ue.ID}' has been attached to Cell '{least_loaded_cell.ID}' at '{current_time}'.")
                         ue.ConnectedCellID = least_loaded_cell.ID
+                        assigned = True
+                        break                 # Exit the loop as the UE has been successfully assigned
+                    except Exception as e:
+                        ue_logger.error(f"Failed to add UE '{ue.ID}' to Cell '{least_loaded_cell.ID}' at '{current_time}': {e}")
                         ue_logger.info(f"UE '{ue.ID}' has been attached to Cell '{least_loaded_cell.ID}' at '{current_time}'.")
                         assigned = True
                         break
                     except Exception as e:
                         ue_logger.error(f"Failed to add UE '{ue.ID}' to Cell '{least_loaded_cell.ID}' at '{current_time}': {e}")
-
-            if not assigned:
-                ue_logger.error(f"No available cell found for UE '{ue_id}' at '{current_time}'.")
-                continue  # Skip the rest of the loop if no cell is available
+                        # Do not set assigned to True or break here, as the addition failed
+                if not assigned:
+                    ue_logger.error(f"No available cell found for UE '{ue_id}' at '{current_time}'.")
+                    continue  # Skip the rest of the loop if no cell is available
 
         # Serialize and write to InfluxDB
         try:
