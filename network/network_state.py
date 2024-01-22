@@ -19,6 +19,14 @@ class NetworkState:
         self.db_manager = DatabaseManager(self)
         self.db_manager.set_network_state(self)
         self.sectors = {}  # Store sectors by sector_id
+    
+    # Clear other relevant state information as needed
+    def clear_state(self):
+        self.gNodeBs = {}
+        self.cells = {}
+        self.UEs = {}
+        self.sectors = {}
+        
 
     def update_state(self, gNodeBs, cells, ues):
         with self.lock:  # Ensure thread-safe operations

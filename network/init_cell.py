@@ -17,6 +17,9 @@ def initialize_cells(gNodeBs, network_state):
     config_dir = os.path.join(base_dir, 'Config_files')
     cells_config = load_json_config(os.path.join(config_dir, 'cell_config.json'))
 
+    # Clear the network state before initializing
+    network_state.clear_state()
+    
     # Pre-validation to check for duplicate cell IDs in the configuration
     seen_cell_ids = set()
     for cell_data in cells_config['cells']:
