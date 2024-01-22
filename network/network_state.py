@@ -57,7 +57,7 @@ class NetworkState:
 
     def check_for_duplicate_gNodeBs(self, gNodeBs):
         seen_gNodeB_ids = set()
-        for gNodeB in gNodeBs:
+        for gNodeB in gNodeBs.values():  # Change here to iterate over values
             if gNodeB.ID in seen_gNodeB_ids:
                 gnodeb_logger.error(f"Duplicate gNodeB ID {gNodeB.ID} detected during state update.")
                 raise ValueError(f"Duplicate gNodeB ID {gNodeB.ID} found during state update.")
