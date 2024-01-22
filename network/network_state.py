@@ -288,7 +288,7 @@ class NetworkState:
         for gNodeB_id, gNodeB in self.gNodeBs.items():
             print(f"ID: {gNodeB_id}")
         print("\nCells:")
-        for cell_id, cell in self.cells.items():  # self.cells is a dictionary
+        for cell_id, cell in self.cells.items():  # self.cells should be a dictionary
             neighbors = ', '.join(cell.Neighbors) if hasattr(cell, 'Neighbors') and cell.Neighbors else 'None'
             print(f"ID: {cell_id}, gNodeB: {cell.gNodeB_ID}, Neighbors: {neighbors}")
         print("\nUEs:")
