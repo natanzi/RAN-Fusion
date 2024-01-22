@@ -26,7 +26,7 @@ def initialize_cells(gNodeBs, network_state):
     # Pre-validation to check for duplicate cell IDs in the configuration
     seen_cell_ids = set()
     new_cells = []  # List to keep track of newly added cells
-
+    
     for cell_data in cells_config['cells']:
         cell_id = cell_data['cell_id']
         print(f"--- Read cell {cell_id} from config ---")
