@@ -46,7 +46,7 @@ def initialize_cells(gNodeBs, network_state):
         # Create the Cell instance
         new_cell = Cell.from_json(cell_data)
         new_cells.append(new_cell)  # Add the new cell to the list of new cells
-        print(f"tesst-Created cell {cell_id}")
+        print(f"Created cell {cell_id} with memory address {id(new_cell)}")
         
         # Add the new cell to the network state using add_cell method
         try:
@@ -61,16 +61,21 @@ def initialize_cells(gNodeBs, network_state):
 
     # Serialize and write new cells to InfluxDB and link them to gNodeBs
     for new_cell in new_cells:  # Iterate over the list of newly added cells
-        print(f"tesss-Linking cell {new_cell} to gNodeB")
+        print(f"Linking cell {new_cell.ID} with memory address {id(new_cell)} to gNodeB")
         # Serialize and write to InfluxDB
         point = new_cell.serialize_for_influxdb()
         db_manager.insert_data(point)
         
         # Link cells to gNodeBs
         gnodeb = gNodeBs.get(new_cell.gNodeB_ID)
-        if gnodeb and not gnodeb.has_cell(new_cell.ID):
-            print(f"+++ Calling add_cell() for {new_cell.ID} +++")
-            gnodeb.add_cell_to_gNodeB(new_cell, network_state)
+        if gnodeb:
+            print(f"Current cells in gNodeB {gnodeb.ID} before adding: {[cell.ID for cell in gnodeb.Cells]}")
+            if not gnodeb.has_cell(new_cell.ID):
+                print(f"+++ Calling add_cell() for {new_cell.ID} +++")
+                gnodeb.add_cell_to_gNodeB(new_cell, network_state)
+                print(f"Cells in gNodeB {gnodeb.ID} after adding: {[cell.ID for cell in gnodeb.Cells]}")
+            else:
+                print(f"Cell {new_cell.ID} already exists in gNodeB {gnodeb.ID}, skipping addition.")
 
     # Close the database connection
     db_manager.close_connection()
