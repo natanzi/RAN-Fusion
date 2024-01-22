@@ -194,6 +194,7 @@ class gNodeB:
     def add_cell_to_gNodeB(self, cell, network_state):
         print(f"tessst( inside the function of def add_cell_to_gNodeB____-Adding cell {cell.ID} to gNodeB {self.ID}")
         current_cell_ids = [c.ID for c in self.Cells]
+        print(f"tessst-Current cells in gNodeB {self.ID} before adding: {current_cell_ids}")
         cell_logger.info(f"Current cells in gNodeB {self.ID} before adding: {current_cell_ids}")
 
         if cell.ID in current_cell_ids:
@@ -205,6 +206,7 @@ class gNodeB:
         cell.set_gNodeB(self)
         # Add the cell to the gNodeB's list of cells
         self.Cells.append(cell)
+        print(f"tessst-Cell {cell.ID} has been added to gNodeB {self.ID}.")
         cell_logger.info(f"Cell '{cell.ID}' has been added to gNodeB '{self.ID}'.")
 
         # Update the NetworkState to include the new cell
