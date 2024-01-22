@@ -2536,3 +2536,4 @@
 {"level": "ERROR", "timestamp": "2024-01-21 12:32:45", "message": "No available cell found for UE 'UE10' at '2024-01-21 12:32:45'.", "test_id": "eb0e02eb-c825-4910-9f37-048f0872b22f"}
 {"level": "ERROR", "timestamp": "2024-01-22 14:56:47", "message": "Cannot launch 10 UEs, as it exceeds the total capacity of 0 UEs across all cells.", "test_id": "da95c6c2-1888-43cc-8592-77afecbc7ec6"}
 {"level": "ERROR", "timestamp": "2024-01-22 15:32:52", "message": "Cannot launch 10 UEs, as it exceeds the total capacity of 0 UEs across all cells.", "test_id": "d7ac3f42-6dfe-43f5-ba10-b1508d757af0"}
+{"level": "ERROR", "timestamp": "2024-01-22 15:37:03", "message": "Cannot launch 10 UEs, as it exceeds the total capacity of 0 UEs across all cells.", "test_id": "36ca174d-a123-445f-9752-88e9723e779b"}
