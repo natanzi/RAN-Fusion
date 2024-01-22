@@ -78,4 +78,5 @@ def initialize_cells(gNodeBs, network_state):
     # Close the database connection
     db_manager.close_connection()
     
-    return list(network_state.cells.values())
+    #return list(network_state.cells.values())
+    # Do not return anything as cells are added to the network_state directly
