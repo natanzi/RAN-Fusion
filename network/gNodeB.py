@@ -149,7 +149,8 @@ class gNodeB:
 
     # Remove the cell from the Cells list
         self.Cells.remove(cell_to_delete)
-        print(f"Cell with ID {cell_id} has been deleted from gNodeB with ID {self.ID}")
+        print(f"Debug: Cell with ID {cell_id} has been deleted from gNodeB with ID {self.ID}. Remaining cells: {[c.ID for c in self.Cells]}")
+        cell_logger.info(f"Cell with ID {cell_id} has been deleted from gNodeB with ID {self.ID}. Remaining cells: {[c.ID for c in self.Cells]}")
 ###################################################################################################
     def all_ues(self):
         """
@@ -189,37 +190,49 @@ class gNodeB:
         self.CellCount = new_capacity
         
         # Log the change
+        print(f"Debug: gNodeB '{self.ID}' cell capacity updated to {self.CellCount}.")
         cell_logger.info(f"gNodeB '{self.ID}' cell capacity updated to {self.CellCount}.")
 
     def add_cell_to_gNodeB(self, cell, network_state):
-        print(f"Debug: Attempting to add cell {cell.ID} to gNodeB {self.ID}")
-        current_cell_ids = [c.ID for c in self.Cells]
-        print(f"Debug: Current cells in gNodeB {self.ID} before adding: {current_cell_ids}")
-        cell_logger.info(f"Current cells in gNodeB {self.ID} before adding: {current_cell_ids}")
+        try:
+            print(f"Debug: Attempting to add cell {cell.ID} to gNodeB {self.ID}")
+            current_cell_ids = [c.ID for c in self.Cells]
+            print(f"Debug: Current cells in gNodeB {self.ID} before adding: {current_cell_ids}")
+            cell_logger.info(f"Current cells in gNodeB {self.ID} before adding: {current_cell_ids}")
 
-        if cell.ID in current_cell_ids:
-            print(f"Debug: Cell {cell.ID} is already added to gNodeB {self.ID}. Ignoring.")
-            cell_logger.warning(f"Cell {cell.ID} is already added to gNodeB {self.ID}. Ignoring.")
-            return
+            if cell.ID in current_cell_ids:
+                print(f"Debug: Cell {cell.ID} is already added to gNodeB {self.ID}. Ignoring.")
+                cell_logger.warning(f"Cell {cell.ID} is already added to gNodeB {self.ID}. Ignoring.")
+                return
 
-        # Set the parent gNodeB reference for the cell
-        cell.set_gNodeB(self)
-        # Add the cell to the gNodeB's list of cells
-        self.Cells.append(cell)
-        print(f"Debug: Cell {cell.ID} has been added to gNodeB {self.ID}.")
-        cell_logger.info(f"Cell '{cell.ID}' has been added to gNodeB '{self.ID}'.")
+            if len(self.Cells) >= self.CellCount:
+                print(f"Debug: gNodeB {self.ID} has reached its maximum cell capacity. Cannot add more cells.")
+                cell_logger.error(f"gNodeB {self.ID} has reached its maximum cell capacity. Cannot add more cells.")
+                return
 
-        # Update the NetworkState to include the new cell
-        network_state.add_cell(cell)
+            # Set the parent gNodeB reference for the cell
+            cell.set_gNodeB(self)
 
-        # Add sectors to the cell if they are not already present
-        for sector in cell.sectors:
-            if not cell.has_sector(sector):
-                self.add_sector_to_cell(sector, cell)
+            # Add the cell to the gNodeB's list of cells
+            self.Cells.append(cell)
+            print(f"Debug: Cell {cell.ID} has been added to gNodeB {self.ID}.")
+            cell_logger.info(f"Cell '{cell.ID}' has been added to gNodeB '{self.ID}'.")
 
-        # Delay for 1 second as per the original requirement
-        time.sleep(1)
+            # Update the NetworkState to include the new cell
+            network_state.add_cell(cell)
 
+            # Add sectors to the cell if they are not already present
+            for sector in cell.sectors:
+                if not cell.has_sector(sector):
+                    self.add_sector_to_cell(sector, cell)
+                    print(f"Debug: Sector {sector.ID} has been added to Cell {cell.ID}.")
+                    cell_logger.info(f"Sector '{sector.ID}' has been added to Cell '{cell.ID}'.")
+
+            # Delay for 1 second as per the original requirement
+            time.sleep(1)
+        except Exception as e:
+            print(f"Error: An exception occurred while adding cell {cell.ID} to gNodeB {self.ID}: {e}")
+            cell_logger.error(f"An exception occurred while adding cell {cell.ID} to gNodeB {self.ID}: {e}")
 
     def add_sector_to_cell(self, sector, cell, network_state):
     # Check if the cell exists in this gNodeB
@@ -279,10 +292,13 @@ class gNodeB:
 
         for cell in self.Cells:
             cell_load = self.calculate_cell_load(cell)
-            if cell_load < 0.5 and cell_load < lowest_load:  # Threshold is 50%
+            if cell_load < 0.8 and cell_load < lowest_load:  # Threshold is 80%
                 underloaded_cell = cell
                 lowest_load = cell_load
 
+        print(f"Debug: Underloaded cell found: {underloaded_cell.ID if underloaded_cell else 'None'} with load: {lowest_load}")
+        cell_logger.info(f"Underloaded cell found: {underloaded_cell.ID if underloaded_cell else 'None'} with load: {lowest_load}")
+        
         return underloaded_cell
 ##########################################################################################################################
     def select_ues_for_load_balancing(self, overloaded_cell, underloaded_cell):
@@ -315,9 +331,22 @@ class gNodeB:
 #######################################Periodic Updates###############################################
     def update(self):
         from network.handover_utils import handle_load_balancing, monitor_and_log_cell_load
-    # Call this method regularly to update handover decisions
+
+        # Log before handling load balancing
+        print(f"Debug: Starting load balancing for gNodeB {self.ID}")
+        gnodeb_logger.info(f"Starting load balancing for gNodeB {self.ID}")
+
+        # Call this method regularly to update handover decisions
         handle_load_balancing(self, self.calculate_cell_load, self.find_underloaded_cell, self.select_ues_for_load_balancing)
-    # Now also call monitor_and_log_cell_load to log the cell load
+
+        # Log after handling load balancing
+        print(f"Debug: Completed load balancing for gNodeB {self.ID}")
+        gnodeb_logger.info(f"Completed load balancing for gNodeB {self.ID}")
+
+        # Now also call monitor_and_log_cell_load to log the cell load
         monitor_and_log_cell_load(self)
-    #handle_qos_based_handover(self, self.all_ues, self.find_cell_by_id)
+
+        # Log after monitoring and logging cell load
+        print(f"Debug: Completed monitoring and logging cell load for gNodeB {self.ID}")
+        gnodeb_logger.info(f"Completed monitoring and logging cell load for gNodeB {self.ID}")
 ######################################################################################################
