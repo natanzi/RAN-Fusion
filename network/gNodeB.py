@@ -192,14 +192,17 @@ class gNodeB:
         cell_logger.info(f"gNodeB '{self.ID}' cell capacity updated to {self.CellCount}.")
 
     def add_cell_to_gNodeB(self, cell, network_state):
-        if cell.ID in [c.ID for c in self.Cells]:
+        print(f"tessst( inside the function of def add_cell_to_gNodeB____-Adding cell {cell.ID} to gNodeB {self.ID}")
+        current_cell_ids = [c.ID for c in self.Cells]
+        cell_logger.info(f"Current cells in gNodeB {self.ID} before adding: {current_cell_ids}")
+
+        if cell.ID in current_cell_ids:
+            print(f"tesssst-Cell {cell.ID} is already added to gNodeB {self.ID}. Ignoring.")
             cell_logger.warning(f"Cell {cell.ID} is already added to gNodeB {self.ID}. Ignoring.")
-            print(f"tesssst-Adding cell {cell.ID} to gNodeB {self.ID}")
             return
 
         # Set the parent gNodeB reference for the cell
         cell.set_gNodeB(self)
-
         # Add the cell to the gNodeB's list of cells
         self.Cells.append(cell)
         cell_logger.info(f"Cell '{cell.ID}' has been added to gNodeB '{self.ID}'.")

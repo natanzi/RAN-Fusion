@@ -27,6 +27,7 @@ def initialize_cells(gNodeBs, network_state):
     seen_cell_ids = set()
     for cell_data in cells_config['cells']:
         cell_id = cell_data['cell_id']
+        print(f"--- Read cell {cell_id} from config ---")
         if cell_id in seen_cell_ids:
             cell_logger.error(f"Duplicate cell ID {cell_id} found in cell configuration. Skipping addition.")
             continue  # Skip this cell and continue with the next
@@ -50,6 +51,7 @@ def initialize_cells(gNodeBs, network_state):
         # Add the new cell to the network state using add_cell method
         try:
             network_state.add_cell(new_cell)
+            print(f"+++ Added {cell_id} to network state +++")
             # Log the successful addition
             cell_logger.info(f"Successfully added cell with ID: {cell_id}")
         except ValueError as e:
@@ -59,12 +61,14 @@ def initialize_cells(gNodeBs, network_state):
 
     # Serialize and write new cells to InfluxDB and link them to gNodeBs
     for new_cell in network_state.cells.values():
+        print(f"tesss-Linking cell {new_cell} to gNodeB")
         # Serialize and write to InfluxDB
         point = new_cell.serialize_for_influxdb()
         db_manager.insert_data(point)
         # Link cells to gNodeBs
         gnodeb = gNodeBs.get(new_cell.gNodeB_ID)
         if gnodeb and not gnodeb.has_cell(new_cell.ID):
+            print(f"+++ Calling add_cell() for {cell_id} +++")
             gnodeb.add_cell_to_gNodeB(new_cell, network_state)
 
     # Close the database connection

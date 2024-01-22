@@ -80,6 +80,7 @@ class NetworkState:
             seen_sector_ids.add(sector_id)
 
     def add_cell(self, cell):
+        print(f"tesssss-Adding cell {cell.ID} to network state")
         with self.lock:  # Assuming a threading lock is used for thread-safe operations
             if cell.ID in self.cells:
                 cell_logger.error(f"Duplicate cell ID {cell.ID} detected. Skipping addition.")
