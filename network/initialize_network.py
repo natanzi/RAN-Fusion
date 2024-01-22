@@ -6,7 +6,8 @@ from .init_ue import initialize_ues
 from .network_state import NetworkState
 from threading import Lock
 
-def initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, ue_config, db_manager):
+def initialize_network(num_ues_to_launch, gNodeBs_config, ue_config, db_manager):
+
     
     # Create a lock for the NetworkState
     network_state_lock = Lock()
@@ -19,7 +20,7 @@ def initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, ue_confi
 
     # Initialize Cells with the provided configuration and link them to gNodeBs
     # This function now updates network_state directly, so no need to assign its return value to a variable
-    initialize_cells(gNodeBs, cells_config, network_state)
+    initialize_cells(gNodeBs, network_state)
 
     # Calculate the total capacity of all cells
     total_capacity = sum(cell.MaxConnectedUEs for cell in network_state.cells.values())
