@@ -284,22 +284,19 @@ class NetworkState:
     def print_state(self):
         print("Network State:")
         print("Last Update:", self.last_update)
-
         print("\ngNodeBs:")
         for gNodeB_id, gNodeB in self.gNodeBs.items():
             print(f"ID: {gNodeB_id}")
-
         print("\nCells:")
-        for cell_id, cell in self.cells.items():
-            gNodeB = self.gNodeBs.get(cell.gNodeB_ID)
+        for cell in self.cells:  # Assuming self.cells is a list and each cell has an ID attribute
+            gNodeB = self.gNodeBs.get(cell.gNodeB_ID) if hasattr(cell, 'gNodeB_ID') else 'Unknown'
             neighbors = ', '.join(cell.Neighbors) if hasattr(cell, 'Neighbors') and cell.Neighbors else 'None'
-            print(f"ID: {cell_id}, gNodeB: {cell.gNodeB_ID}, Neighbors: {neighbors}")
-
+            print(f"ID: {cell.ID}, gNodeB: {gNodeB}, Neighbors: {neighbors}")
         print("\nUEs:")
         for ue_id, ue in self.ues.items():
-            cell = self.cells.get(ue.ConnectedCellID)
-            gNodeB_id = cell.gNodeB_ID if cell else 'Unknown'
-            print(f"ID: {ue_id}, Cell: {ue.ConnectedCellID}, gNodeB: {gNodeB_id}")
+            cell = self.cells.get(ue.ConnectedCellID) if hasattr(ue, 'ConnectedCellID') else None
+            gNodeB_id = cell.gNodeB_ID if cell and hasattr(cell, 'gNodeB_ID') else 'Unknown'
+            print(f"ID: {ue_id}, Cell: {ue.ConnectedCellID if hasattr(ue, 'ConnectedCellID') else 'Unknown'}, gNodeB: {gNodeB_id}")
 #############################################################################################################
 # Add this method to the NetworkState class
     def update_and_save(self, gNodeBs, cells, ues):
