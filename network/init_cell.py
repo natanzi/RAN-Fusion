@@ -19,8 +19,9 @@ def initialize_cells(gNodeBs, network_state):
     # Initialize the DatabaseManager with the required parameters
     db_manager = DatabaseManager(network_state)
 
-    # Clear the network state before initializing
+    # Explicitly clear the network state before initializing
     network_state.clear_state()
+    cell_logger.info("Cleared network state before initializing cells.")
 
     # Pre-validation to check for duplicate cell IDs in the configuration
     seen_cell_ids = set()
@@ -36,7 +37,7 @@ def initialize_cells(gNodeBs, network_state):
         cell_id = cell_data['cell_id']
         # Check if the cell already exists in the network state
         if network_state.has_cell(cell_id):
-            cell_logger.error(f"Cell with ID {cell_id} already exists in the network state. Skipping addition.")
+            cell_logger.error(f"Cell with ID {cell_id} already exists in the network state after clearing. Skipping addition.")
             continue  # Skip this cell and continue with the next
 
         # Log the cell ID before attempting to add
