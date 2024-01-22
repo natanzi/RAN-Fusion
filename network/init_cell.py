@@ -52,21 +52,16 @@ def initialize_cells(gNodeBs, network_state):
             cell_logger.error(e)
             continue  # Skip adding this cell and continue with the next
 
-    # Initialize the DatabaseManager with the required parameters
-    db_manager = DatabaseManager(network_state)
-
     # Serialize and write new cells to InfluxDB and link them to gNodeBs
     for new_cell in network_state.cells.values():
         # Serialize and write to InfluxDB
         point = new_cell.serialize_for_influxdb()
         db_manager.insert_data(point)
-
         # Link cells to gNodeBs
         gnodeb = gNodeBs.get(new_cell.gNodeB_ID)
         if gnodeb and not gnodeb.has_cell(new_cell.ID):
             gnodeb.add_cell_to_gNodeB(new_cell, network_state)
 
-    # Close the database connection
-    db_manager.close_connection()
-
+# Close the database connection
+db_manager.close_connection()
     # Do not return anything as cells are added to the network_state directly
