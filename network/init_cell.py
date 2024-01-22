@@ -72,7 +72,8 @@ def initialize_cells(gNodeBs, network_state):
             
             # Check if the cell is already linked to the gNodeB
             if not gnodeb.has_cell(new_cell.ID):
-                gnodeb.add_cell_to_gNodeB(new_cell)
+                gnodeb = gNodeBs.get(new_cell.gNodeB_ID)
+
     
     # Close the database connection
     db_manager.close_connection()
