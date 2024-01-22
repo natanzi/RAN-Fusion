@@ -6,13 +6,13 @@ from .cell import Cell
 from database.database_manager import DatabaseManager
 from .network_state import NetworkState
 from logs.logger_config import cell_logger
-from network.gNodeB import gNodeB  # Ensure this import is correct
 
 def load_json_config(file_path):
     with open(file_path, 'r') as file:
         return json.load(file)
 
 def initialize_cells(gNodeBs, network_state):
+    from network.gNodeB import gNodeB
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     config_dir = os.path.join(base_dir, 'Config_files')
     cells_config = load_json_config(os.path.join(config_dir, 'cell_config.json'))
