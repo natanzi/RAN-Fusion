@@ -27,17 +27,17 @@ def initialize_cells(gNodeBs, network_state):
     for cell_data in cells_config['cells']:
         cell_id = cell_data['cell_id']
         if cell_id in seen_cell_ids:
-            raise ValueError(f"Duplicate cell ID {cell_id} found in cell configuration.")
+            cell_logger.error(f"Duplicate cell ID {cell_id} found in cell configuration. Skipping addition.")
+            continue  # Skip this cell and continue with the next
         seen_cell_ids.add(cell_id)
 
     # Initialize Cells and link them to gNodeBs
     for cell_data in cells_config['cells']:
         cell_id = cell_data['cell_id']
-
         # Check if the cell already exists in the network state
         if network_state.has_cell(cell_id):
-            cell_logger.warning(f"Cell with ID {cell_id} already exists. Skipping addition.")
-            continue
+            cell_logger.error(f"Cell with ID {cell_id} already exists in the network state. Skipping addition.")
+            continue  # Skip this cell and continue with the next
 
         # Log the cell ID before attempting to add
         cell_logger.info(f"Attempting to add cell with ID: {cell_id}")
@@ -52,7 +52,7 @@ def initialize_cells(gNodeBs, network_state):
             cell_logger.info(f"Successfully added cell with ID: {cell_id}")
         except ValueError as e:
             # Log the error if a duplicate is found
-            cell_logger.error(e)
+            cell_logger.error(f"Failed to add cell with ID {cell_id}: {e}")
             continue  # Skip adding this cell and continue with the next
 
     # Serialize and write new cells to InfluxDB and link them to gNodeBs
@@ -67,4 +67,3 @@ def initialize_cells(gNodeBs, network_state):
 
     # Close the database connection
     db_manager.close_connection()
-    # Do not return anything as cells are added to the network_state directly
