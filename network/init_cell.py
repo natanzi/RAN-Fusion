@@ -1,5 +1,6 @@
 # init_cell.py
 # Initialization of the cells in network directory
+
 import os
 import json
 from .cell import Cell
@@ -31,8 +32,9 @@ def initialize_cells(gNodeBs, network_state):
     # Initialize Cells and link them to gNodeBs
     for cell_data in cells_config['cells']:
         cell_id = cell_data['cell_id']
+        
         # Check if the cell already exists in the network state
-        if cell_id in network_state.cells:
+        if network_state.has_cell(cell_id):
             cell_logger.warning(f"Cell with ID {cell_id} already exists. Skipping addition.")
             continue
         
@@ -70,7 +72,7 @@ def initialize_cells(gNodeBs, network_state):
             
             # Check if the cell is already linked to the gNodeB
             if not gnodeb.has_cell(new_cell.ID):
-                gnodeb.add_cell_to_gNodeB(new_cell, network_state)
+                gnodeb.add_cell_to_gNodeB(new_cell)
     
     # Close the database connection
     db_manager.close_connection()

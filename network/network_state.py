@@ -27,7 +27,9 @@ class NetworkState:
         self.UEs = {}
         self.sectors = {}
         
-
+    def has_cell(self, cell_id):
+        return cell_id in self.cells
+    
     def update_state(self, gNodeBs, cells, ues):
         with self.lock:  # Ensure thread-safe operations
             # Check for duplicates before updating
