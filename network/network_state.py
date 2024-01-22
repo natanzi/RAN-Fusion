@@ -288,13 +288,12 @@ class NetworkState:
         for gNodeB_id, gNodeB in self.gNodeBs.items():
             print(f"ID: {gNodeB_id}")
         print("\nCells:")
-        for cell in self.cells:  # Assuming self.cells is a list and each cell has an ID attribute
-        # Check if the 'Neighbors' attribute exists before trying to access it
-            neighbors = ', '.join(cell.Neighbors) if hasattr(cell, 'Neighbors') and cell.Neighbors else 'None'
-            print(f"ID: {cell.ID}, gNodeB: {cell.gNodeB_ID}, Neighbors: {neighbors}")
-            print("\nUEs:")
-        for ue in self.ues:  # Corrected to iterate over a list
-            print(f"ID: {ue.ID}, Cell: {ue.ConnectedCellID}, gNodeB: {ue.gNodeB_ID}")
+        for cell_id, cell in self.cells.items():  # self.cells is a dictionary
+            neighbors = ', '.join(cell.Neighbors) if cell.Neighbors else 'None'
+            print(f"ID: {cell_id}, gNodeB: {cell.gNodeB_ID}, Neighbors: {neighbors}")
+        print("\nUEs:")
+        for ue_id, ue in self.ues.items():  # self.ues is a dictionary
+            print(f"ID: {ue_id}, Cell: {ue.ConnectedCellID}, gNodeB: {ue.gNodeB_ID}")
 #############################################################################################################
 # Add this method to the NetworkState class
     def update_and_save(self, gNodeBs, cells, ues):
