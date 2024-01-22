@@ -194,6 +194,7 @@ class gNodeB:
     def add_cell_to_gNodeB(self, cell, network_state):
         if cell.ID in [c.ID for c in self.Cells]:
             cell_logger.warning(f"Cell {cell.ID} is already added to gNodeB {self.ID}. Ignoring.")
+            print(f"tesssst-Adding cell {cell.ID} to gNodeB {self.ID}")
             return
 
         # Set the parent gNodeB reference for the cell

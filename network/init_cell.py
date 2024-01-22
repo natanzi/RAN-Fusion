@@ -35,6 +35,7 @@ def initialize_cells(gNodeBs, network_state):
     # Initialize Cells and link them to gNodeBs
     for cell_data in cells_config['cells']:
         cell_id = cell_data['cell_id']
+        print(f"teesssst---Read cell {cell_id} from config")
         # Check if the cell already exists in the network state
         if network_state.has_cell(cell_id):
             cell_logger.error(f"Cell with ID {cell_id} already exists in the network state after clearing. Skipping addition.")
@@ -45,7 +46,7 @@ def initialize_cells(gNodeBs, network_state):
 
         # Create the Cell instance
         new_cell = Cell.from_json(cell_data)
-
+        print(f"tesst-Created cell {cell_id}")
         # Add the new cell to the network state using add_cell method
         try:
             network_state.add_cell(new_cell)
