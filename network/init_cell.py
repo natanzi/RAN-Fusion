@@ -16,6 +16,9 @@ def initialize_cells(gNodeBs, network_state):
     config_dir = os.path.join(base_dir, 'Config_files')
     cells_config = load_json_config(os.path.join(config_dir, 'cell_config.json'))
 
+    # Initialize the DatabaseManager with the required parameters
+    db_manager = DatabaseManager(network_state)
+
     # Clear the network state before initializing
     network_state.clear_state()
 
@@ -62,6 +65,6 @@ def initialize_cells(gNodeBs, network_state):
         if gnodeb and not gnodeb.has_cell(new_cell.ID):
             gnodeb.add_cell_to_gNodeB(new_cell, network_state)
 
-# Close the database connection
-db_manager.close_connection()
+    # Close the database connection
+    db_manager.close_connection()
     # Do not return anything as cells are added to the network_state directly
