@@ -112,6 +112,9 @@ def main():
     network_state_lock = Lock()
     network_state = NetworkState(network_state_lock)
 
+    # Clear the network state before any initialization
+    network_state.clear_state()
+
     db_manager = DatabaseManager(network_state)
 
     if perform_health_check(network_state):

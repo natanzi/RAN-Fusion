@@ -61,7 +61,9 @@ def initialize_cells(gNodeBs, network_state):
             # Check if the gNodeB instance has the 'add_cell_to_gNodeB' method
             if not hasattr(gnodeb, 'add_cell_to_gNodeB'):
                 raise AttributeError(f"gNodeB object does not have 'add_cell_to_gNodeB' method.")
-            gnodeb.add_cell_to_gNodeB(cell, network_state)
+            # Only link if the cell is not already linked to the gNodeB
+            if not gnodeb.has_cell(cell_id):
+                gnodeb.add_cell_to_gNodeB(cell, network_state)
 
     # Close the database connection
     db_manager.close_connection()

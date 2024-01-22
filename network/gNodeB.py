@@ -176,7 +176,9 @@ class gNodeB:
             if cell.ID == cell_id:
                 return cell
         return None
-
+    
+    def has_cell(self, cell_id):
+        return any(cell.ID == cell_id for cell in self.Cells)
     
     def update_cell_capacity(self, new_capacity):
         # Check if the new capacity is valid
