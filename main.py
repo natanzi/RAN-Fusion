@@ -2,11 +2,11 @@ import os
 import logging
 from Config_files.config_load import load_all_configs
 from logo import create_logo
-from health_check.do_health_check import perform_health_check
 from network.init_gNodeB import initialize_gNodeBs
 from network.init_cell import initialize_cells
 from network.init_sector import initialize_sectors
 from network.init_ue import initialize_ues
+from database.database_manager import DatabaseManager
 
 def main():
     logo_text = create_logo()
@@ -14,17 +14,15 @@ def main():
     logging.basicConfig(level=logging.INFO)
     base_dir = os.path.dirname(os.path.abspath(__file__))
     gNodeBs_config, cells_config, ue_config = load_all_configs(base_dir)
-
-    if perform_health_check():
-        print("Health check passed.")
-    else:
-        print("Health check failed.")
-        return
+    
+    # Create an instance of DatabaseManager here
+    db_manager = DatabaseManager()
 
     num_ues_to_launch = 10
 
     # Initialize gNodeBs
-    gNodeBs = initialize_gNodeBs(gNodeBs_config)
+    gNodeBs = initialize_gNodeBs(gNodeBs_config, db_manager)
+
     print("Initialized gNodeBs:")
     for gnb_id, gnb in gNodeBs.items():
         print(f"gNodeB ID: {gnb_id}, Details: {gnb}")
