@@ -242,9 +242,6 @@ class gNodeB:
                 print(f"Debug: Cell {cell.ID} has been added to gNodeB {self.ID}.")
                 cell_logger.info(f"Cell '{cell.ID}' has been added to gNodeB '{self.ID}'.")
 
-                # Update the NetworkState to include the new cell
-                network_state.add_cell(cell)
-
                 # Add sectors to the cell if they are not already present
                 for sector in cell.sectors:
                     if not cell.has_sector(sector):

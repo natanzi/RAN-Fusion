@@ -3008,3 +3008,96 @@
 {"level": "INFO", "timestamp": "2024-01-22 21:14:59", "message": "UE UE10 added to the network state.", "test_id": "0535a206-32cf-47ce-a0d4-86dd8daca81b"}
 {"level": "ERROR", "timestamp": "2024-01-22 21:14:59", "message": "Failed to add UE 'UE10' to the network.", "test_id": "0535a206-32cf-47ce-a0d4-86dd8daca81b"}
 {"level": "ERROR", "timestamp": "2024-01-22 21:14:59", "message": "Expected 10 UEs, got 0", "test_id": "0535a206-32cf-47ce-a0d4-86dd8daca81b"}
+{"level": "INFO", "timestamp": "2024-01-23 11:15:59", "message": "UE initialized with ID UE1 at 2024-01-23 11:16:10.014533", "test_id": "31309def-539e-492e-afb3-88bd2f833126"}
+{"level": "INFO", "timestamp": "2024-01-23 11:15:59", "message": "UE UE1 added to the network state.", "test_id": "31309def-539e-492e-afb3-88bd2f833126"}
+{"level": "ERROR", "timestamp": "2024-01-23 11:15:59", "message": "Failed to add UE 'UE1' to the network.", "test_id": "31309def-539e-492e-afb3-88bd2f833126"}
+{"level": "INFO", "timestamp": "2024-01-23 11:15:59", "message": "UE initialized with ID UE2 at 2024-01-23 11:16:10.016018", "test_id": "31309def-539e-492e-afb3-88bd2f833126"}
+{"level": "INFO", "timestamp": "2024-01-23 11:15:59", "message": "UE UE2 added to the network state.", "test_id": "31309def-539e-492e-afb3-88bd2f833126"}
+{"level": "ERROR", "timestamp": "2024-01-23 11:15:59", "message": "Failed to add UE 'UE2' to the network.", "test_id": "31309def-539e-492e-afb3-88bd2f833126"}
+{"level": "INFO", "timestamp": "2024-01-23 11:15:59", "message": "UE initialized with ID UE3 at 2024-01-23 11:16:10.016995", "test_id": "31309def-539e-492e-afb3-88bd2f833126"}
+{"level": "INFO", "timestamp": "2024-01-23 11:15:59", "message": "UE UE3 added to the network state.", "test_id": "31309def-539e-492e-afb3-88bd2f833126"}
+{"level": "ERROR", "timestamp": "2024-01-23 11:15:59", "message": "Failed to add UE 'UE3' to the network.", "test_id": "31309def-539e-492e-afb3-88bd2f833126"}
+{"level": "INFO", "timestamp": "2024-01-23 11:15:59", "message": "UE initialized with ID UE4 at 2024-01-23 11:16:10.018943", "test_id": "31309def-539e-492e-afb3-88bd2f833126"}
+{"level": "INFO", "timestamp": "2024-01-23 11:15:59", "message": "UE UE4 added to the network state.", "test_id": "31309def-539e-492e-afb3-88bd2f833126"}
+{"level": "ERROR", "timestamp": "2024-01-23 11:15:59", "message": "Failed to add UE 'UE4' to the network.", "test_id": "31309def-539e-492e-afb3-88bd2f833126"}
+{"level": "INFO", "timestamp": "2024-01-23 11:15:59", "message": "UE initialized with ID UE5 at 2024-01-23 11:16:10.019918", "test_id": "31309def-539e-492e-afb3-88bd2f833126"}
+{"level": "INFO", "timestamp": "2024-01-23 11:15:59", "message": "UE UE5 added to the network state.", "test_id": "31309def-539e-492e-afb3-88bd2f833126"}
+{"level": "ERROR", "timestamp": "2024-01-23 11:15:59", "message": "Failed to add UE 'UE5' to the network.", "test_id": "31309def-539e-492e-afb3-88bd2f833126"}
+{"level": "INFO", "timestamp": "2024-01-23 11:15:59", "message": "UE initialized with ID UE6 at 2024-01-23 11:16:10.021868", "test_id": "31309def-539e-492e-afb3-88bd2f833126"}
+{"level": "INFO", "timestamp": "2024-01-23 11:15:59", "message": "UE UE6 added to the network state.", "test_id": "31309def-539e-492e-afb3-88bd2f833126"}
+{"level": "ERROR", "timestamp": "2024-01-23 11:15:59", "message": "Failed to add UE 'UE6' to the network.", "test_id": "31309def-539e-492e-afb3-88bd2f833126"}
+{"level": "INFO", "timestamp": "2024-01-23 11:15:59", "message": "UE initialized with ID UE7 at 2024-01-23 11:16:10.023819", "test_id": "31309def-539e-492e-afb3-88bd2f833126"}
+{"level": "INFO", "timestamp": "2024-01-23 11:15:59", "message": "UE UE7 added to the network state.", "test_id": "31309def-539e-492e-afb3-88bd2f833126"}
+{"level": "ERROR", "timestamp": "2024-01-23 11:15:59", "message": "Failed to add UE 'UE7' to the network.", "test_id": "31309def-539e-492e-afb3-88bd2f833126"}
+{"level": "INFO", "timestamp": "2024-01-23 11:15:59", "message": "UE initialized with ID UE8 at 2024-01-23 11:16:10.024793", "test_id": "31309def-539e-492e-afb3-88bd2f833126"}
+{"level": "INFO", "timestamp": "2024-01-23 11:15:59", "message": "UE UE8 added to the network state.", "test_id": "31309def-539e-492e-afb3-88bd2f833126"}
+{"level": "ERROR", "timestamp": "2024-01-23 11:15:59", "message": "Failed to add UE 'UE8' to the network.", "test_id": "31309def-539e-492e-afb3-88bd2f833126"}
+{"level": "INFO", "timestamp": "2024-01-23 11:15:59", "message": "UE initialized with ID UE9 at 2024-01-23 11:16:10.026743", "test_id": "31309def-539e-492e-afb3-88bd2f833126"}
+{"level": "INFO", "timestamp": "2024-01-23 11:15:59", "message": "UE UE9 added to the network state.", "test_id": "31309def-539e-492e-afb3-88bd2f833126"}
+{"level": "ERROR", "timestamp": "2024-01-23 11:15:59", "message": "Failed to add UE 'UE9' to the network.", "test_id": "31309def-539e-492e-afb3-88bd2f833126"}
+{"level": "INFO", "timestamp": "2024-01-23 11:15:59", "message": "UE initialized with ID UE10 at 2024-01-23 11:16:10.028694", "test_id": "31309def-539e-492e-afb3-88bd2f833126"}
+{"level": "INFO", "timestamp": "2024-01-23 11:15:59", "message": "UE UE10 added to the network state.", "test_id": "31309def-539e-492e-afb3-88bd2f833126"}
+{"level": "ERROR", "timestamp": "2024-01-23 11:15:59", "message": "Failed to add UE 'UE10' to the network.", "test_id": "31309def-539e-492e-afb3-88bd2f833126"}
+{"level": "ERROR", "timestamp": "2024-01-23 11:15:59", "message": "Expected 10 UEs, got 0", "test_id": "31309def-539e-492e-afb3-88bd2f833126"}
+{"level": "INFO", "timestamp": "2024-01-23 11:16:36", "message": "UE initialized with ID UE1 at 2024-01-23 11:16:43.571707", "test_id": "f38f0349-8e92-48c7-a6c2-4865f1f1aacd"}
+{"level": "INFO", "timestamp": "2024-01-23 11:16:36", "message": "UE UE1 added to the network state.", "test_id": "f38f0349-8e92-48c7-a6c2-4865f1f1aacd"}
+{"level": "ERROR", "timestamp": "2024-01-23 11:16:36", "message": "Failed to add UE 'UE1' to the network.", "test_id": "f38f0349-8e92-48c7-a6c2-4865f1f1aacd"}
+{"level": "INFO", "timestamp": "2024-01-23 11:16:36", "message": "UE initialized with ID UE2 at 2024-01-23 11:16:43.573631", "test_id": "f38f0349-8e92-48c7-a6c2-4865f1f1aacd"}
+{"level": "INFO", "timestamp": "2024-01-23 11:16:36", "message": "UE UE2 added to the network state.", "test_id": "f38f0349-8e92-48c7-a6c2-4865f1f1aacd"}
+{"level": "ERROR", "timestamp": "2024-01-23 11:16:36", "message": "Failed to add UE 'UE2' to the network.", "test_id": "f38f0349-8e92-48c7-a6c2-4865f1f1aacd"}
+{"level": "INFO", "timestamp": "2024-01-23 11:16:36", "message": "UE initialized with ID UE3 at 2024-01-23 11:16:43.574607", "test_id": "f38f0349-8e92-48c7-a6c2-4865f1f1aacd"}
+{"level": "INFO", "timestamp": "2024-01-23 11:16:36", "message": "UE UE3 added to the network state.", "test_id": "f38f0349-8e92-48c7-a6c2-4865f1f1aacd"}
+{"level": "ERROR", "timestamp": "2024-01-23 11:16:36", "message": "Failed to add UE 'UE3' to the network.", "test_id": "f38f0349-8e92-48c7-a6c2-4865f1f1aacd"}
+{"level": "INFO", "timestamp": "2024-01-23 11:16:36", "message": "UE initialized with ID UE4 at 2024-01-23 11:16:43.576557", "test_id": "f38f0349-8e92-48c7-a6c2-4865f1f1aacd"}
+{"level": "INFO", "timestamp": "2024-01-23 11:16:36", "message": "UE UE4 added to the network state.", "test_id": "f38f0349-8e92-48c7-a6c2-4865f1f1aacd"}
+{"level": "ERROR", "timestamp": "2024-01-23 11:16:36", "message": "Failed to add UE 'UE4' to the network.", "test_id": "f38f0349-8e92-48c7-a6c2-4865f1f1aacd"}
+{"level": "INFO", "timestamp": "2024-01-23 11:16:36", "message": "UE initialized with ID UE5 at 2024-01-23 11:16:43.578506", "test_id": "f38f0349-8e92-48c7-a6c2-4865f1f1aacd"}
+{"level": "INFO", "timestamp": "2024-01-23 11:16:36", "message": "UE UE5 added to the network state.", "test_id": "f38f0349-8e92-48c7-a6c2-4865f1f1aacd"}
+{"level": "ERROR", "timestamp": "2024-01-23 11:16:36", "message": "Failed to add UE 'UE5' to the network.", "test_id": "f38f0349-8e92-48c7-a6c2-4865f1f1aacd"}
+{"level": "INFO", "timestamp": "2024-01-23 11:16:36", "message": "UE initialized with ID UE6 at 2024-01-23 11:16:43.579481", "test_id": "f38f0349-8e92-48c7-a6c2-4865f1f1aacd"}
+{"level": "INFO", "timestamp": "2024-01-23 11:16:36", "message": "UE UE6 added to the network state.", "test_id": "f38f0349-8e92-48c7-a6c2-4865f1f1aacd"}
+{"level": "ERROR", "timestamp": "2024-01-23 11:16:36", "message": "Failed to add UE 'UE6' to the network.", "test_id": "f38f0349-8e92-48c7-a6c2-4865f1f1aacd"}
+{"level": "INFO", "timestamp": "2024-01-23 11:16:36", "message": "UE initialized with ID UE7 at 2024-01-23 11:16:43.581432", "test_id": "f38f0349-8e92-48c7-a6c2-4865f1f1aacd"}
+{"level": "INFO", "timestamp": "2024-01-23 11:16:36", "message": "UE UE7 added to the network state.", "test_id": "f38f0349-8e92-48c7-a6c2-4865f1f1aacd"}
+{"level": "ERROR", "timestamp": "2024-01-23 11:16:36", "message": "Failed to add UE 'UE7' to the network.", "test_id": "f38f0349-8e92-48c7-a6c2-4865f1f1aacd"}
+{"level": "INFO", "timestamp": "2024-01-23 11:16:36", "message": "UE initialized with ID UE8 at 2024-01-23 11:16:43.583383", "test_id": "f38f0349-8e92-48c7-a6c2-4865f1f1aacd"}
+{"level": "INFO", "timestamp": "2024-01-23 11:16:36", "message": "UE UE8 added to the network state.", "test_id": "f38f0349-8e92-48c7-a6c2-4865f1f1aacd"}
+{"level": "ERROR", "timestamp": "2024-01-23 11:16:36", "message": "Failed to add UE 'UE8' to the network.", "test_id": "f38f0349-8e92-48c7-a6c2-4865f1f1aacd"}
+{"level": "INFO", "timestamp": "2024-01-23 11:16:36", "message": "UE initialized with ID UE9 at 2024-01-23 11:16:43.584358", "test_id": "f38f0349-8e92-48c7-a6c2-4865f1f1aacd"}
+{"level": "INFO", "timestamp": "2024-01-23 11:16:36", "message": "UE UE9 added to the network state.", "test_id": "f38f0349-8e92-48c7-a6c2-4865f1f1aacd"}
+{"level": "ERROR", "timestamp": "2024-01-23 11:16:36", "message": "Failed to add UE 'UE9' to the network.", "test_id": "f38f0349-8e92-48c7-a6c2-4865f1f1aacd"}
+{"level": "INFO", "timestamp": "2024-01-23 11:16:36", "message": "UE initialized with ID UE10 at 2024-01-23 11:16:43.586308", "test_id": "f38f0349-8e92-48c7-a6c2-4865f1f1aacd"}
+{"level": "INFO", "timestamp": "2024-01-23 11:16:36", "message": "UE UE10 added to the network state.", "test_id": "f38f0349-8e92-48c7-a6c2-4865f1f1aacd"}
+{"level": "ERROR", "timestamp": "2024-01-23 11:16:36", "message": "Failed to add UE 'UE10' to the network.", "test_id": "f38f0349-8e92-48c7-a6c2-4865f1f1aacd"}
+{"level": "ERROR", "timestamp": "2024-01-23 11:16:36", "message": "Expected 10 UEs, got 0", "test_id": "f38f0349-8e92-48c7-a6c2-4865f1f1aacd"}
+{"level": "INFO", "timestamp": "2024-01-23 11:27:04", "message": "UE initialized with ID UE1 at 2024-01-23 11:27:14.265505", "test_id": "47c6a054-3388-4d5c-8e4f-a95f6915e15c"}
+{"level": "INFO", "timestamp": "2024-01-23 11:27:04", "message": "UE UE1 added to the network state.", "test_id": "47c6a054-3388-4d5c-8e4f-a95f6915e15c"}
+{"level": "ERROR", "timestamp": "2024-01-23 11:27:04", "message": "Failed to add UE 'UE1' to the network.", "test_id": "47c6a054-3388-4d5c-8e4f-a95f6915e15c"}
+{"level": "INFO", "timestamp": "2024-01-23 11:27:04", "message": "UE initialized with ID UE2 at 2024-01-23 11:27:14.267451", "test_id": "47c6a054-3388-4d5c-8e4f-a95f6915e15c"}
+{"level": "INFO", "timestamp": "2024-01-23 11:27:04", "message": "UE UE2 added to the network state.", "test_id": "47c6a054-3388-4d5c-8e4f-a95f6915e15c"}
+{"level": "ERROR", "timestamp": "2024-01-23 11:27:04", "message": "Failed to add UE 'UE2' to the network.", "test_id": "47c6a054-3388-4d5c-8e4f-a95f6915e15c"}
+{"level": "INFO", "timestamp": "2024-01-23 11:27:04", "message": "UE initialized with ID UE3 at 2024-01-23 11:27:14.268427", "test_id": "47c6a054-3388-4d5c-8e4f-a95f6915e15c"}
+{"level": "INFO", "timestamp": "2024-01-23 11:27:04", "message": "UE UE3 added to the network state.", "test_id": "47c6a054-3388-4d5c-8e4f-a95f6915e15c"}
+{"level": "ERROR", "timestamp": "2024-01-23 11:27:04", "message": "Failed to add UE 'UE3' to the network.", "test_id": "47c6a054-3388-4d5c-8e4f-a95f6915e15c"}
+{"level": "INFO", "timestamp": "2024-01-23 11:27:04", "message": "UE initialized with ID UE4 at 2024-01-23 11:27:14.269402", "test_id": "47c6a054-3388-4d5c-8e4f-a95f6915e15c"}
+{"level": "INFO", "timestamp": "2024-01-23 11:27:04", "message": "UE UE4 added to the network state.", "test_id": "47c6a054-3388-4d5c-8e4f-a95f6915e15c"}
+{"level": "ERROR", "timestamp": "2024-01-23 11:27:04", "message": "Failed to add UE 'UE4' to the network.", "test_id": "47c6a054-3388-4d5c-8e4f-a95f6915e15c"}
+{"level": "INFO", "timestamp": "2024-01-23 11:27:04", "message": "UE initialized with ID UE5 at 2024-01-23 11:27:14.271352", "test_id": "47c6a054-3388-4d5c-8e4f-a95f6915e15c"}
+{"level": "INFO", "timestamp": "2024-01-23 11:27:04", "message": "UE UE5 added to the network state.", "test_id": "47c6a054-3388-4d5c-8e4f-a95f6915e15c"}
+{"level": "ERROR", "timestamp": "2024-01-23 11:27:04", "message": "Failed to add UE 'UE5' to the network.", "test_id": "47c6a054-3388-4d5c-8e4f-a95f6915e15c"}
+{"level": "INFO", "timestamp": "2024-01-23 11:27:04", "message": "UE initialized with ID UE6 at 2024-01-23 11:27:14.273302", "test_id": "47c6a054-3388-4d5c-8e4f-a95f6915e15c"}
+{"level": "INFO", "timestamp": "2024-01-23 11:27:04", "message": "UE UE6 added to the network state.", "test_id": "47c6a054-3388-4d5c-8e4f-a95f6915e15c"}
+{"level": "ERROR", "timestamp": "2024-01-23 11:27:04", "message": "Failed to add UE 'UE6' to the network.", "test_id": "47c6a054-3388-4d5c-8e4f-a95f6915e15c"}
+{"level": "INFO", "timestamp": "2024-01-23 11:27:04", "message": "UE initialized with ID UE7 at 2024-01-23 11:27:14.274276", "test_id": "47c6a054-3388-4d5c-8e4f-a95f6915e15c"}
+{"level": "INFO", "timestamp": "2024-01-23 11:27:04", "message": "UE UE7 added to the network state.", "test_id": "47c6a054-3388-4d5c-8e4f-a95f6915e15c"}
+{"level": "ERROR", "timestamp": "2024-01-23 11:27:04", "message": "Failed to add UE 'UE7' to the network.", "test_id": "47c6a054-3388-4d5c-8e4f-a95f6915e15c"}
+{"level": "INFO", "timestamp": "2024-01-23 11:27:04", "message": "UE initialized with ID UE8 at 2024-01-23 11:27:14.276227", "test_id": "47c6a054-3388-4d5c-8e4f-a95f6915e15c"}
+{"level": "INFO", "timestamp": "2024-01-23 11:27:04", "message": "UE UE8 added to the network state.", "test_id": "47c6a054-3388-4d5c-8e4f-a95f6915e15c"}
+{"level": "ERROR", "timestamp": "2024-01-23 11:27:04", "message": "Failed to add UE 'UE8' to the network.", "test_id": "47c6a054-3388-4d5c-8e4f-a95f6915e15c"}
+{"level": "INFO", "timestamp": "2024-01-23 11:27:04", "message": "UE initialized with ID UE9 at 2024-01-23 11:27:14.277202", "test_id": "47c6a054-3388-4d5c-8e4f-a95f6915e15c"}
+{"level": "INFO", "timestamp": "2024-01-23 11:27:04", "message": "UE UE9 added to the network state.", "test_id": "47c6a054-3388-4d5c-8e4f-a95f6915e15c"}
+{"level": "ERROR", "timestamp": "2024-01-23 11:27:04", "message": "Failed to add UE 'UE9' to the network.", "test_id": "47c6a054-3388-4d5c-8e4f-a95f6915e15c"}
+{"level": "INFO", "timestamp": "2024-01-23 11:27:04", "message": "UE initialized with ID UE10 at 2024-01-23 11:27:14.279152", "test_id": "47c6a054-3388-4d5c-8e4f-a95f6915e15c"}
+{"level": "INFO", "timestamp": "2024-01-23 11:27:04", "message": "UE UE10 added to the network state.", "test_id": "47c6a054-3388-4d5c-8e4f-a95f6915e15c"}
+{"level": "ERROR", "timestamp": "2024-01-23 11:27:04", "message": "Failed to add UE 'UE10' to the network.", "test_id": "47c6a054-3388-4d5c-8e4f-a95f6915e15c"}
+{"level": "ERROR", "timestamp": "2024-01-23 11:27:04", "message": "Expected 10 UEs, got 0", "test_id": "47c6a054-3388-4d5c-8e4f-a95f6915e15c"}
