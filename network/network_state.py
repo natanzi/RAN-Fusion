@@ -64,11 +64,11 @@ class NetworkState:
     def check_for_duplicate_cells(self, cells):
         print("Debug: Checking for duplicate cells.")
         seen_cell_ids = set()
-        for cell in cells:
-            if cell.ID in seen_cell_ids:
-                cell_logger.error(f"Duplicate cell ID {cell.ID} detected during state update.")
-                raise ValueError(f"Duplicate cell ID {cell.ID} found during state update.")
-            seen_cell_ids.add(cell.ID)
+        for cell_id, cell in cells.items():
+            if cell_id in seen_cell_ids:
+                cell_logger.error(f"Duplicate cell ID {cell_id} detected during state update.")
+                raise ValueError(f"Duplicate cell ID {cell_id} found during state update.")
+            seen_cell_ids.add(cell_id)
         print("Debug: Duplicate cell check completed.")
 ######################################################################################################
     def check_for_duplicate_ues(self, ues):
@@ -344,9 +344,14 @@ class NetworkState:
             neighbors = ', '.join(cell.Neighbors) if hasattr(cell, 'Neighbors') and cell.Neighbors else 'None'
             print(f"ID: {cell_id}, gNodeB: {cell.gNodeB_ID}, Neighbors: {neighbors}")
         print("\nUEs:")
-        for ue_id, ue in self.ues.items():  # self.ues is a dictionary
-            print(f"ID: {ue_id}, Cell: {ue.ConnectedCellID}, gNodeB: {ue.gNodeB_ID}")
-        print("Network State priniting finished!")
+        # Check if self.ues is a list and handle accordingly
+        if isinstance(self.ues, list):
+            for ue in self.ues:  # self.ues is a list
+                print(f"ID: {ue.ID}, Cell: {ue.ConnectedCellID}, gNodeB: {ue.gNodeB_ID}")
+        else:
+            for ue_id, ue in self.ues.items():  # self.ues is a dictionary
+                print(f"ID: {ue_id}, Cell: {ue.ConnectedCellID}, gNodeB: {ue.gNodeB_ID}")
+        print("Network State printing finished!")
 #############################################################################################################
 # Add this method to the NetworkState class
     def update_and_save(self, gNodeBs, cells, ues):
