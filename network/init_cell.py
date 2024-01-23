@@ -10,18 +10,16 @@ def load_json_config(file_path):
     with open(file_path, 'r') as file:
         return json.load(file)
 
-def initialize_cells(gNodeBs, network_state):
+def initialize_cells(gNodeBs, ):
     print("Debug Start: initialize_cells function.")
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     config_dir = os.path.join(base_dir, 'Config_files')
     cells_config = load_json_config(os.path.join(config_dir, 'cell_config.json'))
 
     # Initialize the DatabaseManager with the required parameters
-    db_manager = DatabaseManager(network_state)
+    db_manager = DatabaseManager()
     print("Debug: DatabaseManager initialized.")
 
-    # Explicitly clear the network state before initializing
-    network_state.clear_state()
     cell_logger.info("Cleared network state before initializing cells.")
     print("Debug: Network state cleared.")
 
@@ -38,7 +36,7 @@ def initialize_cells(gNodeBs, network_state):
         seen_cell_ids.add(cell_id)
 
         # Check if the cell already exists in the network state
-        if network_state.has_cell(cell_id):
+        if has_cell(cell_id):
             cell_logger.error(f"Cell with ID {cell_id} already exists in the network state after clearing. Skipping addition.")
             print(f"Error: Cell with ID {cell_id} already exists after clearing state. Skipping addition.")
             continue  # Skip this cell and continue with the next
@@ -52,9 +50,8 @@ def initialize_cells(gNodeBs, network_state):
         new_cells.append(new_cell)  # Add the new cell to the list of new cells
         print(f"Created cell {cell_id} with memory address {id(new_cell)}")
 
-        # Add the new cell to the network state using add_cell method
         try:
-            network_state.add_cell(new_cell)
+            .add_cell(new_cell)
             print(f"+++ Added {cell_id} to network state +++")
             # Log the successful addition
             cell_logger.info(f"Successfully added cell with ID: {cell_id}")
@@ -78,7 +75,7 @@ def initialize_cells(gNodeBs, network_state):
             print(f"Current cells in gNodeB {gnodeb.ID} before adding: {[cell.ID for cell in gnodeb.Cells]}")
             if not gnodeb.has_cell(new_cell.ID):
                 print(f"+++ Calling add_cell_to_gNodeB() for {new_cell.ID} +++")
-                gnodeb.add_cell_to_gNodeB(new_cell, network_state)  # Pass network_state as an argument
+                gnodeb.add_cell_to_gNodeB(new_cell)  # Pass  as an argument
                 print(f"Cells in gNodeB {gnodeb.ID} after adding: {[cell.ID for cell in gnodeb.Cells]}")
             else:
                 print(f"Cell {new_cell.ID} already exists in gNodeB {gnodeb.ID}, skipping addition.")

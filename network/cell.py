@@ -10,12 +10,10 @@ from database.time_utils import get_current_time_ntp, server_pools
 from threading import Lock
 
 class Cell:
-    def __init__(self, cell_id, gnodeb_id, frequencyBand, duplexMode, tx_power, bandwidth, ssb_periodicity, ssb_offset, max_connect_ues, max_throughput,  channel_model, trackingArea=None, network_state=None, is_active=True):
+    def __init__(self, cell_id, gnodeb_id, frequencyBand, duplexMode, tx_power, bandwidth, ssb_periodicity, ssb_offset, max_connect_ues, max_throughput,  channel_model, trackingArea=None, is_active=True):
         self.cell_lock = Lock()
         print(f"START-Creating cell {cell_id}")
         # Check if the cell ID already exists in the network state
-        if network_state and network_state.get_cell_info(cell_id):
-            raise ValueError(f"Duplicate cell ID {cell_id} is not allowed.")
         self.ID = cell_id
         self.gNodeB_ID = gnodeb_id
         self.FrequencyBand = frequencyBand
@@ -85,11 +83,11 @@ class Cell:
             }
         return len(self.ConnectedUEs)
 #########################################################################################        
-    def add_ue(self, ue, network_state):
+    def add_ue(self, ue):
         from .handover_utils import perform_handover, handle_load_balancing
 
         # Check if the UE ID is already in use in the network
-        if ue.ID in [existing_ue.ID for existing_ue in network_state.ues.values()]:
+        if ue.ID in [existing_ue.ID for existing_ue in .ues.values()]:
             raise Exception(f"UE with ID '{ue.ID}' already exists in the network.")
 
         # Check if the cell is at or above 80% capacity
@@ -99,7 +97,7 @@ class Cell:
             ue_logger.warning(warning_msg)
         # Trigger the handover process
             
-        if handle_load_balancing(self.gNodeB_ID, network_state):
+        if handle_load_balancing(self.gNodeB_ID):
             # Handover was successful, no need to add UE to this cell
             return
         else:
@@ -119,24 +117,18 @@ class Cell:
         ue_logger.info(f"UE with ID {ue.ID} added to Cell {self.ID} at '{current_time}'")
         cell_logger.info(f"UE '{ue.ID}' has been added to Cell '{self.ID}'.")
 
-        # Update the network state here
-        network_state.ues[ue.ID] = ue  # Add the UE to the network state
-        network_state.update_state(network_state.gNodeBs, list(network_state.cells.values()), list(network_state.ues.values()))
-
         # Log the successful attachment
         cell_logger.info(f"UE '{ue.ID}' has been attached to Cell '{self.ID}' at '{current_time}'.")
         ue_logger.info(f"UE '{ue.ID}' has been attached to Cell '{self.ID}' at '{current_time}'.")
         print(f"UE '{ue.ID}' has been attached to Cell '{self.ID}' at '{current_time}'.")
 #########################################################################################        
-    def remove_ue(self, ue, network_state):
+    def remove_ue(self, ue):
         current_time = get_current_time_ntp()
         if ue in self.ConnectedUEs:
             self.ConnectedUEs.remove(ue)
             self.current_ue_count -= 1
             print(f"UE '{ue.ID}' has been detached from Cell '{self.ID}' at {current_time}.")
             self.update_ue_count()
-            # Update the network state here if necessary
-            network_state.update_state(network_state.gNodeBs, list(network_state.cells.values()), list(network_state.ues.values()))
             ue_logger.info(f"UE with ID {ue.ID} removed from Cell {self.ID} at at '{current_time}'")
         else:
             print(f"UE '{ue.ID}' is not connected to Cell '{self.ID}' and cannot be removed.")

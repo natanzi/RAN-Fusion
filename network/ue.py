@@ -156,7 +156,7 @@ class UE:
             raise ValueError(f"Unknown service type: {self.ServiceType}")
 
 ####################################################################################
-    def perform_handover(self, old_cell, new_cell, network_state):
+    def perform_handover(self, old_cell, new_cell):
         try:
             print(f"Debug: Starting handover process for UE {self.ID} from Cell {old_cell.ID} to Cell {new_cell.ID}")
             # Check if the handover is feasible (this method should be implemented)
@@ -171,8 +171,7 @@ class UE:
                 print(f"Debug: UE {self.ID} added to Cell {new_cell.ID}")
                 # Update the UE's connected cell ID
                 self.ConnectedCellID = new_cell.ID
-                # Update the network state to reflect the handover
-                network_state.update_state(self.gNodeBs, self.cells, self.ues)
+            
                 print(f"Debug: Network state updated for UE {self.ID} handover")
                 # Log the successful handover
                 ue_logger.info(f"UE {self.ID} handovered from Cell {old_cell.ID} to Cell {new_cell.ID}")
@@ -192,19 +191,19 @@ class UE:
         # ...
         return False
 ######################################################################################
-    def is_eligible_for_handover(self, network_state):
+    def is_eligible_for_handover(self):
         """
         Determines if the UE is eligible for handover based on its properties 
-        and the network state.
+        and the ...
 
-        :param network_state: The current state of the network.
+        :param : The current state of the network.
         :return: Boolean indicating eligibility for handover.
         """
         # Example: Check service type
         if self.serviceType in ['restricted_service_type']:
             return False
 
-        # Additional checks can be added here based on network_state
+        # Additional checks can be added here based on ?
         # For example, checking network policies, cell congestion, etc.
         # ...
 
@@ -229,7 +228,7 @@ class UE:
         # Log the update
         ue_logger.info(f"Traffic model updated for UE {self.ID} with parameters: {traffic_params}")
 ####################################################################################################
-    def perform_handover(self, old_cell, new_cell, network_state):
+    def perform_handover(self, old_cell, new_cell):
         try:
             print(f"Debug: Starting handover process for UE {self.ID} from Cell {old_cell.ID} to Cell {new_cell.ID}")
             # Check if the handover is feasible (this method should be implemented)
@@ -244,8 +243,6 @@ class UE:
                 print(f"Debug: UE {self.ID} added to Cell {new_cell.ID}")
                 # Update the UE's connected cell ID
                 self.ConnectedCellID = new_cell.ID
-                # Update the network state to reflect the handover
-                network_state.update_state(self.gNodeBs, self.cells, self.ues)
                 print(f"Debug: Network state updated for UE {self.ID} handover")
                 # Log the successful handover
                 ue_logger.info(f"UE {self.ID} handovered from Cell {old_cell.ID} to Cell {new_cell.ID}")

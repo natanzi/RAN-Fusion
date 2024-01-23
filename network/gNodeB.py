@@ -94,7 +94,7 @@ class gNodeB:
             "coverage_radius": self.CoverageRadius,
             "transmission_power": self.TransmissionPower,
             "frequency": self.Frequency,
-            "region": region_str,  # Use the converted string for 'region'
+            "region": region_str,  
             "max_ues": self.MaxUEs,
             "cell_count": self.CellCount,
             "measurement_bandwidth": self.MeasurementBandwidth,
@@ -214,7 +214,7 @@ class gNodeB:
         print(f"Debug End: update_cell_capacity method in gNodeB class with new_capacity {new_capacity}.")
 
 ###################################################################################################
-    def add_cell_to_gNodeB(self, cell, network_state):
+    def add_cell_to_gNodeB(self, cell):
         with self.lock:  # Ensure thread safety
             try:
                 print(f"Debug: Attempting to add cell {cell.ID} to gNodeB {self.ID}")
@@ -263,7 +263,7 @@ class gNodeB:
             if len(cell_ids) != len(set(cell_ids)):
                 raise ValueError("Duplicate Cell IDs detected after addition.")
 ###################################################################################################
-    def add_sector_to_cell(self, sector, cell, network_state):
+    def add_sector_to_cell(self, sector, cell):
         import traceback
         print(f"Debug: Starting to add sector '{sector.ID}' to cell '{cell.ID}' in gNodeB '{self.ID}'.")  # Start message
         print(f"Debug: Sector object: {repr(sector)}")  # Print out the sector object
@@ -276,8 +276,6 @@ class gNodeB:
                 raise ValueError(f"Sector '{sector.ID}' already exists in Cell '{cell.ID}'")
             #Add the sector to the cell's list of sectors
             cell.add_sector(sector)
-            #Update the NetworkState to include the new sector
-            network_state.add_sector(sector)
             #Log the addition of the sector
             cell_logger.info(f"Sector '{sector.ID}' has been added to Cell '{cell.ID}' in gNodeB '{self.ID}'.")
             print(f"Debug: Finished adding sector '{sector.ID}' to cell '{cell.ID}' in gNodeB '{self.ID}'.")  # End message

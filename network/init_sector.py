@@ -12,7 +12,7 @@ def load_json_config(file_path):
     with open(file_path, 'r') as file:
         return json.load(file)
 
-def initialize_sectors(cells_dict, network_state):
+def initialize_sectors(cells_dict):
     print("Debug: Starting initialize_sectors function.")  # Start message
     
     # Determine the base directory of the current file
@@ -29,7 +29,7 @@ def initialize_sectors(cells_dict, network_state):
     print("Debug: Sector configuration loaded(finishied...).")  # After loading config
     
     # Initialize the DatabaseManager with the network state
-    db_manager = DatabaseManager(network_state)
+    db_manager = DatabaseManager()
     
     # Iterate over each sector in the configuration
     for sector_data in sectors_config['sectors']:
