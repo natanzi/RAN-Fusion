@@ -16,6 +16,7 @@ from datetime import datetime
 from influxdb_client import Point
 from influxdb_client.client.write_api import SYNCHRONOUS, WritePrecision
 from database.time_utils import get_current_time_ntp, server_pools
+from multiprocessing import Lock
 
 current_time = get_current_time_ntp()
 
@@ -58,6 +59,7 @@ class gNodeB:
         self.CellIds = cellIds
         self.handover_success_count = 0
         self.handover_failure_count = 0
+        self.lock = Lock()
         gnodeb_logger.info(f"gNodeB '{self.ID}' has been launched with {self.CellCount} cells at '{current_time}'.")
         print(f"Debug End: gNodeB '{self.ID}' initialized with {self.CellCount} cells.")
 

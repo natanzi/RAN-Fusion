@@ -7,6 +7,8 @@ from influxdb_client import Point, WritePrecision
 from logs.logger_config import database_logger
 from database.time_utils import get_current_time_ntp, server_pools
 from logs.logger_config import cell_logger, ue_logger, gnodeb_logger, sector_logger
+from multiprocessing import Lock
+
 time = current_time = get_current_time_ntp()
 
 class NetworkState:
