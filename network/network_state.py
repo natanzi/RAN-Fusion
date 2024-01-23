@@ -39,29 +39,27 @@ class NetworkState:
 #################################################################################    
     def update_state(self, gNodeBs, cells, ues):
         print("Debug: Starting state update.")
-        with self.lock:  # Ensure thread-safe operations
-            # Check for duplicates before updating
+        with self.lock:
             self.check_for_duplicate_gNodeBs(gNodeBs)
             self.check_for_duplicate_cells(cells)
             self.check_for_duplicate_ues(ues)
             self.check_for_duplicate_sectors()
-            # Update gNodeBs, cells, and UEs
             self.gNodeBs = gNodeBs
             self.cells = cells
             self.ues = ues
-
-            # Assign neighbors to cells and update the last update timestamp
             self.assign_neighbors_to_cells()
             self.last_update = get_current_time_ntp()
         print("Debug: State update completed.")
 ######################################################################################################
-    def check_for_duplicate_cells(self, cells):
-        seen_cell_ids = set()
-        for cell in cells:
-            if cell.ID in seen_cell_ids:
-                cell_logger.error(f"Duplicate cell ID {cell.ID} detected during state update.")
-                raise ValueError(f"Duplicate cell ID {cell.ID} found during state update.")
-            seen_cell_ids.add(cell.ID)
+    def check_for_duplicate_gNodeBs(self, gNodeBs):
+        print("Debug: Checking for duplicate gNodeBs.")
+        seen_gNodeB_ids = set()
+        for gNodeB_id in gNodeBs:
+            if gNodeB_id in seen_gNodeB_ids:
+                gnodeb_logger.error(f"Duplicate gNodeB ID {gNodeB_id} detected during state update.")
+                raise ValueError(f"Duplicate gNodeB ID {gNodeB_id} found during state update.")
+            seen_gNodeB_ids.add(gNodeB_id)
+        print("Debug: Duplicate gNodeB check completed.")
 ######################################################################################################
     def check_for_duplicate_cells(self, cells):
         print("Debug: Checking for duplicate cells.")
