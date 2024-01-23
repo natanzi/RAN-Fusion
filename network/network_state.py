@@ -23,6 +23,8 @@ class NetworkState:
         self.db_manager.set_network_state(self)
         self.sectors = {}  # Store sectors by sector_id
         print("Debug: NetworkState initialized.")
+        print("Debug: NetworkState instance variables set: ", vars(self))
+        print("Debug: Exiting NetworkState __init__ method.")
 #################################################################################
     # Clear other relevant state information as needed
     def clear_state(self):
@@ -51,6 +53,8 @@ class NetworkState:
             self.ues = ues
             self.assign_neighbors_to_cells()
             self.last_update = get_current_time_ntp()
+        # Call verify_no_duplicates to ensure no duplicates exist after the update
+        self.verify_no_duplicates()
         print("Debug: State update completed.")
 ######################################################################################################
     def check_for_duplicate_gNodeBs(self, gNodeBs):
@@ -158,7 +162,7 @@ class NetworkState:
             cell_ids = [cell.ID for cell in gNodeB.Cells]
             for cell in gNodeB.Cells:
                 cell.Neighbors = [neighbor_id for neighbor_id in cell_ids if neighbor_id != cell.ID]
-        print("Debug: Neighbors assigned to cells.")
+                print(f"Debug: Neighbors assigned to cell {cell.ID}: {cell.Neighbors}")
 ######################################################################################################   
     def get_ue_info(self, ue_id):
         print(f"Debug: Retrieving UE info for UE_ID {ue_id}.")
@@ -226,7 +230,7 @@ class NetworkState:
             if ue.ID not in self.ues:
                 self.ues[ue.ID] = ue
                 ue_logger.info(f"UE {ue.ID} added to the network state.")
-                print("Debug: UE with ID {ue.ID} added to the network state.")
+                print(f"Debug: UE with ID {ue.ID} added to the network state.")
             else:
                 error_message = f"Failed to add UE '{ue.ID}': UE with ID '{ue.ID}' already exists in the network."
                 ue_logger.error(error_message)
@@ -238,8 +242,10 @@ class NetworkState:
         with self.lock:
             if ue_id in self.ues:
                 del self.ues[ue_id]
-                print("Debug: Finished remove_ue function with UE removed.")
+                print(f"Debug: UE with ID {ue_id} removed from the network state.")
                 return True
+            else:
+                print(f"Debug: UE with ID {ue_id} not found for removal.")
         print("Debug: Finished remove_ue function with no UE removed.")
         return False
 ######################################################################################################
@@ -271,6 +277,7 @@ class NetworkState:
                 raise ValueError(f"Cell ID {sector.cell_id} not found.")
             self.sectors[sector.sector_id] = sector
             self.cells[sector.cell_id].add_sector(sector)
+            print(f"Debug: Sector {sector.sector_id} added to cell {sector.cell_id}.")
         print("Debug: Finished add_sector function.")
 ######################################################################################################
     def remove_sector(self, sector_id):
@@ -279,6 +286,9 @@ class NetworkState:
             sector = self.sectors.pop(sector_id, None)
             if sector:
                 self.cells[sector.cell_id].remove_sector(sector_id)
+                print(f"Debug: Sector {sector_id} removed from cell {sector.cell_id}.")
+            else:
+                print(f"Debug: Sector {sector_id} not found for removal.")
         print("Debug: Finished remove_sector function.")
 ######################################################################################################
     def get_sector_info(self, sector_id):
@@ -317,6 +327,7 @@ class NetworkState:
                     .time(get_current_time_ntp(), WritePrecision.NS) 
                 points.append(cell_point)
                 database_logger.info(f"Serialized data for InfluxDB for Cell ID {cell_id} with load {cell_load}")
+                print(f"Debug: Serialized point for cell {cell_id}: {cell_point.to_line_protocol()}")
 ######################################################################################################
     # Serialize gNodeB metrics
         for gNodeB_id, gNodeB in self.gNodeBs.items():
@@ -343,15 +354,17 @@ class NetworkState:
         print("Debug: Saving network state to InfluxDB started...")
         start_time = get_current_time_ntp()
         points = self.serialize_for_influxdb()
-        
+        print(f"Debug: Number of points to save: {len(points)}")
         try:
             self.db_manager.insert_data_batch(points)
-            #database_logger.info("Successfully saved state to InfluxDB")  # Log successful save
+            database_logger.info("Successfully saved state to InfluxDB")  # Log successful save
         except Exception as e:
             database_logger.error(f"Failed to save state to InfluxDB: {e}")  # Log any exceptions
         finally:
             self.db_manager.close_connection()
         end_time = get_current_time_ntp()
+        print(f"Debug: Saving {len(points)} points to InfluxDB.")
+        print(f"Debug: Time taken to save state: {end_time - start_time} seconds.")
         print("Debug: Saving network state to InfluxDB Finished...")
 ########################################################################################################    
     def print_state(self):
