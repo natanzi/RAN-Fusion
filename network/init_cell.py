@@ -12,10 +12,11 @@ def load_json_config(file_path):
         return json.load(file)
 
 def initialize_cells(gNodeBs, network_state):
+    print("Debug Start: initialize_cells function.")
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     config_dir = os.path.join(base_dir, 'Config_files')
     cells_config = load_json_config(os.path.join(config_dir, 'cell_config.json'))
-    
+
     # Initialize the DatabaseManager with the required parameters
     db_manager = DatabaseManager(network_state)
     print("Debug: DatabaseManager initialized.")
@@ -28,7 +29,6 @@ def initialize_cells(gNodeBs, network_state):
     # Pre-validation to check for duplicate cell IDs in the configuration
     seen_cell_ids = set()
     new_cells = []  # List to keep track of newly added cells
-
     for cell_data in cells_config['cells']:
         cell_id = cell_data['cell_id']
         print(f"--- Read cell {cell_id} from config ---")
@@ -79,13 +79,14 @@ def initialize_cells(gNodeBs, network_state):
             print(f"Current cells in gNodeB {gnodeb.ID} before adding: {[cell.ID for cell in gnodeb.Cells]}")
             if not gnodeb.has_cell(new_cell.ID):
                 print(f"+++ Calling add_cell_to_gNodeB() for {new_cell.ID} +++")
-                gnodeb.add_cell_to_gNodeB(new_cell)
+                gnodeb.add_cell_to_gNodeB(new_cell, network_state)  # Pass network_state as an argument
                 print(f"Cells in gNodeB {gnodeb.ID} after adding: {[cell.ID for cell in gnodeb.Cells]}")
             else:
                 print(f"Cell {new_cell.ID} already exists in gNodeB {gnodeb.ID}, skipping addition.")
         else:
             print(f"Error: gNodeB {new_cell.gNodeB_ID} not found for cell {new_cell.ID}.")
-    
+
     # Close the database connection
     db_manager.close_connection()
     print("Debug: Database connection closed.")
+    print("Debug End: initialize_cells function.")
