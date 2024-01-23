@@ -13,6 +13,11 @@ def initialize_gNodeBs(gNodeBs_config, db_manager):
     for gNodeB_data in gNodeBs_config['gNodeBs']:
         if gNodeB_data['gnodeb_id'] in gNodeBs:
             raise ValueError(f"Duplicate gNodeB ID {gNodeB_data['gnodeb_id']} found during initialization.")
+        
+        # Ensure 'sectorCount' and 'sectorIds' are included in gNodeB_data
+        if 'sectorCount' not in gNodeB_data or 'sectorIds' not in gNodeB_data:
+            raise KeyError(f"'sectorCount' and 'sectorIds' must be specified for gNodeB with ID {gNodeB_data['gnodeb_id']}")
+
         gnodeb = gNodeB(**gNodeB_data)
         gNodeBs[gnodeb.ID] = gnodeb
         point = gnodeb.serialize_for_influxdb()  # Serialize for InfluxDB
