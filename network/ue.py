@@ -3,9 +3,7 @@ import random
 import math
 import json
 from database.database_manager import DatabaseManager
-from .network_state import NetworkState
 from .utils import random_location_within_radius
-from network.network_state import NetworkState
 from logs.logger_config import ue_logger
 from datetime import datetime
 from influxdb_client import Point

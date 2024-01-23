@@ -4,7 +4,6 @@ import os
 import json
 from .cell import Cell
 from database.database_manager import DatabaseManager
-from .network_state import NetworkState
 from logs.logger_config import cell_logger
 
 def load_json_config(file_path):

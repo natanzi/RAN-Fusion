@@ -5,7 +5,6 @@ from math import radians, cos, sin, asin, sqrt
 
 # You can import the haversine function from network_metrics.py if it's in the same directory
 # or adjust the import path accordingly if it's located elsewhere.
-from network_metrics import haversine
 
 def calculate_signal_strength(ue_location, gNodeB_location, gNodeB_coverage_radius):
     """

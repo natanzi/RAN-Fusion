@@ -6,7 +6,6 @@ from Config_files.config_load import load_all_configs
 import logging
 from logo import create_logo
 from health_check.do_health_check import perform_health_check
-from network.network_state import NetworkState
 from network.handover_utils import handle_load_balancing, monitor_and_log_cell_load
 from health_check.system_monitoring import SystemMonitor
 from database.database_manager import DatabaseManager
@@ -121,14 +120,12 @@ def main():
     
     manager = Manager()
     network_state_lock = manager.Lock()
-    network_state = NetworkState(network_state_lock)
 
     # Clear the network state before any initialization
-    network_state.clear_state()
 
-    db_manager = DatabaseManager(network_state)
+    db_manager = DatabaseManager()
 
-    if perform_health_check(network_state):
+    if perform_health_check():
         print("Health check passed.")
     else:
         print("Health check failed.")
@@ -153,7 +150,7 @@ def main():
 
     # Initialize Cells
     try:
-        cells = initialize_cells(gNodeBs, network_state)
+        cells = initialize_cells(gNodeBs)
         # Add validation for cells here if needed
     except ValueError as e:
         logging.error(f"Failed to initialize cells: {e}")
@@ -161,7 +158,7 @@ def main():
 
     # Initialize Sectors
     try:
-        sectors = initialize_sectors(cells, network_state)
+        sectors = initialize_sectors(cells)
         # Add validation for sectors here if needed
     except ValueError as e:
         logging.error(f"Failed to initialize sectors: {e}")
@@ -169,7 +166,7 @@ def main():
 
     # Initialize UEs
     try:
-        ues = initialize_ues(sectors, ue_config, network_state)
+        ues = initialize_ues(sectors, ue_config )
         # Add validation for UEs here if needed
     except ValueError as e:
         logging.error(f"Failed to initialize UEs: {e}")
@@ -188,10 +185,10 @@ def main():
         print("Debug: Starting cell load monitoring thread.")
         cell_load_thread.start()
     # Instantiate the SystemMonitor
-    system_monitor = SystemMonitor(network_state)
+    system_monitor = SystemMonitor()
 
     # Start the network state manager process
-    logging_process = Process(target=log_traffic, args=(ues, command_queue, network_state, gNodeBs))
+    logging_process = Process(target=log_traffic, args=(ues, command_queue, gNodeBs))
     print("Debug: Starting traffic logging process.")
     logging_process.start()
 
@@ -203,12 +200,12 @@ def main():
         cell_load_thread.start()
 
     # Start the congestion detection process
-    congestion_process = Process(target=detect_and_handle_congestion, args=(network_state, command_queue))
+    congestion_process = Process(target=detect_and_handle_congestion, args=(command_queue))
     print("Debug: Starting congestion detection process.")
     congestion_process.start()
     
     # Start the network state manager process
-    ns_manager_process = Process(target=network_state_manager, args=(network_state, command_queue))
+    ns_manager_process = Process(target=network_state_manager, args=(command_queue))
     print("Debug: Starting network state manager process.")
     ns_manager_process.start()
 

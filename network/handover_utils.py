@@ -1,7 +1,6 @@
 # handover_utils.py and it is inside the network folder
 from datetime import datetime
 import logging
-from .network_state import NetworkState
 from logs.logger_config import cell_load_logger, cell_logger, gnodeb_logger, ue_logger
 from database.database_manager import DatabaseManager
 import time

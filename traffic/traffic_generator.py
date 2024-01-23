@@ -5,7 +5,6 @@ import time
 from logs.logger_config import cell_load_logger, cell_logger, gnodeb_logger, ue_logger, traffic_update 
 from threading import Lock
 from multiprocessing import Queue
-from network.network_state import NetworkState
 from threading import Thread
 import datetime
 from database.database_manager import DatabaseManager

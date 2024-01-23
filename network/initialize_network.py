@@ -4,7 +4,6 @@ from .init_gNodeB import initialize_gNodeBs
 from .init_cell import initialize_cells
 from .init_sector import initialize_sectors  # Import the initialize_sectors function
 from .init_ue import initialize_ues
-from .network_state import NetworkState
 from threading import Lock
 
 def initialize_network(num_ues_to_launch, gNodeBs_config, ue_config, db_manager):

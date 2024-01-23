@@ -5,7 +5,6 @@ import string
 from database.database_manager import DatabaseManager
 from .utils import random_location_within_radius
 from .ue import UE
-from network.network_state import NetworkState
 from database.time_utils import get_current_time_ntp
 from logs.logger_config import ue_logger
 

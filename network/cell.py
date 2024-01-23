@@ -1,6 +1,5 @@
 #Defines the Cell class, which is part of a gNodeB.// this is located inside network directory
 from logs.logger_config import cell_logger
-from .network_state import NetworkState
 import datetime
 from logs.logger_config import ue_logger
 from logs.logger_config import cell_logger

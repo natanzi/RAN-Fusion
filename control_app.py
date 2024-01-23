@@ -7,7 +7,6 @@ from logs.logger_config import traffic_update,server_logger
 from multiprocessing import Queue
 import traceback
 from datetime import datetime
-from network.network_state import NetworkState
 from network.ue import UE
 from threading import Lock
 
@@ -18,7 +17,6 @@ update_received = False
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})  # This line allows all domains
 lock = Lock()
-network_state = NetworkState(lock)
 
 # Assuming command_queue is made accessible here, for example, as a global variable
 command_queue = Queue()
@@ -219,7 +217,7 @@ def add_ue():
         ue_data = {'ues': [data]}
         ue = UE.from_json(ue_data)[0]
         with lock:  # Ensure thread safety
-            success = network_state.add_ue(ue)
+            success = .add_ue(ue)
         if success:
             server_logger.info(f'UE {ue.ue_id} added successfully')
             return jsonify({'message': 'UE added successfully'}), 200
@@ -234,7 +232,7 @@ def add_ue():
 def remove_ue(ue_id):
     try:
         with lock:  # Ensure thread safety
-            success = network_state.remove_ue(ue_id)
+            success = .remove_ue(ue_id)
         if success:
             server_logger.info(f'UE {ue_id} removed successfully')
             return jsonify({'message': 'UE removed successfully'}), 200
@@ -250,7 +248,7 @@ def update_ue(ue_id):
     data = request.json
     try:
         with lock:  # Ensure thread safety
-            success = network_state.update_ue(ue_id, data)
+            success = .update_ue(ue_id, data)
         if success:
             server_logger.info(f'UE {ue_id} updated successfully')
             return jsonify({'message': 'UE updated successfully'}), 200
