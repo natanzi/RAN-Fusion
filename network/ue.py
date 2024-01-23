@@ -121,45 +121,55 @@ class UE:
         packet_loss_rate = 0
 
         if service_type_lower == "voice":
-        # Assuming generate_voice_traffic returns five values
+            # Assuming generate_voice_traffic returns five values
             data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_voice_traffic()
+            print(f"Debug: Generated voice traffic for UE {self.ID} - Data Size: {data_size}, Interval: {interval}, Delay: {delay}, Jitter: {jitter}, Packet Loss Rate: {packet_loss_rate}")
         elif service_type_lower == "video":
             data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_video_traffic()
+            print(f"Debug: Generated video traffic for UE {self.ID} - Data Size: {data_size}, Interval: {interval}, Delay: {delay}, Jitter: {jitter}, Packet Loss Rate: {packet_loss_rate}")
         elif service_type_lower == "game":
             data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_gaming_traffic()
+            print(f"Debug: Generated gaming traffic for UE {self.ID} - Data Size: {data_size}, Interval: {interval}, Delay: {delay}, Jitter: {jitter}, Packet Loss Rate: {packet_loss_rate}")
         elif service_type_lower == "iot":
             data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_iot_traffic()
-        elif service_type_lower == "data":  
+            print(f"Debug: Generated IoT traffic for UE {self.ID} - Data Size: {data_size}, Interval: {interval}, Delay: {delay}, Jitter: {jitter}, Packet Loss Rate: {packet_loss_rate}")
+        elif service_type_lower == "data":
             data_size, interval, delay, jitter, packet_loss_rate = traffic_controller.generate_data_traffic()
+            print(f"Debug: Generated data traffic for UE {self.ID} - Data Size: {data_size}, Interval: {interval}, Delay: {delay}, Jitter: {jitter}, Packet Loss Rate: {packet_loss_rate}")
         else:
             raise ValueError(f"Unknown service type: {self.ServiceType}")
 
 ####################################################################################
     def perform_handover(self, old_cell, new_cell, network_state):
         try:
+            print(f"Debug: Starting handover process for UE {self.ID} from Cell {old_cell.ID} to Cell {new_cell.ID}")
             # Check if the handover is feasible (this method should be implemented)
             handover_successful = self.check_handover_feasibility(old_cell, new_cell)
-
             if handover_successful:
+                print(f"Debug: Handover is feasible for UE {self.ID}")
                 # Remove UE from the old cell's list of connected UEs
                 old_cell.remove_ue(self)
+                print(f"Debug: UE {self.ID} removed from Cell {old_cell.ID}")
                 # Add UE to the new cell
                 new_cell.add_ue(self)
+                print(f"Debug: UE {self.ID} added to Cell {new_cell.ID}")
                 # Update the UE's connected cell ID
                 self.ConnectedCellID = new_cell.ID
                 # Update the network state to reflect the handover
                 network_state.update_state(self.gNodeBs, self.cells, self.ues)
+                print(f"Debug: Network state updated for UE {self.ID} handover")
                 # Log the successful handover
                 ue_logger.info(f"UE {self.ID} handovered from Cell {old_cell.ID} to Cell {new_cell.ID}")
             else:
+                print(f"Debug: Handover failed for UE {self.ID} from Cell {old_cell.ID} to Cell {new_cell.ID}")
                 # Log the failed handover
                 ue_logger.error(f"Handover failed for UE {self.ID} from Cell {old_cell.ID} to Cell {new_cell.ID}")
-
             return handover_successful
         except Exception as e:
-        # Log any exception that occurs during the handover
+            print(f"Debug: Exception occurred during handover for UE {self.ID}: {e}")
+            # Log any exception that occurs during the handover
             ue_logger.error(f"Handover exception for UE {self.ID}: {e}")
-        return False
+            return False
 ######################################################################################
     def is_in_restricted_region(self):
         # Logic to determine if the cell is in a restricted region
@@ -203,26 +213,50 @@ class UE:
         # Log the update
         ue_logger.info(f"Traffic model updated for UE {self.ID} with parameters: {traffic_params}")
 ####################################################################################################
-    def update_parameters(self, params):
-        with self.lock:
-            for key, value in params.items():
-                if hasattr(self, key):
-                    setattr(self, key, value)
-                else:
-                    ue_logger.warning(f"Attempt to update non-existing parameter '{key}' for UE {self.ID}")
-            ue_logger.info(f"Parameters updated for UE {self.ID}: {params}")
+    def perform_handover(self, old_cell, new_cell, network_state):
+        try:
+            print(f"Debug: Starting handover process for UE {self.ID} from Cell {old_cell.ID} to Cell {new_cell.ID}")
+            # Check if the handover is feasible (this method should be implemented)
+            handover_successful = self.check_handover_feasibility(old_cell, new_cell)
+            if handover_successful:
+                print(f"Debug: Handover is feasible for UE {self.ID}")
+                # Remove UE from the old cell's list of connected UEs
+                old_cell.remove_ue(self)
+                print(f"Debug: UE {self.ID} removed from Cell {old_cell.ID}")
+                # Add UE to the new cell
+                new_cell.add_ue(self)
+                print(f"Debug: UE {self.ID} added to Cell {new_cell.ID}")
+                # Update the UE's connected cell ID
+                self.ConnectedCellID = new_cell.ID
+                # Update the network state to reflect the handover
+                network_state.update_state(self.gNodeBs, self.cells, self.ues)
+                print(f"Debug: Network state updated for UE {self.ID} handover")
+                # Log the successful handover
+                ue_logger.info(f"UE {self.ID} handovered from Cell {old_cell.ID} to Cell {new_cell.ID}")
+            else:
+                print(f"Debug: Handover failed for UE {self.ID} from Cell {old_cell.ID} to Cell {new_cell.ID}")
+                # Log the failed handover
+                ue_logger.error(f"Handover failed for UE {self.ID} from Cell {old_cell.ID} to Cell {new_cell.ID}")
+            return handover_successful
+        except Exception as e:
+            print(f"Debug: Exception occurred during handover for UE {self.ID}: {e}")
+            # Log any exception that occurs during the handover
+            ue_logger.error(f"Handover exception for UE {self.ID}: {e}")
+            return False
 ####################################################################################################
     def start_traffic(self):
         # Logic to start traffic generation for this UE
         # This could involve setting a flag or starting a traffic generation thread
         self.is_traffic_active = True
         ue_logger.info(f"Traffic generation started for UE {self.ID}.")
+        print(f"Debug: Traffic generation started for UE {self.ID}.")
 
     def stop_traffic(self):
         # Logic to stop traffic generation for this UE
         # This could involve clearing a flag or stopping a traffic generation thread
         self.is_traffic_active = False
         ue_logger.info(f"Traffic generation stopped for UE {self.ID}.")
+        print(f"Debug: Traffic generation stopped for UE {self.ID}.")
 ####################################################################################################        
     def serialize_for_influxdb(self):
         point = Point("ue_metrics") \
