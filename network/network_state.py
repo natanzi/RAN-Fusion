@@ -94,14 +94,31 @@ class NetworkState:
 ######################################################################################################
     def add_cell(self, cell):
         print(f"Debug: Adding cell {cell.ID} to network state.")
-        with self.lock:  # Assuming a threading lock is used for thread-safe operations
+        with self.lock:  # Ensure thread safety
             if cell.ID in self.cells:
-                cell_logger.error(f"Duplicate cell ID {cell.ID} detected. Skipping addition.")
-                raise ValueError(f"Cell {cell.ID} already exists in the network state.")
+                error_message = f"Duplicate cell ID {cell.ID} detected. Skipping addition."
+                cell_logger.error(error_message)
+                print(f"Debug: {error_message}")
+                raise ValueError(error_message)
             else:
                 self.cells[cell.ID] = cell
                 cell_logger.info(f"Cell {cell.ID} added to the network state.")
+                print(f"Debug: Cell {cell.ID} added to the network state.")
         print(f"Debug: Cell {cell.ID} addition completed.")
+######################################################################################################
+    def verify_no_duplicates(self):
+        with self.lock:  # Ensure thread safety
+            print("Debug: Checking for duplicate cells.")
+            if len(self.cells) != len(set(self.cells.keys())):
+                print("Error: Duplicate cells detected.")
+                raise ValueError("Duplicate cells detected.")
+        
+            print("Debug: Checking for duplicate UEs.")
+            if len(self.ues) != len(set(self.ues.keys())):
+                print("Error: Duplicate UEs detected.")
+                raise ValueError("Duplicate UEs detected.")
+        
+            print("Debug: No duplicates found.")    
 ######################################################################################################
     def find_cell_by_id(self, cell_id):
         print(f"Debug: Finding cell by ID {cell_id}.")
@@ -202,14 +219,17 @@ class NetworkState:
         return None
 ######################################################################################################
     def add_ue(self, ue):
-        print("Debug: Starting add_ue function.")
-        if ue.ID not in self.ues:
-            self.ues[ue.ID] = ue
-            ue_logger.info(f"UE {ue.ID} added to the network state.")
-            print("Debug: Finished add_ue function with UE added.")
-        else:
-            ue_logger.error(f"Failed to add UE '{ue.ID}': UE with ID '{ue.ID}' already exists in the network.")
-            print("Debug: Finished add_ue function with UE already existing.")
+        with self.lock:  # Ensure thread safety
+            print("Debug: Starting add_ue function.")
+            if ue.ID not in self.ues:
+                self.ues[ue.ID] = ue
+                ue_logger.info(f"UE {ue.ID} added to the network state.")
+                print("Debug: UE with ID {ue.ID} added to the network state.")
+            else:
+                error_message = f"Failed to add UE '{ue.ID}': UE with ID '{ue.ID}' already exists in the network."
+                ue_logger.error(error_message)
+                print(f"Debug: {error_message}")
+            print("Debug: Finished add_ue function.")
 ######################################################################################################
     def remove_ue(self, ue_id):
         print("Debug: Starting remove_ue function.")

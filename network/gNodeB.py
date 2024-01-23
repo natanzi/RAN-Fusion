@@ -214,45 +214,56 @@ class gNodeB:
 
 ###################################################################################################
     def add_cell_to_gNodeB(self, cell, network_state):
-        try:
-            print(f"Debug: Attempting to add cell {cell.ID} to gNodeB {self.ID}")
-            current_cell_ids = [c.ID for c in self.Cells]
-            print(f"Debug: Current cells in gNodeB {self.ID} before adding: {current_cell_ids}")
-            cell_logger.info(f"Current cells in gNodeB {self.ID} before adding: {current_cell_ids}")
+        with self.lock:  # Ensure thread safety
+            try:
+                print(f"Debug: Attempting to add cell {cell.ID} to gNodeB {self.ID}")
+                current_cell_ids = [c.ID for c in self.Cells]
+                print(f"Debug: Current cells in gNodeB {self.ID} before adding: {current_cell_ids}")
+                cell_logger.info(f"Current cells in gNodeB {self.ID} before adding: {current_cell_ids}")
 
-            if cell.ID in current_cell_ids:
-                print(f"Debug: Cell {cell.ID} is already added to gNodeB {self.ID}. Ignoring.")
-                cell_logger.warning(f"Cell {cell.ID} is already added to gNodeB {self.ID}. Ignoring.")
-                return
+                # Proactive check to prevent adding a cell with a duplicate ID
+                if cell.ID in current_cell_ids:
+                    print(f"Debug: Cell {cell.ID} is already added to gNodeB {self.ID}. Ignoring.")
+                    cell_logger.warning(f"Cell {cell.ID} is already added to gNodeB {self.ID}. Ignoring.")
+                    return
 
-            if len(self.Cells) >= self.CellCount:
-                print(f"Debug: gNodeB {self.ID} has reached its maximum cell capacity. Cannot add more cells.")
-                cell_logger.error(f"gNodeB {self.ID} has reached its maximum cell capacity. Cannot add more cells.")
-                return
+                if len(self.Cells) >= self.CellCount:
+                    print(f"Debug: gNodeB {self.ID} has reached its maximum cell capacity. Cannot add more cells.")
+                    cell_logger.error(f"gNodeB {self.ID} has reached its maximum cell capacity. Cannot add more cells.")
+                    return
 
-            # Set the parent gNodeB reference for the cell
-            cell.set_gNodeB(self)
+                # Set the parent gNodeB reference for the cell
+                cell.set_gNodeB(self)
 
-            # Add the cell to the gNodeB's list of cells
-            self.Cells.append(cell)
-            print(f"Debug: Cell {cell.ID} has been added to gNodeB {self.ID}.")
-            cell_logger.info(f"Cell '{cell.ID}' has been added to gNodeB '{self.ID}'.")
+                # Add the cell to the gNodeB's list of cells
+                self.Cells.append(cell)
+                print(f"Debug: Cell {cell.ID} has been added to gNodeB {self.ID}.")
+                cell_logger.info(f"Cell '{cell.ID}' has been added to gNodeB '{self.ID}'.")
 
-            # Update the NetworkState to include the new cell
-            network_state.add_cell(cell)
+                # Update the NetworkState to include the new cell
+                network_state.add_cell(cell)
 
-            # Add sectors to the cell if they are not already present
-            for sector in cell.sectors:
-                if not cell.has_sector(sector):
-                    self.add_sector_to_cell(sector, cell)
-                    print(f"Debug: Sector {sector.ID} has been added to Cell {cell.ID}.")
-                    cell_logger.info(f"Sector '{sector.ID}' has been added to Cell '{cell.ID}'.")
+                # Add sectors to the cell if they are not already present
+                for sector in cell.sectors:
+                    if not cell.has_sector(sector):
+                        self.add_sector_to_cell(sector, cell)
+                        print(f"Debug: Sector {sector.ID} has been added to Cell {cell.ID}.")
+                        cell_logger.info(f"Sector '{sector.ID}' has been added to Cell '{cell.ID}'.")
 
-            # Delay for 1 second as per the original requirement
-            time.sleep(1)
-        except Exception as e:
-            print(f"Error: An exception occurred while adding cell {cell.ID} to gNodeB {self.ID}: {e}")
-            cell_logger.error(f"An exception occurred while adding cell {cell.ID} to gNodeB {self.ID}: {e}")
+                # Reactive check to ensure no duplicate cells have been added
+                self.verify_no_duplicate_cells()
+
+                # Delay for 1 second as per the original requirement
+                time.sleep(1)
+            except Exception as e:
+                print(f"Error: An exception occurred while adding cell {cell.ID} to gNodeB {self.ID}: {e}")
+                cell_logger.error(f"An exception occurred while adding cell {cell.ID} to gNodeB {self.ID}: {e}")
+
+    def verify_no_duplicate_cells(self):
+        with self.lock:
+            cell_ids = [cell.ID for cell in self.Cells]
+            if len(cell_ids) != len(set(cell_ids)):
+                raise ValueError("Duplicate Cell IDs detected after addition.")
 ###################################################################################################
     def add_sector_to_cell(self, sector, cell, network_state):
     # Check if the cell exists in this gNodeB

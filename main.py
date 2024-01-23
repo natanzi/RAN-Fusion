@@ -134,8 +134,6 @@ def main():
     
     time.sleep(2)
 
-    #traffic_increase_config = {1: 2, 3: 1.5}
-
     command_queue = Queue()
     
     # Create an instance of TrafficController and pass the command_queue

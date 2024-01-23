@@ -107,6 +107,24 @@ class UE:
             ues.append(ue)
         return ues
 #########################################################################################
+    def add_ue(self, ue):
+        with self.lock:  # Ensure thread safety
+            print(f"Debug: Attempting to add UE with ID {ue.ID}")
+            if ue.ID in self.ues:
+                error_message = f"UE with ID {ue.ID} already exists in the network"
+                print(f"Debug: {error_message}")
+                raise ValueError(error_message)
+            self.ues[ue.ID] = ue
+            print(f"Debug: UE with ID {ue.ID} has been added to the network")
+
+    def verify_no_duplicate_ues(self):
+        with self.lock:
+            ue_ids = [ue.ID for ue in self.ues.values()]
+            if len(ue_ids) != len(set(ue_ids)):
+                error_message = "Duplicate UE IDs detected after addition."
+                print(f"Debug: {error_message}")
+                raise ValueError(error_message)
+#########################################################################################    
     def generate_traffic(self):
         from traffic.traffic_generator import TrafficController
         traffic_controller = TrafficController()
