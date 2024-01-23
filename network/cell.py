@@ -87,7 +87,7 @@ class Cell:
         from .handover_utils import perform_handover, handle_load_balancing
 
         # Check if the UE ID is already in use in the network
-        if ue.ID in [existing_ue.ID for existing_ue in .ues.values()]:
+        if ue.ID in [existing_ue.ID for existing_ue in self.ues.values()]:
             raise Exception(f"UE with ID '{ue.ID}' already exists in the network.")
 
         # Check if the cell is at or above 80% capacity
@@ -121,6 +121,8 @@ class Cell:
         cell_logger.info(f"UE '{ue.ID}' has been attached to Cell '{self.ID}' at '{current_time}'.")
         ue_logger.info(f"UE '{ue.ID}' has been attached to Cell '{self.ID}' at '{current_time}'.")
         print(f"UE '{ue.ID}' has been attached to Cell '{self.ID}' at '{current_time}'.")
+
+
 #########################################################################################        
     def remove_ue(self, ue):
         current_time = get_current_time_ntp()

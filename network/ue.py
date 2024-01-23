@@ -10,12 +10,13 @@ from influxdb_client import Point
 import threading
 
 class UE:
-    def __init__(self, ue_id, location, connected_cell_id, gnodeb_id, is_mobile, initial_signal_strength, rat, max_bandwidth, duplex_mode, tx_power, modulation, coding, mimo, processing, bandwidth_parts, channel_model, velocity, direction, traffic_model, scheduling_requests, rlc_mode, snr_thresholds, ho_margin, n310, n311, model, service_type=None, datasize=None):
+    def __init__(self, ue_id, location, connected_cell_id, connected_sector, gnodeb_id, is_mobile, initial_signal_strength, rat, max_bandwidth, duplex_mode, tx_power, modulation, coding, mimo, processing, bandwidth_parts, channel_model, velocity, direction, traffic_model, scheduling_requests, rlc_mode, snr_thresholds, ho_margin, n310, n311, model, service_type=None, datasize=None):
         self.lock = threading.Lock()
         self.ID = ue_id
         self.IMEI = self.allocate_imei()  # Always generate a new IMEI
         self.Location = location
         self.ConnectedCellID = connected_cell_id
+        self.connected_sector = connected_sector
         self.gNodeB_ID = gnodeb_id
         self.IsMobile = is_mobile
         self.ServiceType = service_type if service_type else random.choice(["video", "game", "voice", "data", "IoT"])  # Use provided service type or randomly pick one
@@ -76,6 +77,7 @@ class UE:
                 ue_id=ue_id,
                 location=(item["location"]["latitude"], item["location"]["longitude"]),
                 connected_cell_id=item["connectedCellId"],
+                connected_sector = item["connectedSectorId"],
                 is_mobile=item["isMobile"],
                 gnodeb_id=gnodeb_id, 
                 service_type=item.get("serviceType"),  # Check if serviceType is provided
@@ -275,6 +277,7 @@ class UE:
         point = Point("ue_metrics") \
             .tag("ue_id", self.ID) \
             .tag("connected_cell_id", self.ConnectedCellID) \
+            .tag("connected_sector_id", self.connected_sector)\
             .tag("entity_type", "ue") \
             .tag("gnb_id", self.gNodeB_ID)\
             .field("imei", self.IMEI) \

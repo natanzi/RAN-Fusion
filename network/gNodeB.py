@@ -32,7 +32,7 @@ def load_gNodeB_config():
 gNodeBs_config = load_gNodeB_config()
 
 class gNodeB:
-    def __init__(self, gnodeb_id, latitude, longitude, coverageRadius, power, frequency, bandwidth, location, region, maxUEs, cellCount, handoverMargin, handoverHysteresis, timeToTrigger, interFreqHandover, xnInterface, sonCapabilities, loadBalancingOffset, cellIds, MeasurementBandwidth=None, BlacklistedCells=None, **kwargs):
+    def __init__(self, gnodeb_id, latitude, longitude, coverageRadius, power, frequency, bandwidth, location, region, maxUEs, cellCount, sectorCount, handoverMargin, handoverHysteresis, timeToTrigger, interFreqHandover, xnInterface, sonCapabilities, loadBalancingOffset, cellIds, sectorIds, MeasurementBandwidth=None, BlacklistedCells=None, **kwargs):
         print("Debug Start: __init__ method in gNodeB class.")
         self.ID = gnodeb_id
         self.Latitude = latitude
@@ -44,8 +44,6 @@ class gNodeB:
         self.Location = location
         self.Region = region
         self.MaxUEs = maxUEs
-        self.CellCount = cellCount
-        self.Cells = []  # This will hold Cell instances associated with this gNodeB
         self.HandoverMargin = handoverMargin
         self.HandoverHysteresis = handoverHysteresis
         self.TimeToTrigger = timeToTrigger
@@ -56,6 +54,11 @@ class gNodeB:
         self.BlacklistedCells = BlacklistedCells
         self.LoadBalancingOffset = loadBalancingOffset
         self.CellIds = cellIds
+        self.CellCount = cellCount
+        self.Cells = []  # This will hold Cell instances associated with this gNodeB
+        self.SectorCount = sectorCount
+        self.Sectors = []
+        self.SectorIds = sectorIds
         self.handover_success_count = 0
         self.handover_failure_count = 0
         self.lock = Lock()
@@ -80,7 +83,7 @@ class gNodeB:
     def serialize_for_influxdb(self):
         point = Point("gnodeb_metrics") \
             .tag("gnodeb_id", self.ID) \
-            .tag("entity_type", "gnodeb") 
+            .tag("entity_type", "gnodeb")
 
         # Convert the location list to a string if it's not None
         location_str = ','.join(map(str, self.Location)) if self.Location is not None else None
@@ -94,14 +97,15 @@ class gNodeB:
             "coverage_radius": self.CoverageRadius,
             "transmission_power": self.TransmissionPower,
             "frequency": self.Frequency,
-            "region": region_str,  
+            "region": region_str,
             "max_ues": self.MaxUEs,
             "cell_count": self.CellCount,
+            "sector_count": self.SectorCount,  # Added sector count
             "measurement_bandwidth": self.MeasurementBandwidth,
             "blacklisted_cells": self.BlacklistedCells,
             "handover_success_count": self.handover_success_count,
             "handover_failure_count": self.handover_failure_count,
-            "location": location_str,  
+            "location": location_str,
             "bandwidth": self.Bandwidth,
             "handover_margin": self.HandoverMargin,
             "handover_hysteresis": self.HandoverHysteresis,
@@ -110,7 +114,8 @@ class gNodeB:
             "xn_interface": self.XnInterface,
             "son_capabilities": self.SONCapabilities,
             "load_balancing_offset": self.LoadBalancingOffset,
-            "cell_ids": ','.join(map(str, self.CellIds)) if self.CellIds is not None else None
+            "cell_ids": ','.join(map(str, self.CellIds)) if self.CellIds is not None else None,
+            "sector_ids": ','.join(map(str, self.SectorIds)) if self.SectorIds is not None else None  # Added sector IDs
         }
 
         for field, value in fields.items():
@@ -283,6 +288,12 @@ class gNodeB:
             print(f"An error occurred: {e}")
             traceback.print_exc()  # Print the stack trace
 ###################################################################################################
+    def find_available_sector(self):
+    # ... [logic to find available sectors] ...
+        return None
+    def find_underloaded_sector(self):
+    # ... [logic to find underloaded sectors] ...
+        return None
 #####################################Load Calculation##############################################
     def calculate_cell_load(self, cell, traffic_controller):
         print(f"Debug Start: calculate_cell_load method in gNodeB class for cell ID {cell.ID}.")
