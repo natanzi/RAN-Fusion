@@ -65,10 +65,8 @@ class gNodeB:
         for key, value in kwargs.items():
             setattr(self, key, value)
         print(f"gNodeB '{self.ID}' has been launched with {self.CellCount} cells.")
-        
-
-        
         time.sleep(1)  # Delay for 1 second
+
     @staticmethod
     def from_json(json_data):
         gNodeBs = []
@@ -347,21 +345,16 @@ class gNodeB:
 #######################################Periodic Updates###############################################
     def update(self):
         from network.handover_utils import handle_load_balancing, monitor_and_log_cell_load
-
         # Log before handling load balancing
         print(f"Debug: Starting load balancing for gNodeB {self.ID}")
         gnodeb_logger.info(f"Starting load balancing for gNodeB {self.ID}")
-
         # Call this method regularly to update handover decisions
         handle_load_balancing(self, self.calculate_cell_load, self.find_underloaded_cell, self.select_ues_for_load_balancing)
-
         # Log after handling load balancing
         print(f"Debug: Completed load balancing for gNodeB {self.ID}")
         gnodeb_logger.info(f"Completed load balancing for gNodeB {self.ID}")
-
         # Now also call monitor_and_log_cell_load to log the cell load
         monitor_and_log_cell_load(self)
-
         # Log after monitoring and logging cell load
         print(f"Debug: Completed monitoring and logging cell load for gNodeB {self.ID}")
         gnodeb_logger.info(f"Completed monitoring and logging cell load for gNodeB {self.ID}")
