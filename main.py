@@ -25,6 +25,7 @@ def log_system_resources(system_monitor):
 
 def network_state_manager(network_state, command_queue):
     while True:
+        print("Debug: network_state_manager loop running.")
         command = command_queue.get()  # Retrieve the command from the queue
         if command == 'save':
             network_state.save_state_to_influxdb()
@@ -35,6 +36,7 @@ def log_traffic(ues, command_queue, network_state, gNodeBs):
 
     traffic_controller = TrafficController(command_queue)
     while True:
+        print("Debug: log_traffic loop running.")
         for ue in ues:
             # Find the gNodeB instance associated with the current ue
             # Assuming each UE has an attribute 'gNodeB_ID' which stores the ID of the gNodeB it is connected to
@@ -92,6 +94,7 @@ def log_traffic(ues, command_queue, network_state, gNodeBs):
 ######################################################################################
 def detect_and_handle_congestion(network_state, command_queue):
     while True:
+        print("Debug: detect_and_handle_congestion loop running.")
         for cell_id, cell in network_state.cells.items():
             cell_load = network_state.get_cell_load(cell)
             if cell_load > 0.8:  # Assuming 0.8 is the congestion threshold
@@ -129,6 +132,7 @@ def main():
     try:
         gNodeBs, cells, ues = initialize_network(num_ues_to_launch, gNodeBs_config, ue_config, db_manager)
         print(f"Number of UEs returned: {len(ues)}")
+        print("Debug: Network initialization completed successfully.")
     except ValueError as e:
         logging.error(f"Failed to initialize network: {e}")
         return  # Exit the main function if network initialization fails
@@ -144,12 +148,14 @@ def main():
     for gNodeB in gNodeBs.values():
         cell_load_thread = threading.Thread(target=monitor_and_log_cell_load, args=(gNodeB, traffic_controller))
         cell_load_thread.daemon = True  # This ensures the thread will exit when the main program does
+        print("Debug: Starting cell load monitoring thread.")
         cell_load_thread.start()
     # Instantiate the SystemMonitor
     system_monitor = SystemMonitor(network_state)
 
     # Start the network state manager process
     logging_process = Process(target=log_traffic, args=(ues, command_queue, network_state, gNodeBs))
+    print("Debug: Starting traffic logging process.")
     logging_process.start()
 
 
@@ -161,14 +167,17 @@ def main():
 
     # Start the congestion detection process
     congestion_process = Process(target=detect_and_handle_congestion, args=(network_state, command_queue))
+    print("Debug: Starting congestion detection process.")
     congestion_process.start()
     
     # Start the network state manager process
     ns_manager_process = Process(target=network_state_manager, args=(network_state, command_queue))
+    print("Debug: Starting network state manager process.")
     ns_manager_process.start()
 
     # Start the system resource logging process with system_monitor passed as an argument
     system_resource_logging_process = Process(target=log_system_resources, args=(system_monitor,))
+    print("Debug: Starting system resource logging process.")
     system_resource_logging_process.start()
 
     # Wait for the processes to complete (if they ever complete)
