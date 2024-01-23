@@ -1,6 +1,6 @@
 import os
 import time
-from multiprocessing import Process, Queue
+from multiprocessing import Process, Queue, Manager
 from network.initialize_network import initialize_network
 from Config_files.config_load import load_all_configs
 import logging
@@ -109,7 +109,8 @@ def main():
     base_dir = os.path.dirname(os.path.abspath(__file__))
     gNodeBs_config, cells_config, ue_config = load_all_configs(base_dir)
     
-    network_state_lock = Lock()
+    manager = Manager()
+    network_state_lock = manager.Lock()
     network_state = NetworkState(network_state_lock)
 
     # Clear the network state before any initialization
