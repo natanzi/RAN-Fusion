@@ -2,15 +2,11 @@
 # traffic_generator.py in traffic folder
 import random
 import time
-from logs.logger_config import cell_load_logger, cell_logger, gnodeb_logger, ue_logger, traffic_update 
-from threading import Lock
-from multiprocessing import Queue
-from threading import Thread
-import datetime
-from database.database_manager import DatabaseManager
-from threading import Lock
-from network.network_delay import NetworkDelay
+from logs.logger_config import traffic_update
+from threading import Lock, Thread
 from datetime import datetime
+from database.database_manager import DatabaseManager
+from network.network_delay import NetworkDelay
 from network.handover_utils import perform_handover
 
 class TrafficController:
@@ -50,7 +46,8 @@ class TrafficController:
     
     def get_updated_ues(self):
         from network.ue import UE
-        for ue_id, ue in .ues.items():
+        for ue_id, ue in ues.items():
+
             # Update the UE's traffic parameters based on its service type
             if ue.ServiceType.lower() == 'voice':
                 ue.update_traffic_model({
