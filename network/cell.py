@@ -12,11 +12,11 @@ from threading import Lock
 
 class Cell:
     def __init__(self, cell_id, gnodeb_id, frequencyBand, duplexMode, tx_power, bandwidth, ssb_periodicity, ssb_offset, max_connect_ues, max_throughput,  channel_model, trackingArea=None, network_state=None, is_active=True):
-        print(f"tessssst-Creating cell {cell_id}")
+        self.cell_lock = Lock()
+        print(f"START-Creating cell {cell_id}")
         # Check if the cell ID already exists in the network state
         if network_state and network_state.get_cell_info(cell_id):
             raise ValueError(f"Duplicate cell ID {cell_id} is not allowed.")
-        self.cell_lock = Lock()
         self.ID = cell_id
         self.gNodeB_ID = gnodeb_id
         self.FrequencyBand = frequencyBand
