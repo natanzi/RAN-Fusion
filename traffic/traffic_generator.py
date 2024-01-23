@@ -48,10 +48,9 @@ class TrafficController:
         self.data_delay = 0
         self.data_packet_loss_rate = 0
     
-    def get_updated_ues(self, network_state):
+    def get_updated_ues(self):
         from network.ue import UE
-        # Assuming network_state.ues is a dictionary with UE IDs as keys
-        for ue_id, ue in network_state.ues.items():
+        for ue_id, ue in .ues.items():
             # Update the UE's traffic parameters based on its service type
             if ue.ServiceType.lower() == 'voice':
                 ue.update_traffic_model({
@@ -102,7 +101,7 @@ class TrafficController:
                 raise ValueError(f"Unknown service type: {ue.ServiceType}")
         
         # Return the updated UEs
-        return list(network_state.ues.values())
+        return list(.ues.values())
     
     def get_traffic_parameters(self, ue):
         # Check the service type of the UE and return the corresponding updated parameters
@@ -450,8 +449,8 @@ class TrafficController:
 # Method to start traffic generation for a specific UE
     def start_ue_traffic(self, ue_id):
         # Logic to start traffic generation for the specified UE
-        # Assuming network_state is accessible and has a method to get a UE by ID
-        ue = self.network_state.get_ue_by_id(ue_id)
+        # Assuming  is accessible and has a method to get a UE by ID
+        ue = self..get_ue_by_id(ue_id)
         if ue:
             ue.start_traffic()  # Assuming UE class has a method to start traffic
             traffic_update.info(f"Starting traffic generation for UE {ue_id}.")
@@ -462,7 +461,7 @@ class TrafficController:
     def update_ue_traffic(self, ue_id, new_params):
         # Logic to update traffic generation parameters for the specified UE
         with self.lock:
-            ue = self.network_state.get_ue_by_id(ue_id)
+            ue = self..get_ue_by_id(ue_id)
             if ue:
                 ue.update_traffic_model(new_params)  # Assuming UE class has a method to update traffic model
                 traffic_update.info(f"Updated traffic parameters for UE {ue_id}: {new_params}")
@@ -472,7 +471,7 @@ class TrafficController:
     # Method to stop traffic generation for a specific UE
     def stop_ue_traffic(self, ue_id):
         # Logic to stop traffic generation for the specified UE
-        ue = self.network_state.get_ue_by_id(ue_id)
+        ue = self..get_ue_by_id(ue_id)
         if ue:
             ue.stop_traffic()  # Assuming UE class has a method to stop traffic
             traffic_update.info(f"Stopping traffic generation for UE {ue_id}.")
@@ -493,7 +492,7 @@ class TrafficController:
         command_handler_thread.daemon = True
         command_handler_thread.start() 
 ############################################################################################
-    def calculate_and_write_ue_throughput(self, ue, network_state, gnodeb):
+    def calculate_and_write_ue_throughput(self, ue, , gnodeb):
         # Generate traffic and retrieve traffic parameters for the UE
         traffic_data = self.generate_traffic(ue)
         # Retrieve jitter, packet loss, and delay from the traffic data
@@ -507,7 +506,7 @@ class TrafficController:
         network_delay_calculator = NetworkDelay()
 
         # Use the new method from NetworkState to get the cell load
-        cell_load = network_state.get_cell_load_for_ue(ue.ID)
+        cell_load = .get_cell_load_for_ue(ue.ID)
         network_delay = 0
         if cell_load is not None:
             network_delay = network_delay_calculator.calculate_delay(cell_load)
@@ -516,7 +515,7 @@ class TrafficController:
         handover_threshold = 20  # This value can be adjusted as needed
         if network_delay > handover_threshold:
             # Assuming gnodeb is accessible here, otherwise, you need to pass it to the function
-            success = perform_handover(gnodeb, ue, ue.cell, network_state)
+            success = perform_handover(gnodeb, ue, ue.cell)
 
             if success:
                 # Assuming the perform_handover function updates the UE's connected cell ID
