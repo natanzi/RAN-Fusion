@@ -8,6 +8,7 @@ import time
 from influxdb_client import Point
 from influxdb_client.client.write_api import SYNCHRONOUS
 from database.time_utils import get_current_time_ntp, server_pools
+from threading import Lock
 
 class Cell:
     def __init__(self, cell_id, gnodeb_id, frequencyBand, duplexMode, tx_power, bandwidth, ssb_periodicity, ssb_offset, max_connect_ues, max_throughput,  channel_model, trackingArea=None, network_state=None, is_active=True):
@@ -15,9 +16,9 @@ class Cell:
         # Check if the cell ID already exists in the network state
         if network_state and network_state.get_cell_info(cell_id):
             raise ValueError(f"Duplicate cell ID {cell_id} is not allowed.")
+        self.cell_lock = Lock()
         self.ID = cell_id
         self.gNodeB_ID = gnodeb_id
-        self.sectors = []
         self.FrequencyBand = frequencyBand
         self.DuplexMode = duplexMode
         self.TxPower = tx_power
@@ -34,6 +35,7 @@ class Cell:
         self.last_update = None
         self.IsActive = is_active
         self.current_ue_count = 0
+        self.sectors = []
         current_time = get_current_time_ntp()
         # Logging statement should be here, after all attributes are set
         cell_logger.info(f" A Cell '{cell_id}' has been created at '{current_time}' in gNodeB '{gnodeb_id}' with max capacity {self.MaxConnectedUEs}.")
@@ -142,13 +144,20 @@ class Cell:
             ue_logger.warning(f"Attempted to remove UE with ID {ue.ID} from Cell {self.ID} which is not connected.")
     #########################################################################################
     def add_sector(self, sector):
-        self.sectors.append(sector)  
-        sector.set_cell(self)
-        
+        with self.cell_lock:  # Acquire the lock before modifying the cell's sectors
+            print(f"Cell {self.id} sectors before: {self.sectors}")
+            self.sectors.append(sector)  # Add the sector
+            print(f"Cell {self.id} sectors after: {self.sectors}")
+            sector.set_cell(self)  # Associate the sector with this cell
+
     def remove_sector(self, sector_id):
-        self.sectors = [sector for sector in self.sectors if sector.sector_id != sector_id]
+        with self.cell_lock:  # Acquire the lock before modifying the cell's sectors
+            print(f"Cell {self.id} sectors before: {self.sectors}")
+            self.sectors = [sector for sector in self.sectors if sector.sector_id != sector_id]
+            print(f"Cell {self.id} sectors after: {self.sectors}")
 
     def get_sector(self, sector_id):
+        # No lock needed here as we are only reading the sectors list
         for sector in self.sectors:
             if sector.sector_id == sector_id:
                 return sector
