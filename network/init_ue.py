@@ -13,6 +13,17 @@ current_time = get_current_time_ntp()
 sector_lock = Lock()
 
 def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
+    """
+    Initialize UEs and assign them to sectors.
+
+    Args:
+        num_ues_to_launch (int): The number of UEs to launch.
+        gNodeBs (dict): A dictionary of gNodeB instances.
+        ue_config (dict): A dictionary containing UE configuration.
+
+    Returns:
+        list: A list of initialized UE instances.
+    """
     ues = []
     db_manager = DatabaseManager()
     DEFAULT_BANDWIDTH_PARTS = [1, 2, 3, 4]  # Example default values
