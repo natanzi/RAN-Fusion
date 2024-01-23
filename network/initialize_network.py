@@ -24,8 +24,8 @@ def initialize_network(num_ues_to_launch, gNodeBs_config, ue_config, db_manager)
     initialize_cells(gNodeBs, network_state)
     print("Debug: Cells initialized and linked to gNodeBs.")
 
-    # After cells are initialized, initialize sectors
-    # Assuming initialize_cells updates network_state.cells, we pass network_state.cells to initialize_sectors
+    #After cells are initialized, initialize sectors
+    #Assuming initialize_cells updates network_state.cells, we pass network_state.cells to initialize_sectors
     initialize_sectors(network_state.cells, network_state)
     print("Debug: Sectors initialized and linked to cells.")
 
