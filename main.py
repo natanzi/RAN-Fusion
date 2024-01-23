@@ -15,6 +15,13 @@ import threading
 from traffic.traffic_generator import TrafficController
 from multiprocessing import Lock
 from datetime import datetime
+###
+from network.init_gNodeB import initialize_gNodeBs  # Import the gNodeB initialization function
+from network.init_cell import initialize_cells  # Import the cell initialization function
+from network.init_sector import initialize_sectors  # Import the sector initialization function
+from network.init_ue import initialize_ues  # Import the UE initialization function
+
+####
 
 #####################################################################################################################################
 # pickled by multiprocessing
@@ -129,14 +136,44 @@ def main():
 
     num_ues_to_launch = 10
 
+    #try:
+        #gNodeBs, cells, ues = initialize_network(num_ues_to_launch, gNodeBs_config, ue_config, db_manager)
+        #print(f"Number of UEs returned: {len(ues)}")
+        #print("Debug: Network initialization completed successfully.")
+    #except ValueError as e:
+        #logging.error(f"Failed to initialize network: {e}")
+        #return  # Exit the main function if network initialization fails
+    # Initialize gNodeBs
     try:
-        gNodeBs, cells, ues = initialize_network(num_ues_to_launch, gNodeBs_config, ue_config, db_manager)
-        print(f"Number of UEs returned: {len(ues)}")
-        print("Debug: Network initialization completed successfully.")
+        gNodeBs = initialize_gNodeBs(gNodeBs_config, network_state)
+        # Add validation for gNodeBs here if needed
     except ValueError as e:
-        logging.error(f"Failed to initialize network: {e}")
-        return  # Exit the main function if network initialization fails
-    
+        logging.error(f"Failed to initialize gNodeBs: {e}")
+        return  # Exit the main function if gNodeB initialization fails
+
+    # Initialize Cells
+    try:
+        cells = initialize_cells(gNodeBs, network_state)
+        # Add validation for cells here if needed
+    except ValueError as e:
+        logging.error(f"Failed to initialize cells: {e}")
+        return  # Exit the main function if cell initialization fails
+
+    # Initialize Sectors
+    try:
+        sectors = initialize_sectors(cells, network_state)
+        # Add validation for sectors here if needed
+    except ValueError as e:
+        logging.error(f"Failed to initialize sectors: {e}")
+        return  # Exit the main function if sector initialization fails
+
+    # Initialize UEs
+    try:
+        ues = initialize_ues(sectors, ue_config, network_state)
+        # Add validation for UEs here if needed
+    except ValueError as e:
+        logging.error(f"Failed to initialize UEs: {e}")
+        return  # Exit the main function if UE initialization fails
     time.sleep(2)
 
     command_queue = Queue()
