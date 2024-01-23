@@ -2,12 +2,12 @@
 # Initialization of gNodeBs, Cells, and UEs // this file located in network directory
 from .init_gNodeB import initialize_gNodeBs
 from .init_cell import initialize_cells
+from .init_sector import initialize_sectors  # Import the initialize_sectors function
 from .init_ue import initialize_ues
 from .network_state import NetworkState
 from threading import Lock
 
 def initialize_network(num_ues_to_launch, gNodeBs_config, ue_config, db_manager):
-    
     # Create a lock for the NetworkState
     network_state_lock = Lock()
 
@@ -23,6 +23,11 @@ def initialize_network(num_ues_to_launch, gNodeBs_config, ue_config, db_manager)
     # This function now updates network_state directly, so no need to assign its return value to a variable
     initialize_cells(gNodeBs, network_state)
     print("Debug: Cells initialized and linked to gNodeBs.")
+
+    # After cells are initialized, initialize sectors
+    # Assuming initialize_cells updates network_state.cells, we pass network_state.cells to initialize_sectors
+    initialize_sectors(network_state.cells, network_state)
+    print("Debug: Sectors initialized and linked to cells.")
 
     # Calculate the total capacity of all cells
     total_capacity = sum(cell.MaxConnectedUEs for cell in network_state.cells.values())
