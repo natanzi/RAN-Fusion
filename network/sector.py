@@ -3,6 +3,8 @@
 from influxdb_client import Point
 from influxdb_client.client.write_api import SYNCHRONOUS, WritePrecision
 import time
+import threading
+sector_lock = threading.Lock()
 
 class Sector:
     def __init__(self, sector_id, cell_id, azimuth_angle, beamwidth, frequency, duplex_mode, tx_power, bandwidth, mimo_layers, beamforming, ho_margin, load_balancing, connected_ues=None, current_load=0):
@@ -52,12 +54,14 @@ class Sector:
 
     # Example: Method to add a UE to the sector
     def add_ue(self, ue):
-        if ue not in self.connected_ues:
-            self.connected_ues.append(ue)
+        with sector_lock:
+            if ue not in self.connected_ues:
+                self.connected_ues.append(ue)
             # Update load or perform other necessary actions
 
     # Example: Method to remove a UE from the sector
     def remove_ue(self, ue):
-        if ue in self.connected_ues:
-            self.connected_ues.remove(ue)
-            # Update load or perform other necessary actions
+        with sector_lock:
+            if ue in self.connected_ues:
+                self.connected_ues.remove(ue)
+            # Update load or perform other necessary action

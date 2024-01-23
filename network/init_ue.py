@@ -6,8 +6,11 @@ from .utils import random_location_within_radius
 from .ue import UE
 from database.time_utils import get_current_time_ntp
 from logs.logger_config import ue_logger
-
+from threading import Lock
 current_time = get_current_time_ntp()
+
+# Initialize a lock for thread-safe operations on sectors
+sector_lock = Lock()
 
 def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
     ues = []
@@ -15,26 +18,15 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
     DEFAULT_BANDWIDTH_PARTS = [1, 2, 3, 4]  # Example default values
 
     # Initialize ue_id_counter based on the highest existing UE ID to avoid duplicates
-    existing_ue_ids = db_manager.get_all_ue_ids()  # Assuming this method is implemented in DatabaseManager
+    existing_ue_ids = set(db_manager.get_all_ue_ids())  # Convert to set if it's not already
     ue_id_counter = max(existing_ue_ids) + 1 if existing_ue_ids else 1
 
-    # Calculate the total capacity of all cells
-    total_capacity = sum(cell.MaxConnectedUEs for gNodeB in gNodeBs.values() for cell in gNodeB.Cells if cell.IsActive)
-
-    # Check if the total number of UEs to be launched exceeds the total capacity
-    if num_ues_to_launch > total_capacity:
-        ue_logger.error(f"Cannot launch {num_ues_to_launch} UEs, as it exceeds the total capacity of {total_capacity} UEs across all cells.")
-        return []  # Return an empty list if the capacity is exceeded
-
-    # Prepare a round-robin queue for gNodeBs
-    round_robin_queue = [gNodeB for gNodeB in gNodeBs.values()]
+    # Flatten the list of sectors and sort by current load
+    all_sectors = [sector for gNodeB in gNodeBs.values() for cell in gNodeB.Cells for sector in cell.sectors]
+    all_sectors.sort(key=lambda sector: sector.current_ue_count / sector.MaxConnectedUEs)
 
     for _ in range(num_ues_to_launch):
         ue_data = random.choice(ue_config['ues']).copy()
-        # Remove keys that are not used by the UE constructor
-        # for _ in range(num_ues_to_launch):
-        ue_data = random.choice(ue_config['ues']).copy()
-
         # Remove keys that are not used by the UE constructor
         ue_data.pop('IMEI', None)
         ue_data.pop('screensize', None)
@@ -80,40 +72,37 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
 
         # Generate a unique UE ID
         ue_id = f"UE{ue_id_counter}"
-        ue_data['ue_id'] = ue_id  # Set the unique UE ID
-        ue_id_counter += 1  # Increment the counter after a unique ID is assigned
+        while ue_id in existing_ue_ids:  # Validate no duplicate UE IDs
+            ue_id_counter += 1
+            ue_id = f"UE{ue_id_counter}"
+        ue_data['ue_id'] = ue_id
+        existing_ue_ids.add(ue_id)  # Keep track of the generated UE ID
+        ue_id_counter += 1
 
-        # Create the UE object
-        ue = UE(**ue_data)
-
-        # Use round-robin selection with fallback to least-loaded cell
+        # Assign UE to the least-loaded sector
         assigned = False
-        for _ in range(len(round_robin_queue)):
-            selected_gNodeB = round_robin_queue.pop(0)
-            round_robin_queue.append(selected_gNodeB)
-            # Generate a random location within the coverage radius of the selected gNodeB
-            latitude, longitude = selected_gNodeB.Location
-            ue_location = random_location_within_radius(latitude, longitude, selected_gNodeB.CoverageRadius)
-            ue_data['location'] = ue_location
-            available_cells = [cell for cell in selected_gNodeB.Cells if cell.current_ue_count < cell.MaxConnectedUEs and cell.IsActive]
+        assigned = False
+        for sector in all_sectors:
+            with sector_lock:  # Acquire lock before modifying the sector's UE list
+                if sector.current_ue_count < sector.MaxConnectedUEs:
+                # Generate a random location within the coverage radius of the sector's gNodeB
+                    latitude, longitude = sector.gNodeB.Location
+                    ue_location = random_location_within_radius(latitude, longitude, sector.gNodeB.CoverageRadius)
+                    ue_data['location'] = ue_location
+                    ue_data['connected_sector_id'] = sector.ID
+                    ue = UE(**ue_data)
+                    try:
+                        sector.add_ue(ue)  # Assuming Sector class has an add_ue method
+                        ue_logger.info(f"UE '{ue.ID}' has been attached to Sector '{sector.ID}' at '{current_time}'.")
+                        ue.ConnectedSectorID = sector.ID  # Store the sector ID in the UE
+                        assigned = True
+                        break  # Exit the loop as the UE has been successfully assigned
+                    except Exception as e:
+                        ue_logger.error(f"Failed to add UE '{ue.ID}' to Sector '{sector.ID}' at '{current_time}': {e}")
 
-            if available_cells:
-                least_loaded_cell = sorted(available_cells, key=lambda cell: cell.current_ue_count)[0]
-                ue_data['connected_cell_id'] = least_loaded_cell.ID
-                ue_data['gnodeb_id'] = selected_gNodeB.ID
-                ue = UE(**ue_data)
-                try:
-                    least_loaded_cell.add_ue(ue)
-                    ue_logger.info(f"UE '{ue.ID}' has been attached to Cell '{least_loaded_cell.ID}' at '{current_time}'.")
-                    ue.ConnectedCellID = least_loaded_cell.ID
-                    assigned = True
-                    break  # Exit the loop as the UE has been successfully assigned
-                except Exception as e:
-                    ue_logger.error(f"Failed to add UE '{ue.ID}' to Cell '{least_loaded_cell.ID}' at '{current_time}': {e}")
-
-            if not assigned:
-                ue_logger.error(f"No available cell found for UE '{ue.ID}' at '{current_time}'.")
-                continue  # Skip the rest of the loop if no cell is available
+        if not assigned:
+            ue_logger.error(f"No available sector found for UE '{ue.ID}' at '{current_time}'.")
+            continue  # Skip the rest of the loop if no sector is available
 
         # Serialize and write to InfluxDB
         try:

@@ -16,7 +16,7 @@ from influxdb_client import Point
 from influxdb_client.client.write_api import SYNCHRONOUS, WritePrecision
 from database.time_utils import get_current_time_ntp, server_pools
 from multiprocessing import Lock
-
+from network.sector import Sector
 current_time = get_current_time_ntp()
 
 def load_gNodeB_config():
@@ -364,6 +364,44 @@ class gNodeB:
         print(f"Debug End: find_available_cell method in gNodeB class. Available cell found: {best_cell.ID if best_cell else 'None'} with load: {lowest_load}")
         return best_cell
 #########################################################################################################
+    def get_sector_info(self):
+        sector_info = []
+        for cell in self.cells:
+            for sector in cell.sectors:
+                sector_info.append(sector.to_dict())  # Assuming Sector class has a to_dict method
+        return sector_info
+    
+    def initialize_cells_with_sectors(self, cell_configs):
+        # Load sector configurations
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        config_dir = os.path.join(base_dir, 'Config_files')
+        sector_configs = load_json_config(os.path.join(config_dir, 'sector_config.json'))
+
+        # Dictionary to keep track of sectors by their IDs
+        sectors_dict = {}
+
+        # Iterate over the sector configurations and create Sector instances
+        for sector_data in sector_configs['sectors']:
+            sector = Sector.from_json(sector_data)
+            sectors_dict[sector.ID] = sector
+
+        # Iterate over the cell configurations and create Cell instances
+        for cell_data in cell_configs['cells']:
+            cell = Cell.from_json(cell_data)
+            self.add_cell(cell)  # Assuming gNodeB has an add_cell method
+
+            # Initialize sectors for each cell
+            for i in range(cell_data['sectorCount']):
+                # Assuming each sector has a unique ID that combines cell ID and sector index
+                sector_id = f"{cell.ID}-{i}"
+                sector = sectors_dict.get(sector_id)
+                if sector:
+                    cell.add_sector(sector)
+                else:
+                    print(f"Warning: Sector with ID {sector_id} not found in sector configurations.")
+
+        # Assuming gNodeB has a method to update its state after adding cells and sectors
+        self.update_state()
 #######################################Periodic Updates###############################################
     def update(self):
         from network.handover_utils import handle_load_balancing, monitor_and_log_cell_load
