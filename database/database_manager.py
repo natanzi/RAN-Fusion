@@ -1,6 +1,6 @@
+#This is database manager class database_manager.py located in datbase folder
 import os
-from .time_utils import get_current_time_ntp
-from influxdb_client import InfluxDBClient, WritePrecision, Point
+from influxdb_client import InfluxDBClient, WritePrecision, Point, QueryApi
 from influxdb_client.client.write_api import SYNCHRONOUS
 from logs.logger_config import database_logger  # Import the configured logger
 
@@ -11,16 +11,12 @@ INFLUXDB_ORG = os.getenv('INFLUXDB_ORG', 'ranfusion')
 INFLUXDB_BUCKET = os.getenv('INFLUXDB_BUCKET', 'RAN_metrics')
 
 class DatabaseManager:
-    
-    def __init__(self, network_state=None):
+
+    def __init__(self):
         self.client = InfluxDBClient(url=INFLUXDB_URL, token=INFLUXDB_TOKEN, org=INFLUXDB_ORG)
         self.write_api = self.client.write_api(write_options=SYNCHRONOUS)
+        self.query_api = self.client.query_api()
         self.bucket = INFLUXDB_BUCKET
-        self.network_state = network_state
-
-    def set_network_state(self, network_state):
-        """Sets the network state for the database manager."""
-        self.network_state = network_state
 
     def test_connection(self):
         """Test if the connection to the database is successful."""
@@ -51,8 +47,6 @@ class DatabaseManager:
             else:
                 # If separate parameters are provided
                 measurement = measurement_or_point
-                # Use NTP time or fallback to system time
-                timestamp = timestamp if timestamp is not None else get_current_time_ntp()
                 point = Point(measurement)
                 for tag_key, tag_value in (tags or {}).items():
                     point.tag(tag_key, tag_value)
@@ -73,22 +67,20 @@ class DatabaseManager:
         """Closes the database connection."""
         self.client.close()
 
-    def save_state_to_influxdb(self):
-        """Saves the current network state to the InfluxDB database."""
-        if self.network_state is None:
-            database_logger.error("No network state available to save to the database.")
-            return
-
-        # Serialize the network state for InfluxDB
-        points = self.network_state.serialize_for_influxdb()
-
-        # Write the points to the InfluxDB database
-        self.insert_data_batch(points)
-        database_logger.info("Network state saved to InfluxDB.")
+    def get_all_ue_ids(self):
+        """Retrieves all UE IDs from InfluxDB."""
+        try:
+            query = f'from(bucket: "{self.bucket}") |> range(start: -1d) |> filter(fn: (r) => r._measurement == "ue_metrics") |> keep(columns: ["ue_id"])'
+            result = self.query_api.query(query=query, org=INFLUXDB_ORG)
+            ue_ids = [record.get_value() for table in result for record in table.records]
+            return ue_ids
+        except Exception as e:
+            database_logger.error(f"Failed to retrieve UE IDs from InfluxDB: {e}")
+            return []
 
     def insert_log(self, log_point):
         """Inserts log data into the logs bucket in InfluxDB."""
-        log_bucket = 'RAN_logs' 
+        log_bucket = 'RAN_logs'
         try:
             self.write_api.write(bucket=log_bucket, record=log_point)
             database_logger.info(f"Log data inserted into bucket {log_bucket}")

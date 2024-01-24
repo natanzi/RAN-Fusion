@@ -60,5 +60,5 @@ def main():
     for ue in ues:
         print(f"UE ID: {ue.ID}, Sector ID: {ue.ConnectedSectorID}, Service Type: {ue.ServiceType}")
 
-    if __name__ == "__main__":
-        main()
+if __name__ == "__main__":
+    main()
