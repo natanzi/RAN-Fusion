@@ -5152,3 +5152,6 @@
 {"level": "INFO", "timestamp": "2024-01-23 14:09:29", "message": "Database connection successful.", "test_id": "f610aba0-69dd-434a-868e-41143a720122"}
 {"level": "INFO", "timestamp": "2024-01-23 14:21:37", "message": "Database connection successful.", "test_id": "6a40618d-a529-444b-999d-b9185f9acd4c"}
 {"level": "INFO", "timestamp": "2024-01-23 14:51:00", "message": "Database connection successful.", "test_id": "d9b833c2-2043-44c8-b8e1-4595962291a5"}
+{"level": "ERROR", "timestamp": "2024-01-24 14:21:00", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"blacklisted_cells\" is not supported.", "test_id": "92f2c3fc-2bab-477a-88d0-6eea8ae854f0"}
+{"level": "ERROR", "timestamp": "2024-01-24 14:21:00", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"blacklisted_cells\" is not supported.", "test_id": "92f2c3fc-2bab-477a-88d0-6eea8ae854f0"}
+{"level": "ERROR", "timestamp": "2024-01-24 14:21:00", "message": "Failed to insert data into InfluxDB: Type: \"<class 'list'>\" of field: \"blacklisted_cells\" is not supported.", "test_id": "92f2c3fc-2bab-477a-88d0-6eea8ae854f0"}

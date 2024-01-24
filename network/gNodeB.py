@@ -62,6 +62,7 @@ class gNodeB:
         self.SectorCount = sectorCount
         self.handover_success_count = 0
         self.handover_failure_count = 0
+        self.SectorIds = sectorIds
         self.lock = Lock()
         gnodeb_logger.info(f"gNodeB '{self.ID}' has been launched with {self.CellCount} cells at '{current_time}'.")
         print(f"Debug End: gNodeB '{self.ID}' initialized with {self.CellCount} cells.")
@@ -116,7 +117,7 @@ class gNodeB:
             "son_capabilities": self.SONCapabilities,
             "load_balancing_offset": self.LoadBalancingOffset,
             "cell_ids": ','.join(map(str, self.CellIds)) if self.CellIds is not None else None,
-            "sector_ids": ','.join([str(sector['sectorId']) for sector in self.SectorIds]) if self.SectorIds is not None else None
+            "sector_ids": ','.join([str(sector_id) for sector_id in self.SectorIds])
         }
 
         for field, value in fields.items():
