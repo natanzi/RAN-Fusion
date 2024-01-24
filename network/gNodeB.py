@@ -59,9 +59,7 @@ class gNodeB:
         self.LoadBalancingOffset = loadBalancingOffset
         self.CellIds = cellIds
         self.CellCount = cellCount
-        #self.Cells = self.initialize_cells(cellIds)  # This method needs to be defined
         self.SectorCount = sectorCount
-        self.Sectors = self.initialize_sectors(sectorIds)  # This method needs to be defined
         self.handover_success_count = 0
         self.handover_failure_count = 0
         self.lock = Lock()
