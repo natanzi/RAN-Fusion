@@ -91,9 +91,13 @@ class gNodeB:
         # Convert the location list to a string if it's not None
         location_str = ','.join(map(str, self.Location)) if self.Location is not None else None
 
+        # Convert the blacklisted cells list to a string if it's not None
+        blacklisted_cells_str = ','.join(map(str, self.BlacklistedCells)) if self.BlacklistedCells is not None else None
+
         # Ensure the 'region' field is a string
         region_str = str(self.Region) if self.Region is not None else None
 
+        # Create a dictionary of fields to include in the Point
         fields = {
             "latitude": self.Latitude,
             "longitude": self.Longitude,
@@ -105,7 +109,7 @@ class gNodeB:
             "cell_count": self.CellCount,
             "sector_count": self.SectorCount,
             "measurement_bandwidth": self.MeasurementBandwidth,
-            "blacklisted_cells": self.BlacklistedCells,
+            "blacklisted_cells": blacklisted_cells_str,  # Use the serialized string
             "handover_success_count": self.handover_success_count,
             "handover_failure_count": self.handover_failure_count,
             "location": location_str,
@@ -121,11 +125,14 @@ class gNodeB:
             "sector_ids": ','.join([str(sector_id) for sector_id in self.SectorIds])
         }
 
+        # Add fields to the Point if they are not None
         for field, value in fields.items():
             if value is not None:
                 point = point.field(field, value)
 
+        # Set the time for the Point
         point = point.time(time.time_ns(), WritePrecision.NS)
+
         return point
 ######################################################################################################
 ##################################################Cell and UE Management##########################

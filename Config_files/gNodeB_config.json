@@ -25,9 +25,7 @@
          "xnInterface":true,
          "sonCapabilities":true,
          "measurementBandwidth":50,
-         "blacklistedCells":[
-            "W1320"
-         ],
+         "blacklistedCells":["W1320"],
          "loadBalancingOffset":10,
          "cellIds":[
             "Ax1242",
@@ -125,9 +123,7 @@
          "xnInterface":true,
          "sonCapabilities":true,
          "measurementBandwidth":50,
-         "blacklistedCells":[
-            "W1320"
-         ],
+         "blacklistedCells":["W1320"],
          "loadBalancingOffset":9,
          "cellIds":[
             "AX1112",
@@ -225,9 +221,7 @@
          "xnInterface":true,
          "sonCapabilities":true,
          "measurementBandwidth":50,
-         "blacklistedCells":[
-            "W1320"
-         ],
+         "blacklistedCells":["W1320"],
          "loadBalancingOffset":8,
          "cellIds":[
             "AX9980",
