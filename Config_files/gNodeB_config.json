@@ -17,6 +17,7 @@
         ],
         "maxUEs":10,
         "cellCount":3,
+        "sectorCount": 3,
         "handoverMargin":3,
         "handoverHysteresis":1,
         "timeToTrigger":50,
@@ -33,7 +34,7 @@
            "BX1453",
            "CX1352"
         ],
-        "sectors":[
+        "sectorIds":[
            {
               "sectorId":"A1",
               "pci":101,
@@ -116,6 +117,7 @@
         ],
         "maxUEs":10,
         "cellCount":3,
+        "sectorCount": 3,
         "handoverMargin":3,
         "handoverHysteresis":1,
         "timeToTrigger":50,
@@ -132,7 +134,7 @@
            "BX1334",
            "CX1873"
         ],
-        "sectors":[
+        "sectorIds":[
            {
               "sectorId":"A1",
               "pci":201,
@@ -215,6 +217,7 @@
         ],
         "maxUEs":10,
         "cellCount":3,
+        "sectorCount": 3,
         "handoverMargin":3,
         "handoverHysteresis":1,
         "timeToTrigger":50,
@@ -231,7 +234,7 @@
            "BX1230",
            "CX5103"
         ],
-        "sectors":[
+        "sectorIds":[
            {
               "sectorId":"A1",
               "pci":301,
