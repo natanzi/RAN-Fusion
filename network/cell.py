@@ -10,7 +10,7 @@ from database.time_utils import get_current_time_ntp, server_pools
 from threading import Lock
 
 class Cell:
-    def __init__(self, cell_id, gnodeb_id, frequencyBand, duplexMode, tx_power, bandwidth, ssbPeriodicity, ssb_offset, max_connect_ues, max_throughput,  channel_model, sectorCount, trackingArea=None, is_active=True):
+    def __init__(self, cell_id, gnodeb_id, frequencyBand, duplexMode, tx_power, bandwidth, ssbPeriodicity, ssbOffset, max_connect_ues, max_throughput,  channel_model, sectorCount, trackingArea=None, is_active=True):
         self.cell_lock = Lock()
         print(f"START-Creating cell {cell_id}")
         # Check if the cell ID already exists in the network state
@@ -21,7 +21,7 @@ class Cell:
         self.TxPower = tx_power
         self.Bandwidth = bandwidth
         self.SSBPeriodicity = ssbPeriodicity
-        self.SSBOffset = ssb_offset
+        self.SSBOffset = ssbOffset
         self.MaxConnectedUEs = max_connect_ues
         self.max_throughput = max_throughput
         self.ChannelModel = channel_model
@@ -80,6 +80,7 @@ class Cell:
                 'ue_id': self.ConnectedUEs[-1].ID,
                 'cell_id': self.ID,
                 'gnodeb_id': self.gNodeB_ID,
+                'sectorId': self.ConnectedUEs[-1].SectorId,
                 'timestamp': self.last_update
             }
         return len(self.ConnectedUEs)
@@ -175,5 +176,12 @@ class Cell:
             .field("max_throughput", self.max_throughput) \
             .field("channel_model", self.ChannelModel) \
             .field("trackingArea", self.TrackingArea) \
-            .field("CellisActive",self.IsActive)
+            .field("CellisActive", self.IsActive) \
+            .field("sector_count", len(self.sectors))
+
+        # Loop to add details about each sector
+        for i, sector in enumerate(self.sectors):
+            point.field(f"sector_{i}_id", sector.sector_id)
+            # Add other relevant sector fields here
+
         return point
