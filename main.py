@@ -13,7 +13,7 @@ def main():
     print(logo_text)
     logging.basicConfig(level=logging.INFO)
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    gNodeBs_config, cells_config, ue_config = load_all_configs(base_dir)
+    gNodeBs_config, cells_config, ue_config, sector_config = load_all_configs(base_dir)
     
     # Create an instance of DatabaseManager here
     db_manager = DatabaseManager()

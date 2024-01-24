@@ -17,7 +17,11 @@ from influxdb_client.client.write_api import SYNCHRONOUS, WritePrecision
 from database.time_utils import get_current_time_ntp, server_pools
 from multiprocessing import Lock
 from network.sector import Sector
+from threading import Lock
+
 current_time = get_current_time_ntp()
+DEFAULT_BLACKLISTED_CELLS = []
+DEFAULT_MEASUREMENT_BANDWIDTH = 20
 
 def load_gNodeB_config():
     # Correct the path to point to the 'Config_files' directory
@@ -42,7 +46,7 @@ class gNodeB:
         self.Frequency = frequency
         self.Bandwidth = bandwidth
         self.Location = location
-        self.Region = region
+        self.Region = region if isinstance(region, str) else ','.join(region)
         self.MaxUEs = maxUEs
         self.HandoverMargin = handoverMargin
         self.HandoverHysteresis = handoverHysteresis
@@ -50,34 +54,33 @@ class gNodeB:
         self.InterFreqHandover = interFreqHandover
         self.XnInterface = xnInterface
         self.SONCapabilities = sonCapabilities
-        self.MeasurementBandwidth = MeasurementBandwidth
-        self.BlacklistedCells = BlacklistedCells
+        self.MeasurementBandwidth = MeasurementBandwidth if MeasurementBandwidth is not None else DEFAULT_MEASUREMENT_BANDWIDTH
+        self.BlacklistedCells = BlacklistedCells if BlacklistedCells is not None else DEFAULT_BLACKLISTED_CELLS
         self.LoadBalancingOffset = loadBalancingOffset
         self.CellIds = cellIds
         self.CellCount = cellCount
-        self.Cells = []  # This will hold Cell instances associated with this gNodeB
+        self.Cells = self.initialize_cells(cellIds)  # This method needs to be defined
         self.SectorCount = sectorCount
-        self.Sectors = []
-        self.sectorId = sectorId
+        self.Sectors = self.initialize_sectors(sectorIds)  # This method needs to be defined
         self.handover_success_count = 0
         self.handover_failure_count = 0
         self.lock = Lock()
         gnodeb_logger.info(f"gNodeB '{self.ID}' has been launched with {self.CellCount} cells at '{current_time}'.")
         print(f"Debug End: gNodeB '{self.ID}' initialized with {self.CellCount} cells.")
-
         # Handle any additional keyword arguments
         for key, value in kwargs.items():
             setattr(self, key, value)
         print(f"gNodeB '{self.ID}' has been launched with {self.CellCount} cells.")
         time.sleep(1)  # Delay for 1 second
 
+
     @staticmethod
     def from_json(json_data):
-        gNodeBs = []
+        gNodeBs_dict = {}
         for item in json_data["gNodeBs"]:
             gnodeb = gNodeB(**item)  # Unpack the dictionary directly
-            gNodeBs.append(gnodeb)
-        return gNodeBs
+            gNodeBs_dict[gnodeb.ID] = gnodeb
+        return gNodeBs_dict
     ###############################################################################################################
     # add serialization methods to the gNodeB class to convert gNodeB instances into a format suitable for InfluxDB
     def serialize_for_influxdb(self):
@@ -100,7 +103,7 @@ class gNodeB:
             "region": region_str,
             "max_ues": self.MaxUEs,
             "cell_count": self.CellCount,
-            "sector_count": self.SectorCount,  # Added sector count
+            "sector_count": self.SectorCount,
             "measurement_bandwidth": self.MeasurementBandwidth,
             "blacklisted_cells": self.BlacklistedCells,
             "handover_success_count": self.handover_success_count,
@@ -115,10 +118,7 @@ class gNodeB:
             "son_capabilities": self.SONCapabilities,
             "load_balancing_offset": self.LoadBalancingOffset,
             "cell_ids": ','.join(map(str, self.CellIds)) if self.CellIds is not None else None,
-            "# The above code is declaring a variable named "sector_ids" in the Python programming
-            # language. However, the code is incomplete and does not provide any further information
-            # about what the variable is intended to store or how it will be used.
-            sector_ids": ','.join(map(str, self.SectorIds)) if self.SectorIds is not None else None  # Added sector IDs
+            "sector_ids": ','.join([str(sector['sectorId']) for sector in self.SectorIds]) if self.SectorIds is not None else None
         }
 
         for field, value in fields.items():
