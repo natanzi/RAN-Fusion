@@ -274,7 +274,6 @@ class gNodeB:
                 raise ValueError("Duplicate Cell IDs detected after addition.")
 ###################################################################################################
     def add_sector_to_cell(self, sector, cell):
-        import traceback
         print(f"Debug: Starting to add sector '{sector.ID}' to cell '{cell.ID}' in gNodeB '{self.ID}'.")  # Start message
         print(f"Debug: Sector object: {repr(sector)}")  # Print out the sector object
         try:
@@ -291,7 +290,6 @@ class gNodeB:
             print(f"Debug: Finished adding sector '{sector.ID}' to cell '{cell.ID}' in gNodeB '{self.ID}'.")  # End message
         except Exception as e:
             print(f"An error occurred: {e}")
-            traceback.print_exc()  # Print the stack trace
 ###################################################################################################
     def find_available_sector(self):
     # ... [logic to find available sectors] ...

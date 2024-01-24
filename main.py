@@ -14,7 +14,8 @@ def main():
     logging.basicConfig(level=logging.INFO)
     base_dir = os.path.dirname(os.path.abspath(__file__))
     gNodeBs_config, cells_config, ue_config, sectors_config = load_all_configs(base_dir)
-    
+    print("Sectors config in main:", sectors_config)
+
     # Create an instance of DatabaseManager here
     db_manager = DatabaseManager()
     
@@ -44,6 +45,7 @@ def main():
     # Initialize Sectors
     try:
         sectors = initialize_sectors(sectors_config, cells, db_manager)
+        print("Initializing sectors with config:", sectors_config)
     except KeyError as e:
         logging.error(f"Failed to initialize sectors: {e}")
         sectors = {}  # Initialize sectors as an empty dictionary if an exception occurred
