@@ -7,11 +7,9 @@ import time
 from influxdb_client import Point
 from influxdb_client.client.write_api import SYNCHRONOUS
 from database.time_utils import get_current_time_ntp, server_pools
-from threading import Lock
 
 class Cell:
     def __init__(self, cell_id, gnodeb_id, frequencyBand, duplexMode, tx_power, bandwidth, ssbPeriodicity, ssbOffset, maxConnectUes, max_throughput,  channelModel, sectorCount, trackingArea=None, is_active=True):
-        self.cell_lock = Lock()
         print(f"START-Creating cell {cell_id}")
         # Check if the cell ID already exists in the network state
         self.ID = cell_id
@@ -128,14 +126,12 @@ class Cell:
 #########################################################################################        
 #########################################################################################
     def add_sector(self, sector):
-        with self.cell_lock:  # Acquire the lock before modifying the cell's sectors
             print(f"Cell {self.id} sectors before: {self.sectors}")
             self.sectors.append(sector)  # Add the sector
             print(f"Cell {self.id} sectors after: {self.sectors}")
             sector.set_cell(self)  # Associate the sector with this cell
 
     def remove_sector(self, sector_id):
-        with self.cell_lock:  # Acquire the lock before modifying the cell's sectors
             print(f"Cell {self.id} sectors before: {self.sectors}")
             self.sectors = [sector for sector in self.sectors if sector.sector_id != sector_id]
             print(f"Cell {self.id} sectors after: {self.sectors}")
