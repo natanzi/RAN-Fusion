@@ -10,7 +10,7 @@ from database.time_utils import get_current_time_ntp, server_pools
 from threading import Lock
 
 class Cell:
-    def __init__(self, cell_id, gnodeb_id, frequencyBand, duplexMode, tx_power, bandwidth, ssbPeriodicity, ssbOffset, max_connect_ues, max_throughput,  channel_model, sectorCount, trackingArea=None, is_active=True):
+    def __init__(self, cell_id, gnodeb_id, frequencyBand, duplexMode, tx_power, bandwidth, ssbPeriodicity, ssbOffset, maxConnectUes, max_throughput,  channelModel, sectorCount, trackingArea=None, is_active=True):
         self.cell_lock = Lock()
         print(f"START-Creating cell {cell_id}")
         # Check if the cell ID already exists in the network state
@@ -22,9 +22,9 @@ class Cell:
         self.Bandwidth = bandwidth
         self.SSBPeriodicity = ssbPeriodicity
         self.SSBOffset = ssbOffset
-        self.MaxConnectedUEs = max_connect_ues
+        self.maxConnectUes = maxConnectUes
         self.max_throughput = max_throughput
-        self.ChannelModel = channel_model
+        self.ChannelModel = channelModel
         self.TrackingArea = trackingArea 
         self.ConnectedUEs = []
         self.assigned_UEs = []  # Initialize the list of assigned UEs
