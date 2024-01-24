@@ -43,7 +43,7 @@ def main():
     
     # Initialize Sectors
     try:
-        sectors = initialize_sectors(sectors_config['sectors'], cells, db_manager)
+        sectors = initialize_sectors(sectors_config, cells, db_manager)
     except KeyError as e:
         logging.error(f"Failed to initialize sectors: {e}")
         sectors = {}  # Initialize sectors as an empty dictionary if an exception occurred
