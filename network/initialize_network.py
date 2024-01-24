@@ -18,6 +18,10 @@ def initialize_network(gNodeBs_config, cells_config, sectors_config, ues_config,
     cells = initialize_cells(gNodeBs, cells_config, db_manager)
     print("Debug: Cells initialized and linked to gNodeBs.")
 
+    # Call initialize_cells_with_sectors for each gNodeB
+    for gnb in gNodeBs.values():
+        gnb.initialize_cells_with_sectors(cells_config)
+
     # Initialize Sectors with the provided configuration and link them to Cells
     sectors = initialize_sectors(cells, sectors_config, db_manager)
     print("Debug: Sectors initialized and linked to Cells.")
