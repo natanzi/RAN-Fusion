@@ -24,7 +24,6 @@ class Sector:
         self.load_balancing = load_balancing
         self.connected_ues = connected_ues if connected_ues is not None else []
         self.current_load = current_load
-        self.current_load = 0 
 
     @classmethod
     def from_json(cls, data):
