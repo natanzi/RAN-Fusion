@@ -34,7 +34,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
 
     # Flatten the list of sectors and sort by current load
     all_sectors = [sector for gNodeB in gNodeBs.values() for cell in gNodeB.Cells for sector in cell.sectors]
-    all_sectors.sort(key=lambda sector: sector.current_ue_count / sector.MaxConnectedUEs)
+    all_sectors.sort(key=lambda sector: sector.current_ue_count / sector.max_ues)
 
     for _ in range(num_ues_to_launch):
         ue_data = random.choice(ue_config['ues']).copy()

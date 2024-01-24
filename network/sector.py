@@ -4,12 +4,14 @@ from influxdb_client import Point
 from influxdb_client.client.write_api import SYNCHRONOUS, WritePrecision
 import time
 import threading
+from logs.logger_config import sector_logger
 sector_lock = threading.Lock()
 
 class Sector:
-    def __init__(self, sector_id, cell_id, azimuth_angle, beamwidth, frequency, duplex_mode, tx_power, bandwidth, mimo_layers, beamforming, ho_margin, load_balancing, connected_ues=None, current_load=0):
+    def __init__(self, sector_id, cell_id, max_ues, azimuth_angle, beamwidth, frequency, duplex_mode, tx_power, bandwidth, mimo_layers, beamforming, ho_margin, load_balancing, connected_ues=None, current_load=0):
         self.sector_id = sector_id
         self.cell_id = cell_id
+        self.max_ues = max_ues
         self.azimuth_angle = azimuth_angle
         self.beamwidth = beamwidth
         self.frequency = frequency
@@ -22,6 +24,7 @@ class Sector:
         self.load_balancing = load_balancing
         self.connected_ues = connected_ues if connected_ues is not None else []
         self.current_load = current_load
+        self.current_load = 0 
 
     @classmethod
     def from_json(cls, data):
@@ -43,25 +46,24 @@ class Sector:
             .field("load_balancing", self.load_balancing) \
             .field("connected_ues", len(self.connected_ues)) \
             .field("current_load", self.current_load) \
+            .field("max_ues", self.max_ues) \
             .time(time.time_ns(), WritePrecision.NS)
         return point
 
-    # Add any additional methods required for sector operations below
-    # Example: Method to update the current load of the sector
-    def update_load(self, new_load):
-        self.current_load = new_load
-        # Additional logic to handle load changes can be added here
-
-    # Example: Method to add a UE to the sector
     def add_ue(self, ue):
-        with sector_lock:
-            if ue not in self.connected_ues:
+        with self.lock:  # Ensure thread safety
+            if ue.ID not in self.connected_ues:
                 self.connected_ues.append(ue)
-            # Update load or perform other necessary actions
+                self.current_load += 1  # Increment the current load
+                sector_logger.info(f"UE with ID {ue.ID} has been added to the sector. Current load: {self.current_load}")
+            else:
+                sector_logger.warning(f"UE with ID {ue.ID} is already connected to the sector.")
 
-    # Example: Method to remove a UE from the sector
     def remove_ue(self, ue):
-        with sector_lock:
-            if ue in self.connected_ues:
+        with self.lock:
+            if ue.ID in self.connected_ues:
                 self.connected_ues.remove(ue)
-            # Update load or perform other necessary action
+                self.current_load -= 1  # Decrement the current load
+                sector_logger.info(f"UE with ID {ue.ID} has been removed from the sector. Current load: {self.current_load}")
+            else:
+                sector_logger.warning(f"UE with ID {ue.ID} is not connected to the sector.")
