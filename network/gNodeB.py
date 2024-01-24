@@ -17,7 +17,7 @@ from influxdb_client.client.write_api import SYNCHRONOUS, WritePrecision
 from database.time_utils import get_current_time_ntp, server_pools
 from multiprocessing import Lock
 from network.sector import Sector
-from threading import Lock
+#from threading import Lock
 
 current_time = get_current_time_ntp()
 DEFAULT_BLACKLISTED_CELLS = []
@@ -196,12 +196,9 @@ class gNodeB:
         :param cell_id: The ID of the cell to find.
         :return: The cell with the matching ID or None if not found.
         """
-        print(f"Debug Start: find_cell_by_id method in gNodeB class for cell_id {cell_id}.")
         for cell in self.Cells:
             if cell.ID == cell_id:
-                print(f"Debug End: find_cell_by_id method in gNodeB class for cell_id {cell_id}.")
                 return cell
-        print(f"Debug End: find_cell_by_id method in gNodeB class for cell_id {cell_id}.")
         return None
 ###################################################################################################
     def has_cell(self, cell_id):
