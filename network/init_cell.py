@@ -3,56 +3,37 @@
 import os
 import json
 from .cell import Cell
-from database.database_manager import DatabaseManager
 from logs.logger_config import cell_logger
 
 def load_json_config(file_path):
     with open(file_path, 'r') as file:
         return json.load(file)
 
-def initialize_cells(gNodeBs):
+def initialize_cells(gNodeBs, cells_config, db_manager):
     print("Debug Start: initialize_cells function.")
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    config_dir = os.path.join(base_dir, 'Config_files')
-    cells_config = load_json_config(os.path.join(config_dir, 'cell_config.json'))
-    
-    # Initialize the DatabaseManager with the required parameters
-    db_manager = DatabaseManager()
-    print("Debug: DatabaseManager initialized.")
-    
     cell_logger.info("Initializing cells.")
     print("Debug: Initializing cells.")
     
-    # Pre-validation to check for duplicate cell IDs in the configuration
     seen_cell_ids = set()
-    new_cells = []  # List to keep track of newly added cells
-    
     for cell_data in cells_config['cells']:
         cell_id = cell_data['cell_id']
         print(f"--- Read cell {cell_id} from config ---")
-        
         if cell_id in seen_cell_ids:
             cell_logger.error(f"Duplicate cell ID {cell_id} found in cell configuration. Skipping addition.")
             print(f"Error: Duplicate cell ID {cell_id} found. Skipping addition.")
-            continue  # Skip this cell and continue with the next
+            continue
         
         seen_cell_ids.add(cell_id)
-        
-        # Log the cell ID before attempting to add
         cell_logger.info(f"Attempting to add cell with ID: {cell_id}")
         print(f"Debug: Attempting to add cell with ID: {cell_id}")
         
-        # Create the Cell instance
-        new_cell = Cell.from_json(cell_data)
-        new_cells.append(new_cell)  # Add the new cell to the list of new cells
+        new_cell = Cell(**cell_data)
         print(f"Created cell {cell_id} with memory address {id(new_cell)}")
         
-        # Serialize and write new cells to InfluxDB and link them to gNodeBs
         point = new_cell.serialize_for_influxdb()
         db_manager.insert_data(point)
         print(f"Debug: Cell {new_cell.ID} data inserted into InfluxDB.")
         
-        # Link cells to gNodeBs
         gnodeb = gNodeBs.get(new_cell.gNodeB_ID)
         if gnodeb:
             print(f"Current cells in gNodeB {gnodeb.ID} before adding: {[cell.ID for cell in gnodeb.Cells]}")
@@ -65,7 +46,4 @@ def initialize_cells(gNodeBs):
         else:
             print(f"Error: gNodeB {new_cell.gNodeB_ID} not found for cell {new_cell.ID}.")
     
-    # Close the database connection
-    db_manager.close_connection()
-    print("Debug: Database connection closed.")
     print("Debug End: initialize_cells function.")
