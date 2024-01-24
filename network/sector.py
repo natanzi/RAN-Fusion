@@ -7,6 +7,9 @@ import threading
 from logs.logger_config import sector_logger
 sector_lock = threading.Lock()
 
+# Assume a global list or set for UE IDs is defined at the top level of your module
+global_ue_ids = set()
+
 class Sector:
     def __init__(self, sector_id, cell_id, max_ues, azimuth_angle, beamwidth, frequency, duplex_mode, tx_power, bandwidth, mimo_layers, beamforming, ho_margin, load_balancing, connected_ues=None, current_load=0):
         self.sector_id = sector_id
@@ -50,19 +53,21 @@ class Sector:
         return point
 
     def add_ue(self, ue):
-        with self.lock:  # Ensure thread safety
+        with sector_lock:  # Use the correct lock defined at the global scope
             if ue.ID not in self.connected_ues:
-                self.connected_ues.append(ue)
+                self.connected_ues.append(ue.ID)  # Store only the ID, not the UE object
                 self.current_load += 1  # Increment the current load
+                global_ue_ids.add(ue.ID)  # Add the UE ID to the global list
                 sector_logger.info(f"UE with ID {ue.ID} has been added to the sector. Current load: {self.current_load}")
             else:
                 sector_logger.warning(f"UE with ID {ue.ID} is already connected to the sector.")
 
     def remove_ue(self, ue):
-        with self.lock:
+        with sector_lock:
             if ue.ID in self.connected_ues:
-                self.connected_ues.remove(ue)
+                self.connected_ues.remove(ue.ID)  # Remove the ID, not the UE object
                 self.current_load -= 1  # Decrement the current load
+                global_ue_ids.discard(ue.ID)  # Remove the UE ID from the global list
                 sector_logger.info(f"UE with ID {ue.ID} has been removed from the sector. Current load: {self.current_load}")
             else:
                 sector_logger.warning(f"UE with ID {ue.ID} is not connected to the sector.")

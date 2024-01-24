@@ -89,7 +89,7 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         # Assign UE to the least-loaded sector
         for sector in all_sectors:
             with sector_lock:  # Acquire lock before modifying the sector's UE list
-                if sector.current_ue_count < sector.MaxConnectedUEs:
+                if sector.current_load < sector.max_ues:
                     # Generate a random location within the coverage radius of the sector's gNodeB
                     latitude, longitude = sector.gNodeB.Location
                     ue_location = random_location_within_radius(latitude, longitude, sector.gNodeB.CoverageRadius)

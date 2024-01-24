@@ -7,7 +7,6 @@ from .utils import random_location_within_radius
 from logs.logger_config import ue_logger
 from datetime import datetime
 from influxdb_client import Point
-import threading
 
 class UE:
     def __init__(self, ue_id, location, connected_cell_id, connected_sector, gnodeb_id, is_mobile, initial_signal_strength, rat, max_bandwidth, duplex_mode, tx_power, modulation, coding, mimo, processing, bandwidth_parts, channel_model, velocity, direction, traffic_model, scheduling_requests, rlc_mode, snr_thresholds, ho_margin, n310, n311, model, service_type=None, datasize=None):
@@ -108,7 +107,6 @@ class UE:
         return ues
 #########################################################################################
     def add_ue(self, ue):
-        with self.lock:  # Ensure thread safety
             print(f"Debug: Attempting to add UE with ID {ue.ID}")
             if ue.ID in self.ues:
                 error_message = f"UE with ID {ue.ID} already exists in the network"
