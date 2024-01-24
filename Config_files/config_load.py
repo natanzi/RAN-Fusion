@@ -17,6 +17,6 @@ def load_all_configs(base_dir):
     gNodeBs_config = load_json_config(gNodeB_json_path)
     cells_config = load_json_config(cell_json_path)
     ue_config = load_json_config(ue_json_path)
-    sectors_config = load_json_config(sector_json_path)  # Corrected variable name
+    sectors_config = load_json_config(sector_json_path)
     
-    return gNodeBs_config, cells_config, ue_config, sectors_config  # Corrected return statement
+    return gNodeBs_config, cells_config, ue_config, sectors_config

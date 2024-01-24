@@ -17,7 +17,6 @@ from influxdb_client.client.write_api import SYNCHRONOUS, WritePrecision
 from database.time_utils import get_current_time_ntp, server_pools
 from multiprocessing import Lock
 from network.sector import Sector
-#from threading import Lock
 
 current_time = get_current_time_ntp()
 DEFAULT_BLACKLISTED_CELLS = []
@@ -64,7 +63,6 @@ class gNodeB:
         self.handover_failure_count = 0
         self.SectorIds = sectorIds
         self.Cells = []
-        self.lock = Lock()
         gnodeb_logger.info(f"gNodeB '{self.ID}' has been launched with {self.CellCount} cells at '{current_time}'.")
         print(f"Debug End: gNodeB '{self.ID}' initialized with {self.CellCount} cells.")
         # Handle any additional keyword arguments
@@ -227,7 +225,7 @@ class gNodeB:
 
 ###################################################################################################
     def add_cell_to_gNodeB(self, cell):
-        with self.lock:  # Ensure thread safety
+
             try:
                 print(f"Debug: Attempting to add cell {cell.ID} to gNodeB {self.ID}")
                 current_cell_ids = [c.ID for c in self.Cells]
@@ -270,7 +268,7 @@ class gNodeB:
                 cell_logger.error(f"An exception occurred while adding cell {cell.ID} to gNodeB {self.ID}: {e}")
 
     def verify_no_duplicate_cells(self):
-        with self.lock:
+        
             cell_ids = [cell.ID for cell in self.Cells]
             if len(cell_ids) != len(set(cell_ids)):
                 raise ValueError("Duplicate Cell IDs detected after addition.")

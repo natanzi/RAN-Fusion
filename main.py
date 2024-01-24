@@ -8,15 +8,12 @@ from network.init_sector import initialize_sectors
 from network.init_ue import initialize_ues
 from database.database_manager import DatabaseManager
 
-
 def main():
     logo_text = create_logo()
     print(logo_text)
-    
     logging.basicConfig(level=logging.INFO)
-    
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    gNodeBs_config, cells_config, sectors_config, ue_config = load_all_configs(base_dir)
+    gNodeBs_config, cells_config, ue_config, sectors_config = load_all_configs(base_dir)
     
     # Create an instance of DatabaseManager here
     db_manager = DatabaseManager()
@@ -34,21 +31,34 @@ def main():
     if 'cells' not in cells_config:
         raise KeyError("cells_config is missing 'cells' key")
     cells = initialize_cells(gNodeBs, cells_config, db_manager)
-    print("Initialized Cells:")
-    for cell_id, cell in cells.items():
-        print(f"Cell ID: {cell_id}, Details: {cell}")
+    
+    # Check if cells is not None before iterating
+    if cells is not None:
+        print("Initialized Cells:")
+        for cell_id, cell in cells.items():
+            print(f"Cell ID: {cell_id}, Details: {cell}")
+    else:
+        print("No cells were initialized.")
+        cells = {}  # Initialize cells as an empty dictionary if None was returned
     
     # Initialize Sectors
-    sectors = initialize_sectors(sectors_config, cells, db_manager)
+    try:
+        sectors = initialize_sectors(sectors_config['sectors'], cells, db_manager)
+    except KeyError as e:
+        logging.error(f"Failed to initialize sectors: {e}")
+        sectors = {}  # Initialize sectors as an empty dictionary if an exception occurred
+
     print("Initialized Sectors:")
     for sector_id, sector in sectors.items():
         print(f"Sector ID: {sector_id}, Details: {sector}")
-    
+
     # Initialize UEs
-    ues = initialize_ues(num_ues_to_launch, sectors, ue_config, db_manager)
+    # The db_manager argument is removed from the call to match the function signature
+    ues = initialize_ues(num_ues_to_launch, sectors, ue_config)
+
     print("Initialized UEs:")
     for ue in ues:
         print(f"UE ID: {ue.ID}, Sector ID: {ue.ConnectedSectorID}, Service Type: {ue.ServiceType}")
 
-if __name__ == "__main__":
-    main()
+    if __name__ == "__main__":
+        main()
