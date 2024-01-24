@@ -8,6 +8,7 @@ from network.init_sector import initialize_sectors
 from network.init_ue import initialize_ues
 from database.database_manager import DatabaseManager
 
+
 def main():
     logo_text = create_logo()
     print(logo_text)
@@ -29,7 +30,10 @@ def main():
         print(f"gNodeB ID: {gnb_id}, Details: {gnb}")
     
     # Initialize Cells
-    cells = initialize_cells(cells_config, gNodeBs, db_manager)
+    # Ensure cells_config has the 'cells' key
+    if 'cells' not in cells_config:
+        raise KeyError("cells_config is missing 'cells' key")
+    cells = initialize_cells(gNodeBs, cells_config, db_manager)
     print("Initialized Cells:")
     for cell_id, cell in cells.items():
         print(f"Cell ID: {cell_id}, Details: {cell}")

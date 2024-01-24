@@ -10,7 +10,7 @@ from database.time_utils import get_current_time_ntp, server_pools
 from threading import Lock
 
 class Cell:
-    def __init__(self, cell_id, gnodeb_id, frequencyBand, duplexMode, tx_power, bandwidth, ssb_periodicity, ssb_offset, max_connect_ues, max_throughput,  channel_model, trackingArea=None, is_active=True):
+    def __init__(self, cell_id, gnodeb_id, frequencyBand, duplexMode, tx_power, bandwidth, ssbPeriodicity, ssb_offset, max_connect_ues, max_throughput,  channel_model, sectorCount, trackingArea=None, is_active=True):
         self.cell_lock = Lock()
         print(f"START-Creating cell {cell_id}")
         # Check if the cell ID already exists in the network state
@@ -20,7 +20,7 @@ class Cell:
         self.DuplexMode = duplexMode
         self.TxPower = tx_power
         self.Bandwidth = bandwidth
-        self.SSBPeriodicity = ssb_periodicity
+        self.SSBPeriodicity = ssbPeriodicity
         self.SSBOffset = ssb_offset
         self.MaxConnectedUEs = max_connect_ues
         self.max_throughput = max_throughput
@@ -33,6 +33,7 @@ class Cell:
         self.IsActive = is_active
         self.current_ue_count = 0
         self.sectors = []
+        self.SectorCount = sectorCount
         current_time = get_current_time_ntp()
         # Logging statement should be here, after all attributes are set
         cell_logger.info(f" A Cell '{cell_id}' has been created at '{current_time}' in gNodeB '{gnodeb_id}' with max capacity {self.MaxConnectedUEs}.")
