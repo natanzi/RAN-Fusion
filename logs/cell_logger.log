@@ -5701,3 +5701,11 @@
 {"level": "INFO", "timestamp": "2024-01-24 14:52:30", "message": "Attempting to add cell with ID: Ax1242", "test_id": "4193f812-f88f-4483-8bec-25b7a87628c2"}
 {"level": "INFO", "timestamp": "2024-01-24 14:53:39", "message": "Initializing cells.", "test_id": "87dbf6a0-a880-4a9e-9dde-39956e8140ed"}
 {"level": "INFO", "timestamp": "2024-01-24 14:53:39", "message": "Attempting to add cell with ID: Ax1242", "test_id": "87dbf6a0-a880-4a9e-9dde-39956e8140ed"}
+{"level": "INFO", "timestamp": "2024-01-24 14:55:39", "message": "Initializing cells.", "test_id": "ab2f3bd2-cb74-41b0-9ba6-959fa487e123"}
+{"level": "INFO", "timestamp": "2024-01-24 14:55:39", "message": "Attempting to add cell with ID: Ax1242", "test_id": "ab2f3bd2-cb74-41b0-9ba6-959fa487e123"}
+{"level": "INFO", "timestamp": "2024-01-24 14:55:39", "message": " A Cell 'Ax1242' has been created at '2024-01-24 14:55:39' in gNodeB 'W1140' with max capacity 10.", "test_id": "ab2f3bd2-cb74-41b0-9ba6-959fa487e123"}
+{"level": "INFO", "timestamp": "2024-01-24 15:10:54", "message": "Initializing cells.", "test_id": "59ab725c-d7be-4e95-bb44-a104f38511f1"}
+{"level": "INFO", "timestamp": "2024-01-24 15:10:54", "message": "Attempting to add cell with ID: Ax1242", "test_id": "59ab725c-d7be-4e95-bb44-a104f38511f1"}
+{"level": "INFO", "timestamp": "2024-01-24 15:10:54", "message": " A Cell 'Ax1242' has been created at '2024-01-24 15:10:54' in gNodeB 'W1140' with max capacity 10.", "test_id": "59ab725c-d7be-4e95-bb44-a104f38511f1"}
+{"level": "INFO", "timestamp": "2024-01-24 15:10:54", "message": "Current cells in gNodeB W1140 before adding: []", "test_id": "59ab725c-d7be-4e95-bb44-a104f38511f1"}
+{"level": "INFO", "timestamp": "2024-01-24 15:10:54", "message": "Cell 'Ax1242' has been added to gNodeB 'W1140'.", "test_id": "59ab725c-d7be-4e95-bb44-a104f38511f1"}

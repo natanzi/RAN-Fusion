@@ -36,7 +36,7 @@ class Cell:
         self.SectorCount = sectorCount
         current_time = get_current_time_ntp()
         # Logging statement should be here, after all attributes are set
-        cell_logger.info(f" A Cell '{cell_id}' has been created at '{current_time}' in gNodeB '{gnodeb_id}' with max capacity {self.MaxConnectedUEs}.")
+        cell_logger.info(f" A Cell '{cell_id}' has been created at '{current_time}' in gNodeB '{gnodeb_id}' with max capacity {self.maxConnectUes}.")
         
     @staticmethod
     def from_json(json_data):
@@ -93,8 +93,8 @@ class Cell:
             raise Exception(f"UE with ID '{ue.ID}' already exists in the network.")
 
         # Check if the cell is at or above 80% capacity
-        if len(self.ConnectedUEs) >= (0.8 * self.MaxConnectedUEs):
-            capacity_pct = len(self.ConnectedUEs) / self.MaxConnectedUEs * 100
+        if len(self.ConnectedUEs) >= (0.8 * self.maxConnectUes):
+            capacity_pct = len(self.ConnectedUEs) / self.maxConnectUes * 100
             warning_msg = f"Cell '{self.ID}' is at {capacity_pct:.2f}% capacity but will still accept UE '{ue.ID}'"
             ue_logger.warning(warning_msg)
         # Trigger the handover process
@@ -107,7 +107,7 @@ class Cell:
             ue_logger.warning(f"Handover failed or not feasible for UE '{ue.ID}'. Adding to Cell '{self.ID}' with caution.")
 
         # Check if the cell has reached its maximum capacity
-        if len(self.ConnectedUEs) >= self.MaxConnectedUEs:
+        if len(self.ConnectedUEs) >= self.maxConnectUes:
             raise Exception(f"Cell '{self.ID}' has reached its maximum capacity.")
 
         # Add the UE to the cell
@@ -172,7 +172,7 @@ class Cell:
             .field("bandwidth", self.Bandwidth) \
             .field("ssb_periodicity", self.SSBPeriodicity) \
             .field("ssb_offset", self.SSBOffset) \
-            .field("max_connect_ues", self.MaxConnectedUEs) \
+            .field("max_connect_ues", self.maxConnectUes) \
             .field("max_throughput", self.max_throughput) \
             .field("channel_model", self.ChannelModel) \
             .field("trackingArea", self.TrackingArea) \

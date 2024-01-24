@@ -63,6 +63,7 @@ class gNodeB:
         self.handover_success_count = 0
         self.handover_failure_count = 0
         self.SectorIds = sectorIds
+        self.Cells = []
         self.lock = Lock()
         gnodeb_logger.info(f"gNodeB '{self.ID}' has been launched with {self.CellCount} cells at '{current_time}'.")
         print(f"Debug End: gNodeB '{self.ID}' initialized with {self.CellCount} cells.")
