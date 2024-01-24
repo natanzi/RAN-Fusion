@@ -14,9 +14,9 @@ def initialize_gNodeBs(gNodeBs_config, db_manager):
         if gNodeB_data['gnodeb_id'] in gNodeBs:
             raise ValueError(f"Duplicate gNodeB ID {gNodeB_data['gnodeb_id']} found during initialization.")
         
-        # Ensure 'sectorCount' and 'sectorIds' are included in gNodeB_data
-        if 'sectorCount' not in gNodeB_data or 'sectorIds' not in gNodeB_data:
-            raise KeyError(f"'sectorCount' and 'sectorIds' must be specified for gNodeB with ID {gNodeB_data['gnodeb_id']}")
+        # Ensure 'sectorCount' and 'sectorId' are included in gNodeB_data
+        if 'sectorCount' not in gNodeB_data or 'sectorId' not in gNodeB_data:
+            raise KeyError(f"'sectorCount' and 'sectorId' must be specified for gNodeB with ID {gNodeB_data['gnodeb_id']}")
 
         gnodeb = gNodeB(**gNodeB_data)
         gNodeBs[gnodeb.ID] = gnodeb

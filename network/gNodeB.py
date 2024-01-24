@@ -58,7 +58,7 @@ class gNodeB:
         self.Cells = []  # This will hold Cell instances associated with this gNodeB
         self.SectorCount = sectorCount
         self.Sectors = []
-        self.SectorIds = sectorIds
+        self.sectorId = sectorId
         self.handover_success_count = 0
         self.handover_failure_count = 0
         self.lock = Lock()
@@ -115,7 +115,10 @@ class gNodeB:
             "son_capabilities": self.SONCapabilities,
             "load_balancing_offset": self.LoadBalancingOffset,
             "cell_ids": ','.join(map(str, self.CellIds)) if self.CellIds is not None else None,
-            "sector_ids": ','.join(map(str, self.SectorIds)) if self.SectorIds is not None else None  # Added sector IDs
+            "# The above code is declaring a variable named "sector_ids" in the Python programming
+            # language. However, the code is incomplete and does not provide any further information
+            # about what the variable is intended to store or how it will be used.
+            sector_ids": ','.join(map(str, self.SectorIds)) if self.SectorIds is not None else None  # Added sector IDs
         }
 
         for field, value in fields.items():

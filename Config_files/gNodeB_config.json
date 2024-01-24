@@ -8,13 +8,8 @@
         "power":20,
         "frequency":3500000000,
         "bandwidth":20000000,
-        "location":[
-           42.27343,
-           -71.807325
-        ],
-        "region":[
-           "WPI"
-        ],
+        "location":[42.27343,-71.807325],
+        "region":["WPI"],
         "maxUEs":10,
         "cellCount":3,
         "sectorCount": 3,
@@ -25,15 +20,9 @@
         "xnInterface":true,
         "sonCapabilities":true,
         "measurementBandwidth":50,
-        "blacklistedCells":[
-           "W1320"
-        ],
+        "blacklistedCells":["W1320"],
         "loadBalancingOffset":10,
-        "cellIds":[
-           "Ax1242",
-           "BX1453",
-           "CX1352"
-        ],
+        "cellIds":["Ax1242","BX1453","CX1352"],
         "sectorIds":[
            {
               "sectorId":"A1",
@@ -108,13 +97,8 @@
         "power":20,
         "frequency":3500000000,
         "bandwidth":20000000,
-        "location":[
-           42.27343,
-           -71.807325
-        ],
-        "region":[
-           "WPI"
-        ],
+        "location":[42.27343,-71.807325],
+        "region":["WPI"],
         "maxUEs":10,
         "cellCount":3,
         "sectorCount": 3,
@@ -125,15 +109,9 @@
         "xnInterface":true,
         "sonCapabilities":true,
         "measurementBandwidth":50,
-        "blacklistedCells":[
-           "W1320"
-        ],
+        "blacklistedCells":["W1320"],
         "loadBalancingOffset":9,
-        "cellIds":[
-           "AX1112",
-           "BX1334",
-           "CX1873"
-        ],
+        "cellIds":["AX1112","BX1334","CX1873"],
         "sectorIds":[
            {
               "sectorId":"A1",
@@ -208,13 +186,8 @@
         "power":20,
         "frequency":3500000000,
         "bandwidth":20000000,
-        "location":[
-           42.27343,
-           -71.807325
-        ],
-        "region":[
-           "WPI"
-        ],
+        "location":[42.27343,-71.807325],
+        "region":["WPI"],
         "maxUEs":10,
         "cellCount":3,
         "sectorCount": 3,
@@ -225,15 +198,9 @@
         "xnInterface":true,
         "sonCapabilities":true,
         "measurementBandwidth":50,
-        "blacklistedCells":[
-           "W1320"
-        ],
+        "blacklistedCells":["W1320"],
         "loadBalancingOffset":8,
-        "cellIds":[
-           "AX9980",
-           "BX1230",
-           "CX5103"
-        ],
+        "cellIds":["AX9980","BX1230","CX5103"],
         "sectorIds":[
            {
               "sectorId":"A1",
