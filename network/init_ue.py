@@ -11,9 +11,8 @@ current_time = get_current_time_ntp()
 
 def initialize_ues(num_ues_to_launch, sectors, ue_config, db_manager):
     ues = []
-    db_manager = DatabaseManager()
-    existing_ue_ids = set(db_manager.get_all_ue_ids())  # Get existing UE IDs to avoid duplicates
-    
+    existing_ue_ids = set(db_manager.get_all_ue_ids())  # Use passed db_manager instance
+
     for _ in range(num_ues_to_launch):
         ue_data = random.choice(ue_config['ues']).copy()  # Choose a random UE config to copy
 
@@ -26,17 +25,12 @@ def initialize_ues(num_ues_to_launch, sectors, ue_config, db_manager):
                 ue_id_counter += 1
                 ue_id = f"UE{ue_id_counter}"
         
-        if ue_id in existing_ue_ids:
-            # Skip if this ue_id is already used
-            continue
-        
-        # Add the ue_id to the set of existing IDs and to the ue_data
         existing_ue_ids.add(ue_id)
         ue_data['ue_id'] = ue_id
 
+
         # Remove the 'IMEI' key from ue_data since it's generated within the UE class
         ue_data.pop('IMEI', None)
-
         # Set default values or generate necessary parameters for UE constructor
         ue_data['connected_cell_id'] = None  # or some logic to determine the cell ID
         ue_data['connected_sector'] = None  # or some logic to determine the sector
@@ -64,8 +58,6 @@ def initialize_ues(num_ues_to_launch, sectors, ue_config, db_manager):
         # Stop if the desired number of UEs has been reached
         if len(ues) >= num_ues_to_launch:
             break
-
-    db_manager.close_connection()
 
     # Log the result
     actual_ues = len(ues)
