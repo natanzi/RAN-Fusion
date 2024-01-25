@@ -63,6 +63,7 @@ class gNodeB:
         self.handover_failure_count = 0
         self.SectorIds = sectorIds
         self.Cells = []
+        current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         gnodeb_logger.info(f"gNodeB '{self.ID}' has been launched with {self.CellCount} cells at '{current_time}'.")
         print(f"Debug End: gNodeB '{self.ID}' initialized with {self.CellCount} cells.")
         # Handle any additional keyword arguments
@@ -70,7 +71,6 @@ class gNodeB:
             setattr(self, key, value)
         print(f"gNodeB '{self.ID}' has been launched with {self.CellCount} cells.")
         time.sleep(1)  # Delay for 1 second
-
 
     @staticmethod
     def from_json(json_data):
