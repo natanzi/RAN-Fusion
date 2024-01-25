@@ -9,21 +9,21 @@ from datetime import datetime
 from influxdb_client import Point
 
 class UE:
-    def __init__(self, ue_id, location, connected_cell_id, connected_sector, gnodeb_id, is_mobile, initial_signal_strength, rat, max_bandwidth, duplex_mode, tx_power, modulation, coding, mimo, processing, bandwidth_parts, channel_model, velocity, direction, traffic_model, scheduling_requests, rlc_mode, snr_thresholds, ho_margin, n310, n311, model, service_type=None, datasize=None):
+    def __init__(self, ue_id, location, connected_cell_id, connected_sector, gnodeb_id, is_mobile, initial_signal_strength, rat, max_bandwidth, duplex_mode, tx_power, modulation, coding, mimo, processing, bandwidth_parts, channel_model, velocity, direction, traffic_model, scheduling_requests, rlc_mode, snr_thresholds, ho_margin, n310, n311, model, service_type=None, datasize=None, imei=None, screensize=None, batterylevel=None):
         self.ID = ue_id
-        self.IMEI = self.allocate_imei()  # Always generate a new IMEI
+        self.IMEI = imei or self.allocate_imei()  # Use provided IMEI or generate a new one
         self.Location = location
         self.ConnectedCellID = connected_cell_id
-        self.connected_sector = connected_sector
+        self.ConnectedSector = connected_sector
         self.gNodeB_ID = gnodeb_id
         self.IsMobile = is_mobile
-        self.ServiceType = service_type if service_type else random.choice(["video", "game", "voice", "data", "IoT"])  # Use provided service type or randomly pick one
+        self.ServiceType = service_type if service_type else random.choice(["video", "game", "voice", "data", "IoT"])
         self.SignalStrength = initial_signal_strength
         self.RAT = rat
         self.MaxBandwidth = max_bandwidth
         self.DuplexMode = duplex_mode
         self.TxPower = tx_power
-        self.Modulation = random.choice(["QPSK", "16QAM", "64QAM"]) if modulation is None else modulation
+        self.Modulation = modulation
         self.Coding = coding
         self.MIMO = mimo
         self.Processing = processing
@@ -39,11 +39,11 @@ class UE:
         self.N310 = n310
         self.N311 = n311
         self.Model = model
-        self.ScreenSize = f"{random.uniform(5.0, 7.0):.1f} inches"  # Always randomly generate screen size
-        self.BatteryLevel = random.randint(10, 100)  # Always randomly generate battery level
-        self.traffic_volume = 0  # Initialize with a default value or a calculated value
+        self.ScreenSize = screensize or f"{random.uniform(5.0, 7.0):.1f} inches"  # Use provided screen size or randomly generate
+        self.BatteryLevel = batterylevel or random.randint(10, 100)  # Use provided battery level or randomly generate
+        self.TrafficVolume = 0  # Initialize with a default value
         self.DataSize = datasize
-        ue_logger.info(f"UE initialized with ID {ue_id} at {datetime.now()}")
+        ue_logger.info(f"UE initialized with ID {ue_id} at {datetime.datetime.now()}")
 
     @staticmethod
     def allocate_imei():
@@ -67,18 +67,13 @@ class UE:
     def from_json(json_data):
         ues = []
         for item in json_data["ues"]:
-            ue_id = item["ue_id"] 
-            gnodeb_id = item.get("gNodeB_ID")  # Extract gNodeB_ID from the JSON item
-            service_type = item.get("serviceType")
-            datasize = item.get("datasize")
             ue = UE(
-                ue_id=ue_id,
+                ue_id=item["ue_id"],
                 location=(item["location"]["latitude"], item["location"]["longitude"]),
-                connected_cell_id=item["connectedCellId"],
-                connected_sector = item["connectedSectorId"],
+                connected_cell_id=item["connectedCellID"],
+                connected_sector=None,  # JSON does not have this field; assuming None or provide a default value
+                gnodeb_id=item.get("gnodeb_id"),  # Extract gnodeb_id from the JSON item
                 is_mobile=item["isMobile"],
-                gnodeb_id=gnodeb_id, 
-                service_type=item.get("serviceType"),  # Check if serviceType is provided
                 initial_signal_strength=item["initialSignalStrength"],
                 rat=item["rat"],
                 max_bandwidth=item["maxBandwidth"],
@@ -99,7 +94,12 @@ class UE:
                 ho_margin=item["hoMargin"],
                 n310=item["n310"],
                 n311=item["n311"],
-                model=item["model"]
+                model=item["model"],
+                service_type=item.get("serviceType"),  # Optional, use get
+                datasize=item.get("datasize"),  # Optional, use get
+                imei=item.get("IMEI"),  # Extract IMEI if present
+                screensize=item.get("screensize"),  # Extract screensize if present
+                batterylevel=item.get("batterylevel")  # Extract batterylevel if present
             )
             ues.append(ue)
         return ues
@@ -109,9 +109,9 @@ class UE:
         point = Point("ue_metrics") \
             .tag("ue_id", self.ID) \
             .tag("connected_cell_id", self.ConnectedCellID) \
-            .tag("connected_sector_id", self.connected_sector)\
+            .tag("connected_sector_id", self.ConnectedSector) \
             .tag("entity_type", "ue") \
-            .tag("gnb_id", self.gNodeB_ID)\
+            .tag("gnb_id", self.gNodeB_ID) \
             .field("imei", self.IMEI) \
             .field("service_type", self.ServiceType) \
             .field("signal_strength", self.SignalStrength) \
@@ -119,11 +119,11 @@ class UE:
             .field("max_bandwidth", self.MaxBandwidth) \
             .field("duplex_mode", self.DuplexMode) \
             .field("tx_power", self.TxPower) \
-            .field("modulation", self.Modulation) \
+            .field("modulation", ','.join(self.Modulation) if isinstance(self.Modulation, list) else self.Modulation) \
             .field("coding", self.Coding) \
             .field("mimo", self.MIMO) \
             .field("processing", self.Processing) \
-            .field("bandwidth_parts", self.BandwidthParts) \
+            .field("bandwidth_parts", ','.join(map(str, self.BandwidthParts)) if isinstance(self.BandwidthParts, list) else self.BandwidthParts) \
             .field("channel_model", self.ChannelModel) \
             .field("velocity", float(self.Velocity)) \
             .field("direction", self.Direction) \
@@ -134,8 +134,8 @@ class UE:
             .field("ho_margin", str(self.HOMargin)) \
             .field("n310", str(self.N310)) \
             .field("n311", str(self.N311)) \
-            .field("model", str(self.Model)) \
-            .field("screen_size", str(self.ScreenSize)) \
+            .field("model", self.Model) \
+            .field("screen_size", self.ScreenSize) \
             .field("battery_level", str(self.BatteryLevel))
         return point
         
