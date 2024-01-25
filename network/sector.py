@@ -30,6 +30,8 @@ class Sector:
 
     @classmethod
     def from_json(cls, data):
+        # Map 'capacity' key from the input data to 'max_ues' parameter of the constructor
+        data['max_ues'] = data.pop('capacity')
         return cls(**data)
 
     def serialize_for_influxdb(self):
