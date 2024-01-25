@@ -5,11 +5,12 @@ from database.database_manager import DatabaseManager
 from .ue import UE
 from database.time_utils import get_current_time_ntp
 from logs.logger_config import ue_logger
-from network.initialize_network import associate_ue_with_sector_and_cell
+
 
 current_time = get_current_time_ntp()
 
 def initialize_ues(num_ues_to_launch, sectors, ue_config, db_manager):
+    from network.initialize_network import associate_ue_with_sector_and_cell
     ues = []
     existing_ue_ids = set(db_manager.get_all_ue_ids())  # Use passed db_manager instance
 
