@@ -5,6 +5,7 @@ from .init_cell import initialize_cells
 from .init_sector import initialize_sectors  # Import the initialize_sectors function
 from .init_ue import initialize_ues
 from logs.logger_config import ue_logger
+from .sector import Sector
 
 def initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, sectors_config, ue_config, db_manager):
 
@@ -16,6 +17,9 @@ def initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, sectors_
 
     # Step 3: Instantiate Sectors and associate with Cells
     sectors = initialize_sectors(cells, sectors_config, db_manager)
+    
+    # Make sure sectors is a collection of Sector objects
+    assert all(isinstance(sec, Sector) for sec in sectors.values()), "Sectors must be a collection of Sector objects"
 
     # Step 4: Instantiate UEs
     ues = initialize_ues(num_ues_to_launch, ue_config, db_manager)
@@ -28,10 +32,10 @@ def initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, sectors_
 def associate_ue_with_sector_and_cell(ue, sectors_queue, db_manager):
     def has_capacity(sector):
         return len(sector.connected_ues) < sector.capacity
-
+    
     def get_least_loaded_sector(cell_sectors):
         return min(cell_sectors, key=lambda sec: len(sec.connected_ues))
-
+    
     def validate_and_update_db(ue, sector, cell):
         if len(cell.connected_ues) < cell.capacity:
             ue.connected_sector = sector
@@ -41,15 +45,15 @@ def associate_ue_with_sector_and_cell(ue, sectors_queue, db_manager):
             db_manager.update_ue_association(ue)
             return True
         return False
-
-    for primary_candidate_sector in sectors_queue:
+    
+    for primary_candidate_sector in sectors_queue.values():  # Ensure sectors_queue is a dict of Sector objects
         if has_capacity(primary_candidate_sector):
             selected_sector = primary_candidate_sector
         else:
             cell_sectors = primary_candidate_sector.cell.sectors
             least_loaded_sector = get_least_loaded_sector(cell_sectors)
             selected_sector = least_loaded_sector if has_capacity(least_loaded_sector) else None
-
+        
         if selected_sector and has_capacity(selected_sector):
             associated_cell = selected_sector.cell
             if validate_and_update_db(ue, selected_sector, associated_cell):
@@ -57,6 +61,6 @@ def associate_ue_with_sector_and_cell(ue, sectors_queue, db_manager):
                 return ue, selected_sector, associated_cell
             else:
                 ue_logger.warning(f"Cell {associated_cell.id} capacity reached, unable to associate UE {ue.ue_id}")
-
+    
     ue_logger.error(f"No sectors available with capacity to add UE {ue.ue_id}")
     return None, None, None
