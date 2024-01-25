@@ -25,8 +25,4 @@ def initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, sectors_
     # Initialize UEs
     ues = initialize_ues(num_ues_to_launch, sectors, ue_config, db_manager)
     
-    # Assign UEs to sectors, 
-    # Assign sectors to cells 
-    # Assign cells to gNodeBs
-
     return gNodeBs, cells, sectors, ues

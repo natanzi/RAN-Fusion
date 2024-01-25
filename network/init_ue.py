@@ -32,10 +32,6 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
     existing_ue_ids = set(db_manager.get_all_ue_ids())  # Convert to set if it's not already
     ue_id_counter = max(existing_ue_ids) + 1 if existing_ue_ids else 1
 
-    # Flatten the list of sectors and sort by current load
-    all_sectors = [sector for gNodeB in gNodeBs.values() for cell in gNodeB.Cells for sector in cell.sectors]
-    all_sectors.sort(key=lambda sector: sector.current_load / sector.max_ues)
-
     for _ in range(num_ues_to_launch):
         ue_data = random.choice(ue_config['ues']).copy()
         # Remove keys that are not used by the UE constructor
@@ -86,24 +82,6 @@ def initialize_ues(num_ues_to_launch, gNodeBs, ue_config):
         existing_ue_ids.add(ue_id)  # Keep track of the generated UE ID
         ue_id_counter += 1
 
-        # Assign UE to the least-loaded sector
-        for sector in all_sectors:
-            with sector_lock:  # Acquire lock before modifying the sector's UE list
-                if sector.current_load < sector.max_ues:
-                    # Generate a random location within the coverage radius of the sector's gNodeB
-                    latitude, longitude = sector.gNodeB.Location
-                    ue_location = random_location_within_radius(latitude, longitude, sector.gNodeB.CoverageRadius)
-                    ue_data['location'] = ue_location
-                    ue_data['connected_sector_id'] = sector.ID
-                    ue = UE(**ue_data)
-                    try:
-                        sector.add_ue(ue)  # Assuming Sector class has an add_ue method
-                        ue_logger.info(f"UE '{ue.ID}' has been attached to Sector '{sector.ID}' at '{current_time}'.")
-                        ue.ConnectedSectorID = sector.ID  # Store the sector ID in the UE
-                        ues.append(ue)
-                        break  # Exit the loop as the UE has been successfully assigned
-                    except Exception as e:
-                        ue_logger.error(f"Failed to add UE '{ue.ID}' to Sector '{sector.ID}' at '{current_time}': {e}")
 
     db_manager.close_connection()
     expected_ues = num_ues_to_launch
