@@ -1,4 +1,4 @@
-# This is the config_load.py in Config_files directory to load all JSON configs
+# This is the config.py in Config_files directory to load all JSON configs
 #Creating a Config class to encapsulate the different configuration dictionaries
 
 import os
