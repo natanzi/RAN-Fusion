@@ -42,18 +42,6 @@ def initialize_cells(gNodeBs, cells_config, db_manager):
         db_manager.insert_data(point)
         print(f"Debug: Cell {new_cell.ID} data inserted into InfluxDB.")
 
-        # Link the cell to its gNodeB
-        gnodeb = gNodeBs.get(new_cell.gNodeB_ID)
-        if gnodeb:
-            print(f"Debug: Current cells in gNodeB {gnodeb.ID} before adding: {[cell.ID for cell in gnodeb.Cells]}")
-            if not gnodeb.find_cell_by_id(new_cell.ID):
-                gnodeb.add_cell_to_gNodeB(new_cell)
-                print(f"Debug: Cell {new_cell.ID} linked to gNodeB {gnodeb.ID}")
-            else:
-                print(f"Warning: Cell {new_cell.ID} already exists in gNodeB {gnodeb.ID}, skipping addition.")
-        else:
-            print(f"Error: gNodeB {new_cell.gNodeB_ID} not found for cell {new_cell.ID}.")
-
     # Verify the creation of all cells
     print(f"Debug: Expected cell IDs: {all_cell_ids}")
     print(f"Debug: Created cell IDs: {created_cells}")
