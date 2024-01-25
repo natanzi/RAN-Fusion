@@ -37,6 +37,9 @@ def initialize_ues(num_ues_to_launch, sectors, ue_config, db_manager):
         # Remove the 'IMEI' key from ue_data since it's generated within the UE class
         ue_data.pop('IMEI', None)
 
+        # Remove the 'connectedCellID' key from ue_data since it's not expected by the UE constructor
+        ue_data.pop('connectedCellID', None)
+
         # Create the UE instance and add it to the list
         ue = UE(**ue_data)
         ues.append(ue)
