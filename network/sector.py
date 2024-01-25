@@ -11,10 +11,10 @@ sector_lock = threading.Lock()
 global_ue_ids = set()
 
 class Sector:
-    def __init__(self, sector_id, cell_id, max_ues, azimuth_angle, beamwidth, frequency, duplex_mode, tx_power, bandwidth, mimo_layers, beamforming, ho_margin, load_balancing, connected_ues=None, current_load=0):
+    def __init__(self, sector_id, cell_id, capacity, azimuth_angle, beamwidth, frequency, duplex_mode, tx_power, bandwidth, mimo_layers, beamforming, ho_margin, load_balancing, connected_ues=None, current_load=0):
         self.sector_id = sector_id
         self.cell_id = cell_id
-        self.max_ues = max_ues
+        self.capacity = capacity
         self.azimuth_angle = azimuth_angle
         self.beamwidth = beamwidth
         self.frequency = frequency
@@ -48,7 +48,7 @@ class Sector:
             .field("load_balancing", self.load_balancing) \
             .field("connected_ues", len(self.connected_ues)) \
             .field("current_load", self.current_load) \
-            .field("max_ues", self.max_ues) \
+            .field("capacity", self.capacity) \
             .time(time.time_ns(), WritePrecision.NS)
         return point
 
