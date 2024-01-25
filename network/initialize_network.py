@@ -29,6 +29,9 @@ def initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, sectors_
 
     return gNodeBs, cells, sectors, ues
 
+def has_capacity(sector):
+    return len(sector.connected_ues) < int(sector.capacity)
+
 def associate_ue_with_sector_and_cell(ue, sectors_queue, db_manager):
     def has_capacity(sector):
         return len(sector.connected_ues) < sector.capacity

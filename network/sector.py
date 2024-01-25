@@ -14,7 +14,7 @@ class Sector:
     def __init__(self, sector_id, cell_id, capacity, azimuth_angle, beamwidth, frequency, duplex_mode, tx_power, bandwidth, mimo_layers, beamforming, ho_margin, load_balancing, connected_ues=None, current_load=0):
         self.sector_id = sector_id
         self.cell_id = cell_id
-        self.capacity = capacity
+        self.capacity = int(capacity)
         self.azimuth_angle = azimuth_angle
         self.beamwidth = beamwidth
         self.frequency = frequency
@@ -34,6 +34,8 @@ class Sector:
         if 'capacity' not in data:
             # Handle the missing 'capacity' key, for example by setting a default value
             data['capacity'] = 3  # Replace with an actual default value or raise an error
+        else:
+            data['capacity'] = int(data['capacity'])  # Ensure capacity is an integer
         return cls(**data)
 
     def serialize_for_influxdb(self):
