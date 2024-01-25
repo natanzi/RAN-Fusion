@@ -37,10 +37,11 @@ def main():
         print(f"Cell ID: {cell_id}, Details: {cell}")
 
     # Initialize Sectors
+    print("sectors_config:", sectors_config)
     sectors = initialize_sectors(sectors_config, cells, db_manager)
-    print("Initialized Sectors:")
-    for sector_id, sector in sectors.items():
-        print(f"Sector ID: {sector_id}, Details: {sector}")
+    print(sectors)
+    #for sector_id, sector in sectors.items():
+        #print(f"Sector ID: {sector_id}, Details: {sector}")
 
     # Initialize UEs
     #num_ues_to_launch = 10  # This value should be set according to your needs
