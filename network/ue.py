@@ -100,7 +100,6 @@ class UE:
                 n310=item["n310"],
                 n311=item["n311"],
                 model=item["model"]
-                # Note: screenSize and batteryLevel are not included here as they are generated within the constructor
             )
             ues.append(ue)
         return ues

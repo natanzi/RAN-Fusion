@@ -4,7 +4,6 @@ from .init_gNodeB import initialize_gNodeBs
 from .init_cell import initialize_cells
 from .init_sector import initialize_sectors  # Import the initialize_sectors function
 from .init_ue import initialize_ues
-from threading import Lock
 
 # This is a pseudo-code outline of the final initialize_network.py
 from network.init_gNodeB import initialize_gNodeBs

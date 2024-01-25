@@ -1,8 +1,5 @@
 import os
 import logging
-from queue import Queue
-from threading import Thread
-from multiprocessing import Process, Manager
 from Config_files.config import Config  # Import the new Config class
 from logo import create_logo
 from network.init_gNodeB import initialize_gNodeBs

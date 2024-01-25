@@ -95,3 +95,9 @@ class Cell:
             # Add other relevant sector fields here
 
         return point
+    
+#########################################################################################
+    def add_sector(self, sector):
+            if not hasattr(self, 'sectors'):
+                self.sectors = []
+            self.sectors.append(sector)
