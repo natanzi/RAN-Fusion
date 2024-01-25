@@ -11,7 +11,7 @@ from database.database_manager import DatabaseManager
 def main():
     logo_text = create_logo()
     print(logo_text)
-    
+
     logging.basicConfig(level=logging.INFO)
     base_dir = os.path.dirname(os.path.abspath(__file__))
     
@@ -45,7 +45,7 @@ def main():
     ues = initialize_ues(num_ues_to_launch, sectors, config.ue_config, db_manager)
     print("Initialized UEs:")
     for ue in ues:
-        print(f"UE ID: {ue.ID}, Sector ID: {ue.ConnectedSectorID}, Service Type: {ue.ServiceType}")
+        print(f"UE ID: {ue.ID}, Sector ID: {ue.ConnectedSector}, Service Type: {ue.ServiceType}")
 
 if __name__ == "__main__":
     main()
