@@ -1,41 +1,48 @@
-# init_sector.py
+# init_sector.py  
 # Initialization of the sectors in the network directory
 import os
-from .sector import Sector  # Ensure this correctly imports the Sector class from your project structure
+from .sector import Sector
 from database.database_manager import DatabaseManager
 
-def initialize_sectors(cells_dict, sectors_config, db_manager):
-    print("Debug: Starting initialize_sectors function.")  # Start message
+def initialize_sectors(sectors_config, cells, db_manager):
 
-    # Check if 'sectors' key exists in sectors_config, if not, handle the error
+    # Print to validate sector config 
+    print("Sector config keys:", sectors_config.keys())
+    
+    # Validate sectors key exists
     if 'sectors' not in sectors_config:
         raise KeyError("The key 'sectors' is missing from the sectors configuration.")
-    
-    # Iterate over each sector in the configuration
-    for sector_data in sectors_config['sectors']:
-        # Extract the sector ID and cell ID from the configuration data
-        sector_id = sector_data['sector_id']
+
+    # Get sectors list from config
+    sectors_list = sectors_config['sectors']
+
+    # Iterate over each sector  
+    for sector_data in sectors_list:
+
+        # Get sector ID and cell ID from data 
+        sector_id = sector_data['sector_id']  
         cell_id = sector_data['cell_id']
-        print(f"Debug: Processing sector {sector_id} for cell {cell_id}.")  # Before processing each sector
+        
+        print(f"Debug: Processing sector {sector_id} for cell {cell_id}.")  
 
-        # Check if the cell ID exists in the provided cells dictionary
-        if cell_id not in cells_dict:
-            raise ValueError(f"Cell ID {cell_id} for sector {sector_id} not found in cells dictionary.")
-
-        # Check for duplicate sector ID within the same cell
-        if any(sector.sector_id == sector_id for sector in cells_dict[cell_id].sectors):
+        # Check if cell ID exists in cells dict
+        if cell_id not in cells:
+            raise ValueError(f"Cell ID {cell_id} for sector {sector_id} not found in cells dictionary.")   
+            
+        # Check for duplicate sector IDs 
+        if any(sector.sector_id == sector_id for sector in cells[cell_id].sectors):
             raise ValueError(f"Duplicate sector ID {sector_id} found during initialization.")
-
-        # Create a new Sector instance from the JSON data
+        
+        # Create Sector instance from data 
         new_sector = Sector.from_json(sector_data)
+        
+        # Add new sector to Cell
+        cells[cell_id].add_sector(new_sector)
 
-        # Add the new sector to the corresponding cell in the cells dictionary
-        cells_dict[cell_id].add_sector(new_sector)
-
-        # Serialize the new sector for InfluxDB and insert the data into the database
-        print(f"Debug: Adding sector {sector_id} to the database.")  # Before inserting data into the database
+        # Insert sector data into InfluxDB
         point = new_sector.serialize_for_influxdb()
         db_manager.insert_data(point)
-        print(f"Debug: Sector {sector_id} added to the database.")  # After inserting data into the database
 
-    print("Debug: Finished initialize_sectors function.")  # End message
+        print(f"Debug: Sector {sector_id} added to database")
+
+    print("Debug: Finished initialize_sectors function.")

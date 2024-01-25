@@ -1,22 +1,18 @@
 # This is the config_load.py in Config_files directory to load all JSON configs
-import json
+#Creating a Config class to encapsulate the different configuration dictionaries
+
 import os
+import json
 
-def load_json_config(file_path):
-    with open(file_path, 'r') as file:
-        return json.load(file)
+class Config:
+    def __init__(self, base_dir):
+        self.base_dir = base_dir
+        self.gNodeBs_config = self.load_json_config('gNodeB_config.json')
+        self.cells_config = self.load_json_config('cell_config.json')
+        self.sectors_config = self.load_json_config('sector_config.json')
+        self.ue_config = self.load_json_config('ue_config.json')
 
-def load_all_configs(base_dir):
-    config_dir = os.path.join(base_dir, 'Config_files')
-    gNodeB_json_path = os.path.join(config_dir, 'gNodeB_config.json')
-    cell_json_path = os.path.join(config_dir, 'cell_config.json')
-    sector_json_path = os.path.join(config_dir, 'sector_config.json')
-    ue_json_path = os.path.join(config_dir, 'ue_config.json')
-
-    gNodeBs_config = load_json_config(gNodeB_json_path)
-    cells_config = load_json_config(cell_json_path)
-    sectors_config = load_json_config(sector_json_path)
-    ue_config = load_json_config(ue_json_path)
-
-    return gNodeBs_config, cells_config, sectors_config, ue_config
-
+    def load_json_config(self, filename):
+        file_path = os.path.join(self.base_dir, 'Config_files', filename)
+        with open(file_path, 'r') as file:
+            return json.load(file)
