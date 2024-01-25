@@ -19,7 +19,7 @@ def initialize_cells(gNodeBs, cells_config, db_manager):
     print(f"Debug: All available cell IDs from config: {all_cell_ids}")
 
     seen_cell_ids = set()
-    created_cells = []  # Keep track of successfully created cells
+    created_cells_dict = {}  # Change to dictionary to track successfully created cells
 
     for cell_data in cells_config['cells']:
         cell_id = cell_data['cell_id']
@@ -34,7 +34,7 @@ def initialize_cells(gNodeBs, cells_config, db_manager):
 
         # Create the cell instance
         new_cell = Cell(**cell_data)
-        created_cells.append(new_cell.ID)  # Track successfully created cell
+        created_cells_dict[cell_id] = new_cell  # Track successfully created cell using cell_id as key
         print(f"Created cell {cell_id} with memory address {id(new_cell)}")
 
         # Insert cell data into the database
@@ -44,10 +44,12 @@ def initialize_cells(gNodeBs, cells_config, db_manager):
 
     # Verify the creation of all cells
     print(f"Debug: Expected cell IDs: {all_cell_ids}")
-    print(f"Debug: Created cell IDs: {created_cells}")
-    if len(created_cells) == len(all_cell_ids):
+    created_cell_ids = list(created_cells_dict.keys())
+    print(f"Debug: Created cell IDs: {created_cell_ids}")
+    if len(created_cell_ids) == len(all_cell_ids):
         print("Success: The count and names of cells created match the list from the config.")
     else:
         print("Error: There is a mismatch in the count or names of cells created compared to the config.")
 
     print("Debug End: initialize_cells function.")
+    return created_cells_dict  # Return the dictionary of created cells

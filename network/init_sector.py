@@ -10,6 +10,10 @@ sector_lock = Lock()
 def initialize_sectors(cells_dict, sectors_config, db_manager):
     print("Debug: Starting initialize_sectors function.")  # Start message
 
+        # Check if 'sectors' key exists in sectors_config, if not, handle the error
+    if 'sectors' not in sectors_config:
+        raise KeyError("The key 'sectors' is missing from the sectors configuration.")
+    
     # Iterate over each sector in the configuration
     for sector_data in sectors_config['sectors']:
         # Extract the sector ID and cell ID from the configuration data

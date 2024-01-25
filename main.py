@@ -30,7 +30,7 @@ def main():
     for gnb_id, gnb in gNodeBs.items():
         print(f"gNodeB ID: {gnb_id}, Details: {gnb}")
 
-    # Initialize Cells
+    #Initialize Cells
     cells = initialize_cells(gNodeBs, cells_config, db_manager)
     print("Initialized Cells:")
     for cell_id, cell in cells.items():
@@ -43,11 +43,11 @@ def main():
         print(f"Sector ID: {sector_id}, Details: {sector}")
 
     # Initialize UEs
-    num_ues_to_launch = 10  # This value should be set according to your needs
-    ues = initialize_ues(num_ues_to_launch, sectors, ue_config)
-    print("Initialized UEs:")
-    for ue in ues:
-        print(f"UE ID: {ue.ID}, Sector ID: {ue.ConnectedSectorID}, Service Type: {ue.ServiceType}")
+    #num_ues_to_launch = 10  # This value should be set according to your needs
+    #ues = initialize_ues(num_ues_to_launch, sectors, ue_config)
+    #print("Initialized UEs:")
+    #for ue in ues:
+        #print(f"UE ID: {ue.ID}, Sector ID: {ue.ConnectedSectorID}, Service Type: {ue.ServiceType}")
 
 
 if __name__ == "__main__":
