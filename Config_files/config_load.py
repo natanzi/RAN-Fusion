@@ -18,5 +18,4 @@ def load_all_configs(base_dir):
     cells_config = load_json_config(cell_json_path)
     ue_config = load_json_config(ue_json_path)
     sectors_config = load_json_config(sector_json_path)
-    print("Loaded sectors config:", sectors_config)
     return gNodeBs_config, cells_config, ue_config, sectors_config

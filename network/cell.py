@@ -70,82 +70,9 @@ class Cell:
             'CellisActive': self.IsActive
 
         }
-    # Method to get the count of active UEs and update the last attached cell and its gNodeB
-    def update_ue_count(self):
-        self.last_update = get_current_time_ntp()
-        if self.ConnectedUEs:
-            self.last_ue_update = {
-                'ue_id': self.ConnectedUEs[-1].ID,
-                'cell_id': self.ID,
-                'gnodeb_id': self.gNodeB_ID,
-                'sectorId': self.ConnectedUEs[-1].SectorId,
-                'timestamp': self.last_update
-            }
-        return len(self.ConnectedUEs)
-#########################################################################################        
-    def add_ue(self, ue):
-        from .handover_utils import perform_handover, handle_load_balancing
-
-        # Check if the UE ID is already in use in the network
-        if ue.ID in [existing_ue.ID for existing_ue in self.ues.values()]:
-            raise Exception(f"UE with ID '{ue.ID}' already exists in the network.")
-
-        # Check if the cell is at or above 80% capacity
-        if len(self.ConnectedUEs) >= (0.8 * self.maxConnectUes):
-            capacity_pct = len(self.ConnectedUEs) / self.maxConnectUes * 100
-            warning_msg = f"Cell '{self.ID}' is at {capacity_pct:.2f}% capacity but will still accept UE '{ue.ID}'"
-            ue_logger.warning(warning_msg)
-        # Trigger the handover process
-            
-        if handle_load_balancing(self.gNodeB_ID):
-            # Handover was successful, no need to add UE to this cell
-            return
-        else:
-            # Handover was not possible, proceed with caution
-            ue_logger.warning(f"Handover failed or not feasible for UE '{ue.ID}'. Adding to Cell '{self.ID}' with caution.")
-
-        # Check if the cell has reached its maximum capacity
-        if len(self.ConnectedUEs) >= self.maxConnectUes:
-            raise Exception(f"Cell '{self.ID}' has reached its maximum capacity.")
-
-        # Add the UE to the cell
-        current_time = get_current_time_ntp()
-        self.ConnectedUEs.append(ue)
-        self.current_ue_count = self.update_ue_count()  # Update the UE count after adding
-
-        # Log the addition of the UE
-        ue_logger.info(f"UE with ID {ue.ID} added to Cell {self.ID} at '{current_time}'")
-        cell_logger.info(f"UE '{ue.ID}' has been added to Cell '{self.ID}'.")
-
-        # Log the successful attachment
-        cell_logger.info(f"UE '{ue.ID}' has been attached to Cell '{self.ID}' at '{current_time}'.")
-        ue_logger.info(f"UE '{ue.ID}' has been attached to Cell '{self.ID}' at '{current_time}'.")
-        print(f"UE '{ue.ID}' has been attached to Cell '{self.ID}' at '{current_time}'.")
-
 
 #########################################################################################        
-#########################################################################################
-    def add_sector(self, sector):
-            print(f"Cell {self.id} sectors before: {self.sectors}")
-            self.sectors.append(sector)  # Add the sector
-            print(f"Cell {self.id} sectors after: {self.sectors}")
-            sector.set_cell(self)  # Associate the sector with this cell
-
-    def remove_sector(self, sector_id):
-            print(f"Cell {self.id} sectors before: {self.sectors}")
-            self.sectors = [sector for sector in self.sectors if sector.sector_id != sector_id]
-            print(f"Cell {self.id} sectors after: {self.sectors}")
-
-    def get_sector(self, sector_id):
-        # No lock needed here as we are only reading the sectors list
-        for sector in self.sectors:
-            if sector.sector_id == sector_id:
-                return sector
-        return None
-    ######################################################################################### 
-    def set_gNodeB(self, gNodeB):
-        self.gNodeB = gNodeB
-    ######################################################################################### 
+####################################################################################### 
     def serialize_for_influxdb(self):
         point = Point("cell_metrics") \
             .tag("cell_id", self.ID) \
