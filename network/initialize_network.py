@@ -41,24 +41,21 @@ def associate_ue_with_sector_and_cell(ue, sectors_queue, db_manager):
         if len(cell.connected_ues) < cell.capacity:
             ue.connected_sector = sector
             ue.connected_cell = cell
-            sector.connected_ues.append(ue)
-            cell.connected_ues.append(ue)
+            sector.add_ue(ue)  # Use the add_ue method to ensure thread safety and proper logging
+            cell.add_ue(ue)  # Use the add_ue method to ensure thread safety and proper logging
             db_manager.update_ue_association(ue)
             return True
         return False
 
-    while sectors_queue:
-        primary_candidate_sector = sectors_queue.pop(0)
-        sectors_queue.append(primary_candidate_sector)  # Add back for round-robin
-
+    for primary_candidate_sector in sectors_queue:
         if has_capacity(primary_candidate_sector):
             selected_sector = primary_candidate_sector
         else:
             cell_sectors = primary_candidate_sector.cell.sectors
             least_loaded_sector = get_least_loaded_sector(cell_sectors)
-            selected_sector = least_loaded_sector if has_capacity(least_loaded_sector) else primary_candidate_sector
+            selected_sector = least_loaded_sector if has_capacity(least_loaded_sector) else None
 
-        if has_capacity(selected_sector):
+        if selected_sector and has_capacity(selected_sector):
             associated_cell = selected_sector.cell
             if validate_and_update_db(ue, selected_sector, associated_cell):
                 ue_logger.info(f"UE {ue.ue_id} associated with Sector {selected_sector.id} and Cell {associated_cell.id}")

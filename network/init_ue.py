@@ -2,10 +2,10 @@
 # Initialization of UEs
 import random
 from database.database_manager import DatabaseManager
-from .utils import random_location_within_radius
 from .ue import UE
 from database.time_utils import get_current_time_ntp
 from logs.logger_config import ue_logger
+from network.initialize_network import associate_ue_with_sector_and_cell
 
 current_time = get_current_time_ntp()
 
@@ -15,7 +15,7 @@ def initialize_ues(num_ues_to_launch, sectors, ue_config, db_manager):
 
     for _ in range(num_ues_to_launch):
         ue_data = random.choice(ue_config['ues']).copy()  # Choose a random UE config to copy
-
+        
         # Generate a unique UE ID if not provided
         ue_id = ue_data.get('ue_id', '').strip()
         if not ue_id:
@@ -24,44 +24,27 @@ def initialize_ues(num_ues_to_launch, sectors, ue_config, db_manager):
             while ue_id in existing_ue_ids:  # Ensure the generated UE ID is unique
                 ue_id_counter += 1
                 ue_id = f"UE{ue_id_counter}"
-            existing_ue_ids.add(ue_id)  # This line should be inside the while loop
-
-
+            existing_ue_ids.add(ue_id)
+        
+        ue_data['ue_id'] = ue_id  # Set the generated ue_id to ue_data
         # Remove the 'IMEI' key from ue_data since it's generated within the UE class
         ue_data.pop('IMEI', None)
-        # Set default values or generate necessary parameters for UE constructor
-        ue_data['connected_cell_id'] = None  # or some logic to determine the cell ID
-        ue_data['connected_sector'] = None  # or some logic to determine the sector
-        ue_data['is_mobile'] = True  # or some logic to determine mobility
-        ue_data['initial_signal_strength'] = -95  # or some logic to determine signal strength
-        ue_data['max_bandwidth'] = 100  # or some logic to determine bandwidth
-        ue_data['duplex_mode'] = 'FDD'  # or some logic to determine duplex mode
-        ue_data['tx_power'] = 23  # or some logic to determine transmission power
-        ue_data['bandwidth_parts'] = 1  # or some logic to determine bandwidth parts
-        ue_data['channel_model'] = 'Rayleigh'  # or some logic to determine channel model
-        ue_data['traffic_model'] = 'FullBuffer'  # or some logic to determine traffic model
-        ue_data['scheduling_requests'] = 1  # or some logic to determine scheduling requests
-        ue_data['rlc_mode'] = 'AM'  # or some logic to determine RLC mode
-        ue_data['snr_thresholds'] = [0, 5, 10, 15, 20]  # or some logic to determine SNR thresholds
-        ue_data['ho_margin'] = 3  # or some logic to determine handover margin
-        ue_data['n310'] = 1  # or some logic to determine N310
-        ue_data['n311'] = 1  # or some logic to determine N311
-        ue_data['model'] = 'Generic'  # or some logic to determine model
         
-        # Ensure the key matches the UE class constructor argument name
-        if 'connectedCellID' in ue_data:
-            ue_data['connected_cell_id'] = ue_data.pop('connectedCellID')
-        if 'isMobile' in ue_data:
-            ue_data['is_mobile'] = ue_data.pop('isMobile')    
-        if 'initialSignalStrength' in ue_data:
-            ue_data['initial_signal_strength'] = ue_data.pop('initialSignalStrength')
-        if 'maxBandwidth' in ue_data:
-            ue_data['max_bandwidth'] = ue_data.pop('maxBandwidth')
-            
-        # Create the UE instance and add it to the list
+        # Create the UE instance
         ue = UE(**ue_data)
-        ues.append(ue)
-
+        
+        # Attempt to associate the UE with a sector and cell
+        associated_ue, associated_sector, associated_cell = associate_ue_with_sector_and_cell(ue, sectors, db_manager)
+        
+        # Check if the association was successful
+        if associated_ue and associated_sector and associated_cell:
+            # If successful, append the associated UE to the list
+            ues.append(associated_ue)
+        else:
+            # If the association failed, log an error or warning
+            ue_logger.error(f"Failed to associate UE {ue_id} with a sector and cell.")
+            continue  # Skip adding the UE to the list and continue with the next UE
+        
         # Stop if the desired number of UEs has been reached
         if len(ues) >= num_ues_to_launch:
             break
