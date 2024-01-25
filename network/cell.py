@@ -101,3 +101,6 @@ class Cell:
             if not hasattr(self, 'sectors'):
                 self.sectors = []
             self.sectors.append(sector)
+
+    def set_gNodeB(self, gNodeB):
+        self.gNodeB = gNodeB

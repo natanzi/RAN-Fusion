@@ -37,6 +37,18 @@ def initialize_cells(gNodeBs, cells_config, db_manager):
         created_cells_dict[cell_id] = new_cell  # Track successfully created cell using cell_id as key
         print(f"Created cell {cell_id} with memory address {id(new_cell)}")
 
+        # Attempt to add the cell to the corresponding gNodeB
+        try:
+            gNodeB_id = cell_data['gnodeb_id']  # Use the correct key from the JSON configuration
+            if gNodeB_id in gNodeBs:
+                gNodeBs[gNodeB_id].add_cell_to_gNodeB(new_cell)
+                print(f"Debug: Cell {cell_id} added to gNodeB {gNodeB_id}")
+            else:
+                print(f"Error: gNodeB {gNodeB_id} not found for cell {cell_id}")
+        except KeyError:
+            print(f"Error: 'gnodeb_id' key not found for cell {cell_id}. Cannot add cell to gNodeB.")
+
+
         # Insert cell data into the database
         point = new_cell.serialize_for_influxdb()
         db_manager.insert_data(point)
