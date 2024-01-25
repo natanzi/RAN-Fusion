@@ -3,7 +3,6 @@ import logging
 from queue import Queue
 from threading import Thread
 from multiprocessing import Process, Manager
-
 from Config_files.config_load import load_all_configs
 from logo import create_logo
 from network.init_gNodeB import initialize_gNodeBs
@@ -15,10 +14,10 @@ from database.database_manager import DatabaseManager
 def main():
     logo_text = create_logo()
     print(logo_text)
-
     logging.basicConfig(level=logging.INFO)
-
     base_dir = os.path.dirname(os.path.abspath(__file__))
+    
+    # Load configurations in the correct order
     gNodeBs_config, cells_config, sectors_config, ue_config = load_all_configs(base_dir)
 
     # Create an instance of DatabaseManager here
