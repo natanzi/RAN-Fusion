@@ -37,9 +37,28 @@ def initialize_ues(num_ues_to_launch, sectors, ue_config, db_manager):
         # Remove the 'IMEI' key from ue_data since it's generated within the UE class
         ue_data.pop('IMEI', None)
 
-        # Remove the 'connectedCellID' key from ue_data since it's not expected by the UE constructor
+        # Remove  since it's not expected by the UE constructor
         ue_data.pop('connectedCellID', None)
-
+        ue_data.pop('isMobile', None)
+        ue_data.pop('initialSignalStrength', None)
+        ue_data.pop('maxBandwidth', None)            
+        ue_data.pop('duplexMode', None)   
+        ue_data.pop('txPower', None)            
+        ue_data.pop('bandwidthParts', None)            
+        ue_data.pop('channelModel', None)  
+        ue_data.pop('trafficModel', None)
+        ue_data.pop('schedulingRequests', None)            
+        ue_data.pop('snrThresholds', None)
+        ue_data.pop('hoMargin', None)    
+        ue_data.pop('battery_level', None)            
+        ue_data.pop('rlcMode', None)            
+        ue_data.pop('n310', None)            
+        ue_data.pop('n311', None)            
+        ue_data.pop('model', None)            
+        ue_data.pop('screen_size', None)            
+        ue_data.pop('battery_level', None)            
+        
+        
         # Create the UE instance and add it to the list
         ue = UE(**ue_data)
         ues.append(ue)
