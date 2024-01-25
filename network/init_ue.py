@@ -37,26 +37,24 @@ def initialize_ues(num_ues_to_launch, sectors, ue_config, db_manager):
         # Remove the 'IMEI' key from ue_data since it's generated within the UE class
         ue_data.pop('IMEI', None)
 
-        # Remove  since it's not expected by the UE constructor
-        ue_data.pop('connectedCellID', None)
-        ue_data.pop('isMobile', None)
-        ue_data.pop('initialSignalStrength', None)
-        ue_data.pop('maxBandwidth', None)            
-        ue_data.pop('duplexMode', None)   
-        ue_data.pop('txPower', None)            
-        ue_data.pop('bandwidthParts', None)            
-        ue_data.pop('channelModel', None)  
-        ue_data.pop('trafficModel', None)
-        ue_data.pop('schedulingRequests', None)            
-        ue_data.pop('snrThresholds', None)
-        ue_data.pop('hoMargin', None)    
-        ue_data.pop('battery_level', None)            
-        ue_data.pop('rlcMode', None)            
-        ue_data.pop('n310', None)            
-        ue_data.pop('n311', None)            
-        ue_data.pop('model', None)            
-        ue_data.pop('screen_size', None)            
-        ue_data.pop('battery_level', None)            
+        # Set default values or generate necessary parameters for UE constructor
+        ue_data['connected_cell_id'] = None  # or some logic to determine the cell ID
+        ue_data['connected_sector'] = None  # or some logic to determine the sector
+        ue_data['is_mobile'] = True  # or some logic to determine mobility
+        ue_data['initial_signal_strength'] = -95  # or some logic to determine signal strength
+        ue_data['max_bandwidth'] = 100  # or some logic to determine bandwidth
+        ue_data['duplex_mode'] = 'FDD'  # or some logic to determine duplex mode
+        ue_data['tx_power'] = 23  # or some logic to determine transmission power
+        ue_data['bandwidth_parts'] = 1  # or some logic to determine bandwidth parts
+        ue_data['channel_model'] = 'Rayleigh'  # or some logic to determine channel model
+        ue_data['traffic_model'] = 'FullBuffer'  # or some logic to determine traffic model
+        ue_data['scheduling_requests'] = 1  # or some logic to determine scheduling requests
+        ue_data['rlc_mode'] = 'AM'  # or some logic to determine RLC mode
+        ue_data['snr_thresholds'] = [0, 5, 10, 15, 20]  # or some logic to determine SNR thresholds
+        ue_data['ho_margin'] = 3  # or some logic to determine handover margin
+        ue_data['n310'] = 1  # or some logic to determine N310
+        ue_data['n311'] = 1  # or some logic to determine N311
+        ue_data['model'] = 'Generic'  # or some logic to determine model
         
         
         # Create the UE instance and add it to the list
