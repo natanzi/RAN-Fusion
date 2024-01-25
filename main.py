@@ -11,6 +11,7 @@ from database.database_manager import DatabaseManager
 def main():
     logo_text = create_logo()
     print(logo_text)
+    
     logging.basicConfig(level=logging.INFO)
     base_dir = os.path.dirname(os.path.abspath(__file__))
     

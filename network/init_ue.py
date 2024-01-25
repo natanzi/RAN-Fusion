@@ -50,7 +50,16 @@ def initialize_ues(num_ues_to_launch, sectors, ue_config, db_manager):
         ue_data['n311'] = 1  # or some logic to determine N311
         ue_data['model'] = 'Generic'  # or some logic to determine model
         
-        
+        # Ensure the key matches the UE class constructor argument name
+        if 'connectedCellID' in ue_data:
+            ue_data['connected_cell_id'] = ue_data.pop('connectedCellID')
+        if 'isMobile' in ue_data:
+            ue_data['is_mobile'] = ue_data.pop('isMobile')    
+        if 'initialSignalStrength' in ue_data:
+            ue_data['initial_signal_strength'] = ue_data.pop('initialSignalStrength')
+        if 'maxBandwidth' in ue_data:
+            ue_data['max_bandwidth'] = ue_data.pop('maxBandwidth')
+            
         # Create the UE instance and add it to the list
         ue = UE(**ue_data)
         ues.append(ue)
