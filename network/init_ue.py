@@ -19,14 +19,12 @@ def initialize_ues(num_ues_to_launch, sectors, ue_config, db_manager):
         # Generate a unique UE ID if not provided
         ue_id = ue_data.get('ue_id', '').strip()
         if not ue_id:
-            ue_id_counter = max(existing_ue_ids, default=0) + 1
+            ue_id_counter = max((int(ue_id[2:]) for ue_id in existing_ue_ids if ue_id.startswith('UE')), default=0) + 1
             ue_id = f"UE{ue_id_counter}"
             while ue_id in existing_ue_ids:  # Ensure the generated UE ID is unique
                 ue_id_counter += 1
                 ue_id = f"UE{ue_id_counter}"
-        
-        existing_ue_ids.add(ue_id)
-        ue_data['ue_id'] = ue_id
+            existing_ue_ids.add(ue_id)  # This line should be inside the while loop
 
 
         # Remove the 'IMEI' key from ue_data since it's generated within the UE class
