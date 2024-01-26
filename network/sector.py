@@ -11,9 +11,10 @@ sector_lock = threading.Lock()
 global_ue_ids = set()
 
 class Sector:
-    def __init__(self, sector_id, cell_id, capacity, azimuth_angle, beamwidth, frequency, duplex_mode, tx_power, bandwidth, mimo_layers, beamforming, ho_margin, load_balancing, connected_ues=None, current_load=0):
+    def __init__(self, sector_id, cell_id, cell, capacity, azimuth_angle, beamwidth, frequency, duplex_mode, tx_power, bandwidth, mimo_layers, beamforming, ho_margin, load_balancing, connected_ues=None, current_load=0):
         self.sector_id = sector_id
         self.cell_id = cell_id
+        self.cell = cell
         self.capacity = int(capacity)
         self.azimuth_angle = azimuth_angle
         self.beamwidth = beamwidth
@@ -36,6 +37,9 @@ class Sector:
             data['capacity'] = 3  # Replace with an actual default value or raise an error
         else:
             data['capacity'] = int(data['capacity'])  # Ensure capacity is an integer
+            
+        if 'cell' in data:
+            data['cell_id'] = data.pop('cell')
         return cls(**data)
 
     def serialize_for_influxdb(self):
