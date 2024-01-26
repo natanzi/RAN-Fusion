@@ -12,22 +12,22 @@ global_ue_ids = set()
 
 class Sector:
     def __init__(self, sector_id, cell_id, cell, capacity, azimuth_angle, beamwidth, frequency, duplex_mode, tx_power, bandwidth, mimo_layers, beamforming, ho_margin, load_balancing, connected_ues=None, current_load=0):
-        self.sector_id = sector_id
-        self.cell_id = cell_id
-        self.cell = cell
-        self.capacity = int(capacity)
-        self.azimuth_angle = azimuth_angle
-        self.beamwidth = beamwidth
-        self.frequency = frequency
-        self.duplex_mode = duplex_mode
-        self.tx_power = tx_power
-        self.bandwidth = bandwidth
-        self.mimo_layers = mimo_layers
-        self.beamforming = beamforming
-        self.ho_margin = ho_margin
-        self.load_balancing = load_balancing
-        self.connected_ues = connected_ues if connected_ues is not None else []
-        self.current_load = current_load
+        self.sector_id = sector_id  # Unique identifier for the sector
+        self.cell_id = cell_id  # Identifier of the cell this sector belongs to
+        self.cell = cell  # Cell object this sector is part of
+        self.capacity = int(capacity)  # Maximum number of UEs that can be hosted in this sector
+        self.azimuth_angle = azimuth_angle  # Orientation of the sector in degrees
+        self.beamwidth = beamwidth  # Width of the transmission beam in degrees
+        self.frequency = frequency  # Operating frequency of the sector
+        self.duplex_mode = duplex_mode  # Duplexing mode used (e.g., FDD, TDD)
+        self.tx_power = tx_power  # Transmission power of the sector
+        self.bandwidth = bandwidth  # Bandwidth allocated to the sector
+        self.mimo_layers = mimo_layers  # Number of MIMO layers used in the sector
+        self.beamforming = beamforming  # Indicates if beamforming is used
+        self.ho_margin = ho_margin  # Handover margin used for making handover decisions
+        self.load_balancing = load_balancing  # Indicates if load balancing is enabled
+        self.connected_ues = connected_ues if connected_ues is not None else []  # List of UEs currently connected to the sector
+        self.current_load = current_load  # Current load on the sector
 
     @classmethod
     def from_json(cls, data, cell):
