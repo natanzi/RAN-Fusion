@@ -40,7 +40,7 @@ def associate_ue_with_sector_and_cell(ue, sectors_queue, db_manager):
         return min(cell_sectors, key=lambda sec: len(sec.connected_ues))
     
     def validate_and_update_db(ue, sector, cell):
-        if len(cell.ConnectedUEs) < cell.MaxConnectedUEs:
+        if len(cell.ConnectedUEs) < cell.max_capacity:
             ue.connected_sector = sector
             ue.connected_cell = cell
             sector.add_ue(ue)  # Use the add_ue method to ensure thread safety and proper logging
