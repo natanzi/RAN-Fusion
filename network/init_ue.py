@@ -5,8 +5,7 @@ from database.database_manager import DatabaseManager
 from .ue import UE
 from database.time_utils import get_current_time_ntp
 from logs.logger_config import ue_logger
-from utils import random_location_within_radius
-
+from network.utils import random_location_within_radius
 
 current_time = get_current_time_ntp()
 

@@ -5,7 +5,6 @@ import random
 import time
 from database.time_utils import get_current_time_ntp
 import logging
-from utils.location_utils import get_nearest_gNodeB, get_ue_location_info
 from network.cell import Cell
 from network.init_cell import initialize_cells
 from .init_cell import load_json_config

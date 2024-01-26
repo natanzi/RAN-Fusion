@@ -27,7 +27,7 @@ class Sector:
         self.beamforming = bool(beamforming)  # Boolean, kept as is
         self.ho_margin = int(ho_margin)  # Integer, assuming handover margin can be represented without decimal precision
         self.load_balancing = int(load_balancing)  # Integer, assuming load balancing metrics can be integers
-        
+        self.duplex_mode = duplex_mode
         # List of UEs and current load, no change needed
         self.connected_ues = connected_ues if connected_ues is not None else []
         self.current_load = int(current_load)  # Integer, as load is a count
