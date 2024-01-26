@@ -49,7 +49,7 @@ def associate_ue_with_sector_and_cell(ues, sectors_queue, db_manager):
             if has_capacity(primary_candidate_sector):
                 selected_sector = primary_candidate_sector
                 associated_cell = selected_sector.cell
-                if len(associated_cell.connected_ues) >= associated_cell.maxConnectUes:  # Assuming 'connected_ues' is the correct attribute and 'maxConnectUes' is defined
+                if len(associated_cell.ConnectedUEs) >= associated_cell.maxConnectUes:  # Assuming 'connected_ues' is the correct attribute and 'maxConnectUes' is defined
                     ue_logger.warning(f"Cell {associated_cell.ID} at max capacity. Cannot add UE {ue.ID}")
                     continue  # Skip to the next sector/cell if this cell is at max capacity
 
