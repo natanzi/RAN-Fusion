@@ -8,6 +8,7 @@ from .init_sector import initialize_sectors  # Import the initialize_sectors fun
 from .init_ue import initialize_ues
 from logs.logger_config import ue_logger
 from .sector import Sector
+from network.ue import UE
 
 def initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, sectors_config, ue_config, db_manager):
     # Step 1: Instantiate gNodeBs
@@ -40,6 +41,8 @@ def has_capacity(sector):
 
 def associate_ue_with_sector_and_cell(ues, sectors_queue, db_manager):
     for ue in ues:
+        if not isinstance(ue, UE):
+            raise TypeError("Expected UE object")
         for primary_candidate_sector in sectors_queue.values():  # Ensure sectors_queue is a dict of Sector objects
             if has_capacity(primary_candidate_sector):
                 selected_sector = primary_candidate_sector
