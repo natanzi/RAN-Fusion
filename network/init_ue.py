@@ -10,7 +10,7 @@ from utils import random_location_within_radius
 
 current_time = get_current_time_ntp()
 
-def initialize_ues(num_ues_to_launch, sectors, ue_config, db_manager):
+def initialize_ues(num_ues_to_launch, gnodebs, sectors, ue_config, db_manager):
     from network.initialize_network import associate_ue_with_sector_and_cell
     ues = []
     existing_ue_ids = set(db_manager.get_all_ue_ids())  # Use passed db_manager instance
@@ -32,6 +32,13 @@ def initialize_ues(num_ues_to_launch, sectors, ue_config, db_manager):
         # Remove the 'IMEI' key from ue_data since it's generated within the UE class
         ue_data.pop('IMEI', None)
         
+        
+        # Select a random gNodeB for each ue to be insde the ring coverge of the each gnodb
+        gnb = random.choice(gnodebs)
+        # Generate random lat/lon within the coverage radius of that gNodeB
+        ue_lat, ue_lon = random_location_within_radius(gnb.latitude, gnb.longitude, gnb.coverage_radius)
+        # Set newly generated lat/lon as UE's location
+        ue_data['location'] = [ue_lat, ue_lon]
 
         # Create the UE instance
         ue = UE(**ue_data)
