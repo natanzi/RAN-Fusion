@@ -4,7 +4,7 @@ from influxdb_client import InfluxDBClient, WritePrecision, Point, QueryApi
 from influxdb_client.client.write_api import SYNCHRONOUS
 from logs.logger_config import database_logger  # Import the configured logger
 from datetime import datetime
-
+from influxdb_client import Point
 # Read from environment variables or use default values
 INFLUXDB_URL = os.getenv('INFLUXDB_URL', 'http://localhost:8086')
 INFLUXDB_TOKEN = os.getenv('INFLUXDB_TOKEN', 'your-default-token')
@@ -90,19 +90,20 @@ class DatabaseManager:
 
     def update_ue_association(self, ue, new_cell_id):
         """
-        Updates the association of a UE with a new cell in the database.
+        Updates the association of a UE with a new cell in the database by writing a new point.
         :param ue: The UE object to update.
-        :param new_cell_id: The ID of the new cell to associate the UE with.
+            :param new_cell_id: The ID of the new cell to associate the UE with.
         """
-        try:
-            # Use 'ue.ID' instead of 'ue.ue_id' to access the UE's unique identifier
-            query = f"UPDATE ue_table SET cell_id = '{new_cell_id}' WHERE ue_id = '{ue.ID}'"
-            # Assuming you have a method to execute this query against your database
-            # For example, using self.client.query_api().query() if using InfluxDB 2.x
-            # Note: The actual implementation to execute the query will depend on your database setup
-            # This is just a placeholder to indicate where the query execution code would go
-            self.execute_query(query)
-            database_logger.info(f"UE {ue.ID} association updated to cell {new_cell_id}")
-        except Exception as e:
-            database_logger.error(f"Failed to update UE association in the database: {e}")
-            raise
+    try:
+        # Create a new Point with the measurement name you're using for UEs
+        point = Point("ue_metrics")\
+            .tag("ue_id", ue.ID)\
+            .tag("connected_cell_id", new_cell_id) \
+            .field("update_type", "cell_association_change")\
+            .time(datetime.utcnow())
+        # Write the point to InfluxDB
+        self.write_api.write(bucket=self.bucket, record=point)
+        database_logger.info(f"UE {ue.ID} association updated to cell {new_cell_id}")
+    except Exception as e:
+        database_logger.error(f"Failed to update UE association in the database: {e}")
+        raise
