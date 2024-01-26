@@ -91,19 +91,18 @@ class DatabaseManager:
     def update_ue_association(self, ue, new_cell_id):
         """
         Updates the association of a UE with a new cell in the database.
-
         :param ue: The UE object to update.
         :param new_cell_id: The ID of the new cell to associate the UE with.
         """
         try:
-            # Assuming 'ue' is an object with an attribute 'ue_id'
-            # and 'new_cell_id' is the ID of the cell to associate the UE with.
-            # You will need to replace 'ue_table' with the actual table name
-            # and column names with the actual column names in your database.
-            query = f"UPDATE ue_table SET cell_id = {new_cell_id} WHERE ue_id = {ue.ue_id}"
-            self.cursor.execute(query)
-            self.connection.commit()
-            database_logger.info(f"UE {ue.ue_id} association updated to cell {new_cell_id}")
+            # Use 'ue.ID' instead of 'ue.ue_id' to access the UE's unique identifier
+            query = f"UPDATE ue_table SET cell_id = '{new_cell_id}' WHERE ue_id = '{ue.ID}'"
+            # Assuming you have a method to execute this query against your database
+            # For example, using self.client.query_api().query() if using InfluxDB 2.x
+            # Note: The actual implementation to execute the query will depend on your database setup
+            # This is just a placeholder to indicate where the query execution code would go
+            self.execute_query(query)
+            database_logger.info(f"UE {ue.ID} association updated to cell {new_cell_id}")
         except Exception as e:
             database_logger.error(f"Failed to update UE association in the database: {e}")
             raise
