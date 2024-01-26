@@ -2,9 +2,12 @@
 import random
 import math
 
-def random_location_within_radius(latitude, longitude, radius_km):
-    random_radius = random.uniform(0, radius_km)
-    random_angle = random.uniform(0, 2 * math.pi)
-    delta_lat = random_radius * math.cos(random_angle)
-    delta_lon = random_radius * math.sin(random_angle)
-    return (latitude + delta_lat, longitude + delta_lon)
+def random_location_within_radius(center_lat, center_lon, radius_km):
+
+    x = random.uniform(-radius_km, radius_km)
+    y = random.uniform(-radius_km, radius_km)
+
+    lat = center_lat + x/110.574
+    lon = center_lon + y/111.320*math.cos(center_lat)
+
+    return lat, lon

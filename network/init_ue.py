@@ -5,6 +5,7 @@ from database.database_manager import DatabaseManager
 from .ue import UE
 from database.time_utils import get_current_time_ntp
 from logs.logger_config import ue_logger
+from utils import random_location_within_radius
 
 
 current_time = get_current_time_ntp()
@@ -31,9 +32,11 @@ def initialize_ues(num_ues_to_launch, sectors, ue_config, db_manager):
         # Remove the 'IMEI' key from ue_data since it's generated within the UE class
         ue_data.pop('IMEI', None)
         
+
         # Create the UE instance
         ue = UE(**ue_data)
         
+
         # Attempt to associate the UE with a sector and cell
         associated_ue, associated_sector, associated_cell = associate_ue_with_sector_and_cell(ue, sectors, db_manager)
         
