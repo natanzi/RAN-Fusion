@@ -3,6 +3,7 @@ import os
 from influxdb_client import InfluxDBClient, WritePrecision, Point, QueryApi
 from influxdb_client.client.write_api import SYNCHRONOUS
 from logs.logger_config import database_logger  # Import the configured logger
+from datetime import datetime
 
 # Read from environment variables or use default values
 INFLUXDB_URL = os.getenv('INFLUXDB_URL', 'http://localhost:8086')
@@ -86,3 +87,25 @@ class DatabaseManager:
             database_logger.info(f"Log data inserted into bucket {log_bucket}")
         except Exception as e:
             database_logger.error(f"Failed to insert log data into InfluxDB: {e}")
+
+    def update_ue_association(self, ue_id, new_cell_id):
+        """Updates the association of a UE in the database."""
+        try:
+            # Create a Point with the measurement name, e.g., 'ue_association'
+            point = Point("ue_association")
+            
+            # Add tags and fields to the Point
+            point.tag("ue_id", ue_id)
+            point.field("cell_id", new_cell_id)
+            
+            # Use the current time as the timestamp for the Point
+            point.time(datetime.utcnow(), WritePrecision.NS)
+            
+            # Write the point to the InfluxDB
+            self.write_api.write(bucket=self.bucket, record=point)
+            
+            # Log the successful update
+            database_logger.info(f"UE association updated for UE ID {ue_id} to cell ID {new_cell_id}")
+        except Exception as e:
+            # Log any exceptions that occur
+            database_logger.error(f"Failed to update UE association in InfluxDB: {e}")
