@@ -40,9 +40,7 @@ def has_capacity(sector):
     return len(sector.connected_ues) < int(sector.capacity)
 
 def associate_ue_with_sector_and_cell(ues, sectors_queue, db_manager):
-    for ue in ues:
-        if not isinstance(ue, UE):
-            raise TypeError("Expected UE object")
+    for ue in ues:  # Assuming 'ues' is already a list of UE objects
         for primary_candidate_sector in sectors_queue.values():  # Ensure sectors_queue is a dict of Sector objects
             if has_capacity(primary_candidate_sector):
                 selected_sector = primary_candidate_sector
@@ -50,15 +48,15 @@ def associate_ue_with_sector_and_cell(ues, sectors_queue, db_manager):
                 if len(associated_cell.ConnectedUEs) >= associated_cell.maxConnectUes:
                     ue_logger.warning(f"Cell {associated_cell.ID} at max capacity. Cannot add UE {ue.ID}")
                     continue  # Skip to the next sector/cell if this cell is at max capacity
-                
+
                 ue.connected_sector = selected_sector
                 ue.connected_cell = associated_cell
                 selected_sector.add_ue(ue)  # Use the add_ue method to ensure thread safety and proper logging
                 associated_cell.add_ue(ue)  # Use the add_ue method to ensure thread safety and proper logging
-                
+
                 # Pass the cell ID as the second argument to update_ue_association
                 db_manager.update_ue_association(ue, associated_cell.ID)
-                
+
                 ue_logger.info(f"UE {ue.ID} associated with Sector {selected_sector.ID} and Cell {associated_cell.ID}")
                 break  # Break the loop once the UE is successfully associated
         else:
