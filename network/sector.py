@@ -30,16 +30,20 @@ class Sector:
         self.current_load = current_load
 
     @classmethod
-    def from_json(cls, data):
-        # Ensure the 'capacity' key exists in data, if not, set a default value or handle it appropriately
+    def from_json(cls, data, cell):
+    # Ensure the 'capacity' key exists in data, if not, set a default value or handle it appropriately
         if 'capacity' not in data:
             # Handle the missing 'capacity' key, for example by setting a default value
             data['capacity'] = 3  # Replace with an actual default value or raise an error
         else:
             data['capacity'] = int(data['capacity'])  # Ensure capacity is an integer
-            
-        if 'cell' in data:
-            data['cell_id'] = data.pop('cell')
+
+        # The 'cell' object is passed as an argument, so we set it directly
+        data['cell'] = cell
+
+        # The 'cell_id' is obtained from the 'cell' object
+        data['cell_id'] = cell.cell_id
+
         return cls(**data)
 
     def serialize_for_influxdb(self):
