@@ -88,24 +88,22 @@ class DatabaseManager:
         except Exception as e:
             database_logger.error(f"Failed to insert log data into InfluxDB: {e}")
 
-    def update_ue_association(self, ue_id, new_cell_id):
-        """Updates the association of a UE in the database."""
+    def update_ue_association(self, ue, new_cell_id):
+        """
+        Updates the association of a UE with a new cell in the database.
+
+        :param ue: The UE object to update.
+        :param new_cell_id: The ID of the new cell to associate the UE with.
+        """
         try:
-            # Create a Point with the measurement name, e.g., 'ue_association'
-            point = Point("ue_association")
-            
-            # Add tags and fields to the Point
-            point.tag("ue_id", ue_id)
-            point.field("cell_id", new_cell_id)
-            
-            # Use the current time as the timestamp for the Point
-            point.time(datetime.utcnow(), WritePrecision.NS)
-            
-            # Write the point to the InfluxDB
-            self.write_api.write(bucket=self.bucket, record=point)
-            
-            # Log the successful update
-            database_logger.info(f"UE association updated for UE ID {ue_id} to cell ID {new_cell_id}")
+            # Assuming 'ue' is an object with an attribute 'ue_id'
+            # and 'new_cell_id' is the ID of the cell to associate the UE with.
+            # You will need to replace 'ue_table' with the actual table name
+            # and column names with the actual column names in your database.
+            query = f"UPDATE ue_table SET cell_id = {new_cell_id} WHERE ue_id = {ue.ue_id}"
+            self.cursor.execute(query)
+            self.connection.commit()
+            database_logger.info(f"UE {ue.ue_id} association updated to cell {new_cell_id}")
         except Exception as e:
-            # Log any exceptions that occur
-            database_logger.error(f"Failed to update UE association in InfluxDB: {e}")
+            database_logger.error(f"Failed to update UE association in the database: {e}")
+            raise
