@@ -45,7 +45,10 @@ def associate_ue_with_sector_and_cell(ue, sectors_queue, db_manager):
             ue.connected_cell = cell
             sector.add_ue(ue)  # Use the add_ue method to ensure thread safety and proper logging
             cell.add_ue(ue)  # Use the add_ue method to ensure thread safety and proper logging
-            db_manager.update_ue_association(ue)
+        
+            # Pass the cell ID as the second argument to update_ue_association
+            db_manager.update_ue_association(ue, cell.id)
+        
             return True
         return False
     
