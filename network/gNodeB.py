@@ -133,7 +133,7 @@ class gNodeB:
 
         return point
 ######################################################################################################
-##################################################Cell and UE Management##########################
+##################################################Cell and sector add Management##########################
     def add_cell_to_gNodeB(self, cell):
 
             try:
@@ -149,7 +149,7 @@ class gNodeB:
                     return
 
                 if len(self.Cells) >= self.CellCount:
-                    print(f"Debug: gNodeB {self.ID} has reached its maximum cell capacity. Cannot add more cells.")
+                    print(f"gNodeB {self.ID} has reached max cell capacity of {self.CellCount}. Cannot add more cells.")
                     cell_logger.error(f"gNodeB {self.ID} has reached its maximum cell capacity. Cannot add more cells.")
                     return
 
