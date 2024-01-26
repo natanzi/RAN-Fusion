@@ -24,6 +24,11 @@ def initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, sectors_
     
     # Step 4: Instantiate UEs
     ues = initialize_ues(num_ues_to_launch, ue_config, db_manager)
+    # Debugging print statements
+    print(f"initialize_ues returned: {type(ues)}, Contents: {ues}")
+    
+    # Add the debugging print statement here to check the type of 'ues' before calling associate_ue_with_sector_and_cell
+    print(f"Type of 'ues' before calling associate_ue_with_sector_and_cell: {type(ues)}")
     
     # Step 5: Associate UEs with Sectors and Cells
     associate_ue_with_sector_and_cell(ues, sectors, db_manager)
