@@ -104,3 +104,14 @@ class Cell:
 
     def set_gNodeB(self, gNodeB):
         self.gNodeB = gNodeB
+        
+    def add_ue(self, ue):
+        # Assuming ue is an instance of a UE class and has an ID attribute
+        if len(self.ConnectedUEs) < self.maxConnectUes:
+            self.ConnectedUEs.append(ue.ID)
+            self.current_ue_count += 1
+            # Log the addition of the UE or any other required actions
+            ue_logger.info(f"UE with ID {ue.ID} has been added to Cell {self.ID}")
+        else:
+            # Handle the case where the cell is at capacity
+            ue_logger.warning(f"Cell {self.ID} is at maximum capacity. Cannot add UE with ID {ue.ID}")
