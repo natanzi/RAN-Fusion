@@ -31,9 +31,9 @@ def initialize_ues(num_ues_to_launch, gNodeBs, sectors, ue_config, db_manager):
         # Remove the 'IMEI' key from ue_data since it's generated within the UE class
         ue_data.pop('IMEI', None)
         
-        
+        print(gNodeBs,type(gNodeBs))
         # Select a random gNodeB for each ue to be insde the ring coverge of the each gnodb
-        gnb = random.choice(gNodeBs)
+        gnb = random.choice(list(gNodeBs.values()))
         # Generate random lat/lon within the coverage radius of that gNodeB
         ue_lat, ue_lon = random_location_within_radius(gnb.latitude, gnb.longitude, gnb.coverage_radius)
         # Set newly generated lat/lon as UE's location
