@@ -42,7 +42,7 @@ class Sector:
         data['cell'] = cell
 
         # The 'cell_id' is obtained from the 'cell' object
-        data['cell_id'] = cell.cell_id
+        data['cell_id'] = cell.ID
 
         return cls(**data)
 
