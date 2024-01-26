@@ -42,7 +42,7 @@ def main():
     
     # Initialize UEs
     num_ues_to_launch = 10  # This value should be set according to your needs
-    ues = initialize_ues(num_ues_to_launch, sectors, config.ue_config, db_manager)
+    ues = initialize_ues(num_ues_to_launch, gNodeBs, sectors, config.ue_config, db_manager)
     print("Initialized UEs:")
     for ue in ues:
         print(f"UE ID: {ue.ID}, Sector ID: {ue.ConnectedSector}, Service Type: {ue.ServiceType}")
