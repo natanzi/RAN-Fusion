@@ -43,8 +43,8 @@ def associate_ue_with_sector_and_cell(ues, sectors_queue, db_manager):
     # Ensure 'ues' is always a list
     if not isinstance(ues, list):
         ues = [ues]
-
     for ue in ues:  # Now 'ues' is guaranteed to be a list of UE objects
+        associated = False
         for primary_candidate_sector in sectors_queue.values():  # Ensure sectors_queue is a dict of Sector objects
             if has_capacity(primary_candidate_sector):
                 selected_sector = primary_candidate_sector
@@ -52,18 +52,18 @@ def associate_ue_with_sector_and_cell(ues, sectors_queue, db_manager):
                 if len(associated_cell.ConnectedUEs) >= associated_cell.maxConnectUes:  # Assuming 'connected_ues' is the correct attribute and 'maxConnectUes' is defined
                     ue_logger.warning(f"Cell {associated_cell.ID} at max capacity. Cannot add UE {ue.ID}")
                     continue  # Skip to the next sector/cell if this cell is at max capacity
-
                 ue.connected_sector = selected_sector
                 ue.connected_cell = associated_cell
                 selected_sector.add_ue(ue)  # Use the add_ue method to ensure thread safety and proper logging
                 associated_cell.add_ue(ue)  # Use the add_ue method to ensure thread safety and proper logging
-
                 # Pass the cell ID as the second argument to update_ue_association
                 db_manager.update_ue_association(ue, associated_cell.ID)
-
                 ue_logger.info(f"UE {ue.ID} associated with Sector {selected_sector.sector_id} and Cell {associated_cell.ID}")
-
+                associated = True
                 break  # Break the loop once the UE is successfully associated
-            else:
-                # This else block executes if no break occurs, indicating no sector had capacity for the UE
-                ue_logger.error(f"No sectors available with capacity to add UE {ue.ID}")
+        if not associated:
+            # This else block executes if no break occurs, indicating no sector had capacity for the UE
+            ue_logger.error(f"No sectors available with capacity to add UE {ue.ID}")
+            return ue, None, None  # Return the UE with None for both sector and cell if no association was made
+    # If the function reaches this point without returning, it means all UEs were processed successfully
+    return ues, sectors_queue, db_manager  # This return statement might need adjustment based on your actual logic
