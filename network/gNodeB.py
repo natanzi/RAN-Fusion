@@ -36,32 +36,32 @@ gNodeBs_config = load_gNodeB_config()
 class gNodeB:
     def __init__(self, gnodeb_id, latitude, longitude, coverageRadius, power, frequency, bandwidth, location, region, maxUEs, cellCount, sectorCount, handoverMargin, handoverHysteresis, timeToTrigger, interFreqHandover, xnInterface, sonCapabilities, loadBalancingOffset, cellIds, sectorIds, MeasurementBandwidth=None, BlacklistedCells=None, **kwargs):
         print("Debug Start: __init__ method in gNodeB class.")
-        self.ID = gnodeb_id
-        self.Latitude = latitude
-        self.Longitude = longitude
-        self.CoverageRadius = coverageRadius
-        self.TransmissionPower = power
-        self.Frequency = frequency
-        self.Bandwidth = bandwidth
-        self.Location = location
-        self.Region = region if isinstance(region, str) else ','.join(region)
-        self.MaxUEs = maxUEs
-        self.HandoverMargin = handoverMargin
-        self.HandoverHysteresis = handoverHysteresis
-        self.TimeToTrigger = timeToTrigger
-        self.InterFreqHandover = interFreqHandover
-        self.XnInterface = xnInterface
-        self.SONCapabilities = sonCapabilities
-        self.MeasurementBandwidth = MeasurementBandwidth if MeasurementBandwidth is not None else DEFAULT_MEASUREMENT_BANDWIDTH
-        self.BlacklistedCells = BlacklistedCells if BlacklistedCells is not None else DEFAULT_BLACKLISTED_CELLS
-        self.LoadBalancingOffset = loadBalancingOffset
-        self.CellIds = cellIds
-        self.CellCount = cellCount
-        self.SectorCount = sectorCount
-        self.handover_success_count = 0
-        self.handover_failure_count = 0
-        self.SectorIds = sectorIds
-        self.Cells = []
+        self.ID = gnodeb_id  # str: Unique identifier for the gNodeB
+        self.Latitude = latitude  # float: Geographic latitude where the gNodeB is located
+        self.Longitude = longitude  # float: Geographic longitude where the gNodeB is located
+        self.CoverageRadius = coverageRadius  # int: The radius (in meters) that the gNodeB covers
+        self.TransmissionPower = power  # float: Transmission power of the gNodeB in Watts
+        self.Frequency = frequency  # float: Operating frequency of the gNodeB in MHz
+        self.Bandwidth = bandwidth  # int: Bandwidth available at the gNodeB in MHz
+        self.Location = location  # list: Physical location of the gNodeB, typically a list [latitude, longitude]
+        self.Region = region if isinstance(region, str) else ','.join(region)  # str: Region where the gNodeB is deployed, can be a single string or a list of regions joined as a string
+        self.MaxUEs = maxUEs  # int: Maximum number of UEs (User Equipments) that can be connected to the gNodeB
+        self.HandoverMargin = handoverMargin  # float: Margin for handover to trigger in dB
+        self.HandoverHysteresis = handoverHysteresis  # float: Hysteresis value for handover in dB
+        self.TimeToTrigger = timeToTrigger  # int: Time to trigger the handover in milliseconds
+        self.InterFreqHandover = interFreqHandover  # bool: Whether inter-frequency handover is supported (True/False)
+        self.XnInterface = xnInterface  # bool: Status of Xn interface availability (True/False)
+        self.SONCapabilities = sonCapabilities  # dict: SON (Self-Organizing Network) capabilities of the gNodeB
+        self.MeasurementBandwidth = MeasurementBandwidth if MeasurementBandwidth is not None else DEFAULT_MEASUREMENT_BANDWIDTH  # int: Measurement bandwidth used for handover decisions in MHz
+        self.BlacklistedCells = BlacklistedCells if BlacklistedCells is not None else DEFAULT_BLACKLISTED_CELLS  # list: List of cells that are blacklisted
+        self.LoadBalancingOffset = loadBalancingOffset  # int: Offset used for load balancing among cells
+        self.CellIds = cellIds  # list: List of cell IDs under this gNodeB
+        self.CellCount = cellCount  # int: Number of cells under this gNodeB
+        self.SectorCount = sectorCount  # int: Number of sectors under this gNodeB
+        self.handover_success_count = 0  # int: Count of successful handovers
+        self.handover_failure_count = 0  # int: Count of failed handovers
+        self.SectorIds = sectorIds  # list: List of sector IDs under this gNodeB
+        self.Cells = []  # list: List to hold cell objects associated with this gNodeB
         current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         gnodeb_logger.info(f"gNodeB '{self.ID}' has been launched with {self.CellCount} cells at '{current_time}'.")
         print(f"Debug End: gNodeB '{self.ID}' initialized with {self.CellCount} cells.")
@@ -96,28 +96,28 @@ class gNodeB:
 
         # Create a dictionary of fields to include in the Point
         fields = {
-            "latitude": self.Latitude,
-            "longitude": self.Longitude,
-            "coverage_radius": self.CoverageRadius,
-            "transmission_power": self.TransmissionPower,
-            "frequency": self.Frequency,
+            "latitude": float(self.Latitude),
+            "longitude": float(self.Longitude),
+            "coverage_radius": float(self.CoverageRadius),
+            "transmission_power": int(self.TransmissionPower),
+            "frequency": float(self.Frequency),
             "region": region_str,
-            "max_ues": self.MaxUEs,
-            "cell_count": self.CellCount,
-            "sector_count": self.SectorCount,
-            "measurement_bandwidth": self.MeasurementBandwidth,
-            "blacklisted_cells": blacklisted_cells_str,  # Use the serialized string
-            "handover_success_count": self.handover_success_count,
-            "handover_failure_count": self.handover_failure_count,
+            "max_ues": int(self.MaxUEs),
+            "cell_count": int(self.CellCount),
+            "sector_count": int(self.SectorCount),
+            "measurement_bandwidth": float(self.MeasurementBandwidth),
+            "blacklisted_cells": blacklisted_cells_str,
+            "handover_success_count": int(self.handover_success_count),
+            "handover_failure_count": int(self.handover_failure_count),
             "location": location_str,
-            "bandwidth": self.Bandwidth,
-            "handover_margin": self.HandoverMargin,
-            "handover_hysteresis": self.HandoverHysteresis,
-            "time_to_trigger": self.TimeToTrigger,
-            "inter_freq_handover": self.InterFreqHandover,
-            "xn_interface": self.XnInterface,
-            "son_capabilities": self.SONCapabilities,
-            "load_balancing_offset": self.LoadBalancingOffset,
+            "bandwidth": float(self.Bandwidth),
+            "handover_margin": float(self.HandoverMargin),
+            "handover_hysteresis": float(self.HandoverHysteresis),
+            "time_to_trigger": int(self.TimeToTrigger),
+            "inter_freq_handover": int(self.InterFreqHandover),
+            "xn_interface": str(self.XnInterface),
+            "son_capabilities": str(self.SONCapabilities),
+            "load_balancing_offset": int(self.LoadBalancingOffset),
             "cell_ids": ','.join(map(str, self.CellIds)) if self.CellIds is not None else None,
             "sector_ids": ','.join([str(sector_id) for sector_id in self.SectorIds])
         }

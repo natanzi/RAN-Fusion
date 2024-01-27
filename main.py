@@ -20,7 +20,6 @@ def main():
     
     # Create an instance of DatabaseManager here
     db_manager = DatabaseManager()
-    print(db_manager)
     
     # Initialize gNodeBs
     gNodeBs = initialize_gNodeBs(config.gNodeBs_config, db_manager)

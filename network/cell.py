@@ -11,27 +11,26 @@ from database.time_utils import get_current_time_ntp, server_pools
 class Cell:
     def __init__(self, cell_id, gnodeb_id, frequencyBand, duplexMode, tx_power, bandwidth, ssbPeriodicity, ssbOffset, maxConnectUes, max_throughput,  channelModel, sectorCount, trackingArea=None, is_active=True):
         print(f"START-Creating cell {cell_id}")
-        # Check if the cell ID already exists in the network state
-        self.ID = cell_id
-        self.gNodeB_ID = gnodeb_id
-        self.FrequencyBand = frequencyBand
-        self.DuplexMode = duplexMode
-        self.TxPower = tx_power
-        self.Bandwidth = bandwidth
-        self.SSBPeriodicity = ssbPeriodicity
-        self.SSBOffset = ssbOffset
-        self.maxConnectUes = maxConnectUes
-        self.max_throughput = max_throughput
-        self.ChannelModel = channelModel
-        self.TrackingArea = trackingArea 
-        self.ConnectedUEs = []
-        self.assigned_UEs = []  # Initialize the list of assigned UEs
-        self.last_ue_update = None
-        self.last_update = None
-        self.IsActive = is_active
-        self.current_ue_count = 0
-        self.sectors = []
-        self.SectorCount = sectorCount
+        self.ID = cell_id                   # Unique identifier for the Cell
+        self.gNodeB_ID = gnodeb_id          # Identifier for the associated gNodeB of this cell
+        self.FrequencyBand = frequencyBand  # Frequency band in which the cell operates
+        self.DuplexMode = duplexMode        # Duplex mode of the cell (e.g., FDD, TDD)
+        self.TxPower = tx_power             # Transmission power of the cell in Watts
+        self.Bandwidth = bandwidth          # Bandwidth allocated to the cell in MHz
+        self.SSBPeriodicity = ssbPeriodicity# Periodicity of the SSB (Synchronization Signal Block) in ms    
+        self.SSBOffset = ssbOffset          # Offset for the SSB in terms of the number of symbols     
+        self.maxConnectUes = maxConnectUes  # Maximum number of UEs that can connect to the cell
+        self.max_throughput = max_throughput# Maximum throughput the cell can handle in Mbps
+        self.ChannelModel = channelModel     # Channel model used for the cell (e.g., urban, rural)
+        self.TrackingArea = trackingArea     # Tracking area code, if applicable
+        self.ConnectedUEs = []              # List of UEs currently connected to the cell
+        self.assigned_UEs = []              # Initialize the list of assigned UEs
+        self.last_ue_update = None          # Timestamp of the last update to the UE list
+        self.last_update = None             # Timestamp of the last update to any cell attribute
+        self.IsActive = is_active           # Indicates whether the cell is active or not
+        self.current_ue_count = 0           # Current count of UEs connected to the cell
+        self.sectors = []                   # List of sectors associated with the cell
+        self.SectorCount = sectorCount      # Number of sectors the cell is divided into
         current_time = get_current_time_ntp()
         # Logging statement should be here, after all attributes are set
         cell_logger.info(f" A Cell '{cell_id}' has been created at '{current_time}' in gNodeB '{gnodeb_id}' with max capacity {self.maxConnectUes}.")
@@ -73,21 +72,21 @@ class Cell:
 ####################################################################################### 
     def serialize_for_influxdb(self):
         point = Point("cell_metrics") \
-            .tag("cell_id", self.ID) \
-            .tag("gnodeb_id", self.gNodeB_ID) \
+            .tag("cell_id", str(self.ID)) \
+            .tag("gnodeb_id", str(self.gNodeB_ID)) \
             .tag("entity_type", "cell") \
-            .field("frequencyBand", self.FrequencyBand) \
-            .field("duplexMode", self.DuplexMode) \
-            .field("tx_power", self.TxPower) \
-            .field("bandwidth", self.Bandwidth) \
-            .field("ssb_periodicity", self.SSBPeriodicity) \
-            .field("ssb_offset", self.SSBOffset) \
-            .field("max_connect_ues", self.maxConnectUes) \
-            .field("max_throughput", self.max_throughput) \
-            .field("channel_model", self.ChannelModel) \
-            .field("trackingArea", self.TrackingArea) \
-            .field("CellisActive", self.IsActive) \
-            .field("sector_count", len(self.sectors))
+            .field("frequencyBand", str(self.FrequencyBand)) \
+            .field("duplexMode", str(self.DuplexMode)) \
+            .field("tx_power", int(self.TxPower)) \
+            .field("bandwidth", int(self.Bandwidth)) \
+            .field("ssb_periodicity", int(self.SSBPeriodicity)) \
+            .field("ssb_offset", int(self.SSBOffset)) \
+            .field("max_connect_ues", int(self.maxConnectUes)) \
+            .field("max_throughput", int(self.max_throughput)) \
+            .field("channel_model", str(self.ChannelModel)) \
+            .field("trackingArea", str(self.TrackingArea)) \
+            .field("CellisActive", bool(self.IsActive)) \
+            .field("sector_count", int(self.sectorCount))
 
         # Loop to add details about each sector
         for i, sector in enumerate(self.sectors):
