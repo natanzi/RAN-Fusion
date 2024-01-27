@@ -50,6 +50,8 @@ def initialize_ues(num_ues_to_launch, gNodeBs, sectors, ue_config, db_manager):
         # Check if the association was successful
         if associated_ue and associated_sector and associated_cell:
             # If successful, append the associated UE to the list
+            print(f"Appending UE: {associated_ue}, Type: {type(associated_ue)}")
+
             ues.append(associated_ue)
         else:
             # If the association failed, log an error or warning
