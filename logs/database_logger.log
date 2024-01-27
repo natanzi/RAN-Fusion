@@ -11,3 +11,47 @@
 {"level": "INFO", "timestamp": "2024-01-27 17:04:20", "message": "UE <network.ue.UE object at 0x000001FDFFD09450> association updated to cell AX9980", "test_id": "57b6df06-18d5-47b8-84ca-80fb0a9bfaa0"}
 {"level": "ERROR", "timestamp": "2024-01-27 17:08:55", "message": "Failed to retrieve UE IDs from InfluxDB: '_value'", "test_id": "e1a61d41-d203-455c-8bb3-fc111b819712"}
 {"level": "INFO", "timestamp": "2024-01-27 17:08:55", "message": "UE <network.ue.UE object at 0x0000022B7E4C2B50> association updated to cell AX9980", "test_id": "e1a61d41-d203-455c-8bb3-fc111b819712"}
+{"level": "ERROR", "timestamp": "2024-01-27 17:25:49", "message": "Failed to retrieve UE IDs from InfluxDB: '_value'", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE <network.ue.UE object at 0x000001E37F5994D0> association updated to cell AX9980", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE <network.ue.UE object at 0x000001E362A62610> association updated to cell AX9980", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE <network.ue.UE object at 0x000001E37F688ED0> association updated to cell AX9980", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE <network.ue.UE object at 0x000001E37FAAEBD0> association updated to cell AX9980", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE <network.ue.UE object at 0x000001E37F45A450> association updated to cell AX9980", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE <network.ue.UE object at 0x000001E37FA63490> association updated to cell AX9980", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE <network.ue.UE object at 0x000001E37FA63390> association updated to cell AX9980", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE <network.ue.UE object at 0x000001E37FA56210> association updated to cell AX9980", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE <network.ue.UE object at 0x000001E37FA55C50> association updated to cell AX9980", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE <network.ue.UE object at 0x000001E37FA620D0> association updated to cell BX1230", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "ERROR", "timestamp": "2024-01-27 17:28:44", "message": "Failed to retrieve UE IDs from InfluxDB: '_value'", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE <network.ue.UE object at 0x0000019CDD939450> association updated to cell AX9980", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE <network.ue.UE object at 0x0000019CDD7B1090> association updated to cell AX9980", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE <network.ue.UE object at 0x0000019CDDA28E50> association updated to cell AX9980", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE <network.ue.UE object at 0x0000019CDD92E0D0> association updated to cell AX9980", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE <network.ue.UE object at 0x0000019CDDE31450> association updated to cell AX9980", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE <network.ue.UE object at 0x0000019CDDE22BD0> association updated to cell AX9980", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE <network.ue.UE object at 0x0000019CDDE23950> association updated to cell AX9980", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE <network.ue.UE object at 0x0000019CDDE169D0> association updated to cell AX9980", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE <network.ue.UE object at 0x0000019CDDE162D0> association updated to cell AX9980", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE <network.ue.UE object at 0x0000019CDDE23A50> association updated to cell BX1230", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "ERROR", "timestamp": "2024-01-27 17:37:18", "message": "Failed to retrieve UE IDs from InfluxDB: '_value'", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE <network.ue.UE object at 0x00000138C1B1B810> association updated to cell AX9980", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE <network.ue.UE object at 0x000001389317E690> association updated to cell AX9980", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE <network.ue.UE object at 0x00000138C1B1C590> association updated to cell AX9980", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE <network.ue.UE object at 0x00000138C214D2D0> association updated to cell AX9980", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE <network.ue.UE object at 0x00000138C1D48ED0> association updated to cell AX9980", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE <network.ue.UE object at 0x00000138C2143F10> association updated to cell AX9980", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE <network.ue.UE object at 0x00000138C2142650> association updated to cell AX9980", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE <network.ue.UE object at 0x00000138C1AE6BD0> association updated to cell AX9980", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE <network.ue.UE object at 0x00000138C2142350> association updated to cell AX9980", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE <network.ue.UE object at 0x00000138C21AFD90> association updated to cell BX1230", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "ERROR", "timestamp": "2024-01-27 17:38:31", "message": "Failed to retrieve UE IDs from InfluxDB: '_value'", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE <network.ue.UE object at 0x0000023AFF6A9A90> association updated to cell AX9980", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE <network.ue.UE object at 0x0000023AFF7814D0> association updated to cell AX9980", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE <network.ue.UE object at 0x0000023AFF639550> association updated to cell AX9980", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE <network.ue.UE object at 0x0000023AFF78EF90> association updated to cell AX9980", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE <network.ue.UE object at 0x0000023AFFBA1950> association updated to cell AX9980", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE <network.ue.UE object at 0x0000023AFFBFFA50> association updated to cell AX9980", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE <network.ue.UE object at 0x0000023AFFB91790> association updated to cell AX9980", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE <network.ue.UE object at 0x0000023AFFB92D90> association updated to cell AX9980", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE <network.ue.UE object at 0x0000023AFFB86C50> association updated to cell AX9980", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE <network.ue.UE object at 0x0000023AFFBFFE10> association updated to cell BX1230", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}

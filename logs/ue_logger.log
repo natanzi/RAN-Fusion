@@ -167,3 +167,127 @@
 {"level": "INFO", "timestamp": "2024-01-27 17:08:55", "message": "UE initialized with ID UE1 at 2024-01-27 17:09:08.006662", "test_id": "e1a61d41-d203-455c-8bb3-fc111b819712"}
 {"level": "INFO", "timestamp": "2024-01-27 17:08:55", "message": "UE with ID UE1 has been added to Cell AX9980", "test_id": "e1a61d41-d203-455c-8bb3-fc111b819712"}
 {"level": "INFO", "timestamp": "2024-01-27 17:08:55", "message": "UE UE1 associated with Sector A1 and Cell AX9980", "test_id": "e1a61d41-d203-455c-8bb3-fc111b819712"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE initialized with ID UE1 at 2024-01-27 17:26:04.066574", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE with ID UE1 has been added to Cell AX9980", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE UE1 associated with Sector A1 and Cell AX9980", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE initialized with ID UE2 at 2024-01-27 17:26:04.079260", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE with ID UE2 has been added to Cell AX9980", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE UE2 associated with Sector A1 and Cell AX9980", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE initialized with ID UE3 at 2024-01-27 17:26:04.091948", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE with ID UE3 has been added to Cell AX9980", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE UE3 associated with Sector A1 and Cell AX9980", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE initialized with ID UE4 at 2024-01-27 17:26:04.103941", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE with ID UE4 has been added to Cell AX9980", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE UE4 associated with Sector A2 and Cell AX9980", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE initialized with ID UE5 at 2024-01-27 17:26:04.117291", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE with ID UE5 has been added to Cell AX9980", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE UE5 associated with Sector A2 and Cell AX9980", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE initialized with ID UE6 at 2024-01-27 17:26:04.129223", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE with ID UE6 has been added to Cell AX9980", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE UE6 associated with Sector A2 and Cell AX9980", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE initialized with ID UE7 at 2024-01-27 17:26:04.142020", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE with ID UE7 has been added to Cell AX9980", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE UE7 associated with Sector A3 and Cell AX9980", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE initialized with ID UE8 at 2024-01-27 17:26:04.154764", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE with ID UE8 has been added to Cell AX9980", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE UE8 associated with Sector A3 and Cell AX9980", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE initialized with ID UE9 at 2024-01-27 17:26:04.167372", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE with ID UE9 has been added to Cell AX9980", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE UE9 associated with Sector A3 and Cell AX9980", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE initialized with ID UE10 at 2024-01-27 17:26:04.179481", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE with ID UE10 has been added to Cell BX1230", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "UE UE10 associated with Sector B1 and Cell BX1230", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:25:49", "message": "Initialized 10 UEs successfully", "test_id": "920e2c11-e8ad-42d3-801f-50f038230ef2"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE initialized with ID UE1 at 2024-01-27 17:28:59.533989", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE with ID UE1 has been added to Cell AX9980", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE UE1 associated with Sector A1 and Cell AX9980", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE initialized with ID UE2 at 2024-01-27 17:28:59.546486", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE with ID UE2 has been added to Cell AX9980", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE UE2 associated with Sector A1 and Cell AX9980", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE initialized with ID UE3 at 2024-01-27 17:28:59.558506", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE with ID UE3 has been added to Cell AX9980", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE UE3 associated with Sector A1 and Cell AX9980", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE initialized with ID UE4 at 2024-01-27 17:28:59.570534", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE with ID UE4 has been added to Cell AX9980", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE UE4 associated with Sector A2 and Cell AX9980", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE initialized with ID UE5 at 2024-01-27 17:28:59.583279", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE with ID UE5 has been added to Cell AX9980", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE UE5 associated with Sector A2 and Cell AX9980", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE initialized with ID UE6 at 2024-01-27 17:28:59.595931", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE with ID UE6 has been added to Cell AX9980", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE UE6 associated with Sector A2 and Cell AX9980", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE initialized with ID UE7 at 2024-01-27 17:28:59.608182", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE with ID UE7 has been added to Cell AX9980", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE UE7 associated with Sector A3 and Cell AX9980", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE initialized with ID UE8 at 2024-01-27 17:28:59.619904", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE with ID UE8 has been added to Cell AX9980", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE UE8 associated with Sector A3 and Cell AX9980", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE initialized with ID UE9 at 2024-01-27 17:28:59.632098", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE with ID UE9 has been added to Cell AX9980", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE UE9 associated with Sector A3 and Cell AX9980", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE initialized with ID UE10 at 2024-01-27 17:28:59.645210", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE with ID UE10 has been added to Cell BX1230", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "UE UE10 associated with Sector B1 and Cell BX1230", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:28:44", "message": "Initialized 10 UEs successfully", "test_id": "b4391143-9539-49a4-b11a-c3a2ca8fd9aa"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE initialized with ID UE1 at 2024-01-27 17:37:30.332911", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE with ID UE1 has been added to Cell AX9980", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE UE1 associated with Sector A1 and Cell AX9980", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE initialized with ID UE2 at 2024-01-27 17:37:30.345022", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE with ID UE2 has been added to Cell AX9980", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE UE2 associated with Sector A1 and Cell AX9980", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE initialized with ID UE3 at 2024-01-27 17:37:30.357412", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE with ID UE3 has been added to Cell AX9980", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE UE3 associated with Sector A1 and Cell AX9980", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE initialized with ID UE4 at 2024-01-27 17:37:30.369536", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE with ID UE4 has been added to Cell AX9980", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE UE4 associated with Sector A2 and Cell AX9980", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE initialized with ID UE5 at 2024-01-27 17:37:30.382267", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE with ID UE5 has been added to Cell AX9980", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE UE5 associated with Sector A2 and Cell AX9980", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE initialized with ID UE6 at 2024-01-27 17:37:30.393903", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE with ID UE6 has been added to Cell AX9980", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE UE6 associated with Sector A2 and Cell AX9980", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE initialized with ID UE7 at 2024-01-27 17:37:30.406566", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE with ID UE7 has been added to Cell AX9980", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE UE7 associated with Sector A3 and Cell AX9980", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE initialized with ID UE8 at 2024-01-27 17:37:30.418493", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE with ID UE8 has been added to Cell AX9980", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE UE8 associated with Sector A3 and Cell AX9980", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE initialized with ID UE9 at 2024-01-27 17:37:30.431786", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE with ID UE9 has been added to Cell AX9980", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE UE9 associated with Sector A3 and Cell AX9980", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE initialized with ID UE10 at 2024-01-27 17:37:30.444385", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE with ID UE10 has been added to Cell BX1230", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "UE UE10 associated with Sector B1 and Cell BX1230", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:37:18", "message": "Initialized 10 UEs successfully", "test_id": "707fa6df-49ac-43a2-9194-d6c4e240f131"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE initialized with ID UE1 at 2024-01-27 17:38:44.113766", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE with ID UE1 has been added to Cell AX9980", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE UE1 associated with Sector A1 and Cell AX9980", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE initialized with ID UE2 at 2024-01-27 17:38:44.126603", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE with ID UE2 has been added to Cell AX9980", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE UE2 associated with Sector A1 and Cell AX9980", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE initialized with ID UE3 at 2024-01-27 17:38:44.139175", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE with ID UE3 has been added to Cell AX9980", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE UE3 associated with Sector A1 and Cell AX9980", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE initialized with ID UE4 at 2024-01-27 17:38:44.151392", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE with ID UE4 has been added to Cell AX9980", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE UE4 associated with Sector A2 and Cell AX9980", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE initialized with ID UE5 at 2024-01-27 17:38:44.163791", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE with ID UE5 has been added to Cell AX9980", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE UE5 associated with Sector A2 and Cell AX9980", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE initialized with ID UE6 at 2024-01-27 17:38:44.175998", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE with ID UE6 has been added to Cell AX9980", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE UE6 associated with Sector A2 and Cell AX9980", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE initialized with ID UE7 at 2024-01-27 17:38:44.188152", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE with ID UE7 has been added to Cell AX9980", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE UE7 associated with Sector A3 and Cell AX9980", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE initialized with ID UE8 at 2024-01-27 17:38:44.199778", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE with ID UE8 has been added to Cell AX9980", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE UE8 associated with Sector A3 and Cell AX9980", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE initialized with ID UE9 at 2024-01-27 17:38:44.211981", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE with ID UE9 has been added to Cell AX9980", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE UE9 associated with Sector A3 and Cell AX9980", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE initialized with ID UE10 at 2024-01-27 17:38:44.224114", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE with ID UE10 has been added to Cell BX1230", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "UE UE10 associated with Sector B1 and Cell BX1230", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
+{"level": "INFO", "timestamp": "2024-01-27 17:38:31", "message": "Initialized 10 UEs successfully", "test_id": "a6eee811-2dba-496b-9e2e-b5aebc7dad35"}
