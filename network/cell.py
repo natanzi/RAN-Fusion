@@ -86,7 +86,7 @@ class Cell:
             .field("channel_model", str(self.ChannelModel)) \
             .field("trackingArea", str(self.TrackingArea)) \
             .field("CellisActive", bool(self.IsActive)) \
-            .field("sector_count", int(self.sectorCount))
+            .field("sector_count", int(self.SectorCount))
 
         # Loop to add details about each sector
         for i, sector in enumerate(self.sectors):

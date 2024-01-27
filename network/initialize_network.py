@@ -61,7 +61,8 @@ def associate_ue_with_sector_and_cell(ues, sectors_queue, db_manager):
                 # Pass the cell ID as the second argument to update_ue_association
                 db_manager.update_ue_association(ue, associated_cell.ID)
 
-                ue_logger.info(f"UE {ue.ID} associated with Sector {selected_sector.ID} and Cell {associated_cell.ID}")
+                ue_logger.info(f"UE {ue.ID} associated with Sector {selected_sector.SectorID} and Cell {associated_cell.ID}")
+
                 break  # Break the loop once the UE is successfully associated
             else:
                 # This else block executes if no break occurs, indicating no sector had capacity for the UE

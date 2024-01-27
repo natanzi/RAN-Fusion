@@ -88,22 +88,22 @@ class DatabaseManager:
         except Exception as e:
             database_logger.error(f"Failed to insert log data into InfluxDB: {e}")
 
-    def update_ue_association(self, ue, new_cell_id):
+    def update_ue_association(self, ue_id, new_cell_id):
         """
         Updates the association of a UE with a new cell in the database by writing a new point.
-        :param ue: The UE object to update.
-            :param new_cell_id: The ID of the new cell to associate the UE with.
+        :param ue_id: The ID of the UE to update.
+        :param new_cell_id: The ID of the new cell to associate the UE with.
         """
-    try:
-        # Create a new Point with the measurement name you're using for UEs
-        point = Point("ue_metrics")\
-            .tag("ue_id", ue.ID)\
-            .tag("connected_cell_id", new_cell_id) \
-            .field("update_type", "cell_association_change")\
-            .time(datetime.utcnow())
-        # Write the point to InfluxDB
-        self.write_api.write(bucket=self.bucket, record=point)
-        database_logger.info(f"UE {ue.ID} association updated to cell {new_cell_id}")
-    except Exception as e:
-        database_logger.error(f"Failed to update UE association in the database: {e}")
-        raise
+        try:
+            # Create a new Point with the measurement name you're using for UEs
+            point = Point("ue_metrics")\
+                .tag("ue_id", str(ue_id))\
+                .tag("connected_cell_id", str(new_cell_id)) \
+                .field("update_type", "cell_association_change")\
+                .time(datetime.utcnow())
+            # Write the point to InfluxDB
+            self.write_api.write(bucket=self.bucket, record=point)
+            database_logger.info(f"UE {ue_id} association updated to cell {new_cell_id}")
+        except Exception as e:
+            database_logger.error(f"Failed to update UE association in the database: {e}")
+            raise
