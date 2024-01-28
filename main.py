@@ -47,7 +47,8 @@ def main():
     print("First element in ues:", ues[0])
     for ue_list in ues:
         for ue in ue_list:  # Iterate over each UE in the nested list
-            print(f"UE ID: {ue.ID}, Sector ID: {ue.ConnectedSector}, Service Type: {ue.ServiceType}")
+                print(f"UE ID: {ue.ID}, Sector ID: {ue.ConnectedSector}, Cell ID: {ue.ConnectedCellID}, gNodeB ID: {ue.gNodeB_ID}, Service Type: {ue.ServiceType}")
+
 
 if __name__ == "__main__":
     main()
