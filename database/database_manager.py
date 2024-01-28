@@ -71,13 +71,18 @@ class DatabaseManager:
     def get_all_ue_ids(self):
         """Retrieves all UE IDs from InfluxDB."""
         try:
-            query = f'from(bucket: "{self.bucket}") |> range(start: -1d) |> filter(fn: (r) => r._measurement == "ue_metrics") |> keep(columns: ["ue_id"])'
+            query = f'from(bucket: "{self.bucket}") |> range(start: -1d) |> filter(fn: (r) => r._measurement == "ue_metrics")'
             result = self.query_api.query(query=query, org=INFLUXDB_ORG)
-            ue_ids = [record.get_value() for table in result for record in table.records]
-            return ue_ids
+            ue_ids = []
+            for table in result:
+                for record in table.records:
+                    if 'ue_id' in record.values:
+                        ue_ids.append(record.values['ue_id'])
         except Exception as e:
             database_logger.error(f"Failed to retrieve UE IDs from InfluxDB: {e}")
-            return []
+            return []  # Return an empty list in case of any exception
+        return ue_ids
+
 
     def insert_log(self, log_point):
         """Inserts log data into the logs bucket in InfluxDB."""
