@@ -25,7 +25,7 @@ def initialize_sectors(sectors_config, cells, db_manager):
         # Get sector ID and cell ID from data
         sector_id = sector_data['sector_id']
         cell_id = sector_data['cell_id']
-        print(f"Debug: Processing sector {sector_id} for cell {cell_id}.")
+        print("Processing sector {sector_id} for cell {cell_id}.")
         
         # Check if cell ID exists in cells dict
         if cell_id not in cells:
@@ -50,7 +50,7 @@ def initialize_sectors(sectors_config, cells, db_manager):
         # Insert sector data into InfluxDB
         point = new_sector.serialize_for_influxdb()
         db_manager.insert_data(point)
-        print(f"Debug: Sector {sector_id} added to database")
+        print(f"Sector {sector_id} added to database")
     
     print("Debug: Finished initialize_sectors function.")
     return initialized_sectors
