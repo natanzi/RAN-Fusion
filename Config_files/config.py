@@ -18,6 +18,3 @@ class Config:
         with open(file_path, 'r') as file:
             return json.load(file)
         
-    def debug_print(self, message):
-        if self.debug_mode:
-            print(message)
