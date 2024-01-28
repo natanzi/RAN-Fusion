@@ -3,10 +3,11 @@
 import os
 from .sector import Sector
 from database.database_manager import DatabaseManager
+from.utils import debug_print
 
 def initialize_sectors(sectors_config, cells, db_manager):
     # Print to validate sector config
-    print("Sector config keys:", sectors_config.keys())
+    debug_print("Sector config keys:", sectors_config.keys())
     
     # Validate sectors key exists
     if 'sectors' not in sectors_config:

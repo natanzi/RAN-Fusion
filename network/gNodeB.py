@@ -16,7 +16,7 @@ from influxdb_client.client.write_api import SYNCHRONOUS, WritePrecision
 from database.time_utils import get_current_time_ntp, server_pools
 from multiprocessing import Lock
 from network.sector import Sector
-
+from utills.debug_utils import debug_print
 current_time = get_current_time_ntp()
 DEFAULT_BLACKLISTED_CELLS = []
 DEFAULT_MEASUREMENT_BANDWIDTH = 20
