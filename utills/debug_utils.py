@@ -1,4 +1,4 @@
-# debug_utils.py inside utill folder and the role is manage of the debug massages
+# debug_utils.py inside utills folder and the role is manage of the debug massages
 import os
 DEBUG_MODE = os.getenv('DEBUG_MODE', 'False').lower() in ('true', '1', 't')
 
