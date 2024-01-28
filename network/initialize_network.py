@@ -9,6 +9,7 @@ from .init_ue import initialize_ues
 from logs.logger_config import ue_logger
 from .sector import Sector
 from network.ue import UE
+from utills.debug_utils import debug_print
 
 def initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, sectors_config, ue_config, db_manager):
     # Step 1: Instantiate gNodeBs

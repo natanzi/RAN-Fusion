@@ -9,10 +9,6 @@ from network.init_ue import initialize_ues
 from database.database_manager import DatabaseManager
 from utills.debug_utils import debug_print
 
-def debug_print(message, config):
-    if config.debug_mode:
-        print(message)
-
 def main():
 
     logging.basicConfig(level=logging.INFO)

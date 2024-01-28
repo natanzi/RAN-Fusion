@@ -4,6 +4,7 @@ import re
 from datetime import datetime
 from influxdb_client import Point
 from logs.logger_config import ue_logger
+from utills.debug_utils import debug_print
 
 class UE:
     def __init__(self, **kwargs):

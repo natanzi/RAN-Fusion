@@ -3,7 +3,7 @@
 import os
 from .sector import Sector
 from database.database_manager import DatabaseManager
-from.utils import debug_print
+from utills.debug_utils import debug_print
 
 def initialize_sectors(sectors_config, cells, db_manager):
     # Print to validate sector config

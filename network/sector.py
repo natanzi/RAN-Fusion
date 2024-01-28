@@ -5,6 +5,8 @@ from influxdb_client.client.write_api import SYNCHRONOUS, WritePrecision
 import time
 import threading
 from logs.logger_config import sector_logger
+from utills.debug_utils import debug_print
+
 sector_lock = threading.Lock()
 
 # Assume a global list or set for UE IDs is defined at the top level of your module

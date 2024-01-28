@@ -6,6 +6,7 @@ from .ue import UE
 from database.time_utils import get_current_time_ntp
 from logs.logger_config import ue_logger
 from network.utils import random_location_within_radius
+from utills.debug_utils import debug_print
 
 current_time = get_current_time_ntp()
 

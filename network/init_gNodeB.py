@@ -3,6 +3,7 @@
 import os
 import json
 from .gNodeB import gNodeB
+from utills.debug_utils import debug_print
 
 def load_json_config(file_path):
     with open(file_path, 'r') as file:
