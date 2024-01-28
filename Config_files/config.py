@@ -12,8 +12,12 @@ class Config:
         self.sectors_config = self.load_json_config('sector_config.json')
         self.ue_config = self.load_json_config('ue_config.json')
         self.debug_mode = True  # Set to False to disable debug print messages
-        
+
     def load_json_config(self, filename):
         file_path = os.path.join(self.base_dir, 'Config_files', filename)
         with open(file_path, 'r') as file:
             return json.load(file)
+        
+    def debug_print(self, message):
+        if self.debug_mode:
+            print(message)
