@@ -8,16 +8,23 @@ from network.init_sector import initialize_sectors
 from network.init_ue import initialize_ues
 from database.database_manager import DatabaseManager
 
+def debug_print(message, config):
+    if config.debug_mode:
+        print(message)
+
 def main():
-    logo_text = create_logo()
-    print(logo_text)
 
     logging.basicConfig(level=logging.INFO)
     base_dir = os.path.dirname(os.path.abspath(__file__))
     
     # Create an instance of Config here
     config = Config(base_dir)
-    
+    if config.debug_mode:
+        print("debug message prompt id ON!!!")
+
+    logo_text = create_logo()
+    print(logo_text)
+
     # Create an instance of DatabaseManager here
     db_manager = DatabaseManager()
     
@@ -43,11 +50,12 @@ def main():
     num_ues_to_launch = 10  # This value should be set according to your needs
     ues = initialize_ues(num_ues_to_launch, gNodeBs, sectors, config.ue_config, db_manager)
     print("Initialized UEs:")
-    print("Type of first element in ues:", type(ues[0]))
-    print("First element in ues:", ues[0])
+    debug_print(f"Type of first element in ues:", type(ues[0]))
+    debug_print(f"First element in ues:", ues[0])
     for ue_list in ues:
         for ue in ue_list:  # Iterate over each UE in the nested list
                 print(f"UE ID: {ue.ID}, Sector ID: {ue.ConnectedSector}, Cell ID: {ue.ConnectedCellID}, gNodeB ID: {ue.gNodeB_ID}, Service Type: {ue.ServiceType}")
+
 
 
 if __name__ == "__main__":

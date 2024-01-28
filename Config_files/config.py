@@ -11,7 +11,8 @@ class Config:
         self.cells_config = self.load_json_config('cell_config.json')
         self.sectors_config = self.load_json_config('sector_config.json')
         self.ue_config = self.load_json_config('ue_config.json')
-
+        self.debug_mode = True  # Set to False to disable debug print messages
+        
     def load_json_config(self, filename):
         file_path = os.path.join(self.base_dir, 'Config_files', filename)
         with open(file_path, 'r') as file:
