@@ -10228,3 +10228,40 @@
 {"level": "INFO", "timestamp": "2024-01-28 17:22:00", "message": " A Cell 'CX5103' has been created at '2024-01-28 17:22:00' in gNodeB 'W2018' with max capacity 10.", "test_id": "eb7f8563-f2df-449c-9dc5-c137b430cc6c"}
 {"level": "INFO", "timestamp": "2024-01-28 17:22:00", "message": "Current cells in gNodeB W2018 before adding: ['AX9980', 'BX1230']", "test_id": "eb7f8563-f2df-449c-9dc5-c137b430cc6c"}
 {"level": "INFO", "timestamp": "2024-01-28 17:22:00", "message": "Cell 'CX5103' has been added to gNodeB 'W2018'.", "test_id": "eb7f8563-f2df-449c-9dc5-c137b430cc6c"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": "Initializing cells.", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": "Attempting to add cell with ID: Ax1242", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": " A Cell 'Ax1242' has been created at '2024-01-28 18:25:16' in gNodeB 'W1140' with max capacity 10.", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": "Current cells in gNodeB W1140 before adding: []", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": "Cell 'Ax1242' has been added to gNodeB 'W1140'.", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": "Attempting to add cell with ID: BX1453", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": " A Cell 'BX1453' has been created at '2024-01-28 18:25:16' in gNodeB 'W1140' with max capacity 10.", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": "Current cells in gNodeB W1140 before adding: ['Ax1242']", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": "Cell 'BX1453' has been added to gNodeB 'W1140'.", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": "Attempting to add cell with ID: CX1352", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": " A Cell 'CX1352' has been created at '2024-01-28 18:25:16' in gNodeB 'W1140' with max capacity 10.", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": "Current cells in gNodeB W1140 before adding: ['Ax1242', 'BX1453']", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": "Cell 'CX1352' has been added to gNodeB 'W1140'.", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": "Attempting to add cell with ID: AX1112", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": " A Cell 'AX1112' has been created at '2024-01-28 18:25:16' in gNodeB 'W1320' with max capacity 10.", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": "Current cells in gNodeB W1320 before adding: []", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": "Cell 'AX1112' has been added to gNodeB 'W1320'.", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": "Attempting to add cell with ID: BX1334", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": " A Cell 'BX1334' has been created at '2024-01-28 18:25:16' in gNodeB 'W1320' with max capacity 10.", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": "Current cells in gNodeB W1320 before adding: ['AX1112']", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": "Cell 'BX1334' has been added to gNodeB 'W1320'.", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": "Attempting to add cell with ID: CX1873", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": " A Cell 'CX1873' has been created at '2024-01-28 18:25:16' in gNodeB 'W1320' with max capacity 10.", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": "Current cells in gNodeB W1320 before adding: ['AX1112', 'BX1334']", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": "Cell 'CX1873' has been added to gNodeB 'W1320'.", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": "Attempting to add cell with ID: AX9980", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": " A Cell 'AX9980' has been created at '2024-01-28 18:25:16' in gNodeB 'W2018' with max capacity 10.", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": "Current cells in gNodeB W2018 before adding: []", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": "Cell 'AX9980' has been added to gNodeB 'W2018'.", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": "Attempting to add cell with ID: BX1230", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": " A Cell 'BX1230' has been created at '2024-01-28 18:25:16' in gNodeB 'W2018' with max capacity 10.", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": "Current cells in gNodeB W2018 before adding: ['AX9980']", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": "Cell 'BX1230' has been added to gNodeB 'W2018'.", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": "Attempting to add cell with ID: CX5103", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": " A Cell 'CX5103' has been created at '2024-01-28 18:25:16' in gNodeB 'W2018' with max capacity 10.", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": "Current cells in gNodeB W2018 before adding: ['AX9980', 'BX1230']", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}
+{"level": "INFO", "timestamp": "2024-01-28 18:25:16", "message": "Cell 'CX5103' has been added to gNodeB 'W2018'.", "test_id": "a68721f4-8ca3-444e-832a-47424e342f82"}

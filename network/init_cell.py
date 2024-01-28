@@ -10,7 +10,7 @@ def load_json_config(file_path):
     with open(file_path, 'r') as file:
         return json.load(file)
 
-def initialize_cells(gNodeBs, cells_config, db_manager,config):
+def initialize_cells(gNodeBs, cells_config, db_manager):
     debug_print("Debug Start: initialize_cells function.")
     cell_logger.info("Initializing cells.")
     print("Debug: Initializing cells.")
