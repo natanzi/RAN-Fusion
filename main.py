@@ -7,7 +7,7 @@ from network.init_cell import initialize_cells
 from network.init_sector import initialize_sectors
 from network.init_ue import initialize_ues
 from database.database_manager import DatabaseManager
-from utils.debug_utils import debug_print
+from utils.debug_utils import debug_print  # Correctly import debug_print
 
 def debug_print(message, config):
     if config.debug_mode:
