@@ -48,7 +48,7 @@ def main():
     # Initialize UEs
     num_ues_to_launch = 100  # This value should be set according to your needs
     #ues = initialize_ues(num_ues_to_launch, gNodeBs, sectors, config.ue_config, db_manager)
-    ues = initialize_ues(num_ues_to_launch, sectors, cells, gNodeBs)
+    ues = initialize_ues(num_ues_to_launch, sectors, cells, gNodeBs, config.ue_config)
 
     #print("Initialized UEs:")
     ##debug_print(f"Type of first element in ues: {type(ues[0])}")
