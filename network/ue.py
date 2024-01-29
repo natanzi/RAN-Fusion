@@ -9,7 +9,8 @@ from utills.debug_utils import debug_print
 class UE:
     existing_ue_ids = set()  # Keep track of all existing UE IDs to avoid duplicates
 
-    def __init__(self, **kwargs):
+    def __init__(self, config, **kwargs):
+        self.config = config
         # Check if UE ID is provided and unique
         ue_id = kwargs.get('ue_id', '').strip()
         if ue_id and ue_id not in UE.existing_ue_ids:

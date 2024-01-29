@@ -1,14 +1,21 @@
 # init_ue.py
 # Initialization of UEs
 import random
+import os
 from database.database_manager import DatabaseManager
 from .ue import UE
 from database.time_utils import get_current_time_ntp
 from logs.logger_config import ue_logger
 from network.utils import random_location_within_radius
 from utills.debug_utils import debug_print
-from Config_files import ue_config
+from Config_files.config import Config 
 
+# Get base path 
+base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  
+
+config = Config(base_dir)
+ue_config = config.ue_config
+print(ue_config)
 def initialize_ues(num_ues, sectors, cells, gnodebs):
 
     ues = []
@@ -16,7 +23,7 @@ def initialize_ues(num_ues, sectors, cells, gnodebs):
     for _ in range(num_ues):
 
         # Get random UE config
-        ue_data = random.choice(ue_config)  
+        ue_data = ue_config 
 
         # Select random sector
         sector = random.choice(list(sectors.values()))
@@ -31,7 +38,7 @@ def initialize_ues(num_ues, sectors, cells, gnodebs):
         )
             
         # Create UE 
-        ue = UE(ue_data,
+        ue = UE(config=ue_config, **ue_data,
             ue_id=f"UE{len(ues)+1}", 
             connected_sector=sector.sector_id,
             connected_cell_id=cell.ID,

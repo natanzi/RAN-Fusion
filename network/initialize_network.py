@@ -20,4 +20,8 @@ def initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, sectors_
     
     # Step 3: Instantiate Sectors and associate with Cells
     sectors = initialize_sectors(cells, sectors_config, db_manager)
+
+    # Step 4: Initialize UEs
+    ues = initialize_ues(num_ues_to_launch, sectors, cells, gNodeBs)
     
+    return gNodeBs, cells, sectors, ues
