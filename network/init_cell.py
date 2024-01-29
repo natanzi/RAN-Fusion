@@ -11,9 +11,9 @@ def load_json_config(file_path):
         return json.load(file)
 
 def initialize_cells(gNodeBs, cells_config, db_manager):
-    debug_print("Debug Start: initialize_cells function.")
+    #debug_print("Debug Start: initialize_cells function.")
     cell_logger.info("Initializing cells.")
-    debug_print("Debug: Initializing cells.")
+    #debug_print("Debug: Initializing cells.")
 
     # List all cell IDs from the configuration
     all_cell_ids = [cell_data['cell_id'] for cell_data in cells_config['cells']]
@@ -43,7 +43,7 @@ def initialize_cells(gNodeBs, cells_config, db_manager):
             gNodeB_id = cell_data['gnodeb_id']  # Use the correct key from the JSON configuration
             if gNodeB_id in gNodeBs:
                 gNodeBs[gNodeB_id].add_cell_to_gNodeB(new_cell)
-                debug_print(f"Debug: Cell {cell_id} added to gNodeB {gNodeB_id}")
+                #debug_print(f"Debug: Cell {cell_id} added to gNodeB {gNodeB_id}")
             else:
                 print(f"Error: gNodeB {gNodeB_id} not found for cell {cell_id}")
         except KeyError:
@@ -53,16 +53,16 @@ def initialize_cells(gNodeBs, cells_config, db_manager):
         # Insert cell data into the database
         point = new_cell.serialize_for_influxdb()
         db_manager.insert_data(point)
-        debug_print("Debug: Cell {new_cell.ID} data inserted into InfluxDB.")
+        #debug_print("Debug: Cell {new_cell.ID} data inserted into InfluxDB.")
 
     # Verify the creation of all cells
-    debug_print(f"Debug: Expected cell IDs: {all_cell_ids}")
+    #debug_print(f"Debug: Expected cell IDs: {all_cell_ids}")
     created_cell_ids = list(created_cells_dict.keys())
-    debug_print(f"Debug: Created cell IDs: {created_cell_ids}")
+    #debug_print(f"Debug: Created cell IDs: {created_cell_ids}")
     if len(created_cell_ids) == len(all_cell_ids):
         print("Success: The count and names of cells created match the list from the config.")
     else:
         print("Error: There is a mismatch in the count or names of cells created compared to the config.")
 
-    debug_print("Debug End: initialize_cells function.")
+    #debug_print("Debug End: initialize_cells function.")
     return created_cells_dict  # Return the dictionary of created cells

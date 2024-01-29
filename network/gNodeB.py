@@ -35,7 +35,7 @@ gNodeBs_config = load_gNodeB_config()
 
 class gNodeB:
     def __init__(self, gnodeb_id, latitude, longitude, coverageRadius, power, frequency, bandwidth, location, region, maxUEs, cellCount, sectorCount, handoverMargin, handoverHysteresis, timeToTrigger, interFreqHandover, xnInterface, sonCapabilities, loadBalancingOffset, cellIds, sectorIds, MeasurementBandwidth=None, BlacklistedCells=None, **kwargs):
-        debug_print(f"Debug Start: __init__ method in gNodeB class.")
+        #debug_print(f"Debug Start: __init__ method in gNodeB class.")
         self.ID = gnodeb_id  # str: Unique identifier for the gNodeB
         self.Latitude = latitude  # float: Geographic latitude where the gNodeB is located
         self.Longitude = longitude  # float: Geographic longitude where the gNodeB is located
@@ -183,8 +183,8 @@ class gNodeB:
                 raise ValueError("Duplicate Cell IDs detected after addition.")
 ###################################################################################################
     def add_sector_to_cell(self, sector, cell):
-        debug_print(f"Debug: Starting to add sector '{sector.ID}' to cell '{cell.ID}' in gNodeB '{self.ID}'.")  # Start message
-        debug_print(f"Debug: Sector object: {repr(sector)}")  # Print out the sector object
+        #debug_print(f"Debug: Starting to add sector '{sector.ID}' to cell '{cell.ID}' in gNodeB '{self.ID}'.")  # Start message
+        #debug_print(f"Debug: Sector object: {repr(sector)}")  # Print out the sector object
         try:
             #Check if the cell exists in this gNodeB
             if cell not in self.Cells:
@@ -196,7 +196,7 @@ class gNodeB:
             cell.add_sector(sector)
             #Log the addition of the sector
             cell_logger.info(f"Sector '{sector.ID}' has been added to Cell '{cell.ID}' in gNodeB '{self.ID}'.")
-            debug_print(f"Debug: Finished adding sector '{sector.ID}' to cell '{cell.ID}' in gNodeB '{self.ID}'.")  # End message
+            #debug_print(f"Debug: Finished adding sector '{sector.ID}' to cell '{cell.ID}' in gNodeB '{self.ID}'.")  # End message
         except Exception as e:
             print(f"An error occurred: {e}")
 ###################################################################################################

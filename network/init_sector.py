@@ -7,7 +7,7 @@ from utills.debug_utils import debug_print
 
 def initialize_sectors(sectors_config, cells, db_manager):
     # Print to validate sector config
-    debug_print(f"Sector config keys: {sectors_config.keys()}")
+    #debug_print(f"Sector config keys: {sectors_config.keys()}")
 
     
     # Validate sectors key exists

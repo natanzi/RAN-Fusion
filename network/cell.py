@@ -11,7 +11,7 @@ from utills.debug_utils import debug_print
 
 class Cell:
     def __init__(self, cell_id, gnodeb_id, frequencyBand, duplexMode, tx_power, bandwidth, ssbPeriodicity, ssbOffset, maxConnectUes, max_throughput,  channelModel, sectorCount, trackingArea=None, is_active=True):
-        debug_print(f"START-Creating cell {cell_id} from cell class")
+        #debug_print(f"START-Creating cell {cell_id} from cell class")
         self.ID = cell_id                   # Unique identifier for the Cell
         self.gNodeB_ID = gnodeb_id          # Identifier for the associated gNodeB of this cell
         self.FrequencyBand = frequencyBand  # Frequency band in which the cell operates
