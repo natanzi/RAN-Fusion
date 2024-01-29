@@ -6,12 +6,9 @@ from database.database_manager import DatabaseManager
 from .ue import UE
 from database.time_utils import get_current_time_ntp
 from logs.logger_config import ue_logger
-from network.utils import random_location_within_radius
+from network.utils import random_location_within_radius, get_total_capacity, allocate_to_gnb, create_ue
 from utills.debug_utils import debug_print
 from Config_files.config import Config 
-from network.utils import get_total_capacity
-from .utils import allocate_to_gnb
-from network.utils import create_ue
 
 # Get base path 
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  
@@ -21,28 +18,32 @@ ue_config = config.ue_config
 print(ue_config)
 
 def initialize_ues(num_ues, sector_ids, cells, gnodebs, ue_config):
-    
-    # Get sector objects from sector_ids
-    sectors = [cells[cell_id].get_sector(sector_id) 
-            for sector_id in sector_ids]
-    
+    # Assuming sector_ids is a list of sector IDs and cells is a dict with cell_id as key
+    # First, find the sectors by iterating through all cells
+    sectors = []
+    for cell_id, cell in cells.items():
+        for sector_id in sector_ids:
+            try:
+                sector = cell.get_sector(sector_id)
+                sectors.append(sector)
+            except KeyError:
+                # This means the sector_id was not found in this cell, which is fine
+                # as we're checking all cells
+                continue
+
     total_capacity = get_total_capacity(sectors)
-
-    total_capacity = get_total_capacity(sector_ids)  
+    
     gnb = list(gnodebs.values())[0]
-    allocated_ues = allocate_to_gnb(gnb, num_ues, sector_ids, ue_config)
-
+    allocated_ues = allocate_to_gnb(gnb, num_ues, sectors, ue_config)
 
     ues = []
-    
 
     for _ in range(num_ues):
-
         # Get random UE config
         ue_data = ue_config 
 
         # Select random sector
-        sector = random.choice(list(sector_ids.values()))
+        sector = random.choice(sectors)
             
         # Get associated cell and gNodeB
         cell = sector.cell 
@@ -68,6 +69,3 @@ def initialize_ues(num_ues, sector_ids, cells, gnodebs, ue_config):
         ues.append(ue)
 
     return ues
-        
-        
-        
