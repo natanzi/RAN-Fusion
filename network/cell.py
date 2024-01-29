@@ -101,17 +101,24 @@ class Cell:
             if not hasattr(self, 'sectors'):
                 self.sectors = []
             self.sectors.append(sector)
+            # Check if the sector already exists
+            if not any(s.sector_id == sector.sector_id for s in self.sectors):
+                self.sectors.append(sector)
+            else:
+            # Log or handle the case where the sector already exists
+                cell_logger.warning(f"Sector with ID {sector.sector_id} already exists in Cell {self.ID}")
 
-    def set_gNodeB(self, gNodeB):
-        self.gNodeB = gNodeB
-        
     def add_ue(self, ue):
-        # Assuming ue is an instance of a UE class and has an ID attribute
         if len(self.ConnectedUEs) < self.maxConnectUes:
-            self.ConnectedUEs.append(ue.ID)
-            self.current_ue_count += 1
-            # Log the addition of the UE or any other required actions
-            ue_logger.info(f"UE with ID {ue.ID} has been added to Cell {self.ID}")
+            # Check if the UE already exists
+            if ue.ID not in self.ConnectedUEs:
+                self.ConnectedUEs.append(ue.ID)
+                self.current_ue_count += 1
+                # Log the addition of the UE
+                ue_logger.info(f"UE with ID {ue.ID} has been added to Cell {self.ID}")
+            else:
+                # Log or handle the case where the UE already exists
+                ue_logger.warning(f"UE with ID {ue.ID} already exists in Cell {self.ID}")
         else:
             # Handle the case where the cell is at capacity
             ue_logger.warning(f"Cell {self.ID} is at maximum capacity. Cannot add UE with ID {ue.ID}")

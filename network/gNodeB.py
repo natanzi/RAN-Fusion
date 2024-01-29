@@ -136,9 +136,9 @@ class gNodeB:
     def add_cell_to_gNodeB(self, cell):
 
             try:
-                debug_print(f"Debug: Attempting to add cell {cell.ID} to gNodeB {self.ID}")
+                #debug_print(f"Debug: Attempting to add cell {cell.ID} to gNodeB {self.ID}")
                 current_cell_ids = [c.ID for c in self.Cells]
-                debug_print(f"Debug: Current cells in gNodeB {self.ID} before adding: {current_cell_ids}")
+                #debug_print(f"Debug: Current cells in gNodeB {self.ID} before adding: {current_cell_ids}")
                 cell_logger.info(f"Current cells in gNodeB {self.ID} before adding: {current_cell_ids}")
 
                 # Proactive check to prevent adding a cell with a duplicate ID

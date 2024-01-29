@@ -17,7 +17,7 @@ def initialize_cells(gNodeBs, cells_config, db_manager):
 
     # List all cell IDs from the configuration
     all_cell_ids = [cell_data['cell_id'] for cell_data in cells_config['cells']]
-    print(f"Debug: All available cell IDs from config: {all_cell_ids}")
+    #debug_print("Debug: All available cell IDs from config: {all_cell_ids}")
 
     seen_cell_ids = set()
     created_cells_dict = {}  # Change to dictionary to track successfully created cells
@@ -31,7 +31,7 @@ def initialize_cells(gNodeBs, cells_config, db_manager):
 
         seen_cell_ids.add(cell_id)
         cell_logger.info(f"Attempting to add cell with ID: {cell_id}")
-        print(f"Debug: Attempting to add cell with ID: {cell_id}")
+        debug_print("Debug: Attempting to add cell with ID: {cell_id}")
 
         # Create the cell instance
         new_cell = Cell(**cell_data)
