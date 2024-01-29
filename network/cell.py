@@ -133,12 +133,12 @@ class Cell:
     
     def get_sector(self, sector_id):
         """
-        Retrieve a sector by its ID from the sectors associated with this cell.
+        Retrieve a sector by its sector_id from the sectors associated with this cell.
 
-        :param sector_id: The ID of the sector to retrieve.
-        :return: The sector with the matching ID, or None if no match is found.
+        :param sector_id: The sector_id of the sector to retrieve.
+        :return: The sector with the matching sector_id, or None if no match is found.
         """
         for sector in self.sectors:
-            if sector.ID == sector_id:
+            if sector.sector_id == sector_id:  # Use sector.sector_id instead of sector.ID
                 return sector
         return None  # Or, alternatively, raise an exception if the sector is not found.
