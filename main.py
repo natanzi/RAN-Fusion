@@ -46,15 +46,15 @@ def main():
         print(f"Sector ID: {sector_id}, Details: {sector}")
     
     # Initialize UEs
-    #num_ues_to_launch = 10  # This value should be set according to your needs
+    num_ues_to_launch = 10  # This value should be set according to your needs
     #ues = initialize_ues(num_ues_to_launch, gNodeBs, sectors, config.ue_config, db_manager)
+    ues = initialize_ues(num_ues_to_launch, sectors, cells, gNodeBs, db_manager)
+
     #print("Initialized UEs:")
     ##debug_print(f"Type of first element in ues: {type(ues[0])}")
     #debug_print(f"First element in ues: {ues[0]}")
-    #for ue_list in ues:
-        #for ue in ue_list:  # Iterate over each UE in the nested list
-                #print(f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Sector ID: {ue.ConnectedSector}, Cell ID: {ue.ConnectedCellID}, gNodeB ID: {ue.gNodeB_ID}")
-
+    for ue in ues:
+        print(f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Sector ID: {ue.ConnectedSector}, Cell ID: {ue.ConnectedCellID}, gNodeB ID: {ue.gNodeB_ID}")
 
 
 if __name__ == "__main__":

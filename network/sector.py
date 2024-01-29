@@ -73,13 +73,17 @@ class Sector:
 
     def add_ue(self, ue):
         with sector_lock:  # Use the correct lock defined at the global scope
+            if len(self.connected_ues) >= self.capacity:
+                sector_logger.warning(f"Sector {self.sector_id} at max capacity! Cannot add UE {ue.ID}")
+                return
+            
             if ue.ID not in self.connected_ues:
                 self.connected_ues.append(ue.ID)  # Store only the ID, not the UE object
                 self.current_load += 1  # Increment the current load
                 global_ue_ids.add(ue.ID)  # Add the UE ID to the global list
-                sector_logger.info(f"UE with ID {ue.ID} has been added to the sector. Current load: {self.current_load}")
+                sector_logger.info(f"UE with ID {ue.ID} has been added to the sector {self.sector_id}. Current load: {self.current_load}")
             else:
-                sector_logger.warning(f"UE with ID {ue.ID} is already connected to the sector.")
+                sector_logger.warning(f"UE with ID {ue.ID} is already connected to the sector {self.sector_id}.")
 
     def remove_ue(self, ue):
         with sector_lock:
