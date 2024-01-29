@@ -51,8 +51,7 @@ def main():
     ues = initialize_ues(num_ues_to_launch, sectors, cells, gNodeBs, config.ue_config)
 
     #print("Initialized UEs:")
-    ##debug_print(f"Type of first element in ues: {type(ues[0])}")
-    #debug_print(f"First element in ues: {ues[0]}")
+
     for ue in ues:
         print(f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Sector ID: {ue.ConnectedSector}, Cell ID: {ue.ConnectedCellID}, gNodeB ID: {ue.gNodeB_ID}")
 

@@ -23,14 +23,14 @@ def initialize_ues(num_ues, sector_ids, cells, gnodebs, ue_config):
     sectors = []
     for cell_id, cell in cells.items():
         for sector_id in sector_ids:
-            try:
-                sector = cell.get_sector(sector_id)
+            sector = cell.get_sector(sector_id)
+            if sector is not None:  # Check if the sector is not None before appending
                 sectors.append(sector)
-            except KeyError:
-                # This means the sector_id was not found in this cell, which is fine
-                # as we're checking all cells
-                continue
+            else:
+                # Optionally, log or handle the case where a sector is not found
+                print(f"Sector with ID {sector_id} not found in cell {cell_id}")
 
+    # Proceed with the rest of the function after filtering out None values
     total_capacity = get_total_capacity(sectors)
     
     gnb = list(gnodebs.values())[0]
