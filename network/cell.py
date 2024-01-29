@@ -130,3 +130,15 @@ class Cell:
         
     def has_sector(self, sector_id):
         return any(sector.ID == sector_id for sector in self.sectors)
+    
+    def get_sector(self, sector_id):
+        """
+        Retrieve a sector by its ID from the sectors associated with this cell.
+
+        :param sector_id: The ID of the sector to retrieve.
+        :return: The sector with the matching ID, or None if no match is found.
+        """
+        for sector in self.sectors:
+            if sector.ID == sector_id:
+                return sector
+        return None  # Or, alternatively, raise an exception if the sector is not found.
