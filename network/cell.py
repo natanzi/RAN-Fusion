@@ -99,15 +99,16 @@ class Cell:
     
 #########################################################################################
     def add_sector(self, sector):
-            if not hasattr(self, 'sectors'):
-                self.sectors = []
-            self.sectors.append(sector)
-            # Check if the sector already exists
-            if not any(s.sector_id == sector.sector_id for s in self.sectors):
-                self.sectors.append(sector)
-            else:
-            # Log or handle the case where the sector already exists
-                cell_logger.warning(f"Sector with ID {sector.sector_id} already exists in Cell {self.ID}")
+
+        if not hasattr(self, 'sectors'):
+            self.sectors = []
+
+        # Check if sector already exists 
+        if sector.sector_id not in [s.sector_id for s in self.sectors]:
+            self.sectors.append(sector) 
+        else:
+            # Log duplicate sector  
+            cell_logger.warning(f"Sector {sector.ID} already exists in Cell {self.ID}")
 
     def add_ue(self, ue):
         if len(self.ConnectedUEs) < self.maxConnectUes:

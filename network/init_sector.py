@@ -1,43 +1,64 @@
 # init_sector.py
 # Initialization of the sectors in the network directory
+# init_sector.py
 import os
 from .sector import Sector
-from database.database_manager import DatabaseManager
-from utills.debug_utils import debug_print
+from logs.logger_config import cell_logger  
 
 def initialize_sectors(sectors_config, cells, db_manager):
-    initialized_sectors = {}  # Dictionary to keep track of initialized sectors
-    
+
+    initialized_sectors = {}
+    processed_sectors = set()
+
     for sector_data in sectors_config['sectors']:
+        
         sector_id = sector_data['sector_id']
-        cell_id = sector_data['cell_id']
+        cell_id = sector_data['cell_id'] 
         
-        # Check if the cell ID exists in the provided cells dictionary
+        sector_cell_combo = (cell_id, sector_id)
+        
+        if sector_cell_combo in processed_sectors:
+            print(f"Sector {sector_id} already processed for Cell {cell_id}. Skipping.") 
+            continue
+
+        processed_sectors.add(sector_cell_combo)
+
         if cell_id not in cells:
-            print(f"Error: Cell ID {cell_id} for sector {sector_id} not found.")
+            print(f"Cell {cell_id} not found.")
             continue
-        
-        # Retrieve the corresponding cell object
+            
         cell = cells[cell_id]
+
+        # Construct Sector instance passing all required arguments  
+        new_sector = Sector(
+            sector_id=sector_data['sector_id'],
+            cell_id=sector_data['cell_id'], 
+            capacity=sector_data['capacity'],
+            azimuth_angle=sector_data['azimuth_angle'],
+            beamwidth=sector_data['beamwidth'],
+            frequency=sector_data['frequency'],
+            duplex_mode=sector_data['duplex_mode'],
+            tx_power=sector_data['tx_power'],
+            bandwidth=sector_data['bandwidth'],
+            mimo_layers=sector_data['mimo_layers'],
+            beamforming=sector_data['beamforming'],
+            ho_margin=sector_data['ho_margin'],
+            load_balancing=sector_data['load_balancing'],
+            cell=cell
+        )
+
         
-        # Check if the sector already exists in the cell
-        if sector_id in [sector.sector_id for sector in cell.sectors]:
-            print(f"Warning: Sector with ID {sector_id} already exists in Cell {cell_id}. Skipping.")
-            continue
-        
-        # Use the from_json class method to create a Sector instance
-        # This method correctly handles the sector data and the cell object
-        new_sector = Sector.from_json(sector_data, cell)
-        
-        # Add the new sector to the corresponding cell
-        cell.add_sector(new_sector)
-        
-        # Keep track of the initialized sector
-        initialized_sectors[sector_id] = new_sector
-        
-        # Serialize the sector data for database insertion
+        try:
+            cell.add_sector(new_sector) 
+        except:
+            cell_logger.warning(f"Sector {new_sector.sector_id} already exists in Cell {cell.ID}")
+
+
+        initialized_sectors[new_sector.sector_id] = new_sector
+
+
         point = new_sector.serialize_for_influxdb()
         db_manager.insert_data(point)
-    
+
     print("Sectors initialization completed.")
     return initialized_sectors
