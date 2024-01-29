@@ -32,9 +32,10 @@ class Cell:
         self.current_ue_count = 0           # Current count of UEs connected to the cell
         self.sectors = []                   # List of sectors associated with the cell
         self.SectorCount = sectorCount      # Number of sectors the cell is divided into
+        self.gNodeB = None                  # Initialize with None
         current_time = get_current_time_ntp()
         # Logging statement should be here, after all attributes are set
-        cell_logger.info(f" A Cell '{cell_id}' has been created at '{current_time}' in gNodeB '{gnodeb_id}' with max capacity {self.maxConnectUes}.")
+        cell_logger.info(f" A Cell '{cell_id}' has been created at '{current_time}' in gNodeB '{gnodeb_id}' with max capacity {self.maxConnectUes} ue.")
         
     @staticmethod
     def from_json(json_data):
@@ -122,3 +123,9 @@ class Cell:
         else:
             # Handle the case where the cell is at capacity
             ue_logger.warning(f"Cell {self.ID} is at maximum capacity. Cannot add UE with ID {ue.ID}")
+            
+    def set_gNodeB(self, gNodeB):
+        self.gNodeB = gNodeB
+        
+    def has_sector(self, sector_id):
+        return any(sector.ID == sector_id for sector in self.sectors)

@@ -32,9 +32,12 @@ def main():
     
     # Initialize Cells
     cells = initialize_cells(gNodeBs, config.cells_config, db_manager)
-    print("Initialized Cells:")
-    for cell_id, cell in cells.items():
-        print(f"Cell ID: {cell_id}, Details: {cell}")
+    if cells is not None:
+        print("Initialized Cells:")
+        for cell_id, cell in cells.items():
+            print(f"Cell ID: {cell_id}, Details: {cell}")
+    else:
+        print("No cells were initialized.")
     
     # Initialize Sectors
     sectors = initialize_sectors(config.sectors_config, cells, db_manager)
@@ -43,14 +46,14 @@ def main():
         print(f"Sector ID: {sector_id}, Details: {sector}")
     
     # Initialize UEs
-    num_ues_to_launch = 10  # This value should be set according to your needs
-    ues = initialize_ues(num_ues_to_launch, gNodeBs, sectors, config.ue_config, db_manager)
-    print("Initialized UEs:")
-    #debug_print(f"Type of first element in ues: {type(ues[0])}")
+    #num_ues_to_launch = 10  # This value should be set according to your needs
+    #ues = initialize_ues(num_ues_to_launch, gNodeBs, sectors, config.ue_config, db_manager)
+    #print("Initialized UEs:")
+    ##debug_print(f"Type of first element in ues: {type(ues[0])}")
     #debug_print(f"First element in ues: {ues[0]}")
-    for ue_list in ues:
-        for ue in ue_list:  # Iterate over each UE in the nested list
-                print(f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Sector ID: {ue.ConnectedSector}, Cell ID: {ue.ConnectedCellID}, gNodeB ID: {ue.gNodeB_ID}")
+    #for ue_list in ues:
+        #for ue in ue_list:  # Iterate over each UE in the nested list
+                #print(f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Sector ID: {ue.ConnectedSector}, Cell ID: {ue.ConnectedCellID}, gNodeB ID: {ue.gNodeB_ID}")
 
 
 

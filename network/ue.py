@@ -7,8 +7,24 @@ from logs.logger_config import ue_logger
 from utills.debug_utils import debug_print
 
 class UE:
+    existing_ue_ids = set()  # Keep track of all existing UE IDs to avoid duplicates
+
     def __init__(self, **kwargs):
-        self.ID = kwargs.get('ue_id')         # Unique identifier for the UE
+        # Check if UE ID is provided and unique
+        ue_id = kwargs.get('ue_id', '').strip()
+        if ue_id and ue_id not in UE.existing_ue_ids:
+            self.ID = ue_id
+            UE.existing_ue_ids.add(ue_id)
+        else:
+            # Generate a unique UE ID if not provided or if it's a duplicate
+            ue_id_counter = max((int(ue_id[2:]) for ue_id in UE.existing_ue_ids if ue_id.startswith('UE')), default=0) + 1
+            ue_id = f"UE{ue_id_counter}"
+            while ue_id in UE.existing_ue_ids:  # Ensure the generated UE ID is unique
+                ue_id_counter += 1
+                ue_id = f"UE{ue_id_counter}"
+            self.ID = ue_id
+            UE.existing_ue_ids.add(ue_id)
+
         self.IMEI = kwargs.get('imei') or self.allocate_imei()         # International Mobile Equipment Identity
         self.Location = kwargs.get('location')         # Geographic location of the UE
         self.ConnectedCellID = kwargs.get('connected_cell_id')        # ID of the cell to which the UE is connected

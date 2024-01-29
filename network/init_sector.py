@@ -6,51 +6,38 @@ from database.database_manager import DatabaseManager
 from utills.debug_utils import debug_print
 
 def initialize_sectors(sectors_config, cells, db_manager):
-    # Print to validate sector config
-    #debug_print(f"Sector config keys: {sectors_config.keys()}")
-
+    initialized_sectors = {}  # Dictionary to keep track of initialized sectors
     
-    # Validate sectors key exists
-    if 'sectors' not in sectors_config:
-        raise KeyError("The key 'sectors' is missing from the sectors configuration.")
-    
-    # Get sectors list from config
-    sectors_list = sectors_config['sectors']
-    
-    # Dictionary to hold initialized sectors
-    initialized_sectors = {}
-    
-    # Iterate over each sector
-    for sector_data in sectors_list:
-        # Get sector ID and cell ID from data
+    for sector_data in sectors_config['sectors']:
         sector_id = sector_data['sector_id']
         cell_id = sector_data['cell_id']
-        print("Processing sector {sector_id} for cell {cell_id}.")
         
-        # Check if cell ID exists in cells dict
+        # Check if the cell ID exists in the provided cells dictionary
         if cell_id not in cells:
-            raise ValueError(f"Cell ID {cell_id} for sector {sector_id} not found in cells dictionary.")
+            print(f"Error: Cell ID {cell_id} for sector {sector_id} not found.")
+            continue
         
-        # Check for duplicate sector IDs
-        if any(sector.sector_id == sector_id for sector in cells[cell_id].sectors):
-            raise ValueError(f"Duplicate sector ID {sector_id} found during initialization.")
-        
-        # Retrieve the cell object using cell_id
+        # Retrieve the corresponding cell object
         cell = cells[cell_id]
         
-        # Create Sector instance from data, passing the cell object as an argument
+        # Check if the sector already exists in the cell
+        if sector_id in [sector.sector_id for sector in cell.sectors]:
+            print(f"Warning: Sector with ID {sector_id} already exists in Cell {cell_id}. Skipping.")
+            continue
+        
+        # Use the from_json class method to create a Sector instance
+        # This method correctly handles the sector data and the cell object
         new_sector = Sector.from_json(sector_data, cell)
         
-        # Add new sector to Cell
-        cells[cell_id].add_sector(new_sector)
+        # Add the new sector to the corresponding cell
+        cell.add_sector(new_sector)
         
-        # Add new sector to the initialized_sectors dictionary
+        # Keep track of the initialized sector
         initialized_sectors[sector_id] = new_sector
         
-        # Insert sector data into InfluxDB
+        # Serialize the sector data for database insertion
         point = new_sector.serialize_for_influxdb()
         db_manager.insert_data(point)
-        print(f"Sector {sector_id} added to database")
     
-    print("Debug: Finished initialize_sectors function.")
+    print("Sectors initialization completed.")
     return initialized_sectors
