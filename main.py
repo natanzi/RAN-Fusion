@@ -46,7 +46,7 @@ def main():
         print(f"Sector ID: {sector_id}, Details: {sector}")
     
     # Initialize UEs
-    num_ues_to_launch = 100  # This value should be set according to your needs
+    num_ues_to_launch = 10  # This value should be set according to your needs
     #ues = initialize_ues(num_ues_to_launch, gNodeBs, sectors, config.ue_config, db_manager)
     ues = initialize_ues(num_ues_to_launch, sectors, cells, gNodeBs, config.ue_config)
 

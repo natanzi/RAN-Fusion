@@ -80,7 +80,7 @@ def create_ue(sector, ue_config):
     ue = UE(config=ue_config,
             connected_sector=sector.sector_id,
             connected_cell=sector.cell_id,
-            gnodeb_id=gnb.id,
+            gnodeb_id=gnb.ID,
             location=[latitude, longitude])
 
     return ue
