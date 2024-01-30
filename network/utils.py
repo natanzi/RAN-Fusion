@@ -95,13 +95,14 @@ from network.sector import global_ue_ids
 
 class CapacityCalculator:
     from network.sector import global_ue_ids
-    global_ue_ids = global_ue_ids
+    
 
-    def __init__(self, gnodebs, cells, sectors, num_ues_to_launch):
+    def __init__(self, gnodebs, cells, sectors, num_ues_to_launch, global_ue_ids):
         self.gnodebs = gnodebs
         self.cells = cells
         self.sectors = sectors  
         self.num_ues_to_launch = num_ues_to_launch
+        self.global_ue_ids = global_ue_ids
 
     @property
     def gnodeb_capacity(self):

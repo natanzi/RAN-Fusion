@@ -36,7 +36,7 @@ class Sector:
         self.connected_ues = connected_ues if connected_ues is not None else []
         self.current_load = int(current_load)  # Integer, as load is a count
         # Assuming gnodebs, cells, and sectors are accessible for CapacityCalculator
-        self.capacity_calculator = CapacityCalculator(gnodebs=[], cells=[], sectors=[self], num_ues_to_launch=0)
+        self.capacity_calculator = CapacityCalculator(gnodebs=[], cells=[], sectors=[self], num_ues_to_launch=0, global_ue_ids=global_ue_ids)
 
     @classmethod
     def from_json(cls, data, cell):
