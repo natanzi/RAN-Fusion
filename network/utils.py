@@ -91,16 +91,14 @@ def get_total_capacity(sectors):
         total_capacity += sector.remaining_capacity
     return total_capacity
 
-from network.sector import global_ue_ids
 
 class CapacityCalculator:
-
     def __init__(self, gnodebs, cells, sectors, num_ues_to_launch, global_ue_ids):
         self.gnodebs = gnodebs
         self.cells = cells
-        self.sectors = sectors  
+        self.sectors = sectors
         self.num_ues_to_launch = num_ues_to_launch
-        self.global_ue_ids = global_ue_ids
+        self.global_ue_ids = global_ue_ids  # Now passed as a parameter
 
     @property
     def gnodeb_capacity(self):
