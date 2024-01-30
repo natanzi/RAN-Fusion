@@ -86,3 +86,9 @@ def create_ue(sector, ue_config):
             location=[latitude, longitude])
 
     return ue
+
+def get_total_capacity(sectors):
+    total_capacity = 0
+    for sector in sectors:
+        total_capacity += sector.remaining_capacity
+    return total_capacity

@@ -20,6 +20,7 @@ class Sector:
         
         # Numeric fields optimized based on usage
         self.capacity = int(capacity)  # Integer, as capacity is a count
+        self.remaining_capacity = int(capacity) ## Initialize remaining_capacity with the total capacity
         self.azimuth_angle = int(azimuth_angle)  # Integer, as angles can be represented without decimal precision
         self.beamwidth = int(beamwidth)  # Integer, as beamwidth can be represented without decimal precision
         self.frequency = float(frequency)  # Float, as frequency may require decimal precision
@@ -76,11 +77,12 @@ class Sector:
             if len(self.connected_ues) >= self.capacity:
                 sector_logger.warning(f"Sector {self.sector_id} at max capacity! Cannot add UE {ue.ID}")
                 return
-            
+
             if ue.ID not in self.connected_ues:
                 self.connected_ues.append(ue.ID)  # Store only the ID, not the UE object
                 self.current_load += 1  # Increment the current load
                 global_ue_ids.add(ue.ID)  # Add the UE ID to the global list
+                self.remaining_capacity = self.capacity - len(self.connected_ues)  # Update remaining_capacity
                 sector_logger.info(f"UE with ID {ue.ID} has been added to the sector {self.sector_id}. Current load: {self.current_load}")
             else:
                 sector_logger.warning(f"UE with ID {ue.ID} is already connected to the sector {self.sector_id}.")
@@ -91,6 +93,7 @@ class Sector:
                 self.connected_ues.remove(ue.ID)  # Remove the ID, not the UE object
                 self.current_load -= 1  # Decrement the current load
                 global_ue_ids.discard(ue.ID)  # Remove the UE ID from the global list
+                self.remaining_capacity = self.capacity - len(self.connected_ues)  # Update remaining_capacity
                 sector_logger.info(f"UE with ID {ue.ID} has been removed from the sector. Current load: {self.current_load}")
             else:
                 sector_logger.warning(f"UE with ID {ue.ID} is not connected to the sector.")
