@@ -6,6 +6,7 @@ from network.sector import global_ue_ids
 from network.sector import Sector
 from network.gNodeB import gNodeB
 from network.cell import Cell
+from network.sector import global_ue_ids
 
 def random_location_within_radius(center_lat, center_lon, radius_km):
 
@@ -94,8 +95,6 @@ def get_total_capacity(sectors):
 from network.sector import global_ue_ids
 
 class CapacityCalculator:
-    from network.sector import global_ue_ids
-    
 
     def __init__(self, gnodebs, cells, sectors, num_ues_to_launch, global_ue_ids):
         self.gnodebs = gnodebs
