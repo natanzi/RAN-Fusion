@@ -6,6 +6,7 @@ import time
 import threading
 from logs.logger_config import sector_logger
 from utills.debug_utils import debug_print
+from network.utils import CapacityCalculator
 
 sector_lock = threading.Lock()
 
@@ -34,6 +35,8 @@ class Sector:
         # List of UEs and current load, no change needed
         self.connected_ues = connected_ues if connected_ues is not None else []
         self.current_load = int(current_load)  # Integer, as load is a count
+        # Assuming gnodebs, cells, and sectors are accessible for CapacityCalculator
+        self.capacity_calculator = CapacityCalculator(gnodebs=[], cells=[], sectors=[self], num_ues_to_launch=0)
 
     @classmethod
     def from_json(cls, data, cell):
@@ -84,6 +87,8 @@ class Sector:
                 global_ue_ids.add(ue.ID)  # Add the UE ID to the global list
                 self.remaining_capacity = self.capacity - len(self.connected_ues)  # Update remaining_capacity
                 sector_logger.info(f"UE with ID {ue.ID} has been added to the sector {self.sector_id}. Current load: {self.current_load}")
+                # Update the capacity calculator's state
+                self.capacity_calculator.num_ues_to_launch += 1
             else:
                 sector_logger.warning(f"UE with ID {ue.ID} is already connected to the sector {self.sector_id}.")
 
@@ -95,5 +100,6 @@ class Sector:
                 global_ue_ids.discard(ue.ID)  # Remove the UE ID from the global list
                 self.remaining_capacity = self.capacity - len(self.connected_ues)  # Update remaining_capacity
                 sector_logger.info(f"UE with ID {ue.ID} has been removed from the sector. Current load: {self.current_load}")
+                self.capacity_calculator.num_ues_to_launch -= 1
             else:
                 sector_logger.warning(f"UE with ID {ue.ID} is not connected to the sector.")
