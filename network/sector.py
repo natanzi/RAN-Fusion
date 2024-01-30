@@ -104,5 +104,6 @@ class Sector:
             else:
                 sector_logger.warning(f"UE with ID {ue.ID} is not connected to the sector.")
     
+    @staticmethod
     def get_global_ue_ids():
         return global_ue_ids
