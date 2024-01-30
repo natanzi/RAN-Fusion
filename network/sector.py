@@ -6,7 +6,7 @@ import time
 import threading
 from logs.logger_config import sector_logger
 from utills.debug_utils import debug_print
-from network.utils import CapacityCalculator
+from network.capacity_management import CapacityCalculator
 
 sector_lock = threading.Lock()
 
