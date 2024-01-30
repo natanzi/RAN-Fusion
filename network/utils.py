@@ -6,7 +6,6 @@ from network.sector import global_ue_ids
 from network.sector import Sector
 from network.gNodeB import gNodeB
 from network.cell import Cell
-from network.sector import global_ue_ids
 
 def random_location_within_radius(center_lat, center_lon, radius_km):
 
