@@ -3,7 +3,7 @@
     {
         "sector_id": "A1",
         "cell_id": "Ax1242",
-        "capacity":"3",
+        "capacity":"10",
         "azimuth_angle": 120,
         "beamwidth": 60,
         "frequency": 3500000000,
@@ -18,7 +18,7 @@
     {
         "sector_id": "A2",
         "cell_id": "Ax1242",
-        "capacity":"3",
+        "capacity":"10",
         "azimuth_angle": 240,
         "beamwidth": 60,
         "frequency": 3500000000,
@@ -33,7 +33,7 @@
     {
         "sector_id": "A3",
         "cell_id": "Ax1242",
-        "capacity":"3",
+        "capacity":"10",
         "azimuth_angle": 0,
         "beamwidth": 60,
         "frequency": 3500000000,
@@ -48,7 +48,7 @@
     {
         "sector_id": "B1",
         "cell_id": "BX1453",
-        "capacity":"3",
+        "capacity":"10",
         "azimuth_angle": 120,
         "beamwidth": 60,
         "frequency": 3500000000,
@@ -63,7 +63,7 @@
     {
         "sector_id": "B2",
         "cell_id": "BX1453",
-        "capacity":"3",
+        "capacity":"10",
         "azimuth_angle": 240,
         "beamwidth": 60,
         "frequency": 3500000000,
@@ -78,7 +78,7 @@
     {
         "sector_id": "B3",
         "cell_id": "BX1453",
-        "capacity":"3",
+        "capacity":"10",
         "azimuth_angle": 0,
         "beamwidth": 60,
         "frequency": 3500000000,
@@ -93,7 +93,7 @@
     {
         "sector_id": "C1",
         "cell_id": "CX1352",
-        "capacity":"3",
+        "capacity":"10",
         "azimuth_angle": 120,
         "beamwidth": 60,
         "frequency": 3500000000,
@@ -108,7 +108,7 @@
     {
         "sector_id": "C2",
         "cell_id": "CX1352",
-        "capacity":"3",
+        "capacity":"10",
         "azimuth_angle": 240,
         "beamwidth": 60,
         "frequency": 3500000000,
@@ -123,7 +123,7 @@
     {
         "sector_id": "C3",
         "cell_id": "CX1352",
-        "capacity":"3",
+        "capacity":"10",
         "azimuth_angle": 0,
         "beamwidth": 60,
         "frequency": 3500000000,
@@ -138,7 +138,7 @@
     {
         "sector_id": "A1",
         "cell_id": "AX1112",
-        "capacity":"3",
+        "capacity":"10",
         "azimuth_angle": 120,
         "beamwidth": 60,
         "frequency": 3500000000,
@@ -153,7 +153,7 @@
     {
         "sector_id": "A2",
         "cell_id": "AX1112",
-        "capacity":"3",
+        "capacity":"10",
         "azimuth_angle": 240,
         "beamwidth": 60,
         "frequency": 3500000000,
@@ -168,7 +168,7 @@
     {
         "sector_id": "A3",
         "cell_id": "AX1112",
-        "capacity":"3",
+        "capacity":"10",
         "azimuth_angle": 0,
         "beamwidth": 60,
         "frequency": 3500000000,
@@ -183,7 +183,7 @@
     {
         "sector_id": "B1",
         "cell_id": "BX1334",
-        "capacity":"3",
+        "capacity":"10",
         "azimuth_angle": 120,
         "beamwidth": 60,
         "frequency": 3500000000,
@@ -198,7 +198,7 @@
     {
         "sector_id": "B2",
         "cell_id": "BX1334",
-        "capacity":"3",
+        "capacity":"10",
         "azimuth_angle": 240,
         "beamwidth": 60,
         "frequency": 3500000000,
@@ -213,7 +213,7 @@
     {
         "sector_id": "B3",
         "cell_id": "BX1334",
-        "capacity":"3",
+        "capacity":"10",
         "azimuth_angle": 0,
         "beamwidth": 60,
         "frequency": 3500000000,
@@ -228,7 +228,7 @@
     {
         "sector_id": "C1",
         "cell_id": "CX1873",
-        "capacity":"3",
+        "capacity":"10",
         "azimuth_angle": 120,
         "beamwidth": 60,
         "frequency": 3500000000,
@@ -243,7 +243,7 @@
     {
         "sector_id": "C2",
         "cell_id": "CX1873",
-        "capacity":"3",
+        "capacity":"10",
         "azimuth_angle": 240,
         "beamwidth": 60,
         "frequency": 3500000000,
@@ -258,7 +258,7 @@
     {
         "sector_id": "C3",
         "cell_id": "CX1873",
-        "capacity":"3",
+        "capacity":"10",
         "azimuth_angle": 0,
         "beamwidth": 60,
         "frequency": 3500000000,
@@ -273,7 +273,7 @@
     {
         "sector_id": "A1",
         "cell_id": "AX9980",
-        "capacity":"3",
+        "capacity":"10",
         "azimuth_angle": 120,
         "beamwidth": 60,
         "frequency": 3500000000,
@@ -288,7 +288,7 @@
     {
         "sector_id": "A2",
         "cell_id": "AX9980",
-        "capacity":"3",
+        "capacity":"10",
         "azimuth_angle": 240,
         "beamwidth": 60,
         "frequency": 3500000000,
@@ -303,7 +303,7 @@
     {
         "sector_id": "A3",
         "cell_id": "AX9980",
-        "capacity":"3",
+        "capacity":"10",
         "azimuth_angle": 0,
         "beamwidth": 60,
         "frequency": 3500000000,
@@ -318,7 +318,7 @@
     {
         "sector_id": "B1",
         "cell_id": "BX1230",
-        "capacity":"3",
+        "capacity":"10",
         "azimuth_angle": 120,
         "beamwidth": 60,
         "frequency": 3500000000,
@@ -333,7 +333,7 @@
     {
         "sector_id": "B2",
         "cell_id": "BX1230",
-        "capacity":"3",
+        "capacity":"10",
         "azimuth_angle": 240,
         "beamwidth": 60,
         "frequency": 3500000000,
@@ -348,7 +348,7 @@
     {
         "sector_id": "B3",
         "cell_id": "BX1230",
-        "capacity":"3",
+        "capacity":"10",
         "azimuth_angle": 0,
         "beamwidth": 60,
         "frequency": 3500000000,
@@ -363,7 +363,7 @@
     {
         "sector_id": "C1",
         "cell_id": "CX5103",
-        "capacity":"3",
+        "capacity":"10",
         "azimuth_angle": 120,
         "beamwidth": 60,
         "frequency": 3500000000,
@@ -378,7 +378,7 @@
     {
         "sector_id": "C2",
         "cell_id": "CX5103",
-        "capacity":"3",
+        "capacity":"10",
         "azimuth_angle": 240,
         "beamwidth": 60,
         "frequency": 3500000000,
@@ -393,7 +393,7 @@
     {
         "sector_id": "C3",
         "cell_id": "CX5103",
-        "capacity":"3",
+        "capacity":"10",
         "azimuth_angle": 0,
         "beamwidth": 60,
         "frequency": 3500000000,

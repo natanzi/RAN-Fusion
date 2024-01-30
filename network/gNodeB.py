@@ -45,7 +45,7 @@ class gNodeB:
         self.Bandwidth = bandwidth  # int: Bandwidth available at the gNodeB in MHz
         self.Location = location  # list: Physical location of the gNodeB, typically a list [latitude, longitude]
         self.Region = region if isinstance(region, str) else ','.join(region)  # str: Region where the gNodeB is deployed, can be a single string or a list of regions joined as a string
-        self.MaxUEs = maxUEs  # int: Maximum number of UEs (User Equipments) that can be connected to the gNodeB
+        self.MaxUEs = maxUEs  # int: Maximum number of UEs (User Equipments) that can be connected to the gNodeB or #total UEs across all its cells.
         self.HandoverMargin = handoverMargin  # float: Margin for handover to trigger in dB
         self.HandoverHysteresis = handoverHysteresis  # float: Hysteresis value for handover in dB
         self.TimeToTrigger = timeToTrigger  # int: Time to trigger the handover in milliseconds
@@ -102,7 +102,7 @@ class gNodeB:
             "transmission_power": int(self.TransmissionPower),
             "frequency": float(self.Frequency),
             "region": region_str,
-            "max_ues": int(self.MaxUEs),
+            "max_ues": int(self.MaxUEs), 
             "cell_count": int(self.CellCount),
             "sector_count": int(self.SectorCount),
             "measurement_bandwidth": float(self.MeasurementBandwidth),

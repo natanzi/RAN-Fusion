@@ -20,7 +20,7 @@ class Cell:
         self.Bandwidth = bandwidth          # Bandwidth allocated to the cell in MHz
         self.SSBPeriodicity = ssbPeriodicity# Periodicity of the SSB (Synchronization Signal Block) in ms    
         self.SSBOffset = ssbOffset          # Offset for the SSB in terms of the number of symbols     
-        self.maxConnectUes = maxConnectUes  # Maximum number of UEs that can connect to the cell
+        self.maxConnectUes = maxConnectUes  # Maximum number of UEs that can connect to the cell, total UEs a cell can handle
         self.max_throughput = max_throughput# Maximum throughput the cell can handle in Mbps
         self.ChannelModel = channelModel     # Channel model used for the cell (e.g., urban, rural)
         self.TrackingArea = trackingArea     # Tracking area code, if applicable
