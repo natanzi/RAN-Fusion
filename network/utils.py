@@ -64,13 +64,11 @@ def allocate_to_gnb(gnb, num_ues, sectors, ue_config):
     return ues
 
 def get_sectors_for_gnb(gnb, all_sectors):
-
     # Find all sectors for this gnb
     gnb_sectors = []
-    for sector in all_sectors.values():
+    for sector in all_sectors:  # Directly iterate over the list
         if sector.cell.gnodeb == gnb:
             gnb_sectors.append(sector)
-
     return gnb_sectors
 
 
