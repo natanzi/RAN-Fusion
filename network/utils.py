@@ -74,7 +74,7 @@ def get_sectors_for_gnb(gnb, all_sectors):
 
 def create_ue(sector, ue_config):
     gnb = sector.cell.gNodeB
-    latitude, longitude = random_location_within_radius(gnb.latitude, gnb.longitude, gnb.coverageRadius)
+    latitude, longitude = random_location_within_radius(gnb.Latitude, gnb.Longitude, gnb.coverageRadius)
 
     # Create UE without specifying ue_id, letting the UE class handle it
     ue = UE(config=ue_config,
