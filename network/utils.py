@@ -14,35 +14,31 @@ def random_location_within_radius(center_lat, center_lon, radius_km):
     return lat, lon
 
 def allocate_ues(num_ues, sectors, ue_config):
-    
-    # Track per-sector allocation
-    ue_allocs = {s: [] for s in sectors}  
+    ue_allocs = {s: [] for s in sectors}
     rr_pointer = 0
-    
-    for _ in range(num_ues):
-    
-        # Round-robin sector selection 
-        sector = sectors[rr_pointer % len(sectors)]
-        
-        if sector.remaining_capacity > 0:
-        # Allocate UE if capacity available
-            ue = create_ue(sector, ue_config)  
-            sector.add_ue(ue)
-            ue_allocs[sector].append(ue)
+    allocated_ues = []
 
-        else:
-            # Apply fallback logic  
-            for fallback_sector in sectors:
-                if fallback_sector.remaining_capacity > 0:
-                    ue = create_ue(fallback_sector) 
-                    fallback_sector.add_ue(ue)  
-                    ue_allocs[fallback_sector].append(ue)
-                    break 
-                    
-        rr_pointer += 1
-        
-    # Flatten final UE allocation lists
-    allocated_ues = [ue for ue_list in ue_allocs.values() for ue in ue_list]   
+    for _ in range(num_ues):
+        allocated = False
+        attempted_sectors = 0
+
+        while not allocated and attempted_sectors < len(sectors):
+            sector = sectors[rr_pointer % len(sectors)]
+            rr_pointer += 1
+            attempted_sectors += 1
+
+            if sector.remaining_capacity > 0:
+                ue = create_ue(sector, ue_config)
+                sector.add_ue(ue)
+                ue_allocs[sector].append(ue)
+                allocated_ues.append(ue)
+                allocated = True
+                break  # Break the while loop once UE is allocated
+
+        if not allocated:
+            print("Warning: Unable to allocate UE, all sectors at capacity.")
+            break  # Break the for loop if no sectors have capacity
+
     return allocated_ues
 
 
