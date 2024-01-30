@@ -67,7 +67,7 @@ def get_sectors_for_gnb(gnb, all_sectors):
     # Find all sectors for this gnb
     gnb_sectors = []
     for sector in all_sectors:  # Directly iterate over the list
-        if sector.cell.gnodeb == gnb:
+        if sector.cell.gNodeB == gnb:
             gnb_sectors.append(sector)
     return gnb_sectors
 
