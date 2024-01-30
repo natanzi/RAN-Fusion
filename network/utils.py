@@ -78,8 +78,8 @@ def create_ue(sector, ue_config):
 
     # Create UE without specifying ue_id, letting the UE class handle it
     ue = UE(config=ue_config,
-            connected_sector=sector.ID,
-            connected_cell=sector.cell.id,
+            connected_sector=sector.sector_id,
+            connected_cell=sector.cell_id,
             gnodeb_id=gnb.id,
             location=[latitude, longitude])
 
