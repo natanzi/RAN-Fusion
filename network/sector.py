@@ -103,3 +103,6 @@ class Sector:
                 self.capacity_calculator.num_ues_to_launch -= 1
             else:
                 sector_logger.warning(f"UE with ID {ue.ID} is not connected to the sector.")
+    
+    def get_global_ue_ids():
+        return global_ue_ids

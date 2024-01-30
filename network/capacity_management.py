@@ -1,5 +1,5 @@
 #capacity_management.py  inside the network folder
-from network.sector import global_ue_ids
+from network.sector import get_global_ue_ids
 from network import UE
 from network.sector import Sector
 from network.gNodeB import gNodeB
