@@ -46,20 +46,18 @@ def allocate_ues(num_ues, sectors, ue_config):
     return allocated_ues
 
 
-def allocate_to_gnb(gnb, num_ues, sectors):
-
+def allocate_to_gnb(gnb, num_ues, sectors, ue_config): 
     gnb_sectors = get_sectors_for_gnb(gnb, sectors)
     
     ues = []
     
     for _ in range(num_ues):
-    
         # Pick random sector from this gnb
         sector = random.choice(gnb_sectors) 
         
         if sector.remaining_capacity > 0:
-            # Create & add UE 
-            ue = create_ue(sector)  
+            # Create & add UE with ue_config
+            ue = create_ue(sector, ue_config)  # Pass ue_config to create_ue
             sector.add_ue(ue)
             ues.append(ue)
 
@@ -75,22 +73,16 @@ def get_sectors_for_gnb(gnb, all_sectors):
 
     return gnb_sectors
 
+
 def create_ue(sector, ue_config):
-
     gnb = sector.cell.gnodeb
-    
-    # Generate random location
-    latitude, longitude = random_location_within_radius(gnb.latitude, gnb.longitude, gnb.coverageRadius)    
+    latitude, longitude = random_location_within_radius(gnb.latitude, gnb.longitude, gnb.coverageRadius)
 
-    # Create UE 
-    ue = UE(config=ue_config,  
-            id=f"UE{len(ues)+1}",
+    # Create UE without specifying ue_id, letting the UE class handle it
+    ue = UE(config=ue_config,
             connected_sector=sector.id,
-            connected_cell=sector.cell.id,  
+            connected_cell=sector.cell.id,
             gnodeb_id=gnb.id,
             location=[latitude, longitude])
-    
-    return ue
 
-def get_total_capacity(sectors):
-    return sum(s.capacity for s in sectors)
+    return ue
