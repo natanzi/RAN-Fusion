@@ -2,7 +2,6 @@
 import random
 import math
 from network import UE
-from network.sector import global_ue_ids 
 from network.sector import Sector
 from network.gNodeB import gNodeB
 from network.cell import Cell
