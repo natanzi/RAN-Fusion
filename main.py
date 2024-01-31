@@ -8,6 +8,7 @@ from network.init_sector import initialize_sectors
 from network.init_ue import initialize_ues
 from database.database_manager import DatabaseManager
 from utills.debug_utils import debug_print
+import time
 
 def main():
 
@@ -17,6 +18,8 @@ def main():
     # Create an instance of Config here
     config = Config(base_dir)
 
+    #Generate and save the network map
+    config.network_map()  # Call the network_map method
 
     logo_text = create_logo()
     print(logo_text)
@@ -24,6 +27,8 @@ def main():
     # Create an instance of DatabaseManager here
     db_manager = DatabaseManager()
     
+    #sleep
+    time.sleep(3)
     # Initialize gNodeBs
     gNodeBs = initialize_gNodeBs(config.gNodeBs_config, db_manager)
     print("Initialized gNodeBs:")
@@ -46,14 +51,14 @@ def main():
         print(f"Sector ID: {sector_id}, Details: {sector}")
     
     # Initialize UEs
-    num_ues_to_launch = 271  # This value should be set according to your needs
+    #num_ues_to_launch = 271  # This value should be set according to your needs
     #ues = initialize_ues(num_ues_to_launch, gNodeBs, sectors, config.ue_config, db_manager)
-    ues = initialize_ues(num_ues_to_launch, sectors, cells, gNodeBs, config.ue_config)
+    #ues = initialize_ues(num_ues_to_launch, sectors, cells, gNodeBs, config.ue_config)
 
     #print("Initialized UEs:")
 
-    for ue in ues:
-        print(f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Sector ID: {ue.ConnectedSector}, Cell ID: {ue.ConnectedCellID}, gNodeB ID: {ue.gNodeB_ID}")
+    #for ue in ues:
+        #print(f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Sector ID: {ue.ConnectedSector}, Cell ID: {ue.ConnectedCellID}, gNodeB ID: {ue.gNodeB_ID}")
 
 
 if __name__ == "__main__":

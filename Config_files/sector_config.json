@@ -1,7 +1,7 @@
 {
     "sectors":[
     {
-        "sector_id": "A1",
+        "sector_id": "Ax1242-A1",
         "cell_id": "Ax1242",
         "capacity":"10",
         "azimuth_angle": 120,
@@ -16,7 +16,7 @@
         "load_balancing": 10
     },
     {
-        "sector_id": "A2",
+        "sector_id": "Ax1242-A2",
         "cell_id": "Ax1242",
         "capacity":"10",
         "azimuth_angle": 240,
@@ -31,7 +31,7 @@
         "load_balancing": 10
     },
     {
-        "sector_id": "A3",
+        "sector_id": "Ax1242-A3",
         "cell_id": "Ax1242",
         "capacity":"10",
         "azimuth_angle": 0,
@@ -46,7 +46,7 @@
         "load_balancing": 10
     },
     {
-        "sector_id": "B1",
+        "sector_id": "BX1453-B1",
         "cell_id": "BX1453",
         "capacity":"10",
         "azimuth_angle": 120,
@@ -61,7 +61,7 @@
         "load_balancing": 10
     },
     {
-        "sector_id": "B2",
+        "sector_id": "BX1453-B2",
         "cell_id": "BX1453",
         "capacity":"10",
         "azimuth_angle": 240,
@@ -76,7 +76,7 @@
         "load_balancing": 10
     },
     {
-        "sector_id": "B3",
+        "sector_id": "BX1453-B3",
         "cell_id": "BX1453",
         "capacity":"10",
         "azimuth_angle": 0,
@@ -91,7 +91,7 @@
         "load_balancing": 10
     },
     {
-        "sector_id": "C1",
+        "sector_id": "CX1352-C1",
         "cell_id": "CX1352",
         "capacity":"10",
         "azimuth_angle": 120,
@@ -106,7 +106,7 @@
         "load_balancing": 10
     },
     {
-        "sector_id": "C2",
+        "sector_id": "CX1352-C2",
         "cell_id": "CX1352",
         "capacity":"10",
         "azimuth_angle": 240,
@@ -121,7 +121,7 @@
         "load_balancing": 10
     },
     {
-        "sector_id": "C3",
+        "sector_id": "CX1352-C3",
         "cell_id": "CX1352",
         "capacity":"10",
         "azimuth_angle": 0,
@@ -136,7 +136,7 @@
         "load_balancing": 10
     },
     {
-        "sector_id": "A1",
+        "sector_id": "AX1112-A1",
         "cell_id": "AX1112",
         "capacity":"10",
         "azimuth_angle": 120,
@@ -151,7 +151,7 @@
         "load_balancing": 10
     },
     {
-        "sector_id": "A2",
+        "sector_id": "AX1112-A2",
         "cell_id": "AX1112",
         "capacity":"10",
         "azimuth_angle": 240,
@@ -166,7 +166,7 @@
         "load_balancing": 10
     },
     {
-        "sector_id": "A3",
+        "sector_id": "AX1112-A3",
         "cell_id": "AX1112",
         "capacity":"10",
         "azimuth_angle": 0,
@@ -181,7 +181,7 @@
         "load_balancing": 10
     },
     {
-        "sector_id": "B1",
+        "sector_id": "BX1334-B1",
         "cell_id": "BX1334",
         "capacity":"10",
         "azimuth_angle": 120,
@@ -196,7 +196,7 @@
         "load_balancing": 10
     },
     {
-        "sector_id": "B2",
+        "sector_id": "BX1334-B2",
         "cell_id": "BX1334",
         "capacity":"10",
         "azimuth_angle": 240,
@@ -211,7 +211,7 @@
         "load_balancing": 10
     },
     {
-        "sector_id": "B3",
+        "sector_id": "BX1334-B3",
         "cell_id": "BX1334",
         "capacity":"10",
         "azimuth_angle": 0,
@@ -226,7 +226,7 @@
         "load_balancing": 10
     },
     {
-        "sector_id": "C1",
+        "sector_id": "CX1873-C1",
         "cell_id": "CX1873",
         "capacity":"10",
         "azimuth_angle": 120,
@@ -241,7 +241,7 @@
         "load_balancing": 10
     },
     {
-        "sector_id": "C2",
+        "sector_id": "CX1873-C2",
         "cell_id": "CX1873",
         "capacity":"10",
         "azimuth_angle": 240,
@@ -256,7 +256,7 @@
         "load_balancing": 10
     },
     {
-        "sector_id": "C3",
+        "sector_id": "CX1873-C3",
         "cell_id": "CX1873",
         "capacity":"10",
         "azimuth_angle": 0,
@@ -271,7 +271,7 @@
         "load_balancing": 10
     },
     {
-        "sector_id": "A1",
+        "sector_id": "AX9980-A1",
         "cell_id": "AX9980",
         "capacity":"10",
         "azimuth_angle": 120,
@@ -286,7 +286,7 @@
         "load_balancing": 10
     },
     {
-        "sector_id": "A2",
+        "sector_id": "AX9980-A2",
         "cell_id": "AX9980",
         "capacity":"10",
         "azimuth_angle": 240,
@@ -301,7 +301,7 @@
         "load_balancing": 10
     },
     {
-        "sector_id": "A3",
+        "sector_id": "AX9980-A3",
         "cell_id": "AX9980",
         "capacity":"10",
         "azimuth_angle": 0,
@@ -316,7 +316,7 @@
         "load_balancing": 10
     },
     {
-        "sector_id": "B1",
+        "sector_id": "BX1230-B1",
         "cell_id": "BX1230",
         "capacity":"10",
         "azimuth_angle": 120,
@@ -331,7 +331,7 @@
         "load_balancing": 10
     },
     {
-        "sector_id": "B2",
+        "sector_id": "BX1230-B2",
         "cell_id": "BX1230",
         "capacity":"10",
         "azimuth_angle": 240,
@@ -346,7 +346,7 @@
         "load_balancing": 10
     },
     {
-        "sector_id": "B3",
+        "sector_id": "BX1230-B3",
         "cell_id": "BX1230",
         "capacity":"10",
         "azimuth_angle": 0,
@@ -361,7 +361,7 @@
         "load_balancing": 10
     },
     {
-        "sector_id": "C1",
+        "sector_id": "CX5103-C1",
         "cell_id": "CX5103",
         "capacity":"10",
         "azimuth_angle": 120,
@@ -376,7 +376,7 @@
         "load_balancing": 10
     },
     {
-        "sector_id": "C2",
+        "sector_id": "CX5103-C2",
         "cell_id": "CX5103",
         "capacity":"10",
         "azimuth_angle": 240,
@@ -391,7 +391,7 @@
         "load_balancing": 10
     },
     {
-        "sector_id": "C3",
+        "sector_id": "CX5103-C3",
         "cell_id": "CX5103",
         "capacity":"10",
         "azimuth_angle": 0,

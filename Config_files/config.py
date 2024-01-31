@@ -17,3 +17,33 @@ class Config:
         with open(file_path, 'r') as file:
             return json.load(file)
         
+    def network_map(self):
+        network_map = {
+            "gNodeBs": []
+        }
+        for gnodeb in self.gNodeBs_config['gNodeBs']:
+            gnodeb_entry = {
+                "gNodeBId": gnodeb['gnodeb_id'],
+                "cells": []
+            }
+            associated_cells = [cell for cell in self.cells_config['cells'] if cell['gnodeb_id'] == gnodeb['gnodeb_id']]
+            for cell in associated_cells:
+                # List sectors for this cell
+                sectors_for_cell = [{"sectorId": sector['sector_id']} 
+                                    for sector in self.sectors_config['sectors'] 
+                                    if sector['cell_id'] == cell['cell_id']]
+            
+                cell_entry = {
+                    "cellId": cell['cell_id'],
+                    "sectors": sectors_for_cell
+                }
+                gnodeb_entry["cells"].append(cell_entry)
+            network_map["gNodeBs"].append(gnodeb_entry)
+    
+        # Save the network map to a JSON file in the Config_files directory
+        output_file_path = os.path.join(self.base_dir, 'Config_files', 'network_map.json')
+        with open(output_file_path, 'w') as file:
+            json.dump(network_map, file, indent=2)
+
+
+
