@@ -37,9 +37,10 @@ def initialize_network(base_dir, num_ues_to_launch=None):
             print(f"Cell ID: {cell_id}, Details: {cell}")
     else:
         print("No cells were initialized.")
-
+        
     # Initialize Sectors
-    sectors = initialize_sectors(cells, config.sectors_config, db_manager)
+    sectors = initialize_sectors(config.sectors_config, cells, db_manager)
+
     print("Initialized Sectors:")
     for sector_id, sector in sectors.items():
         print(f"Sector ID: {sector_id}, Details: {sector}")
