@@ -47,7 +47,7 @@ def initialize_sectors(sectors_config, cells, db_manager):
 
         try:
             # Use the add_sector_to_cell method to add the sector
-            cell.add_sector_to_cell(new_sector, cell_id)
+            cell.add_sector_to_cell(new_sector)
         except ValueError as e:
             # Handle exceptions, such as when the cell is not found or the sector already exists
             cell_logger.warning(str(e))
