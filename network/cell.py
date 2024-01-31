@@ -98,18 +98,23 @@ class Cell:
         return point
     
 #########################################################################################
-    def add_sector(self, sector):
+    def add_sector_to_cell(self, sector, cell_id):
+        cell = self.find_cell_by_id(cell_id)  # Assuming a method to find a cell by ID
+        if cell is None:
+            raise ValueError(f"Cell with ID {cell_id} not found.")
 
-        if not hasattr(self, 'sectors'):
-            self.sectors = []
+    # Integrate the sector addition logic here
+        if not hasattr(cell, 'sectors'):
+            cell.sectors = []
 
-        # Check if sector already exists 
-        if sector.sector_id not in [s.sector_id for s in self.sectors]:
-            self.sectors.append(sector) 
+    # Check if sector already exists in the cell
+        if sector.sector_id not in [s.sector_id for s in cell.sectors]:
+            cell.sectors.append(sector)
+            cell_logger.info(f"Sector '{sector.ID}' added to Cell '{cell_id}'.")
         else:
-            # Log duplicate sector  
-            cell_logger.warning(f"Sector {sector.ID} already exists in Cell {self.ID}")
-
+            # Log duplicate sector
+            cell_logger.warning(f"Sector {sector.ID} already exists in Cell {cell_id}.")
+#########################################################################################
     def add_ue(self, ue):
         if len(self.ConnectedUEs) < self.maxConnectUes:
             # Check if the UE already exists

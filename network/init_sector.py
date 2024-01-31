@@ -1,24 +1,22 @@
 # init_sector.py
 # Initialization of the sectors in the network directory
-# init_sector.py
+
 import os
 from .sector import Sector
-from logs.logger_config import cell_logger  
+from logs.logger_config import cell_logger
 
 def initialize_sectors(sectors_config, cells, db_manager):
-
     initialized_sectors = {}
     processed_sectors = set()
 
     for sector_data in sectors_config['sectors']:
-        
         sector_id = sector_data['sector_id']
-        cell_id = sector_data['cell_id'] 
-        
+        cell_id = sector_data['cell_id']
+
         sector_cell_combo = (cell_id, sector_id)
-        
+
         if sector_cell_combo in processed_sectors:
-            print(f"Sector {sector_id} already processed for Cell {cell_id}. Skipping.") 
+            print(f"Sector {sector_id} already processed for Cell {cell_id}. Skipping.")
             continue
 
         processed_sectors.add(sector_cell_combo)
@@ -26,13 +24,13 @@ def initialize_sectors(sectors_config, cells, db_manager):
         if cell_id not in cells:
             print(f"Cell {cell_id} not found.")
             continue
-            
+
         cell = cells[cell_id]
 
-        # Construct Sector instance passing all required arguments  
+        # Construct Sector instance passing all required arguments
         new_sector = Sector(
             sector_id=sector_data['sector_id'],
-            cell_id=sector_data['cell_id'], 
+            cell_id=sector_data['cell_id'],
             capacity=sector_data['capacity'],
             azimuth_angle=sector_data['azimuth_angle'],
             beamwidth=sector_data['beamwidth'],
@@ -47,15 +45,14 @@ def initialize_sectors(sectors_config, cells, db_manager):
             cell=cell
         )
 
-        
         try:
-            cell.add_sector(new_sector) 
-        except:
-            cell_logger.warning(f"Sector {new_sector.sector_id} already exists in Cell {cell.ID}")
-
+            # Use the add_sector_to_cell method to add the sector
+            cell.add_sector_to_cell(new_sector, cell_id)
+        except ValueError as e:
+            # Handle exceptions, such as when the cell is not found or the sector already exists
+            cell_logger.warning(str(e))
 
         initialized_sectors[new_sector.sector_id] = new_sector
-
 
         point = new_sector.serialize_for_influxdb()
         db_manager.insert_data(point)

@@ -182,16 +182,7 @@ class gNodeB:
             if len(cell_ids) != len(set(cell_ids)):
                 raise ValueError("Duplicate Cell IDs detected after addition.")
 ###################################################################################################
-    def add_sector_to_cell(self, sector, cell_id):
-        cell = self.find_cell_by_id(cell_id)  # Assuming a method to find a cell by ID
-        if cell is None:
-            raise ValueError(f"Cell with ID {cell_id} not found.")
-    
-        if cell.has_sector(sector.ID):
-            cell_logger.warning(f"Sector with ID {sector.ID} already exists in Cell {cell_id}.")
-        else:
-            cell.sectors.append(sector)
-            cell_logger.info(f"Sector '{sector.ID}' added to Cell '{cell_id}'.")
+
 ###################################################################################################
 
 
