@@ -17,6 +17,9 @@ def initialize_network(base_dir, num_ues_to_launch=None):
     # Create an instance of Config
     config = Config(base_dir)
 
+    # Access the network map data
+    network_map = config.network_map_data
+    
     # Create an instance of DatabaseManager
     db_manager = DatabaseManager()
 
