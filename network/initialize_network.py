@@ -45,12 +45,17 @@ def initialize_network(base_dir, num_ues_to_launch=None):
     for sector_id, sector in sectors.items():
         print(f"Sector ID: {sector_id}, Details: {sector}")
 
+    #Initi  UE
+    ues = initialize_ues(num_ues_to_launch, sectors, cells, gNodeBs, config.ue_config)
+
     # Initialize UEs if num_ues_to_launch is provided
     if num_ues_to_launch:
+    # Assuming 'sectors' is a list of sector IDs you want to initialize UEs in
+    # 'cells' and 'gNodeBs' are dictionaries or similar structures holding cell and gNodeB instances
         ues = initialize_ues(num_ues_to_launch, sectors, cells, gNodeBs, config.ue_config)
         print("Initialized UEs:")
         for ue in ues:
             print(f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Sector ID: {ue.ConnectedSector}, Cell ID: {ue.ConnectedCellID}, gNodeB ID: {ue.gNodeB_ID}")
-        return gNodeBs, cells, sectors, ues
 
-    return gNodeBs, cells, sectors
+
+    return gNodeBs, cells, sectors,ues

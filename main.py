@@ -5,6 +5,8 @@ from logo import create_logo
 from database.database_manager import DatabaseManager
 from network.initialize_network import initialize_network
 from utills.debug_utils import debug_print
+from network.init_ue import initialize_ues
+
 import time
 
 def main():
@@ -22,21 +24,10 @@ def main():
     time.sleep(3)
 
     # Call the new initialization function
-    gNodeBs, cells, sectors = initialize_network(base_dir)
+    gNodeBs, cells, sectors, ues = initialize_network(base_dir, num_ues_to_launch=271)
 
     # Post-initialization steps, if any
     print("Network Initialization Complete")
-
-    # Initialize UEs
-    #num_ues_to_launch = 271  # This value should be set according to your needs
-    #ues = initialize_ues(num_ues_to_launch, gNodeBs, sectors, config.ue_config, db_manager)
-    #ues = initialize_ues(num_ues_to_launch, sectors, cells, gNodeBs, config.ue_config)
-
-    #print("Initialized UEs:")
-
-    #for ue in ues:
-        #print(f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Sector ID: {ue.ConnectedSector}, Cell ID: {ue.ConnectedCellID}, gNodeB ID: {ue.gNodeB_ID}")
-
 
 if __name__ == "__main__":
     main()
