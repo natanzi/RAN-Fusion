@@ -19,7 +19,7 @@ def main():
     config = Config(base_dir)
 
     #Generate and save the network map
-    config.network_map()  # Call the network_map method
+    network_map_data = config.network_map_data
 
     logo_text = create_logo()
     print(logo_text)
