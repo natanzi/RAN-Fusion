@@ -9,21 +9,29 @@ def initialize_sectors(sectors_config, cells, db_manager):
     initialized_sectors = {}
     processed_sectors = set()
 
+    # Validate cells before allocation
+    # Extract unique cell IDs from sectors configuration
+    required_cell_ids = {sector_data['cell_id'] for sector_data in sectors_config['sectors']}
+    for cell_id in required_cell_ids:
+        if cell_id not in cells:
+            print(f"Cell {cell_id} not initialized, cannot allocate sectors.")
+            return  # Skip sector allocation for this cell
+
     for sector_data in sectors_config['sectors']:
         sector_id = sector_data['sector_id']
         cell_id = sector_data['cell_id']
 
         sector_cell_combo = (cell_id, sector_id)
-
         if sector_cell_combo in processed_sectors:
             print(f"Sector {sector_id} already processed for Cell {cell_id}. Skipping.")
             continue
 
         processed_sectors.add(sector_cell_combo)
 
-        if cell_id not in cells:
-            print(f"Cell {cell_id} not found.")
-            continue
+        # At this point, the cell's existence has already been validated, so this check is redundant
+        # if cell_id not in cells:
+        #     print(f"Cell {cell_id} not found.")
+        #     continue
 
         cell = cells[cell_id]
 
@@ -59,4 +67,3 @@ def initialize_sectors(sectors_config, cells, db_manager):
 
     print("Sectors initialization completed.")
     return initialized_sectors
-

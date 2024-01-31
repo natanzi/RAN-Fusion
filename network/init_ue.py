@@ -10,7 +10,6 @@ base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 config = Config(base_dir)
 ue_config = config.ue_config
-print(ue_config)
 
 def initialize_ues(num_ues, sector_ids, cells, gnodebs, ue_config):
     sectors = []

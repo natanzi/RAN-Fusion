@@ -7,7 +7,6 @@ import time
 from influxdb_client import Point
 from influxdb_client.client.write_api import SYNCHRONOUS
 from database.time_utils import get_current_time_ntp, server_pools
-from utills.debug_utils import debug_print
 
 class Cell:
     def __init__(self, cell_id, gnodeb_id, frequencyBand, duplexMode, tx_power, bandwidth, ssbPeriodicity, ssbOffset, maxConnectUes, max_throughput,  channelModel, sectorCount, trackingArea=None, is_active=True):
@@ -36,7 +35,7 @@ class Cell:
         current_time = get_current_time_ntp()
         # Logging statement should be here, after all attributes are set
         cell_logger.info(f" A Cell '{cell_id}' has been created at '{current_time}' in gNodeB '{gnodeb_id}' with max capacity {self.maxConnectUes} ue.")
-        
+        time.sleep(1)
     @staticmethod
     def from_json(json_data):
         return Cell(
@@ -90,14 +89,7 @@ class Cell:
             .field("CellisActive", bool(self.IsActive)) \
             .field("sector_count", int(self.SectorCount))
 
-        # Loop to add details about each sector
-        for i, sector in enumerate(self.sectors):
-            point.field(f"sector_{i}_id", sector.sector_id)
-            # Add other relevant sector fields here
-
-        return point
-    
-#########################################################################################
+####################################################################################
     def add_sector_to_cell(self, sector):
     # Directly work with the self instance, no need to find by cell_id
         if not hasattr(self, 'sectors'):

@@ -9,7 +9,6 @@ from .init_ue import initialize_ues
 from logs.logger_config import ue_logger
 from .sector import Sector
 from network.ue import UE
-from utills.debug_utils import debug_print
 from Config_files.config import Config  # Import the Config class
 from database.database_manager import DatabaseManager  # Import DatabaseManager
 
@@ -38,29 +37,29 @@ def initialize_network(base_dir, num_ues_to_launch=None):
 
     # Initialize gNodeBs
     gNodeBs = initialize_gNodeBs(config.gNodeBs_config, db_manager)
-    print("Initialized gNodeBs:")
     for gnb_id, gnb in gNodeBs.items():
-        print(f"gNodeB ID: {gnb_id}, Details: {gnb}")
+        print(f"gNodeB ID: {gnb_id}")
+        
 
-    # Initialize Cells
+    #Initialize Cells
     cells = initialize_cells(gNodeBs, config.cells_config, db_manager)
     if cells is not None:
-        print("Initialized Cells:")
         for cell_id, cell in cells.items():
-            print(f"Cell ID: {cell_id}, Details: {cell}")
+            print(f"Cell ID: {cell_id}")
+            
     else:
         print("No cells were initialized.")
         
     # Initialize Sectors
     sectors = initialize_sectors(config.sectors_config, cells, db_manager)
-    print("Initialized Sectors:")
     for sector_id, sector in sectors.items():
-        print(f"Sector ID: {sector_id}, Details: {sector}")
-
-    # Reconcile the initialized network with the network map
+        print(f"Sector ID: {sector_id}")
+        
+        
+    #Reconcile the initialized network with the network map
     reconcile_network_with_map(network_map, cells)
 
-    # Initialize UEs if num_ues_to_launch is provided
+    #Initialize UEs if num_ues_to_launch is provided
     if num_ues_to_launch:
         ues = initialize_ues(num_ues_to_launch, sectors, cells, gNodeBs, config.ue_config)
         print("Initialized UEs:")

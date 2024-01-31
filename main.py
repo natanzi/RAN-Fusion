@@ -1,10 +1,9 @@
 import os
 import logging
-from Config_files.config import Config  # Import the new Config class
+from Config_files.config import Config
 from logo import create_logo
 from database.database_manager import DatabaseManager
 from network.initialize_network import initialize_network
-from utills.debug_utils import debug_print
 from network.init_ue import initialize_ues
 
 import time
@@ -21,14 +20,15 @@ def main():
     db_manager = DatabaseManager()
     
     #sleep
-    time.sleep(3)
+    time.sleep(1)
 
     # Call the new initialization function
-    gNodeBs, cells, sectors, ues = initialize_network(base_dir, num_ues_to_launch=50)
-
+    gNodeBs, cells, sectors, ues = initialize_network(base_dir, num_ues_to_launch=10)
+    #gNodeBs= initialize_network(base_dir)#, num_ues_to_launch=10)
 
     # Post-initialization steps, if any
     print("Network Initialization Complete")
+
 
 if __name__ == "__main__":
     main()

@@ -16,7 +16,6 @@ from influxdb_client.client.write_api import SYNCHRONOUS, WritePrecision
 from database.time_utils import get_current_time_ntp, server_pools
 from multiprocessing import Lock
 from network.sector import Sector
-from utills.debug_utils import debug_print
 current_time = get_current_time_ntp()
 DEFAULT_BLACKLISTED_CELLS = []
 DEFAULT_MEASUREMENT_BANDWIDTH = 20
@@ -35,7 +34,6 @@ gNodeBs_config = load_gNodeB_config()
 
 class gNodeB:
     def __init__(self, gnodeb_id, latitude, longitude, coverageRadius, power, frequency, bandwidth, location, region, maxUEs, cellCount, sectorCount, handoverMargin, handoverHysteresis, timeToTrigger, interFreqHandover, xnInterface, sonCapabilities, loadBalancingOffset, cellIds, sectorIds, MeasurementBandwidth=None, BlacklistedCells=None, **kwargs):
-        #debug_print(f"Debug Start: __init__ method in gNodeB class.")
         self.ID = gnodeb_id  # str: Unique identifier for the gNodeB
         self.Latitude = latitude  # float: Geographic latitude where the gNodeB is located
         self.Longitude = longitude  # float: Geographic longitude where the gNodeB is located
@@ -63,12 +61,12 @@ class gNodeB:
         self.SectorIds = sectorIds  # list: List of sector IDs under this gNodeB
         self.Cells = []  # list: List to hold cell objects associated with this gNodeB
         current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        gnodeb_logger.info(f"gNodeB '{self.ID}' has been launched with {self.CellCount} cells at '{current_time}'.")
-        debug_print(f"Debug End: gNodeB '{self.ID}' initialized with {self.CellCount} cells.")
+        #gnodeb_logger.info(f"gNodeB '{self.ID}' has been launched with {self.CellCount} cells at '{current_time}'.")
+        #debug_print(f"Debug End: gNodeB '{self.ID}' initialized with {self.CellCount} cells.")
         # Handle any additional keyword arguments
         for key, value in kwargs.items():
             setattr(self, key, value)
-        print(f"gNodeB '{self.ID}' has been launched with {self.CellCount} cells.")
+        print(f"gNodeB '{self.ID}' has been launched with {self.CellCount} cells capacity.")
         time.sleep(1)  # Delay for 1 second
 
     @staticmethod
@@ -139,7 +137,7 @@ class gNodeB:
                 #debug_print(f"Debug: Attempting to add cell {cell.ID} to gNodeB {self.ID}")
                 current_cell_ids = [c.ID for c in self.Cells]
                 #debug_print(f"Debug: Current cells in gNodeB {self.ID} before adding: {current_cell_ids}")
-                cell_logger.info(f"Current cells in gNodeB {self.ID} before adding: {current_cell_ids}")
+                #cell_logger.info(f"Current cells in gNodeB {self.ID} before adding: {current_cell_ids}")
 
                 # Proactive check to prevent adding a cell with a duplicate ID
                 if cell.ID in current_cell_ids:
@@ -157,7 +155,7 @@ class gNodeB:
 
                 # Add the cell to the gNodeB's list of cells
                 self.Cells.append(cell)
-                print(f"Debug: Cell {cell.ID} has been added to gNodeB {self.ID}.")
+                #print(f"Debug: Cell {cell.ID} has been added to gNodeB {self.ID}.")
                 cell_logger.info(f"Cell '{cell.ID}' has been added to gNodeB '{self.ID}'.")
 
                 # Add sectors to the cell if they are not already present
