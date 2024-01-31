@@ -11,11 +11,20 @@ class Config:
         self.cells_config = self.load_json_config('cell_config.json')
         self.sectors_config = self.load_json_config('sector_config.json')
         self.ue_config = self.load_json_config('ue_config.json')
+        self.network_map = self.load_or_generate_network_map()
 
     def load_json_config(self, filename):
         file_path = os.path.join(self.base_dir, 'Config_files', filename)
         with open(file_path, 'r') as file:
             return json.load(file)
+        
+    def load_or_generate_network_map(self):
+        network_map_path = os.path.join(self.base_dir, 'Config_files', 'network_map.json')
+        if os.path.exists(network_map_path):
+            with open(network_map_path, 'r') as file:
+                return json.load(file)
+        else:
+            return self.generate_network_map()
         
     def network_map(self):
         network_map = {

@@ -11,6 +11,8 @@ def load_json_config(file_path):
         return json.load(file)
 
 def initialize_cells(gNodeBs, cells_config, db_manager):
+    #network_map = config.network_map
+    
     cell_logger.info("Initializing cells.")
     cells = {}  # Initialize an empty dictionary to hold cell instances
     for cell_data in cells_config['cells']:
