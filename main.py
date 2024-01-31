@@ -23,9 +23,8 @@ def main():
     time.sleep(1)
 
     # Call the new initialization function
-    gNodeBs, cells, sectors, ues = initialize_network(base_dir, num_ues_to_launch=10)
-    #gNodeBs= initialize_network(base_dir)#, num_ues_to_launch=10)
-
+    gNodeBs, cells, sectors, ues = initialize_network(base_dir, num_ues_to_launch=100)
+    
     # Post-initialization steps, if any
     print("Network Initialization Complete")
 

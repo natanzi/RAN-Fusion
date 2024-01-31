@@ -11,21 +11,18 @@ base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 config = Config(base_dir)
 ue_config = config.ue_config
 
-def initialize_ues(num_ues, sector_ids, cells, gnodebs, ue_config):
-    sectors = []
-    for cell_id, cell in cells.items():
-        for sector_id in sector_ids:
-            sector = cell.get_sector(sector_id)
-            if sector is not None:
-                sectors.append(sector)
-            else:
-                print(f"Sector with ID {sector_id} not found in cell {cell_id}")
+def initialize_ues(num_ues, cells, gnodebs, ue_config):
 
-    if not sectors:
-        print("Error: No sectors found for allocation.")
-        return []
+    # Get list of all sectors from cells
+    all_sectors = []
+    for cell in cells.values():
+        all_sectors.extend(cell.sectors)
+    
+    if not all_sectors:
+        print("Error: No sectors found")
+        return
 
     # Use the modified allocate_ues function from utils.py
-    allocated_ues = allocate_ues(num_ues, sectors, ue_config)
+    allocated_ues = allocate_ues(num_ues, all_sectors, ue_config)
 
     return allocated_ues

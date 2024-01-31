@@ -83,6 +83,8 @@ class Sector:
                 self.current_load += 1  # Increment the current load
                 global_ue_ids.add(ue.ID)  # Add the UE ID to the global list
                 self.remaining_capacity = self.capacity - len(self.connected_ues)  # Update remaining_capacity
+                ue.ConnectedCellID = self.cell_id
+                ue.gNodeB_ID = self.cell.gNodeB_ID
                 sector_logger.info(f"UE with ID {ue.ID} has been added to the sector {self.sector_id}. Current load: {self.current_load}")
 
             else:

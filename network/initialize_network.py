@@ -61,7 +61,7 @@ def initialize_network(base_dir, num_ues_to_launch=None):
 
     #Initialize UEs if num_ues_to_launch is provided
     if num_ues_to_launch:
-        ues = initialize_ues(num_ues_to_launch, sectors, cells, gNodeBs, config.ue_config)
+        ues = initialize_ues(num_ues_to_launch, cells, gNodeBs, config.ue_config)
         print("Initialized UEs:")
         for ue in ues:
             print(f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Sector ID: {ue.ConnectedSector}, Cell ID: {ue.ConnectedCellID}, gNodeB ID: {ue.gNodeB_ID}")
