@@ -4,26 +4,49 @@
 
 from .init_gNodeB import initialize_gNodeBs
 from .init_cell import initialize_cells
-from .init_sector import initialize_sectors  # Import the initialize_sectors function
+from .init_sector import initialize_sectors
 from .init_ue import initialize_ues
 from logs.logger_config import ue_logger
 from .sector import Sector
 from network.ue import UE
 from utills.debug_utils import debug_print
+from Config_files.config import Config  # Import the Config class
+from database.database_manager import DatabaseManager  # Import DatabaseManager
 
-def initialize_network(num_ues_to_launch, gNodeBs_config, cells_config, sectors_config, ue_config, db_manager):
+def initialize_network(base_dir, num_ues_to_launch=None):
+    # Create an instance of Config
+    config = Config(base_dir)
 
-    # Step 1: Instantiate gNodeBs
-    gNodeBs = initialize_gNodeBs(gNodeBs_config, db_manager)
-    
-    # Step 2: Instantiate Cells and associate with gNodeBs
-    cells = initialize_cells(gNodeBs, cells_config, db_manager)
-    
-    # Step 3: Instantiate Sectors and associate with Cells
-    sectors = initialize_sectors(cells, sectors_config, db_manager)
+    # Create an instance of DatabaseManager
+    db_manager = DatabaseManager()
 
-    # Step 4: Initialize UEs
-    ues = initialize_ues(num_ues_to_launch, sectors, cells, gNodeBs)
+    # Initialize gNodeBs
+    gNodeBs = initialize_gNodeBs(config.gNodeBs_config, db_manager)
+    print("Initialized gNodeBs:")
+    for gnb_id, gnb in gNodeBs.items():
+        print(f"gNodeB ID: {gnb_id}, Details: {gnb}")
 
-    
-    return gNodeBs, cells, sectors, ues
+    # Initialize Cells
+    cells = initialize_cells(gNodeBs, config.cells_config, db_manager)
+    if cells is not None:
+        print("Initialized Cells:")
+        for cell_id, cell in cells.items():
+            print(f"Cell ID: {cell_id}, Details: {cell}")
+    else:
+        print("No cells were initialized.")
+
+    # Initialize Sectors
+    sectors = initialize_sectors(cells, config.sectors_config, db_manager)
+    print("Initialized Sectors:")
+    for sector_id, sector in sectors.items():
+        print(f"Sector ID: {sector_id}, Details: {sector}")
+
+    # Initialize UEs if num_ues_to_launch is provided
+    if num_ues_to_launch:
+        ues = initialize_ues(num_ues_to_launch, sectors, cells, gNodeBs, config.ue_config)
+        print("Initialized UEs:")
+        for ue in ues:
+            print(f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Sector ID: {ue.ConnectedSector}, Cell ID: {ue.ConnectedCellID}, gNodeB ID: {ue.gNodeB_ID}")
+        return gNodeBs, cells, sectors, ues
+
+    return gNodeBs, cells, sectors
