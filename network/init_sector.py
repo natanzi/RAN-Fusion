@@ -59,3 +59,4 @@ def initialize_sectors(sectors_config, cells, db_manager):
 
     print("Sectors initialization completed.")
     return initialized_sectors
+

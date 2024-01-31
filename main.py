@@ -26,6 +26,7 @@ def main():
     # Call the new initialization function
     gNodeBs, cells, sectors, ues = initialize_network(base_dir, num_ues_to_launch=50)
 
+
     # Post-initialization steps, if any
     print("Network Initialization Complete")
 
