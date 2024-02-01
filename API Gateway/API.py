@@ -1,12 +1,14 @@
 import sys
 import os
+# Append the project root directory to sys.path to ensure imports work correctly
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+
 from flask import Flask, request, jsonify
 from network.ue import UE
 from network.sector import Sector
 from threading import Lock
 import traceback
 import threading
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
 app = Flask(__name__)
 lock = threading.Lock()
