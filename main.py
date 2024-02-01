@@ -7,12 +7,25 @@ from network.initialize_network import initialize_network
 from network.init_ue import initialize_ues
 import time
 from flask import Flask, websocket
+import threading
 
 app = Flask(__name__)
 @websocket.route('/ues')
 def home():
     while True:  
         websocket.sleep(1)
+        
+def monitor_network_changes():
+    while True:
+        # Logic to check for changes in the network state
+        # For example, you might check a global variable or a database for updates
+        # If there are changes, print them
+        time.sleep(1)  # Adjust the sleep time as needed
+
+# Start the monitoring thread
+monitor_thread = threading.Thread(target=monitor_network_changes)
+monitor_thread.daemon = True  # Daemonize thread
+monitor_thread.start()
 
 def main():
 
