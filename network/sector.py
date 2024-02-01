@@ -10,7 +10,7 @@ sector_lock = threading.Lock()
 
 # Assume a global list or set for UE IDs is defined at the top level of your module
 global_ue_ids = set()
-
+all_sectors = {}
 class Sector:
     def __init__(self, sector_id, cell_id, cell, capacity, azimuth_angle, beamwidth, frequency, duplex_mode, tx_power, bandwidth, mimo_layers, beamforming, ho_margin, load_balancing, connected_ues=None, current_load=0):
         self.sector_id = sector_id  # String, kept as is for identifiers
@@ -94,18 +94,18 @@ class Sector:
 
     def remove_ue(self, ue_id):
         with sector_lock:
-            if ue_id.ID in self.connected_ues:
-                self.connected_ues.remove(ue_id.ID)  # Remove the ID, not the UE object
+            if ue_id in self.connected_ues:
+                self.connected_ues.remove(ue_id)  # Correctly remove the ID string
                 self.current_load -= 1  # Decrement the current load
-                global_ue_ids.discard(ue_id)  # Remove the UE ID from the global list
+                global_ue_ids.discard(ue_id)  # Correctly discard the ID string
                 self.remaining_capacity = self.capacity - len(self.connected_ues)  # Update remaining_capacity
-                del self.ues[ue_id] 
-                global_ue_ids.discard(ue_id)
+                del self.ues[ue_id]  # Correctly delete the UE from the dictionary
                 sector_logger.info(f"UE with ID {ue_id} has been removed from the sector. Current load: {self.current_load}")
-
             else:
                 sector_logger.warning(f"UE with ID {ue_id} is not connected to the sector.")
                 
-    
-
+    @classmethod
+    def get_sector_by_id(cls, sector_id):
+        # Assuming there's a global dictionary named 'all_sectors' mapping sector IDs to Sector instances
+        return all_sectors.get(sector_id, None)
 

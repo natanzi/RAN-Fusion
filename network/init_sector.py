@@ -2,7 +2,7 @@
 # Initialization of the sectors in the network directory
 
 import os
-from .sector import Sector
+from .sector import Sector, all_sectors
 from logs.logger_config import cell_logger
 
 def initialize_sectors(sectors_config, cells, db_manager):
@@ -27,11 +27,6 @@ def initialize_sectors(sectors_config, cells, db_manager):
             continue
 
         processed_sectors.add(sector_cell_combo)
-
-        # At this point, the cell's existence has already been validated, so this check is redundant
-        # if cell_id not in cells:
-        #     print(f"Cell {cell_id} not found.")
-        #     continue
 
         cell = cells[cell_id]
 
@@ -61,7 +56,7 @@ def initialize_sectors(sectors_config, cells, db_manager):
             cell_logger.warning(str(e))
 
         initialized_sectors[new_sector.sector_id] = new_sector
-
+        all_sectors[new_sector.sector_id] = new_sector # Add the new sector to the global dictionary of sector
         point = new_sector.serialize_for_influxdb()
         db_manager.insert_data(point)
 
