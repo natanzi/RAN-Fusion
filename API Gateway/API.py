@@ -1,10 +1,9 @@
 import sys
 import os
-# Calculate the path to the root of the project
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
-from flask import Flask, request, jsonify
-from network.ue import UE
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) 
+from network.ue import UE 
 from network.sector import Sector
+from flask import Flask, request, jsonify
 from threading import Lock
 import traceback
 import threading

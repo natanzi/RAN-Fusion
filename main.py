@@ -6,14 +6,8 @@ from database.database_manager import DatabaseManager
 from network.initialize_network import initialize_network
 from network.init_ue import initialize_ues
 import time
-#from flask import Flask, websocket
 import threading
 
-#app = Flask(__name__)
-#@websocket.route('/ues')
-#def home():
-    #while True:  
-        #websocket.sleep(1)
         
 def monitor_ue_updates():
     log_file_path = 'ue_updates.log'

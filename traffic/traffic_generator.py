@@ -7,7 +7,6 @@ from threading import Lock, Thread
 from datetime import datetime
 from database.database_manager import DatabaseManager
 from network.network_delay import NetworkDelay
-from network.handover_utils import perform_handover
 
 class TrafficController:
 
