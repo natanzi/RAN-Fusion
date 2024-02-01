@@ -16,7 +16,7 @@ class Sector:
         self.sector_id = sector_id  # String, kept as is for identifiers
         self.cell_id = cell_id  # String, kept as is for identifiers
         self.cell = cell  # Cell object, no change needed
-        
+        self.ues = {} #Add a dictionary to track UEs mapped to their IDs:
         # Numeric fields optimized based on usage
         self.capacity = int(capacity)  # Integer, as capacity is a count
         self.remaining_capacity = int(capacity) ## Initialize remaining_capacity with the total capacity
@@ -51,7 +51,7 @@ class Sector:
         data['cell_id'] = cell.ID
 
         return cls(**data)
-
+    
     def serialize_for_influxdb(self):
         point = Point("sector_metrics") \
             .tag("sector_id", self.sector_id) \
@@ -76,7 +76,7 @@ class Sector:
         with sector_lock:  # Use the correct lock defined at the global scope
             if len(self.connected_ues) >= self.capacity:
                 sector_logger.warning(f"Sector {self.sector_id} at max capacity! Cannot add UE {ue.ID}")
-                return
+
 
             if ue.ID not in self.connected_ues:
                 self.connected_ues.append(ue.ID)  # Store only the ID, not the UE object
@@ -85,21 +85,27 @@ class Sector:
                 self.remaining_capacity = self.capacity - len(self.connected_ues)  # Update remaining_capacity
                 ue.ConnectedCellID = self.cell_id
                 ue.gNodeB_ID = self.cell.gNodeB_ID
+                self.ues[ue.ID] = ue
+                global_ue_ids.add(ue.ID)
                 sector_logger.info(f"UE with ID {ue.ID} has been added to the sector {self.sector_id}. Current load: {self.current_load}")
 
             else:
                 sector_logger.warning(f"UE with ID {ue.ID} is already connected to the sector {self.sector_id}.")
 
-    def remove_ue(self, ue):
+    def remove_ue(self, ue_id):
         with sector_lock:
-            if ue.ID in self.connected_ues:
-                self.connected_ues.remove(ue.ID)  # Remove the ID, not the UE object
+            if ue_id.ID in self.connected_ues:
+                self.connected_ues.remove(ue_id.ID)  # Remove the ID, not the UE object
                 self.current_load -= 1  # Decrement the current load
-                global_ue_ids.discard(ue.ID)  # Remove the UE ID from the global list
+                global_ue_ids.discard(ue_id)  # Remove the UE ID from the global list
                 self.remaining_capacity = self.capacity - len(self.connected_ues)  # Update remaining_capacity
-                sector_logger.info(f"UE with ID {ue.ID} has been removed from the sector. Current load: {self.current_load}")
+                del self.ues[ue_id] 
+                global_ue_ids.discard(ue_id)
+                sector_logger.info(f"UE with ID {ue_id} has been removed from the sector. Current load: {self.current_load}")
 
             else:
-                sector_logger.warning(f"UE with ID {ue.ID} is not connected to the sector.")
+                sector_logger.warning(f"UE with ID {ue_id} is not connected to the sector.")
+                
     
+
 
