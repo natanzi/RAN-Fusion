@@ -15,7 +15,7 @@ import threading
     #while True:  
         #websocket.sleep(1)
         
-def monitor_ue_operations():
+def monitor_ue_updates():
     log_file_path = 'ue_updates.log'
     # Ensure the file exists, create if it doesn't
     open(log_file_path, 'a').close()
@@ -46,11 +46,18 @@ def main():
     # Call the new initialization function
     gNodeBs, cells, sectors, ues = initialize_network(base_dir, num_ues_to_launch=10)
     
-    # Post-initialization steps, if any
+        # Post-initialization steps, if any
     print("Network Initialization Complete")
 
+    # Start monitoring UE operations in a separate thread
+    threading.Thread(target=monitor_ue_updates, daemon=True).start()
+
+    # Keep the main program running until manually stopped
+    try:
+        while True:
+            time.sleep(1)
+    except KeyboardInterrupt:
+        print("Program terminated by user.")
 
 if __name__ == "__main__":
     main()
-    # Start monitoring in a separate thread
-    threading.Thread(target=monitor_ue_updates, daemon=True).start()

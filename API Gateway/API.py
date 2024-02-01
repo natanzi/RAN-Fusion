@@ -1,9 +1,12 @@
+import sys
+import os
 from flask import Flask, request, jsonify
 from network.ue import UE
 from network.sector import Sector
 from threading import Lock
 import traceback
 import threading
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
 app = Flask(__name__)
 lock = threading.Lock()
