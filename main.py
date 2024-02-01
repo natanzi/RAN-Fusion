@@ -16,7 +16,9 @@ import threading
         #websocket.sleep(1)
         
 def monitor_ue_operations():
-    log_file_path = 'ue_operations.log'
+    log_file_path = 'ue_updates.log'
+    # Ensure the file exists, create if it doesn't
+    open(log_file_path, 'a').close()
     with open(log_file_path, 'r') as file:
         # Move to the end of the file
         file.seek(0,2)
@@ -51,4 +53,4 @@ def main():
 if __name__ == "__main__":
     main()
     # Start monitoring in a separate thread
-    threading.Thread(target=monitor_ue_operations, daemon=True).start()
+    threading.Thread(target=monitor_ue_updates, daemon=True).start()
