@@ -5,8 +5,14 @@ from logo import create_logo
 from database.database_manager import DatabaseManager
 from network.initialize_network import initialize_network
 from network.init_ue import initialize_ues
-
 import time
+from flask import Flask, websocket
+
+app = Flask(__name__)
+@websocket.route('/ues')
+def home():
+    while True:  
+        websocket.sleep(1)
 
 def main():
 
