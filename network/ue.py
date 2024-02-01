@@ -139,3 +139,11 @@ class UE:
             .field("battery_level", int(self.BatteryLevel)) \
             .time(datetime.utcnow())
         return point
+    
+    def update_parameters(self, **kwargs):
+        for key, value in kwargs.items():
+            if hasattr(self, key):
+                setattr(self, key, value)
+                ue_logger.info(f"Updated {key} for UE {self.ID} to {value}")
+            else:
+                ue_logger.warning(f"Attempted to update non-existent attribute {key} for UE {self.ID}")
