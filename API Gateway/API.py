@@ -3,9 +3,10 @@ from network.ue import UE
 from network.sector import Sector
 from threading import Lock
 import traceback
+import threading
 
 app = Flask(__name__)
-lock = Lock()
+lock = threading.Lock()
 
 @app.route('/add_ue', methods=['POST'])
 def add_ue():
@@ -66,3 +67,25 @@ def remove_ue():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+@app.route('/update_ue', methods=['POST'])
+def update_ue():
+    data = request.json
+    ue_id = data['ue_id']
+    try:
+        # Retrieve the UE instance by its ID
+        # This assumes you have a method to get a UE instance by ID. If not, you'll need to implement it.
+        ue = get_ue_instance_by_id(ue_id)
+        if not ue:
+            return jsonify({'error': 'UE not found'}), 404
+
+        # Update the UE parameters
+        # This is a simplified example. You'll need to implement the logic to update the parameters based on the request.
+        for param, value in data.items():
+            if hasattr(ue, param) and param != 'ue_id':  # Prevent changing the UE ID
+                setattr(ue, param, value)
+
+        return jsonify({'message': f'UE {ue_id} updated successfully'}), 200
+    except Exception as e:
+        traceback.print_exc()
+        return jsonify({'error': str(e)}), 500

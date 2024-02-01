@@ -7,23 +7,27 @@ from logs.logger_config import ue_logger
 
 class UE:
     existing_ue_ids = set()  # Keep track of all existing UE IDs to avoid duplicates
+    ue_instances = {}
 
     def __init__(self, config, **kwargs):
         self.config = config
         # Check if UE ID is provided and unique
         ue_id = kwargs.get('ue_id', '').strip()
-        if ue_id and ue_id not in UE.existing_ue_ids:
-            self.ID = ue_id
-            UE.existing_ue_ids.add(ue_id)
-        else:
-            # Generate a unique UE ID if not provided or if it's a duplicate
-            ue_id_counter = max((int(ue_id[2:]) for ue_id in UE.existing_ue_ids if ue_id.startswith('UE')), default=0) + 1
+        if ue_id and ue_id in UE.existing_ue_ids:
+            # Handle the case where the provided ID is not unique
+            raise ValueError(f"UE ID {ue_id} is already in use.")
+        elif not ue_id:
+            # Generate a unique UE ID if not provided
+            ue_id_counter = max((int(id[2:]) for id in UE.existing_ue_ids if id.startswith('UE')), default=0) + 1
             ue_id = f"UE{ue_id_counter}"
             while ue_id in UE.existing_ue_ids:  # Ensure the generated UE ID is unique
                 ue_id_counter += 1
                 ue_id = f"UE{ue_id_counter}"
-            self.ID = ue_id
-            UE.existing_ue_ids.add(ue_id)
+        
+        # Set the UE ID and add it to the tracking structures
+        self.ID = ue_id
+        UE.existing_ue_ids.add(ue_id)
+        UE.ue_instances[ue_id] = self  # Store the instance in the dictionary
 
         self.IMEI = kwargs.get('imei') or self.allocate_imei()         # International Mobile Equipment Identity
         self.Location = kwargs.get('location')         # Geographic location of the UE
@@ -90,7 +94,17 @@ class UE:
             ue = UE(**item)
             ues.append(ue)
         return ues
-
+    
+    @classmethod
+    def get_ue_instance_by_id(cls, ue_id):
+        """
+        Retrieve a UE instance by its ID.
+        
+        :param ue_id: The ID of the UE to retrieve.
+        :return: The UE instance with the given ID, or None if not found.
+        """
+        return cls.ue_instances.get(ue_id, None)
+    
     def serialize_for_influxdb(self):
         point = Point("ue_metrics") \
             .tag("ue_id", str(self.ID)) \
