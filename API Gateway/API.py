@@ -20,9 +20,16 @@ def log_ue_update(message):
 @app.route('/add_ue', methods=['POST'])
 def add_ue():
     data = request.json
+    # Validate required fields are present
+    required_fields = ['ue_id', 'service_type', 'sector_id']
+    missing_fields = [field for field in required_fields if field not in data]
+    if missing_fields:
+        return jsonify({'error': f'Missing required fields: {", ".join(missing_fields)}'}), 400
+
     ue_id = data['ue_id']
     service_type = data['service_type']
     sector_id = data['sector_id']
+    # Further validation can be added here (e.g., check if sector_id is valid)
     try:
         sector = Sector.get_sector_by_id(sector_id)
         if not sector:
@@ -44,12 +51,17 @@ def add_ue():
         else:
             return jsonify({'error': 'Failed to add UE to sector'}), 500
     except Exception as e:
-        traceback.print_exc()
-        return jsonify({'error': str(e)}), 500
+        return jsonify({'error': 'An error occurred while adding UE'}), 500
 
 @app.route('/remove_ue', methods=['POST'])
 def remove_ue():
     data = request.json
+    # Validate required fields are present
+    required_fields = ['ue_id', 'sector_id']
+    missing_fields = [field for field in required_fields if field not in data]
+    if missing_fields:
+        return jsonify({'error': f'Missing required fields: {", ".join(missing_fields)}'}), 400
+
     ue_id = data['ue_id']
     sector_id = data['sector_id']
     try:
@@ -66,26 +78,36 @@ def remove_ue():
         else:
             return jsonify({'error': 'Failed to remove UE from sector'}), 500
     except Exception as e:
-        traceback.print_exc()
-        return jsonify({'error': str(e)}), 500
+        return jsonify({'error': 'An error occurred while removing UE'}), 500
 
 @app.route('/update_ue', methods=['POST'])
 def update_ue():
     data = request.json
+    # Validate that ue_id is provided
+    if 'ue_id' not in data:
+        return jsonify({'error': 'Missing ue_id in request'}), 400
+
     ue_id = data['ue_id']
+
+    # Validate that there are parameters to update
+    if len(data) <= 1:  # Only ue_id is present, no parameters to update
+        return jsonify({'error': 'No parameters provided for update'}), 400
+
     try:
         ue = UE.get_ue_instance_by_id(ue_id)
         if not ue:
             return jsonify({'error': 'UE not found'}), 404
 
-        for param, value in data.items():
-            if hasattr(ue, param) and param != 'ue_id':  # Prevent changing the UE ID
-                setattr(ue, param, value)
-        log_ue_update(f"UE ID: {ue_id} updated successfully")
+        # Remove 'ue_id' from the data as it's not a parameter to be updated
+        data.pop('ue_id', None)
+
+        # Update UE parameters
+        ue.update_parameters(**data)
+
         return jsonify({'message': f'UE {ue_id} updated successfully'}), 200
     except Exception as e:
         traceback.print_exc()
-        return jsonify({'error': str(e)}), 500
+        return jsonify({'error': 'An error occurred while updating UE'}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
