@@ -28,7 +28,6 @@ class UE:
         self.ID = ue_id
         UE.existing_ue_ids.add(ue_id)
         UE.ue_instances[ue_id] = self  # Store the instance in the dictionary
-
         self.IMEI = kwargs.get('imei') or self.allocate_imei()         # International Mobile Equipment Identity
         self.Location = kwargs.get('location')         # Geographic location of the UE
         self.ConnectedCellID = kwargs.get('connected_cell_id')        # ID of the cell to which the UE is connected

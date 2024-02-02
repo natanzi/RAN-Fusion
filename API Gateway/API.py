@@ -31,27 +31,28 @@ def add_ue():
     service_type = data['service_type']
     sector_id = data['sector_id']
     # Further validation can be added here (e.g., check if sector_id is valid)
+
     try:
         sector = Sector.get_sector_by_id(sector_id)
         if not sector:
             return jsonify({'error': 'Sector not found'}), 404
 
-        ue_config = {
-            'ue_id': ue_id,
-            'service_type': service_type,
-            # Include other necessary parameters for UE initialization here
-        }
+        # Prepare the ue_config with all parameters from the request
+        # This assumes all other parameters needed by UE are top-level keys in the request JSON
+        ue_config = {key: value for key, value in data.items() if key not in required_fields}
+
+        # Initialize the UE instance with the ue_config and other parameters
         ue = UE(config=ue_config, ue_id=ue_id, service_type=service_type)
 
         with lock:  # Ensure thread safety
             success = sector.add_ue(ue)
-
-        if success:
-            log_ue_update(f"UE ID: {ue_id}, Service Type: {service_type}, Sector ID: {sector_id}, Cell ID: {ue.ConnectedCellID}, gNodeB ID: {ue.gNodeB_ID}")
-            return jsonify({'message': f'UE {ue_id} added successfully to sector {sector_id}'}), 200
-        else:
-            return jsonify({'error': 'Failed to add UE to sector'}), 500
+            if success:
+                log_ue_update(f"UE ID: {ue_id}, Service Type: {service_type}, Sector ID: {sector_id}, Cell ID: {ue.ConnectedCellID}, gNodeB ID: {ue.gNodeB_ID}")
+                return jsonify({'message': f'UE {ue_id} added successfully to sector {sector_id}'}), 200
+            else:
+                return jsonify({'error': 'Failed to add UE to sector'}), 500
     except Exception as e:
+        return jsonify({'error': 'An error occurred while adding UE'}), 500
         return jsonify({'error': 'An error occurred while adding UE'}), 500
 
 @app.route('/remove_ue', methods=['POST'])
