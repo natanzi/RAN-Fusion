@@ -104,9 +104,9 @@ class Sector:
             else:
                 sector_logger.warning(f"UE with ID {ue_id} is not connected to the sector.")
                 
-    @classmethod
+    @classmethod 
     def get_sector_by_id(cls, sector_id):
-        # Assuming there's a global dictionary named 'all_sectors' mapping sector IDs to Sector instances
-        print(f"Inside get_sector_by_id - all_sectors: {all_sectors}")
-        return all_sectors.get(sector_id, None)
-
+        print(f"Looking up sector {sector_id}")
+        if sector_id not in all_sectors:
+            return None
+        return all_sectors.get(sector_id)

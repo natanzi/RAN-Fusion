@@ -84,6 +84,7 @@ def add_ue():
 @app.route('/remove_ue', methods=['POST'])
 def remove_ue():
     data = request.json
+
     # Validate required fields are present
     required_fields = ['ue_id', 'sector_id']
     missing_fields = [field for field in required_fields if field not in data]
@@ -92,13 +93,26 @@ def remove_ue():
 
     ue_id = data['ue_id']
     sector_id = data['sector_id']
+
+    # Validate sector_id format (example validation, adjust as needed)
+    if not isinstance(sector_id, str) or len(sector_id) < 5:  # Example validation condition
+        return jsonify({'error': 'Invalid sector_id format'}), 400
+
+    # Validate ue_id format (example validation, adjust as needed)
+    if not isinstance(ue_id, str) or len(ue_id) < 3:  # Example validation condition
+        return jsonify({'error': 'Invalid ue_id format'}), 400
+
     try:
         sector = Sector.get_sector_by_id(sector_id)
         if not sector:
             return jsonify({'error': 'Sector not found'}), 404
 
+        print(f"Before removing UE, Sector {sector_id} remaining_capacity: {sector.remaining_capacity}, current_load: {sector.current_load}")
+
         with lock:  # Ensure thread safety
             success = sector.remove_ue(ue_id)
+
+        print(f"After removing UE, Sector {sector_id} remaining_capacity: {sector.remaining_capacity}, current_load: {sector.current_load}")
 
         if success:
             log_ue_update(f"UE ID: {ue_id} removed from Sector ID: {sector_id}")
@@ -107,7 +121,7 @@ def remove_ue():
             return jsonify({'error': 'Failed to remove UE from sector'}), 500
     except Exception as e:
         return jsonify({'error': 'An error occurred while removing UE'}), 500
-
+    
 @app.route('/update_ue', methods=['POST'])
 def update_ue():
     data = request.json
