@@ -1,3 +1,4 @@
+# This is API.py which is located in API Gateway folder to have control over all nodes
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) 
