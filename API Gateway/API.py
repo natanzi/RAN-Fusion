@@ -9,9 +9,10 @@ from threading import Lock
 import traceback
 import threading
 import json
-
+from network.sector import all_sectors
 app = Flask(__name__)
 lock = threading.Lock()
+print(all_sectors)
 
 # Function to log UE updates
 def log_ue_update(message):
@@ -21,39 +22,61 @@ def log_ue_update(message):
 @app.route('/add_ue', methods=['POST'])
 def add_ue():
     data = request.json
+    print("Received data:", data)  # Log received data
+
     # Validate required fields are present
     required_fields = ['ue_id', 'service_type', 'sector_id']
     missing_fields = [field for field in required_fields if field not in data]
     if missing_fields:
+        print(f"Missing required fields: {', '.join(missing_fields)}")  # Log missing fields
         return jsonify({'error': f'Missing required fields: {", ".join(missing_fields)}'}), 400
 
     ue_id = data['ue_id']
     service_type = data['service_type']
     sector_id = data['sector_id']
-    # Further validation can be added here (e.g., check if sector_id is valid)
 
+    # Validate sector_id format (example validation, adjust as needed)
+    if not isinstance(sector_id, str) or len(sector_id) < 5:  # Example validation condition
+        print(f"Invalid sector_id format: {sector_id}")
+        return jsonify({'error': 'Invalid sector_id format'}), 400
+
+    print(f"Processing UE with ID: {ue_id} for sector: {sector_id}")  # Log UE ID and sector ID
+
+    # Attempt to retrieve the sector
     try:
         sector = Sector.get_sector_by_id(sector_id)
         if not sector:
+            print(f"Sector with ID: {sector_id} not found")  # Log sector not found
             return jsonify({'error': 'Sector not found'}), 404
+        print(f"Before adding UE, Sector {sector_id} remaining_capacity: {sector.remaining_capacity}, current_load: {sector.current_load}")
+    except Exception as e:
+        print(f"Error getting sector: {e}")  # Log exception when retrieving sector
+        return jsonify({'error': 'An error occurred while retrieving sector'}), 500
 
-        # Prepare the ue_config with all parameters from the request
-        # This assumes all other parameters needed by UE are top-level keys in the request JSON
-        ue_config = {key: value for key, value in data.items() if key not in required_fields}
-
-        # Initialize the UE instance with the ue_config and other parameters
+    # Separate try/except for UE creation
+    try:
         ue = UE(config=ue_config, ue_id=ue_id, service_type=service_type)
+        print(f"Initialized UE object: {ue}")  # Print the UE object after creation
+    except Exception as e:
+        print(f"Error creating UE: {e}")  # Log exception when creating UE
+        return jsonify({'error': 'An error occurred while creating UE'}), 500
 
+    # Separate try/except for adding UE to sector
+    try:
         with lock:  # Ensure thread safety
             success = sector.add_ue(ue)
             if success:
+                print(f"After adding UE, Sector {sector_id} remaining_capacity: {sector.remaining_capacity}, current_load: {sector.current_load}")
                 log_ue_update(f"UE ID: {ue_id}, Service Type: {service_type}, Sector ID: {sector_id}, Cell ID: {ue.ConnectedCellID}, gNodeB ID: {ue.gNodeB_ID}")
+                print(f"UE {ue_id} added successfully to sector {sector_id}")  # Log success
                 return jsonify({'message': f'UE {ue_id} added successfully to sector {sector_id}'}), 200
             else:
+                print(f"Failed to add UE {ue_id} to sector {sector_id}")  # Log failure to add UE
                 return jsonify({'error': 'Failed to add UE to sector'}), 500
     except Exception as e:
-        return jsonify({'error': 'An error occurred while adding UE'}), 500
-        return jsonify({'error': 'An error occurred while adding UE'}), 500
+        print(f"Error adding UE to sector: {e}")  # Log exception when adding UE to sector
+        return jsonify({'error': 'An error occurred while adding UE to sector'}), 500
+
 
 @app.route('/remove_ue', methods=['POST'])
 def remove_ue():

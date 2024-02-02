@@ -107,5 +107,6 @@ class Sector:
     @classmethod
     def get_sector_by_id(cls, sector_id):
         # Assuming there's a global dictionary named 'all_sectors' mapping sector IDs to Sector instances
+        print(f"Inside get_sector_by_id - all_sectors: {all_sectors}")
         return all_sectors.get(sector_id, None)
 
