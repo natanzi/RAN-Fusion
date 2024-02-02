@@ -40,6 +40,9 @@ def add_ue():
         print(f"Invalid sector_id format: {sector_id}")
         return jsonify({'error': 'Invalid sector_id format'}), 400
 
+    # Extract ue_config from the request data, excluding known fields
+    ue_config = {key: value for key, value in data.items() if key not in ['ue_id', 'service_type', 'sector_id']}
+
     print(f"Processing UE with ID: {ue_id} for sector: {sector_id}")  # Log UE ID and sector ID
 
     # Attempt to retrieve the sector
