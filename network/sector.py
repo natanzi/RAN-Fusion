@@ -5,6 +5,7 @@ all_sectors = {}
 from influxdb_client import Point
 from influxdb_client.client.write_api import SYNCHRONOUS, WritePrecision
 import time
+import uuid
 import threading
 from logs.logger_config import sector_logger
 from database.database_manager import DatabaseManager
@@ -23,6 +24,7 @@ print(id(all_sectors))
 class Sector:
     def __init__(self, sector_id, cell_id, cell, capacity, azimuth_angle, beamwidth, frequency, duplex_mode, tx_power, bandwidth, mimo_layers, beamforming, ho_margin, load_balancing, connected_ues=None, current_load=0):
         self.sector_id = sector_id  # String, kept as is for identifiers
+        self.instance_id = str(uuid.uuid4())  # Generic unique identifier for the instance of the sector
         self.cell_id = cell_id  # String, kept as is for identifiers
         self.cell = cell  # Cell object, no change needed
         self.ues = {} #Add a dictionary to track UEs mapped to their IDs:
@@ -65,6 +67,8 @@ class Sector:
         point = Point("sector_metrics") \
             .tag("sector_id", self.sector_id) \
             .tag("cell_id", self.cell_id) \
+            .tag("entity_type", "sector") \
+            .tag("instance_id", str(self.instance_id)) \
             .field("azimuth_angle", self.azimuth_angle) \
             .field("beamwidth", self.beamwidth) \
             .field("frequency", self.frequency) \

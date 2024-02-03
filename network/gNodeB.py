@@ -2,6 +2,7 @@
 import os
 import json
 import random
+import uuid
 import time
 from database.time_utils import get_current_time_ntp
 import logging
@@ -16,6 +17,7 @@ from influxdb_client.client.write_api import SYNCHRONOUS, WritePrecision
 from database.time_utils import get_current_time_ntp, server_pools
 from multiprocessing import Lock
 from network.sector import Sector
+
 current_time = get_current_time_ntp()
 DEFAULT_BLACKLISTED_CELLS = []
 DEFAULT_MEASUREMENT_BANDWIDTH = 20
@@ -35,6 +37,7 @@ gNodeBs_config = load_gNodeB_config()
 class gNodeB:
     def __init__(self, gnodeb_id, latitude, longitude, coverageRadius, power, frequency, bandwidth, location, region, maxUEs, cellCount, sectorCount, handoverMargin, handoverHysteresis, timeToTrigger, interFreqHandover, xnInterface, sonCapabilities, loadBalancingOffset, cellIds, sectorIds, MeasurementBandwidth=None, BlacklistedCells=None, **kwargs):
         self.ID = gnodeb_id  # str: Unique identifier for the gNodeB
+        self.instance_id = str(uuid.uuid4())  # Generic unique identifier for the instance of the GNodeB
         self.Latitude = latitude  # float: Geographic latitude where the gNodeB is located
         self.Longitude = longitude  # float: Geographic longitude where the gNodeB is located
         self.CoverageRadius = coverageRadius  # int: The radius (in meters) that the gNodeB covers
@@ -81,8 +84,8 @@ class gNodeB:
     def serialize_for_influxdb(self):
         point = Point("gnodeb_metrics") \
             .tag("gnodeb_id", self.ID) \
-            .tag("entity_type", "gnodeb")
-
+            .tag("entity_type", "gnodeb")\
+            .tag("instance_id", str(self.instance_id)) \
         # Convert the location list to a string if it's not None
         location_str = ','.join(map(str, self.Location)) if self.Location is not None else None
 

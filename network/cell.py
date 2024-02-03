@@ -4,6 +4,7 @@ import datetime
 from logs.logger_config import ue_logger
 from logs.logger_config import cell_logger
 import time 
+import uuid
 from influxdb_client import Point
 from influxdb_client.client.write_api import SYNCHRONOUS
 from database.time_utils import get_current_time_ntp, server_pools
@@ -11,7 +12,8 @@ from database.time_utils import get_current_time_ntp, server_pools
 class Cell:
     def __init__(self, cell_id, gnodeb_id, frequencyBand, duplexMode, tx_power, bandwidth, ssbPeriodicity, ssbOffset, maxConnectUes, max_throughput,  channelModel, sectorCount, trackingArea=None, is_active=True):
         #debug_print(f"START-Creating cell {cell_id} from cell class")
-        self.ID = cell_id                   # Unique identifier for the Cell
+        self.ID = cell_id                     # Unique identifier for the Cell
+        self.instance_id = str(uuid.uuid4())  # Generic unique identifier for the instance  of the cell                
         self.gNodeB_ID = gnodeb_id          # Identifier for the associated gNodeB of this cell
         self.FrequencyBand = frequencyBand  # Frequency band in which the cell operates
         self.DuplexMode = duplexMode        # Duplex mode of the cell (e.g., FDD, TDD)
@@ -76,6 +78,7 @@ class Cell:
             .tag("cell_id", str(self.ID)) \
             .tag("gnodeb_id", str(self.gNodeB_ID)) \
             .tag("entity_type", "cell") \
+            .tag("instance_id", str(self.instance_id)) \
             .field("frequencyBand", str(self.FrequencyBand)) \
             .field("duplexMode", str(self.DuplexMode)) \
             .field("tx_power", int(self.TxPower)) \

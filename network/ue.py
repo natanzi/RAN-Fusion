@@ -4,7 +4,7 @@ import re
 from datetime import datetime
 from influxdb_client import Point
 from logs.logger_config import ue_logger
-
+import uuid
 class UE:
     existing_ue_ids = set()  # Keep track of all existing UE IDs to avoid duplicates
     ue_instances = {}
@@ -26,6 +26,7 @@ class UE:
         
         # Set the UE ID and add it to the tracking structures
         self.ID = ue_id
+        self.instance_id = str(uuid.uuid4())  # Generic unique identifier for the instance of the ue
         UE.existing_ue_ids.add(ue_id)
         UE.ue_instances[ue_id] = self  # Store the instance in the dictionary
         self.IMEI = kwargs.get('imei') or self.allocate_imei()         # International Mobile Equipment Identity
@@ -111,6 +112,7 @@ class UE:
             .tag("connected_sector_id", str(self.ConnectedSector)) \
             .tag("entity_type", "ue") \
             .tag("gnb_id", str(self.gNodeB_ID)) \
+            .tag("instance_id", str(self.instance_id)) \
             .field("imei", str(self.IMEI)) \
             .field("service_type", str(self.ServiceType)) \
             .field("signal_strength", float(self.SignalStrength)) \
