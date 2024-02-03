@@ -2,6 +2,7 @@
 # sector_manager.py
 from network.sector import Sector, all_sectors
 from database.database_manager import DatabaseManager
+from influxdb_client import Point, WritePrecision
 import threading
 
 class SectorManager:
@@ -16,6 +17,7 @@ class SectorManager:
         :param sector_data: Dictionary containing data to initialize a sector.
         :param cell: Cell object to which the sector belongs.
         """
+
         with self.lock:
             if sector_data['sector_id'] not in self.sectors:
                 new_sector = Sector.from_json(sector_data, cell)
