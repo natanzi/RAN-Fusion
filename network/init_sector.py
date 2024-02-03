@@ -59,6 +59,7 @@ def initialize_sectors(sectors_config, cells, db_manager):
         #all_sectors[new_sector.sector_id] = new_sector # Add the new sector to the global dictionary of sector
         global all_sectors
         all_sectors[new_sector.sector_id] = new_sector
+        print(f"Length of all_sectors after initialization: {len(all_sectors)}")
         print(all_sectors)
         point = new_sector.serialize_for_influxdb()
         db_manager.insert_data(point)

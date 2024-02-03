@@ -9,10 +9,11 @@ from threading import Lock
 import traceback
 import threading
 import json
-from network.sector import all_sectors
+from network.init_sector import all_sectors
 app = Flask(__name__)
 lock = threading.Lock()
 print(all_sectors)
+print(f"Length of all_sectors in API: {len(all_sectors)}")
 
 # Function to log UE updates
 def log_ue_update(message):

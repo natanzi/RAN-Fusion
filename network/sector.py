@@ -1,5 +1,7 @@
 #this is sectory.py which is located in network directory
 #You can extend this class with additional methods to handle sector-specific logic, such as calculating signal strength, managing handovers, or adjusting parameters for load balancing. Remember to test this class thoroughly to ensure it integrates well with the rest of your codebase.
+global all_sectors 
+all_sectors = {}
 from influxdb_client import Point
 from influxdb_client.client.write_api import SYNCHRONOUS, WritePrecision
 import time
@@ -10,8 +12,7 @@ sector_lock = threading.Lock()
 
 # Assume a global list or set for UE IDs is defined at the top level of your module
 global_ue_ids = set()
-global all_sectors 
-all_sectors = {}
+
 
 print("Print all_sectors at Top of sector.py")
 print(all_sectors)
@@ -108,9 +109,12 @@ class Sector:
             else:
                 sector_logger.warning(f"UE with ID {ue_id} is not connected to the sector.")
                 
-    @classmethod 
+    @classmethod
     def get_sector_by_id(cls, sector_id):
+        print(f"Length of all_sectors before: {len(all_sectors)}")
         print(f"Looking up sector {sector_id}")
+        sector = all_sectors.get(sector_id)
+        print(f"Length of all_sectors after: {len(all_sectors)}")
         if sector_id not in all_sectors:
             return None
-        return all_sectors.get(sector_id)
+        return sector
