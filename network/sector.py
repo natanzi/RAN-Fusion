@@ -7,6 +7,7 @@ from influxdb_client.client.write_api import SYNCHRONOUS, WritePrecision
 import time
 import threading
 from logs.logger_config import sector_logger
+from database.database_manager import DatabaseManager
 
 sector_lock = threading.Lock()
 
@@ -16,6 +17,9 @@ global_ue_ids = set()
 
 print("Print all_sectors at Top of sector.py")
 print(all_sectors)
+print("Print all sectors id")
+print(id(all_sectors))
+
 class Sector:
     def __init__(self, sector_id, cell_id, cell, capacity, azimuth_angle, beamwidth, frequency, duplex_mode, tx_power, bandwidth, mimo_layers, beamforming, ho_margin, load_balancing, connected_ues=None, current_load=0):
         self.sector_id = sector_id  # String, kept as is for identifiers
@@ -92,6 +96,8 @@ class Sector:
                 ue.gNodeB_ID = self.cell.gNodeB_ID
                 self.ues[ue.ID] = ue
                 global_ue_ids.add(ue.ID)
+                point = self.serialize_for_influxdb()
+                DatabaseManager().insert_data(point)
                 sector_logger.info(f"UE with ID {ue.ID} has been added to the sector {self.sector_id}. Current load: {self.current_load}")
 
             else:
@@ -105,12 +111,16 @@ class Sector:
                 global_ue_ids.discard(ue_id)  # Correctly discard the ID string
                 self.remaining_capacity = self.capacity - len(self.connected_ues)  # Update remaining_capacity
                 del self.ues[ue_id]  # Correctly delete the UE from the dictionary
+                point = self.serialize_for_influxdb()
+                DatabaseManager().insert_data(point)
                 sector_logger.info(f"UE with ID {ue_id} has been removed from the sector. Current load: {self.current_load}")
             else:
                 sector_logger.warning(f"UE with ID {ue_id} is not connected to the sector.")
                 
     @classmethod
     def get_sector_by_id(cls, sector_id):
+        query = f'from(bucket: "{self.bucket}") |> range(start: -1d) |> filter(fn: (r) => r._measurement == "sector_metrics" and r.sector_id == "{sector_id}")'
+        result = self.query_api.query(query=query)
         print(f"Length of all_sectors before: {len(all_sectors)}")
         print(f"Looking up sector {sector_id}")
         sector = all_sectors.get(sector_id)
