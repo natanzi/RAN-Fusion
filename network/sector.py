@@ -119,12 +119,23 @@ class Sector:
                 
     @classmethod
     def get_sector_by_id(cls, sector_id):
-        query = f'from(bucket: "{self.bucket}") |> range(start: -1d) |> filter(fn: (r) => r._measurement == "sector_metrics" and r.sector_id == "{sector_id}")'
-        result = self.query_api.query(query=query)
-        print(f"Length of all_sectors before: {len(all_sectors)}")
-        print(f"Looking up sector {sector_id}")
-        sector = all_sectors.get(sector_id)
-        print(f"Length of all_sectors after: {len(all_sectors)}")
-        if sector_id not in all_sectors:
-            return None
-        return sector
+        # Instantiate DatabaseManager to use its query_api
+        db_manager = DatabaseManager()
+        
+        # Prepare the query to retrieve sector information
+        query = f'from(bucket: "{db_manager.bucket}") |> range(start: -1d) |> filter(fn: (r) => r._measurement == "sector_metrics" and r.sector_id == "{sector_id}")'
+        
+        # Execute the query
+        result = db_manager.query_api.query(query=query)
+        
+        # Process the result
+        for table in result:
+            for record in table.records:
+                # Assuming sector_id is unique, return the first match
+                if record.values.get('sector_id') == sector_id:
+                    # Here you can adjust what information you want to return about the sector
+                    # For example, returning a new Sector instance or specific sector details
+                    return cls.from_json(record.values)
+        
+        # If no sector is found, return None
+        return None
