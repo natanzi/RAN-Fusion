@@ -4,6 +4,7 @@ from network.sector import Sector, all_sectors
 from database.database_manager import DatabaseManager
 from influxdb_client import Point, WritePrecision
 from logs.logger_config import cell_logger, gnb_logger, ue_logger, sector_logger
+from .sector import Sector, all_sectors
 
 import threading
 
