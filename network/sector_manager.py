@@ -1,11 +1,12 @@
 #sector_manager.py inside the network folder SectorManager class can centralize the management of sectors, including their initialization, updates, and the handling of User Equipment (UE) associations. This approach can streamline interactions with the database and ensure consistent state management across the application.
-from network.sector import Sector
+# sector_manager.py
+from network.sector import Sector, all_sectors
 from database.database_manager import DatabaseManager
 import threading
 
 class SectorManager:
     def __init__(self):
-        self.sectors = {}  # Dictionary to store sector objects, keyed by sector_id
+        self.sectors = all_sectors  # Use the global all_sectors dictionary to track sectors
         self.db_manager = DatabaseManager()  # Instance of DatabaseManager for DB operations
         self.lock = threading.Lock()  # Lock for thread-safe operations on sectors
 
@@ -16,11 +17,14 @@ class SectorManager:
         :param cell: Cell object to which the sector belongs.
         """
         with self.lock:
-            sector = Sector.from_json(sector_data, cell)
-            self.sectors[sector.sector_id] = sector
-            # Optionally, serialize and insert the new sector into the database
-            self.db_manager.insert_data(sector.serialize_for_influxdb())
-            print(f"Sector {sector.sector_id} initialized and added.")
+            if sector_data['sector_id'] not in self.sectors:
+                new_sector = Sector.from_json(sector_data, cell)
+                self.sectors[new_sector.sector_id] = new_sector
+                # Optionally, serialize and insert the new sector into the database
+                self.db_manager.insert_data(new_sector.serialize_for_influxdb())
+                print(f"Sector {new_sector.sector_id} initialized and added.")
+            else:
+                print(f"Sector {sector_data['sector_id']} already exists.")
 
     def add_ue_to_sector(self, sector_id, ue):
         """
@@ -82,8 +86,8 @@ class SectorManager:
         return sector_state
 
 # Example usage
-if __name__ == "__main__":
-    sector_manager = SectorManager()
+#if __name__ == "__main__":
+# sector_manager = SectorManager()
     # Example sector_data and cell object need to be provided based on your application's structure
     # sector_manager.initialize_sector(sector_data, cell)
     # sector_manager.add_ue_to_sector("sector_id", ue)
