@@ -3,7 +3,7 @@
 from network.sector import Sector, all_sectors
 from database.database_manager import DatabaseManager
 from influxdb_client import Point, WritePrecision
-from logs.logger_config import cell_logger, gnb_logger, ue_logger, sector_logger
+from logs.logger_config import cell_logger, gnodeb_logger, ue_logger, sector_logger
 from .sector import Sector, all_sectors
 
 import threading
@@ -70,8 +70,6 @@ class SectorManager:
         print("Sectors initialization completed.")
         return initialized_sectors
 
-
-
     def add_ue_to_sector(self, sector_id, ue):
         with self.lock:  # Use the SectorManager's lock for thread safety
             sector = self.sectors.get(sector_id)
@@ -122,30 +120,25 @@ class SectorManager:
                 for key, value in updates.items():
                     if hasattr(sector, key):
                         setattr(sector, key, value)
-                        print(f"Sector {sector_id} property {key} updated to {value}.")
+                        sector_logger.info(f"Sector {sector_id} property {key} updated to {value}.")
                     else:
-                        print(f"Sector {sector_id} has no property {key}.")
-                # Optionally, serialize and update the sector in the database
-                self.db_manager.insert_data(sector.serialize_for_influxdb())
+                        sector_logger.warning(f"Sector {sector_id} has no property {key}.")
+                # Serialize and update the sector in the database
+                point = sector.serialize_for_influxdb()
+                self.db_manager.insert_data(point)
             else:
-                print(f"Sector {sector_id} not found.")
+                sector_logger.warning(f"Sector {sector_id} not found.")
 
     def get_sector_state(self, sector_id):
         """
         Queries the database for the current state of a sector.
+    
         :param sector_id: ID of the sector to query.
         :return: Sector state or None if not found.
         """
-        # Implementation depends on the structure of your database and data model
-        # This is a placeholder for the database query logic
         sector_state = self.db_manager.query_sector_state(sector_id)
+        if sector_state:
+            sector_logger.info(f"State retrieved for sector {sector_id}.")
+        else:
+            sector_logger.warning(f"Sector state not found for {sector_id}.")
         return sector_state
-
-# Example usage
-#if __name__ == "__main__":
-# sector_manager = SectorManager()
-    # Example sector_data and cell object need to be provided based on your application's structure
-    # sector_manager.initialize_sector(sector_data, cell)
-    # sector_manager.add_ue_to_sector("sector_id", ue)
-    # sector_manager.remove_ue_from_sector("sector_id", "ue_id")
-    # sector_manager.update_sector("sector_id", {"property": "new_value"})

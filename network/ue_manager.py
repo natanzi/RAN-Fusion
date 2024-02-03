@@ -29,12 +29,6 @@ class UEManager:
         # Use the modified allocate_ues function from utils.py
         self.ues = allocate_ues(num_ues, all_sectors, self.ue_config)
 
-# Example usage
-if __name__ == "__main__":
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    ue_manager = UEManager(base_dir)
-    # Assuming cells and gnodebs are defined elsewhere and passed here
-    ue_manager.initialize_ues(num_ues=10, cells=cells, gnodebs=gnodebs)
 
     def get_ue_by_id(self, ue_id):
         """
@@ -60,21 +54,6 @@ if __name__ == "__main__":
             return True
         else:
             ue_logger.warning(f"UE {ue_id} not found. Update failed.")
-            return False
-
-    def remove_ue(self, ue_id):
-        """
-        Remove a UE instance from the manager.
-        
-        :param ue_id: The ID of the UE to remove.
-        :return: True if the UE was removed successfully, False otherwise.
-        """
-        if ue_id in self.ues:
-            del self.ues[ue_id]
-            ue_logger.info(f"UE {ue_id} removed successfully.")
-            return True
-        else:
-            ue_logger.warning(f"UE {ue_id} not found. Removal failed.")
             return False
 
     def list_all_ues(self):
