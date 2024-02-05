@@ -24,6 +24,7 @@ def reconcile_network_with_map(network_map, cell_manager):
                 print(f"Cell {cell_id} not found in initialized network.")
 
 def initialize_network(base_dir, num_ues_to_launch=None):
+
     # Create an instance of Config
     config = Config(base_dir)
 
@@ -38,21 +39,21 @@ def initialize_network(base_dir, num_ues_to_launch=None):
     gNodeBs = gnodeb_manager.initialize_gNodeBs(config.gNodeBs_config)
 
     # Initialize Cells using CellManager
-    #cell_manager = CellManager(gNodeBs, db_manager)
-    #cells = cell_manager.initialize_cells(config.cells_config)
+    cell_manager = CellManager(gNodeBs, db_manager)
+    cells = cell_manager.initialize_cells(config.cells_config)
 
     # Initialize Sectors using SectorManager
-    #sector_manager = SectorManager(db_manager)
-    #sectors = sector_manager.initialize_sectors(config.sectors_config, cells)
+    sector_manager = SectorManager(db_manager)
+    sectors = sector_manager.initialize_sectors(config.sectors_config, cells)
 
-    #reconcile_network_with_map(network_map, cell_manager)
+    reconcile_network_with_map(network_map, cell_manager)
 
     # Initialize UEs if num_ues_to_launch is provided, using UEManager
-    #if num_ues_to_launch:
-    #   # ue_manager = UEManager(db_manager)
-    #   # ues = ue_manager.initialize_ues(num_ues_to_launch, cells, gNodeBs, config.ue_config)
-    #   # print("Initialized UEs:")
-    #  #  for ue in ues:
-    #   #     print(f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Sector ID: {ue.ConnectedSector}, Cell ID: {ue.ConnectedCellID}, gNodeB ID: {ue.gNodeB_ID}")
+    if num_ues_to_launch:
+        ue_manager = UEManager(db_manager)
+        ues = ue_manager.initialize_ues(num_ues_to_launch, cells, gNodeBs, config.ue_config)
+        print("Initialized UEs:")
+        for ue in ues:
+                print(f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Sector ID: {ue.ConnectedSector}, Cell ID: {ue.ConnectedCellID}, gNodeB ID: {ue.gNodeB_ID}")
 
     return gNodeBs#, cells, sectors, ues

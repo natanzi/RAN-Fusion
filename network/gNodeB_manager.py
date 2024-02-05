@@ -10,7 +10,7 @@ class gNodeBManager:
         self.gNodeBs = {}
         self.db_manager = DatabaseManager() 
         self.base_dir = base_dir
-        self.gNodeBs_config = load_gNodeB_config(base_dir)  
+        self.gNodeBs_config = load_gNodeB_config()
 
 
     def initialize_gNodeBs(self):

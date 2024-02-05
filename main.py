@@ -4,7 +4,7 @@ from Config_files.config import Config
 from logo import create_logo
 from database.database_manager import DatabaseManager
 from network.initialize_network import initialize_network
-from network.ue_manager import initialize_ues
+from network.ue_manager import UEManager
 import time
 import threading
 
@@ -38,8 +38,7 @@ def main():
     time.sleep(1)
 
     # Call the new initialization function
-    #gNodeBs, cells, sectors, ues = initialize_network(base_dir, num_ues_to_launch=10)
-    gNodeBs = initialize_network(base_dir, num_ues_to_launch=10)
+    gNodeBs, cells, sectors, ues = initialize_network(base_dir, num_ues_to_launch=10)
 
         # Post-initialization steps, if any
     print("Network Initialization Complete")
