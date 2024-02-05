@@ -1,3 +1,4 @@
+#cell_manager.py inside the network folder
 import os
 from network.cell import Cell
 from logs.logger_config import cell_logger
@@ -15,11 +16,12 @@ class CellManager:
         Initialize cells based on the provided configuration and associate them with gNodeBs.
         
         :param cells_config: Configuration data for cells.
+        :return: Dictionary of initialized cells.
         """
         if self.gNodeBs is None:
             cell_logger.error("gNodeBs is None. Cannot initialize cells.")
-            return
-    
+            return None  # Ensure to return None or an appropriate value indicating failure
+
         cell_logger.info("Initializing cells.")
         for cell_data in cells_config['cells']:
             cell_id = cell_data['cell_id']
@@ -27,21 +29,22 @@ class CellManager:
             if gNodeB_id not in self.gNodeBs:
                 cell_logger.error(f"Error: gNodeB {gNodeB_id} not found for cell {cell_id}")
                 continue
-            
+
             new_cell = Cell(**cell_data)
-            
+
             # Add the cell to the corresponding gNodeB
             if gNodeB_id in self.gNodeBs:
                 self.gNodeBs[gNodeB_id].add_cell_to_gNodeB(new_cell)
-            
+
             # Add the new cell to the cells dictionary
             self.cells[cell_id] = new_cell
-            
+
             # Serialize for InfluxDB and insert data
             point = new_cell.serialize_for_influxdb()
             self.db_manager.insert_data(point)
-        
+
         cell_logger.info("Cells initialization completed.")
+        return self.cells  # Return the dictionary of initialized cells
 
     def add_cell(self, cell_data):
         """

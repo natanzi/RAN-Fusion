@@ -45,7 +45,9 @@ def initialize_network(base_dir, num_ues_to_launch=None):
     # Initialize Cells using CellManager
     cell_manager = CellManager(gNodeBs, db_manager)
     cells = cell_manager.initialize_cells(config.cells_config)
+    assert cells is not None, "Cells initialization failed or returned None."
 
+    print(f"Cells initialized: {cells}")
     # Initialize Sectors using SectorManager
     sector_manager = SectorManager(db_manager)
     sectors = sector_manager.initialize_sectors(config.sectors_config, cells)
