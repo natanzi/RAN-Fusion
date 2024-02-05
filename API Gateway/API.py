@@ -9,7 +9,7 @@ from threading import Lock
 import traceback
 import threading
 import json
-from network.init_sector import all_sectors
+from network.sector_manager import all_sectors
 app = Flask(__name__)
 lock = threading.Lock()
 print(all_sectors)
