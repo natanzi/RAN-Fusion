@@ -34,8 +34,8 @@ def initialize_network(base_dir, num_ues_to_launch=None):
     # Create an instance of DatabaseManager
     db_manager = DatabaseManager()
 
-    # Initialize gNodeBs using gNodeBManager
-    gnodeb_manager = gNodeBManager(db_manager)
+    # Initialize gNodeBManager
+    gnodeb_manager = gNodeBManager(base_dir)
     gNodeBs = gnodeb_manager.initialize_gNodeBs()
 
     # Make sure gNodeBs is not None or empty

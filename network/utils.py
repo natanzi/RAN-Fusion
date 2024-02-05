@@ -1,7 +1,7 @@
 # utils.py in the network directory
 import random
 import math
-from network import UE
+from network.ue import UE
 from network.sector import Sector
 from network.gNodeB import gNodeB
 from network.cell import Cell

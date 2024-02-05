@@ -1,9 +1,10 @@
 #cell_manager.py inside the network folder
 import os
-from network.cell import Cell
+# Removed the incorrect import statement
 from logs.logger_config import cell_logger
 import json
 from database.database_manager import DatabaseManager
+from network.cell import Cell  # Assuming Cell class is correctly defined in network.cell
 
 class CellManager:
     def __init__(self, gNodeBs, db_manager: DatabaseManager):

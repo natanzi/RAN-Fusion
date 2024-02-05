@@ -5,6 +5,7 @@ from logo import create_logo
 from database.database_manager import DatabaseManager
 from network.initialize_network import initialize_network
 from network.ue_manager import UEManager
+from network.gNodeB_manager import gNodeBManager
 import time
 import threading
 
