@@ -36,7 +36,7 @@ def initialize_network(base_dir, num_ues_to_launch=None):
 
     # Initialize gNodeBs using gNodeBManager
     gnodeb_manager = gNodeBManager(db_manager)
-    gNodeBs = gnodeb_manager.initialize_gNodeBs(config.gNodeBs_config)
+    gNodeBs = gnodeb_manager.initialize_gNodeBs()
 
     # Initialize Cells using CellManager
     cell_manager = CellManager(gNodeBs, db_manager)
