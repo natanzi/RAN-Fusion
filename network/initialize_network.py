@@ -49,10 +49,10 @@ def initialize_network(base_dir, num_ues_to_launch=None):
 
     # Initialize UEs if num_ues_to_launch is provided, using UEManager
     #if num_ues_to_launch:
-       # ue_manager = UEManager(db_manager)
-       # ues = ue_manager.initialize_ues(num_ues_to_launch, cells, gNodeBs, config.ue_config)
-       # print("Initialized UEs:")
-      #  for ue in ues:
-       #     print(f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Sector ID: {ue.ConnectedSector}, Cell ID: {ue.ConnectedCellID}, gNodeB ID: {ue.gNodeB_ID}")
+    #   # ue_manager = UEManager(db_manager)
+    #   # ues = ue_manager.initialize_ues(num_ues_to_launch, cells, gNodeBs, config.ue_config)
+    #   # print("Initialized UEs:")
+    #  #  for ue in ues:
+    #   #     print(f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Sector ID: {ue.ConnectedSector}, Cell ID: {ue.ConnectedCellID}, gNodeB ID: {ue.gNodeB_ID}")
 
     return gNodeBs#, cells, sectors, ues
