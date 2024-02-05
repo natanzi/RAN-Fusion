@@ -7,8 +7,6 @@ import time
 from database.time_utils import get_current_time_ntp
 import logging
 from network.cell import Cell
-from network.init_cell import initialize_cells
-from .init_cell import load_json_config
 from time import sleep
 from logs.logger_config import cell_logger, gnodeb_logger
 from datetime import datetime
