@@ -62,4 +62,4 @@ def initialize_network(base_dir, num_ues_to_launch=None):
         for ue in ues:
             print(f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Sector ID: {ue.ConnectedSector}, Cell ID: {ue.ConnectedCellID}, gNodeB ID: {ue.gNodeB_ID}")
 
-    return gNodeBs#, cells, sectors, ues
+    return gNodeBs, cells, sectors, ues

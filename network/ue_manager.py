@@ -22,9 +22,10 @@ class UEManager:
         """
         Initialize UEs and allocate them to sectors.
         
-        :param num_ues: Number of UEs to initialize.
+        :param num_ues_to_launch: Number of UEs to initialize.
         :param cells: Dictionary of cells in the network.
-        :param gnodebs: Dictionary of gNodeBs in the network.
+        :param gNodeBs: Dictionary of gNodeBs in the network.
+        :param ue_config: Configuration for UEs.
         """
         # Get list of all sectors from cells
         all_sectors = []
@@ -33,10 +34,11 @@ class UEManager:
         
         if not all_sectors:
             print("Error: No sectors found")
-            return
+            return []  # Return an empty list instead of None
 
         # Use the modified allocate_ues function from utils.py
         self.ues = allocate_ues(num_ues_to_launch, all_sectors, self.ue_config)
+        return self.ues  # Ensure this method always returns a list
 ##################################################################################
     def create_ue(self, config, **kwargs):
         # Logic to create a single UE instance
