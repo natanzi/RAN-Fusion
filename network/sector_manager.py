@@ -68,28 +68,37 @@ class SectorManager:
         print("Sectors initialization completed.")
         return initialized_sectors
 
+
+class SectorManager:
+
+    def __init__(self):
+        self.lock = threading.Lock()
+        self.sectors = {}
+        self.global_ue_ids = set()
+
     def add_ue_to_sector(self, sector_id, ue):
-        with self.lock:  # Use the SectorManager's lock for thread safety
+        with self.lock:
             sector = self.sectors.get(sector_id)
             if sector:
                 if len(sector.connected_ues) >= sector.capacity:
-                    sector_logger.warning(f"Sector {sector_id} at max capacity! Cannot add UE {ue.ID}")
+                    sector_logger.warning(f"Sector {sector_id} at max capacity! Cannot add UE {ue.ID}") 
                 elif ue.ID not in sector.connected_ues:
-                    sector.connected_ues.append(ue.ID)  # Store only the ID, not the UE object
-                    sector.current_load += 1  # Increment the current load
-                    global_ue_ids.add(ue.ID)  # Add the UE ID to the global list
-                    sector.remaining_capacity = sector.capacity - len(sector.connected_ues)  # Update remaining_capacity
+                    sector.connected_ues.append(ue.ID)
+                    sector.current_load += 1
+                    self.global_ue_ids.add(ue.ID)  
+                    sector.remaining_capacity = sector.capacity - len(sector.connected_ues)
                     ue.ConnectedCellID = sector.cell_id
                     ue.gNodeB_ID = sector.cell.gNodeB_ID
                     sector.ues[ue.ID] = ue
-                    global_ue_ids.add(ue.ID)
+                    self.global_ue_ids.add(ue.ID)
                     point = sector.serialize_for_influxdb()
-                    self.db_manager.insert_data(point)  # Use SectorManager's db_manager to insert data
+                    self.db_manager.insert_data(point)
                     sector_logger.info(f"UE with ID {ue.ID} has been added to the sector {sector_id}. Current load: {sector.current_load}")
                 else:
                     sector_logger.warning(f"UE with ID {ue.ID} is already connected to the sector {sector_id}.")
             else:
                 print(f"Sector {sector_id} not found.")
+
 
     def remove_ue_from_sector(self, sector_id, ue_id):
         with self.lock:  # Use the SectorManager's lock for thread safety
