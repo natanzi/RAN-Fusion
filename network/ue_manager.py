@@ -18,7 +18,7 @@ class UEManager:
         self.ue_config = self.config.ue_config
         self.ues = []
 
-    def initialize_ues(self, num_ues, cells, gnodebs):
+    def initialize_ues(self, num_ues_to_launch, cells, gNodeBs, ue_config):
         """
         Initialize UEs and allocate them to sectors.
         
@@ -36,7 +36,7 @@ class UEManager:
             return
 
         # Use the modified allocate_ues function from utils.py
-        self.ues = allocate_ues(num_ues, all_sectors, self.ue_config)
+        self.ues = allocate_ues(num_ues_to_launch, all_sectors, self.ue_config)
 ##################################################################################
     def create_ue(self, config, **kwargs):
         # Logic to create a single UE instance

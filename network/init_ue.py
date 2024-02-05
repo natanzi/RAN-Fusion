@@ -11,7 +11,7 @@ base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 config = Config(base_dir)
 ue_config = config.ue_config
 
-def initialize_ues(num_ues, cells, gnodebs, ue_config):
+def initialize_ues(self, num_ues_to_launch, cells, gNodeBs, ue_config):
 
     # Get list of all sectors from cells
     all_sectors = []
