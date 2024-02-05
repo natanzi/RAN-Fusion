@@ -35,6 +35,7 @@ def load_gNodeB_config():
 gNodeBs_config = load_gNodeB_config()
 
 class gNodeB:
+    
     def __init__(self, gnodeb_id, latitude, longitude, coverageRadius, power, frequency, bandwidth, location, region, maxUEs, cellCount, sectorCount, handoverMargin, handoverHysteresis, timeToTrigger, interFreqHandover, xnInterface, sonCapabilities, loadBalancingOffset, cellIds, sectorIds, MeasurementBandwidth=None, BlacklistedCells=None, **kwargs):
         self.ID = gnodeb_id  # str: Unique identifier for the gNodeB
         self.instance_id = str(uuid.uuid4())  # Generic unique identifier for the instance of the GNodeB

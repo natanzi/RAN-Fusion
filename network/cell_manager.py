@@ -16,6 +16,10 @@ class CellManager:
         
         :param cells_config: Configuration data for cells.
         """
+        if self.gNodeBs is None:
+            cell_logger.error("gNodeBs is None. Cannot initialize cells.")
+            return
+    
         cell_logger.info("Initializing cells.")
         for cell_data in cells_config['cells']:
             cell_id = cell_data['cell_id']

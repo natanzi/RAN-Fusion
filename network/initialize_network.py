@@ -38,6 +38,10 @@ def initialize_network(base_dir, num_ues_to_launch=None):
     gnodeb_manager = gNodeBManager(db_manager)
     gNodeBs = gnodeb_manager.initialize_gNodeBs()
 
+    # Make sure gNodeBs is not None or empty
+    assert gNodeBs is not None and len(gNodeBs) > 0, "gNodeBs initialization failed or returned empty."
+    print(f"gNodeBs initialized: {gNodeBs}")
+
     # Initialize Cells using CellManager
     cell_manager = CellManager(gNodeBs, db_manager)
     cells = cell_manager.initialize_cells(config.cells_config)

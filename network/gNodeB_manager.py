@@ -1,7 +1,7 @@
 import os
 from network.gNodeB import gNodeB, load_gNodeB_config
 from database.database_manager import DatabaseManager
-
+from logs.logger_config import cell_logger, gnodeb_logger
 
 
 class gNodeBManager:
@@ -11,6 +11,11 @@ class gNodeBManager:
         self.db_manager = DatabaseManager() 
         self.base_dir = base_dir
         self.gNodeBs_config = load_gNodeB_config()
+
+        # Check if gNodeBs_config contains gNodeBs data
+        if 'gNodeBs' not in self.gNodeBs_config or not self.gNodeBs_config['gNodeBs']:
+            gnodeb_logger.error("gNodeBs configuration is missing or empty.")
+            raise ValueError("gNodeBs configuration is missing or empty.")
 
 
     def initialize_gNodeBs(self):
@@ -25,7 +30,8 @@ class gNodeBManager:
             self.gNodeBs[gnodeb.ID] = gnodeb
             point = gnodeb.serialize_for_influxdb()  # Serialize for InfluxDB
             self.db_manager.insert_data(point)  # Insert the Point object directly
-
+        return self.gNodeBs
+    
     def list_all_gNodeBs(self):
         """List all gNodeBs managed by this manager."""
         return list(self.gNodeBs.keys())
