@@ -1,11 +1,9 @@
 #sector_manager.py inside the network folder SectorManager class can centralize the management of sectors, including their initialization, updates, and the handling of User Equipment (UE) associations. This approach can streamline interactions with the database and ensure consistent state management across the application.
-# sector_manager.py
+#sector_manager.py
 from network.sector import Sector, all_sectors
 from database.database_manager import DatabaseManager
 from influxdb_client import Point, WritePrecision
 from logs.logger_config import cell_logger, gnodeb_logger, ue_logger, sector_logger
-from .sector import Sector, all_sectors
-
 import threading
 
 class SectorManager:

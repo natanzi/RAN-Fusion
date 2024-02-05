@@ -1,13 +1,17 @@
 import os
 from network.gNodeB import gNodeB, load_gNodeB_config
-from database.db_manager import DBManager  # Assuming there's a DBManager class for database operations
+from database.database_manager import DatabaseManager
+
+
 
 class gNodeBManager:
+
     def __init__(self, base_dir):
         self.gNodeBs = {}
-        self.db_manager = DBManager()  # Initialize your database manager here
+        self.db_manager = DatabaseManager() 
         self.base_dir = base_dir
-        self.gNodeBs_config = load_gNodeB_config(base_dir)  # Load the gNodeB configuration
+        self.gNodeBs_config = load_gNodeB_config(base_dir)  
+
 
     def initialize_gNodeBs(self):
         """
@@ -21,6 +25,10 @@ class gNodeBManager:
             self.gNodeBs[gnodeb.ID] = gnodeb
             point = gnodeb.serialize_for_influxdb()  # Serialize for InfluxDB
             self.db_manager.insert_data(point)  # Insert the Point object directly
+
+    def list_all_gNodeBs(self):
+        """List all gNodeBs managed by this manager."""
+        return list(self.gNodeBs.keys())
 
     def add_gNodeB(self, gNodeB_data):
         """
@@ -59,8 +67,8 @@ class gNodeBManager:
         return self.gNodeBs.get(gnodeb_id)
 
 # Example usage
-if __name__ == "__main__":
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    gnodeb_manager = gNodeBManager(base_dir)
-    gnodeb_manager.initialize_gNodeBs()
+#if __name__ == "__main__":
+    #base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    #gnodeb_manager = gNodeBManager(base_dir)
+    #gnodeb_manager.initialize_gNodeBs()
     # Additional operations like add_gNodeB, remove_gNodeB, get_gNodeB can be performed using the manager instance.

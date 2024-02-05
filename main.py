@@ -8,7 +8,7 @@ from network.init_ue import initialize_ues
 import time
 import threading
 
-        
+
 def monitor_ue_updates():
     log_file_path = 'ue_updates.log'
     # Ensure the file exists, create if it doesn't

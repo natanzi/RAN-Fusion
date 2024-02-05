@@ -1,9 +1,11 @@
 import os
 from network.cell import Cell
 from logs.logger_config import cell_logger
+import json
+from database.database_manager import DatabaseManager
 
 class CellManager:
-    def __init__(self, gNodeBs, db_manager):
+    def __init__(self, gNodeBs, db_manager: DatabaseManager):
         self.cells = {}
         self.gNodeBs = gNodeBs
         self.db_manager = db_manager
@@ -19,13 +21,14 @@ class CellManager:
             cell_id = cell_data['cell_id']
             gNodeB_id = cell_data['gnodeb_id']
             if gNodeB_id not in self.gNodeBs:
-                print(f"Error: gNodeB {gNodeB_id} not found for cell {cell_id}")
+                cell_logger.error(f"Error: gNodeB {gNodeB_id} not found for cell {cell_id}")
                 continue
             
             new_cell = Cell(**cell_data)
             
             # Add the cell to the corresponding gNodeB
-            self.gNodeBs[gNodeB_id].add_cell_to_gNodeB(new_cell)
+            if gNodeB_id in self.gNodeBs:
+                self.gNodeBs[gNodeB_id].add_cell_to_gNodeB(new_cell)
             
             # Add the new cell to the cells dictionary
             self.cells[cell_id] = new_cell
@@ -34,7 +37,7 @@ class CellManager:
             point = new_cell.serialize_for_influxdb()
             self.db_manager.insert_data(point)
         
-        print("Cells initialization completed.")
+        cell_logger.info("Cells initialization completed.")
 
     def add_cell(self, cell_data):
         """
@@ -45,7 +48,12 @@ class CellManager:
         cell_id = cell_data['cell_id']
         gNodeB_id = cell_data['gnodeb_id']
         if cell_id in self.cells:
+            cell_logger.error(f"Duplicate cell ID {cell_id} found.")
             raise ValueError(f"Duplicate cell ID {cell_id} found.")
+        
+        if gNodeB_id not in self.gNodeBs:
+            cell_logger.error(f"gNodeB {gNodeB_id} not found.")
+            raise ValueError(f"gNodeB {gNodeB_id} not found.")
         
         new_cell = Cell(**cell_data)
         self.gNodeBs[gNodeB_id].add_cell_to_gNodeB(new_cell)
@@ -61,10 +69,10 @@ class CellManager:
         """
         if cell_id in self.cells:
             del self.cells[cell_id]
-            # Assuming there's a method in DBManager to remove data
-            self.db_manager.remove_data(cell_id)
+            self.db_manager.remove_data(cell_id)  # Ensure you have this method in your DBManager
+            cell_logger.info(f"Cell ID {cell_id} removed.")
         else:
-            print(f"Cell ID {cell_id} not found.")
+            cell_logger.error(f"Cell ID {cell_id} not found.")
 
     def get_cell(self, cell_id):
         """
@@ -74,11 +82,3 @@ class CellManager:
         :return: The cell instance, if found; None otherwise.
         """
         return self.cells.get(cell_id)
-
-# Example usage
-if __name__ == "__main__":
-    # Assuming gNodeBs and db_manager are defined elsewhere and passed here
-    cell_manager = CellManager(gNodeBs, db_manager)
-    cells_config = ...  # Load cells configuration
-    cell_manager.initialize_cells(cells_config)
-    # Additional operations like add_cell, remove_cell, get_cell can be performed using the manager instance.

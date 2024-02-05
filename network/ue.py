@@ -5,6 +5,7 @@ from datetime import datetime
 from influxdb_client import Point
 from logs.logger_config import ue_logger
 import uuid
+
 class UE:
     existing_ue_ids = set()  # Keep track of all existing UE IDs to avoid duplicates
     ue_instances = {}

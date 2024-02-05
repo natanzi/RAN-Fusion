@@ -2,8 +2,17 @@ import os
 from network.ue import UE
 from network.utils import allocate_ues, create_ue
 from Config_files.config import Config
+from logs.logger_config import ue_logger
+
+# Get base path
+base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+config = Config(base_dir)
+ue_config = config.ue_config
+
 
 class UEManager:
+
     def __init__(self, base_dir):
         self.config = Config(base_dir)
         self.ue_config = self.config.ue_config
@@ -28,8 +37,13 @@ class UEManager:
 
         # Use the modified allocate_ues function from utils.py
         self.ues = allocate_ues(num_ues, all_sectors, self.ue_config)
-
-
+##################################################################################
+    def create_ue(self, config, **kwargs):
+        # Logic to create a single UE instance
+        new_ue = UE(config, **kwargs)
+        self.ues[new_ue.ID] = new_ue
+        return new_ue
+##################################################################################
     def get_ue_by_id(self, ue_id):
         """
         Retrieve a UE instance by its ID.
@@ -38,7 +52,7 @@ class UEManager:
         :return: The UE instance with the given ID, or None if not found.
         """
         return self.ues.get(ue_id)
-
+##################################################################################
     def update_ue(self, ue_id, **kwargs):
         """
         Update the parameters of an existing UE.
@@ -55,7 +69,7 @@ class UEManager:
         else:
             ue_logger.warning(f"UE {ue_id} not found. Update failed.")
             return False
-
+##################################################################################
     def list_all_ues(self):
         """
         List all UEs managed by this manager.
@@ -63,6 +77,7 @@ class UEManager:
         :return: A list of all UE IDs.
         """
         return list(self.ues.keys())
+##################################################################################
 
 # Example usage
 if __name__ == "__main__":
