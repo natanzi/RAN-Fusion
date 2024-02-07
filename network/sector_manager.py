@@ -15,20 +15,28 @@ class SectorManager:
         self.db_manager = db_manager  # Instance of DatabaseManager for DB operations
         self.lock = threading.Lock()  # Lock for thread-safe operations on sectors
 
-    def initialize_sectors(self, sectors_config, gnodeb_manager):
+    def initialize_sectors(self, sectors_config, gnodeb_manager, cell_manager):
         initialized_sectors = {}
         processed_sectors = set()
 
-        # Validate gNodeBs before allocation
-        required_gnodeb_ids = {sector_data['gnodeb_id'] for sector_data in sectors_config['sectors']}
-        for gnodeb_id in required_gnodeb_ids:
-            if not gnodeb_manager.get_gNodeB(gnodeb_id):
-                print(f"gNodeB {gnodeb_id} not initialized, cannot allocate sectors.")
-                return  # Skip sector allocation for this gNodeB
-
         for sector_data in sectors_config['sectors']:
             sector_id = sector_data['sector_id']
-            gnodeb_id = sector_data['gnodeb_id']
+            cell_id = sector_data.get('cell_id')  # Assuming each sector config has a cell_id
+            if not cell_id:
+                print(f"Cell ID not provided for sector {sector_id}. Skipping.")
+                continue
+
+        # Assuming cell_manager can retrieve a cell object by its ID
+            cell = cell_manager.get_cell(cell_id)
+            if not cell:
+                print(f"Cell {cell_id} not found for sector {sector_id}. Skipping.")
+                continue
+
+            gnodeb_id = cell.gnodeb_id  # Assuming the Cell object has a gnodeb_id attribute
+            if not gnodeb_manager.get_gNodeB(gnodeb_id):
+                print(f"gNodeB {gnodeb_id} not initialized, cannot allocate sector {sector_id}.")
+                continue
+
             sector_gnodeb_combo = (gnodeb_id, sector_id)
             if sector_gnodeb_combo in processed_sectors:
                 print(f"Sector {sector_id} already processed for gNodeB {gnodeb_id}. Skipping.")
@@ -40,8 +48,8 @@ class SectorManager:
             with self.lock:
                 if sector_id not in self.sectors:
                     new_sector = Sector(
-                        sector_id=sector_data['sector_id'],
-                        gnodeb_id=sector_data['gnodeb_id'],
+                        sector_id=sector_id,
+                        gnodeb_id=gnodeb_id,  # Now inferred from the cell
                         capacity=sector_data['capacity'],
                         azimuth_angle=sector_data['azimuth_angle'],
                         beamwidth=sector_data['beamwidth'],
@@ -55,7 +63,6 @@ class SectorManager:
                         load_balancing=sector_data['load_balancing'],
                         gnodeb=gnodeb
                     )
-
                     try:
                         gnodeb.add_sector(new_sector)
                         self.sectors[new_sector.sector_id] = new_sector
@@ -70,32 +77,6 @@ class SectorManager:
 
         print("Sectors initialization completed.")
         return initialized_sectors
-
-    # The rest of the methods (add_ue_to_sector, remove_ue_from_sector, update_sector, get_sector_state)
-    # remain unchanged as they do not directly interact with gNodeB initialization or sector-gNodeB associations.
-
-    def add_ue_to_sector(self, sector_id, ue):
-        with self.lock:
-            sector = self.sectors.get(sector_id)
-            if sector:
-                if len(sector.connected_ues) >= sector.capacity:
-                    sector_logger.warning(f"Sector {sector_id} at max capacity! Cannot add UE {ue.ID}") 
-                elif ue.ID not in sector.connected_ues:
-                    sector.connected_ues.append(ue.ID)
-                    sector.current_load += 1
-                    self.global_ue_ids.add(ue.ID)  
-                    sector.remaining_capacity = sector.capacity - len(sector.connected_ues)
-                    ue.ConnectedCellID = sector.cell_id
-                    ue.gNodeB_ID = sector.cell.gNodeB_ID
-                    sector.ues[ue.ID] = ue
-                    self.global_ue_ids.add(ue.ID)
-                    point = sector.serialize_for_influxdb()
-                    self.db_manager.insert_data(point)
-                    sector_logger.info(f"UE with ID {ue.ID} has been added to the sector {sector_id}. Current load: {sector.current_load}")
-                else:
-                    sector_logger.warning(f"UE with ID {ue.ID} is already connected to the sector {sector_id}.")
-            else:
-                print(f"Sector {sector_id} not found.")
 
 
     def remove_ue_from_sector(self, sector_id, ue_id):

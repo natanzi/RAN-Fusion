@@ -50,6 +50,7 @@ def initialize_network(base_dir, num_ues_to_launch=None):
     print(f"Cells initialized: {cells}")
     # Initialize Sectors using SectorManager
     sector_manager = SectorManager(db_manager)
+    print(config.sectors_config)
     sectors = sector_manager.initialize_sectors(config.sectors_config, cells)
 
     reconcile_network_with_map(network_map, cell_manager)
