@@ -69,11 +69,14 @@ class SectorManager:
                         self.gnodeb_sectors_map[gnodeb_id] = []
                     self.gnodeb_sectors_map[gnodeb_id].append(new_sector)
 
+                    # Add sector to cell
+                    cell.add_sector_to_cell(new_sector)
+
                     self.sectors[new_sector.sector_id] = new_sector
                     initialized_sectors[new_sector.sector_id] = new_sector
                     point = new_sector.serialize_for_influxdb()
                     self.db_manager.insert_data(point)
-                    print(f"Sector {new_sector.sector_id} initialized and associated with gNodeB {gnodeb_id}.")
+                    print(f"Sector {new_sector.sector_id} initialized and associated with gNodeB {gnodeb_id} and Cell {cell_id}.")
                 else:
                     print(f"Sector {sector_id} already exists in the manager.")
 
