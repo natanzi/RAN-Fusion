@@ -98,7 +98,7 @@ class Cell:
         if not hasattr(self, 'sectors'):
             self.sectors = []
 
-        # Check if sector already exists in the cell
+    # Check if sector already exists in the cell
         if sector.sector_id not in [s.sector_id for s in self.sectors]:
             self.sectors.append(sector)
             cell_logger.info(f"Sector '{sector.sector_id}' added to Cell '{self.ID}'.")
