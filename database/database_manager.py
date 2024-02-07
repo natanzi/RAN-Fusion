@@ -14,6 +14,8 @@ INFLUXDB_BUCKET = os.getenv('INFLUXDB_BUCKET', 'RAN_metrics')
 class DatabaseManager:
 
     def __init__(self):
+        # Print the InfluxDB token
+        print(f"InfluxDB token: {INFLUXDB_TOKEN}")# Print the InfluxDB token  for test
         self.client = InfluxDBClient(url=INFLUXDB_URL, token=INFLUXDB_TOKEN, org=INFLUXDB_ORG)
         self.write_api = self.client.write_api(write_options=SYNCHRONOUS)
         self.query_api = self.client.query_api()
