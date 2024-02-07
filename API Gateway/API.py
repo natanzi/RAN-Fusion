@@ -12,10 +12,17 @@ import json
 from network.sector_manager import all_sectors
 from database.database_manager import DatabaseManager
 
-
 app = Flask(__name__)
 lock = Lock()
 
+db_manager = DatabaseManager()
+all_sectors = {}
+
+sectors_from_db = db_manager.get_sectors()
+for sector_data in sectors_from_db:
+    sector = Sector.from_db(sector_data)  # Assuming a method to create a Sector object from db data
+    all_sectors[sector.id] = sector
+    
 print(all_sectors)
 print(f"Length of all_sectors in API: {len(all_sectors)}")
 

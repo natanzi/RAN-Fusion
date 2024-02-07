@@ -5,6 +5,7 @@ from influxdb_client.client.write_api import SYNCHRONOUS
 from logs.logger_config import database_logger  # Import the configured logger
 from datetime import datetime
 from influxdb_client import Point
+import json
 # Read from environment variables or use default values
 INFLUXDB_URL = os.getenv('INFLUXDB_URL', 'http://localhost:8086')
 INFLUXDB_TOKEN = os.getenv('INFLUXDB_TOKEN', 'your-default-token')
@@ -29,10 +30,23 @@ class DatabaseManager:
                 if record.values.get('sector_id') == sector_id:
                     return record.values  # Adjust based on what you need
         return None
+################################################################################################################################
     def insert_sector_state(self, sector):
         """Inserts the state of a sector into InfluxDB."""
         point = sector.serialize_for_influxdb()  # Assuming serialize_for_influxdb() prepares the data correctly
         self.insert_data(point)
+##################################################################################################################################
+    def get_sectors(self):
+        query = f'from(bucket:"{self.bucket}") |> range(start: -30d) |> filter(fn:(r) => r._measurement == "sectors")'  
+        result = self.query_api.query(query=query)
+
+        sectors = []
+        for table in result:
+            for record in table.records:
+                sector_data = json.loads(record.get_value())  
+                sectors.append(sector_data)
+
+        return sectors
 ##################################################################################################################################
     def remove_ue_state(self, ue_id, sector_id):
         """
