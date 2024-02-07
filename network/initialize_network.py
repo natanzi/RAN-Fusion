@@ -1,13 +1,14 @@
 # initialize_network.py
 # Initialization of gNodeBs, Cells, sectors, and UEs
 # This file is located in the network directory
-from network.gNodeB_manager import gNodeBManager  
-from network.cell_manager import CellManager  
-from network.sector_manager import SectorManager  
-from network.ue_manager import UEManager  
+
+from network.gNodeB_manager import gNodeBManager
+from network.cell_manager import CellManager
+from network.sector_manager import SectorManager
+from network.ue_manager import UEManager
 from logs.logger_config import ue_logger
-from Config_files.config import Config  
-from database.database_manager import DatabaseManager  
+from Config_files.config import Config
+from database.database_manager import DatabaseManager
 
 def reconcile_network_with_map(network_map, cell_manager):
     # Adjusted to use cell_manager for cell retrieval
@@ -24,7 +25,6 @@ def reconcile_network_with_map(network_map, cell_manager):
                 print(f"Cell {cell_id} not found in initialized network.")
 
 def initialize_network(base_dir, num_ues_to_launch=None):
-
     # Create an instance of Config
     config = Config(base_dir)
 
@@ -46,12 +46,12 @@ def initialize_network(base_dir, num_ues_to_launch=None):
     cell_manager = CellManager(gNodeBs, db_manager)
     cells = cell_manager.initialize_cells(config.cells_config)
     assert cells is not None, "Cells initialization failed or returned None."
-
     print(f"Cells initialized: {cells}")
+
     # Initialize Sectors using SectorManager
     sector_manager = SectorManager(db_manager)
     print(config.sectors_config)
-    sectors = sector_manager.initialize_sectors(config.sectors_config, cells)
+    sectors = sector_manager.initialize_sectors(config.sectors_config, gnodeb_manager, cell_manager) 
 
     reconcile_network_with_map(network_map, cell_manager)
 
