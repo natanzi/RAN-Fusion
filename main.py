@@ -9,7 +9,6 @@ from network.gNodeB_manager import gNodeBManager
 import time
 import threading
 
-
 def monitor_ue_updates():
     log_file_path = 'ue_updates.log'
     # Ensure the file exists, create if it doesn't
@@ -34,7 +33,6 @@ def main():
 
     # Create an instance of DatabaseManager here
     db_manager = DatabaseManager()
-
     #sleep
     time.sleep(1)
 
@@ -46,6 +44,7 @@ def main():
 
     # Start monitoring UE operations in a separate thread
     threading.Thread(target=monitor_ue_updates, daemon=True).start()
+
 
     # Keep the main program running until manually stopped
     try:

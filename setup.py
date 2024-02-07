@@ -37,6 +37,25 @@ def setup_influxdb_config():
     # Write configuration to .env file
     write_env_file(influxdb_url, influxdb_token, influxdb_org, influxdb_bucket, influxdb_log_bucket)
 
+    client = InfluxDBClient(influxdb_url, influxdb_token, influxdb_org)  
+    create_scraper(client, "network_scraper", "http://localhost:5000", influxdb_org, influxdb_bucket)
+
+def create_scraper(client, name, url, org, bucket):
+
+    scraper_body = {
+        "name": name,
+        "type": "python",
+        "url": url,  
+        "org": org,   
+        "bucket": bucket 
+    }
+
+    try:
+        client.scrapers_api().create_scraper(scraper_body)
+        print(f"Created scraper {name}")
+    except Exception as e:
+        print(f"Error creating scraper: {e}")
+
 def configure_influxdb_bucket(url, token, org, bucket_name):
     """Configures the InfluxDB bucket."""
     client = InfluxDBClient(url=url, token=token, org=org)

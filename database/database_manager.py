@@ -37,16 +37,18 @@ class DatabaseManager:
         self.insert_data(point)
 ##################################################################################################################################
     def get_sectors(self):
-        query = f'from(bucket:"{self.bucket}") |> range(start: -30d) |> filter(fn:(r) => r._measurement == "sectors")'  
-        result = self.query_api.query(query=query)
-
-        sectors = []
-        for table in result:
-            for record in table.records:
-                sector_data = json.loads(record.get_value())  
-                sectors.append(sector_data)
-
-        return sectors
+        try:
+            query = f'from(bucket:"{self.bucket}") |> range(start: -30d) |> filter(fn:(r) => r._measurement == "sectors")'
+            result = self.query_api.query(query=query)
+            sectors = []
+            for table in result:
+                for record in table.records:
+                    sector_data = json.loads(record.get_value())
+                    sectors.append(sector_data)
+            return sectors
+        except Exception as e:
+            print(f"Failed to retrieve sectors: {e}")
+            return []
 ##################################################################################################################################
     def remove_ue_state(self, ue_id, sector_id):
         """
