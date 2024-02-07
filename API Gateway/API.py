@@ -156,4 +156,5 @@ def update_ue():
 #########################################################################################################
 if __name__ == '__main__':
     print("Starting API server...")
+    print(f"Available sectors at API start: {list(all_sectors.keys())}")
     app.run(debug=True)

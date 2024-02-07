@@ -41,8 +41,8 @@ def main():
     # Call the new initialization function
     gNodeBs, cells, sectors, ues = initialize_network(base_dir, num_ues_to_launch=10)
 
-        # Post-initialization steps, if any
     print("Network Initialization Complete")
+    print(f" this is for debug and so Initialized sectors: {sectors}")  
 
     # Start monitoring UE operations in a separate thread
     threading.Thread(target=monitor_ue_updates, daemon=True).start()

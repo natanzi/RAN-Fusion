@@ -19,6 +19,15 @@ class DatabaseManager:
         self.query_api = self.client.query_api()
         self.bucket = INFLUXDB_BUCKET
 
+    def get_sector_by_id(self, sector_id):
+        query = f'from(bucket: "{self.bucket}") |> range(start: -1d) |> filter(fn: (r) => r._measurement == "sector_metrics" and r.sector_id == "{sector_id}")'
+        result = self.query_api.query(query=query)
+        for table in result:
+            for record in table.records:
+                if record.values.get('sector_id') == sector_id:
+                    return record.values  # Adjust based on what you need
+        return None
+    
     def test_connection(self):
         """Test if the connection to the database is successful."""
         try:
