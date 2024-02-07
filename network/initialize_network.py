@@ -6,6 +6,7 @@ from network.gNodeB_manager import gNodeBManager
 from network.cell_manager import CellManager
 from network.sector_manager import SectorManager
 from network.ue_manager import UEManager
+from network.sector import Sector  # Import the Sector class
 from logs.logger_config import ue_logger
 from Config_files.config import Config
 from database.database_manager import DatabaseManager
@@ -30,7 +31,7 @@ def initialize_network(base_dir, num_ues_to_launch=None):
 
     # Access the network map data
     network_map = config.network_map_data
-    
+
     # Create an instance of DatabaseManager
     db_manager = DatabaseManager()
 
@@ -50,14 +51,20 @@ def initialize_network(base_dir, num_ues_to_launch=None):
 
     # Initialize Sectors using SectorManager
     sector_manager = SectorManager(db_manager)
-    #print(config.sectors_config)
     sectors = sector_manager.initialize_sectors(config.sectors_config, gnodeb_manager, cell_manager) 
+
+    # Ensure that sector is an instance of Sector before attempting to insert its state
+    for sector in sectors:
+        if isinstance(sector, Sector):
+            db_manager.insert_sector_state(sector)
+        else:
+            print(f"Expected Sector instance, got {type(sector)}")
 
     reconcile_network_with_map(network_map, cell_manager)
 
     # Initialize UEs if num_ues_to_launch is provided, using UEManager
     if num_ues_to_launch:
-        ue_manager = UEManager(base_dir)  # Corrected to pass base_dir instead of db_manager
+        ue_manager = UEManager(base_dir)
         ues = ue_manager.initialize_ues(num_ues_to_launch, cells, gNodeBs, config.ue_config)
         print("Initialized UEs:")
         for ue in ues:

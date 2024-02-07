@@ -34,10 +34,7 @@ def main():
 
     # Create an instance of DatabaseManager here
     db_manager = DatabaseManager()
-    # Assuming `sectors` is a list of Sector instances
-    for sector in sectors:
-        db_manager.insert_sector_state(sector)
-        
+
     #sleep
     time.sleep(1)
 
