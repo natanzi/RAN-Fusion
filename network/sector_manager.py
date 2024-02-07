@@ -17,6 +17,7 @@ class SectorManager:
         self.gnodeb_sectors_map = {}  # New attribute to track gNodeB to sectors association
 
     def initialize_sectors(self, sectors_config, gnodeb_manager, cell_manager):
+        print("Initializing sectors...")
         initialized_sectors = {}
         processed_sectors = set()
 

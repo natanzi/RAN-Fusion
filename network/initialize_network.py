@@ -50,7 +50,7 @@ def initialize_network(base_dir, num_ues_to_launch=None):
 
     # Initialize Sectors using SectorManager
     sector_manager = SectorManager(db_manager)
-    print(config.sectors_config)
+    #print(config.sectors_config)
     sectors = sector_manager.initialize_sectors(config.sectors_config, gnodeb_manager, cell_manager) 
 
     reconcile_network_with_map(network_map, cell_manager)

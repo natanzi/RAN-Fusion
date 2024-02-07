@@ -10,8 +10,10 @@ import traceback
 import threading
 import json
 from network.sector_manager import all_sectors
+
 app = Flask(__name__)
-lock = threading.Lock()
+lock = Lock()
+
 print(all_sectors)
 print(f"Length of all_sectors in API: {len(all_sectors)}")
 
@@ -19,7 +21,7 @@ print(f"Length of all_sectors in API: {len(all_sectors)}")
 def log_ue_update(message):
     with open('ue_updates.log', 'a') as log_file:
         log_file.write(message + "\n")
-
+#########################################################################################################
 @app.route('/add_ue', methods=['POST'])
 def add_ue():
     data = request.json
@@ -81,47 +83,47 @@ def add_ue():
         print(f"Error adding UE to sector: {e}")  # Log exception when adding UE to sector
         return jsonify({'error': 'An error occurred while adding UE to sector'}), 500
 
-
+#########################################################################################################
 @app.route('/remove_ue', methods=['POST'])
 def remove_ue():
     data = request.json
-
-    # Validate required fields are present
+    print("Received request to remove UE:", data)
     required_fields = ['ue_id', 'sector_id']
     missing_fields = [field for field in required_fields if field not in data]
     if missing_fields:
         return jsonify({'error': f'Missing required fields: {", ".join(missing_fields)}'}), 400
-
+    
     ue_id = data['ue_id']
     sector_id = data['sector_id']
-
-    # Validate sector_id format (example validation, adjust as needed)
-    if not isinstance(sector_id, str) or len(sector_id) < 5:  # Example validation condition
+    
+    # Validate sector_id and ue_id formats (example validation, adjust as needed)
+    if not isinstance(sector_id, str) or len(sector_id) < 5:
         return jsonify({'error': 'Invalid sector_id format'}), 400
-
-    # Validate ue_id format (example validation, adjust as needed)
-    if not isinstance(ue_id, str) or len(ue_id) < 3:  # Example validation condition
+    if not isinstance(ue_id, str) or len(ue_id) < 3:
         return jsonify({'error': 'Invalid ue_id format'}), 400
-
+    
     try:
-        sector = Sector.get_sector_by_id(sector_id)
-        if not sector:
-            return jsonify({'error': 'Sector not found'}), 404
-
-        print(f"Before removing UE, Sector {sector_id} remaining_capacity: {sector.remaining_capacity}, current_load: {sector.current_load}")
-
-        with lock:  # Ensure thread safety
+        # Ensure thread safety
+        with lock:
+            # Attempt to retrieve the sector and remove the UE
+            print(f"Attempting to find sector with ID: {sector_id} in all_sectors: {all_sectors}")
+            sector = Sector.get_sector_by_id(sector_id)
+            if not sector:
+                return jsonify({'error': 'Sector not found'}), 404
+            
+            # Assuming Sector class has a method remove_ue that returns True if removal was successful
             success = sector.remove_ue(ue_id)
-
-        print(f"After removing UE, Sector {sector_id} remaining_capacity: {sector.remaining_capacity}, current_load: {sector.current_load}")
-
-        if success:
-            log_ue_update(f"UE ID: {ue_id} removed from Sector ID: {sector_id}")
-            return jsonify({'message': f'UE {ue_id} removed successfully from sector {sector_id}'}), 200
-        else:
-            return jsonify({'error': 'Failed to remove UE from sector'}), 500
+            if success:
+                log_ue_update(f"UE ID: {ue_id} removed from Sector ID: {sector_id}")
+                return jsonify({'message': f'UE {ue_id} removed successfully from sector {sector_id}'}), 200
+            else:
+                return jsonify({'error': 'Failed to remove UE from sector'}), 500
     except Exception as e:
+        traceback.print_exc()
         return jsonify({'error': 'An error occurred while removing UE'}), 500
+#########################################################################################################
+if __name__ == '__main__':
+    app.run(debug=True)
     
 @app.route('/update_ue', methods=['POST'])
 def update_ue():
@@ -151,6 +153,7 @@ def update_ue():
     except Exception as e:
         traceback.print_exc()
         return jsonify({'error': 'An error occurred while updating UE'}), 500
-
+#########################################################################################################
 if __name__ == '__main__':
+    print("Starting API server...")
     app.run(debug=True)
