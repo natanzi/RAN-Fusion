@@ -82,7 +82,7 @@ class SectorManager:
                     print(f"Sector {sector_id} already exists in the manager.")
 
         print("Sectors initialization completed.")
-        return initialized_sectors
+        return list(initialized_sectors.values()) #Return a list of Sector instances
 
 
     def remove_ue_from_sector(self, sector_id, ue_id):
