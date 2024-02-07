@@ -32,7 +32,7 @@ class SectorManager:
                 print(f"Cell {cell_id} not found for sector {sector_id}. Skipping.")
                 continue
 
-            gnodeb_id = cell.gnodeb_id  # Assuming the Cell object has a gnodeb_id attribute
+            gnodeb_id = cell.gNodeB_ID  # Assuming the Cell object has a gnodeb_id attribute
             if not gnodeb_manager.get_gNodeB(gnodeb_id):
                 print(f"gNodeB {gnodeb_id} not initialized, cannot allocate sector {sector_id}.")
                 continue
@@ -49,7 +49,7 @@ class SectorManager:
                 if sector_id not in self.sectors:
                     new_sector = Sector(
                         sector_id=sector_id,
-                        gnodeb_id=gnodeb_id,  # Now inferred from the cell
+                        gnodeb_id = cell.gNodeB_ID,
                         capacity=sector_data['capacity'],
                         azimuth_angle=sector_data['azimuth_angle'],
                         beamwidth=sector_data['beamwidth'],
