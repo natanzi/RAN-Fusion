@@ -14,6 +14,7 @@ class SectorManager:
         self.sectors = all_sectors  # Use the global all_sectors dictionary to track sectors
         self.db_manager = db_manager  # Instance of DatabaseManager for DB operations
         self.lock = threading.Lock()  # Lock for thread-safe operations on sectors
+        self.gnodeb_sectors_map = {}  # New attribute to track gNodeB to sectors association
 
     def initialize_sectors(self, sectors_config, gnodeb_manager, cell_manager):
         initialized_sectors = {}
@@ -21,18 +22,17 @@ class SectorManager:
 
         for sector_data in sectors_config['sectors']:
             sector_id = sector_data['sector_id']
-            cell_id = sector_data.get('cell_id')  # Assuming each sector config has a cell_id
+            cell_id = sector_data.get('cell_id')
             if not cell_id:
                 print(f"Cell ID not provided for sector {sector_id}. Skipping.")
                 continue
 
-        # Assuming cell_manager can retrieve a cell object by its ID
             cell = cell_manager.get_cell(cell_id)
             if not cell:
                 print(f"Cell {cell_id} not found for sector {sector_id}. Skipping.")
                 continue
 
-            gnodeb_id = cell.gNodeB_ID  # Assuming the Cell object has a gnodeb_id attribute
+            gnodeb_id = cell.gNodeB_ID
             if not gnodeb_manager.get_gNodeB(gnodeb_id):
                 print(f"gNodeB {gnodeb_id} not initialized, cannot allocate sector {sector_id}.")
                 continue
@@ -43,13 +43,13 @@ class SectorManager:
                 continue
 
             processed_sectors.add(sector_gnodeb_combo)
-            gnodeb = gnodeb_manager.get_gNodeB(gnodeb_id)
 
             with self.lock:
                 if sector_id not in self.sectors:
                     new_sector = Sector(
                         sector_id=sector_id,
-                        gnodeb_id = cell.gNodeB_ID,
+                        cell_id=cell_id,
+                        cell=cell,
                         capacity=sector_data['capacity'],
                         azimuth_angle=sector_data['azimuth_angle'],
                         beamwidth=sector_data['beamwidth'],
@@ -61,17 +61,19 @@ class SectorManager:
                         beamforming=sector_data['beamforming'],
                         ho_margin=sector_data['ho_margin'],
                         load_balancing=sector_data['load_balancing'],
-                        gnodeb=gnodeb
+                        connected_ues=[],
+                        current_load=0
                     )
-                    try:
-                        gnodeb.add_sector(new_sector)
-                        self.sectors[new_sector.sector_id] = new_sector
-                        initialized_sectors[new_sector.sector_id] = new_sector
-                        point = new_sector.serialize_for_influxdb()
-                        self.db_manager.insert_data(point)
-                        print(f"Sector {new_sector.sector_id} initialized and added to gNodeB {gnodeb_id}.")
-                    except ValueError as e:
-                        sector_logger.warning(str(e))
+                    # Update the gNodeB to sectors mapping instead of calling gnodeb.add_sector
+                    if gnodeb_id not in self.gnodeb_sectors_map:
+                        self.gnodeb_sectors_map[gnodeb_id] = []
+                    self.gnodeb_sectors_map[gnodeb_id].append(new_sector)
+
+                    self.sectors[new_sector.sector_id] = new_sector
+                    initialized_sectors[new_sector.sector_id] = new_sector
+                    point = new_sector.serialize_for_influxdb()
+                    self.db_manager.insert_data(point)
+                    print(f"Sector {new_sector.sector_id} initialized and associated with gNodeB {gnodeb_id}.")
                 else:
                     print(f"Sector {sector_id} already exists in the manager.")
 
