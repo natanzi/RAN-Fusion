@@ -10,6 +10,8 @@ import traceback
 import threading
 import json
 from network.sector_manager import all_sectors
+from database.database_manager import DatabaseManager
+
 
 app = Flask(__name__)
 lock = Lock()
@@ -21,6 +23,7 @@ print(f"Length of all_sectors in API: {len(all_sectors)}")
 def log_ue_update(message):
     with open('ue_updates.log', 'a') as log_file:
         log_file.write(message + "\n")
+
 #########################################################################################################
 @app.route('/add_ue', methods=['POST'])
 def add_ue():
@@ -102,6 +105,8 @@ def remove_ue():
     if not isinstance(ue_id, str) or len(ue_id) < 3:
         return jsonify({'error': 'Invalid ue_id format'}), 400
     
+    db_manager = DatabaseManager()  # Instantiate your DatabaseManager
+    
     try:
         # Ensure thread safety
         with lock:
@@ -114,6 +119,8 @@ def remove_ue():
             # Assuming Sector class has a method remove_ue that returns True if removal was successful
             success = sector.remove_ue(ue_id)
             if success:
+                # Additionally, remove the UE's state from InfluxDB
+                db_manager.remove_ue_state(ue_id, sector_id)  # This method needs to be implemented in DatabaseManager
                 log_ue_update(f"UE ID: {ue_id} removed from Sector ID: {sector_id}")
                 return jsonify({'message': f'UE {ue_id} removed successfully from sector {sector_id}'}), 200
             else:

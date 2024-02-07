@@ -20,7 +20,7 @@ class DatabaseManager:
         self.write_api = self.client.write_api(write_options=SYNCHRONOUS)
         self.query_api = self.client.query_api()
         self.bucket = INFLUXDB_BUCKET
-
+##################################################################################################################################
     def get_sector_by_id(self, sector_id):
         query = f'from(bucket: "{self.bucket}") |> range(start: -1d) |> filter(fn: (r) => r._measurement == "sector_metrics" and r.sector_id == "{sector_id}")'
         result = self.query_api.query(query=query)
@@ -29,7 +29,32 @@ class DatabaseManager:
                 if record.values.get('sector_id') == sector_id:
                     return record.values  # Adjust based on what you need
         return None
-    
+    def insert_sector_state(self, sector):
+        """Inserts the state of a sector into InfluxDB."""
+        point = sector.serialize_for_influxdb()  # Assuming serialize_for_influxdb() prepares the data correctly
+        self.insert_data(point)
+##################################################################################################################################
+    def remove_ue_state(self, ue_id, sector_id):
+        """
+        Removes the state of a UE from InfluxDB within the last 24 hours.
+        
+        :param ue_id: The ID of the UE to remove.
+        :param sector_id: The ID of the sector associated with the UE.
+        """
+        # Define the time range for deletion. Here, we use 24 hours as an example.
+        start_time = "now() - 24h"
+        stop_time = "now()"
+        
+        # Construct the delete predicate function
+        predicate = f'_measurement="ue_metrics" AND ue_id="{ue_id}" AND sector_id="{sector_id}"'
+        
+        try:
+            # Perform the deletion
+            self.client.delete_api().delete(start_time, stop_time, predicate, bucket=self.bucket, org=INFLUXDB_ORG)
+            database_logger.info(f"Successfully removed state for UE {ue_id} in sector {sector_id}.")
+        except Exception as e:
+            database_logger.error(f"Failed to remove state for UE {ue_id} in sector {sector_id}: {e}")
+##################################################################################################################################
     def test_connection(self):
         """Test if the connection to the database is successful."""
         try:
@@ -39,7 +64,7 @@ class DatabaseManager:
         except Exception as e:
             database_logger.error(f"Database connection test failed: {e}")
             return False
-
+##################################################################################################################################
     def insert_data_batch(self, points):
         """Inserts a batch of Point objects into InfluxDB."""
         try:
@@ -47,7 +72,7 @@ class DatabaseManager:
             #database_logger.info("Batch data inserted into InfluxDB")
         except Exception as e:
             database_logger.error(f"Failed to insert batch data into InfluxDB: {e}")
-
+##################################################################################################################################
     def insert_data(self, measurement_or_point, tags=None, fields=None, timestamp=None):
         """Inserts data into InfluxDB. Can handle both Point objects and separate parameters."""
         try:
@@ -74,11 +99,11 @@ class DatabaseManager:
 
         except Exception as e:
             database_logger.error(f"Failed to insert data into InfluxDB: {e}")
-
+##################################################################################################################################
     def close_connection(self):
         """Closes the database connection."""
         self.client.close()
-
+##################################################################################################################################
     def get_all_ue_ids(self):
         """Retrieves all UE IDs from InfluxDB."""
         try:
@@ -93,8 +118,7 @@ class DatabaseManager:
             database_logger.error(f"Failed to retrieve UE IDs from InfluxDB: {e}")
             return []  # Return an empty list in case of any exception
         return ue_ids
-
-
+##################################################################################################################################
     def insert_log(self, log_point):
         """Inserts log data into the logs bucket in InfluxDB."""
         log_bucket = 'RAN_logs'
@@ -103,7 +127,7 @@ class DatabaseManager:
             database_logger.info(f"Log data inserted into bucket {log_bucket}")
         except Exception as e:
             database_logger.error(f"Failed to insert log data into InfluxDB: {e}")
-
+##################################################################################################################################
     def update_ue_association(self, ue_id, new_cell_id):
         """
         Updates the association of a UE with a new cell in the database by writing a new point.
@@ -123,3 +147,4 @@ class DatabaseManager:
         except Exception as e:
             database_logger.error(f"Failed to update UE association in the database: {e}")
             raise
+##################################################################################################################################
