@@ -27,13 +27,16 @@ def monitor_ue_updates():
 def log_traffic(ues):
     # Initialize the TrafficController inside the child process
     traffic_controller = TrafficController()
+    
     while True:
         # Generate traffic using the traffic_controller
         for ue in ues:
-            # Assuming generate_traffic is a method of TrafficController that simulates traffic for a UE
-            traffic_data = traffic_controller.generate_traffic(ue)
-            # Log the traffic details in the desired format, including delay, jitter, and packet loss rate
-            logging.info(f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Data Size: {traffic_data['data_size']:.2f}MB, Interval: {traffic_data['interval']:.2f}s, Delay: {traffic_data['ue_delay']}ms, Jitter: {traffic_data['ue_jitter']}ms, Packet Loss Rate: {traffic_data['ue_packet_loss_rate']}%")
+            # Calculate throughput for the UE
+            throughput_data = traffic_controller.calculate_throughput(ue)
+            
+            # Log the traffic details in the desired format, including throughput, delay, jitter, and packet loss rate
+            logging.info(f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Throughput: {throughput_data['throughput']:.2f}bps, Interval: {throughput_data['interval']:.2f}s, Delay: {throughput_data['jitter']}ms, Jitter: {throughput_data['packet_loss_rate']}%, Packet Loss Rate: {throughput_data['packet_loss_rate']}%")
+        
         time.sleep(1)  # Logging interval
 
 def main():

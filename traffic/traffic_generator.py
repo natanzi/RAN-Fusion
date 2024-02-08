@@ -5,7 +5,7 @@ import time
 from datetime import datetime
 from logs.logger_config import traffic_update
 from network.ue import UE
-
+from database.database_manager import DatabaseManager
 class TrafficController:
     def __init__(self):
         self.voice_traffic_params = {'bitrate': (8, 16)}  # in Kbps
@@ -53,52 +53,48 @@ class TrafficController:
         start_time = datetime.now()
         time.sleep(self.ue_voice_delay)  # Use voice-specific delay
         jitter = random.uniform(0, self.ue_voice_jitter) if self.ue_voice_jitter > 0 else 0
-        # Corrected attribute name from 'ue_voice_traffic_params' to 'voice_traffic_params'
         bitrate = random.uniform(*self.voice_traffic_params['bitrate'])  # in Kbps
         interval = 0.02  # Interval duration in seconds
-        data_size = (bitrate * interval) / 8  # Convert to KB
+        # Convert to KB, then to bytes, and ensure it's an integer
+        data_size = int((bitrate * interval) / 8 * 1024)  
         # Apply jitter
         time.sleep(jitter)
         # Simulate packet loss
         packet_loss_occurred = random.random() < self.ue_voice_packet_loss_rate
         if packet_loss_occurred:
-            ata_size = 0  # Packet is lost
+            data_size = 0  # Packet is lost
         # Record the end timestamp
         end_time = datetime.now()
         traffic_data = {
-            'data_size': data_size,
+            'data_size': data_size,  # Now in bytes and ensured to be an integer
             'start_timestamp': start_time,
             'end_timestamp': end_time,
             'interval': interval,
-            'delay': self.ue_voice_delay,
-            'jitter': jitter,
-            'packet_loss_rate': self.ue_voice_packet_loss_rate
+            'ue_delay': self.ue_voice_delay,
+            'ue_jitter': jitter,
+            'ue_packet_loss_rate': self.ue_voice_packet_loss_rate
         }
         return traffic_data
 ###################################################################################################################
     def generate_video_traffic(self):
         # Record the start timestamp
-        start_time = datetime.now() 
-
+        start_time = datetime.now()
         time.sleep(self.ue_video_delay)  # Use video-specific delay
         jitter = random.uniform(0, self.ue_video_jitter) if self.ue_video_jitter > 0 else 0
         time.sleep(jitter)  # Apply jitter
-
         num_streams = random.randint(*self.video_traffic_params['num_streams'])
-        data_size = 0  # in MB
+        data_size = 0  # Initialize data_size as 0 bytes
         interval = 1  # Interval duration in seconds
-
         for _ in range(num_streams):
             stream_bitrate = random.uniform(*self.video_traffic_params['stream_bitrate'])  # in Mbps
             if random.random() < self.ue_video_packet_loss_rate:
                 continue  # Skip this stream due to packet loss
-            data_size += (stream_bitrate * interval) / 8  # Convert to MB
-
+            # Convert to MB, then to bytes, and accumulate
+            data_size += int((stream_bitrate * interval) / 8 * 1024 * 1024)  
         # Record the end timestamp
-        end_time = datetime.now() 
-
+        end_time = datetime.now()
         traffic_data = {
-            'data_size': data_size,  # Total data size of all streams
+            'data_size': data_size,  # Now in bytes and ensured to be an integer
             'start_timestamp': start_time,
             'end_timestamp': end_time,
             'num_streams': num_streams,
@@ -107,78 +103,68 @@ class TrafficController:
             'ue_jitter': jitter,
             'ue_packet_loss_rate': self.ue_video_packet_loss_rate
         }
-
         return traffic_data
 ###################################################################################################################
     def generate_gaming_traffic(self):
         try:
             # Record the start timestamp
             start_time = datetime.now()
-
             # Use gaming-specific delay
-            time.sleep(self.ue_gaming_delay)  
+            time.sleep(self.ue_gaming_delay)              
             jitter = random.uniform(0, self.ue_gaming_jitter) if self.ue_gaming_jitter > 0 else 0
             bitrate = random.uniform(*self.gaming_traffic_params['bitrate'])  # in Kbps
             interval = 0.1  # Interval duration in seconds
-            data_size = (bitrate * interval) / 8  # Convert to KB
-
+            # Convert to KB, then to bytes, and ensure it's an integer
+            data_size = int((bitrate * interval) / 8 * 1024)  
             # Apply jitter
             time.sleep(jitter)
-
             # Simulate packet loss
             packet_loss_occurred = random.random() < self.ue_gaming_packet_loss_rate
             if packet_loss_occurred:
                 data_size = 0  # Packet is lost
-
             # Record the end timestamp
             end_time = datetime.now()
-
             traffic_data = {
-                'data_size': data_size,
+                'data_size': data_size,  # Now in bytes and ensured to be an integer
                 'start_timestamp': start_time,
                 'end_timestamp': end_time,
                 'interval': interval,
-                'ue_delay': self.ue_gaming_delay,  # Corrected to 'delay'
-                'ue_jitter': jitter,  # Corrected to 'jitter'
-                'ue_packet_loss_rate': self.ue_gaming_packet_loss_rate  # Corrected to 'packet_loss_rate'
+                'ue_delay': self.ue_gaming_delay,
+                'ue_jitter': jitter,
+                'ue_packet_loss_rate': self.ue_gaming_packet_loss_rate
             }
-
             return traffic_data
         except Exception as e:
             traffic_update.error(f"Failed to generate gaming traffic: {e}")
             # Handle the exception by returning a default data structure
             return {
-                'data_size': 0,
+                'data_size': 0,  # Ensure this is consistent even in error handling
                 'start_timestamp': datetime.now(),
                 'end_timestamp': datetime.now(),
                 'interval': 0.1,
-                'delay': self.ue_gaming_delay,  # Ensure consistency even in error handling
+                'delay': self.ue_gaming_delay,
                 'jitter': 0,
                 'packet_loss_rate': self.ue_gaming_packet_loss_rate
             }
 #####################################################################################
     def generate_iot_traffic(self):
         # Record the start timestamp
-        start_time = datetime.now() 
-
+        start_time = datetime.now()
         time.sleep(self.ue_iot_delay)  # Use IoT-specific delay
         jitter = random.uniform(0, self.ue_iot_jitter) if self.ue_iot_jitter > 0 else 0
         packet_size = random.randint(*self.iot_traffic_params['packet_size'])  # in KB
         interval = random.uniform(*self.iot_traffic_params['interval'])  # in seconds
-        data_size = packet_size  # Already in KB, no need for conversion
-
+        # Convert packet_size from KB to bytes, and ensure it's an integer
+        data_size = int(packet_size * 1024)  
         # Apply jitter
         time.sleep(jitter)
-
         # Simulate packet loss
         if random.random() < self.ue_iot_packet_loss_rate:
             data_size = 0  # Packet is lost
-
         # Record the end timestamp
-        end_time = datetime.now() 
-
+        end_time = datetime.now()
         traffic_data = {
-            'data_size': data_size,
+            'data_size': data_size,  # Now in bytes and ensured to be an integer
             'start_timestamp': start_time,
             'end_timestamp': end_time,
             'interval': interval,
@@ -186,31 +172,26 @@ class TrafficController:
             'ue_jitter': jitter,
             'ue_packet_loss_rate': self.ue_iot_packet_loss_rate
         }
-
         return traffic_data
 ###########################################################################################
     def generate_data_traffic(self):
         # Record the start timestamp
-        start_time = datetime.now() 
-
+        start_time = datetime.now()
         time.sleep(self.ue_data_delay)  # Use data-specific delay
         jitter = random.uniform(0, self.ue_data_jitter) if self.ue_data_jitter > 0 else 0
         bitrate = random.uniform(*self.data_traffic_params['bitrate'])  # in Mbps
         interval = random.uniform(*self.data_traffic_params['interval'])  # in seconds
-        data_size = (bitrate * interval) / 8  # Convert to MB
-
+        # Convert bitrate from Mbps to bytes, then calculate data_size for the interval, and ensure it's an integer
+        data_size = int((bitrate * interval) / 8 * 1024 * 1024)  
         # Apply jitter
         time.sleep(jitter)
-
         # Simulate packet loss
         if random.random() < self.ue_data_packet_loss_rate:
             data_size = 0  # Packet is lost
-
         # Record the end timestamp
-        end_time = datetime.now() 
-
+        end_time = datetime.now()
         traffic_data = {
-            'data_size': data_size,
+            'data_size': data_size,  # Now in bytes and ensured to be an integer
             'start_timestamp': start_time,
             'end_timestamp': end_time,
             'interval': interval,
@@ -218,7 +199,6 @@ class TrafficController:
             'ue_jitter': jitter,
             'ue_packet_loss_rate': self.ue_data_packet_loss_rate
         }
-
         return traffic_data
 ############################################################################################
     def calculate_throughput(self, ue):
@@ -237,12 +217,16 @@ class TrafficController:
         jitter = traffic_data['jitter']
         packet_loss_rate = traffic_data['packet_loss_rate']
         interval = traffic_data['interval']
+        #Extract the ue_delay from the traffic_data
+        ue_delay = traffic_data['ue_delay']
+    
+        # data_size is expected to be in bytes (as an integer)
         data_size_bytes = traffic_data['data_size']
         data_size_bits = data_size_bytes * 8  # Convert bytes to bits
-
+    
         # Calculate throughput
         throughput = data_size_bits / interval if interval > 0 else 0
-
+    
         # Prepare the data for InfluxDB with units for clarity
         influxdb_data = {
             "measurement": "ue_throughput",
@@ -253,20 +237,22 @@ class TrafficController:
                 "throughput": f"{throughput} bps",  # Adding units
                 "jitter": jitter,
                 "packet_loss": packet_loss_rate,
+                "ue_delay": ue_delay,
             },
             "time": datetime.utcnow().isoformat()
         }
-
+    
         # Assuming DatabaseManager and other necessary imports are correctly handled
         database_manager = DatabaseManager()
         database_manager.insert_data(influxdb_data)
         database_manager.close_connection()
-
+    
         # Return the raw numeric value of throughput along with other metrics
         return {
             'throughput': throughput,
             'jitter': jitter,
             'packet_loss_rate': packet_loss_rate,
+            "ue_delay": ue_delay,
             'interval': interval
         }
 ############################################################################################
