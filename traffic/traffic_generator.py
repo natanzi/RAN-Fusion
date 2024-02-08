@@ -62,32 +62,27 @@ class TrafficController:
         start_time = datetime.now()
         time.sleep(self.ue_voice_delay)  # Use voice-specific delay
         jitter = random.uniform(0, self.ue_voice_jitter) if self.ue_voice_jitter > 0 else 0
-        bitrate = random.uniform(*self.ue_voice_traffic_params['bitrate'])  # in Kbps
+        # Corrected attribute name from 'ue_voice_traffic_params' to 'voice_traffic_params'
+        bitrate = random.uniform(*self.voice_traffic_params['bitrate'])  # in Kbps
         interval = 0.02  # Interval duration in seconds
         data_size = (bitrate * interval) / 8  # Convert to KB
-
         # Apply jitter
         time.sleep(jitter)
-
         # Simulate packet loss
-        packet_loss_occurred = random.random() < self.voice_packet_loss_rate
-
+        packet_loss_occurred = random.random() < self.ue_voice_packet_loss_rate
         if packet_loss_occurred:
-            data_size = 0  # Packet is lost
-
+            ata_size = 0  # Packet is lost
         # Record the end timestamp
         end_time = datetime.now()
-
         traffic_data = {
             'data_size': data_size,
             'start_timestamp': start_time,
             'end_timestamp': end_time,
             'interval': interval,
-            'delay': self.voice_delay,
+            'delay': self.ue_voice_delay,
             'jitter': jitter,
-            'packet_loss_rate': self.voice_packet_loss_rate
+            'packet_loss_rate': self.ue_voice_packet_loss_rate
         }
-
         return traffic_data
 ###################################################################################################################
     def generate_video_traffic(self):
