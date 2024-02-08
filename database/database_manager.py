@@ -6,6 +6,7 @@ from logs.logger_config import database_logger  # Import the configured logger
 from datetime import datetime
 from influxdb_client import Point
 import json
+
 # Read from environment variables or use default values
 INFLUXDB_URL = os.getenv('INFLUXDB_URL', 'http://localhost:8086')
 INFLUXDB_TOKEN = os.getenv('INFLUXDB_TOKEN', 'your-default-token')
@@ -13,10 +14,19 @@ INFLUXDB_ORG = os.getenv('INFLUXDB_ORG', 'ranfusion')
 INFLUXDB_BUCKET = os.getenv('INFLUXDB_BUCKET', 'RAN_metrics')
 
 class DatabaseManager:
+    _instance = None
 
-    def __init__(self):
-        # Print the InfluxDB token
-        print(f"InfluxDB token: {INFLUXDB_TOKEN}")# Print the InfluxDB token  for test
+    def __new__(cls, *args, **kwargs):
+        if not cls._instance:
+            cls._instance = super(DatabaseManager, cls).__new__(cls)
+            # Initialize the instance (the part of __init__)
+            cls._instance.client_init()
+        return cls._instance
+
+    def client_init(self):
+        # This method replaces the original __init__ content
+        print(f"InfluxDB token: {INFLUXDB_TOKEN}")  # Print the InfluxDB token for test
+        print(f"Connecting to InfluxDB with URL: {INFLUXDB_URL}, Token: {INFLUXDB_TOKEN}, Org: {INFLUXDB_ORG}")
         self.client = InfluxDBClient(url=INFLUXDB_URL, token=INFLUXDB_TOKEN, org=INFLUXDB_ORG)
         self.write_api = self.client.write_api(write_options=SYNCHRONOUS)
         self.query_api = self.client.query_api()
