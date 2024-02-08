@@ -31,9 +31,8 @@ def main():
     logo_text = create_logo()
     print(logo_text)
 
-    # Create an instance of DatabaseManager here
+    # Singleton instance of DatabaseManager is created here. This will be the same instance throughout the application.
     db_manager = DatabaseManager()
-    #sleep
     time.sleep(1)
 
     # Call the new initialization function
