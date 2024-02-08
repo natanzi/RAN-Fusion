@@ -15,6 +15,7 @@ class TrafficController:
         self.data_traffic_params = {'bitrate': (1, 10), 'interval': (0.5, 2)}  # in Mbps
 
         # Initialize jitter, delay, and packet loss for each traffic type
+        #for example (5, 15)  # Jitter range in milliseconds or (10, 50)  # Delay range in milliseconds or (0.01, 0.05)  # Packet loss rate range
         self.ue_voice_jitter = 0
         self.ue_voice_delay = 0
         self.ue_voice_packet_loss_rate = 0
@@ -29,7 +30,7 @@ class TrafficController:
         self.ue_iot_packet_loss_rate = 0
         self.ue_data_jitter = 0
         self.ue_data_delay = 0
-        self.ue_data_packet_loss_rate = 0
+        self.ue_data_packet_loss_rate = 0.1
 
     def generate_traffic(self, ue):
         # Determine the type of traffic to generate based on the UE's service type
@@ -178,55 +179,63 @@ class TrafficController:
         # Record the start timestamp
         start_time = datetime.now()
         time.sleep(self.ue_data_delay)  # Use data-specific delay
+    
+        # Ensure jitter is calculated and set in the dictionary
         jitter = random.uniform(0, self.ue_data_jitter) if self.ue_data_jitter > 0 else 0
+    
         bitrate = random.uniform(*self.data_traffic_params['bitrate'])  # in Mbps
         interval = random.uniform(*self.data_traffic_params['interval'])  # in seconds
+    
         # Convert bitrate from Mbps to bytes, then calculate data_size for the interval, and ensure it's an integer
-        data_size = int((bitrate * interval) / 8 * 1024 * 1024)  
+        data_size = int((bitrate * interval) / 8 * 1024 * 1024)
+    
         # Apply jitter
         time.sleep(jitter)
+    
         # Simulate packet loss
         if random.random() < self.ue_data_packet_loss_rate:
             data_size = 0  # Packet is lost
+    
         # Record the end timestamp
         end_time = datetime.now()
+    
         traffic_data = {
             'data_size': data_size,  # Now in bytes and ensured to be an integer
             'start_timestamp': start_time,
             'end_timestamp': end_time,
             'interval': interval,
             'ue_delay': self.ue_data_delay,
-            'ue_jitter': jitter,
+            'ue_jitter': jitter,  # Ensure this is included
             'ue_packet_loss_rate': self.ue_data_packet_loss_rate
         }
+    
         return traffic_data
 ############################################################################################
     def calculate_throughput(self, ue):
         # Parameter validation
         if not isinstance(ue, UE):
             raise TypeError("Invalid UE object")
-    
+
         # Generate traffic and retrieve traffic parameters for the UE
         traffic_data = self.generate_traffic(ue)
-    
+
         # Assertions to fail fast if assumptions are violated
         assert isinstance(traffic_data['data_size'], int), "Invalid data type for data_size"
         assert traffic_data['interval'] >= 0, "Negative interval is not allowed"
-    
+
         # Retrieve jitter, packet loss, and delay from the traffic data
-        jitter = traffic_data['jitter']
-        packet_loss_rate = traffic_data['packet_loss_rate']
+        jitter = traffic_data['ue_jitter']  # Adjusted to use 'ue_jitter'
+        packet_loss_rate = traffic_data['ue_packet_loss_rate']  # Adjusted to use 'ue_packet_loss_rate'
         interval = traffic_data['interval']
-        #Extract the ue_delay from the traffic_data
         ue_delay = traffic_data['ue_delay']
-    
+
         # data_size is expected to be in bytes (as an integer)
         data_size_bytes = traffic_data['data_size']
         data_size_bits = data_size_bytes * 8  # Convert bytes to bits
-    
+
         # Calculate throughput
         throughput = data_size_bits / interval if interval > 0 else 0
-    
+
         # Prepare the data for InfluxDB with units for clarity
         influxdb_data = {
             "measurement": "ue_throughput",
@@ -241,12 +250,12 @@ class TrafficController:
             },
             "time": datetime.utcnow().isoformat()
         }
-    
+
         # Assuming DatabaseManager and other necessary imports are correctly handled
         database_manager = DatabaseManager()
         database_manager.insert_data(influxdb_data)
         database_manager.close_connection()
-    
+
         # Return the raw numeric value of throughput along with other metrics
         return {
             'throughput': throughput,
