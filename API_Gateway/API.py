@@ -12,6 +12,8 @@ import json
 from network.sector_manager import all_sectors
 from database.database_manager import DatabaseManager
 from flask import Response
+from dotenv import load_dotenv
+load_dotenv()
 
 app = Flask(__name__)
 lock = Lock()
