@@ -2,16 +2,12 @@
 # traffic_generator.py in traffic folder
 import random
 import time
-from threading import Lock, Thread
 from datetime import datetime
-from database.database_manager import DatabaseManager
 from logs.logger_config import traffic_update
 from network.ue import UE
 
 class TrafficController:
-
     def __init__(self):
-        self.lock = Lock()
         self.voice_traffic_params = {'bitrate': (8, 16)}  # in Kbps
         self.video_traffic_params = {'num_streams': (1, 5), 'stream_bitrate': (3, 8)}  # in Mbps
         self.gaming_traffic_params = {'bitrate': (30, 70)}  # in Kbps
@@ -22,25 +18,20 @@ class TrafficController:
         self.ue_voice_jitter = 0
         self.ue_voice_delay = 0
         self.ue_voice_packet_loss_rate = 0
-
         self.ue_video_jitter = 0
         self.ue_video_delay = 0
         self.ue_video_packet_loss_rate = 0
-
         self.ue_gaming_jitter = 0
         self.ue_gaming_delay = 0
         self.ue_gaming_packet_loss_rate = 0
-
         self.ue_iot_jitter = 0
         self.ue_iot_delay = 0
         self.ue_iot_packet_loss_rate = 0
-
         self.ue_data_jitter = 0
         self.ue_data_delay = 0
         self.ue_data_packet_loss_rate = 0
-        
+
     def generate_traffic(self, ue):
-        from network.ue import UE
         # Determine the type of traffic to generate based on the UE's service type
         if ue.ServiceType.lower() == 'voice':
             return self.generate_voice_traffic()
@@ -53,7 +44,7 @@ class TrafficController:
         elif ue.ServiceType.lower() == 'data':
             return self.generate_data_traffic()
         else:
-            raise ValueError(f"Unknown service type: {ue.ServiceType}")           
+            raise ValueError(f"Unknown service type: {ue.ServiceType}")  
     
 ##############################################################################################################################
     # Traffic generation methods with conditional application of jitter, delay, and packet loss
