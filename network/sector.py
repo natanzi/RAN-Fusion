@@ -22,15 +22,15 @@ global_ue_ids = set()
 #print(id(all_sectors))
 
 class Sector:
-    def __init__(self, sector_id, cell_id, cell, capacity, azimuth_angle, beamwidth, frequency, duplex_mode, tx_power, bandwidth, mimo_layers, beamforming, ho_margin, load_balancing, connected_ues=None, current_load=0):
+    def __init__(self, sector_id, cell_id, cell, capacity, azimuth_angle, beamwidth, frequency, duplex_mode, tx_power, bandwidth, mimo_layers, beamforming, ho_margin, load_balancing, max_throughput, connected_ues=None, current_load=0):
         self.sector_id = sector_id  # String, kept as is for identifiers
         self.instance_id = str(uuid.uuid4())  # Generic unique identifier for the instance of the sector
         self.cell_id = cell_id  # String, kept as is for identifiers
         self.cell = cell  # Cell object, no change needed
-        self.ues = {} #Add a dictionary to track UEs mapped to their IDs:
+        self.ues = {}  # Add a dictionary to track UEs mapped to their IDs
         # Numeric fields optimized based on usage
         self.capacity = int(capacity)  # Integer, as capacity is a count
-        self.remaining_capacity = int(capacity) ## Initialize remaining_capacity with the total capacity
+        self.remaining_capacity = int(capacity)  # Initialize remaining_capacity with the total capacity
         self.azimuth_angle = int(azimuth_angle)  # Integer, as angles can be represented without decimal precision
         self.beamwidth = int(beamwidth)  # Integer, as beamwidth can be represented without decimal precision
         self.frequency = float(frequency)  # Float, as frequency may require decimal precision
@@ -41,10 +41,10 @@ class Sector:
         self.ho_margin = int(ho_margin)  # Integer, assuming handover margin can be represented without decimal precision
         self.load_balancing = int(load_balancing)  # Integer, assuming load balancing metrics can be integers
         self.duplex_mode = duplex_mode
+        self.max_throughput = max_throughput  # Maximum data handling capacity in bps (value is available in sector config)
         # List of UEs and current load, no change needed
         self.connected_ues = connected_ues if connected_ues is not None else []
         self.current_load = int(current_load)  # Integer, as load is a count
-        # Assuming gnodebs, cells, and sectors are accessible for CapacityCalculator
 
     @classmethod
     def from_json(cls, data, cell):
@@ -82,6 +82,7 @@ class Sector:
             .field("connected_ues", len(self.connected_ues)) \
             .field("current_load", self.current_load) \
             .field("capacity", self.capacity) \
+            .field("max_throughput", self.max_throughput) \
             .time(time.time_ns(), WritePrecision.NS)
         return point
 

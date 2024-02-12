@@ -235,7 +235,9 @@ class TrafficController:
 
         # Calculate throughput
         throughput = data_size_bits / interval if interval > 0 else 0
-
+        # Update the UE's throughput attribute with the calculated value
+        ue.throughput = throughput
+        
         # Prepare the data for InfluxDB with units for clarity
         influxdb_data = {
             "measurement": "ue_throughput",

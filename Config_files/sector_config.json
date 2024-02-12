@@ -13,7 +13,8 @@
         "mimo_layers": 2,
         "beamforming": true,
         "ho_margin": 3,
-        "load_balancing": 10
+        "load_balancing": 10,
+        "max_throughput": 100
     },
     {
         "sector_id": "Ax1242-A2",
@@ -28,7 +29,8 @@
         "mimo_layers": 2,
         "beamforming": true,
         "ho_margin": 3,
-        "load_balancing": 10
+        "load_balancing": 10,
+        "max_throughput": 100
     },
     {
         "sector_id": "Ax1242-A3",
@@ -43,7 +45,8 @@
         "mimo_layers": 2,
         "beamforming": true,
         "ho_margin": 3,
-        "load_balancing": 10
+        "load_balancing": 10,
+        "max_throughput": 100
     },
     {
         "sector_id": "BX1453-B1",
@@ -58,7 +61,8 @@
         "mimo_layers": 2,
         "beamforming": true,
         "ho_margin": 3,
-        "load_balancing": 10
+        "load_balancing": 10,
+        "max_throughput": 100
     },
     {
         "sector_id": "BX1453-B2",
@@ -73,7 +77,8 @@
         "mimo_layers": 2,
         "beamforming": true,
         "ho_margin": 3,
-        "load_balancing": 10
+        "load_balancing": 10,
+        "max_throughput": 100
     },
     {
         "sector_id": "BX1453-B3",
@@ -88,7 +93,8 @@
         "mimo_layers": 2,
         "beamforming": true,
         "ho_margin": 3,
-        "load_balancing": 10
+        "load_balancing": 10,
+        "max_throughput": 100
     },
     {
         "sector_id": "CX1352-C1",
@@ -103,7 +109,8 @@
         "mimo_layers": 2,
         "beamforming": true,
         "ho_margin": 3,
-        "load_balancing": 10
+        "load_balancing": 10,
+        "max_throughput": 100
     },
     {
         "sector_id": "CX1352-C2",
@@ -118,7 +125,8 @@
         "mimo_layers": 2,
         "beamforming": true,
         "ho_margin": 3,
-        "load_balancing": 10
+        "load_balancing": 10,
+        "max_throughput": 100
     },
     {
         "sector_id": "CX1352-C3",
@@ -133,7 +141,8 @@
         "mimo_layers": 2,
         "beamforming": true,
         "ho_margin": 3,
-        "load_balancing": 10
+        "load_balancing": 10,
+        "max_throughput": 100
     },
     {
         "sector_id": "AX1112-A1",
@@ -148,7 +157,8 @@
         "mimo_layers": 2,
         "beamforming": true,
         "ho_margin": 3,
-        "load_balancing": 10
+        "load_balancing": 10,
+        "max_throughput": 100
     },
     {
         "sector_id": "AX1112-A2",
@@ -163,7 +173,8 @@
         "mimo_layers": 2,
         "beamforming": true,
         "ho_margin": 3,
-        "load_balancing": 10
+        "load_balancing": 10,
+        "max_throughput": 100
     },
     {
         "sector_id": "AX1112-A3",
@@ -178,7 +189,8 @@
         "mimo_layers": 2,
         "beamforming": true,
         "ho_margin": 3,
-        "load_balancing": 10
+        "load_balancing": 10,
+        "max_throughput": 100
     },
     {
         "sector_id": "BX1334-B1",
@@ -193,7 +205,8 @@
         "mimo_layers": 2,
         "beamforming": true,
         "ho_margin": 3,
-        "load_balancing": 10
+        "load_balancing": 10,
+        "max_throughput": 100
     },
     {
         "sector_id": "BX1334-B2",
@@ -208,7 +221,8 @@
         "mimo_layers": 2,
         "beamforming": true,
         "ho_margin": 3,
-        "load_balancing": 10
+        "load_balancing": 10,
+        "max_throughput": 100
     },
     {
         "sector_id": "BX1334-B3",
@@ -223,7 +237,8 @@
         "mimo_layers": 2,
         "beamforming": true,
         "ho_margin": 3,
-        "load_balancing": 10
+        "load_balancing": 10,
+        "max_throughput": 100
     },
     {
         "sector_id": "CX1873-C1",
@@ -238,7 +253,8 @@
         "mimo_layers": 2,
         "beamforming": true,
         "ho_margin": 3,
-        "load_balancing": 10
+        "load_balancing": 10,
+        "max_throughput": 100
     },
     {
         "sector_id": "CX1873-C2",
@@ -253,7 +269,8 @@
         "mimo_layers": 2,
         "beamforming": true,
         "ho_margin": 3,
-        "load_balancing": 10
+        "load_balancing": 10,
+        "max_throughput": 100
     },
     {
         "sector_id": "CX1873-C3",
@@ -268,7 +285,8 @@
         "mimo_layers": 2,
         "beamforming": true,
         "ho_margin": 3,
-        "load_balancing": 10
+        "load_balancing": 10,
+        "max_throughput": 100
     },
     {
         "sector_id": "AX9980-A1",
@@ -283,7 +301,8 @@
         "mimo_layers": 2,
         "beamforming": true,
         "ho_margin": 3,
-        "load_balancing": 10
+        "load_balancing": 10,
+        "max_throughput": 100
     },
     {
         "sector_id": "AX9980-A2",
@@ -298,7 +317,8 @@
         "mimo_layers": 2,
         "beamforming": true,
         "ho_margin": 3,
-        "load_balancing": 10
+        "load_balancing": 10,
+        "max_throughput": 100
     },
     {
         "sector_id": "AX9980-A3",
@@ -313,7 +333,8 @@
         "mimo_layers": 2,
         "beamforming": true,
         "ho_margin": 3,
-        "load_balancing": 10
+        "load_balancing": 10,
+        "max_throughput": 100
     },
     {
         "sector_id": "BX1230-B1",
@@ -328,7 +349,8 @@
         "mimo_layers": 2,
         "beamforming": true,
         "ho_margin": 3,
-        "load_balancing": 10
+        "load_balancing": 10,
+        "max_throughput": 100
     },
     {
         "sector_id": "BX1230-B2",
@@ -343,7 +365,8 @@
         "mimo_layers": 2,
         "beamforming": true,
         "ho_margin": 3,
-        "load_balancing": 10
+        "load_balancing": 10,
+        "max_throughput": 100
     },
     {
         "sector_id": "BX1230-B3",
@@ -358,7 +381,8 @@
         "mimo_layers": 2,
         "beamforming": true,
         "ho_margin": 3,
-        "load_balancing": 10
+        "load_balancing": 10,
+        "max_throughput": 100
     },
     {
         "sector_id": "CX5103-C1",
@@ -373,7 +397,8 @@
         "mimo_layers": 2,
         "beamforming": true,
         "ho_margin": 3,
-        "load_balancing": 10
+        "load_balancing": 10,
+        "max_throughput": 100
     },
     {
         "sector_id": "CX5103-C2",
@@ -388,7 +413,8 @@
         "mimo_layers": 2,
         "beamforming": true,
         "ho_margin": 3,
-        "load_balancing": 10
+        "load_balancing": 10,
+        "max_throughput": 100
     },
     {
         "sector_id": "CX5103-C3",
@@ -403,7 +429,8 @@
         "mimo_layers": 2,
         "beamforming": true,
         "ho_margin": 3,
-        "load_balancing": 10
+        "load_balancing": 10,
+        "max_throughput": 100
     }
 ]
 }

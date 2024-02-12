@@ -63,6 +63,7 @@ class SectorManager:
                         ho_margin=sector_data['ho_margin'],
                         load_balancing=sector_data['load_balancing'],
                         connected_ues=[],
+                        max_throughput=sector_data['max_throughput'],
                         current_load=0
                     )
                     # Update the gNodeB to sectors mapping instead of calling gnodeb.add_sector

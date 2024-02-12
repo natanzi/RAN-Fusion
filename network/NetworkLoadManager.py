@@ -14,14 +14,27 @@ class NetworkLoadManager:
 
     def calculate_sector_load(self, sector: Sector):
         """
-        Calculate the load of a sector based on the number of connected UEs and its capacity.
-
+        Calculate the load of a sector based on the number of connected UEs, their throughput, and its capacity.
         :param sector: An instance of the Sector class.
         :return: The load of the sector as a percentage.
         """
         if sector.capacity == 0:
             return 0
-        return (len(sector.connected_ues) / sector.capacity) * 100
+
+        # Calculate load based on UE count
+        ue_count_load = (len(sector.connected_ues) / sector.capacity) * 100
+
+        # Calculate load based on total UE throughput
+        # Assuming each UE object in sector.connected_ues has a 'throughput' attribute
+        total_throughput = sum(ue.throughput for ue in sector.ues.values())
+        # Assuming sector.max_throughput represents the sector's maximum data handling capacity
+        throughput_load = (total_throughput / sector.max_throughput) * 100 if hasattr(sector, 'max_throughput') and sector.max_throughput else 0
+
+        # Combine UE count load and throughput load for final calculation
+        # The method of combination (e.g., average, weighted average) can be adjusted as needed
+        sector_load = (ue_count_load + throughput_load) / 2
+
+        return sector_load
 
     def calculate_cell_load(self, cell: Cell):
         """

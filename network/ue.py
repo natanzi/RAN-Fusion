@@ -31,6 +31,7 @@ class UE:
         UE.existing_ue_ids.add(ue_id)
         UE.ue_instances[ue_id] = self  # Store the instance in the dictionary
         self.IMEI = kwargs.get('imei') or self.allocate_imei()         # International Mobile Equipment Identity
+        self.throughput = kwargs.get('throughput', 0)  # Initialize throughput with a default value of 0
         self.Location = kwargs.get('location')         # Geographic location of the UE
         self.ConnectedCellID = kwargs.get('connected_cell_id')        # ID of the cell to which the UE is connected
         self.ConnectedSector = kwargs.get('connected_sector')        # Sector of the cell to which the UE is connected
@@ -119,6 +120,7 @@ class UE:
             .field("signal_strength", float(self.SignalStrength)) \
             .field("rat", str(self.RAT)) \
             .field("max_bandwidth", int(self.MaxBandwidth)) \
+            .field("throughput", int(self.throughput)) \
             .field("duplex_mode", str(self.DuplexMode)) \
             .field("tx_power", int(self.TxPower)) \
             .field("modulation", ','.join(self.Modulation) if isinstance(self.Modulation, list) else str(self.Modulation)) \
