@@ -91,6 +91,8 @@ class Cell:
             .field("trackingArea", str(self.TrackingArea)) \
             .field("CellisActive", bool(self.IsActive)) \
             .field("sector_count", int(self.SectorCount))
+        
+        return point
 
 ####################################################################################
     def add_sector_to_cell(self, sector):

@@ -142,6 +142,7 @@ class UE:
             .field("screen_size", str(self.ScreenSize)) \
             .field("battery_level", int(self.BatteryLevel)) \
             .time(datetime.utcnow())
+        print(f"Serialized UE point: {point}")
         return point
     
     def update_parameters(self, **kwargs):
