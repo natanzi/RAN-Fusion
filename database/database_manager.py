@@ -174,3 +174,23 @@ class DatabaseManager:
             database_logger.error(f"Failed to update UE association in the database: {e}")
             raise
 ##################################################################################################################################
+    def write_sector_load(self, sector_id, load):
+        point = Point("sector_load") \
+            .tag("sector_id", sector_id) \
+            .field("load", load) \
+            .time(datetime.utcnow(), WritePrecision.NS)
+        self.write_api.write(bucket=self.bucket, record=point)
+
+    def write_cell_load(self, cell_id, load):
+        point = Point("cell_load") \
+            .tag("cell_id", cell_id) \
+            .field("load", load) \
+            .time(datetime.utcnow(), WritePrecision.NS)
+        self.write_api.write(bucket=self.bucket, record=point)
+
+    def write_network_load(self, load):
+        point = Point("network_load") \
+            .field("load", load) \
+            .time(datetime.utcnow(), WritePrecision.NS)
+        self.write_api.write(bucket=self.bucket, record=point)
+##################################################################################################################################

@@ -7,6 +7,9 @@ from network.initialize_network import initialize_network
 from traffic.traffic_generator import TrafficController
 from network.ue_manager import UEManager
 from network.gNodeB_manager import gNodeBManager
+from network.cell_manager import CellManager 
+from network.sector_manager import SectorManager
+from network.NetworkLoadManager import NetworkLoadManager
 import time
 import threading
 
@@ -57,7 +60,16 @@ def main():
     print("Network Initialization Complete")
     print(f" this is for debug and so Initialized sectors: {sectors}")  
 
-    # Start monitoring UE operations in a separate thread
+    # Initialize CellManager and SectorManager here
+    cell_manager = CellManager()  # Assuming you have a way to initialize this
+    sector_manager = SectorManager()  # Assuming you have a way to initialize this
+
+    # Initialize NetworkLoadManager with the cell and sector managers
+    network_load_manager = NetworkLoadManager(cell_manager, sector_manager)
+
+    # Calculate and log the network load
+    network_load_manager.log_and_write_loads()
+
     threading.Thread(target=log_traffic, args=(ues,), daemon=True).start()
 
     # Keep the main program running until manually stopped

@@ -5,7 +5,8 @@ from network.cell import Cell
 from network.sector import Sector
 from network.cell_manager import CellManager
 from network.sector_manager import SectorManager
-from logs.logger_config import cell_logger
+from logs.logger_config import cell_logger,sector_logger
+from database.database_manager import DatabaseManager
 
 class NetworkLoadManager:
     def __init__(self, cell_manager: CellManager, sector_manager: SectorManager):
@@ -68,6 +69,26 @@ class NetworkLoadManager:
             cell_load = self.calculate_cell_load(cell)
             cell_logger.info(f"Cell {cell_id} Load: {cell_load:.2f}%")
 
+    def log_and_write_loads(self):
+        # Calculate and log the network load
+        network_load = self.calculate_network_load()
+        print(f"Network Load: {network_load:.2f}%")
+        DatabaseManager().write_network_load(network_load)
+
+        # Calculate, log, and write the load of each cell
+        for cell_id, cell in self.cell_manager.cells.items():
+            cell_load = self.calculate_cell_load(cell)
+            cell_logger.info(f"Cell {cell_id} Load: {cell_load:.2f}%")
+            DatabaseManager().write_cell_load(cell_id, cell_load)
+
+        # Optionally, calculate, log, and write the load of each sector
+        for sector_id, sector in self.sector_manager.sectors.items():
+            sector_load = self.calculate_sector_load(sector)
+            # Assuming sector_logger and sector_manager exist
+            sector_logger.info(f"Sector {sector_id} Load: {sector_load:.2f}%")
+            DatabaseManager().write_sector_load(sector_id, sector_load)
+
+            
 # Example usage
 if __name__ == "__main__":
     # Assuming cell_manager and sector_manager are already initialized and populated
