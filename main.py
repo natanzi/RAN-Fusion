@@ -43,26 +43,24 @@ def log_traffic(ues):
         time.sleep(1)  # Logging interval
 
 def main():
-
     logging.basicConfig(level=logging.INFO)
     base_dir = os.path.dirname(os.path.abspath(__file__))
     
     logo_text = create_logo()
     print(logo_text)
 
-    # Singleton instance of DatabaseManager is created here. This will be the same instance throughout the application.
     db_manager = DatabaseManager()
     time.sleep(1)
 
-    # Call the new initialization function
     gNodeBs, cells, sectors, ues = initialize_network(base_dir, num_ues_to_launch=10)
-
     print("Network Initialization Complete")
     print(f" this is for debug and so Initialized sectors: {sectors}")  
 
-    # Initialize CellManager and SectorManager here
-    cell_manager = CellManager()  # Assuming you have a way to initialize this
-    sector_manager = SectorManager()  # Assuming you have a way to initialize this
+    # Correctly initialize CellManager
+    cell_manager = CellManager(gNodeBs=gNodeBs, db_manager=db_manager)
+
+    # Correctly initialize SectorManager without the 'sectors' keyword argument
+    sector_manager = SectorManager(db_manager=db_manager)
 
     # Initialize NetworkLoadManager with the cell and sector managers
     network_load_manager = NetworkLoadManager(cell_manager, sector_manager)

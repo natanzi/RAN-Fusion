@@ -69,12 +69,14 @@ ue_logger = setup_logger('ue_logger', 'logs/ue_logger.log', TEST_RUN_ID)
 cell_logger = setup_logger('cell_logger', 'logs/cell_logger.log', TEST_RUN_ID)
 gnodeb_logger = setup_logger('gnodeb_logger', 'logs/gnodeb_logger.log', TEST_RUN_ID)
 cell_load_logger = setup_logger('cell_load_logger', 'logs/cell_load.log', TEST_RUN_ID)
+sector_load_logger = setup_logger('sector_load_logger', 'logs/sector_load.log', TEST_RUN_ID)
 traffic_update = setup_logger('traffic_update', 'logs/traffic_update.log', TEST_RUN_ID)
 database_logger = setup_logger('database_logger', 'logs/database_logger.log', TEST_RUN_ID)
 system_resource_logger = setup_logger('system_resource_logger', 'logs/system_resource.log', TEST_RUN_ID)
 health_check_logger = setup_logger('health_check_logger', 'logs/health_check_logger.log', TEST_RUN_ID)
 server_logger = setup_logger('server_logger', 'logs/server_logger.log', TEST_RUN_ID)
 sector_logger = setup_logger('sector_logger', 'logs/sector_logger.log', TEST_RUN_ID)
+network_load_logger = setup_logger('network_load_logger', 'logs/network_load.log', TEST_RUN_ID)
 # Dictionary to hold loggers and their respective log files for compression
 log_files = {
     'ue_logger': 'logs/ue_logger.log',
@@ -85,7 +87,8 @@ log_files = {
     'database_logger': 'logs/database_logger.log',
     'system_resource_logger': 'logs/system_resource.log',
     'server_logger': 'logs/server_logger.log',
-    'sector_logger': 'logs/sector_logger.log'
+    'sector_logger': 'logs/sector_logger.log',
+    'sector_load_logger': 'logs/sector_load.log'
 }
 
 # Use ThreadPoolExecutor to compress log files

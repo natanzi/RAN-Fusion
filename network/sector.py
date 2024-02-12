@@ -103,7 +103,7 @@ class Sector:
                 global_ue_ids.add(ue.ID)
                 point = self.serialize_for_influxdb()
                 DatabaseManager().insert_data(point)
-                sector_logger.info(f"UE with ID {ue.ID} has been added to the sector {self.sector_id}. Current load: {self.current_load}")
+                sector_logger.info(f"UE with ID {ue.ID} has been added to the sector {self.sector_id}. Current UE Load: {self.current_load}")
 
             else:
                 sector_logger.warning(f"UE with ID {ue.ID} is already connected to the sector {self.sector_id}.")
