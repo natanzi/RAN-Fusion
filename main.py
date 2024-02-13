@@ -14,6 +14,7 @@ from logs.logger_config import gnodbe_load_logger
 from network.network_delay import NetworkDelay
 import time
 import threading
+from network.NetworkLoadManager import write_network_measurement
 
 def monitor_ue_updates():
     log_file_path = 'ue_updates.log'

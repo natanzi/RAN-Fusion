@@ -13,7 +13,7 @@ class NetworkLoadManager:
     def __init__(self, cell_manager: CellManager, sector_manager: SectorManager):
         self.cell_manager = cell_manager
         self.sector_manager = sector_manager
-
+        self.db_manager = DatabaseManager()
 #################################################################################################   
 
     def calculate_sector_load(self, sector: Sector):
@@ -107,16 +107,14 @@ class NetworkLoadManager:
     def network_measurement(self):
         network_load = self.calculate_network_load()
         print(f"Network Load: {network_load:.2f}%")
-        DatabaseManager().write_network_load(network_load)
-
+        
         # Calculate network delay
-        network_delay_calculator = NetworkDelay()  
-        network_delay = network_delay_calculator.calculate_delay(network_load)  
+        network_delay_calculator = NetworkDelay()
+        network_delay = network_delay_calculator.calculate_delay(network_load)
         print(f"Network Delay: {network_delay} ms")
-
+        
         # Write network measurement (both load and delay) to the database
-        db_manager = DatabaseManager()
-        db_manager.write_network_measurement(network_load, network_delay)
+        self.db_manager.write_network_measurement(network_load, network_delay) 
         
 ################################################################################################   
 
