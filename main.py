@@ -9,9 +9,11 @@ from network.ue_manager import UEManager
 from network.gNodeB_manager import gNodeBManager
 from network.cell_manager import CellManager 
 from network.sector_manager import SectorManager
-from network.NetworkLoadManager import NetworkLoadManager
+from network.NetworkLoadManager import NetworkLoadManager, calculate_network_load
 import time
 import threading
+from logs.logger_config import gnodbe_load_logger
+from network.network_delay import NetworkDelay
 
 def monitor_ue_updates():
     log_file_path = 'ue_updates.log'
@@ -30,13 +32,17 @@ def monitor_ue_updates():
 def log_traffic(ues):
     # Initialize the TrafficController inside the child process
     traffic_controller = TrafficController()
-    
+    network_delay_calculator = NetworkDelay()
+
     while True:
         # Generate traffic using the traffic_controller
         for ue in ues:
             # Calculate throughput for the UE
             throughput_data = traffic_controller.calculate_throughput(ue)
             
+            network_load = calculate_network_load()  # This function needs to be defined or imported
+            network_delay = network_delay_calculator.calculate_delay(network_load, ue.ServiceType)
+
             # Log the traffic details in the desired format, including throughput, delay, jitter, and packet loss rate
             logging.info(f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Throughput: {throughput_data['throughput'] / (8 * 1024 * 1024):.2f}MB, Interval: {throughput_data['interval']:.2f}s, Delay: {throughput_data['jitter']}ms, Jitter: {throughput_data['packet_loss_rate']}%, Packet Loss Rate: {throughput_data['packet_loss_rate']}%")
 
@@ -68,6 +74,11 @@ def main():
 
     # Calculate and log the network load
     network_load_manager.log_and_write_loads()
+
+    # Calculate and log the gNodeB loads
+    gNodeB_loads = network_load_manager.calculate_gNodeB_load()
+    for gNodeB_id, load in gNodeB_loads.items():
+        gnodbe_load_logger.info(f"gNodeB {gNodeB_id} Load: {load:.2f}%")
 
     # New code to calculate cell load and serialize for InfluxDB
     for cell_id, cell in cell_manager.cells.items():

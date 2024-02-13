@@ -4,7 +4,7 @@ import os
 from logs.logger_config import cell_logger
 import json
 from database.database_manager import DatabaseManager
-from network.cell import Cell  # Assuming Cell class is correctly defined in network.cell
+from network.cell import Cell 
 
 class CellManager:
     def __init__(self, gNodeBs, db_manager: DatabaseManager):
@@ -32,6 +32,9 @@ class CellManager:
                 continue
 
             new_cell = Cell(**cell_data)
+            # Placeholder for cell load calculation
+            # Replace this with actual cell load calculation logic
+            cell_load = 0.5  # This is a placeholder value
 
             # Add the cell to the corresponding gNodeB
             if gNodeB_id in self.gNodeBs:
@@ -41,7 +44,7 @@ class CellManager:
             self.cells[cell_id] = new_cell
 
             # Serialize for InfluxDB and insert data
-            point = new_cell.serialize_for_influxdb()
+            point = new_cell.serialize_for_influxdb(cell_load)
             self.db_manager.insert_data(point)
 
         cell_logger.info("Cells initialization completed.")

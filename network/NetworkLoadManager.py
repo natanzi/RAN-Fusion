@@ -5,13 +5,16 @@ from network.cell import Cell
 from network.sector import Sector
 from network.cell_manager import CellManager
 from network.sector_manager import SectorManager
-from logs.logger_config import cell_load_logger,sector_load_logger
+from logs.logger_config import cell_load_logger,sector_load_logger,gnodbe_load_logger
 from database.database_manager import DatabaseManager
+from network.network_delay import NetworkDelay
 
 class NetworkLoadManager:
     def __init__(self, cell_manager: CellManager, sector_manager: SectorManager):
         self.cell_manager = cell_manager
         self.sector_manager = sector_manager
+
+#################################################################################################   
 
     def calculate_sector_load(self, sector: Sector):
         """
@@ -36,6 +39,7 @@ class NetworkLoadManager:
         sector_load = (ue_count_load + throughput_load) / 2
 
         return sector_load
+################################################################################################   
 
     def calculate_cell_load(self, cell: Cell):
         """
@@ -48,7 +52,27 @@ class NetworkLoadManager:
             return 0
         sector_loads = [self.calculate_sector_load(sector) for sector in cell.sectors]
         return sum(sector_loads) / len(sector_loads)
+################################################################################################   
+    def calculate_gNodeB_load(self):
+        """
+        Calculate the load of each gNodeB based on the loads of its cells.
+        :return: A dictionary with gNodeB IDs as keys and their loads as values.
+        """
+        gNodeB_loads = {}
+        for gNodeB_id, gNodeB in self.cell_manager.gNodeBs.items():
+            # Directly iterate over the Cells list since it's not a dictionary
+            if not gNodeB.Cells:
+                gNodeB_loads[gNodeB_id] = 0
+                continue
+            cell_loads = [self.calculate_cell_load(cell) for cell in gNodeB.Cells]
+            gNodeB_load = sum(cell_loads) / len(cell_loads) if cell_loads else 0
+            gNodeB_loads[gNodeB_id] = gNodeB_load
 
+            # Log the load of each gNodeB
+            cell_load_logger.info(f"gNodeB {gNodeB_id} Load: {gNodeB_load:.2f}%")
+
+        return gNodeB_loads
+################################################################################################   
     def calculate_network_load(self):
         """
         Calculate the overall network load based on the loads of all cells.
@@ -60,12 +84,8 @@ class NetworkLoadManager:
             return 0
         cell_loads = [self.calculate_cell_load(cell) for cell in cells]
         return sum(cell_loads) / len(cell_loads)
-
+################################################################################################   
     def log_and_write_loads(self):
-        # Calculate and log the network load
-        network_load = self.calculate_network_load()
-        print(f"Network Load: {network_load:.2f}%")
-        DatabaseManager().write_network_load(network_load)
 
         # Calculate, log, and write the load of each cell
         for cell_id, cell in self.cell_manager.cells.items():
@@ -79,8 +99,24 @@ class NetworkLoadManager:
             # Assuming sector_load_logger and sector_manager exist
             sector_load_logger.info(f"Sector {sector_id} Load: {sector_load:.2f}%")
             DatabaseManager().write_sector_load(sector_id, sector_load)
+################################################################################################   
+    def network_measurement(self):
+        network_load = self.calculate_network_load()
+        print(f"Network Load: {network_load:.2f}%")
+        DatabaseManager().write_network_load(network_load)
 
-            
+        # Calculate network delay
+        network_delay_calculator = NetworkDelay()  
+        network_delay = network_delay_calculator.calculate_delay(network_load)  
+        print(f"Network Delay: {network_delay} ms")
+
+        # Write network measurement (both load and delay) to the database
+        db_manager = DatabaseManager()
+        db_manager.write_network_measurement(network_load, network_delay)
+        
+################################################################################################   
+
+
 # Example usage
 #if __name__ == "__main__":
     # Assuming cell_manager and sector_manager are already initialized and populated

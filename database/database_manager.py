@@ -188,9 +188,14 @@ class DatabaseManager:
             .time(datetime.utcnow(), WritePrecision.NS)
         self.write_api.write(bucket=self.bucket, record=point)
 
-    def write_network_load(self, load):
-        point = Point("network_load") \
-            .field("load", load) \
+##################################################################################################################################
+    def write_network_measurement(self, network_load, network_delay):
+        """
+        Writes network level information to the 'network_measurement' measurement in the database.
+        """
+        point = Point("network_measurement")\
+            .field("Network_load", network_load) \
+            .field("Network_delay", network_delay) \
             .time(datetime.utcnow(), WritePrecision.NS)
         self.write_api.write(bucket=self.bucket, record=point)
-##################################################################################################################################
+            
