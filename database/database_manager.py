@@ -175,24 +175,21 @@ class DatabaseManager:
             raise
 ##################################################################################################################################
     def write_sector_load(self, sector_id, load):
-        point = Point("sector_load") \
+        point = Point("sector_metrics") \
             .tag("sector_id", sector_id) \
-            .field("load", load) \
+            .field("sector_load", load) \
             .time(datetime.utcnow(), WritePrecision.NS)
         self.write_api.write(bucket=self.bucket, record=point)
 
     def write_cell_load(self, cell_id, load):
-        point = Point("cell_load") \
+        point = Point("cell_metrics") \
             .tag("cell_id", cell_id) \
-            .field("load", load) \
+            .field("cell_load", load) \
             .time(datetime.utcnow(), WritePrecision.NS)
         self.write_api.write(bucket=self.bucket, record=point)
 
 ##################################################################################################################################
     def write_network_measurement(self, network_load, network_delay):
-        """
-        Writes network level information to the 'network_measurement' measurement in the database.
-        """
         point = Point("network_measurement")\
             .field("Network_load", network_load) \
             .field("Network_delay", network_delay) \
