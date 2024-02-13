@@ -80,10 +80,14 @@ class NetworkLoadManager:
         :return: The average load of the network as a percentage.
         """
         cells = self.cell_manager.cells.values()
+        
         if not cells:
             return 0
+        
         cell_loads = [self.calculate_cell_load(cell) for cell in cells]
-        return sum(cell_loads) / len(cell_loads)
+        network_load = sum(cell_loads) / len(cell_loads)
+
+        return network_load
 ################################################################################################   
     def log_and_write_loads(self):
 
