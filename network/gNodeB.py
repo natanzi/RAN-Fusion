@@ -63,7 +63,7 @@ class gNodeB:
         self.SectorIds = sectorIds  # list: List of sector IDs under this gNodeB
         self.Cells = []  # list: List to hold cell objects associated with this gNodeB
         current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        #gnodeb_logger.info(f"gNodeB '{self.ID}' has been launched with {self.CellCount} cells at '{current_time}'.")
+        gnodeb_logger.info(f"gNodeB '{self.ID}' has been launched with {self.CellCount} cells at '{current_time}'.")
         #debug_print(f"Debug End: gNodeB '{self.ID}' initialized with {self.CellCount} cells.")
         # Handle any additional keyword arguments
         for key, value in kwargs.items():

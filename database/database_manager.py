@@ -121,7 +121,7 @@ class DatabaseManager:
             self.write_api.write(bucket=self.bucket, record=point)
             # Log the measurement and the tags for context
             tags_description = ", ".join([f"{k}={v}" for k, v in point._tags.items()])
-            database_logger.info(f"Data inserted for measurement {point._name} with tags {tags_description}")
+            #database_logger.info(f"Data inserted for measurement {point._name} with tags {tags_description}")
 
         except Exception as e:
             database_logger.error(f"Failed to insert data into InfluxDB: {e}")

@@ -73,7 +73,7 @@ class Cell:
 
         }
 ####################################################################################### 
-    def serialize_for_influxdb(self):
+    def serialize_for_influxdb(self, cell_load):
         point = Point("cell_metrics") \
             .tag("cell_id", str(self.ID)) \
             .tag("gnodeb_id", str(self.gNodeB_ID)) \
@@ -90,7 +90,8 @@ class Cell:
             .field("channel_model", str(self.ChannelModel)) \
             .field("trackingArea", str(self.TrackingArea)) \
             .field("CellisActive", bool(self.IsActive)) \
-            .field("sector_count", int(self.SectorCount))
+            .field("sector_count", int(self.SectorCount)) \
+            .field("cell_load", cell_load)
         
         return point
 

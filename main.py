@@ -69,6 +69,13 @@ def main():
     # Calculate and log the network load
     network_load_manager.log_and_write_loads()
 
+    # New code to calculate cell load and serialize for InfluxDB
+    for cell_id, cell in cell_manager.cells.items():
+        cell_load = network_load_manager.calculate_cell_load(cell)  # Calculate the cell's load
+        serialized_data = cell.serialize_for_influxdb(cell_load)  # Serialize cell data with load for InfluxDB
+        # Here you would typically send serialized_data to InfluxDB or log it
+        print(f"Serialized data for cell {cell_id}: {serialized_data.to_line_protocol()}")
+
     threading.Thread(target=log_traffic, args=(ues,), daemon=True).start()
 
     # Keep the main program running until manually stopped

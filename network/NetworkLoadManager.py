@@ -82,15 +82,15 @@ class NetworkLoadManager:
 
             
 # Example usage
-if __name__ == "__main__":
+#if __name__ == "__main__":
     # Assuming cell_manager and sector_manager are already initialized and populated
-    cell_manager = CellManager(gNodeBs={}, db_manager=None)  # Placeholder initialization
-    sector_manager = SectorManager(db_manager=None)  # Placeholder initialization
-    network_load_manager = NetworkLoadManager(cell_manager, sector_manager)
+    #cell_manager = CellManager(gNodeBs={}, db_manager=None)  # Placeholder initialization
+    #sector_manager = SectorManager(db_manager=None)  # Placeholder initialization
+    #network_load_manager = NetworkLoadManager(cell_manager, sector_manager)
 
     # Calculate and log the network load
-    network_load = network_load_manager.calculate_network_load()
-    print(f"Network Load: {network_load:.2f}%")
+    #network_load = network_load_manager.calculate_network_load()
+    #print(f"Network Load: {network_load:.2f}%")
 
     # Log the load of each cell
-    network_load_manager.log_cell_loads()
+    # network_load_manager.log_cell_loads()
