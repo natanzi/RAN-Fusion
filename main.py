@@ -45,8 +45,7 @@ def log_traffic(ues, network_load_manager):
 
             # Log the traffic details in the desired format, including throughput, delay, jitter, and packet loss rate
             logging.info(f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Throughput: {throughput_data['throughput'] / (8 * 1024 * 1024):.2f}MB, Interval: {throughput_data['interval']:.2f}s, Delay: {throughput_data['jitter']}ms, Jitter: {throughput_data['packet_loss_rate']}%, Packet Loss Rate: {throughput_data['packet_loss_rate']}%")
-
-        
+            write_network_measurement(network_load, network_delay)
         time.sleep(1)  # Logging interval
 
 def main():
