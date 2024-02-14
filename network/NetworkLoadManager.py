@@ -20,40 +20,54 @@ class NetworkLoadManager:
         self.load_balancer = LoadBalancer()
 #####################################################################################################################   
     def calculate_sector_load(self, sector: Sector):
-        """
-        Calculate the load of a sector based on the number of connected UEs, their throughput, and its capacity.
+        """Calculate the load of a sector based on the number of connected UEs, their throughput, and its capacity.
         :param sector: An instance of the Sector class.
         :return: The load of the sector as a percentage.
         """
         if sector.capacity == 0:
-            return 0
+            return 100  # Indicates the sector is overloaded if capacity is 0
 
-        # Calculate load based on UE count
-        ue_count_load = (len(sector.connected_ues) / sector.capacity) * 100
+        ue_count_load = (len(sector.connected_ues) / sector.capacity) * 100 if sector.capacity else 0
 
-        # Calculate load based on total UE throughput
-        # Assuming each UE object in sector.connected_ues has a 'throughput' attribute
-        total_throughput = sum(ue.throughput for ue in sector.ues.values())
-        # Assuming sector.max_throughput represents the sector's maximum data handling capacity
-        throughput_load = (total_throughput / sector.max_throughput) * 100 if hasattr(sector, 'max_throughput') and sector.max_throughput else 0
+        # Encapsulate throughput capping logic
+        total_capped_throughput = self.calculate_capped_throughput(sector)
 
-        # Combine UE count load and throughput load for final calculation
-        # The method of combination (e.g., average, weighted average) can be adjusted as needed
-        sector_load = (ue_count_load + throughput_load) / 2
+        # Check for zero max throughput to default to 0 load
+        throughput_load = (total_capped_throughput / sector.max_throughput) * 100 if sector.max_throughput else 0
+    
+        # Use constant weights for configurable relative importance
+        COUNT_WEIGHT = 0.7
+        TP_WEIGHT = 0.3
+        sector_load = COUNT_WEIGHT * ue_count_load + TP_WEIGHT * throughput_load
 
         return sector_load
+
+    def calculate_capped_throughput(self, sector: Sector):
+        """Calculate the total capped throughput for a sector.
+        :param sector: An instance of the Sector class.
+        :return: The total capped throughput.
+        """
+        max_share = sector.max_throughput * 0.1
+        capped_ue_throughputs = [min(ue.throughput, max_share) for ue in sector.ues.values()]
+        return sum(capped_ue_throughputs)
 ########################################################################################################################   
     def calculate_cell_load(self, cell: Cell):
         """
         Calculate the load of a cell based on the loads of its sectors.
-
         :param cell: An instance of the Cell class.
         :return: The load of the cell as a percentage.
         """
+        # Check if the cell has sectors
         if not cell.sectors:
-            return 0
+            return 0  # Return 0 if there are no sectors to avoid division by zero
+
+        # Calculate the load for each sector and store the loads in a list
         sector_loads = [self.calculate_sector_load(sector) for sector in cell.sectors]
-        return sum(sector_loads) / len(sector_loads)
+
+        # Calculate the average load of the cell based on its sectors
+        cell_load = sum(sector_loads) / len(sector_loads)
+
+        return cell_load
 ####################################################################################################################   
     def calculate_gNodeB_load(self):
         """
@@ -154,34 +168,33 @@ class NetworkLoadManager:
 
             time.sleep(1)  # Adjust sleep time as needed
 
-################################################Finding Neighbors with their load and its capacity####################################################
+################################################Finding Neighbors#########################################################
     def get_sorted_entities_by_load(self, entity_id):
-            
-            if entity_id.startswith("sector"):  # Assuming sector IDs have a unique prefix
-                return self.get_sorted_neighbor_sectors(entity_id)
-            elif entity_id.startswith("cell"):  # Assuming cell IDs have a unique prefix
-                return self.get_sorted_neighbor_cells(entity_id)
-            elif entity_id.startswith("gNodeB"):  # Assuming gNodeB IDs have a unique prefix
-                return self.get_sorted_neighbor_gNodeBs(entity_id)
-            else:
-                raise ValueError("Unknown entity type")
+        if entity_id.startswith("sector"):  # Assuming sector IDs have a unique prefix
+            return self.get_sorted_neighbor_sectors(entity_id)
+        elif entity_id.startswith("cell"):  # Assuming cell IDs have a unique prefix
+            return self.get_sorted_neighbor_cells(entity_id)
+        elif entity_id.startswith("gNodeB"):  # Assuming gNodeB IDs have a unique prefix
+            return self.get_sorted_neighbor_gNodeBs(entity_id)
+        else:
+            raise ValueError("Unknown entity type")
 
     def get_sorted_neighbor_sectors(self, sector_id):
         neighbors = self.sector_manager.get_neighbor_sectors(sector_id)
         # Calculate load for each neighbor
-        neighbor_loads = [(neighbor_id, self.calculate_sector_load(neighbor)) for neighbor_id, neighbor in neighbors]
+        neighbor_loads = [(neighbor_id, self.calculate_sector_load(neighbor)) for neighbor_id, neighbor in neighbors.items()]
         # Sort by load
-        sorted_neighbors = sorted(neighbor_loads, key=lambda x: x[1])
+        sorted_neighbors = sorted(neighbor_loads, key=lambda x: x[1], reverse=True)  # Assuming higher load should be first
         return [neighbor[0] for neighbor in sorted_neighbors]
 
     def get_sorted_neighbor_cells(self, cell_id):
         neighbors = self.cell_manager.get_neighbor_cells(cell_id)
-        neighbor_loads = [(neighbor_id, self.calculate_cell_load(neighbor)) for neighbor_id, neighbor in neighbors]
-        sorted_neighbors = sorted(neighbor_loads, key=lambda x: x[1])
+        neighbor_loads = [(neighbor_id, self.calculate_cell_load(neighbor)) for neighbor_id, neighbor in neighbors.items()]
+        sorted_neighbors = sorted(neighbor_loads, key=lambda x: x[1], reverse=True)  # Assuming higher load should be first
         return [neighbor[0] for neighbor in sorted_neighbors]
 
     def get_sorted_neighbor_gNodeBs(self, gNodeB_id):
         neighbors = self.cell_manager.get_neighbor_gNodeBs(gNodeB_id)
-        neighbor_loads = [(neighbor_id, self.calculate_gNodeB_load()[neighbor_id]) for neighbor_id in neighbors]
-        sorted_neighbors = sorted(neighbor_loads, key=lambda x: x[1])
+        neighbor_loads = [(neighbor_id, self.calculate_gNodeB_load().get(neighbor_id, 0)) for neighbor_id in neighbors]
+        sorted_neighbors = sorted(neighbor_loads, key=lambda x: x[1], reverse=True)  # Assuming higher load should be first
         return [neighbor[0] for neighbor in sorted_neighbors]
