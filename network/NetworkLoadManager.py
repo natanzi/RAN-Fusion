@@ -8,14 +8,17 @@ from network.sector_manager import SectorManager
 from logs.logger_config import cell_load_logger,sector_load_logger,gnodbe_load_logger
 from database.database_manager import DatabaseManager
 from network.network_delay import NetworkDelay
+import time
+from network.loadbalancer import LoadBalancer
 
 class NetworkLoadManager:
+
     def __init__(self, cell_manager: CellManager, sector_manager: SectorManager):
         self.cell_manager = cell_manager
         self.sector_manager = sector_manager
         self.db_manager = DatabaseManager()
-#################################################################################################   
-
+        self.load_balancer = LoadBalancer()
+#####################################################################################################################   
     def calculate_sector_load(self, sector: Sector):
         """
         Calculate the load of a sector based on the number of connected UEs, their throughput, and its capacity.
@@ -39,8 +42,7 @@ class NetworkLoadManager:
         sector_load = (ue_count_load + throughput_load) / 2
 
         return sector_load
-################################################################################################   
-
+########################################################################################################################   
     def calculate_cell_load(self, cell: Cell):
         """
         Calculate the load of a cell based on the loads of its sectors.
@@ -52,7 +54,7 @@ class NetworkLoadManager:
             return 0
         sector_loads = [self.calculate_sector_load(sector) for sector in cell.sectors]
         return sum(sector_loads) / len(sector_loads)
-################################################################################################   
+####################################################################################################################   
     def calculate_gNodeB_load(self):
         """
         Calculate the load of each gNodeB based on the loads of its cells.
@@ -72,7 +74,7 @@ class NetworkLoadManager:
             cell_load_logger.info(f"gNodeB {gNodeB_id} Load: {gNodeB_load:.2f}%")
 
         return gNodeB_loads
-################################################################################################   
+####################################################################################################################   
     def calculate_network_load(self):
         """
         Calculate the overall network load based on the loads of all cells.
@@ -88,7 +90,7 @@ class NetworkLoadManager:
         network_load = sum(cell_loads) / len(cell_loads)
 
         return network_load
-################################################################################################   
+####################################################################################################################   
     def log_and_write_loads(self):
 
         # Calculate, log, and write the load of each cell
@@ -103,8 +105,9 @@ class NetworkLoadManager:
             # Assuming sector_load_logger and sector_manager exist
             sector_load_logger.info(f"Sector {sector_id} Load: {sector_load:.2f}%")
             DatabaseManager().write_sector_load(sector_id, sector_load)
-################################################################################################   
+####################################################################################################################   
     def network_measurement(self):
+        
         network_load = self.calculate_network_load()
         print(f"Network Load: {network_load:.2f}%")
         
@@ -116,19 +119,69 @@ class NetworkLoadManager:
         # Write network measurement (both load and delay) to the database
         self.db_manager.write_network_measurement(network_load, network_delay) 
         
-################################################################################################   
+##################################################################################################################     
+    def monitoring(self):
+        """
+        This method always monitors sector load, cell load, and network load
+        if the network load, cell load or sector load hit a threshold, the method will call the load balancer!
+        """
+        while True:
+            # Calculate and log gNodeB loads
+            gNodeB_loads = self.calculate_gNodeB_load()
+            for gNodeB_id, load in gNodeB_loads.items():
+                if load > 80:  # Assuming 80% as the congestion threshold for gNodeBs
+                    gnodbe_load_logger.warning(f"gNodeB {gNodeB_id} is congested with a load of {load:.2f}%.")
+                    self.load_balancer.handle_load_balancing('gNodeB', gNodeB_id)
 
+            # Calculate and log cell loads
+            for cell_id, cell in self.cell_manager.cells.items():
+                cell_load = self.calculate_cell_load(cell)
+                if cell_load > 80:  # Assuming 80% as the congestion threshold for cells
+                    cell_load_logger.warning(f"Cell {cell_id} is congested with a load of {cell_load:.2f}%.")
+                self.load_balancer.handle_load_balancing('cell', cell_id)
 
-# Example usage
-#if __name__ == "__main__":
-    # Assuming cell_manager and sector_manager are already initialized and populated
-    #cell_manager = CellManager(gNodeBs={}, db_manager=None)  # Placeholder initialization
-    #sector_manager = SectorManager(db_manager=None)  # Placeholder initialization
-    #network_load_manager = NetworkLoadManager(cell_manager, sector_manager)
+            # Calculate and log sector loads
+            for sector_id, sector in self.sector_manager.sectors.items():
+                sector_load = self.calculate_sector_load(sector)
+                if sector_load > 80:  # Assuming 80% as the congestion threshold for sectors
+                    sector_load_logger.warning(f"Sector {sector_id} is congested with a load of {sector_load:.2f}%.")
+                    self.load_balancer.handle_load_balancing('sector', sector_id)
 
-    # Calculate and log the network load
-    #network_load = network_load_manager.calculate_network_load()
-    #print(f"Network Load: {network_load:.2f}%")
+            # Calculate and log network load
+            network_load = self.calculate_network_load()
+            if network_load > 80:  # Assuming 80% as the congestion threshold for the network
+                cell_load_logger.warning(f"Network is congested with an average load of {network_load:.2f}%.")
 
-    # Log the load of each cell
-    # network_load_manager.log_cell_loads()
+            time.sleep(1)  # Adjust sleep time as needed
+
+################################################Finding Neighbors with their load and its capacity####################################################
+    def get_sorted_entities_by_load(self, entity_id):
+            
+            if entity_id.startswith("sector"):  # Assuming sector IDs have a unique prefix
+                return self.get_sorted_neighbor_sectors(entity_id)
+            elif entity_id.startswith("cell"):  # Assuming cell IDs have a unique prefix
+                return self.get_sorted_neighbor_cells(entity_id)
+            elif entity_id.startswith("gNodeB"):  # Assuming gNodeB IDs have a unique prefix
+                return self.get_sorted_neighbor_gNodeBs(entity_id)
+            else:
+                raise ValueError("Unknown entity type")
+
+    def get_sorted_neighbor_sectors(self, sector_id):
+        neighbors = self.sector_manager.get_neighbor_sectors(sector_id)
+        # Calculate load for each neighbor
+        neighbor_loads = [(neighbor_id, self.calculate_sector_load(neighbor)) for neighbor_id, neighbor in neighbors]
+        # Sort by load
+        sorted_neighbors = sorted(neighbor_loads, key=lambda x: x[1])
+        return [neighbor[0] for neighbor in sorted_neighbors]
+
+    def get_sorted_neighbor_cells(self, cell_id):
+        neighbors = self.cell_manager.get_neighbor_cells(cell_id)
+        neighbor_loads = [(neighbor_id, self.calculate_cell_load(neighbor)) for neighbor_id, neighbor in neighbors]
+        sorted_neighbors = sorted(neighbor_loads, key=lambda x: x[1])
+        return [neighbor[0] for neighbor in sorted_neighbors]
+
+    def get_sorted_neighbor_gNodeBs(self, gNodeB_id):
+        neighbors = self.cell_manager.get_neighbor_gNodeBs(gNodeB_id)
+        neighbor_loads = [(neighbor_id, self.calculate_gNodeB_load()[neighbor_id]) for neighbor_id in neighbors]
+        sorted_neighbors = sorted(neighbor_loads, key=lambda x: x[1])
+        return [neighbor[0] for neighbor in sorted_neighbors]

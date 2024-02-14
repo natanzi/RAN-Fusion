@@ -7,14 +7,13 @@ from network.initialize_network import initialize_network
 from traffic.traffic_generator import TrafficController
 from network.ue_manager import UEManager
 from network.gNodeB_manager import gNodeBManager
-from network.cell_manager import CellManager 
+from network.cell_manager import CellManager
 from network.sector_manager import SectorManager
 from network.NetworkLoadManager import NetworkLoadManager
 from logs.logger_config import gnodbe_load_logger
 from network.network_delay import NetworkDelay
 import time
 import threading
-from network.NetworkLoadManager import write_network_measurement
 
 def monitor_ue_updates():
     log_file_path = 'ue_updates.log'
@@ -30,24 +29,21 @@ def monitor_ue_updates():
                 continue
             print(line.strip(), flush=True)
 
-def log_traffic(ues, network_load_manager):
-
-    # Initialize the TrafficController inside the child process
+def log_traffic(ues, network_load_manager, db_manager):
+    # Adjusted to pass db_manager as an argument
     traffic_controller = TrafficController()
     network_delay_calculator = NetworkDelay()
-
     while True:
-        # Generate traffic using the traffic_controller
         for ue in ues:
-            # Calculate throughput for the UE
             throughput_data = traffic_controller.calculate_throughput(ue)
             network_load = network_load_manager.calculate_network_load()
             network_delay = network_delay_calculator.calculate_delay(network_load)
-
-            # Log the traffic details in the desired format, including throughput, delay, jitter, and packet loss rate
             logging.info(f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Throughput: {throughput_data['throughput'] / (8 * 1024 * 1024):.2f}MB, Interval: {throughput_data['interval']:.2f}s, Delay: {throughput_data['jitter']}ms, Jitter: {throughput_data['packet_loss_rate']}%, Packet Loss Rate: {throughput_data['packet_loss_rate']}%")
-            write_network_measurement(network_load, network_delay)
-        time.sleep(1)  # Logging interval
+            
+            # Use db_manager to write network measurement
+            db_manager.write_network_measurement(network_load, network_delay)
+        time.sleep(1)
+
 
 def main():
     logging.basicConfig(level=logging.INFO)
@@ -90,7 +86,7 @@ def main():
         # Here you would typically send serialized_data to InfluxDB or log it
         print(f"Serialized data for cell {cell_id}: {serialized_data.to_line_protocol()}")
 
-    threading.Thread(target=log_traffic, args=(ues, network_load_manager), daemon=True).start()
+    threading.Thread(target=log_traffic, args=(ues, network_load_manager, db_manager), daemon=True).start()
 
     # Keep the main program running until manually stopped
     try:
