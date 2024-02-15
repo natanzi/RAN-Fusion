@@ -156,3 +156,46 @@ class SectorManager:
                 neighbors.append(sector)
     
         return neighbors
+    
+    def is_sector_overloaded(self, sector_id):
+        sector = self.sector_manager.get_sector(sector_id)
+        if sector and sector.current_load > 80:  # Assuming 80% is the threshold
+            return True
+        return False
+    
+    def get_sorted_ues_by_throughput(self, sector_id):
+        sector = self.sector_manager.get_sector(sector_id)
+        if not sector:
+            return []
+        sorted_ues = sorted(sector.ues.values(), key=lambda ue: ue.throughput, reverse=True)
+        return sorted_ues
+    
+    def move_ue_to_sector(self, ue_id, target_sector_id):
+        # Fetch the UE instance by its ID
+        ue = UE.get_ue_instance_by_id(ue_id)
+        if ue is None:
+            sector_logger.error(f"UE with ID {ue_id} not found.")
+            return False
+
+        # Assuming perform_handover is a function in handover_utils.py that handles the handover logic
+        from handover_utils import perform_handover
+
+        # Execute the handover
+        success = perform_handover(ue_id, self.sector_id, target_sector_id)
+
+        if success:
+            # Update the UE's sector association
+            ue.ConnectedSector = target_sector_id
+            # Remove the UE from the current sector's UE list and add it to the target sector's UE list
+            self.remove_ue(ue_id)
+            target_sector = Sector.get_sector_by_id(target_sector_id)
+            if target_sector:
+                target_sector.add_ue(ue)
+                sector_logger.info(f"Successfully moved UE {ue_id} from sector {self.sector_id} to sector {target_sector_id}.")
+                return True
+            else:
+                sector_logger.error(f"Target sector {target_sector_id} not found.")
+                return False
+        else:
+            sector_logger.error(f"Failed to perform handover for UE {ue_id} from sector {self.sector_id} to sector {target_sector_id}.")
+            return False

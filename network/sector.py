@@ -129,3 +129,5 @@ class Sector:
         if sector_data:
             return cls.from_json(sector_data)  # Assuming a method to create a Sector instance from data
         return None
+    
+    

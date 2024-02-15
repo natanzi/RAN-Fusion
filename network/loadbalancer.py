@@ -23,18 +23,34 @@ class LoadBalancer:
         elif entity_type == 'cell':
             # Logic to balance load across sectors within the specified cell, or move UEs to other cells
             pass
-        elif entity_type == 'sector':
-            1- first we should make sure is really overloaded?
-            2- if yes we should get the list of UE associated with the sector with their throuput and sort it from high throuput to low thruput
-            3- then we should find less loaded neibers sectors list from get_sorted_entities_by_load() of the class of NetworkLoadManager in this file NetworkLoadManager.py this is target sector
-            5- we should move UE from the high loeaded sector [source]  to the neibers sector which has choosed as target sector in step 3
-            6- in case of any failure, we should roleback the UE to the source sector.
-            6- we should update the UE with the new sector ID in the database
-            7- we make sure the ue in new sector is updated in the list of the sector id in memory
 
+        elif entity_type == 'sector':
+
+            if not self.is_sector_overloaded(entity_id):
+                return 
+            sorted_ues = self.get_sorted_ues_by_throughput(entity_id)
+            target_sector = self.find_target_sector(entity_id)  # Implementation needed    
+
+            for ue in sorted_ues:
+                if self.move_ue_to_sector(ue, target_sector):
+                    # Assuming move_ue_to_sector updates the database and memory
+                    continue
+                else:
+                    # Handle failure, potentially roll back
+                    break
+            else:
+                raise ValueError("Unsupported entity type for load balancing.")
+
+            # Sector is not overloaded, no action required
+            #1- first we should make sure is really overloaded?
+            #2- if yes we should get the list of UE associated with the sector with their throuput and sort it from high throuput to low thruput
+            #3- then we should find less loaded neibers sectors list from get_sorted_entities_by_load() of the class of NetworkLoadManager in this file NetworkLoadManager.py this is target sector
+            #5- we should move UE from the high loeaded sector [source]  to the neibers sector which has choosed as target sector in step 3
+            #6- in case of any failure, we should roleback the UE to the source sector.
+            #6- we should update the UE with the new sector ID in the database
+            #7- we make sure the ue in new sector is updated in the list of the sector id in memory
+###########################################################################################################################################
             
-        else:
-            raise ValueError("Unsupported entity type for load balancing.")
 ################################################Handover Execution#######################################################
     def is_handover_required(ue, handover_threshold):
         """
