@@ -72,8 +72,7 @@ class gNodeBManager:
         """
         return self.gNodeBs.get(gnodeb_id)
     
-    
-    
+        
     def get_neighbor_gNodeBs(self, gnodeb_id):
         """
         Find neighboring gNodeBs based on coverage radius overlap.

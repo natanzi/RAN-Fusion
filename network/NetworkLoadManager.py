@@ -196,7 +196,7 @@ class NetworkLoadManager:
         return [neighbor[0] for neighbor in sorted_neighbors]
 
     def get_sorted_neighbor_gNodeBs(self, gNodeB_id):
-        neighbors = self.cell_manager.get_neighbor_gNodeBs(gNodeB_id)
+        neighbors = self.gNodeBManager.get_neighbor_gNodeBs(gNodeB_id)
         neighbor_loads = [(neighbor_id, self.calculate_gNodeB_load().get(neighbor_id, 0)) for neighbor_id in neighbors]
         sorted_neighbors = sorted(neighbor_loads, key=lambda x: x[1], reverse=True)  # Assuming higher load should be first
         return [neighbor[0] for neighbor in sorted_neighbors]

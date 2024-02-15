@@ -136,3 +136,23 @@ class SectorManager:
         else:
             sector_logger.warning(f"Sector state not found for {sector_id}.")
         return sector_state
+    
+    def get_neighbor_sectors(self, sector_id):
+        """
+        Finds neighboring sectors for a given sector ID.
+    
+        :param sector_id: The ID of the sector for which to find neighbors.
+        :return: A list of Sector instances that are considered neighbors.
+        """
+        current_sector = self.sectors.get(sector_id)
+        if not current_sector:
+            sector_logger.warning(f"Sector {sector_id} not found.")
+            return []
+
+        neighbors = []
+        # Example criteria: Sectors are neighbors if they belong to the same gNodeB.
+        for sector in self.sectors.values():
+            if sector.gNodeB_ID == current_sector.gNodeB_ID and sector.sector_id != sector_id:
+                neighbors.append(sector)
+    
+        return neighbors
