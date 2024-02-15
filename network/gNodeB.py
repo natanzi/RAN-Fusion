@@ -32,11 +32,14 @@ def load_gNodeB_config():
 ##Using the function to load the configuration
 gNodeBs_config = load_gNodeB_config()
 
+gNodeB_instances = {}
+
 class gNodeB:
     
     def __init__(self, gnodeb_id, latitude, longitude, coverageRadius, power, frequency, bandwidth, location, region, maxUEs, cellCount, sectorCount, handoverMargin, handoverHysteresis, timeToTrigger, interFreqHandover, xnInterface, sonCapabilities, loadBalancingOffset, cellIds, sectorIds, MeasurementBandwidth=None, BlacklistedCells=None, **kwargs):
         self.ID = gnodeb_id  # str: Unique identifier for the gNodeB
         self.instance_id = str(uuid.uuid4())  # Generic unique identifier for the instance of the GNodeB
+        gNodeB_instances[gnodeb_id] = self #define global dictionaries
         self.Latitude = latitude  # float: Geographic latitude where the gNodeB is located
         self.Longitude = longitude  # float: Geographic longitude where the gNodeB is located
         self.CoverageRadius = coverageRadius  # int: The radius (in meters) that the gNodeB covers

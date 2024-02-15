@@ -14,7 +14,7 @@ sector_lock = threading.Lock()
 
 # Assume a global list or set for UE IDs is defined at the top level of your module
 global_ue_ids = set()
-
+sector_instances = {}
 
 #print("Print all_sectors at Top of sector.py")
 #print(all_sectors)
@@ -25,6 +25,7 @@ class Sector:
     def __init__(self, sector_id, cell_id, cell, capacity, azimuth_angle, beamwidth, frequency, duplex_mode, tx_power, bandwidth, mimo_layers, beamforming, ho_margin, load_balancing, max_throughput, connected_ues=None, current_load=0):
         self.sector_id = sector_id  # String, kept as is for identifiers
         self.instance_id = str(uuid.uuid4())  # Generic unique identifier for the instance of the sector
+        sector_instances[sector_id] = self     # Add the sector to the global dictionary
         self.cell_id = cell_id  # String, kept as is for identifiers
         self.cell = cell  # Cell object, no change needed
         self.ues = {}  # Add a dictionary to track UEs mapped to their IDs

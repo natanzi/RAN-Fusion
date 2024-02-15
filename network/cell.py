@@ -9,11 +9,14 @@ from influxdb_client import Point
 from influxdb_client.client.write_api import SYNCHRONOUS
 from database.time_utils import get_current_time_ntp, server_pools
 
+cell_instances = {}
+
 class Cell:
     def __init__(self, cell_id, gnodeb_id, frequencyBand, duplexMode, tx_power, bandwidth, ssbPeriodicity, ssbOffset, maxConnectUes, max_throughput,  channelModel, sectorCount, trackingArea=None, is_active=True):
         #debug_print(f"START-Creating cell {cell_id} from cell class")
         self.ID = cell_id                     # Unique identifier for the Cell
-        self.instance_id = str(uuid.uuid4())  # Generic unique identifier for the instance  of the cell                
+        self.instance_id = str(uuid.uuid4())  # Generic unique identifier for the instance  of the cell 
+        cell_instances[cell_id] = self       # global registry   
         self.gNodeB_ID = gnodeb_id          # Identifier for the associated gNodeB of this cell
         self.FrequencyBand = frequencyBand  # Frequency band in which the cell operates
         self.DuplexMode = duplexMode        # Duplex mode of the cell (e.g., FDD, TDD)
