@@ -5,6 +5,8 @@ from network.cell import Cell
 from network.sector import Sector
 from network.cell_manager import CellManager
 from network.sector_manager import SectorManager
+from network.gNodeB_manager import gNodeBManager
+
 from logs.logger_config import cell_load_logger,sector_load_logger,gnodbe_load_logger
 from database.database_manager import DatabaseManager
 from network.network_delay import NetworkDelay

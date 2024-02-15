@@ -93,3 +93,24 @@ class CellManager:
         :return: The cell instance, if found; None otherwise.
         """
         return self.cells.get(cell_id)
+    
+    def get_neighbor_cells(gNodeB, target_cell_id):
+        """
+        Finds neighboring cells of a given cell within the same gNodeB.
+
+        :param gNodeB: The gNodeB instance containing the target cell.
+        :param target_cell_id: The ID of the cell for which to find neighbors.
+        :return: A list of cell IDs that are neighbors of the target cell.
+        """
+        neighbor_cells = []
+        # Check if the target cell is part of this gNodeB
+        if target_cell_id not in gNodeB.CellIds:
+            print(f"Cell ID {target_cell_id} not found in gNodeB {gNodeB.ID}")
+            return neighbor_cells  # Return an empty list if the target cell is not in this gNodeB
+
+        # Iterate over all cells in the gNodeB to find neighbors
+        for cell in gNodeB.Cells:
+            if cell.ID != target_cell_id:
+                neighbor_cells.append(cell.ID)
+
+        return neighbor_cells

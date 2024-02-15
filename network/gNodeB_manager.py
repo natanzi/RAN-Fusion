@@ -2,7 +2,7 @@ import os
 from network.gNodeB import gNodeB, load_gNodeB_config
 from database.database_manager import DatabaseManager
 from logs.logger_config import cell_logger, gnodeb_logger
-
+from network.utils import calculate_distance
 
 class gNodeBManager:
 
@@ -71,10 +71,26 @@ class gNodeBManager:
         :return: The gNodeB instance, if found; None otherwise.
         """
         return self.gNodeBs.get(gnodeb_id)
+    
+    
+    
+    def get_neighbor_gNodeBs(self, gnodeb_id):
+        """
+        Find neighboring gNodeBs based on coverage radius overlap.
 
-# Example usage
-#if __name__ == "__main__":
-    #base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    #gnodeb_manager = gNodeBManager(base_dir)
-    #gnodeb_manager.initialize_gNodeBs()
-    # Additional operations like add_gNodeB, remove_gNodeB, get_gNodeB can be performed using the manager instance.
+        :param gnodeb_id: ID of the gNodeB to find neighbors for.
+        :return: A list of gNodeB IDs that are neighbors based on coverage overlap.
+        """
+        target_gNodeB = self.get_gNodeB(gnodeb_id)
+        if not target_gNodeB:
+            return []  # Target gNodeB not found
+
+        neighbors = []
+        for gnb_id, gnb in self.gNodeBs.items():
+            if gnb_id != gnodeb_id:  # Don't include the target gNodeB itself
+                distance = calculate_distance(target_gNodeB.Latitude, target_gNodeB.Longitude, gnb.Latitude, gnb.Longitude)
+                # Check if the distance is less than the sum of their coverage radii
+                if distance <= (target_gNodeB.CoverageRadius + gnb.CoverageRadius) / 1000:  # Convert meters to kilometers
+                    neighbors.append(gnb_id)
+
+        return neighbors

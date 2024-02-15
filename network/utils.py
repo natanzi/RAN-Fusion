@@ -5,6 +5,7 @@ from network.ue import UE
 from network.sector import Sector
 from network.gNodeB import gNodeB
 from network.cell import Cell
+from math import radians, cos, sin, sqrt, atan2
 
 def random_location_within_radius(center_lat, center_lon, radius_km):
 
@@ -90,4 +91,24 @@ def get_total_capacity(sectors):
         total_capacity += sector.remaining_capacity
     return total_capacity
 
+def calculate_distance(lat1, lon1, lat2, lon2):
+        # Radius of the Earth in kilometers
+        R = 6371.0
 
+        # Convert coordinates from degrees to radians
+        lat1 = radians(lat1)
+        lon1 = radians(lon1)
+        lat2 = radians(lat2)
+        lon2 = radians(lon2)
+
+        # Difference in coordinates
+        dlon = lon2 - lon1
+        dlat = lat2 - lat1
+
+        # Haversine formula
+        a = sin(dlat / 2)**2 + cos(lat1) * cos(lat2) * sin(dlon / 2)**2
+        c = 2 * atan2(sqrt(a), sqrt(1 - a))
+
+        distance = R * c
+
+        return distance
