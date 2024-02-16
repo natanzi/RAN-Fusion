@@ -10,12 +10,20 @@ from logs.logger_config import cell_logger, gnodeb_logger, ue_logger, sector_log
 import threading
 
 class SectorManager:
+    _instance = None
+
     def __init__(self, db_manager):
         self.sectors = all_sectors  # Use the global all_sectors dictionary to track sectors
         self.db_manager = db_manager  # Instance of DatabaseManager for DB operations
         self.lock = threading.Lock()  # Lock for thread-safe operations on sectors
         self.gnodeb_sectors_map = {}  # New attribute to track gNodeB to sectors association
-
+    
+    @classmethod
+    def get_instance(cls, db_manager=None):
+        if cls._instance is None:
+            cls._instance = cls(db_manager)
+        return cls._instance
+    
     def initialize_sectors(self, sectors_config, gnodeb_manager, cell_manager):
         print("Initializing sectors...")
         initialized_sectors = {}

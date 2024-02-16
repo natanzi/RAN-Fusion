@@ -100,12 +100,19 @@ class UE:
     @classmethod
     def get_ue_instance_by_id(cls, ue_id):
         """
-        Retrieve a UE instance by its ID.
-        
+        Retrieve a UE instance by its ID in a case-insensitive manner.
+    
         :param ue_id: The ID of the UE to retrieve.
         :return: The UE instance with the given ID, or None if not found.
         """
-        return cls.ue_instances.get(ue_id, None)
+        # Convert the input ue_id to lowercase for case-insensitive comparison
+        ue_id_lower = ue_id.lower()
+        # Iterate over all stored UE instances to find a matching ID, regardless of case
+        for stored_ue_id in cls.ue_instances.keys():
+            if stored_ue_id.lower() == ue_id_lower:
+                return cls.ue_instances[stored_ue_id]
+        # Return None if no matching UE ID is found
+        return None
     
     @classmethod
     def deregister_ue(cls, ue_id):

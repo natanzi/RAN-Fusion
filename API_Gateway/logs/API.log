@@ -1,0 +1,3 @@
+{"level": "ERROR", "timestamp": "2024-02-16 15:49:39", "message": "Failed to remove UE: type object 'SectorManager' has no attribute 'get_instance'", "test_id": "4b6d1762-7eae-418b-8543-074f6bd829ee"}
+{"level": "ERROR", "timestamp": "2024-02-16 15:56:25", "message": "UE UE10 not found in any sector", "test_id": "9ab2370b-a1c3-4cef-be05-bd7f5036bfad"}
+{"level": "INFO", "timestamp": "2024-02-16 15:56:25", "message": "UE removal command sent for UE ID: UE10", "test_id": "9ab2370b-a1c3-4cef-be05-bd7f5036bfad"}

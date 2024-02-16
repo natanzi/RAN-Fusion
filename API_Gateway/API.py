@@ -1,12 +1,12 @@
 # API_Gateway/API.py modifications
-from network.command_handler import CommandHandler
-from logs.logger_config import API_logger
 import sys
 import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) 
+from network.command_handler import CommandHandler
+from logs.logger_config import API_logger
 import traceback
 from flask import Flask, request, jsonify, Response
 from dotenv import load_dotenv
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) 
 import logging
 
 app = Flask(__name__)

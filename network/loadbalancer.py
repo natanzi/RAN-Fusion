@@ -100,12 +100,12 @@ class LoadBalancer:
         original_cell = next((cell for cell in gnodeb.Cells if cell.ID == current_cell_id), None)
         all_cells = gnodeb.Cells  # Directly using gNodeB's Cells attribute
 
-    # Ensure target_cell is provided
-    if not target_cell:
-        return False  # Optionally, handle this situation more gracefully
+        # Ensure target_cell is provided
+        if not target_cell:
+            return False  # Optionally, handle this situation more gracefully
 
-    if check_handover_feasibility(target_cell, ue):
-        handover_successful = ue.perform_handover(target_cell)
+        #if check_handover_feasibility(target_cell, ue):
+            handover_successful = ue.perform_handover(target_cell)
 
         if handover_successful:
             # Process after successful handover
@@ -123,15 +123,15 @@ class LoadBalancer:
             database_manager = DatabaseManager()
             database_manager.save_ue_state(ue)  # Assuming method to save UE state
             database_manager.save_cell_state(target_cell)  # Assuming method to save Cell state
-        else:
+        #else:
             # Handling handover failure
-            log_handover_failure("Handover execution failed", ue, original_cell, target_cell)
-    else:
+            #log_handover_failure("Handover execution failed", ue, original_cell, target_cell)
+        #else:
         # Handling feasibility check failure
-        log_handover_failure("Handover feasibility check failed", ue, original_cell, target_cell)
+            #log_handover_failure("Handover feasibility check failed", ue, original_cell, target_cell)
 
-        update_handover_counts(gnodeb, handover_successful)
-        return handover_successful
+            #update_handover_counts(gnodeb, handover_successful)
+            return handover_successful
 ###########################################################################################################################################
     def log_handover_failure(message, ue, original_cell, target_cell, rollback=False):
         gnodeb_logger.error(f"{message} for UE {ue.ID} from Cell {original_cell.ID} to Cell {target_cell.ID if target_cell else 'None'}.")
