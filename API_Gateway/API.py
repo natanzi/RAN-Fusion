@@ -13,27 +13,6 @@ app = Flask(__name__)
 load_dotenv()
 
 
-
-#########################################################################################################
-@app.route('/metrics', methods=['GET'])
-def metrics():
-    # Existing implementation for metrics endpoint
-    # ...
-    return Response
-
-#########################################################################################################
-@app.route('/add_ue', methods=['POST'])
-def add_ue():
-    data = request.json
-    # Existing validation and logging logic
-    
-    try:
-        CommandHandler.handle_command('add_ue', data)
-        return jsonify({'message': 'UE added successfully'}), 200
-    except Exception as e:
-        traceback.print_exc()
-        return jsonify({'error': 'An error occurred while adding UE'}), 500
-
 #########################################################################################################
 @app.route('/remove_ue', methods=['POST'])
 def remove_ue():
@@ -54,6 +33,26 @@ def remove_ue():
     except Exception as e:
         API_logger.error(f"Failed to remove UE: {e}")
         return jsonify({'error': 'An error occurred while removing UE', 'details': str(e)}), 500
+    
+#########################################################################################################
+@app.route('/metrics', methods=['GET'])
+def metrics():
+    # Existing implementation for metrics endpoint
+    # ...
+    return Response
+
+#########################################################################################################
+@app.route('/add_ue', methods=['POST'])
+def add_ue():
+    data = request.json
+    # Existing validation and logging logic
+    
+    try:
+        CommandHandler.handle_command('add_ue', data)
+        return jsonify({'message': 'UE added successfully'}), 200
+    except Exception as e:
+        traceback.print_exc()
+        return jsonify({'error': 'An error occurred while adding UE'}), 500
 
 #########################################################################################################
 @app.route('/update_ue', methods=['POST'])
