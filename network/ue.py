@@ -107,6 +107,16 @@ class UE:
         """
         return cls.ue_instances.get(ue_id, None)
     
+    @classmethod
+    def deregister_ue(cls, ue_id):
+        if ue_id in cls.existing_ue_ids:
+            cls.existing_ue_ids.remove(ue_id)
+            ue_logger.info(f"UE ID {ue_id} removed from existing_ue_ids.")
+    
+        if ue_id in cls.ue_instances:
+            del cls.ue_instances[ue_id]
+            ue_logger.info(f"UE instance {ue_id} removed from ue_instances.")
+
     def serialize_for_influxdb(self):
         point = Point("ue_metrics") \
             .tag("ue_id", str(self.ID)) \
@@ -148,6 +158,11 @@ class UE:
     def update_parameters(self, **kwargs):
         for key, value in kwargs.items():
             if hasattr(self, key):
+                # Example validation for txPower
+                if key == "txPower" and not (0 <= value <= 100):
+                    ue_logger.warning(f"Attempted to set invalid txPower {value} for UE {self.ID}")
+                    continue  # Skip updating this attribute
+            
                 setattr(self, key, value)
                 ue_logger.info(f"Updated {key} for UE {self.ID} to {value}")
             else:

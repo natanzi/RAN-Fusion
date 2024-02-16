@@ -9,7 +9,7 @@ import uuid
 import threading
 from logs.logger_config import sector_logger
 from database.database_manager import DatabaseManager
-
+from network.ue import UE
 sector_lock = threading.Lock()
 
 # Assume a global list or set for UE IDs is defined at the top level of your module
@@ -119,7 +119,11 @@ class Sector:
                 del self.ues[ue_id]  # Correctly delete the UE from the dictionary
                 point = self.serialize_for_influxdb()
                 DatabaseManager().insert_data(point)
-                sector_logger.info(f"UE with ID {ue_id} has been removed from the sector. Current load: {self.current_load}")
+                sector_logger.info(f"UE with ID {ue_id} has been removed from the sector. Current load (count): {self.current_load}")
+            
+                # Now also deregister the UE from the global tracking structures
+                UE.deregister_ue(ue_id)
+            
             else:
                 sector_logger.warning(f"UE with ID {ue_id} is not connected to the sector.")
                 
