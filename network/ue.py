@@ -116,13 +116,18 @@ class UE:
     
     @classmethod
     def deregister_ue(cls, ue_id):
-        if ue_id in cls.existing_ue_ids:
-            cls.existing_ue_ids.remove(ue_id)
-            ue_logger.info(f"UE ID {ue_id} removed from existing_ue_ids.")
-    
-        if ue_id in cls.ue_instances:
-            del cls.ue_instances[ue_id]
-            ue_logger.info(f"UE instance {ue_id} removed from ue_instances.")
+        ue_id_lower = ue_id.lower()
+        for stored_ue_id in list(cls.existing_ue_ids):  # Create a list to avoid modifying the set during iteration
+            if stored_ue_id.lower() == ue_id_lower:
+                cls.existing_ue_ids.remove(stored_ue_id)
+                ue_logger.info(f"UE ID {stored_ue_id} removed from existing_ue_ids.")
+                break  # Assuming UE IDs are unique, break after finding and removing the ID
+
+        for stored_ue_id in list(cls.ue_instances.keys()):
+            if stored_ue_id.lower() == ue_id_lower:
+                del cls.ue_instances[stored_ue_id]
+                ue_logger.info(f"UE instance {stored_ue_id} removed from ue_instances.")
+                break  # Assuming UE IDs are unique, break after finding and removing the instance
 
     def serialize_for_influxdb(self):
         point = Point("ue_metrics") \
