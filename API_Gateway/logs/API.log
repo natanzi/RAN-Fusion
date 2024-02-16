@@ -1,3 +1,9 @@
 {"level": "ERROR", "timestamp": "2024-02-16 15:49:39", "message": "Failed to remove UE: type object 'SectorManager' has no attribute 'get_instance'", "test_id": "4b6d1762-7eae-418b-8543-074f6bd829ee"}
 {"level": "ERROR", "timestamp": "2024-02-16 15:56:25", "message": "UE UE10 not found in any sector", "test_id": "9ab2370b-a1c3-4cef-be05-bd7f5036bfad"}
 {"level": "INFO", "timestamp": "2024-02-16 15:56:25", "message": "UE removal command sent for UE ID: UE10", "test_id": "9ab2370b-a1c3-4cef-be05-bd7f5036bfad"}
+{"level": "ERROR", "timestamp": "2024-02-16 16:10:40", "message": "UE UE10 not found in any sector", "test_id": "aa9b0dae-1384-4e1c-b05a-d8192786e4f5"}
+{"level": "INFO", "timestamp": "2024-02-16 16:10:40", "message": "UE removal command sent for UE ID: UE10", "test_id": "aa9b0dae-1384-4e1c-b05a-d8192786e4f5"}
+{"level": "ERROR", "timestamp": "2024-02-16 16:14:39", "message": "UE UE10 not found in any sector", "test_id": "b5e6cded-e1cb-4674-9449-361197fbd0de"}
+{"level": "INFO", "timestamp": "2024-02-16 16:14:39", "message": "UE removal command sent for UE ID: UE10", "test_id": "b5e6cded-e1cb-4674-9449-361197fbd0de"}
+{"level": "ERROR", "timestamp": "2024-02-16 16:21:03", "message": "UE UE10 not found in any sector", "test_id": "de4e6232-ba74-451f-a5f9-2af5102e44ca"}
+{"level": "INFO", "timestamp": "2024-02-16 16:21:03", "message": "UE removal command sent for UE ID: UE10", "test_id": "de4e6232-ba74-451f-a5f9-2af5102e44ca"}
