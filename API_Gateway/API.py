@@ -27,11 +27,17 @@ def remove_ue():
     
     try:
         # Assuming CommandHandler.handle_command is properly implemented to handle 'remove_ue' command
-        CommandHandler.handle_command('remove_ue', {'ue_id': ue_id})
-        API_logger.info(f"UE removal command sent for UE ID: {ue_id}")
-        return jsonify({'message': 'UE removal command sent', 'ue_id': ue_id}), 200
+        # and now returns a boolean indicating success or failure
+        result, message = CommandHandler.handle_command('remove_ue', {'ue_id': ue_id})
+        
+        if result:
+            API_logger.info(f"UE {ue_id} successfully removed.")
+            return jsonify({'message': f'UE {ue_id} successfully removed', 'ue_id': ue_id}), 200
+        else:
+            API_logger.warning(f"Failed to remove UE {ue_id}: {message}")
+            return jsonify({'error': f'Failed to remove UE {ue_id}', 'details': message}), 400
     except Exception as e:
-        API_logger.error(f"Failed to remove UE: {e}")
+        API_logger.error(f"An error occurred while removing UE {ue_id}: {e}")
         return jsonify({'error': 'An error occurred while removing UE', 'details': str(e)}), 500
     
 #########################################################################################################
