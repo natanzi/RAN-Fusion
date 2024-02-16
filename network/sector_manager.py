@@ -170,6 +170,12 @@ class SectorManager:
         sorted_ues = sorted(sector.ues.values(), key=lambda ue: ue.throughput, reverse=True)
         return sorted_ues
     
+    def find_sector_by_ue_id(self, ue_id):
+        for sector_id, sector in self.sectors.items():
+            if ue_id in sector.connected_ues:
+                return sector_id
+        return None
+    
     def move_ue_to_sector(self, ue_id, target_sector_id):
         # Fetch the UE instance by its ID
         ue = UE.get_ue_instance_by_id(ue_id)

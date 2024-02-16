@@ -1,10 +1,32 @@
 # API_Gateway/API.py modifications
 from network.command_handler import CommandHandler
+from logs.logger_config import API_logger
+import sys
+import os
+import traceback
+from flask import Flask, request, jsonify, Response
+from dotenv import load_dotenv
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) 
+import logging
 
+app = Flask(__name__)
+load_dotenv()
+
+
+
+#########################################################################################################
+@app.route('/metrics', methods=['GET'])
+def metrics():
+    # Existing implementation for metrics endpoint
+    # ...
+    return Response
+
+#########################################################################################################
 @app.route('/add_ue', methods=['POST'])
 def add_ue():
     data = request.json
-    # Validation and logging remain the same
+    # Existing validation and logging logic
+    
     try:
         CommandHandler.handle_command('add_ue', data)
         return jsonify({'message': 'UE added successfully'}), 200
@@ -12,24 +34,41 @@ def add_ue():
         traceback.print_exc()
         return jsonify({'error': 'An error occurred while adding UE'}), 500
 
+#########################################################################################################
 @app.route('/remove_ue', methods=['POST'])
 def remove_ue():
     data = request.json
-    # Validation and logging remain the same
+    
+    # Validate input data
+    if 'ue_id' not in data:
+        API_logger.error("Missing 'ue_id' in request data")
+        return jsonify({'error': "Missing 'ue_id'"}), 400
+    
+    ue_id = data['ue_id']
+    
     try:
-        CommandHandler.handle_command('remove_ue', data)
-        return jsonify({'message': 'UE removed successfully'}), 200
+        # Assuming CommandHandler.handle_command is properly implemented to handle 'remove_ue' command
+        CommandHandler.handle_command('remove_ue', {'ue_id': ue_id})
+        API_logger.info(f"UE removal command sent for UE ID: {ue_id}")
+        return jsonify({'message': 'UE removal command sent', 'ue_id': ue_id}), 200
     except Exception as e:
-        traceback.print_exc()
-        return jsonify({'error': 'An error occurred while removing UE'}), 500
+        API_logger.error(f"Failed to remove UE: {e}")
+        return jsonify({'error': 'An error occurred while removing UE', 'details': str(e)}), 500
 
+#########################################################################################################
 @app.route('/update_ue', methods=['POST'])
 def update_ue():
     data = request.json
-    # Validation and logging remain the same
+    # Existing validation and logging logic
+    # ...
     try:
         CommandHandler.handle_command('update_ue', data)
         return jsonify({'message': 'UE updated successfully'}), 200
     except Exception as e:
         traceback.print_exc()
         return jsonify({'error': 'An error occurred while updating UE'}), 500
+
+#########################################################################################################
+if __name__ == '__main__':
+    print("Starting API server...")
+    app.run(debug=True)

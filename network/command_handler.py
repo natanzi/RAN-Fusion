@@ -2,6 +2,8 @@
 from .ue import UE
 from database.database_manager import DatabaseManager
 from network.sector_manager import SectorManager
+from logs.logger_config import API_logger
+from flask import jsonify
 
 class CommandHandler:
     @staticmethod
@@ -26,18 +28,27 @@ class CommandHandler:
     @staticmethod
     def _remove_ue(data):
         ue_id = data['ue_id']
-        sector_id = data['sector_id']
         
-        # Assuming SectorManager is initialized and accessible via a global or singleton pattern
+        # Attempt to find the sector_id dynamically if not provided in the request data
         sector_manager = SectorManager.get_instance()
-
-        # Use the existing thread-safe remove_ue_from_sector method
+        sector_id = sector_manager.find_sector_by_ue_id(ue_id)
+        
+        if sector_id is None:
+            API_logger.error(f"UE {ue_id} not found in any sector")
+            return jsonify({'error': f"UE {ue_id} not found"}), 404
+        
+        # Proceed with the removal process
         removed = sector_manager.remove_ue_from_sector(sector_id, ue_id)
         
         if removed:
-            print(f"UE {ue_id} removed successfully from sector {sector_id}.")
+            # Assuming the database manager is also accessible globally or via singleton
+            db_manager = DatabaseManager.get_instance()
+            db_manager.remove_ue_state(ue_id, sector_id)
+            API_logger.info(f"UE {ue_id} removed successfully from sector {sector_id}.")
+            return jsonify({'message': f"UE {ue_id} removed successfully from sector {sector_id}."}), 200
         else:
-            print(f"Failed to remove UE {ue_id} from sector {sector_id} or sector/UE not found.")
+            API_logger.error(f"Failed to remove UE {ue_id} from sector {sector_id} or sector/UE not found.")
+            return jsonify({'error': f"Failed to remove UE {ue_id} from sector {sector_id} or sector/UE not found."}), 500
 
     @staticmethod
     def _update_ue(data):

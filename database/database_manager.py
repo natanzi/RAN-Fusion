@@ -16,6 +16,14 @@ INFLUXDB_BUCKET = os.getenv('INFLUXDB_BUCKET', 'RAN_metrics')
 class DatabaseManager:
     _instance = None
 
+    @classmethod
+    def get_instance(cls):
+        if cls._instance is None:
+            cls._instance = cls()
+            # Initialize the instance here if needed, similar to what's done in __new__
+            cls._instance.client_init()
+        return cls._instance
+    
     def __new__(cls, *args, **kwargs):
         if not cls._instance:
             cls._instance = super(DatabaseManager, cls).__new__(cls)
@@ -31,6 +39,7 @@ class DatabaseManager:
         self.write_api = self.client.write_api(write_options=SYNCHRONOUS)
         self.query_api = self.client.query_api()
         self.bucket = INFLUXDB_BUCKET
+    
 ##################################################################################################################################
     def get_sector_by_id(self, sector_id):
         query = f'from(bucket: "{self.bucket}") |> range(start: -1d) |> filter(fn: (r) => r._measurement == "sector_metrics" and r.sector_id == "{sector_id}")'

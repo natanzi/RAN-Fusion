@@ -78,6 +78,7 @@ server_logger = setup_logger('server_logger', 'logs/server_logger.log', TEST_RUN
 sector_logger = setup_logger('sector_logger', 'logs/sector_logger.log', TEST_RUN_ID)
 network_load_logger = setup_logger('network_load_logger', 'logs/network_load.log', TEST_RUN_ID)
 gnodbe_load_logger = setup_logger('gnodbe_load_logger', 'logs/gnodbe_load.log', TEST_RUN_ID)
+API_logger = setup_logger('API_logger', 'logs/API.log', TEST_RUN_ID)
 
 # Dictionary to hold loggers and their respective log files for compression
 log_files = {
@@ -91,7 +92,8 @@ log_files = {
     'server_logger': 'logs/server_logger.log',
     'sector_logger': 'logs/sector_logger.log',
     'sector_load_logger': 'logs/sector_load.log',
-    gnodbe_load_logger : 'logs/gnodbe_load.log',
+    'gnodbe_load_logger' : 'logs/gnodbe_load.log',
+    'API_logger': 'logs/API.log',
 }
 
 # Use ThreadPoolExecutor to compress log files
