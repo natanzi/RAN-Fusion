@@ -12,6 +12,8 @@ from network.sector_manager import SectorManager
 from network.NetworkLoadManager import NetworkLoadManager
 from logs.logger_config import gnodbe_load_logger
 from network.network_delay import NetworkDelay
+from simulator_cli import SimulatorCLI
+
 import time
 import threading
 
@@ -87,6 +89,10 @@ def main():
         print(f"Serialized data for cell {cell_id}: {serialized_data.to_line_protocol()}")
 
     threading.Thread(target=log_traffic, args=(ues, network_load_manager, db_manager), daemon=True).start()
+    
+    # Start the CLI
+    cli = SimulatorCLI(ue_manager=ue_manager)
+    cli.cmdloop()
 
     # Keep the main program running until manually stopped
     try:

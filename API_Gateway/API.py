@@ -51,14 +51,26 @@ def metrics():
 @app.route('/add_ue', methods=['POST'])
 def add_ue():
     data = request.json
-    # Existing validation and logging logic
+    
+    # Validate input data for required fields, for example, 'ue_id'
+    if 'ue_id' not in data:
+        API_logger.error("Missing 'ue_id' in request data")
+        return jsonify({'error': "Missing 'ue_id'"}), 400
     
     try:
-        CommandHandler.handle_command('add_ue', data)
-        return jsonify({'message': 'UE added successfully'}), 200
+        # Pass the entire data dictionary to the CommandHandler
+        result, message = CommandHandler.handle_command('add_ue', data)
+        
+        if result:
+            API_logger.info(f"UE {data['ue_id']} added successfully.")
+            return jsonify({'message': f"UE {data['ue_id']} added successfully"}), 200
+        else:
+            API_logger.warning(f"Failed to add UE {data['ue_id']}: {message}")
+            return jsonify({'error': f"Failed to add UE {data['ue_id']}", 'details': message}), 400
     except Exception as e:
+        API_logger.error(f"An error occurred while adding UE {data.get('ue_id', 'unknown')}: {e}")
         traceback.print_exc()
-        return jsonify({'error': 'An error occurred while adding UE'}), 500
+        return jsonify({'error': 'An error occurred while adding UE', 'details': str(e)}), 500
 
 #########################################################################################################
 @app.route('/update_ue', methods=['POST'])
