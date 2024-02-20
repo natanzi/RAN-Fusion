@@ -16,8 +16,9 @@ class UEManager:
     def __init__(self, base_dir):
         self.config = Config(base_dir)
         self.ue_config = self.config.ue_config
-        self.ues = []
-
+        #self.ues = []
+        self.ues = {}
+        
     def initialize_ues(self, num_ues_to_launch, cells, gNodeBs, ue_config):
         """
         Initialize UEs and allocate them to sectors.
@@ -73,11 +74,7 @@ class UEManager:
             return False
 ##################################################################################
     def list_all_ues(self):
-        """
-        List all UEs managed by this manager.
-        
-        :return: A list of all UE IDs.
-        """
+        # Now this will correctly return a list of UE IDs
         return list(self.ues.keys())
 ##################################################################################
 

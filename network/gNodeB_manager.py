@@ -33,9 +33,24 @@ class gNodeBManager:
             self.db_manager.insert_data(point)  # Insert the Point object directly
         return self.gNodeBs
     
-    def list_all_gNodeBs(self):
-        """List all gNodeBs managed by this manager."""
-        return list(self.gNodeBs.keys())
+    def list_all_gNodeBs_detailed(self):
+        """List all gNodeBs managed by this manager with detailed information."""
+        gNodeBs_detailed_list = []
+        for gnodeb_id, gnodeb in self.gNodeBs.items():
+            gNodeBs_detailed_list.append({
+                'id': gnodeb.ID,
+                'latitude': gnodeb.Latitude,
+                'longitude': gnodeb.Longitude,
+                'coverage_radius': gnodeb.CoverageRadius,
+                'transmission_power': gnodeb.TransmissionPower,
+                'frequency': gnodeb.Frequency,
+                'bandwidth': gnodeb.Bandwidth,
+                'max_ues': gnodeb.MaxUEs,
+                'cell_count': gnodeb.CellCount,
+                'sector_count': gnodeb.SectorCount,
+                # Add more fields as needed
+            })
+        return gNodeBs_detailed_list
 
     def add_gNodeB(self, gNodeB_data):
         """

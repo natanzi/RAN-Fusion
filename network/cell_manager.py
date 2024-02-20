@@ -115,17 +115,11 @@ class CellManager:
 
         return neighbor_cells
     
-    def list_all_cells(self):
-        """
-        Lists all cells managed by the CellManager.
-
-        :return: A list of dictionaries, each representing a cell with its details.
-        """
-        cell_list = []
+    def list_all_cells_detailed(self):
+        cell_details_list = []
         for cell_id, cell in self.cells.items():
-            cell_details = {
-                "cell_id": cell.ID,
-                # Add more fields as needed
-            }
-            cell_list.append(cell_details)
-        return cell_list
+            cell_details_list.append({
+                'id': cell.ID,
+                # Add more details as needed
+            })
+        return cell_details_list
