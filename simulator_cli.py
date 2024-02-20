@@ -43,9 +43,9 @@ class SimulatorCLI(cmd.Cmd):
 ################################################################################################################################            
     def do_cell_list(self, arg):
         """List all cells"""
-        cell_ids = self.cell_manager.list_all_cells()
-        for id in cell_ids:
-            print(id)
+        cell_details_list = self.cell_manager.list_all_cells()
+        for cell_details in cell_details_list:
+            print(f"Cell ID: {cell_details['cell_id']}")
 ################################################################################################################################            
     def do_sector_list(self, arg):
         """List all sectors"""

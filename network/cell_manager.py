@@ -125,10 +125,6 @@ class CellManager:
         for cell_id, cell in self.cells.items():
             cell_details = {
                 "cell_id": cell.ID,
-                "gNodeB_id": cell.gNodeB_ID,
-                "bandwidth": cell.Bandwidth,
-                "maxConnectUes": cell.maxConnectUes,
-                "max_throughput": cell.max_throughput,
                 # Add more fields as needed
             }
             cell_list.append(cell_details)
