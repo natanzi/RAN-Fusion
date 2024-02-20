@@ -45,7 +45,7 @@ class Sector:
         self.max_throughput = max_throughput  # Maximum data handling capacity in bps (value is available in sector config)
         # List of UEs and current load, no change needed
         self.connected_ues = connected_ues if connected_ues is not None else []
-        self.current_load = int(current_load)  # Integer, as load is a count
+        self.current_load = int(current_load)  # Integer, as load is a count which is shoe that how many use hosted in this sector.
 
     @classmethod
     def from_json(cls, data, cell):
@@ -104,7 +104,7 @@ class Sector:
                 global_ue_ids.add(ue.ID)
                 point = self.serialize_for_influxdb()
                 DatabaseManager().insert_data(point)
-                sector_logger.info(f"UE with ID {ue.ID} has been added to the sector {self.sector_id}. Current UE Load: {self.current_load}")
+                sector_logger.info(f"UE with ID {ue.ID} has been added to the sector {self.sector_id}. Current UE Load count: {self.current_load}")
 
             else:
                 sector_logger.warning(f"UE with ID {ue.ID} is already connected to the sector {self.sector_id}.")

@@ -144,3 +144,4 @@ class Cell:
             if sector.sector_id == sector_id:  # Use sector.sector_id instead of sector.ID
                 return sector
         return None  # Or, alternatively, raise an exception if the sector is not found.
+    

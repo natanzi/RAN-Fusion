@@ -1,5 +1,7 @@
 import os
 import logging
+import time
+import threading
 from Config_files.config import Config
 from logo import create_logo
 from database.database_manager import DatabaseManager
@@ -10,26 +12,10 @@ from network.gNodeB_manager import gNodeBManager
 from network.cell_manager import CellManager
 from network.sector_manager import SectorManager
 from network.NetworkLoadManager import NetworkLoadManager
-from logs.logger_config import gnodbe_load_logger
+from logs.logger_config import gnodbe_load_logger,ue_logger
 from network.network_delay import NetworkDelay
 from simulator_cli import SimulatorCLI
 
-import time
-import threading
-
-def monitor_ue_updates():
-    log_file_path = 'ue_updates.log'
-    # Ensure the file exists, create if it doesn't
-    open(log_file_path, 'a').close()
-    with open(log_file_path, 'r') as file:
-        # Move to the end of the file
-        file.seek(0,2)
-        while True:
-            line = file.readline()
-            if not line:
-                time.sleep(0.1)  # Sleep briefly to avoid busy waiting
-                continue
-            print(line.strip(), flush=True)
 
 def log_traffic(ues, network_load_manager, db_manager):
     # Adjusted to pass db_manager as an argument
@@ -45,7 +31,6 @@ def log_traffic(ues, network_load_manager, db_manager):
             # Use db_manager to write network measurement
             db_manager.write_network_measurement(network_load, network_delay)
         time.sleep(1)
-
 
 def main():
     logging.basicConfig(level=logging.INFO)
@@ -73,6 +58,10 @@ def main():
     # Calculate and log the network load
     network_load_manager.log_and_write_loads()
 
+    # Initialize UEManager here
+    ue_manager = UEManager(base_dir)
+
+    
     # Initialize NetworkDelay
     network_delay_calculator = NetworkDelay()
 
@@ -94,12 +83,6 @@ def main():
     cli = SimulatorCLI(ue_manager=ue_manager)
     cli.cmdloop()
 
-    # Keep the main program running until manually stopped
-    try:
-        while True:
-            time.sleep(1)
-    except KeyboardInterrupt:
-        print("Program terminated by user.")
 
 if __name__ == "__main__":
     main()

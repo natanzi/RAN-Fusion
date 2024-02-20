@@ -1,3 +1,4 @@
+#gNodeBManager.py inside the network folder
 import os
 from network.gNodeB import gNodeB, load_gNodeB_config
 from database.database_manager import DatabaseManager

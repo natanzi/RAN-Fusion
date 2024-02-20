@@ -184,6 +184,27 @@ class SectorManager:
                 return sector_id
         return None
     
+    def list_all_sectors(self):
+        """
+        Lists all sectors managed by the SectorManager.
+
+        :return: A list of dictionaries, each representing a sector with its details.
+        """
+        with self.lock:  
+            sector_list = []
+            for sector_id, sector in self.sectors.items():
+                sector_details = {
+                    "sector_id": sector.sector_id,
+                    "cell_id": sector.cell_id,
+                    "capacity": sector.capacity,
+                    "current_load": sector.current_load,
+                    "max_throughput": sector.max_throughput,
+                    # Add more details as needed
+                }
+                sector_list.append(sector_details)
+            return sector_list
+        
+        
     def move_ue_to_sector(self, ue_id, target_sector_id):
         # Fetch the UE instance by its ID
         ue = UE.get_ue_instance_by_id(ue_id)
