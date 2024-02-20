@@ -6,6 +6,7 @@ from logs.logger_config import API_logger
 from flask import jsonify
 
 class CommandHandler:
+
     @staticmethod
     def handle_command(command_type, data):
         if command_type == 'add_ue':
@@ -18,18 +19,10 @@ class CommandHandler:
             raise ValueError("Unsupported command type")
 
     @staticmethod
-    def _add_ue(data):
-        # Assuming data contains all necessary UE parameters
-        ue = UE(config={}, **data)
-        # Add UE to database or in-memory storage as needed
-        # This is a placeholder for actual logic
-        print(f"UE {ue.ID} added successfully.")
-
-    @staticmethod
     def _remove_ue(data):
         ue_id = data['ue_id']
         
-        # Attempt to find the sector_id dynamically if not provided in the request data
+        # Attempt to find the sector_id dynamically
         sector_manager = SectorManager.get_instance()
         sector_id = sector_manager.find_sector_by_ue_id(ue_id)
         
@@ -49,6 +42,14 @@ class CommandHandler:
         else:
             API_logger.error(f"Failed to remove UE {ue_id} from sector {sector_id} or sector/UE not found.")
             return jsonify({'error': f"Failed to remove UE {ue_id} from sector {sector_id} or sector/UE not found."}), 500
+    
+    @staticmethod
+    def _add_ue(data):
+        # Assuming data contains all necessary UE parameters
+        ue = UE(config={}, **data)
+        # Add UE to database or in-memory storage as needed
+        # This is a placeholder for actual logic
+        print(f"UE {ue.ID} added successfully.")
 
     @staticmethod
     def _update_ue(data):

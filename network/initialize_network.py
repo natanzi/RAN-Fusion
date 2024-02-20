@@ -65,7 +65,7 @@ def initialize_network(base_dir, num_ues_to_launch=None):
         ues = ue_manager.initialize_ues(num_ues_to_launch, cells, gNodeBs, config.ue_config)
         print("Initialized UEs:")
         for ue in ues:
-            print(f"MILADDDDDDDDDDDDDDDDDDDDDDDDDDDDUE ID: {ue.ID}, Service Type: {ue.ServiceType}, Sector ID: {ue.ConnectedSector}, Cell ID: {ue.ConnectedCellID}, gNodeB ID: {ue.gNodeB_ID}")
+            print(f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Sector ID: {ue.ConnectedSector}, Cell ID: {ue.ConnectedCellID}, gNodeB ID: {ue.gNodeB_ID}")
             # Serialize and insert UE data into InfluxDB
             point = ue.serialize_for_influxdb()
             db_manager.insert_data(point)
