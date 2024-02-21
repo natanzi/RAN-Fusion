@@ -96,6 +96,7 @@ class Sector:
             if ue.ID not in self.connected_ues:
                 self.connected_ues.append(ue.ID)  # Store only the ID, not the UE object
                 self.current_load += 1  # Increment the current load
+                self.cell.update_ue_lists(self)
                 global_ue_ids.add(ue.ID)  # Add the UE ID to the global list
                 self.remaining_capacity = self.capacity - len(self.connected_ues)  # Update remaining_capacity
                 ue.ConnectedCellID = self.cell_id
@@ -114,6 +115,7 @@ class Sector:
             if ue_id in self.connected_ues:
                 self.connected_ues.remove(ue_id)  # Correctly remove the ID string
                 self.current_load -= 1  # Decrement the current load
+                self.cell.update_ue_lists(self)
                 global_ue_ids.discard(ue_id)  # Correctly discard the ID string
                 self.remaining_capacity = self.capacity - len(self.connected_ues)  # Update remaining_capacity
                 del self.ues[ue_id]  # Correctly delete the UE from the dictionary

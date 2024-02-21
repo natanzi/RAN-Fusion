@@ -74,7 +74,7 @@ class CellManager:
     def add_cell(self, cell_data):
         """
         Add a single cell instance to the manager and associate it with a gNodeB.
-        
+
         :param cell_data: Dictionary containing the data for the cell to be added.
         """
         cell_id = cell_data['cell_id']
@@ -82,26 +82,48 @@ class CellManager:
         if cell_id in self.cells:
             cell_logger.error(f"Duplicate cell ID {cell_id} found.")
             raise ValueError(f"Duplicate cell ID {cell_id} found.")
-        
+
         if gNodeB_id not in self.gNodeBs:
             cell_logger.error(f"gNodeB {gNodeB_id} not found.")
             raise ValueError(f"gNodeB {gNodeB_id} not found.")
-        
+
         new_cell = Cell(**cell_data)
-        self.gNodeBs[gNodeB_id].add_cell_to_gNodeB(new_cell)
-        self.cells[cell_id] = new_cell
-        point = new_cell.serialize_for_influxdb()
-        self.db_manager.insert_data(point)
+        self.gNodeBs[gNodeB_id].add_cell_to_gNodeB(new_cell)  # Associate the cell with a gNodeB
+        self.cells[cell_id] = new_cell  # Add the new cell to the CellManager's dictionary of cells
+
+        # Assuming the Cell class has an update_ue_lists method
+        new_cell.update_ue_lists()  # Update the UE lists of the newly added cell
+
+        point = new_cell.serialize_for_influxdb()  # Serialize the cell for InfluxDB
+        self.db_manager.insert_data(point)  # Insert the serialized data into the database
 
     def remove_cell(self, cell_id):
         """
         Remove a cell instance from the manager.
-        
+
         :param cell_id: ID of the cell to be removed.
         """
         if cell_id in self.cells:
+            # Retrieve the cell to be removed
+            cell_to_remove = self.cells[cell_id]
+
+            # Optional: Notify other parts of the system about the cell removal
+            # This could include updating UE lists in neighboring cells, if applicable
+            # For example:
+            # self.notify_cell_removal(cell_to_remove)
+
+            # Remove the cell from its associated gNodeB
+            # Assuming each cell knows its gNodeB_id or can retrieve it
+            gNodeB_id = cell_to_remove.gNodeB_id  # This is an example; actual implementation may vary
+            if gNodeB_id in self.gNodeBs:
+                self.gNodeBs[gNodeB_id].remove_cell_from_gNodeB(cell_id)
+
+            # Remove the cell from the CellManager's dictionary of cells
             del self.cells[cell_id]
+
+            # Remove cell data from the database
             self.db_manager.remove_data(cell_id)  # Ensure you have this method in your DBManager
+
             cell_logger.info(f"Cell ID {cell_id} removed.")
         else:
             cell_logger.error(f"Cell ID {cell_id} not found.")
