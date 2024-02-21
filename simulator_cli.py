@@ -31,7 +31,8 @@ class SimulatorCLI(cmd.Cmd):
             'ue': 'ue_list',
             'ulog': 'ue_log',
             'help': 'help',
-            'del': 'delete_ue',
+            'del': 'del_ue',
+            'add': 'add_ue',
         }
         self.gNodeB_manager = gNodeB_manager
         self.cell_manager = cell_manager
@@ -44,17 +45,10 @@ class SimulatorCLI(cmd.Cmd):
 
     def precmd(self, line):
         line = line.strip()
+        if line == 'exit':
+            return 'exit'  # Ensures that 'exit' command is recognized and processed
         if line in self.aliases:
             return self.aliases.get(line, line)
-        else:
-            return line
-        
-    def precmd(self, line):
-        line = line.strip()
-        if line == 'exit':
-            return 'exit'  # Directly return 'exit' to trigger do_exit
-        if line in self.aliases:
-            return self.aliases[line]
         else:
             return line
 ################################################################################################################################ 
@@ -134,34 +128,30 @@ class SimulatorCLI(cmd.Cmd):
         if not cell_details_list:
             print("No cells found.")
             return
-    
-        # Create a PrettyTable instance
+
         table = PrettyTable()
-    
-        # Define the table columns
-        # Assuming you want to include more details such as 'Technology', 'Status', etc.
-        # Adjust the field names based on your actual data structure and what you wish to display
         table.field_names = ["Cell ID", "Technology", "Status", "Active UEs"]
-    
-        # Adding rows to the table
+
         for cell in cell_details_list:
-            # Here, I'm using placeholders for additional cell details. Replace these with actual data fields.
-            technology = cell.get('technology', 'N/A')  # Example placeholder
-            status = cell.get('status', 'N/A')  # Example placeholder
-            active_ues = cell.get('active_ues', 'N/A')  # Example placeholder
-        
+            technology = cell.get('technology', 'N/A')
+            # Placeholder for calculating active UEs; you'll need to replace this with actual logic
+            active_ues = self.calculate_active_ues_for_cell(cell['id'])
+            status_text = "\033[92mActive\033[0m" if cell.get('IsActive', False) else "\033[91mInactive\033[0m"
+
             table.add_row([
-                cell['id'], 
-                technology, 
-                status, 
-                active_ues
+                cell['id'],
+                technology,
+                status_text,
+                active_ues  # Use the calculated or retrieved active UEs count
             ])
-    
-        # Optional: Set alignment for each column if needed
-        table.align = "l"  # Left align the text
-    
-        # Print the table
+
+        table.align = "l"
         print(table)
+
+    def calculate_active_ues_for_cell(self, cell_id):
+        # Implement logic to calculate active UEs for the given cell ID
+        # This might involve querying sectors within the cell and summing up their connected UEs
+        return 0  # Placeholder return value
 ################################################################################################################################ 
     def do_sector_list(self, arg):
         """List all sectors"""
@@ -195,20 +185,31 @@ class SimulatorCLI(cmd.Cmd):
         print(table)
 
 ################################################################################################################################            
-    #def do_delete_ue(self, arg):
-      #  """Delete a UE by its ID: delete_ue <ue_id>"""
-      #  if not arg:
-      #      print("Please specify the UE ID.")
-     #   return
-  #  try:
-        # Assuming your UEManager has a method `delete_ue` for deleting a UE by its ID
-     #   success = self.ue_manager.delete_ue(arg)
-     #   if success:
-     #       print(f"UE with ID {arg} deleted successfully.")
-     #   else:
-  #          print(f"Failed to delete UE with ID {arg}.")
-  #  except Exception as e:
-    #    print(f"Error deleting UE with ID {arg}: {e}")
+    def do_del_ue(self, ue_id):
+        """
+        Removes a UE from the simulation and updates the sector and database.
+        Usage: del_ue <ue_id>
+        """
+        if not ue_id:
+            print("Please provide a UE ID.")
+            return
+
+        # Assuming you have a way to access the SectorManager instance
+        # If SectorManager is not a singleton, you might need to adjust how you access it
+        sector_manager = self.sector_manager
+
+        # Find the sector ID for the given UE ID
+        sector_id = sector_manager.find_sector_by_ue_id(ue_id)
+        if sector_id is None:
+            print(f"UE with ID {ue_id} not found in any sector.")
+            return
+
+        # Remove the UE from the sector
+        removed = sector_manager.remove_ue_from_sector(sector_id, ue_id)
+        if removed:
+            print(f"UE {ue_id} has been successfully removed from sector {sector_id}.")
+        else:
+            print(f"Failed to remove UE {ue_id} from sector {sector_id}.")
 ################################################################################################################################ 
     def print_global_help(self):
         """Prints help for global options."""
@@ -283,4 +284,9 @@ class SimulatorCLI(cmd.Cmd):
             self.print_global_help()
         else:
             print("*** Unknown syntax:", line)
+
+    def do_exit(self, arg):
+        """Exit the Simulator."""
+        print("Exiting the simulator...")
+        return True  # Returning True breaks out of the cmd loop and exits the application.
     

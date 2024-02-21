@@ -12,7 +12,7 @@ from database.time_utils import get_current_time_ntp, server_pools
 cell_instances = {}
 
 class Cell:
-    def __init__(self, cell_id, gnodeb_id, frequencyBand, duplexMode, tx_power, bandwidth, ssbPeriodicity, ssbOffset, maxConnectUes, max_throughput,  channelModel, sectorCount, trackingArea=None, is_active=True):
+    def __init__(self, cell_id, gnodeb_id, frequencyBand, duplexMode, tx_power, bandwidth, ssbPeriodicity, ssbOffset, maxConnectUes, max_throughput,  channelModel, sectorCount, trackingArea=None, is_active=True, technology=None):
         #debug_print(f"START-Creating cell {cell_id} from cell class")
         self.ID = cell_id                     # Unique identifier for the Cell
         self.instance_id = str(uuid.uuid4())  # Generic unique identifier for the instance  of the cell 
@@ -37,6 +37,7 @@ class Cell:
         self.sectors = []                   # List of sectors associated with the cell
         self.SectorCount = sectorCount      # Number of sectors the cell is divided into
         self.gNodeB = None                  # Initialize with None
+        self.Technology = technology
         current_time = get_current_time_ntp()
         # Logging statement should be here, after all attributes are set
         cell_logger.info(f" A Cell '{cell_id}' has been created at '{current_time}' in gNodeB '{gnodeb_id}' with max capacity {self.maxConnectUes} ue.")
@@ -55,6 +56,7 @@ class Cell:
             max_connect_ues=json_data["maxConnectUes"],
             channel_model=json_data["channelModel"],
             trackingArea=json_data.get("trackingArea"),
+            is_active=json_data.get("is_active", True),
             max_throughput=json_data["max_throughput"],
 
         )
@@ -72,7 +74,9 @@ class Cell:
             'max_throughput': self.max_throughput,
             'ChannelModel': self.ChannelModel,
             'TrackingArea': self.TrackingArea,
-            'CellisActive': self.IsActive
+            'CellisActive': self.IsActive,
+            'is_active': self.IsActive,
+
 
         }
 ####################################################################################### 
@@ -94,6 +98,7 @@ class Cell:
             .field("trackingArea", str(self.TrackingArea)) \
             .field("CellisActive", bool(self.IsActive)) \
             .field("sector_count", int(self.SectorCount)) \
+            .field("is_active", bool(self.IsActive)) \
             .field("cell_load", cell_load)
         
         return point

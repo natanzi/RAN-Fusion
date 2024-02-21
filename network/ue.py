@@ -5,6 +5,7 @@ from datetime import datetime
 from influxdb_client import Point
 from logs.logger_config import ue_logger
 import uuid
+import threading
 from threading import Lock
 
 class UE:
@@ -69,7 +70,7 @@ class UE:
     
     @classmethod
     def get_ues(cls):
-        with cls.lock:
+        with cls.ue_lock:
             return list(cls.ue_instances.values())
         
     def get_throughput(self):

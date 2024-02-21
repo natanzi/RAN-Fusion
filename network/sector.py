@@ -123,7 +123,7 @@ class Sector:
             
                 # Now also deregister the UE from the global tracking structures
                 UE.deregister_ue(ue_id)
-            
+        
             else:
                 sector_logger.warning(f"UE with ID {ue_id} is not connected to the sector.")
                 

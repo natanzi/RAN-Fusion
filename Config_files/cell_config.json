@@ -14,7 +14,8 @@
       "maxConnectUes": 10,
       "max_throughput": 100,
       "channelModel": "UMa",
-      "is_active": true
+      "is_active": true,
+      "technology": "5G"
     },
     {
       "cell_id": "BX1453",
@@ -30,7 +31,9 @@
       "maxConnectUes": 10,
       "max_throughput": 100,
       "channelModel": "UMa",
-      "is_active": true
+      "is_active": true,
+      "technology": "5G"
+      
     },
     {
       "cell_id": "CX1352",
@@ -46,7 +49,8 @@
       "maxConnectUes": 10,
       "max_throughput": 100,
       "channelModel": "UMa",
-      "is_active": true
+      "is_active": true,
+      "technology": "5G"
     },
     {
       "cell_id": "AX1112",
@@ -62,7 +66,8 @@
       "maxConnectUes": 10,
       "max_throughput": 100,
       "channelModel": "UMa",
-      "is_active": true
+      "is_active": true,
+      "technology": "5G"
     },
     {
       "cell_id": "BX1334",
@@ -78,7 +83,8 @@
       "maxConnectUes": 10,
       "max_throughput": 100,
       "channelModel": "UMa",
-      "is_active": true
+      "is_active": true,
+      "technology": "5G"
     },
     {
       "cell_id": "CX1873",
@@ -94,7 +100,8 @@
       "maxConnectUes": 10,
       "max_throughput": 100,
       "channelModel": "UMa",
-      "is_active": true
+      "is_active": true,
+      "technology": "5G"
     },
     {
       "cell_id": "AX9980",
@@ -110,7 +117,8 @@
       "maxConnectUes": 10,
       "max_throughput": 100,
       "channelModel": "UMa",
-      "is_active": true
+      "is_active": true,
+      "technology": "5G"
     },
     {
       "cell_id": "BX1230",
@@ -126,7 +134,8 @@
       "maxConnectUes": 10,
       "max_throughput": 100,
       "channelModel": "UMa",
-      "is_active": true
+      "is_active": true,
+      "technology": "5G"
     },
     {
       "cell_id": "CX5103",
@@ -142,7 +151,8 @@
       "maxConnectUes": 10,
       "max_throughput": 100,
       "channelModel": "UMa",
-      "is_active": true
+      "is_active": true,
+      "technology": "5G"
     }
   ]
 }
