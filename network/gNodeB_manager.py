@@ -6,18 +6,32 @@ from logs.logger_config import cell_logger, gnodeb_logger
 from network.utils import calculate_distance
 
 class gNodeBManager:
+    _instance = None
 
+    def __new__(cls, *args, **kwargs):
+        if not cls._instance:
+            cls._instance = super(gNodeBManager, cls).__new__(cls)
+            # Initialize the object here, if necessary
+        return cls._instance
+    
+    @classmethod
+    def get_instance(cls, base_dir=None):
+        if cls._instance is None:
+            cls._instance = gNodeBManager(base_dir)
+        return cls._instance
+    
     def __init__(self, base_dir):
-        self.gNodeBs = {}
-        self.db_manager = DatabaseManager() 
-        self.base_dir = base_dir
-        self.gNodeBs_config = load_gNodeB_config()
+        if not hasattr(self, 'initialized'):
+            self.gNodeBs = {}
+            self.db_manager = DatabaseManager() 
+            self.base_dir = base_dir
+            self.gNodeBs_config = load_gNodeB_config()
 
         # Check if gNodeBs_config contains gNodeBs data
         if 'gNodeBs' not in self.gNodeBs_config or not self.gNodeBs_config['gNodeBs']:
             gnodeb_logger.error("gNodeBs configuration is missing or empty.")
             raise ValueError("gNodeBs configuration is missing or empty.")
-
+        self.initialized = True
 
     def initialize_gNodeBs(self):
         """

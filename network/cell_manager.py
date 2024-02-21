@@ -7,6 +7,20 @@ from database.database_manager import DatabaseManager
 from network.cell import Cell 
 
 class CellManager:
+    _instance = None
+
+    def __new__(cls, *args, **kwargs):
+        if cls._instance is None:
+            cls._instance = super(CellManager, cls).__new__(cls)
+            # Initialize your object here, e.g., loading cell data
+        return cls._instance
+
+    @classmethod
+    def get_instance(cls):
+        if cls._instance is None:
+            cls._instance = CellManager()
+        return cls._instance
+    
     def __init__(self, gNodeBs, db_manager: DatabaseManager):
         print(f" print for debug Creating CellManager instance: {self}")
         self.cells = {}

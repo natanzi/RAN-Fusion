@@ -23,51 +23,34 @@ def reconcile_network_with_map(network_map, cell_manager):
                 print(f"Cell {cell_id} not found in initialized network.")
 
 def initialize_network(base_dir, num_ues_to_launch=None):
-    # Create an instance of Config
     config = Config(base_dir)
-
-    # Access the network map data
     network_map = config.network_map_data
-
-    # Create an instance of DatabaseManager
     db_manager = DatabaseManager()
 
-    # Initialize gNodeBManager
-    gnodeb_manager = gNodeBManager(base_dir)
+    # Use get_instance to ensure singleton pattern compliance
+    gnodeb_manager = gNodeBManager.get_instance(base_dir)
     gNodeBs = gnodeb_manager.initialize_gNodeBs()
 
-    # Make sure gNodeBs is not None or empty
     assert gNodeBs is not None and len(gNodeBs) > 0, "gNodeBs initialization failed or returned empty."
     print(f"gNodeBs initialized: {gNodeBs}")
 
-    # Initialize Cells using CellManager
-    cell_manager = CellManager(gNodeBs, db_manager)
+    # Since CellManager's __init__ requires parameters, ensure it's properly handled
+    cell_manager = CellManager.get_instance()
     cells = cell_manager.initialize_cells(config.cells_config)
+
     assert cells is not None, "Cells initialization failed or returned None."
     print(f"Cells initialized: {cells}")
 
-    # Initialize Sectors using SectorManager
-    sector_manager = SectorManager(db_manager)
-    sectors = sector_manager.initialize_sectors(config.sectors_config, gnodeb_manager, cell_manager) 
+    sector_manager = SectorManager.get_instance(db_manager)
+    sectors = sector_manager.initialize_sectors(config.sectors_config, gnodeb_manager, cell_manager)
 
-    # Ensure that sector is an instance of Sector before attempting to insert its state
-    for sector in sectors:
-        if isinstance(sector, Sector):
-            db_manager.insert_sector_state(sector)
-        else:
-            print(f"Expected Sector instance, got {type(sector)}")
-
-    reconcile_network_with_map(network_map, cell_manager)
-
-    # Initialize UEs if num_ues_to_launch is provided, using UEManager
     if num_ues_to_launch:
-        ue_manager = UEManager(base_dir)
+        ue_manager = UEManager.get_instance(base_dir)
         ues = ue_manager.initialize_ues(num_ues_to_launch, cells, gNodeBs, config.ue_config)
         print("Initialized UEs:")
         for ue in ues:
             print(f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}, Sector ID: {ue.ConnectedSector}, Cell ID: {ue.ConnectedCellID}, gNodeB ID: {ue.gNodeB_ID}")
-            # Serialize and insert UE data into InfluxDB
             point = ue.serialize_for_influxdb()
             db_manager.insert_data(point)
-            
+
     return gNodeBs, cells, sectors, ues, cell_manager

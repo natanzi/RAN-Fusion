@@ -10,14 +10,27 @@ base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 config = Config(base_dir)
 ue_config = config.ue_config
 
-
 class UEManager:
+    _instance = None
+
+    def __new__(cls, *args, **kwargs):
+        if not cls._instance:
+            cls._instance = super(UEManager, cls).__new__(cls)
+            # Initialize the object here, if necessary
+        return cls._instance
 
     def __init__(self, base_dir):
-        self.config = Config(base_dir)
-        self.ue_config = self.config.ue_config
-        #self.ues = []
-        self.ues = {}
+        if not hasattr(self, 'initialized'):  # This ensures __init__ is only called once
+            self.config = Config(base_dir)
+            self.ue_config = self.config.ue_config
+            self.ues = {}
+            self.initialized = True
+
+    @classmethod
+    def get_instance(cls, base_dir):
+        if not cls._instance:
+            cls._instance = UEManager(base_dir)
+        return cls._instance
         
     def initialize_ues(self, num_ues_to_launch, cells, gNodeBs, ue_config):
         """
