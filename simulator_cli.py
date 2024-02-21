@@ -8,6 +8,8 @@ from network.gNodeB_manager import gNodeBManager
 from network.cell_manager import CellManager
 from network.sector_manager import SectorManager
 from prettytable import PrettyTable
+from network.sector import Sector
+from network.NetworkLoadManager import NetworkLoadManager
 
 class SimulatorCLI(cmd.Cmd):
     def __init__(self, gNodeB_manager, cell_manager, sector_manager, ue_manager, *args, **kwargs):
@@ -61,25 +63,26 @@ class SimulatorCLI(cmd.Cmd):
         print(table)
 ############################################################################################################################### 
     def do_ue_log(self, arg):
-        """Display UE (User Equipment) traffic logs. Press Ctrl+C to return to the CLI."""
+        """Display UE (User Equipment) traffic logs."""
         print("Displaying UE traffic logs. Press Ctrl+C to return to the CLI.")
         try:
+            # Initialize PrettyTable with column headers based on your log structure
+            table = PrettyTable(["UE ID", "Service Type", "Throughput (MB)", "Interval (s)", "Delay (ms)", "Jitter (%)", "Packet Loss Rate (%)"])
             with open('traffic_logs.txt', 'r') as log_file:
-                # Go to the end of the file to display only new logs
-                log_file.seek(0, 2)
-                while True:
-                    line = log_file.readline()
-                    if not line:
-                        time.sleep(1)  # Sleep briefly to avoid busy waiting
-                        continue
-                    print(line, end='')
+                for line in log_file:
+                    # Assuming each log entry is a comma-separated value line
+                    # You'll need to adjust parsing based on your actual log format
+                    parts = line.split(',')  # This is an example; adjust based on your actual log format
+                    if len(parts) < 7:
+                        continue  # Skip malformed lines
+                    # Add a row to the table for each log entry
+                    # Adjust index and parsing as necessary based on the actual log format
+                    table.add_row(parts)
+            print(table)
         except FileNotFoundError:
             print("Log file not found. Ensure traffic logging is enabled.")
         except KeyboardInterrupt:
             print("\nReturning to CLI...")
-        # Optionally, clear the command line here if desired
-        # This is just a return to signal the method is ending, and control should go back to the cmd loop.
-            return
 ################################################################################################################################ 
     def do_gnb_list(self, arg):
         """List all gNodeBs with details."""
@@ -156,7 +159,6 @@ class SimulatorCLI(cmd.Cmd):
     def do_sector_list(self, arg):
         """List all sectors"""
         sector_list = self.sector_manager.list_all_sectors()
-
         if not sector_list:
             print("No sectors found.")
             return
@@ -164,12 +166,14 @@ class SimulatorCLI(cmd.Cmd):
         # Create a PrettyTable instance
         table = PrettyTable()
 
-        # Define the table columns
-        table.field_names = ["Sector ID", "Cell ID", "Max UEs", "Active UEs", "Max Throughput"]
+        # Define the table columns including Current Load (%)
+        table.field_names = ["Sector ID", "Cell ID", "Max UEs", "Active UEs", "Max Throughput", "Current Load (%)"]
 
         # Adding rows to the table
-        for sector in sector_list:
-            table.add_row([sector['sector_id'], sector['cell_id'], sector['capacity'], sector['current_load'], sector['max_throughput']])
+        for sector_info in sector_list:
+            sector = Sector(**sector_info)  # Assuming sector_info can be unpacked into a Sector
+            current_load = NetworkLoadManager.calculate_sector_load(sector)  # Calculate current load
+            table.add_row([sector_info['sector_id'], sector_info['cell_id'], sector_info['capacity'], sector_info['current_load'], sector_info['max_throughput'], f"{current_load:.2f}%"])
 
         # Optional: Set alignment for each column
         table.align["Sector ID"] = "l"
@@ -177,6 +181,7 @@ class SimulatorCLI(cmd.Cmd):
         table.align["Max UEs"] = "r"
         table.align["Active UEs"] = "r"
         table.align["Max Throughput"] = "r"
+        table.align["Current Load (%)"] = "r"  # Align the new column to the right
 
         # Print the table
         print(table)

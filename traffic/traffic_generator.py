@@ -6,8 +6,23 @@ from datetime import datetime
 from logs.logger_config import traffic_update
 from network.ue import UE
 from database.database_manager import DatabaseManager
+import threading
+
 class TrafficController:
+    _instance = None
+    _lock = threading.Lock()  # Ensure thread-safe singleton access
+
+    def __new__(cls, *args, **kwargs):
+        with cls._lock:
+            if cls._instance is None:
+                cls._instance = super(TrafficController, cls).__new__(cls)
+                cls._instance.__initialized = False
+            return cls._instance
+
     def __init__(self):
+        if self.__initialized: return
+        self.__initialized = True
+        self.traffic_logs = []
         self.voice_traffic_params = {'bitrate': (8, 16)}  # in Kbps
         self.video_traffic_params = {'num_streams': (1, 5), 'stream_bitrate': (3, 8)}  # in Mbps
         self.gaming_traffic_params = {'bitrate': (30, 70)}  # in Kbps
@@ -75,6 +90,7 @@ class TrafficController:
             'ue_jitter': jitter,
             'ue_packet_loss_rate': self.ue_voice_packet_loss_rate
         }
+        self.traffic_logs.append(traffic_data)
         return traffic_data
 ###################################################################################################################
     def generate_video_traffic(self):
@@ -104,6 +120,7 @@ class TrafficController:
             'ue_jitter': jitter,
             'ue_packet_loss_rate': self.ue_video_packet_loss_rate
         }
+        self.traffic_logs.append(traffic_data)
         return traffic_data
 ###################################################################################################################
     def generate_gaming_traffic(self):
@@ -134,6 +151,7 @@ class TrafficController:
                 'ue_jitter': jitter,
                 'ue_packet_loss_rate': self.ue_gaming_packet_loss_rate
             }
+            self.traffic_logs.append(traffic_data)
             return traffic_data
         except Exception as e:
             traffic_update.error(f"Failed to generate gaming traffic: {e}")
@@ -173,6 +191,7 @@ class TrafficController:
             'ue_jitter': jitter,
             'ue_packet_loss_rate': self.ue_iot_packet_loss_rate
         }
+        self.traffic_logs.append(traffic_data)
         return traffic_data
 ###########################################################################################
     def generate_data_traffic(self):
@@ -208,7 +227,7 @@ class TrafficController:
             'ue_jitter': jitter,  # Ensure this is included
             'ue_packet_loss_rate': self.ue_data_packet_loss_rate
         }
-    
+        self.traffic_logs.append(traffic_data)
         return traffic_data
 ############################################################################################
     def calculate_throughput(self, ue):

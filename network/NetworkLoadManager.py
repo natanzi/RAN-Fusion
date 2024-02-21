@@ -3,23 +3,35 @@
 # NetworkLoadManager.py
 from network.cell import Cell
 from network.sector import Sector
+from network.network_delay import NetworkDelay
 from network.cell_manager import CellManager
 from network.sector_manager import SectorManager
-from network.gNodeB_manager import gNodeBManager
-
-from logs.logger_config import cell_load_logger,sector_load_logger,gnodbe_load_logger
 from database.database_manager import DatabaseManager
-from network.network_delay import NetworkDelay
-import time
 from network.loadbalancer import LoadBalancer
-
+from logs.logger_config import cell_load_logger, sector_load_logger, gnodbe_load_logger, sector_logger
+import time
 class NetworkLoadManager:
+    _instance = None
 
-    def __init__(self, cell_manager: CellManager, sector_manager: SectorManager):
+    def __new__(cls, *args, **kwargs):
+        if cls._instance is None:
+            cls._instance = super(NetworkLoadManager, cls).__new__(cls)
+        return cls._instance
+
+    @classmethod
+    def get_instance(cls, cell_manager: CellManager, sector_manager: SectorManager):
+        if cls._instance is None:
+            cls._instance = cls.__new__(cls)
+            # Initialize the instance only once
+            cls._instance._initialize(cell_manager, sector_manager)
+        return cls._instance
+
+    def _initialize(self, cell_manager: CellManager, sector_manager: SectorManager):
         self.cell_manager = cell_manager
         self.sector_manager = sector_manager
         self.db_manager = DatabaseManager()
         self.load_balancer = LoadBalancer()
+
 #####################################################################################################################   
     def calculate_sector_load(self, sector: Sector):
         """Calculate the load of a sector based on the number of connected UEs, their throughput, and its capacity.
@@ -123,17 +135,16 @@ class NetworkLoadManager:
             DatabaseManager().write_sector_load(sector_id, sector_load)
 ####################################################################################################################   
     def network_measurement(self):
-        
         network_load = self.calculate_network_load()
         print(f"Network Load: {network_load:.2f}%")
-        
+
         # Calculate network delay
         network_delay_calculator = NetworkDelay()
         network_delay = network_delay_calculator.calculate_delay(network_load)
         print(f"Network Delay: {network_delay} ms")
-        
+
         # Write network measurement (both load and delay) to the database
-        self.db_manager.write_network_measurement(network_load, network_delay) 
+        self.db_manager.write_network_measurement(network_load, network_delay)
         
 ##################################################################################################################     
     def monitoring(self):

@@ -200,7 +200,7 @@ class DatabaseManager:
 ##################################################################################################################################
     def write_network_measurement(self, network_load, network_delay):
         point = Point("network_measurement")\
-            .field("Network_load", network_load) \
+            .field("Network_load", int(network_load))\
             .field("Network_delay", network_delay) \
             .time(datetime.utcnow(), WritePrecision.NS)
         self.write_api.write(bucket=self.bucket, record=point)
