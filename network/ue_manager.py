@@ -1,3 +1,4 @@
+#this is ue_manager.py inside the network folder to manage a ue
 import os
 from network.ue import UE
 from network.utils import allocate_ues, create_ue
@@ -6,7 +7,6 @@ from logs.logger_config import ue_logger
 
 # Get base path
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 config = Config(base_dir)
 ue_config = config.ue_config
 
@@ -16,14 +16,13 @@ class UEManager:
     def __new__(cls, *args, **kwargs):
         if not cls._instance:
             cls._instance = super(UEManager, cls).__new__(cls)
-            # Initialize the object here, if necessary
         return cls._instance
 
     def __init__(self, base_dir):
         if not hasattr(self, 'initialized'):  # This ensures __init__ is only called once
             self.config = Config(base_dir)
             self.ue_config = self.config.ue_config
-            self.ues = {}
+            self.ues = {}  # Ensure this is a dictionary
             self.initialized = True
 
     @classmethod
@@ -31,28 +30,21 @@ class UEManager:
         if not cls._instance:
             cls._instance = UEManager(base_dir)
         return cls._instance
-        
+
     def initialize_ues(self, num_ues_to_launch, cells, gNodeBs, ue_config):
-        """
-        Initialize UEs and allocate them to sectors.
-        
-        :param num_ues_to_launch: Number of UEs to initialize.
-        :param cells: Dictionary of cells in the network.
-        :param gNodeBs: Dictionary of gNodeBs in the network.
-        :param ue_config: Configuration for UEs.
-        """
-        # Get list of all sectors from cells
+        """Initialize UEs and allocate them to sectors."""
         all_sectors = []
         for cell in cells.values():
             all_sectors.extend(cell.sectors)
-        
+
         if not all_sectors:
             print("Error: No sectors found")
-            return []  # Return an empty list instead of None
+            return []
 
-        # Use the modified allocate_ues function from utils.py
-        self.ues = allocate_ues(num_ues_to_launch, all_sectors, self.ue_config)
-        return self.ues  # Ensure this method always returns a list
+        ue_instances = allocate_ues(num_ues_to_launch, all_sectors, self.ue_config)
+        # Convert list of UE instances to a dictionary with UE ID as keys
+        self.ues = {ue.ID: ue for ue in ue_instances}
+        return list(self.ues.values())  # Return a list of UE objects
 ##################################################################################
     def create_ue(self, config, **kwargs):
         # Logic to create a single UE instance

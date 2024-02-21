@@ -53,9 +53,12 @@ class SimulatorCLI(cmd.Cmd):
         if not ue_ids:
             print("No UEs found.")
             return
+        table = PrettyTable()
+        table.field_names = ["UE ID", "Service Type"]
         for ue_id in ue_ids:
-            ue = self.ue_manager.ues[ue_id]  # Access the UE object directly from the dictionary
-            print(f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}")
+            ue = self.ue_manager.get_ue_by_id(ue_id)
+            table.add_row([ue.ID, ue.ServiceType])
+        print(table)
 ############################################################################################################################### 
     def do_ue_log(self, arg):
         """Display UE (User Equipment) traffic logs. Press Ctrl+C to return to the CLI."""
@@ -79,13 +82,41 @@ class SimulatorCLI(cmd.Cmd):
             return
 ################################################################################################################################ 
     def do_gnb_list(self, arg):
-        """List all gNodeBs with details"""
+        """List all gNodeBs with details."""
         gNodeB_details_list = self.gNodeB_manager.list_all_gNodeBs_detailed()
         if not gNodeB_details_list:
             print("No gNodeBs found.")
             return
+    
+        # Create a PrettyTable instance
+        table = PrettyTable()
+    
+        # Define the table columns
+        # Assuming 'etc...' includes fields like 'CoverageRadius', 'TransmissionPower', etc.
+        # Adjust the field names based on your actual data structure
+        table.field_names = ["gNodeB ID", "Latitude", "Longitude", "Coverage Radius", "Transmission Power", "Bandwidth"]
+    
+        # Adding rows to the table
         for gNodeB in gNodeB_details_list:
-            print(f"gNodeB ID: {gNodeB['id']}, Latitude: {gNodeB['latitude']}, Longitude: {gNodeB['longitude']}, etc...")   
+            # Example of accessing other details assuming they exist in your data structure
+            coverage_radius = gNodeB.get('coverage_radius', 'N/A')
+            transmission_power = gNodeB.get('transmission_power', 'N/A')
+            bandwidth = gNodeB.get('bandwidth', 'N/A')
+        
+            table.add_row([
+                gNodeB['id'], 
+                gNodeB['latitude'], 
+                gNodeB['longitude'], 
+                coverage_radius, 
+                transmission_power, 
+                bandwidth
+            ])
+    
+        # Optional: Set alignment for each column if needed
+        table.align = "l"  # Left align the text
+    
+        # Print the table
+        print(table) 
 ################################################################################################################################ 
     def do_cell_list(self, arg):
         """List all cells"""
@@ -93,8 +124,34 @@ class SimulatorCLI(cmd.Cmd):
         if not cell_details_list:
             print("No cells found.")
             return
+    
+        # Create a PrettyTable instance
+        table = PrettyTable()
+    
+        # Define the table columns
+        # Assuming you want to include more details such as 'Technology', 'Status', etc.
+        # Adjust the field names based on your actual data structure and what you wish to display
+        table.field_names = ["Cell ID", "Technology", "Status", "Active UEs"]
+    
+        # Adding rows to the table
         for cell in cell_details_list:
-            print(f"Cell ID: {cell['id']}, etc...")
+            # Here, I'm using placeholders for additional cell details. Replace these with actual data fields.
+            technology = cell.get('technology', 'N/A')  # Example placeholder
+            status = cell.get('status', 'N/A')  # Example placeholder
+            active_ues = cell.get('active_ues', 'N/A')  # Example placeholder
+        
+            table.add_row([
+                cell['id'], 
+                technology, 
+                status, 
+                active_ues
+            ])
+    
+        # Optional: Set alignment for each column if needed
+        table.align = "l"  # Left align the text
+    
+        # Print the table
+        print(table)
 ################################################################################################################################ 
     def do_sector_list(self, arg):
         """List all sectors"""
