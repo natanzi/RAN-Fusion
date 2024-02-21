@@ -162,19 +162,21 @@ class SimulatorCLI(cmd.Cmd):
         if not sector_list:
             print("No sectors found.")
             return
-
         # Create a PrettyTable instance
         table = PrettyTable()
-
         # Define the table columns including Current Load (%)
         table.field_names = ["Sector ID", "Cell ID", "Max UEs", "Active UEs", "Max Throughput", "Current Load (%)"]
-
         # Adding rows to the table
         for sector_info in sector_list:
-            sector = Sector(**sector_info)  # Assuming sector_info can be unpacked into a Sector
-            current_load = NetworkLoadManager.calculate_sector_load(sector)  # Calculate current load
-            table.add_row([sector_info['sector_id'], sector_info['cell_id'], sector_info['capacity'], sector_info['current_load'], sector_info['max_throughput'], f"{current_load:.2f}%"])
-
+            # No need to create a Sector instance, just use the sector_info directly
+            table.add_row([
+                sector_info['sector_id'],
+                sector_info['cell_id'],
+                sector_info['capacity'],
+                sector_info['current_load'],
+                sector_info['max_throughput'],
+                f"{sector_info['current_load']:.2f}%"  # Assuming 'current_load' is a percentage
+            ])
         # Optional: Set alignment for each column
         table.align["Sector ID"] = "l"
         table.align["Cell ID"] = "l"
@@ -182,9 +184,9 @@ class SimulatorCLI(cmd.Cmd):
         table.align["Active UEs"] = "r"
         table.align["Max Throughput"] = "r"
         table.align["Current Load (%)"] = "r"  # Align the new column to the right
-
         # Print the table
         print(table)
+
 ################################################################################################################################            
     #def do_delete_ue(self, arg):
       #  """Delete a UE by its ID: delete_ue <ue_id>"""
