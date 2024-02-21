@@ -34,7 +34,10 @@ def main():
     print("Network Initialization Complete")
     print(f" this is for debug and so Initialized sectors: {sectors}")
 
-    cell_manager = CellManager(gNodeBs=gNodeBs, db_manager=db_manager)
+    cell_manager = CellManager()
+    cells = cell_manager.initialize_cells()
+    
+    print(f" print for find the issue Cells in cell_manager after initialization: {cell_manager.cells}")
     sector_manager = SectorManager(db_manager=db_manager)
     network_load_manager = NetworkLoadManager(cell_manager, sector_manager)
     network_load_manager.log_and_write_loads()
@@ -51,6 +54,7 @@ def main():
         serialized_data = cell.serialize_for_influxdb(cell_load)
         print(f"Serialized data for cell {cell_id}: {serialized_data.to_line_protocol()}")
 
+    print(f" print for debug CellManager instance before CLI: {cell_manager}")
     # Start the CLI with the correctly instantiated gNodeB_manager
     cli = SimulatorCLI(gNodeB_manager=gNodeB_manager, cell_manager=cell_manager, sector_manager=sector_manager, ue_manager=ue_manager)
     cli.cmdloop()

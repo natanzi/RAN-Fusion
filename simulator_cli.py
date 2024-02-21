@@ -11,58 +11,42 @@ from prettytable import PrettyTable
 
 class SimulatorCLI(cmd.Cmd):
     def __init__(self, gNodeB_manager, cell_manager, sector_manager, ue_manager, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs, completekey='tab')
         self.aliases = {
             'gnb': 'gnb_list',
             'cell': 'cell_list',
             'sector': 'sector_list',
             'ue': 'ue_list',
-            'ulog': 'ue_log',  # Alias for ue_log
-            'exit': 'quit',
+            'ulog': 'ue_log',
             'help': 'help',
+            'del': 'delete_ue',
         }
-        # Initialize the manager instances
+        # This is an efficient way to use the predefined relationships between commands and aliases
+        # Map the function executions directly through alias input
         self.gNodeB_manager = gNodeB_manager
         self.cell_manager = cell_manager
         self.sector_manager = sector_manager
         self.ue_manager = ue_manager
 
-
-    intro = textwrap.dedent("""
-        Welcome to the RAN Fusion Simulator CLI.
-        Type --help  to list commands.
-        """) + "\n" + "Type --help for global options.\n"
-
+    intro = "Welcome to the RAN Fusion Simulator CLI.\nType --help to list commands.\n"
     prompt = '\033[1;32m(Root)\033[0m '
-    
+
     def precmd(self, line):
         line = line.strip()
+        if line in self.aliases:
+            return self.aliases.get(line, line)
+        else:
+            return line
+        
+    def precmd(self, line):
+        line = line.strip()
+        if line == 'exit':
+            return 'exit'  # Directly return 'exit' to trigger do_exit
         if line in self.aliases:
             return self.aliases[line]
         else:
             return line
-
-    def print_global_help(self):
-        """Prints help for global options."""
-        bold = '\033[1m'
-        reset = '\033[0m'
-        green = '\033[32m'
-        cyan = '\033[36m'
-
-        print(f"\n{bold}Global options:{reset}")
-        print(f"  {green}--help{reset}\tShow this help message and exit")
-        print(f"\n{bold}Available commands:{reset}")
-        for command, description in [
-            ('cell_list', 'List all cells in the network.'),
-            ('gnb_list', 'List all gNodeBs in the network.'),
-            ('sector_list', 'List all sectors in the network.'),
-            ('ue_list', 'List all UEs (User Equipments) in the network.'),
-            ('ue_log', 'Display UE traffic logs.'),
-            ('exit', 'Exit the Simulator.')
-        ]:
-            print(f"  {cyan}{command}{reset} - {description}")
-        print()
-################################################################################################################################            
+################################################################################################################################ 
     def do_ue_list(self, arg):
         """List all UEs: ue_list"""
         ue_ids = self.ue_manager.list_all_ues()
@@ -72,7 +56,7 @@ class SimulatorCLI(cmd.Cmd):
         for ue_id in ue_ids:
             ue = self.ue_manager.ues[ue_id]  # Access the UE object directly from the dictionary
             print(f"UE ID: {ue.ID}, Service Type: {ue.ServiceType}")
-################################################################################################################################
+############################################################################################################################### 
     def do_ue_log(self, arg):
         """Display UE (User Equipment) traffic logs. Press Ctrl+C to return to the CLI."""
         print("Displaying UE traffic logs. Press Ctrl+C to return to the CLI.")
@@ -93,7 +77,7 @@ class SimulatorCLI(cmd.Cmd):
         # Optionally, clear the command line here if desired
         # This is just a return to signal the method is ending, and control should go back to the cmd loop.
             return
-################################################################################################################################            
+################################################################################################################################ 
     def do_gnb_list(self, arg):
         """List all gNodeBs with details"""
         gNodeB_details_list = self.gNodeB_manager.list_all_gNodeBs_detailed()
@@ -101,8 +85,8 @@ class SimulatorCLI(cmd.Cmd):
             print("No gNodeBs found.")
             return
         for gNodeB in gNodeB_details_list:
-            print(f"gNodeB ID: {gNodeB['id']}, Latitude: {gNodeB['latitude']}, Longitude: {gNodeB['longitude']}, etc...")
-################################################################################################################################            
+            print(f"gNodeB ID: {gNodeB['id']}, Latitude: {gNodeB['latitude']}, Longitude: {gNodeB['longitude']}, etc...")   
+################################################################################################################################ 
     def do_cell_list(self, arg):
         """List all cells"""
         cell_details_list = self.cell_manager.list_all_cells_detailed()
@@ -111,7 +95,7 @@ class SimulatorCLI(cmd.Cmd):
             return
         for cell in cell_details_list:
             print(f"Cell ID: {cell['id']}, etc...")
-################################################################################################################################            
+################################################################################################################################ 
     def do_sector_list(self, arg):
         """List all sectors"""
         sector_list = self.sector_manager.list_all_sectors()
@@ -139,13 +123,43 @@ class SimulatorCLI(cmd.Cmd):
 
         # Print the table
         print(table)
-
 ################################################################################################################################            
-    def do_exit(self, arg):
-        """Exit the CLI: exit"""
-        print("Exiting the CLI.")
-        return True  # This stops the CLI loop and exits the CLI
-################################################################################################################################
+    #def do_delete_ue(self, arg):
+      #  """Delete a UE by its ID: delete_ue <ue_id>"""
+      #  if not arg:
+      #      print("Please specify the UE ID.")
+     #   return
+  #  try:
+        # Assuming your UEManager has a method `delete_ue` for deleting a UE by its ID
+     #   success = self.ue_manager.delete_ue(arg)
+     #   if success:
+     #       print(f"UE with ID {arg} deleted successfully.")
+     #   else:
+  #          print(f"Failed to delete UE with ID {arg}.")
+  #  except Exception as e:
+    #    print(f"Error deleting UE with ID {arg}: {e}")
+################################################################################################################################ 
+    def print_global_help(self):
+        """Prints help for global options."""
+        bold = '\033[1m'
+        reset = '\033[0m'
+        green = '\033[32m'
+        cyan = '\033[36m'
+
+        print(f"\n{bold}Global options:{reset}")
+        print(f"  {green}--help{reset}\tShow this help message and exit")
+        print(f"\n{bold}Available commands:{reset}")
+        for command, description in [
+            ('cell_list', 'List all cells in the network.'),
+            ('gnb_list', 'List all gNodeBs in the network.'),
+            ('sector_list', 'List all sectors in the network.'),
+            ('ue_list', 'List all UEs (User Equipments) in the network.'),
+            ('ue_log', 'Display UE traffic logs.'),
+            ('exit', 'Exit the Simulator.')
+        ]:
+            print(f"  {cyan}{command}{reset} - {description}")
+        print()
+################################################################################################################################            
     def complete(self, text, state):
         if state == 0:
             origline = self._orig_line
@@ -167,7 +181,7 @@ class SimulatorCLI(cmd.Cmd):
                     self.completion_matches = self.complete_default(text, line, begidx, state)
 
         try:
-            return self.completion_matches[state]
+            return super().complete(text, state) 
         except IndexError:
             return None
 
@@ -175,9 +189,10 @@ class SimulatorCLI(cmd.Cmd):
         # Implement your default auto-completion logic here, if any...
         return []
 
-    # Example complete_ method for gnb_list (and its alias 'gnb')
     def complete_gnb_list(self, text, line, begidx, endidx):
-        # Implement specific auto-completion logic for gnb_list command...
+        # Assuming self.gNodeB_manager.gnbs is a list of gNodeB names
+        if hasattr(self.gNodeB_manager, 'gnbs'):
+            return [gnb for gnb in self.gNodeB_manager.gnbs if gnb.startswith(text)]
         return []
 
     # For alias 'gnb', just delegate to complete_gnb_list
@@ -191,7 +206,7 @@ class SimulatorCLI(cmd.Cmd):
     
     def complete_ulog(self, *args):
         return self.complete_ue_log(*args)
-################################################################################################################################ 
+    
     def default(self, line):
         if line == '--help':
             self.print_global_help()
