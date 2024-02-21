@@ -10,10 +10,20 @@ from network.sector_manager import SectorManager
 from prettytable import PrettyTable
 from network.sector import Sector
 from network.NetworkLoadManager import NetworkLoadManager
-
+from traffic.traffic_generator import TrafficController
+from network.ue_manager import UEManager
+from threading import Thread, Event
+from ue_table_display import UETableDisplay
+import threading
+import os
+from network.ue import UE
 class SimulatorCLI(cmd.Cmd):
-    def __init__(self, gNodeB_manager, cell_manager, sector_manager, ue_manager, *args, **kwargs):
+    def __init__(self, gNodeB_manager, cell_manager, sector_manager, ue_manager, base_dir, *args, **kwargs):
+        # Removed the incorrect UEManager initialization
+        self.traffic_controller = TrafficController()
         super().__init__(*args, **kwargs, completekey='tab')
+        self.display_thread = None
+        self.running = False  # Flag to control the display thread
         self.aliases = {
             'gnb': 'gnb_list',
             'cell': 'cell_list',
@@ -23,12 +33,11 @@ class SimulatorCLI(cmd.Cmd):
             'help': 'help',
             'del': 'delete_ue',
         }
-        # This is an efficient way to use the predefined relationships between commands and aliases
-        # Map the function executions directly through alias input
         self.gNodeB_manager = gNodeB_manager
         self.cell_manager = cell_manager
         self.sector_manager = sector_manager
         self.ue_manager = ue_manager
+        self.stop_event = Event()
 
     intro = "Welcome to the RAN Fusion Simulator CLI.\nType --help to list commands.\n"
     prompt = '\033[1;32m(Root)\033[0m '
@@ -50,18 +59,16 @@ class SimulatorCLI(cmd.Cmd):
             return line
 ################################################################################################################################ 
     def do_ue_list(self, arg):
-        """List all UEs: ue_list"""
-        ue_ids = self.ue_manager.list_all_ues()
-        if not ue_ids:
-            print("No UEs found.")
-            return
         table = PrettyTable()
-        table.field_names = ["UE ID", "Service Type"]
-        for ue_id in ue_ids:
-            ue = self.ue_manager.get_ue_by_id(ue_id)
-            table.add_row([ue.ID, ue.ServiceType])
+        table.field_names = ["UE ID", "Service Type", "Throughput"]
+    
+        # Use the new class method get_ues() to retrieve UE instances
+        for ue in UE.get_ues():
+            # Make sure to access the correct attributes as defined in the UE class
+            table.add_row([ue.ID, ue.ServiceType, ue.throughput])
+    
         print(table)
-############################################################################################################################### 
+############################################################################################################################## 
     def do_ue_log(self, arg):
         """Display UE (User Equipment) traffic logs."""
         print("Displaying UE traffic logs. Press Ctrl+C to return to the CLI.")
