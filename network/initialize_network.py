@@ -70,4 +70,4 @@ def initialize_network(base_dir, num_ues_to_launch=None):
             point = ue.serialize_for_influxdb()
             db_manager.insert_data(point)
             
-    return gNodeBs, cells, sectors, ues
+    return gNodeBs, cells, sectors, ues, cell_manager

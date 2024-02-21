@@ -30,13 +30,12 @@ def main():
     # Instantiate gNodeBManager here
     gNodeB_manager = gNodeBManager(base_dir=base_dir)
 
-    gNodeBs, cells, sectors, ues = initialize_network(base_dir, num_ues_to_launch=10)
+    gNodeBs, cells, sectors, ues, cell_manager = initialize_network(base_dir, num_ues_to_launch=10)
     print("Network Initialization Complete")
     print(f" this is for debug and so Initialized sectors: {sectors}")
 
-    cell_manager = CellManager()
-    cells = cell_manager.initialize_cells()
-    
+    cell_manager = CellManager(gNodeBs, db_manager)
+
     print(f" print for find the issue Cells in cell_manager after initialization: {cell_manager.cells}")
     sector_manager = SectorManager(db_manager=db_manager)
     network_load_manager = NetworkLoadManager(cell_manager, sector_manager)
