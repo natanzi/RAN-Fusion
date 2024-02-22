@@ -41,7 +41,7 @@ class SimulatorCLI(cmd.Cmd):
         self.stop_event = Event()
 
     intro = "Welcome to the RAN Fusion Simulator CLI.\nType --help to list commands.\n"
-    prompt = '\033[1;32m(Root)\033[0m '
+    prompt = '\033[1;32m(Cli-host)\033[0m '
 
     def precmd(self, line):
         line = line.strip()
