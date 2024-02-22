@@ -4,6 +4,7 @@ from database.database_manager import DatabaseManager
 from network.sector_manager import SectorManager
 from logs.logger_config import API_logger
 from flask import jsonify
+from network.ue_manager import UEManager
 
 class CommandHandler:
 
@@ -21,27 +22,24 @@ class CommandHandler:
     @staticmethod
     def _del_ue(data):
         ue_id = data['ue_id']
-        
-        # Attempt to find the sector_id dynamically
-        sector_manager = SectorManager.get_instance()
-        sector_id = sector_manager.find_sector_by_ue_id(ue_id)
-        
-        if sector_id is None:
-            API_logger.error(f"UE {ue_id} not found in any sector")
-            return jsonify({'error': f"UE {ue_id} not found"}), 404
-        
-        # Proceed with the removal process
-        removed = sector_manager.remove_ue_from_sector(sector_id, ue_id)
-        
+    
+        # Use UEManager to handle UE removal comprehensively
+        ue_manager = UEManager.get_instance()
+    
+        # First, check if the UE exists in the system
+        if ue_manager.get_ue_by_id(ue_id) is None:
+            API_logger.error(f"UE {ue_id} not found in any sector or system")
+            return jsonify({'error': f"UE {ue_id} not found in any sector or system"}), 404
+    
+        # Proceed with the removal process using UEManager's delete_ue method
+        removed = ue_manager.delete_ue(ue_id)
+    
         if removed:
-            # Assuming the database manager is also accessible globally or via singleton
-            db_manager = DatabaseManager.get_instance()
-            db_manager.remove_ue_state(ue_id, sector_id)
-            API_logger.info(f"UE {ue_id} removed successfully from sector {sector_id}.")
-            return jsonify({'message': f"UE {ue_id} removed successfully from sector {sector_id}."}), 200
+            API_logger.info(f"UE {ue_id} removed successfully.")
+            return jsonify({'message': f"UE {ue_id} removed successfully."}), 200
         else:
-            API_logger.error(f"Failed to remove UE {ue_id} from sector {sector_id} or sector/UE not found.")
-            return jsonify({'error': f"Failed to remove UE {ue_id} from sector {sector_id} or sector/UE not found."}), 500
+            API_logger.error(f"Failed to remove UE {ue_id}.")
+            return jsonify({'error': f"Failed to remove UE {ue_id}."}), 500
     
     @staticmethod
     def _add_ue(data):

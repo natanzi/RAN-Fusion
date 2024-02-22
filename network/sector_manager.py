@@ -104,13 +104,16 @@ class SectorManager:
                 sector.current_load -= 1  # Decrement the current load
                 global_ue_ids.discard(ue_id)  # Correctly discard the ID string
                 sector.remaining_capacity = sector.capacity - len(sector.connected_ues)  # Update remaining_capacity
-                del sector.ues[ue_id]  # Correctly delete the UE from the dictionary
+                if ue_id in sector.ues:  # Check if the UE is in the sector's UE dictionary before attempting to delete
+                    del sector.ues[ue_id]  # Correctly delete the UE from the dictionary
                 point = sector.serialize_for_influxdb()
                 self.db_manager.insert_data(point)  # Use SectorManager's db_manager to insert data
                 print(f"After removal, sector {sector_id} connected UEs: {sector.connected_ues}")
                 sector_logger.info(f"UE with ID {ue_id} has been removed from the sector {sector_id}. Current load: {sector.current_load}")
+                return True  # Return True to indicate successful removal
             else:
                 sector_logger.warning(f"UE with ID {ue_id} is not connected to the sector {sector_id}.")
+                return False  # Return False to indicate failure or that the UE was not found in the sector
 
     def update_sector(self, sector_id, updates):
         """
