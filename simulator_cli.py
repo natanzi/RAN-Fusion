@@ -128,30 +128,28 @@ class SimulatorCLI(cmd.Cmd):
         if not cell_details_list:
             print("No cells found.")
             return
-
         table = PrettyTable()
         table.field_names = ["Cell ID", "Technology", "Status", "Active UEs"]
-
         for cell in cell_details_list:
-            technology = cell.get('technology', 'N/A')
-            # Placeholder for calculating active UEs; you'll need to replace this with actual logic
-            active_ues = self.calculate_active_ues_for_cell(cell['id'])
+            technology = cell.get('technology', 'N/A')  # Default to 'N/A' if technology is not specified
+            active_ues = self.calculate_active_ues_for_cell(cell['id'])  # Calculate active UEs for each cell
             status_text = "\033[92mActive\033[0m" if cell.get('IsActive', False) else "\033[91mInactive\033[0m"
-
             table.add_row([
                 cell['id'],
                 technology,
                 status_text,
-                active_ues  # Use the calculated or retrieved active UEs count
+                active_ues  # Use the calculated active UEs count
             ])
-
         table.align = "l"
         print(table)
 
     def calculate_active_ues_for_cell(self, cell_id):
-        # Implement logic to calculate active UEs for the given cell ID
-        # This might involve querying sectors within the cell and summing up their connected UEs
-        return 0  # Placeholder return value
+        # Retrieve the cell object by its ID
+        cell = self.cell_manager.get_cell_by_id(cell_id)
+        if cell is None:
+            return 0  # Return 0 if the cell is not found
+        # Return the count of active UEs for the cell
+        return len(cell.ConnectedUEs)
 ################################################################################################################################ 
     def do_sector_list(self, arg):
         """List all sectors"""

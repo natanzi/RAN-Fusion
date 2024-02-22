@@ -150,7 +150,7 @@ class Cell:
                 return sector
         return None  # Or, alternatively, raise an exception if the sector is not found.
     
-    def update_ue_lists(self):
+    def update_ue_lists(self, sector):
         # Reset the lists to ensure they only contain current UEs
         self.ConnectedUEs = []
         self.assigned_UEs = []
@@ -158,7 +158,7 @@ class Cell:
         # Aggregate UE information from all sectors
         for sector in self.sectors:  # Assuming self.sectors is a list of Sector objects
             self.ConnectedUEs.extend(sector.connected_ues)  # Assuming sector.connected_ues is a list of UE IDs
-            self.assigned_UEs.extend(sector.assigned_ues)  # Similarly for assigned UEs
+            self.assigned_UEs.extend(sector.connected_ues)  # Similarly for assigned UEs
 
         # Optionally, remove duplicates if any UE is connected or assigned to multiple sectors
         self.ConnectedUEs = list(set(self.ConnectedUEs))
