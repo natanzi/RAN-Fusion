@@ -35,6 +35,9 @@ class SimulatorCLI(cmd.Cmd):
             'help': 'help',
             'del': 'del_ue',
             'add': 'add_ue',
+            'loadb': 'loadbalancing',
+            'kpi': 'kpi',
+
         }
         self.gNodeB_manager = gNodeB_manager
         self.cell_manager = cell_manager
@@ -213,6 +216,24 @@ class SimulatorCLI(cmd.Cmd):
         # Assuming UEManager is already instantiated and accessible
         ue_manager.create_ue(ue_config)
 ################################################################################################################################ 
+    def do_kpis(self, arg):
+        """
+        Display KPIs for the network.
+        This method is triggered by typing 'kpis' in the CLI.
+        """
+        # Implement the logic to display KPIs as table.
+
+        print("Displaying network KPIs...")
+
+    def do_loadbalancing(self, arg):
+        """
+        call loadbalancing manually triggered by typing 'loadbalancing' in the CLI.the optimze the load of the each cell/sector
+        """
+        # Implement the logic call display load balancing information here.
+        print("Displaying load balancing massagage...")
+
+################################################################################################################################ 
+
     def print_global_help(self):
         """Prints help for global options."""
         bold = '\033[1m'
@@ -231,6 +252,8 @@ class SimulatorCLI(cmd.Cmd):
             ('ue_log', 'Display UE traffic logs.'),
             ('del_ue', 'delete ue from sector and database'),
             ('add_ue', 'add new ue based on current config file to the spesefic sector',),
+            ('kpis', 'Display KPIs for the network.'),
+            ('loadbalancing', 'Display load balancing information for the network.'),
             ('exit', 'Exit the Simulator.')
         ]:
             print(f"  {cyan}{command}{reset} - {description}")

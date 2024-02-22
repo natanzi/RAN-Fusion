@@ -55,7 +55,7 @@ def main():
     network_load_manager.log_and_write_loads()
 
     # UEManager should be accessed via get_instance, already done in initialize_network
-    ue_manager = UEManager.get_instance(base_dir)
+    ue_manager = UEManager.get_instance(base_dir)  
 
     network_delay_calculator = NetworkDelay()
 
