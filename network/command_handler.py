@@ -11,15 +11,15 @@ class CommandHandler:
     def handle_command(command_type, data):
         if command_type == 'add_ue':
             CommandHandler._add_ue(data)
-        elif command_type == 'remove_ue':
-            CommandHandler._remove_ue(data)
+        elif command_type == 'del_ue':
+            CommandHandler._del_ue(data)
         elif command_type == 'update_ue':
             CommandHandler._update_ue(data)
         else:
             raise ValueError("Unsupported command type")
 
     @staticmethod
-    def _remove_ue(data):
+    def _del_ue(data):
         ue_id = data['ue_id']
         
         # Attempt to find the sector_id dynamically

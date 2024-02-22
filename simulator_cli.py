@@ -17,6 +17,8 @@ from ue_table_display import UETableDisplay
 import threading
 import os
 from network.ue import UE
+from network.command_handler import CommandHandler
+
 class SimulatorCLI(cmd.Cmd):
     def __init__(self, gNodeB_manager, cell_manager, sector_manager, ue_manager, base_dir, *args, **kwargs):
         # Removed the incorrect UEManager initialization
@@ -184,31 +186,14 @@ class SimulatorCLI(cmd.Cmd):
 
 ################################################################################################################################            
     def do_del_ue(self, ue_id):
-        """
-        Removes a UE from the simulation and updates the sector and database.
-        Usage: del_ue <ue_id>
-        """
-        print(f"==>This is debug massage===> Attempting to delete UE with ID: {ue_id}")
         if not ue_id:
             print("Please provide a UE ID.")
             return
-
-        # Assuming you have a way to access the SectorManager instance
-        # If SectorManager is not a singleton, you might need to adjust how you access it
-        sector_manager = self.sector_manager
-
-        # Find the sector ID for the given UE ID
-        sector_id = sector_manager.find_sector_by_ue_id(ue_id)
-        if sector_id is None:
-            print(f"UE with ID {ue_id} not found in any sector.")
-            return
-
-        # Remove the UE from the sector
-        removed = sector_manager.remove_ue_from_sector(sector_id, ue_id)
-        if removed:
-            print(f"UE {ue_id} has been successfully removed from sector {sector_id}.")
-        else:
-            print(f"Failed to remove UE {ue_id} from sector {sector_id}.")
+        try:
+            # Assuming CommandHandler is imported and available
+            CommandHandler.handle_command('del_ue', {'ue_id': ue_id})
+        except Exception as e:
+            print(f"Error removing UE: {e}")
 ################################################################################################################################
     def handle_command(command):
         # Assuming the command format is "add_ue ue <UE_ID>,<Sector_ID>,<Service_Type>"

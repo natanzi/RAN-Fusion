@@ -14,8 +14,8 @@ load_dotenv()
 
 
 #########################################################################################################
-@app.route('/remove_ue', methods=['POST'])
-def remove_ue():
+@app.route('/del_ue', methods=['POST'])
+def del_ue():
     data = request.json
     
     # Validate input data
@@ -26,9 +26,9 @@ def remove_ue():
     ue_id = data['ue_id']
     
     try:
-        # Assuming CommandHandler.handle_command is properly implemented to handle 'remove_ue' command
+        # Assuming CommandHandler.handle_command is properly implemented to handle 'del_ue' command
         # and now returns a boolean indicating success or failure
-        result, message = CommandHandler.handle_command('remove_ue', {'ue_id': ue_id})
+        result, message = CommandHandler.handle_command('del_ue', {'ue_id': ue_id})
         
         if result:
             API_logger.info(f"UE {ue_id} successfully removed.")
