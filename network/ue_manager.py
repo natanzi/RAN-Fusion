@@ -4,6 +4,7 @@ from network.ue import UE
 from network.utils import allocate_ues, create_ue
 from Config_files.config import Config
 from logs.logger_config import ue_logger
+from network.sector_manager import SectorManager
 
 # Get base path
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -81,20 +82,27 @@ class UEManager:
     def list_all_ues(self):
         # Now this will correctly return a list of UE IDs
         return list(self.ues.keys())
-##################################################################################
+#################################################################################
+    def delete_ue(self, ue_id):
+        # Retrieve the UE instance
+        ue = self.get_ue_by_id(ue_id)
+        if ue is None:
+            print(f"UE with ID {ue_id} not found.")
+            return False
 
-# Example usage
-if __name__ == "__main__":
-    ue_manager = UEManager()
-    config = {}  # Assuming a valid config dictionary is provided
-    new_ue = ue_manager.create_ue(config, imei="123456789012345", location="Location1")
-    if new_ue:
-        print(f"New UE created with ID: {new_ue.ID}")
-    updated = ue_manager.update_ue(new_ue.ID, location="NewLocation")
-    if updated:
-        print(f"UE {new_ue.ID} updated.")
-    all_ues = ue_manager.list_all_ues()
-    print(f"All UEs: {all_ues}")
-    removed = ue_manager.remove_ue(new_ue.ID)
-    if removed:
-        print(f"UE {new_ue.ID} removed.")
+        # Assuming you have a way to access the SectorManager instance
+        # This might involve importing SectorManager and getting its instance
+        sector_manager = SectorManager.get_instance()
+
+        # Remove the UE from its connected sector
+        sector_id = ue.ConnectedSectorID  # Assuming UE has attribute ConnectedSectorID
+        if sector_manager.remove_ue_from_sector(sector_id, ue_id):
+            print(f"UE {ue_id} successfully removed from sector {sector_id}.")
+            # Now, delete the UE instance from UEManager's ues dictionary
+            del self.ues[ue_id]
+            # Perform any additional cleanup here (if necessary)
+            return True
+        else:
+            print(f"Failed to remove UE {ue_id} from sector {sector_id}.")
+            return False
+
