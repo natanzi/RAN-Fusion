@@ -4,3 +4,4 @@
 {"level": "ERROR", "timestamp": "2024-02-22 12:59:45", "message": "An error occurred while removing UE 10: cannot unpack non-iterable NoneType object", "test_id": "da060796-b130-448c-9310-20aeea14e457"}
 {"level": "ERROR", "timestamp": "2024-02-22 13:21:00", "message": "UE 10 not found in any sector", "test_id": "f40a8dae-2b89-4ba5-a330-eb1bbab065d7"}
 {"level": "ERROR", "timestamp": "2024-02-22 13:21:00", "message": "An error occurred while removing UE 10: cannot unpack non-iterable NoneType object", "test_id": "f40a8dae-2b89-4ba5-a330-eb1bbab065d7"}
+{"level": "ERROR", "timestamp": "2024-02-22 13:32:35", "message": "An error occurred while removing UE 10: UEManager.get_instance() missing 1 required positional argument: 'base_dir'", "test_id": "afc378ad-c518-4a90-b5b0-e66dc5185551"}
