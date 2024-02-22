@@ -5,8 +5,15 @@ from network.sector_manager import SectorManager
 from logs.logger_config import API_logger
 from flask import jsonify
 from network.ue_manager import UEManager
+from traffic.traffic_generator import TrafficController
 
 class CommandHandler:
+    _instance = None
+
+    def __new__(cls, *args, **kwargs):
+        if not cls._instance:
+            cls._instance = super(CommandHandler, cls).__new__(cls, *args, **kwargs)
+        return cls._instance
 
     @staticmethod
     def handle_command(command_type, data):
@@ -43,12 +50,51 @@ class CommandHandler:
     
     @staticmethod
     def _add_ue(data):
-        # Assuming data now includes 'service_class' along with other UE attributes
-        ue = UE(data['ue_id'], data['imei'], data['location'], data['connected_cell_id'], data['gNodeB_id'], data['signal_strength'], data['rat'], data['max_bandwidth'], data['duplex_mode'], service_class=data['service_class'])
+        # Create the UE instance
+        ue = UE(
+            ue_id=data['ue_id'],
+            imei=data['IMEI'],
+            location=data['location'],
+            connected_cell_id=data['connectedCellID'],
+            gNodeB_id=data['gnodeb_id'],
+            signal_strength=data['initialSignalStrength'],
+            rat=data['rat'],
+            max_bandwidth=data['maxBandwidth'],
+            duplex_mode=data['duplexMode'],
+            # Add other parameters as needed
+            service_class=data.get('service_type'),  # Assuming service_class is equivalent to service_type
+            tx_power=data['txPower'],
+            modulation=data['modulation'],
+            coding=data['coding'],
+            mimo=data['mimo'],
+            processing=data['processing'],
+            bandwidth_parts=data['bandwidthParts'],
+            channel_model=data['channelModel'],
+            velocity=data['velocity'],
+            direction=data['direction'],
+            traffic_model=data['trafficModel'],
+            scheduling_requests=data['schedulingRequests'],
+            rlc_mode=data['rlcMode'],
+            snr_thresholds=data['snrThresholds'],
+            ho_margin=data['hoMargin'],
+            n310=data['n310'],
+            n311=data['n311'],
+            model=data['model'],
+            screensize=data['screensize'],
+            batterylevel=data['batterylevel'],
+            datasize=data['datasize']
+        )
+
+        # Assuming SectorManager and UEManager have methods to handle UE addition
+        sector_manager = SectorManager.get_instance()
+        ue_manager = UEManager.get_instance()
+
         # Add the UE to the sector
-        sector_manager = SectorManager()
         success = sector_manager.add_ue_to_sector(data['sector_id'], ue)
         if success:
+            # Optionally, start traffic generation for the newly added UE
+            traffic_controller = TrafficController.get_instance()
+            traffic_controller.start_ue_traffic(ue.ue_id)
             return jsonify({'message': 'UE successfully added'}), 200
         else:
             return jsonify({'error': 'Failed to add UE'}), 400
