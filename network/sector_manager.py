@@ -99,6 +99,7 @@ class SectorManager:
         with self.lock:  # Use the SectorManager's lock for thread safety
             sector = self.sectors.get(sector_id)
             if sector and ue_id in sector.connected_ues:
+                print(f"Before removal, sector {sector_id} connected UEs: {sector.connected_ues}")
                 sector.connected_ues.remove(ue_id)  # Correctly remove the ID string
                 sector.current_load -= 1  # Decrement the current load
                 global_ue_ids.discard(ue_id)  # Correctly discard the ID string
@@ -106,6 +107,7 @@ class SectorManager:
                 del sector.ues[ue_id]  # Correctly delete the UE from the dictionary
                 point = sector.serialize_for_influxdb()
                 self.db_manager.insert_data(point)  # Use SectorManager's db_manager to insert data
+                print(f"After removal, sector {sector_id} connected UEs: {sector.connected_ues}")
                 sector_logger.info(f"UE with ID {ue_id} has been removed from the sector {sector_id}. Current load: {sector.current_load}")
             else:
                 sector_logger.warning(f"UE with ID {ue_id} is not connected to the sector {sector_id}.")

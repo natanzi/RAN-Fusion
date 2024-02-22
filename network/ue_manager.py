@@ -71,11 +71,13 @@ class UEManager:
         :return: True if the update was successful, False otherwise.
         """
         ue = self.get_ue_by_id(ue_id)
+        print(f"UE instance found for ID {ue_id}: {ue}")
         if ue:
             ue.update_parameters(**kwargs)
             ue_logger.info(f"UE {ue_id} updated successfully.")
             return True
         else:
+            print(f"UE {ue_id} not found")
             ue_logger.warning(f"UE {ue_id} not found. Update failed.")
             return False
 ##################################################################################

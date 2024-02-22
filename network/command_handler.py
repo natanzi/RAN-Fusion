@@ -1,4 +1,4 @@
-#command_handler.py inside the network folder and owner of a command-based approach for adding, removing, or updating UEs or ... 
+#command_handler.py inside the network folder and owner of a command-based approach for adding, removing, or updating UEs or ...in fact: the CommandHandler class acts as middleware that can be utilized by both API.py and simulator_cli.py for executing commands such as add_ue. This design allows for a unified command processing mechanism across different interfaces of the system, ensuring consistency and reducing code duplication. 
 from .ue import UE
 from database.database_manager import DatabaseManager
 from network.sector_manager import SectorManager
@@ -45,11 +45,15 @@ class CommandHandler:
     
     @staticmethod
     def _add_ue(data):
-        # Assuming data contains all necessary UE parameters
-        ue = UE(config={}, **data)
-        # Add UE to database or in-memory storage as needed
-        # This is a placeholder for actual logic
-        print(f"UE {ue.ID} added successfully.")
+        # Assuming data now includes 'service_class' along with other UE attributes
+        ue = UE(data['ue_id'], data['imei'], data['location'], data['connected_cell_id'], data['gNodeB_id'], data['signal_strength'], data['rat'], data['max_bandwidth'], data['duplex_mode'], service_class=data['service_class'])
+        # Add the UE to the sector
+        sector_manager = SectorManager()
+        success = sector_manager.add_ue_to_sector(data['sector_id'], ue)
+        if success:
+            return jsonify({'message': 'UE successfully added'}), 200
+        else:
+            return jsonify({'error': 'Failed to add UE'}), 400
 
     @staticmethod
     def _update_ue(data):

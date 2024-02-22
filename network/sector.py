@@ -16,11 +16,6 @@ sector_lock = threading.Lock()
 global_ue_ids = set()
 sector_instances = {}
 
-#print("Print all_sectors at Top of sector.py")
-#print(all_sectors)
-#print("Print all sectors id")
-#print(id(all_sectors))
-
 class Sector:
     def __init__(self, sector_id, cell_id, cell, capacity, azimuth_angle, beamwidth, frequency, duplex_mode, tx_power, bandwidth, mimo_layers, beamforming, ho_margin, load_balancing, max_throughput, connected_ues=None, current_load=0):
         self.sector_id = sector_id  # String, kept as is for identifiers
@@ -88,27 +83,33 @@ class Sector:
         return point
 
     def add_ue(self, ue):
-        with sector_lock:  # Use the correct lock defined at the global scope
+        with sector_lock:  # Assuming sector_lock is correctly defined and accessible
+            # Check if the sector is at its maximum capacity
             if len(self.connected_ues) >= self.capacity:
                 sector_logger.warning(f"Sector {self.sector_id} at max capacity! Cannot add UE {ue.ID}")
+                return  # Important to return here to avoid adding the UE when the sector is full
 
-
-            if ue.ID not in self.connected_ues:
-                self.connected_ues.append(ue.ID)  # Store only the ID, not the UE object
-                self.current_load += 1  # Increment the current load
-                self.cell.update_ue_lists()
-                global_ue_ids.add(ue.ID)  # Add the UE ID to the global list
-                self.remaining_capacity = self.capacity - len(self.connected_ues)  # Update remaining_capacity
-                ue.ConnectedCellID = self.cell_id
-                ue.gNodeB_ID = self.cell.gNodeB_ID
-                self.ues[ue.ID] = ue
-                global_ue_ids.add(ue.ID)
-                point = self.serialize_for_influxdb()
-                DatabaseManager().insert_data(point)
-                sector_logger.info(f"UE with ID {ue.ID} has been added to the sector {self.sector_id}. Current UE Load count: {self.current_load}")
-
-            else:
+            # Check if the UE is already connected to the sector
+            if ue.ID in self.connected_ues:
                 sector_logger.warning(f"UE with ID {ue.ID} is already connected to the sector {self.sector_id}.")
+                return  # Similarly, return here to avoid re-adding an existing UE
+
+            # If the checks pass, proceed to add the UE
+            self.connected_ues.append(ue.ID)  # Store only the ID, not the UE object
+            self.current_load += 1  # Increment the current load
+            self.cell.update_ue_lists()  # Assuming this method correctly updates relevant UE lists in the cell
+            global_ue_ids.add(ue.ID)  # Add the UE ID to the global list (ensure this is defined and accessible)
+            self.remaining_capacity = self.capacity - len(self.connected_ues)  # Update remaining capacity
+            ue.ConnectedCellID = self.cell_id  # Ensure self.cell_id is correctly defined and accessible
+            ue.gNodeB_ID = self.cell.gNodeB_ID  # Ensure self.cell and its gNodeB_ID are correctly defined and accessible
+            self.ues[ue.ID] = ue  # Add the UE object to the sector's UE dictionary
+            # Note: The global_ue_ids.add(ue.ID) call is duplicated in your original code. It should only be necessary once.
+
+            # Serialize the sector for InfluxDB and insert the data
+            point = self.serialize_for_influxdb()  # Ensure this method correctly serializes the sector's data
+            DatabaseManager().insert_data(point)  # Ensure DatabaseManager is correctly implemented and accessible
+
+            sector_logger.info(f"UE with ID {ue.ID} has been added to the sector {self.sector_id}. Current UE Load count: {self.current_load}")
 
     def remove_ue(self, ue_id):
         with sector_lock:

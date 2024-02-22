@@ -188,6 +188,7 @@ class SimulatorCLI(cmd.Cmd):
         Removes a UE from the simulation and updates the sector and database.
         Usage: del_ue <ue_id>
         """
+        print(f"==>This is debug massage===> Attempting to delete UE with ID: {ue_id}")
         if not ue_id:
             print("Please provide a UE ID.")
             return
@@ -208,6 +209,24 @@ class SimulatorCLI(cmd.Cmd):
             print(f"UE {ue_id} has been successfully removed from sector {sector_id}.")
         else:
             print(f"Failed to remove UE {ue_id} from sector {sector_id}.")
+################################################################################################################################
+    def handle_command(command):
+        # Assuming the command format is "add_ue ue <UE_ID>,<Sector_ID>,<Service_Type>"
+            _, ue_id, sector_id, service_type = command.split()
+            add_ue(ue_id, sector_id, service_type)
+
+    def add_ue(ue_id, sector_id, service_type):
+        # You would call a method here to handle the addition of the UE.
+        # This method would need to be defined in a suitable class, such as UeManager.
+        # It would involve creating a new UE instance with the specified parameters
+        # and adding it to the specified sector.
+        ue_config = {
+            "ue_id": ue_id,
+            "connected_sector": sector_id,
+            "service_type": service_type
+        }
+        # Assuming UEManager is already instantiated and accessible
+        ue_manager.create_ue(ue_config)
 ################################################################################################################################ 
     def print_global_help(self):
         """Prints help for global options."""
