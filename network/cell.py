@@ -12,7 +12,7 @@ from database.time_utils import get_current_time_ntp, server_pools
 cell_instances = {}
 
 class Cell:
-    def __init__(self, cell_id, gnodeb_id, frequencyBand, duplexMode, tx_power, bandwidth, ssbPeriodicity, ssbOffset, maxConnectUes, max_throughput,  channelModel, sectorCount, trackingArea=None, is_active=True, technology=None):
+    def __init__(self, cell_id, gnodeb_id, frequencyBand, duplexMode, tx_power, bandwidth, ssbPeriodicity, ssbOffset, maxConnectUes, max_throughput,  channelModel, sectorCount, trackingArea=None, is_active=True, technology="5GNR"):
         #debug_print(f"START-Creating cell {cell_id} from cell class")
         self.ID = cell_id                     # Unique identifier for the Cell
         self.instance_id = str(uuid.uuid4())  # Generic unique identifier for the instance  of the cell 
@@ -150,17 +150,17 @@ class Cell:
                 return sector
         return None  # Or, alternatively, raise an exception if the sector is not found.
     
-    def update_ue_lists(self, sector):
+    def update_ue_lists(self):
         # Reset the lists to ensure they only contain current UEs
         self.ConnectedUEs = []
         self.assigned_UEs = []
-
         # Aggregate UE information from all sectors
         for sector in self.sectors:  # Assuming self.sectors is a list of Sector objects
             self.ConnectedUEs.extend(sector.connected_ues)  # Assuming sector.connected_ues is a list of UE IDs
             self.assigned_UEs.extend(sector.connected_ues)  # Similarly for assigned UEs
-
         # Optionally, remove duplicates if any UE is connected or assigned to multiple sectors
         self.ConnectedUEs = list(set(self.ConnectedUEs))
         self.assigned_UEs = list(set(self.assigned_UEs))
     
+        # Update the IsActive attribute based on the presence of connected UEs
+        self.IsActive = len(self.ConnectedUEs) > 0

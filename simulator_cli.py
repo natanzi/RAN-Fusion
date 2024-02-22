@@ -131,9 +131,9 @@ class SimulatorCLI(cmd.Cmd):
         table = PrettyTable()
         table.field_names = ["Cell ID", "Technology", "Status", "Active UEs"]
         for cell in cell_details_list:
-            technology = cell.get('technology', 'N/A')  # Default to 'N/A' if technology is not specified
+            technology = cell.get('technology','5GNR')  
             active_ues = self.calculate_active_ues_for_cell(cell['id'])  # Calculate active UEs for each cell
-            status_text = "\033[92mActive\033[0m" if cell.get('IsActive', False) else "\033[91mInactive\033[0m"
+            status_text = "\033[92mActive\033[0m" if cell.get('Active', True) else "\033[91mInactive\033[0m"
             table.add_row([
                 cell['id'],
                 technology,
@@ -144,8 +144,8 @@ class SimulatorCLI(cmd.Cmd):
         print(table)
 
     def calculate_active_ues_for_cell(self, cell_id):
-        # Retrieve the cell object by its ID
-        cell = self.cell_manager.get_cell_by_id(cell_id)
+        # Retrieve the cell object by its ID using the correct method name
+        cell = self.cell_manager.get_cell(cell_id)
         if cell is None:
             return 0  # Return 0 if the cell is not found
         # Return the count of active UEs for the cell
@@ -225,6 +225,8 @@ class SimulatorCLI(cmd.Cmd):
             ('sector_list', 'List all sectors in the network.'),
             ('ue_list', 'List all UEs (User Equipments) in the network.'),
             ('ue_log', 'Display UE traffic logs.'),
+            ('del_ue', 'delete ue from sector and database'),
+            ('add_ue', 'add new ue based on current config file to the spesefic sector',),
             ('exit', 'Exit the Simulator.')
         ]:
             print(f"  {cyan}{command}{reset} - {description}")
