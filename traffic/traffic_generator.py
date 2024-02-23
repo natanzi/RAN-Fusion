@@ -7,6 +7,7 @@ from logs.logger_config import traffic_update
 from network.ue import UE
 from database.database_manager import DatabaseManager
 import threading
+from network.ue_manager import UEManager
 
 class TrafficController:
     _instance = None
@@ -49,6 +50,10 @@ class TrafficController:
 
     def generate_traffic(self, ue):
         # Determine the type of traffic to generate based on the UE's service type
+        # Check if traffic generation is enabled for this UE
+        if not ue.generating_traffic:
+            print(f"Traffic generation for UE {ue.ID} is stopped.")
+            return None  # Or an appropriate response indicating no traffic was generated
         if ue.ServiceType.lower() == 'voice':
             return self.generate_voice_traffic()
         elif ue.ServiceType.lower() == 'video':
@@ -231,13 +236,14 @@ class TrafficController:
         return traffic_data
 ############################################################################################
     def stop_ue_traffic(self, ue_id):
-        # Logic to stop traffic for the specified UE
-        if ue_id in self.active_ue_traffic:
-            # Assuming self.active_ue_traffic is a dictionary holding UE IDs and their traffic status
-            self.active_ue_traffic[ue_id] = False  # Or any other logic to stop traffic
+        # Assuming UEManager is accessible and has a method to get a UE by ID
+        ue_manager = UEManager.get_instance()
+        ue = ue_manager.get_ue_by_id(ue_id)
+        if ue:
+            ue.generating_traffic = False
             print(f"Traffic generation for UE {ue_id} has been stopped.")
         else:
-            print(f"UE {ue_id} is not currently generating traffic.")
+            print(f"UE {ue_id} is not currently generating traffic or does not exist.")
 ############################################################################################
     def set_custom_traffic(self, ue_id, traffic_params):
         # Find the UE instance by ue_id

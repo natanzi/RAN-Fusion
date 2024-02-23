@@ -11,42 +11,46 @@ from prettytable import PrettyTable
 from network.sector import Sector
 from network.NetworkLoadManager import NetworkLoadManager
 from traffic.traffic_generator import TrafficController
-from network.ue_manager import UEManager
 from threading import Thread, Event
 from ue_table_display import UETableDisplay
 import threading
 import os
 from network.ue import UE
 from network.command_handler import CommandHandler
-from traffic.traffic_generator import TrafficGenerator
+
+# Define your aliases and commands in a more flexible structure
+# For the purpose of this example, it's defined within the code, but it could be external
+alias_config = {
+    'aliases': [
+        {'alias': 'gnb', 'command': 'gnb_list'},
+        {'alias': 'cell', 'command': 'cell_list'},
+        {'alias': 'sector', 'command': 'sector_list'},
+        {'alias': 'ue', 'command': 'ue_list'},
+        {'alias': 'ulog', 'command': 'ue_log'},
+        # Add more aliases as needed
+    ]
+}
+
 class SimulatorCLI(cmd.Cmd):
     def __init__(self, gNodeB_manager, cell_manager, sector_manager, ue_manager, base_dir, *args, **kwargs):
-        # Removed the incorrect UEManager initialization
         self.traffic_controller = TrafficController()
         super().__init__(*args, **kwargs, completekey='tab')
         self.display_thread = None
         self.running = False  # Flag to control the display thread
-        self.aliases = {
-            'gnb': 'gnb_list',
-            'cell': 'cell_list',
-            'sector': 'sector_list',
-            'ue': 'ue_list',
-            'ulog': 'ue_log',
-            'help': 'help',
-            'del': 'del_ue',
-            'add': 'add_ue',
-            'loadb': 'loadbalancing',
-            'kpi': 'kpi',
-            'stop':'stop',
-            'start':'start',
-            'exit': 'exit',
-
-        }
+        self.aliases = self.generate_alias_mappings(alias_config)
         self.gNodeB_manager = gNodeB_manager
         self.cell_manager = cell_manager
         self.sector_manager = sector_manager
         self.ue_manager = ue_manager
         self.stop_event = Event()
+
+    @staticmethod
+    def generate_alias_mappings(config):
+        """Generates a dictionary mapping aliases to commands."""
+        mappings = {}
+        for item in config['aliases']:
+            mappings[item['alias']] = item['command']
+        return mappings
 
     intro = "Welcome to the RAN Fusion Simulator CLI.\nType --help to list commands.\n"
     prompt = '\033[1;32m(Cli-host)\033[0m '
@@ -270,14 +274,13 @@ class SimulatorCLI(cmd.Cmd):
             return
         try:
             ue_id = int(arg)
-            # Assuming the TrafficController has a method to stop traffic for a specific UE
-            self.traffic_controller.stop_traffic_for_ue(ue_id)
+            #call the stop_ue_traffic method from the TrafficController instance
+            self.traffic_controller.stop_ue_traffic(ue_id)
             print(f"Traffic generation for UE {ue_id} has been stopped.")
         except ValueError:
             print("Invalid UE ID. Please provide a numeric UE ID.")
         except Exception as e:
             print(f"Error stopping traffic for UE: {e}")
-
 ################################################################################################################################
     def complete(self, text, state):
         if state == 0:
