@@ -8,6 +8,7 @@ import traceback
 from flask import Flask, request, jsonify, Response
 from dotenv import load_dotenv
 import logging
+from database.database_manager import DatabaseManager
 
 app = Flask(__name__)
 load_dotenv()
@@ -41,11 +42,22 @@ def del_ue():
         return jsonify({'error': 'An error occurred while removing UE', 'details': str(e)}), 500
     
 #########################################################################################################
-@app.route('/metrics', methods=['GET'])
-def metrics():
-    # Existing implementation for metrics endpoint
-    # ...
-    return Response
+@app.route('/ue_metrics', methods=['GET'])
+def ue_metrics():
+    ue_id = request.args.get('ue_id')
+    if not ue_id:
+        return jsonify({'error': "Missing 'ue_id' parameter"}), 400
+    
+    try:
+        db_manager = DatabaseManager.get_instance()
+        metrics = db_manager.get_ue_metrics(ue_id)
+        if metrics:
+            return jsonify({'metrics': metrics}), 200
+        else:
+            return jsonify({'message': f'No metrics found for UE {ue_id}'}), 404
+    except Exception as e:
+        API_logger.error(f"An error occurred while retrieving metrics for UE {ue_id}: {e}")
+        return jsonify({'error': 'An error occurred while retrieving metrics'}), 500
 
 #########################################################################################################
 @app.route('/add_ue', methods=['POST'])

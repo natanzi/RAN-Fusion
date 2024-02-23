@@ -204,4 +204,17 @@ class DatabaseManager:
             .field("Network_delay", network_delay) \
             .time(datetime.utcnow(), WritePrecision.NS)
         self.write_api.write(bucket=self.bucket, record=point)
+##################################################################################################################################
+    def get_ue_metrics(self, ue_id):
+        # Example query, adjust according to your database schema and the metrics you store
+        query = f'SELECT * FROM ue_metrics WHERE ue_id = \'{ue_id}\''
+        result = self.query_api.query(query)
+        metrics = []
+        for record in result:
+            metrics.append({
+                'metric_name': record['metric_name'],
+                'value': record['value'],
+                # Add other relevant fields
+            })
+        return metrics
             
