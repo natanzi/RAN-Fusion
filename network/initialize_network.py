@@ -45,7 +45,7 @@ def initialize_network(base_dir, num_ues_to_launch=None):
     sectors = sector_manager.initialize_sectors(config.sectors_config, gnodeb_manager, cell_manager)
 
     if num_ues_to_launch:
-        ue_manager = UEManager.get_instance()
+        ue_manager = UEManager.get_instance(base_dir=base_dir)
 
         ues = ue_manager.initialize_ues(num_ues_to_launch, cells, gNodeBs, config.ue_config)
         print("Initialized UEs:")

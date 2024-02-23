@@ -33,6 +33,7 @@ def generate_traffic_loop(traffic_controller, ue_list, network_load_manager, net
 def main():
     logging.basicConfig(level=logging.INFO)
     base_dir = os.path.dirname(os.path.abspath(__file__))
+    
     logo_text = create_logo()
     print(logo_text)
     db_manager = DatabaseManager()

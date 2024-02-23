@@ -230,6 +230,27 @@ class TrafficController:
         self.traffic_logs.append(traffic_data)
         return traffic_data
 ############################################################################################
+    def stop_ue_traffic(self, ue_id):
+        # Logic to stop traffic for the specified UE
+        if ue_id in self.active_ue_traffic:
+            # Assuming self.active_ue_traffic is a dictionary holding UE IDs and their traffic status
+            self.active_ue_traffic[ue_id] = False  # Or any other logic to stop traffic
+            print(f"Traffic generation for UE {ue_id} has been stopped.")
+        else:
+            print(f"UE {ue_id} is not currently generating traffic.")
+############################################################################################
+    def set_custom_traffic(self, ue_id, traffic_params):
+        # Find the UE instance by ue_id
+        ue = self.find_ue_by_id(ue_id)
+        if not ue:
+            print(f"UE with ID {ue_id} not found.")
+            return
+
+        # Apply the custom traffic parameters
+        # This is a simplified example. The actual implementation would depend on how traffic is managed.
+        ue.traffic_volume = traffic_params.get('traffic_volume', 0)
+        print(f"Set custom traffic for UE {ue_id}: {ue.traffic_volume}MB")
+############################################################################################
     def calculate_throughput(self, ue):
         # Parameter validation
         if not isinstance(ue, UE):

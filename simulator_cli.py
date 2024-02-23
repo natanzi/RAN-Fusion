@@ -18,7 +18,7 @@ import threading
 import os
 from network.ue import UE
 from network.command_handler import CommandHandler
-
+from traffic.traffic_generator import TrafficGenerator
 class SimulatorCLI(cmd.Cmd):
     def __init__(self, gNodeB_manager, cell_manager, sector_manager, ue_manager, base_dir, *args, **kwargs):
         # Removed the incorrect UEManager initialization
@@ -37,6 +37,9 @@ class SimulatorCLI(cmd.Cmd):
             'add': 'add_ue',
             'loadb': 'loadbalancing',
             'kpi': 'kpi',
+            'stop':'stop',
+            'start':'start',
+            'exit': 'exit',
 
         }
         self.gNodeB_manager = gNodeB_manager
@@ -233,7 +236,6 @@ class SimulatorCLI(cmd.Cmd):
         print("Displaying load balancing massagage...")
 
 ################################################################################################################################ 
-
     def print_global_help(self):
         """Prints help for global options."""
         bold = '\033[1m'
@@ -254,11 +256,29 @@ class SimulatorCLI(cmd.Cmd):
             ('add_ue', 'add new ue based on current config file to the spesefic sector',),
             ('kpis', 'Display KPIs for the network.'),
             ('loadbalancing', 'Display load balancing information for the network.'),
+            ('start_ue', 'Start the ue traffic.'),
+            ('stop_ue', 'Stop the ue traffic.'),
             ('exit', 'Exit the Simulator.')
         ]:
             print(f"  {cyan}{command}{reset} - {description}")
         print()
-################################################################################################################################            
+################################################################################################################################ 
+    def do_stop_ue(self, arg):
+        """Stop traffic generation for a specific UE."""
+        if not arg:
+            print("Please provide a UE ID.")
+            return
+        try:
+            ue_id = int(arg)
+            # Assuming the TrafficController has a method to stop traffic for a specific UE
+            self.traffic_controller.stop_traffic_for_ue(ue_id)
+            print(f"Traffic generation for UE {ue_id} has been stopped.")
+        except ValueError:
+            print("Invalid UE ID. Please provide a numeric UE ID.")
+        except Exception as e:
+            print(f"Error stopping traffic for UE: {e}")
+
+################################################################################################################################
     def complete(self, text, state):
         if state == 0:
             origline = self._orig_line
