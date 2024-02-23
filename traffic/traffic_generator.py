@@ -53,7 +53,16 @@ class TrafficController:
         # Check if traffic generation is enabled for this UE
         if not ue.generating_traffic:
             print(f"Traffic generation for UE {ue.ID} is stopped.")
-            return None  # Or an appropriate response indicating no traffic was generated
+            # Return a traffic data structure with data_size set to 0
+            return {
+                'data_size': 0,  # Zero bytes
+                'start_timestamp': datetime.now(),
+                'end_timestamp': datetime.now(),
+                'interval': 1,  # Default interval, can be adjusted as needed
+                'ue_delay': 0,
+                'ue_jitter': 0,
+                'ue_packet_loss_rate': 0
+            }
         if ue.ServiceType.lower() == 'voice':
             return self.generate_voice_traffic()
         elif ue.ServiceType.lower() == 'video':
@@ -65,7 +74,7 @@ class TrafficController:
         elif ue.ServiceType.lower() == 'data':
             return self.generate_data_traffic()
         else:
-            raise ValueError(f"Unknown service type: {ue.ServiceType}")  
+            raise ValueError(f"Unknown service type: {ue.ServiceType}")
     
 ##############################################################################################################################
     # Traffic generation methods with conditional application of jitter, delay, and packet loss

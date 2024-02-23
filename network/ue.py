@@ -66,7 +66,7 @@ class UE:
             self.BatteryLevel = kwargs.get('batterylevel', random.randint(10, 100))        # Battery level of the UE
             self.TrafficVolume = 0        # Traffic volume handled by the UE (initialized to 0)
             self.DataSize = kwargs.get('datasize')        # Data size transmitted/received by the UE
-            self.generating_traffic = False                #line to initialize the traffic generation flag
+            self.generating_traffic = True               #link to initialize the traffic generation flag
             ue_logger.info(f"UE initialized with ID {self.ID} at {datetime.now()}")
     
     @classmethod
