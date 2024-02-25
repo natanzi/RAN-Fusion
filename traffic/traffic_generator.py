@@ -253,6 +253,16 @@ class TrafficController:
             print(f"Traffic generation for UE {ue_id} has been stopped.")
         else:
             print(f"UE {ue_id} is not currently generating traffic or does not exist.")
+    
+    def start_ue_traffic(self, ue_id):
+        # Assuming UEManager is accessible and has a method to get a UE by ID
+        ue_manager = UEManager.get_instance()
+        ue = ue_manager.get_ue_by_id(ue_id)
+        if ue:
+            ue.generating_traffic = True
+            print(f"Traffic generation for UE {ue_id} has been started.")
+        else:
+            print(f"UE {ue_id} does not exist.")
 ############################################################################################
     def set_custom_traffic(self, ue_id, traffic_params):
         # Find the UE instance by ue_id

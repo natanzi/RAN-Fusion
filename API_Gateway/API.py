@@ -9,6 +9,7 @@ from flask import Flask, request, jsonify, Response
 from dotenv import load_dotenv
 import logging
 from database.database_manager import DatabaseManager
+import re
 
 app = Flask(__name__)
 load_dotenv()
@@ -45,14 +46,20 @@ def del_ue():
 @app.route('/ue_metrics', methods=['GET'])
 def ue_metrics():
     ue_id = request.args.get('ue_id')
+
+    # Validation for alphanumeric ue_id
     if not ue_id:
         return jsonify({'error': "Missing 'ue_id' parameter"}), 400
-    
+    elif not re.match("^[a-zA-Z0-9]+$", ue_id):
+        return jsonify({'error': "Invalid 'ue_id' format. 'ue_id' must be alphanumeric."}), 400
+
     try:
         db_manager = DatabaseManager.get_instance()
         metrics = db_manager.get_ue_metrics(ue_id)
         if metrics:
-            return jsonify({'metrics': metrics}), 200
+            response = jsonify({'metrics': metrics})
+            response.headers['Content-Type'] = 'application/json'  # Explicitly setting Content-Type
+            return response, 200
         else:
             return jsonify({'message': f'No metrics found for UE {ue_id}'}), 404
     except Exception as e:
@@ -97,6 +104,32 @@ def update_ue():
         traceback.print_exc()
         return jsonify({'error': 'An error occurred while updating UE'}), 500
 
+#########################################################################################################
+@app.route('/start_ue_traffic', methods=['POST'])
+def start_ue_traffic():
+    data = request.json
+    if 'ue_id' not in data:
+        API_logger.error("Missing 'ue_id' in request data")
+        return jsonify({'error': "Missing 'ue_id'"}), 400
+
+    result, message = CommandHandler.handle_command('start_ue_traffic', data)
+    if result:
+        return jsonify({'message': message}), 200
+    else:
+        return jsonify({'error': message}), 400
+#########################################################################################################
+@app.route('/stop_ue_traffic', methods=['POST'])
+def stop_ue_traffic():
+    data = request.json
+    if 'ue_id' not in data:
+        API_logger.error("Missing 'ue_id' in request data")
+        return jsonify({'error': "Missing 'ue_id'"}), 400
+
+    result, message = CommandHandler.handle_command('stop_ue_traffic', data)
+    if result:
+        return jsonify({'message': message}), 200
+    else:
+        return jsonify({'error': message}), 400
 #########################################################################################################
 if __name__ == '__main__':
     print("Starting API server...")

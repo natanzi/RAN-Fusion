@@ -18,11 +18,15 @@ class CommandHandler:
     @staticmethod
     def handle_command(command_type, data):
         if command_type == 'add_ue':
-            CommandHandler._add_ue(data)
+            return CommandHandler._add_ue(data)
         elif command_type == 'del_ue':
-            CommandHandler._del_ue(data)
+            return CommandHandler._del_ue(data)
         elif command_type == 'update_ue':
-            CommandHandler._update_ue(data)
+            return CommandHandler._update_ue(data)
+        elif command_type == 'start_ue_traffic':
+            return CommandHandler._start_ue_traffic(data)
+        elif command_type == 'stop_ue_traffic':
+            return CommandHandler._stop_ue_traffic(data)
         else:
             raise ValueError("Unsupported command type")
 
@@ -98,7 +102,31 @@ class CommandHandler:
             return jsonify({'message': 'UE successfully added'}), 200
         else:
             return jsonify({'error': 'Failed to add UE'}), 400
+        
+    @staticmethod
+    def _start_ue_traffic(data):
+        ue_id = data['ue_id']
+        traffic_controller = TrafficController.get_instance()
+        started = traffic_controller.start_ue_traffic(ue_id)
+        if started:
+            API_logger.info(f"Traffic generation for UE {ue_id} has been started.")
+            return True, f"Traffic generation for UE {ue_id} has been started."
+        else:
+            API_logger.error(f"Failed to start traffic for UE {ue_id}.")
+            return False, f"Failed to start traffic for UE {ue_id}."
 
+    @staticmethod
+    def _stop_ue_traffic(data):
+        ue_id = data['ue_id']
+        traffic_controller = TrafficController.get_instance()
+        stopped = traffic_controller.stop_ue_traffic(ue_id)
+        if stopped:
+            API_logger.info(f"Traffic generation for UE {ue_id} has been stopped.")
+            return True, f"Traffic generation for UE {ue_id} has been stopped."
+        else:
+            API_logger.error(f"Failed to stop traffic for UE {ue_id}.")
+            return False, f"Failed to stop traffic for UE {ue_id}."
+    
     @staticmethod
     def _update_ue(data):
         ue_id = data['ue_id']

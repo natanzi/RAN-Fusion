@@ -78,7 +78,7 @@ def main():
     traffic_thread.start()
 
     # Start the CLI with the correctly instantiated managers
-    cli = SimulatorCLI(gNodeB_manager=gNodeB_manager, cell_manager=cell_manager, sector_manager=sector_manager, ue_manager=ue_manager, base_dir=base_dir)
+    cli = SimulatorCLI(gNodeB_manager=gNodeB_manager, cell_manager=cell_manager, sector_manager=sector_manager, ue_manager=ue_manager, network_load_manager=network_load_manager, base_dir=base_dir)
     cli.cmdloop()
 
 if __name__ == "__main__":
