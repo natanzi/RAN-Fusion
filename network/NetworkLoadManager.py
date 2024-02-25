@@ -29,7 +29,7 @@ class NetworkLoadManager:
     def _initialize(self, cell_manager: CellManager, sector_manager: SectorManager):
         self.cell_manager = cell_manager
         self.sector_manager = sector_manager
-        self.db_manager = DatabaseManager()
+        self.db_manager = DatabaseManager.get_instance()
         self.load_balancer = LoadBalancer()
 
 #####################################################################################################################   

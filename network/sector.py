@@ -132,7 +132,7 @@ class Sector:
                 
     @classmethod
     def get_sector_by_id(cls, sector_id):
-        db_manager = DatabaseManager()
+        db_manager = DatabaseManager.get_instance()
         sector_data = db_manager.get_sector_by_id(sector_id)
         if sector_data:
             return cls.from_json(sector_data)  # Assuming a method to create a Sector instance from data

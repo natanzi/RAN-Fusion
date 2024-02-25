@@ -14,6 +14,7 @@ import re
 app = Flask(__name__)
 load_dotenv()
 
+INFLUXDB_TOKEN = os.getenv('INFLUXDB_TOKEN')
 
 #########################################################################################################
 @app.route('/del_ue', methods=['POST'])

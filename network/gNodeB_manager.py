@@ -23,7 +23,7 @@ class gNodeBManager:
     def __init__(self, base_dir):
         if not hasattr(self, 'initialized'):
             self.gNodeBs = {}
-            self.db_manager = DatabaseManager() 
+            self.db_manager = DatabaseManager.get_instance()
             self.base_dir = base_dir
             self.gNodeBs_config = load_gNodeB_config()
 

@@ -25,7 +25,7 @@ class CellManager:
             print(f"Creating CellManager instance: {self}")
             self.cells = {}
             self.gNodeBs = gNodeBs
-            self.db_manager = db_manager
+            self.db_manager = DatabaseManager.get_instance()
             self.initialized = True
             
     def initialize_cells(self, cells_config):

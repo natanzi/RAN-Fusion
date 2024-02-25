@@ -8,7 +8,7 @@ import time
 class LoadBalancer:
 
     def __init__(self):
-        self.db_manager = DatabaseManager()
+        self.db_manager = DatabaseManager.get_instance()
 
     def handle_load_balancing(self, entity_type, entity_id):
         """

@@ -36,7 +36,14 @@ def main():
     
     logo_text = create_logo()
     print(logo_text)
-    db_manager = DatabaseManager()
+    db_manager = DatabaseManager.get_instance()
+    # Test database connection
+    if db_manager.test_connection():
+        print("Miladddddd____Connection to InfluxDB successful.")
+    else:
+        print("Failed to connect to InfluxDB. Exiting...")
+        return  # Exit the application if the database connection fails
+    
     time.sleep(1)
 
     # Use get_instance to ensure singleton pattern compliance

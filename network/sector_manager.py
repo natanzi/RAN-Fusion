@@ -14,7 +14,7 @@ class SectorManager:
 
     def __init__(self, db_manager):
         self.sectors = all_sectors  # Use the global all_sectors dictionary to track sectors
-        self.db_manager = db_manager  # Instance of DatabaseManager for DB operations
+        self.db_manager = DatabaseManager.get_instance() # Instance of DatabaseManager for DB operations
         self.lock = threading.Lock()  # Lock for thread-safe operations on sectors
         self.gnodeb_sectors_map = {}  # New attribute to track gNodeB to sectors association
     

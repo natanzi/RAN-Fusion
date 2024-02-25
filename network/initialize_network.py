@@ -25,7 +25,7 @@ def reconcile_network_with_map(network_map, cell_manager):
 def initialize_network(base_dir, num_ues_to_launch=None):
     config = Config(base_dir)
     network_map = config.network_map_data
-    db_manager = DatabaseManager()
+    db_manager = DatabaseManager.get_instance()
 
     # Use get_instance to ensure singleton pattern compliance
     gnodeb_manager = gNodeBManager.get_instance(base_dir)
