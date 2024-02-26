@@ -1,19 +1,30 @@
 # API_Gateway/API.py modifications
-import sys
+from dotenv import load_dotenv
 import os
+import sys
+
+# Build the path to the .env file in the root directory of your project
+dotenv_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), '.env')
+
+# Load the .env file
+load_dotenv(dotenv_path)
+
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) 
 from network.command_handler import CommandHandler
 from logs.logger_config import API_logger
 import traceback
 from flask import Flask, request, jsonify, Response
-from dotenv import load_dotenv
 import logging
 from database.database_manager import DatabaseManager
 import re
+from influxdb_client import InfluxDBClient
 
 app = Flask(__name__)
-load_dotenv()
+()
 INFLUXDB_TOKEN = os.getenv('INFLUXDB_TOKEN')
+INFLUXDB_ORG = os.getenv('INFLUXDB_ORG')
+INFLUXDB_URL = os.getenv('INFLUXDB_URL') 
+client = InfluxDBClient(url=INFLUXDB_URL,token=INFLUXDB_TOKEN,org=INFLUXDB_ORG)
 
 #########################################################################################################
 @app.route('/del_ue', methods=['POST'])
