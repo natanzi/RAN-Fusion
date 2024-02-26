@@ -171,6 +171,22 @@ def stop_ue_traffic():
     else:
         return jsonify({'error': message}), 400
 #########################################################################################################
-if __name__ == '__main__':
-    print("Starting API server...")
-    app.run(debug=True)
+@app.route('/sector_load', methods=['GET'])
+def sector_load():
+    sector_id = request.args.get('sector_id')
+
+    if not sector_id:
+        return jsonify({'error': "Missing 'sector_id' parameter"}), 400
+    # Additional validation can be added here
+
+    try:
+        db_manager = DatabaseManager.get_instance()
+        load_metrics = db_manager.get_sector_load(sector_id)
+        if load_metrics:
+            return jsonify({'load_metrics': load_metrics}), 200
+        else:
+            return jsonify({'message': f'No load metrics found for sector {sector_id}'}), 404
+    except Exception as e:
+        API_logger.error(f"An error occurred while retrieving load metrics for sector {sector_id}: {e}")
+        return jsonify({'error': 'An error occurred while retrieving load metrics'}), 500
+#########################################################################################################    

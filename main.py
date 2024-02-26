@@ -44,9 +44,10 @@ def generate_traffic_loop(traffic_controller, ue_list, network_load_manager, net
     while True:
         for ue in ue_list:
             throughput_data = traffic_controller.calculate_throughput(ue)
-            network_load = network_load_manager.calculate_network_load()
-            network_delay = network_delay_calculator.calculate_delay(network_load)
-            db_manager.write_network_measurement(network_load, network_delay)
+            #network_load = network_load_manager.calculate_network_load()
+            #network_delay = network_delay_calculator.calculate_delay(network_load)
+            #db_manager.write_network_measurement(network_load, network_delay)
+            network_load_manager.network_measurement()
         time.sleep(1)
 
 def main():
@@ -55,6 +56,7 @@ def main():
     
     logo_text = create_logo()
     print(logo_text)
+    
     db_manager = DatabaseManager.get_instance()
     if db_manager.test_connection():
         print("Connection to InfluxDB successful.")
@@ -71,6 +73,7 @@ def main():
     sector_manager = SectorManager.get_instance(db_manager=db_manager)
     network_load_manager = NetworkLoadManager.get_instance(cell_manager, sector_manager)
     network_load_manager.log_and_write_loads()
+    
     ue_manager = UEManager.get_instance(base_dir)  
     network_delay_calculator = NetworkDelay()
     
@@ -78,24 +81,29 @@ def main():
     traffic_thread = Thread(target=generate_traffic_loop, args=(traffic_controller_instance, ues, network_load_manager, network_delay_calculator, db_manager))
     traffic_thread.start()
     
+    # Start the monitoring function in a separate thread
+    monitoring_thread = Thread(target=network_load_manager.monitoring)
+    monitoring_thread.start()
+    
     cli = SimulatorCLI(gNodeB_manager=gNodeB_manager, cell_manager=cell_manager, sector_manager=sector_manager, ue_manager=ue_manager, network_load_manager=network_load_manager, base_dir=base_dir)
     
     # Setup inter-process communication Queue
     ipc_queue = Queue()
     api_proc = multiprocessing.Process(target=run_api, args=(ipc_queue,))
     api_proc.start()
-
+    
     def signal_handler(signum, frame):
         print("Signal received, shutting down gracefully...")
         ipc_queue.put("SHUTDOWN")  # Signal the API process to shutdown
         api_proc.join()  # Wait for the API process to exit
         print("API server shutdown complete.")
         traffic_thread.join()  # Ensure the traffic generation thread is also cleanly shutdown
+        monitoring_thread.join()  # Ensure the monitoring thread is also cleanly shutdown
         exit(0)
-
+    
     signal.signal(signal.SIGINT, signal_handler)
     signal.signal(signal.SIGTERM, signal_handler)
-
+    
     cli.cmdloop()
 
 if __name__ == "__main__":

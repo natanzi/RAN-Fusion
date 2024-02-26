@@ -127,7 +127,7 @@ class NetworkLoadManager:
             cell_load_logger.info(f"Cell {cell_id} Load: {cell_load:.2f}%")
             DatabaseManager().write_cell_load(cell_id, cell_load)
 
-        # Optionally, calculate, log, and write the load of each sector
+        #calculate, log, and write the load of each sector
         for sector_id, sector in self.sector_manager.sectors.items():
             sector_load = self.calculate_sector_load(sector)
             # Assuming sector_load_logger and sector_manager exist
@@ -136,12 +136,12 @@ class NetworkLoadManager:
 ####################################################################################################################   
     def network_measurement(self):
         network_load = self.calculate_network_load()
-        print(f"Network Load: {network_load:.2f}%")
+        #print(f"Network Load: {network_load:.2f}%")
 
         # Calculate network delay
         network_delay_calculator = NetworkDelay()
         network_delay = network_delay_calculator.calculate_delay(network_load)
-        print(f"Network Delay: {network_delay} ms")
+        #print(f"Network Delay: {network_delay} ms")
 
         # Write network measurement (both load and delay) to the database
         self.db_manager.write_network_measurement(network_load, network_delay)
@@ -149,37 +149,41 @@ class NetworkLoadManager:
 ##################################################################################################################     
     def monitoring(self):
         """
-        This method always monitors sector load, cell load, and network load
-        if the network load, cell load or sector load hit a threshold, the method will call the load balancer!
+        Continuously monitors sector load, cell load, and network load.
+        Triggers load balancing if any load exceeds the congestion threshold.
         """
         while True:
             # Calculate and log gNodeB loads
             gNodeB_loads = self.calculate_gNodeB_load()
             for gNodeB_id, load in gNodeB_loads.items():
-                if load > 80:  # Assuming 80% as the congestion threshold for gNodeBs
+                gnodbe_load_logger.info(f"gNodeB {gNodeB_id} Load: {load:.2f}%")
+                if load > 80:  # Congestion threshold for gNodeBs
                     gnodbe_load_logger.warning(f"gNodeB {gNodeB_id} is congested with a load of {load:.2f}%.")
                     self.load_balancer.handle_load_balancing('gNodeB', gNodeB_id)
 
             # Calculate and log cell loads
             for cell_id, cell in self.cell_manager.cells.items():
                 cell_load = self.calculate_cell_load(cell)
-                if cell_load > 80:  # Assuming 80% as the congestion threshold for cells
+                cell_load_logger.info(f"Cell {cell_id} Load: {cell_load:.2f}%")
+                if cell_load > 80:  # Congestion threshold for cells
                     cell_load_logger.warning(f"Cell {cell_id} is congested with a load of {cell_load:.2f}%.")
-                self.load_balancer.handle_load_balancing('cell', cell_id)
+                    self.load_balancer.handle_load_balancing('cell', cell_id)
 
             # Calculate and log sector loads
             for sector_id, sector in self.sector_manager.sectors.items():
                 sector_load = self.calculate_sector_load(sector)
-                if sector_load > 80:  # Assuming 80% as the congestion threshold for sectors
+                sector_load_logger.info(f"Sector {sector_id} Load: {sector_load:.2f}%")
+                if sector_load > 80:  # Congestion threshold for sectors
                     sector_load_logger.warning(f"Sector {sector_id} is congested with a load of {sector_load:.2f}%.")
                     self.load_balancer.handle_load_balancing('sector', sector_id)
 
             # Calculate and log network load
             network_load = self.calculate_network_load()
-            if network_load > 80:  # Assuming 80% as the congestion threshold for the network
+            cell_load_logger.info(f"Network average load: {network_load:.2f}%")
+            if network_load > 80:  # Congestion threshold for the network
                 cell_load_logger.warning(f"Network is congested with an average load of {network_load:.2f}%.")
 
-            time.sleep(1)  # Adjust sleep time as needed
+            time.sleep(1) 
 
 ################################################Finding Neighbors#########################################################
     def get_sorted_entities_by_load(self, entity_id):

@@ -225,5 +225,23 @@ class DatabaseManager:
                     'time': record.get_time()
                 })
         return metrics
-
-            
+##################################################################################################################################
+    def get_sector_load(self, sector_id):
+        # Flux query syntax for InfluxDB 2.x
+        query = f'''
+        from(bucket: "{self.bucket}")
+            |> range(start: -1d)
+            |> filter(fn: (r) => r["_measurement"] == "sector" and r["sector_id"] == "{sector_id}")
+            |> filter(fn: (r) => r["_field"] == "load")  # Assuming 'load' is a field in your data
+        '''
+        result = self.query_api.query(query=query)
+        load_metrics = []
+        for table in result:
+            for record in table.records:
+                # Adjust according to the structure of your data
+                load_metrics.append({
+                    'load': record.get_value(),
+                    'time': record.get_time()
+                })
+        return load_metrics
+##################################################################################################################################

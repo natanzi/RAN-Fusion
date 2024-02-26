@@ -6,6 +6,19 @@ from database.database_manager import DatabaseManager
 import time
 
 class LoadBalancer:
+    _instance = None
+
+    def __new__(cls, *args, **kwargs):
+        if cls._instance is None:
+            cls._instance = super(LoadBalancer, cls).__new__(cls)
+            # Initialize any necessary attributes here
+        return cls._instance
+
+    @classmethod
+    def get_instance(cls):
+        if cls._instance is None:
+            cls._instance = cls.__new__(cls)
+        return cls._instance
 
     def __init__(self):
         self.db_manager = DatabaseManager.get_instance()
