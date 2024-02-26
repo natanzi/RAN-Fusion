@@ -9,7 +9,9 @@ import json
 
 # Read from environment variables or use default values
 INFLUXDB_URL = os.getenv('INFLUXDB_URL', 'http://localhost:8086')
-INFLUXDB_TOKEN = os.getenv('INFLUXDB_TOKEN', 'U9PObCD-RJCX-nzLzSLpKA7jOZcXdkKEE7hT6TFGPH3w6s90XR015YIvKHnYcIfH6AqOVPrs2vAthpQjdoMJDA==')
+INFLUXDB_TOKEN = os.getenv('INFLUXDB_TOKEN')
+if not INFLUXDB_TOKEN:
+    raise ValueError("INFLUXDB_TOKEN environment variable is not set.")
 INFLUXDB_ORG = os.getenv('INFLUXDB_ORG', 'ranfusion')
 INFLUXDB_BUCKET = os.getenv('INFLUXDB_BUCKET', 'RAN_metrics')
 

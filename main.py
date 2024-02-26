@@ -21,15 +21,24 @@ from threading import Thread
 from API_Gateway import API
 
 def run_api(queue):
-    # Example of using the queue within the API process if needed
-    # This is a placeholder for where you might handle incoming queue messages
+    def start_api_server():
+        print("Starting API server on port 5000...")
+        API.app.run(port=5000, use_reloader=False)  # use_reloader=False to prevent the server from starting twice in debug mode
+
+    # Start the Flask API server in a separate thread
+    api_server_thread = Thread(target=start_api_server)
+    api_server_thread.start()
+
+    # Handle queue messages
     while True:
         message = queue.get()  # This will block until an item is available
         if message == "SHUTDOWN":
             print("Shutting down API server...")
+            # Implement the logic to properly shutdown the Flask server if needed
             break
         # Handle other messages or perform actions based on the queue content
-    API.app.run(port=5000)
+
+    api_server_thread.join()  # Wait for the API server thread to finish
 
 def generate_traffic_loop(traffic_controller, ue_list, network_load_manager, network_delay_calculator, db_manager):
     while True:
