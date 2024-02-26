@@ -2,13 +2,16 @@
 from dotenv import load_dotenv
 import os
 import sys
+from multiprocessing import Queue
+import threading
+import time
 
 # Build the path to the .env file in the root directory of your project
 dotenv_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), '.env')
 
 # Load the .env file
 load_dotenv(dotenv_path)
-
+print(dotenv_path)
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) 
 from network.command_handler import CommandHandler
 from logs.logger_config import API_logger
@@ -20,12 +23,38 @@ import re
 from influxdb_client import InfluxDBClient
 
 app = Flask(__name__)
-()
+
 INFLUXDB_TOKEN = os.getenv('INFLUXDB_TOKEN')
 INFLUXDB_ORG = os.getenv('INFLUXDB_ORG')
 INFLUXDB_URL = os.getenv('INFLUXDB_URL') 
 client = InfluxDBClient(url=INFLUXDB_URL,token=INFLUXDB_TOKEN,org=INFLUXDB_ORG)
 
+def check_for_shutdown_command(queue):
+    """
+    Periodically checks the queue for the shutdown command.
+    If found, stops the Flask application.
+    """
+    while True:
+        if not queue.empty():
+            message = queue.get()
+            if message == "SHUTDOWN":
+                # Implement your shutdown logic here
+                # For development server, you might set a global flag
+                # For production with a server like Gunicorn, you would send a signal to shut down
+                print("Shutdown command received. Implement shutdown logic here.")
+                break
+        time.sleep(1)  # Check every second
+
+def run_api(queue):
+    """
+    Starts the API server and begins checking the queue for messages.
+    """
+    shutdown_thread = threading.Thread(target=check_for_shutdown_command, args=(queue,))
+    shutdown_thread.start()
+    
+    # Start the Flask application
+    app.run(debug=True, use_reloader=False)  # use_reloader=False is important to not spawn child processes
+    
 #########################################################################################################
 @app.route('/del_ue', methods=['POST'])
 def del_ue():
