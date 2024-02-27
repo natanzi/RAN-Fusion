@@ -94,14 +94,18 @@ class TrafficController:
             raise ValueError(f"Unknown service type: {ue.ServiceType}")
     
 ##############################################################################################################################
-    # Traffic generation methods with conditional application of jitter, delay, and packet loss
     def generate_voice_traffic(self, severity='low'):
-        severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['low'])
+        severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['harsh'])
         # Adjust parameters based on severity
         start_time = datetime.now()
         delay = random.uniform(*severity_settings['delay'])
         time.sleep(delay)  # Use severity-specific delay
-        jitter = random.uniform(0, severity_settings['jitter']) if severity_settings['jitter'] > 0 else 0
+
+        # Ensure jitter is an integer before comparison
+        jitter_setting = severity_settings['jitter']
+        jitter_max = jitter_setting if isinstance(jitter_setting, int) else jitter_setting[1]  # Use the second value if it's a tuple
+        jitter = random.uniform(0, jitter_max) if jitter_max > 0 else 0
+
         bitrate = random.uniform(*self.voice_traffic_params['bitrate']) * severity_settings['multiplier']
         interval = 0.02  # Interval duration in seconds
         data_size = int((bitrate * interval) / 8 * 1024)
@@ -123,27 +127,30 @@ class TrafficController:
         return traffic_data
 ###################################################################################################################
     def generate_video_traffic(self, severity='low'):
-        severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['low'])
-    
+        severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['harsh'])
         # Adjust parameters based on severity
         start_time = datetime.now()
         delay = random.uniform(*severity_settings['delay'])
         time.sleep(delay)  # Use severity-specific delay
-        jitter = random.uniform(0, severity_settings['jitter']) if severity_settings['jitter'] > 0 else 0
+
+        # Ensure jitter is an integer before comparison
+        jitter_setting = severity_settings['jitter']
+        jitter_max = jitter_setting if isinstance(jitter_setting, int) else jitter_setting[1]  # Use the second value if it's a tuple
+        jitter = random.uniform(0, jitter_max) if jitter_max > 0 else 0
         time.sleep(jitter)  # Apply jitter
-    
+
         # Adjust the number of streams and bitrate based on severity
         num_streams = random.randint(*self.video_traffic_params['num_streams']) * severity_settings['multiplier']
         data_size = 0  # Initialize data_size as 0 bytes
         interval = 1  # Interval duration in seconds
-    
+
         for _ in range(num_streams):
             stream_bitrate = random.uniform(*self.video_traffic_params['stream_bitrate']) * severity_settings['multiplier']  # Adjust bitrate based on severity
             if random.random() < severity_settings['packet_loss_rate']:
                 continue  # Skip this stream due to packet loss based on severity
             # Convert to MB, then to bytes, and accumulate
             data_size += int((stream_bitrate * interval) / 8 * 1024 * 1024)
-    
+
         # Record the end timestamp
         end_time = datetime.now()
         traffic_data = {
@@ -160,27 +167,35 @@ class TrafficController:
         return traffic_data
 ###################################################################################################################
     def generate_gaming_traffic(self, severity='low'):
-        severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['low'])
-    
+        severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['harsh'])
+
         try:
             # Record the start timestamp
             start_time = datetime.now()
             # Adjust delay based on severity
             delay = random.uniform(*severity_settings['delay'])
             time.sleep(delay)  # Use gaming-specific delay adjusted for severity
-            # Adjust jitter based on severity
-            jitter = random.uniform(0, severity_settings['jitter']) if severity_settings['jitter'] > 0 else 0
+
+            # Ensure jitter is an integer before comparison
+            jitter_setting = severity_settings['jitter']
+            jitter_max = jitter_setting if isinstance(jitter_setting, int) else jitter_setting[1]  # Use the second value if it's a tuple
+            jitter = random.uniform(0, jitter_max) if jitter_max > 0 else 0
+
             # Adjust bitrate based on severity
             bitrate = random.uniform(*self.gaming_traffic_params['bitrate']) * severity_settings['multiplier']  # Adjust bitrate for severity
             interval = 0.1  # Interval duration in seconds
+
             # Convert to KB, then to bytes, and ensure it's an integer
             data_size = int((bitrate * interval) / 8 * 1024)  
+
             # Apply jitter
             time.sleep(jitter)
+
             # Simulate packet loss based on severity
             packet_loss_occurred = random.random() < severity_settings['packet_loss_rate']
             if packet_loss_occurred:
                 data_size = 0  # Packet is lost
+
             # Record the end timestamp
             end_time = datetime.now()
             traffic_data = {
@@ -208,25 +223,32 @@ class TrafficController:
             }
 #####################################################################################
     def generate_iot_traffic(self, severity='low'):
-        severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['low'])
-    
+        severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['harsh'])
+
         # Record the start timestamp
         start_time = datetime.now()
         # Adjust delay based on severity
         delay = random.uniform(*severity_settings['delay'])
         time.sleep(delay)  # Use IoT-specific delay adjusted for severity
-        # Adjust jitter based on severity
-        jitter = random.uniform(0, severity_settings['jitter']) if severity_settings['jitter'] > 0 else 0
+
+        # Ensure jitter is an integer before comparison
+        jitter_setting = severity_settings['jitter']
+        jitter_max = jitter_setting if isinstance(jitter_setting, int) else jitter_setting[1]  # Use the second value if it's a tuple
+        jitter = random.uniform(0, jitter_max) if jitter_max > 0 else 0
+
         # Adjust packet size and interval based on severity
         packet_size = random.randint(*self.iot_traffic_params['packet_size']) * severity_settings['multiplier']  # Adjust packet size for severity
         interval = random.uniform(*self.iot_traffic_params['interval']) * severity_settings['multiplier']  # Adjust interval for severity
         # Convert packet_size from KB to bytes, and ensure it's an integer
         data_size = int(packet_size * 1024)  
+
         # Apply jitter
         time.sleep(jitter)
+
         # Simulate packet loss based on severity
         if random.random() < severity_settings['packet_loss_rate']:
             data_size = 0  # Packet is lost
+
         # Record the end timestamp
         end_time = datetime.now()
         traffic_data = {
@@ -242,25 +264,32 @@ class TrafficController:
         return traffic_data
 ###########################################################################################
     def generate_data_traffic(self, severity='low'):
-        severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['low'])
-    
+        severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['harsh'])
+
         # Record the start timestamp
         start_time = datetime.now()
         # Adjust delay based on severity
         delay = random.uniform(*severity_settings['delay'])
         time.sleep(delay)  # Use data-specific delay adjusted for severity
-        # Adjust jitter based on severity
-        jitter = random.uniform(0, severity_settings['jitter']) if severity_settings['jitter'] > 0 else 0
+
+        # Ensure jitter is an integer before comparison
+        jitter_setting = severity_settings['jitter']
+        jitter_max = jitter_setting if isinstance(jitter_setting, int) else jitter_setting[1]  # Use the second value if it's a tuple
+        jitter = random.uniform(0, jitter_max) if jitter_max > 0 else 0
+
         # Adjust bitrate and interval based on severity
         bitrate = random.uniform(*self.data_traffic_params['bitrate']) * severity_settings['multiplier']  # Adjust bitrate for severity
         interval = random.uniform(*self.data_traffic_params['interval']) * severity_settings['multiplier']  # Adjust interval for severity
         # Convert bitrate from Mbps to bytes, then calculate data_size for the interval, and ensure it's an integer
         data_size = int((bitrate * interval) / 8 * 1024 * 1024)
+
         # Apply jitter
         time.sleep(jitter)
+
         # Simulate packet loss based on severity
         if random.random() < severity_settings['packet_loss_rate']:
             data_size = 0  # Packet is lost
+
         # Record the end timestamp
         end_time = datetime.now()
         traffic_data = {

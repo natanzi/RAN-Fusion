@@ -39,7 +39,7 @@ def initialize_network(base_dir, num_ues_to_launch=None):
     cells = cell_manager.initialize_cells(config.cells_config)
 
     assert cells is not None, "Cells initialization failed or returned None."
-    print(f"Cells initialized: {cells}")
+    #print(f"Cells initialized: {cells}")
 
     sector_manager = SectorManager.get_instance(db_manager)
     sectors = sector_manager.initialize_sectors(config.sectors_config, gnodeb_manager, cell_manager)

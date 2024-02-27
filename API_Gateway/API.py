@@ -11,7 +11,7 @@ dotenv_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 
 # Load the .env file
 load_dotenv(dotenv_path)
-print(dotenv_path)
+#print(dotenv_path)
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) 
 from network.command_handler import CommandHandler
 from logs.logger_config import API_logger

@@ -68,7 +68,7 @@ class CellManager:
             self.db_manager.insert_data(point)
 
         cell_logger.info("Cells initialization completed.")
-        print(f"Initialized cells print for test the issue: {self.cells}")  # Add this line to print out the cells
+        #print(f"Initialized cells print for test the issue: {self.cells}")  # Add this line to print out the cells
         return self.cells  # Return the dictionary of initialized cells
 
     def add_cell(self, cell_data):

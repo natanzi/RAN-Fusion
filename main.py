@@ -50,62 +50,67 @@ def generate_traffic_loop(traffic_controller, ue_list, network_load_manager, net
 def main():
     logging.basicConfig(level=logging.INFO)
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    # Set sector_load_logger and cell_load_logger to WARNING level
+
+    # Set logging levels
     logging.getLogger('sector_load_logger').setLevel(logging.WARNING)
     logging.getLogger('cell_load_logger').setLevel(logging.WARNING)
     logging.getLogger('gnodbe_load_logger').setLevel(logging.WARNING)
-    
+
     logo_text = create_logo()
     print(logo_text)
-    
+
+    # Start the API server in a separate process
+    ipc_queue = Queue()
+    api_proc = multiprocessing.Process(target=run_api, args=(ipc_queue,))
+    api_proc.start()
+
+    # Wait a moment to ensure API server starts
+    time.sleep(1)
+
+    # Database connection
     db_manager = DatabaseManager.get_instance()
     if db_manager.test_connection():
         print("Connection to InfluxDB successful.")
     else:
         print("Failed to connect to InfluxDB. Exiting...")
         return
-    
-    time.sleep(1)
-    
+
+    # Network Initialization
     gNodeB_manager = gNodeBManager.get_instance(base_dir=base_dir)
     gNodeBs, cells, sectors, ues, cell_manager = initialize_network(base_dir, num_ues_to_launch=10)
     print("Network Initialization Complete")
-    
+
+    # Additional setup
     sector_manager = SectorManager.get_instance(db_manager=db_manager)
     network_load_manager = NetworkLoadManager.get_instance(cell_manager, sector_manager)
     network_load_manager.log_and_write_loads()
-    
-    ue_manager = UEManager.get_instance(base_dir)  
+
+    ue_manager = UEManager.get_instance(base_dir)
     network_delay_calculator = NetworkDelay()
-    
+
     traffic_controller_instance = TrafficController()
     traffic_thread = Thread(target=generate_traffic_loop, args=(traffic_controller_instance, ues, network_load_manager, network_delay_calculator, db_manager))
     traffic_thread.start()
-    
-    # Start the monitoring function in a separate thread
+
     monitoring_thread = Thread(target=network_load_manager.monitoring)
     monitoring_thread.start()
-    
+
+    # Start CLI
     cli = SimulatorCLI(gNodeB_manager=gNodeB_manager, cell_manager=cell_manager, sector_manager=sector_manager, ue_manager=ue_manager, network_load_manager=network_load_manager, base_dir=base_dir)
-    
-    # Setup inter-process communication Queue
-    ipc_queue = Queue()
-    api_proc = multiprocessing.Process(target=run_api, args=(ipc_queue,))
-    api_proc.start()
-    
+    cli.cmdloop()
+
+    # Signal handling for graceful shutdown
     def signal_handler(signum, frame):
         print("Signal received, shutting down gracefully...")
-        ipc_queue.put("SHUTDOWN")  # Signal the API process to shutdown
-        api_proc.join()  # Wait for the API process to exit
+        ipc_queue.put("SHUTDOWN")
+        api_proc.join()
         print("API server shutdown complete.")
-        traffic_thread.join()  # Ensure the traffic generation thread is also cleanly shutdown
-        monitoring_thread.join()  # Ensure the monitoring thread is also cleanly shutdown
+        traffic_thread.join()
+        monitoring_thread.join()
         exit(0)
-    
+
     signal.signal(signal.SIGINT, signal_handler)
     signal.signal(signal.SIGTERM, signal_handler)
-    
-    cli.cmdloop()
 
 if __name__ == "__main__":
     main()
