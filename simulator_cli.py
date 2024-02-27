@@ -305,7 +305,7 @@ class SimulatorCLI(cmd.Cmd):
         try:
             ue_id = int(arg)
             #call the stop_ue_traffic method from the TrafficController instance
-            self.traffic_controller.stop_ue_traffic(ue_id)
+            self.ue_manager.stop_ue_traffic(ue_id)
             print(f"Traffic generation for UE {ue_id} has been stopped.")
         except ValueError:
             print("Invalid UE ID. Please provide a numeric UE ID.")
