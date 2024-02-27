@@ -50,6 +50,10 @@ def generate_traffic_loop(traffic_controller, ue_list, network_load_manager, net
 def main():
     logging.basicConfig(level=logging.INFO)
     base_dir = os.path.dirname(os.path.abspath(__file__))
+    # Set sector_load_logger and cell_load_logger to WARNING level
+    logging.getLogger('sector_load_logger').setLevel(logging.WARNING)
+    logging.getLogger('cell_load_logger').setLevel(logging.WARNING)
+    logging.getLogger('gnodbe_load_logger').setLevel(logging.WARNING)
     
     logo_text = create_logo()
     print(logo_text)
