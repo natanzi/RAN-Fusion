@@ -189,4 +189,14 @@ def sector_load():
     except Exception as e:
         API_logger.error(f"An error occurred while retrieving load metrics for sector {sector_id}: {e}")
         return jsonify({'error': 'An error occurred while retrieving load metrics'}), 500
-#########################################################################################################    
+######################################################################################################### 
+@app.route('/set_traffic', methods=['POST'])
+def set_traffic():
+    data = request.json
+    command_result, message = CommandHandler.handle_command('set_custom_traffic', data)
+    if command_result:
+        return jsonify({'message': message}), 200
+    else:
+        return jsonify({'error': message}), 500
+
+

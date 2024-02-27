@@ -27,6 +27,8 @@ class CommandHandler:
             return CommandHandler._start_ue_traffic(data)
         elif command_type == 'stop_ue_traffic':
             return CommandHandler._stop_ue_traffic(data)
+        elif command_type == 'set_custom_traffic':  # New command type
+            return CommandHandler._set_custom_traffic(data)
         else:
             raise ValueError("Unsupported command type")
 
@@ -136,3 +138,18 @@ class CommandHandler:
             print(f"UE {ue_id} updated successfully.")
         else:
             print(f"UE {ue_id} not found.")
+    @staticmethod
+    def _set_custom_traffic(data):  
+        ue_id = data['ue_id']
+        traffic_params = data['traffic_params']
+    
+    # TrafficController has a method to set custom traffic
+        traffic_controller = TrafficController.get_instance()
+        result = traffic_controller.set_custom_traffic(ue_id, traffic_params)
+    
+        if result:
+            API_logger.info(f"Custom traffic set for UE {ue_id}.")
+            return jsonify({'message': f"Custom traffic set for UE {ue_id}."}), 200
+        else:
+            API_logger.error(f"Failed to set custom traffic for UE {ue_id}.")
+            return jsonify({'error': f"Failed to set custom traffic for UE {ue_id}."}), 500

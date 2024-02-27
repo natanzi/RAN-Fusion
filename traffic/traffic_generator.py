@@ -296,16 +296,18 @@ class TrafficController:
             print(f"UE {ue_id} does not exist.")
 ############################################################################################
     def set_custom_traffic(self, ue_id, traffic_params):
-        # Find the UE instance by ue_id
+    # Find the UE instance by ue_id
         ue = self.find_ue_by_id(ue_id)
         if not ue:
             print(f"UE with ID {ue_id} not found.")
             return
 
         # Apply the custom traffic parameters
-        # This is a simplified example. The actual implementation would depend on how traffic is managed.
         ue.traffic_volume = traffic_params.get('traffic_volume', 0)
-        print(f"Set custom traffic for UE {ue_id}: {ue.traffic_volume}MB")
+        # Optionally, set other parameters like throughput if needed
+        ue.throughput = traffic_params.get('throughput', ue.throughput)
+
+        print(f"Set custom traffic for UE {ue_id}: {ue.traffic_volume}MB, Throughput: {ue.throughput}bps")
 ############################################################################################
     def calculate_throughput(self, ue):
         # Parameter validation
