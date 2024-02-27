@@ -36,6 +36,7 @@ alias_config = {
 class SimulatorCLI(cmd.Cmd):
     def __init__(self, gNodeB_manager, cell_manager, sector_manager, ue_manager, network_load_manager, base_dir, *args, **kwargs):
         self.traffic_controller = TrafficController()
+        self.base_dir = base_dir
         super().__init__(*args, **kwargs, completekey='tab')
         self.display_thread = None
         self.running = False  # Flag to control the display thread
@@ -43,7 +44,7 @@ class SimulatorCLI(cmd.Cmd):
         self.gNodeB_manager = gNodeB_manager
         self.cell_manager = cell_manager
         self.sector_manager = sector_manager
-        self.ue_manager = ue_manager
+        self.ue_manager = UEManager.get_instance(base_dir=self.base_dir)
         self.network_load_manager = network_load_manager
         self.stop_event = Event()
 
