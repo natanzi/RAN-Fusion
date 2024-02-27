@@ -68,31 +68,28 @@ class TrafficController:
             'packet_loss_rate': 0.1
         }
     }
-    def generate_traffic(self, ue):
-        # Determine the type of traffic to generate based on the UE's service type
-        # Check if traffic generation is enabled for this UE
+    def generate_traffic(self, ue, severity='low'):
         if not ue.generating_traffic:
             print(f"Traffic generation for UE {ue.ID} is stopped.")
-            # Return a traffic data structure with data_size set to 0
             return {
-                'data_size': 0,  # Zero bytes
+                'data_size': 0,
                 'start_timestamp': datetime.now(),
                 'end_timestamp': datetime.now(),
-                'interval': 1,  # Default interval, can be adjusted as needed
+                'interval': 1,
                 'ue_delay': 0,
                 'ue_jitter': 0,
                 'ue_packet_loss_rate': 0
             }
         if ue.ServiceType.lower() == 'voice':
-            return self.generate_voice_traffic()
+            return self.generate_voice_traffic(severity)
         elif ue.ServiceType.lower() == 'video':
-            return self.generate_video_traffic()
+            return self.generate_video_traffic(severity)
         elif ue.ServiceType.lower() == 'game':
-            return self.generate_gaming_traffic()
+            return self.generate_gaming_traffic(severity)
         elif ue.ServiceType.lower() == 'iot':
-            return self.generate_iot_traffic()
+            return self.generate_iot_traffic(severity)
         elif ue.ServiceType.lower() == 'data':
-            return self.generate_data_traffic()
+            return self.generate_data_traffic(severity)
         else:
             raise ValueError(f"Unknown service type: {ue.ServiceType}")
     

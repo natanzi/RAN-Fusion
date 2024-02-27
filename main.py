@@ -44,9 +44,6 @@ def generate_traffic_loop(traffic_controller, ue_list, network_load_manager, net
     while True:
         for ue in ue_list:
             throughput_data = traffic_controller.calculate_throughput(ue)
-            #network_load = network_load_manager.calculate_network_load()
-            #network_delay = network_delay_calculator.calculate_delay(network_load)
-            #db_manager.write_network_measurement(network_load, network_delay)
             network_load_manager.network_measurement()
         time.sleep(1)
 

@@ -1,9 +1,28 @@
 # loadbalancer.py and it is inside the network folder
+############################################################################################################
+# Steps Recap:
+#1 - Check if current source sector exceeds load threshold and Verify actual overload status  
+#2 - Get UEs connected to source sector and Sort by highest throughput users first (Prioritize heavy users)# 
+#3 - Find underloaded neighbor sectors and Filter sectors by % load
+#4 - Handover UEs to underloaded neighbor sectors and For each UE:
+#       - Attempt handover to neighbor targets
+#       - If failure, try next target
+#       - If all targets fail, revert UE
+#5 - If no viable neighbor sectors:-Find least loaded neighbor cells
+#6 - Choose best sector in underloaded cell- Identify best target sector  
+#7 - Handover UE to new cell target sector and Validate mobility successful
+#8 - Rollback any unsuccessful handovers and Revert UE association if handover fails  
+#9 - Update database for successful handovers and  Ensure accurate view of network   
+#10- Sync new UE to sector mapping and Keep in-memory mapping in sync
+#############################################################################################################
 from datetime import datetime
 import logging
-from logs.logger_config import cell_load_logger, cell_logger, gnodeb_logger, ue_logger
+from logs.logger_config import cell_load_logger, cell_logger, gnodeb_logger, ue_logger, sector_logger
 from database.database_manager import DatabaseManager
 import time
+from network.ue_manager import UEManager
+from network.sector_manager import SectorManager
+import threading
 
 class LoadBalancer:
     _instance = None
@@ -22,7 +41,17 @@ class LoadBalancer:
 
     def __init__(self):
         self.db_manager = DatabaseManager.get_instance()
-
+        self.handover_success_count = 0
+        self.handover_failure_count = 0
+        self.lock = threading.Lock()
+    
+    def update_handover_counts(self, handover_successful):
+        with self.lock:
+            if handover_successful:
+                self.handover_success_count += 1
+            else:
+                self.handover_failure_count += 1
+    
     def handle_load_balancing(self, entity_type, entity_id):
         """
         Perform load balancing based on the type and ID of the overloaded entity.
@@ -41,45 +70,43 @@ class LoadBalancer:
         else:
             raise ValueError("Unsupported entity type for load balancing.")
 
-            # Sector is not overloaded, no action required
-            #1- first we should make sure is really overloaded?
-            #2- if yes we should get the list of UE associated with the sector with their throuput and sort it from high throuput to low thruput
-            #3- then we should find less loaded neibers sectors list from get_sorted_entities_by_load() of the class of NetworkLoadManager in this file NetworkLoadManager.py this is target sector
-            #5- we should move UE from the high loeaded sector [source]  to the neibers sector which has choosed as target sector in step 3
-            #6- in case of any failure, we should roleback the UE to the source sector.
-            #6- we should update the UE with the new sector ID in the database
-            #7- we make sure the ue in new sector is updated in the list of the sector id in memory
 ###########################################################################################################################################
     def balance_sector_load(self, sector_id):
         if not self.is_sector_overloaded(sector_id):
             return
-
         sorted_ues = self.get_sorted_ues_by_throughput(sector_id)
         target_sector = self.find_target_sector(sector_id)
-
         if not target_sector:
-            # Log and handle the case where no suitable target sector is found
+            # Log the event
+            sector_logger.warning(f"No suitable target sector found for sector {sector_id}.")
+            # Consider alternative strategies or abort the operation
             return
 
         for ue in sorted_ues:
-            if not self.move_ue_to_sector(ue, target_sector):
-                # Log failure and potentially rollback
-                break  # or continue based on your rollback strategy
+            if not self.move_ue_to_sector(ue.ID, target_sector.sector_id):  # Assuming UE object has ID attribute and target_sector is a Sector object
+                # Log failure
+                sector_logger.error(f"Failed to move UE {ue.ID} to target sector {target_sector.sector_id}. Initiating rollback.")
+                # Rollback strategy: Attempt to move the UE back to its original sector or handle according to your rollback policy
+                if self.rollback_ue_move(ue.ID, sector_id):  # Assuming rollback_ue_move is a method to handle rollback
+                    sector_logger.info(f"Rollback successful for UE {ue.ID}.")
+                else:
+                    sector_logger.critical(f"Rollback failed for UE {ue.ID}. Immediate attention required.")
+                break  # Exit the loop after handling the failure according to your strategy
 
         # Update database and in-memory state after successful load balancing
-        self.update_database_and_memory(sector_id, target_sector, sorted_ues)
-
+        self.update_database_and_memory(sector_id, target_sector.sector_id, sorted_ues)
+###########################################################################################################################################
     def is_sector_overloaded(self, sector_id):
-        # Implement logic to determine if a sector is overloaded
+        # Existing logic to determine if a sector is overloaded
         sector_load = self.network_load_manager.calculate_sector_load(sector_id)
         return sector_load > 80  # Assuming 80% as the overload threshold
 
     def get_sorted_ues_by_throughput(self, sector_id):
-        # Implement logic to sort UEs by throughput
+        # Existing logic to sort UEs by throughput
         sector = self.network_load_manager.sector_manager.get_sector(sector_id)
         sorted_ues = sorted(sector.ues, key=lambda ue: ue.throughput, reverse=True)
         return sorted_ues
-
+    
     def find_target_sector(self, sector_id):
         # Use NetworkLoadManager to find a less loaded neighboring sector
         sorted_neighbors = self.network_load_manager.get_sorted_entities_by_load(sector_id)
@@ -87,10 +114,37 @@ class LoadBalancer:
             return sorted_neighbors[0]  # Assuming the first one is the least loaded
         return None
 
-    def move_ue_to_sector(self, ue, target_sector):
-        # Implement logic to move a UE to a new sector
-        # This should include handover logic and database updates
-        return perform_handover(ue, target_sector)
+    def move_ue_to_sector(self, ue_id, target_sector_id):
+        ue = self.get_ue_by_id(ue_id)
+        original_sector_id = ue.ConnectedCellID
+        handover_successful = self.perform_handover(ue, target_sector_id)
+    
+        if not handover_successful:
+            sector_logger.error(f"Handover failed for UE {ue_id} to target sector {target_sector_id}. Attempting rollback.")
+            self.rollback_ue_move(ue_id, original_sector_id)
+
+    # Assuming we have access to a method to get the gNodeB and original sector (cell) of the UE
+        gnodeb = self.get_gnodeb_for_ue(ue_id)
+        original_sector = self.get_sector_for_ue(ue_id)
+
+    # Attempt the handover to the target sector
+        target_cell = self.get_cell_by_sector_id(target_sector_id)  # Assuming a method to get the cell by sector ID
+        handover_successful = self.perform_handover(gnodeb, ue, target_cell)
+
+        if handover_successful:
+            print(f"Handover successful for UE {ue_id} to sector {target_sector_id}.")
+            # Update the UE's sector in the database and in-memory state
+            self.update_ue_sector_in_db_and_memory(ue_id, target_sector_id)
+            return True
+        else:
+            print(f"Handover failed for UE {ue_id}. Attempting rollback to original sector {original_sector.ID}.")
+            # Attempt rollback to the original sector
+            rollback_successful = self.perform_handover(gnodeb, ue, original_sector)
+            if rollback_successful:
+                print(f"Rollback successful for UE {ue_id} to original sector {original_sector.ID}.")
+            else:
+                print(f"Critical: Rollback failed for UE {ue_id}. Immediate attention required.")
+            return False
 
     def update_database_and_memory(self, source_sector_id, target_sector_id, ues_moved):
         # Implement logic to update the database and in-memory state
@@ -153,14 +207,13 @@ class LoadBalancer:
 
         # Ensure target_cell is provided
         if not target_cell:
-            log_handover_failure("Target cell not provided", ue, original_cell, target_cell, rollback=False)
-            update_handover_counts(gnodeb, False)
+            ue_logger.warning("Target cell not provided", ue, original_cell, target_cell, rollback=False)
+            update_handover_counts(gnodeb, False)  # Update handover failure count
             return False  # Optionally, handle this situation more gracefully
 
         # Check handover feasibility
         if check_handover_feasibility(target_cell, ue):
             handover_successful = ue.perform_handover(original_cell, target_cell, gnodeb.network_state)
-
             if handover_successful:
                 # Process after successful handover
                 if original_cell:
@@ -184,22 +237,29 @@ class LoadBalancer:
             # Handling feasibility check failure
             log_handover_failure("Handover feasibility check failed", ue, original_cell, target_cell, rollback=False)
 
-        update_handover_counts(gnodeb, handover_successful)
+        update_handover_counts(gnodeb, handover_successful)  # Update handover counts based on success or failure
         return handover_successful
-
-    def log_handover_failure(message, ue, original_cell, target_cell, rollback=False):
-        gnodeb_logger.error(f"{message} for UE {ue.ID} from Cell {original_cell.ID} to Cell {target_cell.ID if target_cell else 'None'}.")
-        cell_logger.error(f"{message} for UE {ue.ID} from Cell {original_cell.ID}.")
-        ue_logger.error(f"{message} for UE {ue.ID}.")
-        if rollback:
-            rollback_successful = ue.perform_handover(target_cell, original_cell, gnodeb.network_state)
+###########################################################################################################################################           
+    def update_database_and_memory(self, source_sector_id, target_sector_id, ues_moved):
+    # Pseudo-code to update the database and in-memory state
+        pass  # Placeholder for actual implementation
+###########################################################################################################################################
+    def rollback_ue_move(self, ue_id, original_sector_id):
+        try:
+            ue = self.get_ue_by_id(ue_id)
+            original_sector = self.get_sector_by_id(original_sector_id)
+            rollback_successful = self.perform_handover(ue, original_sector)
             if rollback_successful:
-                gnodeb_logger.info(f"UE {ue.ID} successfully rolled back to the original cell {original_cell.ID}.")
+                sector_logger.info(f"Rollback successful for UE {ue_id} to sector {original_sector_id}.")
             else:
-                gnodeb_logger.critical(f"Rollback failed for UE {ue.ID} to original cell {original_cell.ID}.")
-
-    def update_handover_counts(gnodeb, handover_successful):
-        if handover_successful:
-            gnodeb.handover_success_count += 1
-        else:
-            gnodeb.handover_failure_count += 1
+                sector_logger.critical(f"Rollback attempt failed for UE {ue_id} to sector {original_sector_id}.")
+        except Exception as e:
+            sector_logger.critical(f"Exception during rollback for UE {ue_id}: {str(e)}")
+###########################################################################################################################################            
+    def update_state_after_rollback(self, ue_id, original_sector_id):
+        # Update the database
+        self.db_manager.update_ue_sector(ue_id, original_sector_id)
+        # Update in-memory state
+        ue = self.get_ue_by_id(ue_id)
+        ue.ConnectedCellID = original_sector_id
+        sector_logger.info(f"State updated for UE {ue_id} after rollback to sector {original_sector_id}.")
