@@ -10,7 +10,7 @@ from threading import Lock
 
 class UE:
     existing_ue_ids = set()  # Keep track of all existing UE IDs to avoid duplicates
-    ue_instances = {}
+    ue_instances = {}  #keep ue instanse
     ue_lock = Lock()
     def __init__(self, config, **kwargs):
         with UE.ue_lock:

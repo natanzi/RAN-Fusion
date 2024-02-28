@@ -229,19 +229,27 @@ class SimulatorCLI(cmd.Cmd):
         print(table)
 
 ################################################################################################################################            
-    def do_del_ue(self, ue_id):
+    def do_del_ue(self, line):
+        ue_id = line.strip()
         if not ue_id:
-            print("Please provide a UE ID.")
+            print("Usage: del_ue <ue_id>")
             return
         try:
-            # Ensure the UE ID is in the correct format (e.g., "UE10")
-            formatted_ue_id = f"UE{ue_id}".upper()  # Adjust based on your UE ID format
+            # Access the SectorManager instance
+            sector_manager = SectorManager.get_instance()
 
-            # Use the existing ue_manager instance to delete the UE
-            if self.ue_manager.delete_ue(formatted_ue_id):
-                print(f"UE {formatted_ue_id} has been successfully removed.")
+            # Use find_sector_by_ue_id to find the sector for the given UE ID
+            sector = sector_manager.find_sector_by_ue_id(ue_id)
+            if sector:
+                # Assuming there's a method in SectorManager to remove a UE from a sector
+                # This could involve calling a method on the sector object or directly on the SectorManager
+                removed = sector_manager.remove_ue_from_sector(ue_id, sector)
+                if removed:
+                    print(f"UE {ue_id} has been successfully removed from sector.")
+                else:
+                    print(f"Failed to remove UE {ue_id} from sector.")
             else:
-                print(f"Error removing UE: UE with ID {formatted_ue_id} not found or could not be removed.")
+                print(f"Error: Sector for UE {ue_id} not found.")
         except Exception as e:
             print(f"Error removing UE: {e}")
 ################################################################################################################################
