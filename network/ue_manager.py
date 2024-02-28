@@ -55,13 +55,11 @@ class UEManager:
         return new_ue
 ##################################################################################
     def get_ue_by_id(self, ue_id):
-        """
-        Retrieve a UE instance by its ID.
-        
-        :param ue_id: The ID of the UE to retrieve.
-        :return: The UE instance with the given ID, or None if not found.
-        """
-        return self.ues.get(ue_id)
+        # Assuming ue_id is an integer and UEs are stored with their ID as the key
+        ue = self.ues.get(ue_id)
+        if ue is None:
+            print(f"UE with ID {ue_id} not found.")  # Example print message for debugging
+        return ue
 ##################################################################################
     def update_ue(self, ue_id, **kwargs):
         """

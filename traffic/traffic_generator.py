@@ -3,7 +3,7 @@
 import random
 import time
 from datetime import datetime
-from logs.logger_config import traffic_update
+from logs.logger_config import traffic_update_logger
 from network.ue import UE
 from database.database_manager import DatabaseManager
 import threading
@@ -216,7 +216,7 @@ class TrafficController:
             self.traffic_logs.append(traffic_data)
             return traffic_data
         except Exception as e:
-            traffic_update.error(f"Failed to generate gaming traffic: {e}")
+            traffic_update_logger.error(f"Failed to generate gaming traffic: {e}")
             # Handle the exception by returning a default data structure with severity-adjusted parameters
             return {
                 'data_size': 0,  # Ensure this is consistent even in error handling
@@ -311,20 +311,34 @@ class TrafficController:
         return traffic_data
 ############################################################################################
     def add_ue(self, ue):
-        self.ues[ue.ID] = ue
+        if ue.ID not in self.ues:
+            self.ues[ue.ID] = ue
+            print(f"UE {ue.ID} added.")  # Example print message for debugging
 
     def remove_ue(self, ue_id):
         if ue_id in self.ues:
             del self.ues[ue_id]
+            print(f"UE {ue_id} removed.")  # Example print message for debugging
 
-    def start_ue_traffic(self, ue):
-        """Starts traffic generation for the given UE"""
-        if ue.ID not in self.ues:
-            self.add_ue(ue) 
-        if not ue.generating_traffic:
-            ue.generating_traffic = True
-            # additional setup 
-            traffic_update.info(f"Traffic started for {ue.ID}")
+    def start_ue_traffic(self, ue_or_id):
+        # Check if the input is an UE ID instead of an object and retrieve the UE object
+        if isinstance(ue_or_id, int):
+            ue = self.ues.get(ue_or_id)
+            if not ue:
+                print(f"UE with ID {ue_or_id} not found.")
+                return
+        else:
+            ue = ue_or_id
+
+        # Check if traffic is already running for this UE
+        if ue.generating_traffic:
+            traffic_update_logger(f"Traffic already on for UE {ue.ID}")
+            return
+
+        # If not generating traffic, start traffic generation
+        ue.generating_traffic = True
+        # Additional setup for starting traffic
+        print(f"Traffic generation started for UE {ue.ID}")
 
     def stop_ue_traffic(self, ue): 
         """Stops traffic generation for the given UE"""
@@ -332,7 +346,7 @@ class TrafficController:
             ue.generating_traffic = False
             ue.throughput = 0 
             # additional cleanup
-            traffic_update.info(f"Traffic stopped for {ue.ID}")
+            traffic_update_logger.info(f"Traffic stopped for {ue.ID}")
             self.remove_ue(ue.ID)
 ############################################################################################
     def set_custom_traffic(self, ue_id, traffic_params):

@@ -319,9 +319,14 @@ class SimulatorCLI(cmd.Cmd):
             return
         try:
             ue_id = int(arg)
-            # Call the start_ue_traffic method from the TrafficController instance
-            self.traffic_controller.start_ue_traffic(ue_id)
-            print(f"Traffic generation for UE {ue_id} has been started.")
+            # Retrieve the UE object using the UE ID
+            ue = self.ue_manager.get_ue_by_id(ue_id)
+            if not ue:
+                print(f"UE with ID {ue_id} not found.")
+                return
+            # Call the start_ue_traffic method with the UE object
+            self.traffic_controller.start_ue_traffic(ue)
+            print(f"Traffic generation for UE {ue.ID} has been started.")
         except ValueError:
             print("Invalid UE ID. Please provide a numeric UE ID.")
         except Exception as e:
