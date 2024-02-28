@@ -105,7 +105,7 @@ class Sector:
             ue.ConnectedCellID = self.cell_id  # Ensure self.cell_id is correctly defined and accessible
             ue.gNodeB_ID = self.cell.gNodeB_ID  # Ensure self.cell and its gNodeB_ID are correctly defined and accessible
             self.ues[ue.ID] = ue  # Add the UE object to the sector's UE dictionary
-            # Note: The global_ue_ids.add(ue.ID) call is duplicated in your original code. It should only be necessary once.
+            # Note: The global_ue_ids.add(ue.ID) call is duplicated in original code. It should only be necessary once.
 
             # Serialize the sector for InfluxDB and insert the data
             point = self.serialize_for_influxdb()  # Ensure this method correctly serializes the sector's data

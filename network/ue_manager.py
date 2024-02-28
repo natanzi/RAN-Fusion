@@ -5,7 +5,7 @@ from network.utils import allocate_ues, create_ue
 from Config_files.config import Config
 from logs.logger_config import ue_logger
 from network.sector_manager import SectorManager
-
+from network.sector import global_ue_ids
 # Get base path
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 config = Config(base_dir)
@@ -97,6 +97,7 @@ class UEManager:
         sector_id = ue.ConnectedSector  # Use the correct attribute here
         if sector_manager.remove_ue_from_sector(sector_id, ue_id):
             print(f"UE {ue_id} successfully removed from sector {sector_id}.")
+            global_ue_ids.discard(ue_id)  # Ensure this is the correct way to modify global_ue_ids
             # Now, delete the UE instance from UEManager's ues dictionary
             del self.ues[ue_id]
             # Perform any additional cleanup here (if necessary)

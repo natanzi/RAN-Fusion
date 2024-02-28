@@ -15,21 +15,19 @@ class UE:
     def __init__(self, config, **kwargs):
         with UE.ue_lock:
             self.config = config
-            # Check if UE ID is provided and unique
-            ue_id = kwargs.get('ue_id', '').strip()
+            ue_id = kwargs.get('ue_id', '').strip().lower()  # Normalize the UE ID to lowercase
             if ue_id and ue_id in UE.existing_ue_ids:
-                # Handle the case where the provided ID is not unique
                 raise ValueError(f"UE ID {ue_id} is already in use.")
             elif not ue_id:
                 # Generate a unique UE ID if not provided
-                ue_id_counter = max((int(id[2:]) for id in UE.existing_ue_ids if id.startswith('UE')), default=0) + 1
-                ue_id = f"UE{ue_id_counter}"
-                while ue_id in UE.existing_ue_ids:  # Ensure the generated UE ID is unique
+                ue_id_counter = max((int(id[2:]) for id in UE.existing_ue_ids if id.startswith('ue')), default=0) + 1  # Note the 'ue' in startswith is lowercase
+                ue_id = f"ue{ue_id_counter}"  # Keep the generated ID lowercase
+                while ue_id in UE.existing_ue_ids:
                     ue_id_counter += 1
-                    ue_id = f"UE{ue_id_counter}"
+                    ue_id = f"ue{ue_id_counter}"
         
-            # Set the UE ID and add it to the tracking structures
             self.ID = ue_id
+            print(f"Creating UE instance {self.ID}")
             self.instance_id = str(uuid.uuid4())  # Generic unique identifier for the instance of the ue
             UE.existing_ue_ids.add(ue_id)
             UE.ue_instances[ue_id] = self  # Store the instance in the dictionary
@@ -112,11 +110,9 @@ class UE:
     
     @classmethod
     def get_ue_instance_by_id(cls, ue_id):
-        # Convert the input UE ID to lowercase (or uppercase) for case-insensitive comparison
-        ue_id_lower = ue_id.lower()
-        # Find the UE instance by comparing lowercase versions of stored IDs
+        ue_id_processed = ue_id.strip().lower()
         for stored_ue_id, ue_instance in cls.ue_instances.items():
-            if stored_ue_id.lower() == ue_id_lower:
+            if stored_ue_id.lower() == ue_id_processed:
                 return ue_instance
         return None
     

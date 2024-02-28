@@ -230,26 +230,24 @@ class SimulatorCLI(cmd.Cmd):
 
 ################################################################################################################################            
     def do_del_ue(self, line):
-        ue_id = line.strip()
-        ue = UE.get_ue_instance_by_id(ue_id)
+        ue_id = line.strip().lower()  # Convert UE ID to lowercase for case-insensitive processing
+        print(f"Trying to delete UE {ue_id}")
+
+        # Use UEManager to get the UE instance in a case-insensitive manner
+        ue_manager = UEManager.get_instance(self.base_dir)
+        ue = ue_manager.get_ue_by_id(ue_id)  # Assuming get_ue_by_id handles IDs case-insensitively
+
+        print(f"Got UE instance: {ue}")
         if not ue_id:
             print("Usage: del_ue <ue_id>")
             return
+
         try:
-            # Access the SectorManager instance
-            sector_manager = SectorManager.get_instance()
-            sector_id = ue.connected_sector
-            sector = sector_manager.get_sector(sector_id)
-            if sector:
-                # Assuming there's a method in SectorManager to remove a UE from a sector
-                # This could involve calling a method on the sector object or directly on the SectorManager
-                removed = sector_manager.remove_ue_from_sector(ue_id, sector)
-                if removed:
-                    print(f"UE {ue_id} has been successfully removed from sector.")
-                else:
-                    print(f"Failed to remove UE {ue_id} from sector.")
+            # Use UEManager's delete_ue method to encapsulate the deletion logic
+            if ue_manager.delete_ue(ue_id):
+                print(f"UE {ue_id} has been successfully removed.")
             else:
-                print(f"Error: Sector for UE {ue_id} not found.")
+                print(f"Failed to remove UE {ue_id}.")
         except Exception as e:
             print(f"Error removing UE: {e}")
 ################################################################################################################################
