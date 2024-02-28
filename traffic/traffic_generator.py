@@ -7,12 +7,11 @@ from logs.logger_config import traffic_update
 from network.ue import UE
 from database.database_manager import DatabaseManager
 import threading
-from network.ue_manager import UEManager
 
 class TrafficController:
     _instance = None
     _lock = threading.Lock()  # Ensure thread-safe singleton access
-
+    
     def __new__(cls, *args, **kwargs):
         with cls._lock:
             if cls._instance is None:
@@ -23,12 +22,13 @@ class TrafficController:
     def __init__(self):
         if self.__initialized: return
         self.__initialized = True
+        self.ues = {} # Dictionary to track UEs
         self.traffic_logs = []
         self.voice_traffic_params = {'bitrate': (8, 16)}  # in Kbps
         self.video_traffic_params = {'num_streams': (1, 5), 'stream_bitrate': (3, 8)}  # in Mbps
         self.gaming_traffic_params = {'bitrate': (30, 70)}  # in Kbps
         self.iot_traffic_params = {'packet_size': (5, 15), 'interval': (10, 60)}  # packet size in KB, interval in seconds
-        self.data_traffic_params = {'bitrate': (1, 10), 'interval': (0.5, 2)}  # in Mbps
+        self.data_traffic_params = {'bitrate': (10, 100), 'interval': (0.5, 2)}  # in Mbps
 
         # Initialize jitter, delay, and packet loss for each traffic type
         #for example (5, 15)  # Jitter range in milliseconds or (10, 50)  # Delay range in milliseconds or (0.01, 0.05)  # Packet loss rate range
@@ -66,7 +66,13 @@ class TrafficController:
             'delay': (15, 50),
             'jitter': (10, 20),
             'packet_loss_rate': 0.1
-        }
+        },
+        'ultra': {
+        'multiplier': 10,
+        'delay': (0, 2),
+        'jitter': (0, 2),
+        'packet_loss_rate': 0.01
+    },
     }
     def generate_traffic(self, ue, severity='low'):
         if not ue.generating_traffic:
@@ -304,25 +310,30 @@ class TrafficController:
         self.traffic_logs.append(traffic_data)
         return traffic_data
 ############################################################################################
-    def stop_ue_traffic(self, ue_id):
-        # Assuming UEManager is accessible and has a method to get a UE by ID
-        ue_manager = UEManager.get_instance()
-        ue = ue_manager.get_ue_by_id(ue_id)
-        if ue:
-            ue.generating_traffic = False
-            print(f"Traffic generation for UE {ue_id} has been stopped.")
-        else:
-            print(f"UE {ue_id} is not currently generating traffic or does not exist.")
-    
-    def start_ue_traffic(self, ue_id):
-        # Assuming UEManager is accessible and has a method to get a UE by ID
-        ue_manager = UEManager.get_instance()
-        ue = ue_manager.get_ue_by_id(ue_id)
-        if ue:
+    def add_ue(self, ue):
+        self.ues[ue.ID] = ue
+
+    def remove_ue(self, ue_id):
+        if ue_id in self.ues:
+            del self.ues[ue_id]
+
+    def start_ue_traffic(self, ue):
+        """Starts traffic generation for the given UE"""
+        if ue.ID not in self.ues:
+            self.add_ue(ue) 
+        if not ue.generating_traffic:
             ue.generating_traffic = True
-            print(f"Traffic generation for UE {ue_id} has been started.")
-        else:
-            print(f"UE {ue_id} does not exist.")
+            # additional setup 
+            traffic_update.info(f"Traffic started for {ue.ID}")
+
+    def stop_ue_traffic(self, ue): 
+        """Stops traffic generation for the given UE"""
+        if ue.ID in self.ues and ue.generating_traffic:
+            ue.generating_traffic = False
+            ue.throughput = 0 
+            # additional cleanup
+            traffic_update.info(f"Traffic stopped for {ue.ID}")
+            self.remove_ue(ue.ID)
 ############################################################################################
     def set_custom_traffic(self, ue_id, traffic_params):
     # Find the UE instance by ue_id

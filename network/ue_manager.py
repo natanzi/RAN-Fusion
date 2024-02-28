@@ -5,7 +5,7 @@ from network.utils import allocate_ues, create_ue
 from Config_files.config import Config
 from logs.logger_config import ue_logger
 from network.sector_manager import SectorManager
-from traffic.traffic_generator import TrafficGenerator
+from traffic.traffic_generator import TrafficController
 
 # Get base path
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -116,12 +116,10 @@ class UEManager:
         if not ue:
             print(f"UE {ue_id} not found")
             return
-
         # Get reference to traffic generator 
-        traffic_gen = TrafficGenerator.get_instance()
-            
+        traffic_controller = TrafficController.get_instance()
         if ue.generating_traffic:
-            traffic_gen.stop_traffic(ue)
+            traffic_controller.stop_ue_traffic(ue)
             ue.generating_traffic = False
             ue.throughput = 0
             print(f"Traffic stopped for UE {ue_id}")
