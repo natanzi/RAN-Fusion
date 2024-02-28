@@ -135,6 +135,9 @@ def add_ue():
 @app.route('/update_ue', methods=['POST'])
 def update_ue():
     data = request.json
+    ue_id = data.get('ue_id')
+    ue_id_str = str(ue_id)  # Convert to string if necessary
+    data = request.json
     # Existing validation and logging logic
     # ...
     try:

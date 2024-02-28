@@ -184,8 +184,13 @@ class SectorManager:
         return sorted_ues
     
     def find_sector_by_ue_id(self, ue_id):
+        # Assuming UE IDs are expected to be strings in connected_ues
+        # Convert ue_id to string if it's not already
+        ue_id_str = str(ue_id)
+
         for sector_id, sector in self.sectors.items():
-            if ue_id in sector.connected_ues:
+            # Ensure connected_ues contains strings for comparison
+            if ue_id_str in map(str, sector.connected_ues):
                 return sector_id
         return None
     

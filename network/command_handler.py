@@ -56,9 +56,11 @@ class CommandHandler:
     
     @staticmethod
     def _add_ue(data):
+        ue_id = data.get("ue_id")
+        ue_id_str = str(ue_id)  # Ensure it's a string if that's the expected format
         # Create the UE instance
         ue = UE(
-            ue_id=data['ue_id'],
+            ue_id=data['ue_id_str'],
             imei=data['IMEI'],
             location=data['location'],
             connected_cell_id=data['connectedCellID'],

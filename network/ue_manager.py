@@ -54,8 +54,8 @@ class UEManager:
         return new_ue
 ##################################################################################
     def get_ue_by_id(self, ue_id):
-        # Assuming ue_id is an integer and UEs are stored with their ID as the key
-        ue = self.ues.get(ue_id)
+        ue_id_str = str(ue_id)  # Convert ue_id to string
+        ue = self.ues.get(ue_id_str)  # Use the string version of ue_id to retrieve the UE
         if ue is None:
             print(f"UE with ID {ue_id} not found.")  # Example print message for debugging
         return ue
