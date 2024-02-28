@@ -7,7 +7,8 @@ from logs.logger_config import traffic_update_logger
 from network.ue import UE
 from database.database_manager import DatabaseManager
 import threading
-
+from network.ue_manager import UEManager
+import os
 class TrafficController:
     _instance = None
     _lock = threading.Lock()  # Ensure thread-safe singleton access
@@ -28,6 +29,8 @@ class TrafficController:
     def __init__(self):
         if self.__initialized: return
         self.__initialized = True
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        self.ue_manager = UEManager.get_instance(base_dir)
         self.ues = {} # Dictionary to track UEs
         self.traffic_logs = []
         self.voice_traffic_params = {'bitrate': (8, 16)}  # in Kbps
@@ -35,7 +38,7 @@ class TrafficController:
         self.gaming_traffic_params = {'bitrate': (30, 70)}  # in Kbps
         self.iot_traffic_params = {'packet_size': (5, 15), 'interval': (10, 60)}  # packet size in KB, interval in seconds
         self.data_traffic_params = {'bitrate': (10, 100), 'interval': (0.5, 2)}  # in Mbps
-
+        
         # Initialize jitter, delay, and packet loss for each traffic type
         #for example (5, 15)  # Jitter range in milliseconds or (10, 50)  # Delay range in milliseconds or (0.01, 0.05)  # Packet loss rate range
         self.ue_voice_jitter = 0
