@@ -231,15 +231,15 @@ class SimulatorCLI(cmd.Cmd):
 ################################################################################################################################            
     def do_del_ue(self, line):
         ue_id = line.strip()
+        ue = UE.get_ue_instance_by_id(ue_id)
         if not ue_id:
             print("Usage: del_ue <ue_id>")
             return
         try:
             # Access the SectorManager instance
             sector_manager = SectorManager.get_instance()
-
-            # Use find_sector_by_ue_id to find the sector for the given UE ID
-            sector = sector_manager.find_sector_by_ue_id(ue_id)
+            sector_id = ue.connected_sector
+            sector = sector_manager.get_sector(sector_id)
             if sector:
                 # Assuming there's a method in SectorManager to remove a UE from a sector
                 # This could involve calling a method on the sector object or directly on the SectorManager

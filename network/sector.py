@@ -100,6 +100,8 @@ class Sector:
             self.cell.update_ue_lists()  # Assuming this method correctly updates relevant UE lists in the cell
             global_ue_ids.add(ue.ID)  # Add the UE ID to the global list (ensure this is defined and accessible)
             self.remaining_capacity = self.capacity - len(self.connected_ues)  # Update remaining capacity
+            # Set the connected_sector attribute for the UE
+            ue.connected_sector = self.sector_id  # This line sets the UE's connected sector
             ue.ConnectedCellID = self.cell_id  # Ensure self.cell_id is correctly defined and accessible
             ue.gNodeB_ID = self.cell.gNodeB_ID  # Ensure self.cell and its gNodeB_ID are correctly defined and accessible
             self.ues[ue.ID] = ue  # Add the UE object to the sector's UE dictionary
