@@ -12,6 +12,12 @@ class TrafficController:
     _instance = None
     _lock = threading.Lock()  # Ensure thread-safe singleton access
     
+    @classmethod
+    def get_instance(cls):
+        if cls._instance is None:
+            cls._instance = cls()
+        return cls._instance
+    
     def __new__(cls, *args, **kwargs):
         with cls._lock:
             if cls._instance is None:
@@ -350,8 +356,8 @@ class TrafficController:
             self.remove_ue(ue.ID)
 ############################################################################################
     def set_custom_traffic(self, ue_id, traffic_params):
-    # Find the UE instance by ue_id
-        ue = self.find_ue_by_id(ue_id)
+        # Assuming self.ue_manager is an instance of UEManager
+        ue = self.ue_manager.get_ue_by_id(ue_id)
         if not ue:
             print(f"UE with ID {ue_id} not found.")
             return
@@ -360,8 +366,20 @@ class TrafficController:
         ue.traffic_volume = traffic_params.get('traffic_volume', 0)
         # Optionally, set other parameters like throughput if needed
         ue.throughput = traffic_params.get('throughput', ue.throughput)
-
         print(f"Set custom traffic for UE {ue_id}: {ue.traffic_volume}MB, Throughput: {ue.throughput}bps")
+############################################################################################
+    def find_ue_by_id(self, ue_id):
+        """
+        Finds a UE by its ID.
+
+        :param ue_id: The ID of the UE to find.
+        :return: The UE instance with the matching ID, or None if not found.
+        """
+        # Assuming self.ues is a dictionary or list of UE instances
+        for ue in self.ues:
+            if ue.ue_id == ue_id:
+                return ue
+        return None
 ############################################################################################
     def calculate_throughput(self, ue):
         # Parameter validation

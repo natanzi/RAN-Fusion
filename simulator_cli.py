@@ -12,7 +12,6 @@ from network.sector import Sector
 from network.NetworkLoadManager import NetworkLoadManager
 from traffic.traffic_generator import TrafficController
 from threading import Thread, Event
-from ue_table_display import UETableDisplay
 import threading
 import os
 from network.ue import UE

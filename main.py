@@ -77,7 +77,7 @@ def main():
 
     # Network Initialization
     gNodeB_manager = gNodeBManager.get_instance(base_dir=base_dir)
-    gNodeBs, cells, sectors, ues, cell_manager = initialize_network(base_dir, num_ues_to_launch=10)
+    gNodeBs, cells, sectors, ues, cell_manager = initialize_network(base_dir, num_ues_to_launch=20)
     print("Network Initialization Complete")
 
     # Additional setup
