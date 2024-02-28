@@ -92,11 +92,10 @@ class UEManager:
             return False
 
         # Assuming you have a way to access the SectorManager instance
-        # This might involve importing SectorManager and getting its instance
         sector_manager = SectorManager.get_instance()
 
         # Remove the UE from its connected sector
-        sector_id = ue.ConnectedSectorID  # Assuming UE has attribute ConnectedSectorID
+        sector_id = ue.ConnectedSector  # Use the correct attribute here
         if sector_manager.remove_ue_from_sector(sector_id, ue_id):
             print(f"UE {ue_id} successfully removed from sector {sector_id}.")
             # Now, delete the UE instance from UEManager's ues dictionary

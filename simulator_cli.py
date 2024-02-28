@@ -238,10 +238,11 @@ class SimulatorCLI(cmd.Cmd):
             # Ensure the UE ID is in the correct format (e.g., "UE10")
             formatted_ue_id = f"UE{ue_id}".upper()  # Adjust based on your UE ID format
 
-            # Correctly call the CommandHandler with the formatted UE ID
-            CommandHandler.handle_command('del_ue', {'ue_id': formatted_ue_id})
-
-            print(f"UE {formatted_ue_id} has been successfully removed.")
+            # Use the existing ue_manager instance to delete the UE
+            if self.ue_manager.delete_ue(formatted_ue_id):
+                print(f"UE {formatted_ue_id} has been successfully removed.")
+            else:
+                print(f"Error removing UE: UE with ID {formatted_ue_id} not found or could not be removed.")
         except Exception as e:
             print(f"Error removing UE: {e}")
 ################################################################################################################################
