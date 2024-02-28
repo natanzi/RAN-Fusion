@@ -17,6 +17,7 @@ import os
 from network.ue import UE
 from network.command_handler import CommandHandler
 from colorama import Fore, Style, init
+from network.sector import global_ue_ids
 
 init(autoreset=True) 
 # Define your aliases and commands in a more flexible structure
