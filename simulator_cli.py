@@ -235,8 +235,13 @@ class SimulatorCLI(cmd.Cmd):
             print("Please provide a UE ID.")
             return
         try:
-            # Assuming CommandHandler is imported and available
-            CommandHandler.handle_command('del_ue', {'ue_id': ue_id})
+            # Ensure the UE ID is in the correct format (e.g., "UE10")
+            formatted_ue_id = f"UE{ue_id}".upper()  # Adjust based on your UE ID format
+
+            # Correctly call the CommandHandler with the formatted UE ID
+            CommandHandler.handle_command('del_ue', {'ue_id': formatted_ue_id})
+
+            print(f"UE {formatted_ue_id} has been successfully removed.")
         except Exception as e:
             print(f"Error removing UE: {e}")
 ################################################################################################################################
@@ -303,12 +308,16 @@ class SimulatorCLI(cmd.Cmd):
             print("Please provide a UE ID.")
             return
         try:
-            ue_id = int(arg)
-            #call the stop_ue_traffic method from the TrafficController instance
-            self.ue_manager.stop_ue_traffic(ue_id)
-            print(f"Traffic generation for UE {ue_id} has been stopped.")
-        except ValueError:
-            print("Invalid UE ID. Please provide a numeric UE ID.")
+            # Ensure the UE ID is in the correct format (e.g., "UE10")
+            ue_id = f"UE{arg}"
+            # Retrieve the UE object using the UE ID
+            ue = UE.get_ue_instance_by_id(ue_id)
+            if not ue:
+                print(f"UE with ID {ue_id} not found.")
+                return
+            # Assuming there's a method in ue_manager to stop traffic for a UE
+            self.traffic_controller.stop_ue_traffic(ue)
+            print(f"Traffic generation for UE {ue.ID} has been stopped.")
         except Exception as e:
             print(f"Error stopping traffic for UE: {e}")
 
@@ -318,17 +327,16 @@ class SimulatorCLI(cmd.Cmd):
             print("Please provide a UE ID.")
             return
         try:
-            ue_id = int(arg)
+            # Ensure the UE ID is in the correct format (e.g., "UE10")
+            ue_id = f"UE{arg}"
             # Retrieve the UE object using the UE ID
-            ue = self.ue_manager.get_ue_by_id(ue_id)
+            ue = UE.get_ue_instance_by_id(ue_id)
             if not ue:
                 print(f"UE with ID {ue_id} not found.")
                 return
             # Call the start_ue_traffic method with the UE object
             self.traffic_controller.start_ue_traffic(ue)
             print(f"Traffic generation for UE {ue.ID} has been started.")
-        except ValueError:
-            print("Invalid UE ID. Please provide a numeric UE ID.")
         except Exception as e:
             print(f"Error starting traffic for UE: {e}")
 ################################################################################################################################
