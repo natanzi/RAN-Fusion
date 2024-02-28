@@ -5,7 +5,6 @@ from network.utils import allocate_ues, create_ue
 from Config_files.config import Config
 from logs.logger_config import ue_logger
 from network.sector_manager import SectorManager
-from traffic.traffic_generator import TrafficController
 
 # Get base path
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -107,6 +106,7 @@ class UEManager:
             return False
 #################################################################################
     def stop_ue_traffic(self, ue_id):
+        from traffic.traffic_generator import TrafficController
         """Stop traffic generation for the given UE"""
         ue = self.get_ue_by_id(ue_id)
         
