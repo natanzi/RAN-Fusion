@@ -1,6 +1,8 @@
 import subprocess
 import sys
 from influxdb_client import InfluxDBClient
+import os
+from dotenv import load_dotenv
 
 def install_requirements():
     """Install required packages from requirements.txt."""
@@ -21,7 +23,7 @@ def setup_influxdb_config():
     influxdb_url = "http://localhost:8086"
     influxdb_org = "ranfusion"
     influxdb_bucket = "RAN_metrics"
-    influxdb_log_bucket = "RAN_logs"  # Name for the logs bucket
+    influxdb_log_bucket = "RAN_logs" 
 
     if not influxdb_token:
         print("No API Token provided. Exiting setup.")
@@ -34,6 +36,8 @@ def setup_influxdb_config():
     # Write configuration to .env file
     write_env_file(influxdb_url, influxdb_token, influxdb_org, influxdb_bucket, influxdb_log_bucket)
 
+    # Load environment variables immediately after writing to .env to ensure they are available
+    load_env_variables()
 
 def configure_influxdb_bucket(url, token, org, bucket_name):
     """Configures the InfluxDB bucket."""
@@ -66,9 +70,26 @@ def write_env_file(url, token, org, bucket, log_bucket):
     except IOError as e:
         print(f"Error writing to .env file: {e}")
 
+def load_env_variables():
+    """Load environment variables from the .env file."""
+    dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
+    load_dotenv(dotenv_path)
+    print("Environment variables loaded from .env file.")
+
+def check_env_variables():
+    """Check if necessary environment variables are set."""
+    required_vars = ['INFLUXDB_URL', 'INFLUXDB_TOKEN', 'INFLUXDB_ORG', 'INFLUXDB_BUCKET', 'INFLUXDB_LOG_BUCKET']
+    missing_vars = [var for var in required_vars if not os.getenv(var)]
+    if missing_vars:
+        print("The following required environment variables are missing:", ', '.join(missing_vars))
+        sys.exit(1)
+    else:
+        print("All required environment variables are set.")
+
 if __name__ == "__main__":
-    print("Setting up the 5G Simulator...")
+    print("Setting up the environment...")
     install_requirements()
     check_influxdb_installation()
     setup_influxdb_config()
-    print("Setup completed successfully, Now you can run the main.py by this command: python3 main.py")
+    check_env_variables()  # Check if all required environment variables are set
+    print("Setup completed successfully. Now you can run the main application.")
