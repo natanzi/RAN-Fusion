@@ -47,7 +47,8 @@ class SimulatorCLI(cmd.Cmd):
         self.ue_manager = UEManager.get_instance(base_dir=self.base_dir)
         self.network_load_manager = network_load_manager
         self.stop_event = Event()
-
+        self.sector_manager = SectorManager.get_instance() 
+        
     @staticmethod
     def generate_alias_mappings(config):
         """Generates a dictionary mapping aliases to commands."""
@@ -231,20 +232,20 @@ class SimulatorCLI(cmd.Cmd):
 
 ################################################################################################################################            
     def do_del_ue(self, line):
+        from network.sector import global_ue_ids
+
         ue_id = line.strip().lower()  # Convert UE ID to lowercase for case-insensitive processing
-        print(f"Trying to delete UE {ue_id}")
-
-        # Use UEManager to get the UE instance in a case-insensitive manner
-        ue_manager = UEManager.get_instance(self.base_dir)
-        ue = ue_manager.get_ue_by_id(ue_id)  # Assuming get_ue_by_id handles IDs case-insensitively
-
-        print(f"Got UE instance: {ue}")
         if not ue_id:
             print("Usage: del_ue <ue_id>")
             return
 
+        print(f"Trying to delete UE {ue_id}")
+
+        # Use UEManager to get the UE instance in a case-insensitive manner
+        ue_manager = UEManager.get_instance(self.base_dir)
+
+        # Use UEManager's delete_ue method to encapsulate the deletion logic
         try:
-            # Use UEManager's delete_ue method to encapsulate the deletion logic
             if ue_manager.delete_ue(ue_id):
                 print(f"UE {ue_id} has been successfully removed.")
             else:

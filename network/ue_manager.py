@@ -1,11 +1,12 @@
-#this is ue_manager.py inside the network folder to manage a ue
+# this is ue_manager.py inside the network folder to manage a ue
 import os
 from network.ue import UE
 from network.utils import allocate_ues, create_ue
 from Config_files.config import Config
 from logs.logger_config import ue_logger
 from network.sector_manager import SectorManager
-from network.sector import global_ue_ids
+from network.sector import global_ue_ids  # Ensure this import is correct
+
 # Get base path
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 config = Config(base_dir)
@@ -46,20 +47,21 @@ class UEManager:
         # Convert list of UE instances to a dictionary with UE ID as keys
         self.ues = {ue.ID: ue for ue in ue_instances}
         return list(self.ues.values())  # Return a list of UE objects
-##################################################################################
+
     def create_ue(self, config, **kwargs):
         # Logic to create a single UE instance
         new_ue = UE(config, **kwargs)
         self.ues[new_ue.ID] = new_ue
+        global_ue_ids.add(new_ue.ID)  # Add the new UE ID to the global set
         return new_ue
-##################################################################################
+
     def get_ue_by_id(self, ue_id):
         ue_id_str = str(ue_id)  # Convert ue_id to string
         ue = self.ues.get(ue_id_str)  # Use the string version of ue_id to retrieve the UE
         if ue is None:
             print(f"UE with ID {ue_id} not found.")  # Example print message for debugging
         return ue
-##################################################################################
+
     def update_ue(self, ue_id, **kwargs):
         """
         Update the parameters of an existing UE.
@@ -78,11 +80,11 @@ class UEManager:
             print(f"UE {ue_id} not found")
             ue_logger.warning(f"UE {ue_id} not found. Update failed.")
             return False
-##################################################################################
+
     def list_all_ues(self):
         # Now this will correctly return a list of UE IDs
         return list(self.ues.keys())
-#################################################################################
+
     def delete_ue(self, ue_id):
         # Retrieve the UE instance
         ue = self.get_ue_by_id(ue_id)
@@ -97,7 +99,7 @@ class UEManager:
         sector_id = ue.ConnectedSector  # Use the correct attribute here
         if sector_manager.remove_ue_from_sector(sector_id, ue_id):
             print(f"UE {ue_id} successfully removed from sector {sector_id}.")
-            global_ue_ids.discard(ue_id)  # Ensure this is the correct way to modify global_ue_ids
+            global_ue_ids.discard(ue_id)  # Correctly modify global_ue_ids
             # Now, delete the UE instance from UEManager's ues dictionary
             del self.ues[ue_id]
             # Perform any additional cleanup here (if necessary)
@@ -105,7 +107,7 @@ class UEManager:
         else:
             print(f"Failed to remove UE {ue_id} from sector {sector_id}.")
             return False
-#################################################################################
+
     def stop_ue_traffic(self, ue_id):
         from traffic.traffic_generator import TrafficController
         """Stop traffic generation for the given UE"""
