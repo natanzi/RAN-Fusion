@@ -39,3 +39,9 @@
 {"level": "INFO", "timestamp": "2024-02-28 15:10:54", "message": "Database connection successful.", "test_id": "569af918-1f25-461d-9bb8-7702a65ca809"}
 {"level": "INFO", "timestamp": "2024-02-28 15:23:25", "message": "Database connection successful.", "test_id": "0a588997-d099-4f50-8a49-20c6a009bf74"}
 {"level": "INFO", "timestamp": "2024-02-28 15:26:22", "message": "Database connection successful.", "test_id": "892d4771-d20c-4d85-8eb0-070677558d26"}
+{"level": "INFO", "timestamp": "2024-02-28 15:31:47", "message": "Database connection successful.", "test_id": "767b2fd8-33b1-4cbb-9909-32c3ecf6aba9"}
+{"level": "ERROR", "timestamp": "2024-02-28 16:04:16", "message": "Failed to insert data into InfluxDB: <urllib3.connection.HTTPConnection object at 0x000001C5631D5CD0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it", "test_id": "767b2fd8-33b1-4cbb-9909-32c3ecf6aba9"}
+{"level": "INFO", "timestamp": "2024-02-29 11:41:58", "message": "Database connection successful.", "test_id": "6fdbef16-0927-47f0-a892-6c9b230c6fe2"}
+{"level": "ERROR", "timestamp": "2024-02-29 11:41:58", "message": "Failed to insert data into InfluxDB: <urllib3.connection.HTTPConnection object at 0x00000275F2E404D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it", "test_id": "6fdbef16-0927-47f0-a892-6c9b230c6fe2"}
+{"level": "ERROR", "timestamp": "2024-02-29 11:41:58", "message": "Failed to insert data into InfluxDB: <urllib3.connection.HTTPConnection object at 0x00000275F2E42090>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it", "test_id": "6fdbef16-0927-47f0-a892-6c9b230c6fe2"}
+{"level": "INFO", "timestamp": "2024-02-29 11:42:43", "message": "Database connection successful.", "test_id": "acf9ca07-688d-4d9c-853d-5325265522b9"}
