@@ -29,6 +29,7 @@ alias_config = {
         {'alias': 'sector', 'command': 'sector_list'},
         {'alias': 'ue', 'command': 'ue_list'},
         {'alias': 'ulog', 'command': 'ue_log'},
+        {'alias': 'ukpi', 'command': 'ue_kpis'},
         # Add more aliases as needed
     ]
 }
@@ -48,7 +49,7 @@ class SimulatorCLI(cmd.Cmd):
         self.network_load_manager = network_load_manager
         self.stop_event = Event()
         self.sector_manager = SectorManager.get_instance() 
-        
+        self.in_kpis_mode = False
     @staticmethod
     def generate_alias_mappings(config):
         """Generates a dictionary mapping aliases to commands."""
@@ -273,13 +274,15 @@ class SimulatorCLI(cmd.Cmd):
 ################################################################################################################################ 
     def do_kpis(self, arg):
         """
-        Display KPIs for the network.
-        This method is triggered by typing 'kpis' in the CLI.
+        Enter the KPIs submenu.
         """
-        # Implement the logic to display KPIs as table.
-
-        print("Displaying network KPIs...")
-
+        self.in_kpis_mode = not self.in_kpis_mode  # Toggle KPIs mode
+        if self.in_kpis_mode:
+            self.prompt = '\033[1;32m(KPIs)\033[0m '  # Change prompt to indicate KPIs mode
+        else:
+            self.prompt = '\033[1;32m(Cli-host)\033[0m '  # Change back to the main prompt
+        print("Entered KPIs submenu. Type 'ue_kpis' to see UE KPIs or 'exit' to return.")
+################################################################################################################################
     def do_loadbalancing(self, arg):
         """
         call loadbalancing manually triggered by typing 'loadbalancing' in the CLI.the optimze the load of the each cell/sector
@@ -300,6 +303,7 @@ class SimulatorCLI(cmd.Cmd):
             ('ue_list', 'List all UEs (User Equipments) in the network.'),
             ('ue_log', 'Display UE traffic logs.'),
             ('del_ue', 'delete ue from sector and database'),
+            ('ue_kpis', 'Display KPIs for User Equipments (UEs).'),
             ('add_ue', 'add new ue based on current config file to the spesefic sector',),
             ('kpis', 'Display KPIs for the network.'),
             ('loadbalancing', 'Display load balancing information for the network.'),
@@ -402,7 +406,23 @@ class SimulatorCLI(cmd.Cmd):
             print("*** Unknown syntax:", line)
 
     def do_exit(self, arg):
-        """Exit the Simulator."""
-        print("Exiting the simulator...")
-        return True  # Returning True breaks out of the cmd loop and exits the application.
-    
+        if self.in_kpis_mode:
+            self.do_kpis(arg)  # Use the do_kpis command to toggle off KPIs mode and return to main menu
+        else:
+            print("Exiting the simulator...")
+            return True  # Returning True breaks out of the cmd loop and exits the application.
+#############################################################################################################
+    def precmd(self, line):
+        if self.in_kpis_mode and not line in ['ue_kpis', 'exit']:
+            print("Invalid command in KPIs submenu. Available commands: 'ue_kpis', 'exit'")
+            return ''  # Return empty string to indicate no command should be executed
+        else:
+            return super().precmd(line)
+#############################################################################################################
+    def do_ue_kpis(self, arg):
+        """
+        Display KPIs for User Equipments (UEs).
+        This method is triggered by typing 'ue_kpis' in the CLI.
+        """
+        # Implement the logic to display UE KPIs here.
+        print("Displaying UE KPIs...")
