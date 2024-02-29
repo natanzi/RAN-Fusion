@@ -1,9 +1,6 @@
-import os
 import subprocess
 import sys
-import time
-from influxdb_client import InfluxDBClient, Point, WritePrecision
-from influxdb_client.client.write_api import SYNCHRONOUS
+from influxdb_client import InfluxDBClient
 
 def install_requirements():
     """Install required packages from requirements.txt."""
@@ -37,24 +34,6 @@ def setup_influxdb_config():
     # Write configuration to .env file
     write_env_file(influxdb_url, influxdb_token, influxdb_org, influxdb_bucket, influxdb_log_bucket)
 
-    client = InfluxDBClient(influxdb_url, influxdb_token, influxdb_org)  
-    create_scraper(client, "network_scraper", "http://localhost:5000", influxdb_org, influxdb_bucket)
-
-def create_scraper(client, name, url, org, bucket):
-
-    scraper_body = {
-        "name": name,
-        "type": "python",
-        "url": url,  
-        "org": org,   
-        "bucket": bucket 
-    }
-
-    try:
-        client.scrapers_api().create_scraper(scraper_body)
-        print(f"Created scraper {name}")
-    except Exception as e:
-        print(f"Error creating scraper: {e}")
 
 def configure_influxdb_bucket(url, token, org, bucket_name):
     """Configures the InfluxDB bucket."""
@@ -92,4 +71,4 @@ if __name__ == "__main__":
     install_requirements()
     check_influxdb_installation()
     setup_influxdb_config()
-    print("Setup completed successfully, Now you can run the main.py")
+    print("Setup completed successfully, Now you can run the main.py by this command: python3 main.py")
