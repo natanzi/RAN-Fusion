@@ -1,4 +1,9 @@
-#command_handler.py inside the network folder and owner of a command-based approach for adding, removing, or updating UEs or ...in fact: the CommandHandler class acts as middleware that can be utilized by both API.py and simulator_cli.py for executing commands such as add_ue. This design allows for a unified command processing mechanism across different interfaces of the system, ensuring consistency and reducing code duplication. 
+######################################################################################################################################
+# command_handler.py inside the network folder and owner of a command-based approach for adding, removing, or updating UEs or etc.   #
+# Tthe CommandHandler class acts as middleware that can be utilized by both API.py and simulator_cli.py for executing     #
+# commands such as add_ue. This design allows for a unified command processing mechanism across different interfaces of the system,  #
+# ensuring consistency and reducing code duplication.                                                                                #
+######################################################################################################################################
 from .ue import UE
 from database.database_manager import DatabaseManager
 from network.sector_manager import SectorManager

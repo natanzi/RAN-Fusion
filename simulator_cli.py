@@ -1,4 +1,9 @@
-#simulator_cli.py is located in root directory to allows you to type commands like ue-list to see the list of current UEs.
+#################################################################################################################################
+# simulator_cli.py is located in root directory to allows you to type commands like ue-list to see the list of current UEs.     #
+# execute various commands to manage and monitor the network's state, including listing gNodeBs, cells, sectors, UEs, and       #
+# their respective logs and KPIs. It also supports commands for starting and stopping UE traffic, adding or deleting UEs, and   #
+# manually triggering load balancing.                                                                                           #
+#################################################################################################################################
 import cmd
 from colorama import init, Fore, Style as ColoramaStyle
 init(autoreset=True)
