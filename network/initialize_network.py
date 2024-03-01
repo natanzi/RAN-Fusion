@@ -1,4 +1,9 @@
-# initialize_network.py # Initialization of gNodeBs, Cells, sectors, and UEs # This file is located in the network directory
+###################################################################################################################################
+# initialize_network.py is located in network directory and is responsible for Initialization of gNodeBs, Cells, sectors, and UEs # 
+# in the the network simulation environment. It sets up gNodeBs, Cells, Sectors, and UEs (User Equipments) based on the           #
+# configuration provided. This script is a crucial part of the network simulation setup, ensuring that all network components are #
+# correctly initialized and ready for simulation.                                                                                 #
+###################################################################################################################################
 from network.gNodeB_manager import gNodeBManager
 from network.cell_manager import CellManager
 from network.sector_manager import SectorManager

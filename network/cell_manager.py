@@ -1,4 +1,10 @@
-#cell_manager.py inside the network folder
+#############################################################################################################
+# cell_manager.py inside the network folder.The CellManager class is responsible for managing Cell instances#
+# within the network simulation. It oversees the creation, update, deletion, and overall management of cells#
+# across the network. This class employs the Singleton design pattern to ensure that only one instance of   #
+# CellManager exists throughout the application lifecycle, thus centralizing cell management.               #
+#                                                                                                           #
+#############################################################################################################
 import os
 # Removed the incorrect import statement
 from logs.logger_config import cell_logger

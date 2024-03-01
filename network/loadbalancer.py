@@ -1,20 +1,23 @@
-# loadbalancer.py and it is inside the network folder
-############################################################################################################
-# Steps Recap:
-#1 - Check if current source sector exceeds load threshold and Verify actual overload status  
-#2 - Get UEs connected to source sector and Sort by highest throughput users first (Prioritize heavy users)# 
-#3 - Find underloaded neighbor sectors and Filter sectors by % load
-#4 - Handover UEs to underloaded neighbor sectors and For each UE:
-#       - Attempt handover to neighbor targets
-#       - If failure, try next target
-#       - If all targets fail, revert UE
-#5 - If no viable neighbor sectors:-Find least loaded neighbor cells
-#6 - Choose best sector in underloaded cell- Identify best target sector  
-#7 - Handover UE to new cell target sector and Validate mobility successful
-#8 - Rollback any unsuccessful handovers and Revert UE association if handover fails  
-#9 - Update database for successful handovers and  Ensure accurate view of network   
-#10- Sync new UE to sector mapping and Keep in-memory mapping in sync
-#############################################################################################################
+#################################################################################################################
+# loadbalancer.py and it is inside the network folder The LoadBalancer class is responsible for managing the    #
+# load across sectors, cells, and gNodeBs within the network simulation. It aims to distribute the network load #
+#evenly to prevent any single entity from becoming overloaded. This class follows the Singleton design pattern  #
+# to ensure that only one instance of the LoadBalancer exists throughout the application lifecycle.             #
+# Steps Recap:                                                                                                  #
+#1 - Check if current source sector exceeds load threshold and Verify actual overload status                    # 
+#2 - Get UEs connected to source sector and Sort by highest throughput users first (Prioritize heavy users)     # 
+#3 - Find underloaded neighbor sectors and Filter sectors by % load                                             #
+#4 - Handover UEs to underloaded neighbor sectors and For each UE:                                              #
+#       - Attempt handover to neighbor targets                                                                  #
+#       - If failure, try next target                                                                           #
+#       - If all targets fail, revert UE                                                                        #
+#5 - If no viable neighbor sectors:-Find least loaded neighbor cells                                            #
+#6 - Choose best sector in underloaded cell- Identify best target sector                                        #
+#7 - Handover UE to new cell target sector and Validate mobility successful                                     #
+#8 - Rollback any unsuccessful handovers and Revert UE association if handover fails                            #
+#9 - Update database for successful handovers and  Ensure accurate view of network                              #
+#10- Sync new UE to sector mapping and Keep in-memory mapping in sync                                           #
+#################################################################################################################
 from datetime import datetime
 import logging
 from logs.logger_config import cell_load_logger, cell_logger, gnodeb_logger, ue_logger, sector_logger
