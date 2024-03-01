@@ -1,4 +1,11 @@
-#This is database manager class database_manager.py located in datbase folder
+#########################################################################################################
+# This is database manager class "database_manager.py" located in datbase folderThe DatabaseManager     #
+# class is responsible for managing all interactions with the InfluxDB database. It provides methods    #
+# for inserting, querying, and deleting data related to the network simulation, including metrics for   #
+# sectors, cells, UEs (User Equipments), and network performance. This class implements the Singleton   #
+# design pattern to ensure that only one instance of the database connection is created and used        #
+# throughout the application.                                                                           #
+#########################################################################################################
 import os
 from influxdb_client import InfluxDBClient, WritePrecision, Point, QueryApi
 from influxdb_client.client.write_api import SYNCHRONOUS
