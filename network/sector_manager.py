@@ -1,8 +1,12 @@
-# sector_manager.py inside the network folder
-# SectorManager class can centralize the management of sectors, including their initialization, updates,
-# and the handling of User Equipment (UE) associations. This approach can streamline interactions with the
-# database and ensure consistent state management across the application.
-
+######################################################################################################################
+# sector_manager.py inside the network folder and  SectorManager class is responsible for managing sectors            #
+# within a network simulation environment. It centralizes the management of sectors, including their                  #
+# initialization, updates, and the handling of User Equipment (UE) associations. This class follows the Singleton     # 
+# design pattern to ensure that only one instance of the SectorManager exists throughout the application lifecycle    #
+# SectorManager class can centralize the management of sectors, including their initialization, updates, and the      #
+# handling of User Equipment (UE) associations. This approach can streamline interactions with the database and ensure#
+# consistent state management across the application.                                                                 #
+#######################################################################################################################
 from network.sector import Sector, all_sectors
 from database.database_manager import DatabaseManager
 from influxdb_client import Point, WritePrecision

@@ -1,4 +1,9 @@
-#gNodeBManager.py inside the network folder
+###################################################################################################################
+# gNodeBManager.py inside the network folder .#The gNodeBManager class is responsible for managing gNodeB (gNB)   #
+# instances within the network simulation. It provides functionalities to create, update, delete, and manage gNBs #
+# across the network. This class follows the Singleton design pattern to ensure that only one instance of the     #
+# gNodeBManager exists throughout the application lifecycle.                                                      #
+###################################################################################################################
 import os
 from network.gNodeB import gNodeB, load_gNodeB_config
 from database.database_manager import DatabaseManager
