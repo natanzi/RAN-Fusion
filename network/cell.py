@@ -1,4 +1,12 @@
-#Defines the Cell class, which is part of a gNodeB.// this is located inside network directory
+################################################################################################################################
+# Defines the Cell class, which is part of a gNodeB and located inside network directory. The Cell class represents a cell     #
+# in a cellular network, which is a part of a gNodeB. Cells are the basic units of a cellular network that provide radio       #
+# coverage to geographical areas and manage radio communications with User Equipments (UEs) within those areas. This class is  #
+# designed to simulate the behavior and characteristics of real-world network cells, including managing connections to UEs,    #
+# handling cell-specific configurations, and reporting metrics for network simulation and analysis. This class plays a crucial #
+# role in the network simulation by managing the radio resources assigned to each cell, tracking the UEs connected to each cell#
+# and simulating cell-specific behaviors such as load balancing and handovers.                                                 #
+################################################################################################################################
 from logs.logger_config import cell_logger
 import datetime
 from logs.logger_config import ue_logger

@@ -1,6 +1,10 @@
-#NetworkLoadManager.py is located in network folder to address future needs around flexibly incorporating more advanced metrics, analytics and load balancing techniques.
-#cell load calulcate
-# NetworkLoadManager.py
+#############################################################################################################################################
+# NetworkLoadManager.py is located in network folder. The NetworkLoadManager class is responsible for managing the load across the          #
+# network, including cells, sectors, and gNodeBs. It calculates the load based on various parameters such as the number of connected        #
+# User Equipments (UEs), their throughput, and the capacity of network elements. Additionally, it performs load balancing to optimize       #
+# network performance and logs network metrics for analysis. to address future needs around flexibly incorporating more advanced metrics    #
+# like cell load, sector load, gnodb load, network load calulcattion, and load balancing techniques.                                        #
+#############################################################################################################################################
 from network.cell import Cell
 from network.sector import Sector
 from network.network_delay import NetworkDelay
