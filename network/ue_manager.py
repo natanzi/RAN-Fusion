@@ -1,4 +1,10 @@
-# this is ue_manager.py inside the network folder to manage a ue
+##############################################################################################################
+# this is ue_manager.py inside the network folder to manage all UE.The UEManager class is responsible for    #
+# managing User Equipment (UE) instances within the network simulation. It provides functionalities to       #
+# create, update, delete, and manage UEs across the network. This class follows the Singleton design pattern #
+# to ensure that only one instance of the UEManager exists throughout the application lifecycle.             #
+##############################################################################################################
+
 import os
 from network.ue import UE
 from network.utils import allocate_ues, create_ue
