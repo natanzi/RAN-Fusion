@@ -1,25 +1,30 @@
 #simulator_cli.py is located in root directory to allows you to type commands like ue-list to see the list of current UEs.
 import cmd
+from colorama import init, Fore, Style as ColoramaStyle
+init(autoreset=True)
+from prompt_toolkit import PromptSession
+from prompt_toolkit.completion import WordCompleter
+from prompt_toolkit.styles import Style
 import time
-import textwrap
-from functools import partial
+from prettytable import PrettyTable
+from threading import Event
+import os
+
+# Assuming these are your custom modules for managing various aspects of the network simulator
 from network.ue_manager import UEManager
 from network.gNodeB_manager import gNodeBManager
 from network.cell_manager import CellManager
 from network.sector_manager import SectorManager
-from prettytable import PrettyTable
-from network.sector import Sector
 from network.NetworkLoadManager import NetworkLoadManager
 from traffic.traffic_generator import TrafficController
-from threading import Thread, Event
-import threading
-import os
 from network.ue import UE
-from network.command_handler import CommandHandler
-from colorama import Fore, Style, init
 from network.sector import global_ue_ids
 
-init(autoreset=True) 
+cli_style = Style.from_dict({
+    'prompt': 'fg:green bold',  # Use 'green' instead of 'ansi.green'
+})
+
+
 # Define your aliases and commands in a more flexible structure
 # For the purpose of this example, it's defined within the code, but it could be external
 alias_config = {
@@ -35,12 +40,14 @@ alias_config = {
 }
 
 class SimulatorCLI(cmd.Cmd):
+
     def __init__(self, gNodeB_manager, cell_manager, sector_manager, ue_manager, network_load_manager, base_dir, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.session = PromptSession()
         self.traffic_controller = TrafficController()
         self.base_dir = base_dir
-        super().__init__(*args, **kwargs, completekey='tab')
         self.display_thread = None
-        self.running = False  # Flag to control the display thread
+        self.running = False
         self.aliases = self.generate_alias_mappings(alias_config)
         self.gNodeB_manager = gNodeB_manager
         self.cell_manager = cell_manager
@@ -48,8 +55,29 @@ class SimulatorCLI(cmd.Cmd):
         self.ue_manager = UEManager.get_instance(base_dir=self.base_dir)
         self.network_load_manager = network_load_manager
         self.stop_event = Event()
-        self.sector_manager = SectorManager.get_instance() 
+        self.sector_manager = SectorManager.get_instance()
         self.in_kpis_mode = False
+
+        #  Setup for prompt_toolkit completion
+        commands = [cmd[3:] for cmd in dir(self) if cmd.startswith('do_')]
+        self.completer = WordCompleter(commands + list(self.aliases.keys()), ignore_case=True)
+
+    # cmdloop to use prompt_toolkit
+    def cmdloop(self, intro=None):
+        self.intro = intro if intro is not None else "Welcome to the RAN Fusion Simulator CLI.\nType --help to list commands.\n"
+        if self.intro:
+            print(self.intro)
+        stop = None
+        while not stop:
+            try:
+                line = self.session.prompt('Cli-host ', style=cli_style, completer=self.completer)
+                line = self.precmd(line)
+                stop = self.onecmd(line)
+                stop = self.postcmd(stop, line)
+            except (KeyboardInterrupt, EOFError):
+                print("Exiting.")
+                break
+            
     @staticmethod
     def generate_alias_mappings(config):
         """Generates a dictionary mapping aliases to commands."""
@@ -59,7 +87,7 @@ class SimulatorCLI(cmd.Cmd):
         return mappings
 
     intro = "Welcome to the RAN Fusion Simulator CLI.\nType --help to list commands.\n"
-    prompt = '\033[1;32m(Cli-host)\033[0m '
+    prompt ='Cli-host ' 
 
     def precmd(self, line):
         line = line.strip()
@@ -276,12 +304,13 @@ class SimulatorCLI(cmd.Cmd):
         """
         Enter the KPIs submenu.
         """
-        self.in_kpis_mode = not self.in_kpis_mode  # Toggle KPIs mode
+        self.in_kpis_mode = not self.in_kpis_mode # Toggle KPIs mode
         if self.in_kpis_mode:
-            self.prompt = '\033[1;32m(KPIs)\033[0m '  # Change prompt to indicate KPIs mode
+            init(autoreset=True)
+            self.prompt = 'Cli-host ' 
         else:
-            self.prompt = '\033[1;32m(Cli-host)\033[0m '  # Change back to the main prompt
-        print("Entered KPIs submenu. Type 'ue_kpis' to see UE KPIs or 'exit' to return.")
+            self.prompt = f'{Fore.GREEN}Cli-host{Style.RESET_ALL} '
+        print("Entered KPIs submenu...")
 ################################################################################################################################
     def do_loadbalancing(self, arg):
         """
@@ -292,27 +321,35 @@ class SimulatorCLI(cmd.Cmd):
 
 ################################################################################################################################ 
     def print_global_help(self):
-
-        print(f"\n{Style.BRIGHT}Global options:{Style.RESET_ALL}")
-        print(f"  {Fore.GREEN}--help{Fore.RESET}        Show this help message and exit")
-        print(f"\n{Style.BRIGHT}Available commands:{Style.RESET_ALL}")
-        for command, description in [
-            ('cell_list', 'List all cells in the network.'),
-            ('gnb_list', 'List all gNodeBs in the network.'),
-            ('sector_list', 'List all sectors in the network.'),
-            ('ue_list', 'List all UEs (User Equipments) in the network.'),
-            ('ue_log', 'Display UE traffic logs.'),
-            ('del_ue', 'delete ue from sector and database'),
-            ('ue_kpis', 'Display KPIs for User Equipments (UEs).'),
-            ('add_ue', 'add new ue based on current config file to the spesefic sector',),
-            ('kpis', 'Display KPIs for the network.'),
-            ('loadbalancing', 'Display load balancing information for the network.'),
-            ('start_ue', 'Start the ue traffic.'),
-            ('stop_ue', 'Stop the ue traffic.'),
-            ('exit', 'Exit the Simulator.')
-        ]:
-            print(f"  {Fore.CYAN}{command}{Fore.RESET} - {description}")
+        if not self.in_kpis_mode:
+            print(f"\n{Fore.GREEN}Global options:{ColoramaStyle.RESET_ALL}")
+            print(f"  {Fore.GREEN}--help{Fore.RESET}        Show this help message and exit")
+            print(f"\n{ColoramaStyle.BRIGHT}Available commands:{ColoramaStyle.RESET_ALL}")
+            for command, description in [
+                ('cell_list', 'List all cells in the network.'),
+                ('gnb_list', 'List all gNodeBs in the network.'),
+                ('sector_list', 'List all sectors in the network.'),
+                ('ue_list', 'List all UEs (User Equipments) in the network.'),
+                ('ue_log', 'Display UE traffic logs.'),
+                ('del_ue', 'delete ue from sector and database'),
+                ('add_ue', 'add new ue based on current config file to the specific sector'),
+                ('kpis', 'Display KPIs for the network.'),
+                ('loadbalancing', 'Display load balancing information for the network.'),
+                ('start_ue', 'Start the ue traffic.'),
+                ('stop_ue', 'Stop the ue traffic.'),
+                ('exit', 'Exit the Simulator.')
+            ]:
+                print(f"  {Fore.CYAN}{command}{Fore.RESET} - {description}")
+        else:
+            # KPIs submenu help message
+            print(f"\n{ColoramaStyle.BRIGHT}KPIs submenu commands:{ColoramaStyle.RESET_ALL}")
+            for command, description in [
+                ('ue_kpis', 'Display KPIs for User Equipments (UEs).'),
+                ('exit', 'Return to the main menu.'),
+            ]:
+                print(f"  {Fore.CYAN}{command}{Fore.RESET} - {description}")
         print()
+
 ################################################################################################################################ 
     def do_stop_ue(self, arg):
         """Stop traffic generation for a specific UE."""
@@ -352,30 +389,18 @@ class SimulatorCLI(cmd.Cmd):
         except Exception as e:
             print(f"Error starting traffic for UE: {e}")
 ################################################################################################################################
+
+
     def complete(self, text, state):
-        if state == 0:
-            origline = self._orig_line
-            line = origline.lstrip()
-            stripped = len(origline) - len(line)
-            begidx = self._orig_cursor_pos - stripped
-            cmd_text = line.split()[0] if line.split() else ''
-            mapped_cmd = self.aliases.get(cmd_text, cmd_text)
+        # Filter completions matching the text and return one by one
+        results = [cmd for cmd in self.completions if cmd.startswith(text)] + [None]
+        return results[state]
 
-            if begidx == 0:
-                aliased_commands = [alias for alias in self.aliases if alias.startswith(text)]
-                command_names = [cmd[3:] for cmd in self.get_names() if cmd.startswith('do_' + text)]
-                self.completion_matches = aliased_commands + command_names
-            else:
-                try:
-                    comp_method = getattr(self, 'complete_' + mapped_cmd)
-                    self.completion_matches = comp_method(text, line, begidx, state)
-                except AttributeError:
-                    self.completion_matches = self.complete_default(text, line, begidx, state)
-
-        try:
-            return super().complete(text, state) 
-        except IndexError:
-            return None
+    def commands_with_aliases(self, text):
+        # Include both commands and aliases that start with 'text'
+        commands = [cmd[3:] for cmd in dir(self) if cmd.startswith('do_') and cmd[3:].startswith(text)]
+        aliased_commands = [alias for alias, cmd in self.aliases.items() if alias.startswith(text)]
+        return commands + aliased_commands
 
     def complete_default(self, text, line, begidx, endidx):
         # Implement your default auto-completion logic here, if any...
@@ -406,23 +431,34 @@ class SimulatorCLI(cmd.Cmd):
             print("*** Unknown syntax:", line)
 
     def do_exit(self, arg):
-        if self.in_kpis_mode:
-            self.do_kpis(arg)  # Use the do_kpis command to toggle off KPIs mode and return to main menu
-        else:
-            print("Exiting the simulator...")
-            return True  # Returning True breaks out of the cmd loop and exits the application.
+        """Exit the simulator."""
+        print("Exiting the simulator...")
+        return True
 #############################################################################################################
     def precmd(self, line):
-        if self.in_kpis_mode and not line in ['ue_kpis', 'exit']:
-            print("Invalid command in KPIs submenu. Available commands: 'ue_kpis', 'exit'")
-            return ''  # Return empty string to indicate no command should be executed
-        else:
-            return super().precmd(line)
+        line = line.strip()
+    
+        if self.in_kpis_mode:
+            if line == "exit":
+                # Exit KPIs submenu
+                self.in_kpis_mode = False
+                self.prompt = 'Cli-host '  
+                return ''  # Return empty string to prevent further processing
+            elif line not in ['ue_kpis']:
+                print("Invalid command in KPIs submenu. Available commands: 'ue_kpis', 'exit'")
+                return ''  # Return empty string to prevent further processing
+    
+        elif line in self.aliases:
+            return self.aliases.get(line, line)
+        
+        return line
+#############################################################################################################
+
 #############################################################################################################
     def do_ue_kpis(self, arg):
-        """
-        Display KPIs for User Equipments (UEs).
-        This method is triggered by typing 'ue_kpis' in the CLI.
-        """
-        # Implement the logic to display UE KPIs here.
+        if not self.in_kpis_mode:
+            print("UE KPIs command is only available in the KPIs submenu.") 
+            return
+    
+        # Display KPIs
         print("Displaying UE KPIs...")
