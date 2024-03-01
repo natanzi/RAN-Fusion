@@ -15,6 +15,10 @@
 
   ![Simulation Logs](images/log.png)
 
+- **Command Line menu**
+
+  ![Command Line](images/menu.png)
+
 - **InfluxDB GUI for Performance Metrics**
 
   ![InfluxDB GUI](images/InfluxDB-GUI.png)
@@ -35,19 +39,19 @@
 
 - **Operating System:** Windows, Linux, or macOS.
 - **Python:** Version 3.x.
-- **Dependencies:** Install via `pip install -r requirements.txt`.
+- **Dependencies:** Install InfluxDB and Libraries via `pip install -r requirements.txt`.
 
 ### Installation Guide
 
 1. **Clone the Repository:** Obtain the project on your machine.
 2. **Navigate:** Move to the project directory.
-3. **Setup:** Execute `setup.py` and wait.
-4. **InfluxDB:** Install and setup on your machine.
-5. **API Token:** Get the API token from InfluxDB GUI (`http://localhost:8086/`).
-6. **Configure:** Insert the token into `setup.py`.
-7. **Run:** Start the simulation with `main.py`.
-8. **Run API:** Start the `API.py` in a separate terminal
-9. **Send command:** Start a new terminal and past a sample API like add or remove ue.
+3. **InfluxDB**  Make sure influxDB separately install on you machine
+4. **Setup:** Execute `setup.py` and wait.
+5. **InfluxDB:** Install and setup on your machine.
+6. **API Token:** Get the API token from InfluxDB GUI (`http://localhost:8086/`).
+7. **Configure:** Insert the token into `setup.py`.
+8. **Run:** Start the simulation with `main.py`.
+9. **Send command via API:** Start a new terminal and past a sample API like add or remove ue.
  
 ## Documentation
 Explore RANFusion further in our documentation.(https://RANFusion.com/doc).
