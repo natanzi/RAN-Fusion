@@ -1,5 +1,10 @@
-# Functions for generating different types of traffic (voice, video, gaming, IoT).
-# traffic_generator.py in traffic folder
+#############################################################################################################################
+# Class for generating different types of traffic (voice, video, gaming, IoT).# traffic_generator.py is in traffic folder   #
+# The TrafficController class is responsible for simulating different types of network traffic for User Equipments (UEs)    #
+# in a 5G network simulation environment. It generates traffic based on predefined parameters for voice, video, gaming, IoT,#
+# and data services. The class also supports custom traffic generation based on severity levels, allowing for the simulation#
+# of network conditions ranging from low to ultra severity.                                                                 #
+#############################################################################################################################
 import random
 import time
 from datetime import datetime
@@ -57,6 +62,7 @@ class TrafficController:
         self.ue_data_delay = 0
         self.ue_data_packet_loss_rate = 0.1
     
+    #Defines parameters for different severity levels of network conditions
     SEVERITY_LEVELS = {
         'low': {
             'multiplier': 1,
