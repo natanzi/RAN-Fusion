@@ -1,5 +1,13 @@
-#this is sectory.py which is located in network directory
-#You can extend this class with additional methods to handle sector-specific logic, such as calculating signal strength, managing handovers, or adjusting parameters for load balancing. Remember to test this class thoroughly to ensure it integrates well with the rest of your codebase.
+################################################################################################################################################
+# this is sectory.py which is located in network directory. The Sector class represents a sector within a cell in a cellular network.           #
+# Sectors are subdivisions of a cell site where each sector covers a certain area and is equipped with its own set of antennas,                 #
+# frequency bands, and power settings to manage the network's radio resources efficiently. This class is designed to simulate the               #
+# behavior and characteristics of real-world network sectors, including managing connections to User Equipments (UEs), handling                 #
+# sector-specific configurations, and reporting metrics for network simulation and analysis.You can extend this class with additional           #
+# methods to handle sector-specific logic, such as calculating signal strength, managing handovers, or adjusting parameters for load balancing. #
+# Remember to test this class thoroughly to ensure it integrates well with the rest of code.                                                    #
+#################################################################################################################################################
+
 global all_sectors 
 all_sectors = {}
 from influxdb_client import Point

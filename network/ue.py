@@ -1,4 +1,8 @@
-#This is UE class, ue.py in network directory
+#####################################################################################################################################
+# This is UE class, ue.py in network directory and represents a mobile device in a cellular network, such as a smartphone or tablet,#
+# that communicates with the network infrastructure, specifically with cells and sectors within a gNodeB. This class is designed to # 
+# simulate the behavior and characteristics of real-world user equipment in the context of a cellular network simulation.           #
+#####################################################################################################################################
 import random
 import re
 from datetime import datetime
