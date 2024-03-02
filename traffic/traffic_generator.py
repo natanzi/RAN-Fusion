@@ -363,7 +363,14 @@ class TrafficController:
             # additional cleanup
             traffic_update_logger.info(f"Traffic stopped for {ue.ID}")
             self.remove_ue(ue.ID)
-############################################################################################
+#########################################################################################################################
+    # Note:Throughput measures the rate at which data is successfully transmitted over the network,typically expressed  #
+    # in bits per second (bps). It's crucial for evaluating network performance, especially in scenarios where the      #
+    # speed of data transmission is critical, such as streaming or real-time applications. Data Volume (Traffic Volume) #
+    # on the other hand, refers to the total amount of data [sent or received ] by a UE over a certain period,          #
+    # often measured in bytes or multiples thereof (e.g., MB, GB).                                                      #
+    # This metric is vital for assessing network load, data consumption patterns, and for planning network capacity.    #
+#########################################################################################################################
     def set_custom_traffic(self, ue_id, traffic_params):
         # Assuming self.ue_manager is an instance of UEManager
         ue = self.ue_manager.get_ue_by_id(ue_id)
