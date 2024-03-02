@@ -35,7 +35,7 @@ class NetworkLoadManager:
         self.sector_manager = sector_manager
         self.db_manager = DatabaseManager.get_instance()
         self.load_balancer = LoadBalancer()
-
+        
 #####################################################################################################################   
     def calculate_sector_load(self, sector: Sector):
         """Calculate the load of a sector based on the number of connected UEs, their throughput, and its capacity.
@@ -118,7 +118,7 @@ class NetworkLoadManager:
         if not cells:
             return 0
         # Incorporate data volume into the calculation
-        total_data_volume = sum(ue.data_volume for ue in self.ue_manager.get_ues())
+        #total_data_volume = sum(ue.data_volume for ue in self.ue_manager.get_ues())
         cell_loads = [self.calculate_cell_load(cell) for cell in cells]
         network_load = sum(cell_loads) / len(cell_loads)
 
