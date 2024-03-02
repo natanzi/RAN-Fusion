@@ -117,7 +117,8 @@ class NetworkLoadManager:
         
         if not cells:
             return 0
-        
+        # Incorporate data volume into the calculation
+        total_data_volume = sum(ue.data_volume for ue in self.ue_manager.get_ues())
         cell_loads = [self.calculate_cell_load(cell) for cell in cells]
         network_load = sum(cell_loads) / len(cell_loads)
 

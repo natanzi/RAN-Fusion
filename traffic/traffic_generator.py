@@ -14,6 +14,7 @@ from database.database_manager import DatabaseManager
 import threading
 from network.ue_manager import UEManager
 import os
+
 class TrafficController:
     _instance = None
     _lock = threading.Lock()  # Ensure thread-safe singleton access
@@ -115,7 +116,7 @@ class TrafficController:
             raise ValueError(f"Unknown service type: {ue.ServiceType}")
     
 ##############################################################################################################################
-    def generate_voice_traffic(self, severity='low'):
+    def generate_voice_traffic(self, ue, severity='low'):
         severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['harsh'])
         # Adjust parameters based on severity
         start_time = datetime.now()
@@ -134,6 +135,10 @@ class TrafficController:
         packet_loss_occurred = random.random() < severity_settings['packet_loss_rate']
         if packet_loss_occurred:
             data_size = 0  # Packet is lost
+        else:
+        # Update the UE's total data volume if packet is not lost
+            ue.update_data_volume(data_size)
+    
         end_time = datetime.now()
         traffic_data = {
             'data_size': data_size,
@@ -147,7 +152,7 @@ class TrafficController:
         self.traffic_logs.append(traffic_data)
         return traffic_data
 ###################################################################################################################
-    def generate_video_traffic(self, severity='low'):
+    def generate_video_traffic(self, ue, severity='low'):
         severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['harsh'])
         # Adjust parameters based on severity
         start_time = datetime.now()
@@ -172,6 +177,9 @@ class TrafficController:
             # Convert to MB, then to bytes, and accumulate
             data_size += int((stream_bitrate * interval) / 8 * 1024 * 1024)
 
+        # Update the UE's total data volume
+        ue.update_data_volume(data_size)  # Assuming the UE class has this method
+
         # Record the end timestamp
         end_time = datetime.now()
         traffic_data = {
@@ -187,7 +195,7 @@ class TrafficController:
         self.traffic_logs.append(traffic_data)
         return traffic_data
 ###################################################################################################################
-    def generate_gaming_traffic(self, severity='low'):
+    def generate_gaming_traffic(self, ue, severity='low'):
         severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['harsh'])
 
         try:
@@ -203,7 +211,7 @@ class TrafficController:
             jitter = random.uniform(0, jitter_max) if jitter_max > 0 else 0
 
             # Adjust bitrate based on severity
-            bitrate = random.uniform(*self.gaming_traffic_params['bitrate']) * severity_settings['multiplier']  # Adjust bitrate for severity
+            bitrate = random.uniform(*self.gaming_traffic_params['bitrate']) * severity_settings['multiplier']
             interval = 0.1  # Interval duration in seconds
 
             # Convert to KB, then to bytes, and ensure it's an integer
@@ -216,11 +224,14 @@ class TrafficController:
             packet_loss_occurred = random.random() < severity_settings['packet_loss_rate']
             if packet_loss_occurred:
                 data_size = 0  # Packet is lost
+            else:
+                # Update the UE's total data volume if packet is not lost
+                ue.update_data_volume(data_size)
 
             # Record the end timestamp
             end_time = datetime.now()
             traffic_data = {
-                'data_size': data_size,  # Now in bytes and ensured to be an integer
+                'data_size': data_size,
                 'start_timestamp': start_time,
                 'end_timestamp': end_time,
                 'interval': interval,
@@ -234,16 +245,16 @@ class TrafficController:
             traffic_update_logger.error(f"Failed to generate gaming traffic: {e}")
             # Handle the exception by returning a default data structure with severity-adjusted parameters
             return {
-                'data_size': 0,  # Ensure this is consistent even in error handling
+                'data_size': 0,
                 'start_timestamp': datetime.now(),
                 'end_timestamp': datetime.now(),
                 'interval': 0.1,
-                'ue_delay': severity_settings['delay'][0],  # Use the lower bound of the delay range for simplicity
+                'ue_delay': severity_settings['delay'][0],
                 'ue_jitter': 0,
                 'ue_packet_loss_rate': severity_settings['packet_loss_rate']
             }
 #####################################################################################
-    def generate_iot_traffic(self, severity='low'):
+    def generate_iot_traffic(self, ue, severity='low'):
         severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['harsh'])
 
         # Record the start timestamp
@@ -269,8 +280,11 @@ class TrafficController:
         # Simulate packet loss based on severity
         if random.random() < severity_settings['packet_loss_rate']:
             data_size = 0  # Packet is lost
+        else:
+            # Update the UE's total data volume if packet is not lost
+            ue.update_data_volume(data_size)
 
-        # Record the end timestamp
+    # Record the end timestamp
         end_time = datetime.now()
         traffic_data = {
             'data_size': data_size,  # Now in bytes and ensured to be an integer
@@ -284,7 +298,7 @@ class TrafficController:
         self.traffic_logs.append(traffic_data)
         return traffic_data
 ###########################################################################################
-    def generate_data_traffic(self, severity='low'):
+    def generate_data_traffic(self, ue, severity='low'):
         severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['harsh'])
 
         # Record the start timestamp
@@ -310,6 +324,9 @@ class TrafficController:
         # Simulate packet loss based on severity
         if random.random() < severity_settings['packet_loss_rate']:
             data_size = 0  # Packet is lost
+        else:
+            # Update the UE's total data volume if packet is not lost
+            ue.update_data_volume(data_size)
 
         # Record the end timestamp
         end_time = datetime.now()

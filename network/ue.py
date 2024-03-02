@@ -66,7 +66,7 @@ class UE:
             self.Model = kwargs.get('model')        # Model of the UE
             self.ScreenSize = kwargs.get('screensize', f"{random.uniform(5.0, 7.0):.1f} inches")        # Screen size of the UE
             self.BatteryLevel = kwargs.get('batterylevel', random.randint(10, 100))        # Battery level of the UE
-            self.TrafficVolume = 0        # Traffic volume handled by the UE (initialized to 0)
+            self.traffic_volume = 0       # Traffic volume handled by the UE (initialized to 0)
             self.DataSize = kwargs.get('datasize')        # Data size transmitted/received by the UE
             self.generating_traffic = True               #link to initialize the traffic generation flag
             self.IP = kwargs.get('ip') or UE.allocate_ip() # Allocate an IP if not provided
@@ -108,6 +108,10 @@ class UE:
                 random.randint(0x00, 0xff), random.randint(0x00, 0xff), random.randint(0x00, 0xff)]
         return ':'.join(f'{octet:02x}' for octet in mac)
     
+    # Method to update data volume
+    def update_traffic_volume(self, data_size):
+        self.traffic_volume += data_size
+
     @staticmethod
     def calc_check_digit(number):
         alphabet = '0123456789'
