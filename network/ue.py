@@ -69,6 +69,8 @@ class UE:
             self.TrafficVolume = 0        # Traffic volume handled by the UE (initialized to 0)
             self.DataSize = kwargs.get('datasize')        # Data size transmitted/received by the UE
             self.generating_traffic = True               #link to initialize the traffic generation flag
+            self.IP = kwargs.get('ip') or UE.allocate_ip() # Allocate an IP if not provided
+            self.MAC = kwargs.get('mac') or UE.allocate_mac() # Allocate a MAC if not provided
             ue_logger.info(f"UE initialized with ID {self.ID} at {datetime.now()}")
     
     @classmethod
@@ -90,7 +92,22 @@ class UE:
             imei = start + str(UE.calc_check_digit(start))
             break
         return imei
+    @staticmethod
 
+    def allocate_ip():
+        # Generate a random IP address within the private range 192.168.0.0 to 192.168.255.255
+        octets = [192, 168, random.randint(0, 255), random.randint(1, 254)]
+        return '.'.join(str(octet) for octet in octets)
+    @staticmethod
+
+    def allocate_mac():
+        # Generate a random MAC address in the format 00:00:00:00:00:00
+        # The first half of the MAC address (first three octets) can be a manufacturer's identifier. Here we use a private range (x2:xx:xx).
+        # The second half (last three octets) is randomly generated.
+        mac = [0x02, random.randint(0x00, 0x7f), random.randint(0x00, 0xff), 
+                random.randint(0x00, 0xff), random.randint(0x00, 0xff), random.randint(0x00, 0xff)]
+        return ':'.join(f'{octet:02x}' for octet in mac)
+    
     @staticmethod
     def calc_check_digit(number):
         alphabet = '0123456789'
@@ -169,6 +186,8 @@ class UE:
             .field("model", str(self.Model)) \
             .field("screen_size", str(self.ScreenSize)) \
             .field("battery_level", int(self.BatteryLevel)) \
+            .field("ip_address", str(self.IP)) \
+            .field("mac_address", str(self.MAC)) \
             .time(datetime.utcnow())
         #print(f"Serialized UE point: {point}")
         return point
