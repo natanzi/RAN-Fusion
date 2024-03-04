@@ -4,6 +4,7 @@
 # commands such as add_ue. This design allows for a unified command processing mechanism across different interfaces of the system,  #
 # ensuring consistency and reducing code duplication.                                                                                #
 ######################################################################################################################################
+import os
 from .ue import UE
 from database.database_manager import DatabaseManager
 from network.sector_manager import SectorManager
@@ -40,9 +41,10 @@ class CommandHandler:
     @staticmethod
     def _del_ue(data):
         ue_id = data['ue_id']
-    
+
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         # Use UEManager to handle UE removal comprehensively
-        ue_manager = UEManager.get_instance()
+        ue_manager = UEManager.get_instance(base_dir)
     
         # First, check if the UE exists in the system
         if ue_manager.get_ue_by_id(ue_id) is None:

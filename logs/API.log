@@ -1,3 +1,4 @@
 
 {"level": "ERROR", "timestamp": "2024-02-27 21:23:17", "message": "Failed to set custom traffic for UE 5.", "test_id": "13c8d887-229d-43d0-94e6-5a0e74805e35"}
 {"level": "ERROR", "timestamp": "2024-02-29 15:01:02", "message": "Failed to set custom traffic for UE 5.", "test_id": "3b1957ed-f43c-4c36-aa39-dfe0d6603207"}
+{"level": "ERROR", "timestamp": "2024-03-04 13:52:05", "message": "An error occurred while removing UE 10: UEManager.get_instance() missing 1 required positional argument: 'base_dir'", "test_id": "3411bdda-79ab-4080-a7f6-654050ac5429"}
