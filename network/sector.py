@@ -52,7 +52,7 @@ class Sector:
         self.ssb_periodicity = ssb_periodicity
         self.ssb_offset = ssb_offset
         self.is_active = is_active
-        self.load = 0 # Update the sector's load attribute
+        self.sector_load_attribute = 0 # Update the sector's load attribute
 
         # List of UEs and current load, no change needed
         self.connected_ues = connected_ues if connected_ues is not None else []
@@ -98,7 +98,7 @@ class Sector:
             .field("sector_is_active", bool(self.is_active)) \
             .field("sector_count", int(self.sector_count)) \
             .field("is_active", bool(self.is_active)) \
-            .field("sector_load", float(sector_load)) \
+            .field("sector_load", float(self.sector_load_attribute)) \
             .time(unix_timestamp_seconds, WritePrecision.S)
 
         return point
