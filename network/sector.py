@@ -52,6 +52,8 @@ class Sector:
         self.ssb_periodicity = ssb_periodicity
         self.ssb_offset = ssb_offset
         self.is_active = is_active
+        self.load = 0 # Update the sector's load attribute
+
         # List of UEs and current load, no change needed
         self.connected_ues = connected_ues if connected_ues is not None else []
         self.current_load = int(current_load)  # Integer, as load is a count which is shoe that how many use hosted in this sector.
@@ -75,23 +77,28 @@ class Sector:
     
     def serialize_for_influxdb(self):
         unix_timestamp_seconds = int(datetime.utcnow().timestamp())
+        ssb_periodicity_value = self.ssb_periodicity if self.ssb_periodicity is not None else 0
         point = Point("sector_metrics") \
-            .tag("sector_id", self.sector_id) \
-            .tag("cell_id", self.cell_id) \
-            .field("capacity", int(self.capacity)) \
-            .field("azimuth_angle", int(self.azimuth_angle)) \
-            .field("beamwidth", int(self.beamwidth)) \
+            .tag("sector_id", str(self.sector_id)) \
+            .tag("cell_id", str(self.cell_id)) \
+            .tag("gnodeb_id", str(self.cell.gNodeB_ID)) \
+            .tag("entity_type", "sector") \
+            .tag("instance_id", str(self.instance_id)) \
             .field("frequency", float(self.frequency)) \
-            .field("duplex_mode", self.duplex_mode) \
+            .field("duplex_mode", str(self.duplex_mode)) \
             .field("tx_power", int(self.tx_power)) \
             .field("bandwidth", int(self.bandwidth)) \
             .field("mimo_layers", int(self.mimo_layers)) \
-            .field("beamforming", self.beamforming) \
+            .field("beamforming", bool(self.beamforming)) \
             .field("ho_margin", int(self.ho_margin)) \
             .field("load_balancing", int(self.load_balancing)) \
+            .field("max_ues", int(self.capacity)) \
             .field("max_throughput", int(self.max_throughput)) \
-            .field("current_load", float(self.current_load)) \
-            .field("is_active", self.is_active) \
+            .field("channel_model", str(self.channel_model)) \
+            .field("sector_is_active", bool(self.is_active)) \
+            .field("sector_count", int(self.sector_count)) \
+            .field("is_active", bool(self.is_active)) \
+            .field("sector_load", float(sector_load)) \
             .time(unix_timestamp_seconds, WritePrecision.S)
 
         return point

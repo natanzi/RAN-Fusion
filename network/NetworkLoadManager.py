@@ -57,7 +57,7 @@ class NetworkLoadManager:
         COUNT_WEIGHT = 0.7
         TP_WEIGHT = 0.3
         sector_load = COUNT_WEIGHT * ue_count_load + TP_WEIGHT * throughput_load
-
+        sector.load = sector_load  # Update the sector's load attribute
         return sector_load
 
     def calculate_capped_throughput(self, sector: Sector):
