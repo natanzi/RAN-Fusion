@@ -26,7 +26,7 @@ global_ue_ids = set()
 sector_instances = {}
 
 class Sector:
-    def __init__(self, sector_id, cell_id, cell, capacity, azimuth_angle, beamwidth, frequency, duplex_mode, tx_power, bandwidth, mimo_layers, beamforming, ho_margin, load_balancing, max_throughput, channel_model, connected_ues=None, current_load=0, ssb_periodicity=None, ssb_offset=0):
+    def __init__(self, sector_id, cell_id, cell, capacity, azimuth_angle, beamwidth, frequency, duplex_mode, tx_power, bandwidth, mimo_layers, beamforming, ho_margin, load_balancing, max_throughput, channel_model=None, connected_ues=None, current_load=0, ssb_periodicity=None, ssb_offset=0, is_active=True, sector_count=0):
         self.sector_id = sector_id  # String, kept as is for identifiers
         self.instance_id = str(uuid.uuid4())  # Generic unique identifier for the instance of the sector
         sector_instances[sector_id] = self     # Add the sector to the global dictionary
@@ -48,8 +48,10 @@ class Sector:
         self.duplex_mode = duplex_mode
         self.max_throughput = max_throughput  # Maximum data handling capacity in bps (value is available in sector config)
         self.channel_model = channel_model
+        self.sector_count = sector_count
         self.ssb_periodicity = ssb_periodicity
         self.ssb_offset = ssb_offset
+        self.is_active = is_active
         # List of UEs and current load, no change needed
         self.connected_ues = connected_ues if connected_ues is not None else []
         self.current_load = int(current_load)  # Integer, as load is a count which is shoe that how many use hosted in this sector.
@@ -89,7 +91,6 @@ class Sector:
             .field("max_connect_ues", int(self.capacity)) \
             .field("max_throughput", int(self.max_throughput)) \
             .field("channel_model", str(self.channel_model)) \
-            .field("trackingArea", str(self.tracking_area)) \
             .field("CellisActive", bool(self.is_active)) \
             .field("sector_count", int(self.sector_count)) \
             .field("is_active", bool(self.is_active)) \
@@ -123,7 +124,7 @@ class Sector:
             # Note: The global_ue_ids.add(ue.ID) call is duplicated in original code. It should only be necessary once.
 
             # Serialize the sector for InfluxDB and insert the data
-            point = self.serialize_for_influxdb()  # Ensure this method correctly serializes the sector's data
+            point = self.serialize_for_influxdb(self.current_load)  # Ensure this method correctly serializes the sector's data
             DatabaseManager().insert_data(point)  # Ensure DatabaseManager is correctly implemented and accessible
 
             sector_logger.info(f"UE with ID {ue.ID} has been added to the sector {self.sector_id}. Current UE Load count: {self.current_load}")
