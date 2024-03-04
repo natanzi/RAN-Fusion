@@ -198,6 +198,9 @@ class SectorManager:
                 return sector_id
         return None
     
+    def get_sector_by_id(self, sector_id):
+    # Assuming self.sectors is a dictionary mapping sector IDs to Sector objects
+        return self.sectors.get(sector_id)
     def list_all_sectors(self):
         """
         Lists all sectors managed by the SectorManager.

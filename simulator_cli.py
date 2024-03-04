@@ -14,6 +14,8 @@ import time
 from prettytable import PrettyTable
 from threading import Event
 import os
+import threading
+from network.ue import UE
 
 # Assuming these are your custom modules for managing various aspects of the network simulator
 from network.ue_manager import UEManager
@@ -45,37 +47,35 @@ alias_config = {
 }
 
 class SimulatorCLI(cmd.Cmd):
-
-    def __init__(self, gNodeB_manager, cell_manager, sector_manager, ue_manager, network_load_manager, base_dir, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+    
+    def __init__(self, gNodeB_manager, cell_manager, sector_manager, ue_manager, network_load_manager, base_dir):
+        super(SimulatorCLI, self).__init__()  # Correctly call the superclass initializer
         self.session = PromptSession()
         self.traffic_controller = TrafficController()
         self.base_dir = base_dir
         self.display_thread = None
         self.running = False
+        # Assuming alias_config is defined
         self.aliases = self.generate_alias_mappings(alias_config)
         self.gNodeB_manager = gNodeB_manager
         self.cell_manager = cell_manager
         self.sector_manager = sector_manager
-        self.ue_manager = UEManager.get_instance(base_dir=self.base_dir)
+        self.ue_manager = ue_manager  # If UEManager.get_instance() is necessary, make sure it's called correctly
         self.network_load_manager = network_load_manager
         self.stop_event = Event()
-        self.sector_manager = SectorManager.get_instance()
         self.in_kpis_mode = False
 
-        #  Setup for prompt_toolkit completion
+        # Setup for prompt_toolkit completion
         commands = [cmd[3:] for cmd in dir(self) if cmd.startswith('do_')]
         self.completer = WordCompleter(commands + list(self.aliases.keys()), ignore_case=True)
 
     # cmdloop to use prompt_toolkit
     def cmdloop(self, intro=None):
-        self.intro = intro if intro is not None else "Welcome to the RAN Fusion Simulator CLI.\nType --help to list commands.\n"
-        if self.intro:
-            print(self.intro)
+        self.print_global_help()  # Display custom help menu at startup
         stop = None
         while not stop:
             try:
-                line = self.session.prompt('Cli-host ', style=cli_style, completer=self.completer)
+                line = self.session.prompt(self.prompt, style=cli_style, completer=self.completer)
                 line = self.precmd(line)
                 stop = self.onecmd(line)
                 stop = self.postcmd(stop, line)
@@ -102,6 +102,12 @@ class SimulatorCLI(cmd.Cmd):
             return self.aliases.get(line, line)
         else:
             return line
+        
+    def do_help(self, arg):
+        if arg in ['--help', '-h', '']:
+            super().do_help(None)
+        else:
+            super().do_help(arg)
 ################################################################################################################################ 
     def do_ue_list(self, arg):
         args = arg.split()
@@ -113,24 +119,56 @@ class SimulatorCLI(cmd.Cmd):
                 page_size = int(args[1])
             except ValueError:
                 print("Invalid page or page_size. Using defaults.")
-        start_index = (page - 1) * page_size
-        end_index = start_index + page_size
-        total_ues = len(UE.get_ues())
-        ues = UE.get_ues()[start_index:end_index]
-        table = PrettyTable()
-        table.field_names = ["UE ID", "Service Type", "Throughput(MB)"]
-        table.align = "l"  # Left-align table contents
-        table.border = True  # Ensure borders are enabled for clarity
-        table.header = True  # Ensure the header is displayed
-        table.header_style = "title"  # Capitalize header titles for emphasis
+    
+        def display_page(page, page_size):
+            start_index = (page - 1) * page_size
+            end_index = start_index + page_size
+            total_ues = len(UE.get_ues())
+            ues = UE.get_ues()[start_index:end_index]
+            table = PrettyTable()
+            table.field_names = ["UE ID", "Service Type", "Throughput(MB)"]
+            table.align = "l"
+            table.border = True
+            table.header = True
+            table.header_style = "title"
 
-        for ue in ues:
-            throughput_mbps = ue.throughput / 1e6  # Convert throughput to Mbps
-            table.add_row([ue.ID, ue.ServiceType, f"{throughput_mbps:.2f}"])  # Format throughput for consistency
+            for ue in ues:
+                throughput_mbps = ue.throughput / 1e6  # Convert throughput to Mbps
+                table.add_row([ue.ID, ue.ServiceType, f"{throughput_mbps:.2f}"])
+        
+            print(table)
+            total_pages = total_ues // page_size + (1 if total_ues % page_size > 0 else 0)
+            print(f"Page {page} of {total_pages}")
 
-        print(table)
-        total_pages = total_ues // page_size + (1 if total_ues % page_size > 0 else 0)
-        print(f"Page {page} of {total_pages}")
+        def refresh_data():
+            while not self.stop_event.is_set():
+                os.system('cls' if os.name == 'nt' else 'clear')  # Clear the console
+                display_page(page, page_size)  # Display the current page
+                time.sleep(1)  # Wait for a second before refreshing
+
+            self.stop_event = threading.Event()
+            display_thread = threading.Thread(target=refresh_data)
+            display_thread.start()
+    
+            input("Press Enter to stop refreshing...")  # Wait for user input to stop refreshing
+            self.stop_event.set()
+            display_thread.join()
+
+            # Handling pagination manually after stopping the refresh
+            while True:
+                next_action = input("Enter 'n' for next page, 'p' for previous page, or 'q' to quit: ").lower()
+                if next_action == 'n':
+                    page += 1
+                elif next_action == 'p' and page > 1:
+                    page -= 1
+                elif next_action == 'q':
+                    break
+                else:
+                    print("Invalid input. Please try again.")
+        
+                os.system('cls' if os.name == 'nt' else 'clear')  # Clear the console
+                display_page(page, page_size)  # Display the updated page
+
 ############################################################################################################################## 
     def do_ue_log(self, arg):
         """Display UE (User Equipment) traffic logs."""
@@ -170,7 +208,8 @@ class SimulatorCLI(cmd.Cmd):
 
         # Adding rows to the table
         for gNodeB in gNodeB_details_list:
-            # Example of accessing other details assuming they exist in your data structure
+            gNodeB_id = gNodeB['id']
+            load_percentage = gNodeB_loads.get(gNodeB_id, 0)
             coverage_radius = gNodeB.get('coverage_radius', 'N/A')
             transmission_power = gNodeB.get('transmission_power', 'N/A')
             bandwidth = gNodeB.get('bandwidth', 'N/A')
@@ -193,38 +232,42 @@ class SimulatorCLI(cmd.Cmd):
 ################################################################################################################################ 
     def do_cell_list(self, arg):
         """List all cells with their load percentage."""
-        cell_details_list = self.cell_manager.list_all_cells_detailed()
-        if not cell_details_list:
-            print("No cells found.")
-            return
+        try:
+            while True:
+                cell_details_list = self.cell_manager.list_all_cells_detailed()
+                if not cell_details_list:
+                    print("No cells found.")
+                    break  # Exit the loop if no cells are found
 
-        table = PrettyTable()
-        table.field_names = ["Cell ID", "Technology", "Status", "Active UEs", "Cell Load (%)"]
+                table = PrettyTable()
+                table.field_names = ["Cell ID", "Technology", "Status", "Active UEs", "Cell Load (%)"]
 
-        for cell_detail in cell_details_list:
-            cell_id = cell_detail['id']
-            cell = self.cell_manager.get_cell(cell_id)  # Retrieve the cell object by its ID
-            if cell is None:
-                continue  # Skip if the cell is not found
+                for cell_detail in cell_details_list:
+                    cell_id = cell_detail['id']
+                    cell = self.cell_manager.get_cell(cell_id)  # Retrieve the cell object by its ID
+                    if cell is None:
+                        continue  # Skip if the cell is not found
 
-            technology = cell_detail.get('technology', '5GNR')
-            status_text = "\033[92mActive\033[0m" if cell_detail.get('Active', True) else "\033[91mInactive\033[0m"
-            active_ues = self.calculate_active_ues_for_cell(cell_id)  # Calculate active UEs for each cell
+                    technology = cell_detail.get('technology', '5GNR')
+                    status_text = "\033[92mActive\033[0m" if cell_detail.get('Active', True) else "\033[91mInactive\033[0m"
+                    active_ues = self.calculate_active_ues_for_cell(cell_id)  # Calculate active UEs for each cell
 
-            # Calculate the load of the cell using the NetworkLoadManager
-            cell_load_percentage = self.network_load_manager.calculate_cell_load(cell)
-            
-            table.add_row([
-                cell_id,
-                technology,
-                status_text,
-                active_ues,
-                f"{cell_load_percentage:.2f}%"  # Format the cell load as a percentage
-            ])
+                    # Calculate the load of the cell using the NetworkLoadManager
+                    cell_load_percentage = self.network_load_manager.calculate_cell_load(cell)
+                
+                    table.add_row([
+                        cell_id,
+                        technology,
+                        status_text,
+                        active_ues,
+                        f"{cell_load_percentage:.2f}%"  # Format the cell load as a percentage
+                    ])
 
-        table.align = "l"
-        print(table)
-
+                os.system('cls' if os.name == 'nt' else 'clear')  # Clear the console for each update
+                print(table)
+                time.sleep(1)  # Refresh the table every second
+        except KeyboardInterrupt:
+            print("\nStopped dynamic cell load display.")
     def calculate_active_ues_for_cell(self, cell_id):
         # Retrieve the cell object by its ID using the correct method name
         cell = self.cell_manager.get_cell(cell_id)
@@ -242,17 +285,24 @@ class SimulatorCLI(cmd.Cmd):
         # Create a PrettyTable instance
         table = PrettyTable()
         # Define the table columns including Current Load (%)
-        table.field_names = ["Sector ID", "Cell ID", "Max UEs", "Active UEs", "Max Throughput", "Current Load (%)"]
+        table.field_names = ["Sector ID", "Cell ID", "Max UEs", "Active UEs", "Max Throughput", "Sector Load (%)"]
         # Adding rows to the table
         for sector_info in sector_list:
-            # No need to create a Sector instance, just use the sector_info directly
+            sector_id = sector_info['sector_id']
+            # Retrieve the Sector object using the sector_id
+            sector = self.sector_manager.get_sector_by_id(sector_id)  # Assuming there's a method like this in SectorManager
+            if sector is None:
+                continue  # Skip if the sector is not found
+
+            sector_load_percentage = self.network_load_manager.calculate_sector_load(sector)
+        
             table.add_row([
                 sector_info['sector_id'],
                 sector_info['cell_id'],
                 sector_info['capacity'],
                 sector_info['current_load'],
                 sector_info['max_throughput'],
-                f"{sector_info['current_load']:.2f}%"  # Assuming 'current_load' is a percentage
+                f"{sector_load_percentage:.2f}%"  # Display the calculated load percentage
             ])
         # Optional: Set alignment for each column
         table.align["Sector ID"] = "l"
@@ -260,10 +310,9 @@ class SimulatorCLI(cmd.Cmd):
         table.align["Max UEs"] = "r"
         table.align["Active UEs"] = "r"
         table.align["Max Throughput"] = "r"
-        table.align["Current Load (%)"] = "r"  # Align the new column to the right
+        table.align["Sector Load (%)"] = "r"  # Align the new column to the right
         # Print the table
         print(table)
-
 ################################################################################################################################            
     def do_del_ue(self, line):
         from network.sector import global_ue_ids
@@ -394,8 +443,6 @@ class SimulatorCLI(cmd.Cmd):
         except Exception as e:
             print(f"Error starting traffic for UE: {e}")
 ################################################################################################################################
-
-
     def complete(self, text, state):
         # Filter completions matching the text and return one by one
         results = [cmd for cmd in self.completions if cmd.startswith(text)] + [None]
@@ -430,8 +477,8 @@ class SimulatorCLI(cmd.Cmd):
         return self.complete_ue_log(*args)
     
     def default(self, line):
-        if line == '--help':
-            self.print_global_help()
+        if line.strip() in ['--help', '-h']:
+            self.do_help('')
         else:
             print("*** Unknown syntax:", line)
 
