@@ -94,7 +94,7 @@ class Sector:
             .field("CellisActive", bool(self.is_active)) \
             .field("sector_count", int(self.sector_count)) \
             .field("is_active", bool(self.is_active)) \
-            .field("cell_load", cell_load) \
+            .field("cell_load", float(cell_load)) \
             .time(unix_timestamp_seconds, WritePrecision.S)  # Set the timestamp in seconds
 
         return point
@@ -124,7 +124,7 @@ class Sector:
             # Note: The global_ue_ids.add(ue.ID) call is duplicated in original code. It should only be necessary once.
 
             # Serialize the sector for InfluxDB and insert the data
-            point = self.serialize_for_influxdb(self.current_load)  # Ensure this method correctly serializes the sector's data
+            point = self.serialize_for_influxdb(float(self.current_load))  # Ensure this method correctly serializes the sector's data
             DatabaseManager().insert_data(point)  # Ensure DatabaseManager is correctly implemented and accessible
 
             sector_logger.info(f"UE with ID {ue.ID} has been added to the sector {self.sector_id}. Current UE Load count: {self.current_load}")
