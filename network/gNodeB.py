@@ -93,50 +93,31 @@ class gNodeB:
             .tag("gnodeb_id", self.ID) \
             .tag("entity_type", "gnodeb")\
             .tag("instance_id", str(self.instance_id)) \
-        # Convert the location list to a string if it's not None
-        location_str = ','.join(map(str, self.Location)) if self.Location is not None else None
-
-        # Convert the blacklisted cells list to a string if it's not None
-        blacklisted_cells_str = ','.join(map(str, self.BlacklistedCells)) if self.BlacklistedCells is not None else None
-
-        # Ensure the 'region' field is a string
-        region_str = str(self.Region) if self.Region is not None else None
-
-        # Create a dictionary of fields to include in the Point
-        fields = {
-            "latitude": float(self.Latitude),
-            "longitude": float(self.Longitude),
-            "coverage_radius": float(self.CoverageRadius),
-            "transmission_power": int(self.TransmissionPower),
-            "frequency": float(self.Frequency),
-            "region": region_str,
-            "max_ues": int(self.MaxUEs), 
-            "cell_count": int(self.CellCount),
-            "sector_count": int(self.SectorCount),
-            "measurement_bandwidth": float(self.MeasurementBandwidth),
-            "blacklisted_cells": blacklisted_cells_str,
-            "handover_success_count": int(self.handover_success_count),
-            "handover_failure_count": int(self.handover_failure_count),
-            "location": location_str,
-            "bandwidth": float(self.Bandwidth),
-            "handover_margin": float(self.HandoverMargin),
-            "handover_hysteresis": float(self.HandoverHysteresis),
-            "time_to_trigger": int(self.TimeToTrigger),
-            "inter_freq_handover": int(self.InterFreqHandover),
-            "xn_interface": str(self.XnInterface),
-            "son_capabilities": str(self.SONCapabilities),
-            "load_balancing_offset": int(self.LoadBalancingOffset),
-            "cell_ids": ','.join(map(str, self.CellIds)) if self.CellIds is not None else None,
-            "sector_ids": ','.join([str(sector_id) for sector_id in self.SectorIds])
-        }
-
-        # Add fields to the Point if they are not None
-        for field, value in fields.items():
-            if value is not None:
-                point = point.field(field, value)
-
-        # Set the time for the Point
-        point = point.time(time.time_ns(), WritePrecision.NS)
+            .field("latitude", float(self.Latitude)) \
+            .field("longitude", float(self.Longitude)) \
+            .field("coverage_radius", float(self.CoverageRadius)) \
+            .field("transmission_power", int(self.TransmissionPower)) \
+            .field("frequency", float(self.Frequency)) \
+            .field("region", str(self.Region) if self.Region is not None else None) \
+            .field("max_ues", int(self.MaxUEs)) \
+            .field("cell_count", int(self.CellCount)) \
+            .field("sector_count", int(self.SectorCount)) \
+            .field("measurement_bandwidth", float(self.MeasurementBandwidth)) \
+            .field("blacklisted_cells", ','.join(map(str, self.BlacklistedCells)) if self.BlacklistedCells is not None else None) \
+            .field("handover_success_count", int(self.handover_success_count)) \
+            .field("handover_failure_count", int(self.handover_failure_count)) \
+            .field("location", ','.join(map(str, self.Location)) if self.Location is not None else None) \
+            .field("bandwidth", float(self.Bandwidth)) \
+            .field("handover_margin", float(self.HandoverMargin)) \
+            .field("handover_hysteresis", float(self.HandoverHysteresis)) \
+            .field("time_to_trigger", int(self.TimeToTrigger)) \
+            .field("inter_freq_handover", int(self.InterFreqHandover)) \
+            .field("xn_interface", str(self.XnInterface)) \
+            .field("son_capabilities", str(self.SONCapabilities)) \
+            .field("load_balancing_offset", int(self.LoadBalancingOffset)) \
+            .field("cell_ids", ','.join(map(str, self.CellIds)) if self.CellIds is not None else None) \
+            .field("sector_ids", ','.join([str(sector_id) for sector_id in self.SectorIds])) \
+            .time(int(time.time()), WritePrecision.S)  # Corrected timestamp in seconds
 
         return point
 ######################################################################################################

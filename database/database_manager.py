@@ -134,7 +134,7 @@ class DatabaseManager:
                 for field_key, field_value in (fields or {}).items():
                     point.field(field_key, field_value)
                 # Convert the timestamp to the correct format for InfluxDB
-                point.time(timestamp, WritePrecision.NS)
+                point.time(timestamp, WritePrecision.S)
 
             self.write_api.write(bucket=self.bucket, record=point)
             # Log the measurement and the tags for context
@@ -196,14 +196,14 @@ class DatabaseManager:
         point = Point("sector_metrics") \
             .tag("sector_id", sector_id) \
             .field("sector_load", load) \
-            .time(datetime.utcnow(), WritePrecision.NS)
+            .time(datetime.utcnow(), WritePrecision.S)
         self.write_api.write(bucket=self.bucket, record=point)
 
     def write_cell_load(self, cell_id, load):
         point = Point("cell_metrics") \
             .tag("cell_id", cell_id) \
             .field("cell_load", load) \
-            .time(datetime.utcnow(), WritePrecision.NS)
+            .time(datetime.utcnow(), WritePrecision.S)
         self.write_api.write(bucket=self.bucket, record=point)
 
 ##################################################################################################################################
@@ -211,7 +211,7 @@ class DatabaseManager:
         point = Point("network_measurement")\
             .field("Network_load", int(network_load))\
             .field("Network_delay", network_delay) \
-            .time(datetime.utcnow(), WritePrecision.NS)
+            .time(datetime.utcnow(), WritePrecision.S)
         self.write_api.write(bucket=self.bucket, record=point)
 ##################################################################################################################################
     def get_ue_metrics(self, ue_id):

@@ -11,7 +11,7 @@ from logs.logger_config import ue_logger
 import uuid
 import threading
 from threading import Lock
-
+from influxdb_client.client.write_api import SYNCHRONOUS, WritePrecision
 class UE:
     existing_ue_ids = set()  # Keep track of all existing UE IDs to avoid duplicates
     ue_instances = {}  #keep ue instanse
@@ -157,6 +157,9 @@ class UE:
                 break  # Assuming UE IDs are unique, break after finding and removing the instance
 
     def serialize_for_influxdb(self):
+        # Convert current UTC time to a UNIX timestamp in seconds
+        unix_timestamp_seconds = int(datetime.utcnow().timestamp())
+    
         point = Point("ue_metrics") \
             .tag("ue_id", str(self.ID)) \
             .tag("connected_cell_id", str(self.ConnectedCellID)) \
@@ -192,8 +195,7 @@ class UE:
             .field("battery_level", int(self.BatteryLevel)) \
             .field("ip_address", str(self.IP)) \
             .field("mac_address", str(self.MAC)) \
-            .time(datetime.utcnow())
-        #print(f"Serialized UE point: {point}")
+            .time(unix_timestamp_seconds, WritePrecision.S)  # Use UNIX timestamp in seconds
         return point
     
     def update_parameters(self, **kwargs):

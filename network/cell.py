@@ -16,7 +16,8 @@ import uuid
 from influxdb_client import Point
 from influxdb_client.client.write_api import SYNCHRONOUS
 from database.time_utils import get_current_time_ntp, server_pools
-
+from influxdb_client.client.write_api import WritePrecision
+from datetime import datetime
 cell_instances = {}
 
 class Cell:
@@ -89,6 +90,9 @@ class Cell:
         }
 ####################################################################################### 
     def serialize_for_influxdb(self, cell_load):
+        # Convert current UTC time to a UNIX timestamp in seconds
+        unix_timestamp_seconds = int(datetime.utcnow().timestamp())
+    
         point = Point("cell_metrics") \
             .tag("cell_id", str(self.ID)) \
             .tag("gnodeb_id", str(self.gNodeB_ID)) \
@@ -107,8 +111,9 @@ class Cell:
             .field("CellisActive", bool(self.IsActive)) \
             .field("sector_count", int(self.SectorCount)) \
             .field("is_active", bool(self.IsActive)) \
-            .field("cell_load", cell_load)
-        
+            .field("cell_load", cell_load) \
+            .time(unix_timestamp_seconds, WritePrecision.S)  # Set the timestamp in seconds
+    
         return point
 
 ####################################################################################

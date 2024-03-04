@@ -19,6 +19,7 @@ from logs.logger_config import sector_logger
 from database.database_manager import DatabaseManager
 from network.ue import UE
 sector_lock = threading.Lock()
+from datetime import datetime
 
 # Assume a global list or set for UE IDs is defined at the top level of your module
 global_ue_ids = set()
@@ -67,27 +68,31 @@ class Sector:
 
         return cls(**data)
     
-    def serialize_for_influxdb(self):
-        point = Point("sector_metrics") \
-            .tag("sector_id", self.sector_id) \
-            .tag("cell_id", self.cell_id) \
-            .tag("entity_type", "sector") \
+    def serialize_for_influxdb(self, cell_load):
+        # Convert current UTC time to a UNIX timestamp in seconds
+        unix_timestamp_seconds = int(datetime.utcnow().timestamp())
+    
+        point = Point("cell_metrics") \
+            .tag("cell_id", str(self.ID)) \
+            .tag("gnodeb_id", str(self.gNodeB_ID)) \
+            .tag("entity_type", "cell") \
             .tag("instance_id", str(self.instance_id)) \
-            .field("azimuth_angle", self.azimuth_angle) \
-            .field("beamwidth", self.beamwidth) \
-            .field("frequency", self.frequency) \
-            .field("duplex_mode", self.duplex_mode) \
-            .field("tx_power", self.tx_power) \
-            .field("bandwidth", self.bandwidth) \
-            .field("mimo_layers", self.mimo_layers) \
-            .field("beamforming", int(self.beamforming)) \
-            .field("ho_margin", self.ho_margin) \
-            .field("load_balancing", self.load_balancing) \
-            .field("connected_ues", len(self.connected_ues)) \
-            .field("current_load", self.current_load) \
-            .field("capacity", self.capacity) \
-            .field("max_throughput", self.max_throughput) \
-            .time(time.time_ns(), WritePrecision.NS)
+            .field("frequencyBand", str(self.FrequencyBand)) \
+            .field("duplexMode", str(self.DuplexMode)) \
+            .field("tx_power", int(self.TxPower)) \
+            .field("bandwidth", int(self.Bandwidth)) \
+            .field("ssb_periodicity", int(self.SSBPeriodicity)) \
+            .field("ssb_offset", int(self.SSBOffset)) \
+            .field("max_connect_ues", int(self.maxConnectUes)) \
+            .field("max_throughput", int(self.max_throughput)) \
+            .field("channel_model", str(self.ChannelModel)) \
+            .field("trackingArea", str(self.TrackingArea)) \
+            .field("CellisActive", bool(self.IsActive)) \
+            .field("sector_count", int(self.SectorCount)) \
+            .field("is_active", bool(self.IsActive)) \
+            .field("cell_load", cell_load) \
+            .time(unix_timestamp_seconds, WritePrecision.S)  # Set the timestamp in seconds
+    
         return point
 
     def add_ue(self, ue):
