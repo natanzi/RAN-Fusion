@@ -26,7 +26,7 @@ global_ue_ids = set()
 sector_instances = {}
 
 class Sector:
-    def __init__(self, sector_id, cell_id, cell, capacity, azimuth_angle, beamwidth, frequency, duplex_mode, tx_power, bandwidth, mimo_layers, beamforming, ho_margin, load_balancing, max_throughput, connected_ues=None, current_load=0, ssb_periodicity=None):
+    def __init__(self, sector_id, cell_id, cell, capacity, azimuth_angle, beamwidth, frequency, duplex_mode, tx_power, bandwidth, mimo_layers, beamforming, ho_margin, load_balancing, max_throughput, channel_model, connected_ues=None, current_load=0, ssb_periodicity=None, ssb_offset=0):
         self.sector_id = sector_id  # String, kept as is for identifiers
         self.instance_id = str(uuid.uuid4())  # Generic unique identifier for the instance of the sector
         sector_instances[sector_id] = self     # Add the sector to the global dictionary
@@ -47,7 +47,9 @@ class Sector:
         self.load_balancing = int(load_balancing)  # Integer, assuming load balancing metrics can be integers
         self.duplex_mode = duplex_mode
         self.max_throughput = max_throughput  # Maximum data handling capacity in bps (value is available in sector config)
+        self.channel_model = channel_model
         self.ssb_periodicity = ssb_periodicity
+        self.ssb_offset = ssb_offset
         # List of UEs and current load, no change needed
         self.connected_ues = connected_ues if connected_ues is not None else []
         self.current_load = int(current_load)  # Integer, as load is a count which is shoe that how many use hosted in this sector.
@@ -72,7 +74,7 @@ class Sector:
     def serialize_for_influxdb(self, cell_load):
         # Convert current UTC time to a UNIX timestamp in seconds
         unix_timestamp_seconds = int(datetime.utcnow().timestamp())
-
+        ssb_periodicity_value = self.ssb_periodicity if self.ssb_periodicity is not None else 0
         point = Point("cell_metrics") \
             .tag("cell_id", str(self.cell_id)) \
             .tag("gnodeb_id", str(self.cell.gNodeB_ID)) \
@@ -82,7 +84,7 @@ class Sector:
             .field("duplexMode", str(self.duplex_mode)) \
             .field("tx_power", int(self.tx_power)) \
             .field("bandwidth", int(self.bandwidth)) \
-            .field("ssb_periodicity", int(self.ssb_periodicity)) \
+            .field("ssb_periodicity", int(ssb_periodicity_value)) \
             .field("ssb_offset", int(self.ssb_offset)) \
             .field("max_connect_ues", int(self.capacity)) \
             .field("max_throughput", int(self.max_throughput)) \
