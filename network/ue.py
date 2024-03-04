@@ -167,8 +167,8 @@ class UE:
             .tag("entity_type", "ue") \
             .tag("gnb_id", str(self.gNodeB_ID)) \
             .tag("instance_id", str(self.instance_id)) \
+            .tag("service_type", str(self.ServiceType)) \
             .field("imei", str(self.IMEI)) \
-            .field("service_type", str(self.ServiceType)) \
             .field("signal_strength", float(self.SignalStrength)) \
             .field("rat", str(self.RAT)) \
             .field("max_bandwidth", int(self.MaxBandwidth)) \

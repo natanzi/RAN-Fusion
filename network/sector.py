@@ -73,31 +73,29 @@ class Sector:
 
         return cls(**data)
     
-    def serialize_for_influxdb(self, cell_load):
-        # Convert current UTC time to a UNIX timestamp in seconds
+    def serialize_for_influxdb(self):
         unix_timestamp_seconds = int(datetime.utcnow().timestamp())
-        ssb_periodicity_value = self.ssb_periodicity if self.ssb_periodicity is not None else 0
-        point = Point("cell_metrics") \
-            .tag("cell_id", str(self.cell_id)) \
-            .tag("gnodeb_id", str(self.cell.gNodeB_ID)) \
-            .tag("entity_type", "cell") \
-            .tag("instance_id", str(self.instance_id)) \
-            .field("frequencyBand", str(self.frequency)) \
-            .field("duplexMode", str(self.duplex_mode)) \
+        point = Point("sector_metrics") \
+            .tag("sector_id", self.sector_id) \
+            .tag("cell_id", self.cell_id) \
+            .field("capacity", int(self.capacity)) \
+            .field("azimuth_angle", int(self.azimuth_angle)) \
+            .field("beamwidth", int(self.beamwidth)) \
+            .field("frequency", float(self.frequency)) \
+            .field("duplex_mode", self.duplex_mode) \
             .field("tx_power", int(self.tx_power)) \
             .field("bandwidth", int(self.bandwidth)) \
-            .field("ssb_periodicity", int(ssb_periodicity_value)) \
-            .field("ssb_offset", int(self.ssb_offset)) \
-            .field("max_connect_ues", int(self.capacity)) \
+            .field("mimo_layers", int(self.mimo_layers)) \
+            .field("beamforming", self.beamforming) \
+            .field("ho_margin", int(self.ho_margin)) \
+            .field("load_balancing", int(self.load_balancing)) \
             .field("max_throughput", int(self.max_throughput)) \
-            .field("channel_model", str(self.channel_model)) \
-            .field("CellisActive", bool(self.is_active)) \
-            .field("sector_count", int(self.sector_count)) \
-            .field("is_active", bool(self.is_active)) \
-            .field("cell_load", float(cell_load)) \
-            .time(unix_timestamp_seconds, WritePrecision.S)  # Set the timestamp in seconds
+            .field("current_load", float(self.current_load)) \
+            .field("is_active", self.is_active) \
+            .time(unix_timestamp_seconds, WritePrecision.S)
 
         return point
+
     def add_ue(self, ue):
         with sector_lock:  # Assuming sector_lock is correctly defined and accessible
             # Check if the sector is at its maximum capacity

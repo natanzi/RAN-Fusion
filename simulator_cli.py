@@ -119,12 +119,15 @@ class SimulatorCLI(cmd.Cmd):
                 page_size = int(args[1])
             except ValueError:
                 print("Invalid page or page_size. Using defaults.")
-    
+
         def display_page(page, page_size):
             start_index = (page - 1) * page_size
             end_index = start_index + page_size
-            total_ues = len(UE.get_ues())
-            ues = UE.get_ues()[start_index:end_index]
+            # Fetch all UE IDs using UEManager
+            ue_ids = self.ue_manager.list_all_ues()
+            total_ues = len(ue_ids)
+            ues_to_display = ue_ids[start_index:end_index]
+
             table = PrettyTable()
             table.field_names = ["UE ID", "Service Type", "Throughput(MB)"]
             table.align = "l"
@@ -132,10 +135,12 @@ class SimulatorCLI(cmd.Cmd):
             table.header = True
             table.header_style = "title"
 
-            for ue in ues:
-                throughput_mbps = ue.throughput / 1e6  # Convert throughput to Mbps
-                table.add_row([ue.ID, ue.ServiceType, f"{throughput_mbps:.2f}"])
-        
+            for ue_id in ues_to_display:
+                ue = self.ue_manager.get_ue_by_id(ue_id)
+                if ue:
+                    throughput_mbps = ue.throughput / 1e6  # Convert throughput to Mbps
+                    table.add_row([ue.ID, ue.ServiceType, f"{throughput_mbps:.2f}"])
+
             print(table)
             total_pages = total_ues // page_size + (1 if total_ues % page_size > 0 else 0)
             print(f"Page {page} of {total_pages}")
@@ -149,25 +154,25 @@ class SimulatorCLI(cmd.Cmd):
             self.stop_event = threading.Event()
             display_thread = threading.Thread(target=refresh_data)
             display_thread.start()
-    
+
             input("Press Enter to stop refreshing...")  # Wait for user input to stop refreshing
             self.stop_event.set()
             display_thread.join()
 
-            # Handling pagination manually after stopping the refresh
-            while True:
-                next_action = input("Enter 'n' for next page, 'p' for previous page, or 'q' to quit: ").lower()
-                if next_action == 'n':
-                    page += 1
-                elif next_action == 'p' and page > 1:
-                    page -= 1
-                elif next_action == 'q':
-                    break
-                else:
-                    print("Invalid input. Please try again.")
-        
-                os.system('cls' if os.name == 'nt' else 'clear')  # Clear the console
-                display_page(page, page_size)  # Display the updated page
+        # Handling pagination manually after stopping the refresh
+        while True:
+            next_action = input("Enter 'n' for next page, 'p' for previous page, or 'q' to quit: ").lower()
+            if next_action == 'n':
+                page += 1
+            elif next_action == 'p' and page > 1:
+                page -= 1
+            elif next_action == 'q':
+                break
+            else:
+                print("Invalid input. Please try again.")
+
+            os.system('cls' if os.name == 'nt' else 'clear')  # Clear the console
+            display_page(page, page_size)  # Display the updated page
 
 ############################################################################################################################## 
     def do_ue_log(self, arg):

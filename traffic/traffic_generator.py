@@ -426,17 +426,18 @@ class TrafficController:
         
         # Prepare the data for InfluxDB with units for clarity
         influxdb_data = {
-            "measurement": "ue_throughput",
-            "tags": {
-                "ue_id": ue.ID
-            },
-            "fields": {
-                "throughput": f"{throughput} bps",  # Adding units
-                "jitter": jitter,
-                "packet_loss": packet_loss_rate,
-                "ue_delay": ue_delay,
-            },
-            "time": datetime.utcnow().isoformat()
+        "measurement": "ue_metrics",
+        "tags": {
+            "ue_id": ue.ID,  # Added the missing comma here
+            "service_type": ue.ServiceType
+        },
+        "fields": {
+            "throughput": f"{throughput} bps",  # Adding units
+            "jitter": jitter,
+            "packet_loss": packet_loss_rate,
+            "ue_delay": ue_delay,
+        },
+        "time": datetime.utcnow().isoformat()
         }
 
         # Assuming DatabaseManager and other necessary imports are correctly handled

@@ -207,29 +207,33 @@ class DatabaseManager:
         self.write_api.write(bucket=self.bucket, record=point)
 
 ##################################################################################################################################
-    def write_network_measurement(self, network_load, network_delay):
-        point = Point("network_measurement")\
-            .field("Network_load", int(network_load))\
-            .field("Network_delay", network_delay) \
-            .time(datetime.utcnow(), WritePrecision.S)
+    def write_network_measurement(self, network_load, total_connected_ues, total_handover_success_count, total_handover_failure_count):
+        point = Point("network_metrics") \
+            .field("load", float(network_load)) \
+            .field("total_connected_ues", int(total_connected_ues)) \
+            .field("total_handover_success_count", int(total_handover_success_count)) \
+            .field("total_handover_failure_count", int(total_handover_failure_count)) \
+            .time(datetime.utcnow(), WritePrecision.NS)
         self.write_api.write(bucket=self.bucket, record=point)
 ##################################################################################################################################
     def get_ue_metrics(self, ue_id):
-        # Flux query syntax for InfluxDB 2.x
         query = f'''
-        from(bucket: "{self.bucket}")
-            |> range(start: -1d)
-            |> filter(fn: (r) => r["_measurement"] == "ue_metrics" and r["ue_id"] == "{ue_id}")
+            from(bucket: "{self.bucket}")
+                |> range(start: -1d)
+                |> filter(fn: (r) => r._measurement == "ue_metrics" and r.ue_id == "{ue_id}")
+                |> pivot(rowKey:["_time"], columnKey: ["_field"], valueColumn: "_value")
+                |> last()
         '''
         result = self.query_api.query(query=query)
         metrics = []
         for table in result:
             for record in table.records:
-                # Adjust according to the structure of your data
                 metrics.append({
-                    'metric_name': record.get_field(),
-                    'value': record.get_value(),
-                    'time': record.get_time()
+                    'timestamp': record.get_time(),
+                    'throughput': record.get_value(),
+                    'jitter': record.values['jitter'],
+                    'packet_loss': record.values['packet_loss'],
+                    'delay': record.values['delay']
                 })
         return metrics
 ##################################################################################################################################

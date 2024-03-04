@@ -98,7 +98,7 @@ def ue_metrics():
         metrics = db_manager.get_ue_metrics(ue_id)
         if metrics:
             response = jsonify({'metrics': metrics})
-            response.headers['Content-Type'] = 'application/json'  # Explicitly setting Content-Type
+            response.headers['Content-Type'] = 'application/json'
             return response, 200
         else:
             return jsonify({'message': f'No metrics found for UE {ue_id}'}), 404
