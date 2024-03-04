@@ -26,7 +26,7 @@ global_ue_ids = set()
 sector_instances = {}
 
 class Sector:
-    def __init__(self, sector_id, cell_id, cell, capacity, azimuth_angle, beamwidth, frequency, duplex_mode, tx_power, bandwidth, mimo_layers, beamforming, ho_margin, load_balancing, max_throughput, connected_ues=None, current_load=0):
+    def __init__(self, sector_id, cell_id, cell, capacity, azimuth_angle, beamwidth, frequency, duplex_mode, tx_power, bandwidth, mimo_layers, beamforming, ho_margin, load_balancing, max_throughput, connected_ues=None, current_load=0, ssb_periodicity=None):
         self.sector_id = sector_id  # String, kept as is for identifiers
         self.instance_id = str(uuid.uuid4())  # Generic unique identifier for the instance of the sector
         sector_instances[sector_id] = self     # Add the sector to the global dictionary
@@ -47,6 +47,7 @@ class Sector:
         self.load_balancing = int(load_balancing)  # Integer, assuming load balancing metrics can be integers
         self.duplex_mode = duplex_mode
         self.max_throughput = max_throughput  # Maximum data handling capacity in bps (value is available in sector config)
+        self.ssb_periodicity = ssb_periodicity
         # List of UEs and current load, no change needed
         self.connected_ues = connected_ues if connected_ues is not None else []
         self.current_load = int(current_load)  # Integer, as load is a count which is shoe that how many use hosted in this sector.
@@ -71,30 +72,29 @@ class Sector:
     def serialize_for_influxdb(self, cell_load):
         # Convert current UTC time to a UNIX timestamp in seconds
         unix_timestamp_seconds = int(datetime.utcnow().timestamp())
-    
+
         point = Point("cell_metrics") \
-            .tag("cell_id", str(self.ID)) \
-            .tag("gnodeb_id", str(self.gNodeB_ID)) \
+            .tag("cell_id", str(self.cell_id)) \
+            .tag("gnodeb_id", str(self.cell.gNodeB_ID)) \
             .tag("entity_type", "cell") \
             .tag("instance_id", str(self.instance_id)) \
-            .field("frequencyBand", str(self.FrequencyBand)) \
-            .field("duplexMode", str(self.DuplexMode)) \
-            .field("tx_power", int(self.TxPower)) \
-            .field("bandwidth", int(self.Bandwidth)) \
-            .field("ssb_periodicity", int(self.SSBPeriodicity)) \
-            .field("ssb_offset", int(self.SSBOffset)) \
-            .field("max_connect_ues", int(self.maxConnectUes)) \
+            .field("frequencyBand", str(self.frequency)) \
+            .field("duplexMode", str(self.duplex_mode)) \
+            .field("tx_power", int(self.tx_power)) \
+            .field("bandwidth", int(self.bandwidth)) \
+            .field("ssb_periodicity", int(self.ssb_periodicity)) \
+            .field("ssb_offset", int(self.ssb_offset)) \
+            .field("max_connect_ues", int(self.capacity)) \
             .field("max_throughput", int(self.max_throughput)) \
-            .field("channel_model", str(self.ChannelModel)) \
-            .field("trackingArea", str(self.TrackingArea)) \
-            .field("CellisActive", bool(self.IsActive)) \
-            .field("sector_count", int(self.SectorCount)) \
-            .field("is_active", bool(self.IsActive)) \
+            .field("channel_model", str(self.channel_model)) \
+            .field("trackingArea", str(self.tracking_area)) \
+            .field("CellisActive", bool(self.is_active)) \
+            .field("sector_count", int(self.sector_count)) \
+            .field("is_active", bool(self.is_active)) \
             .field("cell_load", cell_load) \
             .time(unix_timestamp_seconds, WritePrecision.S)  # Set the timestamp in seconds
-    
-        return point
 
+        return point
     def add_ue(self, ue):
         with sector_lock:  # Assuming sector_lock is correctly defined and accessible
             # Check if the sector is at its maximum capacity

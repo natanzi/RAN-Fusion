@@ -88,7 +88,7 @@ class SectorManager:
 
                     self.sectors[new_sector.sector_id] = new_sector
                     initialized_sectors[new_sector.sector_id] = new_sector
-                    point = new_sector.serialize_for_influxdb()
+                    point = new_sector.serialize_for_influxdb(new_sector.current_load)
                     self.db_manager.insert_data(point)
                     print(f"Sector {new_sector.sector_id} initialized and associated with gNodeB {gnodeb_id} and Cell {cell_id}.")
                 else:
