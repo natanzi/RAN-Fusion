@@ -7,7 +7,7 @@ import random
 import re
 from datetime import datetime
 from influxdb_client import Point
-from logs.logger_config import ue_logger
+from logs.logger_config import ue_logger, database_logger
 import uuid
 import threading
 from threading import Lock
@@ -157,47 +157,51 @@ class UE:
                 break  # Assuming UE IDs are unique, break after finding and removing the instance
 
     def serialize_for_influxdb(self):
-        # Convert current UTC time to a UNIX timestamp in seconds
-        unix_timestamp_seconds = int(datetime.utcnow().timestamp())
+        try:
+            # Convert current UTC time to a UNIX timestamp in seconds
+            unix_timestamp_seconds = int(datetime.utcnow().timestamp())
     
-        point = Point("ue_metrics") \
-            .tag("ue_id", str(self.ID)) \
-            .tag("connected_cell_id", str(self.ConnectedCellID)) \
-            .tag("connected_sector_id", str(self.ConnectedSector)) \
-            .tag("entity_type", "ue") \
-            .tag("gnb_id", str(self.gNodeB_ID)) \
-            .tag("instance_id", str(self.instance_id)) \
-            .tag("service_type", str(self.ServiceType)) \
-            .field("imei", str(self.IMEI)) \
-            .field("signal_strength", float(self.SignalStrength)) \
-            .field("rat", str(self.RAT)) \
-            .field("max_bandwidth", int(self.MaxBandwidth)) \
-            .field("throughput", int(self.throughput)) \
-            .field("duplex_mode", str(self.DuplexMode)) \
-            .field("tx_power", int(self.TxPower)) \
-            .field("modulation", ','.join(self.Modulation) if isinstance(self.Modulation, list) else str(self.Modulation)) \
-            .field("coding", str(self.Coding)) \
-            .field("mimo", str(self.MIMO)) \
-            .field("processing", str(self.Processing)) \
-            .field("bandwidth_parts", ','.join(map(str, self.BandwidthParts)) if isinstance(self.BandwidthParts, list) else str(self.BandwidthParts)) \
-            .field("channel_model", str(self.ChannelModel)) \
-            .field("velocity", float(self.Velocity)) \
-            .field("direction", str(self.Direction)) \
-            .field("traffic_model", str(self.TrafficModel)) \
-            .field("scheduling_requests", int(self.SchedulingRequests)) \
-            .field("rlc_mode", str(self.RLCMode)) \
-            .field("snr_thresholds", ','.join(map(str, self.SNRThresholds))) \
-            .field("ho_margin", str(self.HOMargin)) \
-            .field("n310", str(self.N310)) \
-            .field("n311", str(self.N311)) \
-            .field("model", str(self.Model)) \
-            .field("screen_size", str(self.ScreenSize)) \
-            .field("battery_level", int(self.BatteryLevel)) \
-            .field("ip_address", str(self.IP)) \
-            .field("mac_address", str(self.MAC)) \
-            .time(unix_timestamp_seconds, WritePrecision.S)  # Use UNIX timestamp in seconds
-        return point
-    
+            point = Point("ue_metrics") \
+                .tag("ue_id", str(self.ID)) \
+                .tag("connected_cell_id", str(self.ConnectedCellID)) \
+                .tag("connected_sector_id", str(self.ConnectedSector)) \
+                .tag("entity_type", "ue") \
+                .tag("gnb_id", str(self.gNodeB_ID)) \
+                .tag("instance_id", str(self.instance_id)) \
+                .tag("service_type", str(self.ServiceType)) \
+                .field("imei", str(self.IMEI)) \
+                .field("signal_strength", float(self.SignalStrength)) \
+                .field("rat", str(self.RAT)) \
+                .field("max_bandwidth", int(self.MaxBandwidth)) \
+                .field("throughput", int(self.throughput)) \
+                .field("duplex_mode", str(self.DuplexMode)) \
+                .field("tx_power", int(self.TxPower)) \
+                .field("modulation", ','.join(self.Modulation) if isinstance(self.Modulation, list) else str(self.Modulation)) \
+                .field("coding", str(self.Coding)) \
+                .field("mimo", str(self.MIMO)) \
+                .field("processing", str(self.Processing)) \
+                .field("bandwidth_parts", ','.join(map(str, self.BandwidthParts)) if isinstance(self.BandwidthParts, list) else str(self.BandwidthParts)) \
+                .field("channel_model", str(self.ChannelModel)) \
+                .field("velocity", float(self.Velocity)) \
+                .field("direction", str(self.Direction)) \
+                .field("traffic_model", str(self.TrafficModel)) \
+                .field("scheduling_requests", int(self.SchedulingRequests)) \
+                .field("rlc_mode", str(self.RLCMode)) \
+                .field("snr_thresholds", ','.join(map(str, self.SNRThresholds))) \
+                .field("ho_margin", str(self.HOMargin)) \
+                .field("n310", str(self.N310)) \
+                .field("n311", str(self.N311)) \
+                .field("model", str(self.Model)) \
+                .field("screen_size", str(self.ScreenSize)) \
+                .field("battery_level", int(self.BatteryLevel)) \
+                .field("ip_address", str(self.IP)) \
+                .field("mac_address", str(self.MAC)) \
+                .time(unix_timestamp_seconds, WritePrecision.S)  # Use UNIX timestamp in seconds
+            return point
+        except Exception as e:
+            database_logger.error(f"Error serializing UE data for InfluxDB: {e}")
+            raise
+
     def update_parameters(self, **kwargs):
         for key, value in kwargs.items():
             if hasattr(self, key):

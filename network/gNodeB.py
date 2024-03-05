@@ -13,7 +13,7 @@ from database.time_utils import get_current_time_ntp
 import logging
 from network.cell import Cell
 from time import sleep
-from logs.logger_config import cell_logger, gnodeb_logger
+from logs.logger_config import cell_logger, gnodeb_logger, database_logger
 from datetime import datetime
 from influxdb_client import Point
 from influxdb_client.client.write_api import SYNCHRONOUS, WritePrecision
@@ -89,37 +89,42 @@ class gNodeB:
     ###############################################################################################################
     # add serialization methods to the gNodeB class to convert gNodeB instances into a format suitable for InfluxDB
     def serialize_for_influxdb(self):
-        point = Point("gnodeb_metrics") \
-            .tag("gnodeb_id", self.ID) \
-            .tag("entity_type", "gnodeb")\
-            .tag("instance_id", str(self.instance_id)) \
-            .field("latitude", float(self.Latitude)) \
-            .field("longitude", float(self.Longitude)) \
-            .field("coverage_radius", float(self.CoverageRadius)) \
-            .field("transmission_power", int(self.TransmissionPower)) \
-            .field("frequency", float(self.Frequency)) \
-            .field("region", str(self.Region) if self.Region is not None else None) \
-            .field("max_ues", int(self.MaxUEs)) \
-            .field("cell_count", int(self.CellCount)) \
-            .field("sector_count", int(self.SectorCount)) \
-            .field("measurement_bandwidth", float(self.MeasurementBandwidth)) \
-            .field("blacklisted_cells", ','.join(map(str, self.BlacklistedCells)) if self.BlacklistedCells is not None else None) \
-            .field("handover_success_count", int(self.handover_success_count)) \
-            .field("handover_failure_count", int(self.handover_failure_count)) \
-            .field("location", ','.join(map(str, self.Location)) if self.Location is not None else None) \
-            .field("bandwidth", float(self.Bandwidth)) \
-            .field("handover_margin", float(self.HandoverMargin)) \
-            .field("handover_hysteresis", float(self.HandoverHysteresis)) \
-            .field("time_to_trigger", int(self.TimeToTrigger)) \
-            .field("inter_freq_handover", int(self.InterFreqHandover)) \
-            .field("xn_interface", str(self.XnInterface)) \
-            .field("son_capabilities", str(self.SONCapabilities)) \
-            .field("load_balancing_offset", int(self.LoadBalancingOffset)) \
-            .field("cell_ids", ','.join(map(str, self.CellIds)) if self.CellIds is not None else None) \
-            .field("sector_ids", ','.join([str(sector_id) for sector_id in self.SectorIds])) \
-            .time(int(time.time()), WritePrecision.S)  # Corrected timestamp in seconds
+        try:
+            point = Point("gnodeb_metrics") \
+                .tag("gnodeb_id", self.ID) \
+                .tag("entity_type", "gnodeb")\
+                .tag("instance_id", str(self.instance_id)) \
+                .field("latitude", float(self.Latitude)) \
+                .field("longitude", float(self.Longitude)) \
+                .field("coverage_radius", float(self.CoverageRadius)) \
+                .field("transmission_power", int(self.TransmissionPower)) \
+                .field("frequency", float(self.Frequency)) \
+                .field("region", str(self.Region) if self.Region is not None else None) \
+                .field("max_ues", int(self.MaxUEs)) \
+                .field("cell_count", int(self.CellCount)) \
+                .field("sector_count", int(self.SectorCount)) \
+                .field("measurement_bandwidth", float(self.MeasurementBandwidth)) \
+                .field("blacklisted_cells", ','.join(map(str, self.BlacklistedCells)) if self.BlacklistedCells is not None else None) \
+                .field("handover_success_count", int(self.handover_success_count)) \
+                .field("handover_failure_count", int(self.handover_failure_count)) \
+                .field("location", ','.join(map(str, self.Location)) if self.Location is not None else None) \
+                .field("bandwidth", float(self.Bandwidth)) \
+                .field("handover_margin", float(self.HandoverMargin)) \
+                .field("handover_hysteresis", float(self.HandoverHysteresis)) \
+                .field("time_to_trigger", int(self.TimeToTrigger)) \
+                .field("inter_freq_handover", int(self.InterFreqHandover)) \
+                .field("xn_interface", str(self.XnInterface)) \
+                .field("son_capabilities", str(self.SONCapabilities)) \
+                .field("load_balancing_offset", int(self.LoadBalancingOffset)) \
+                .field("cell_ids", ','.join(map(str, self.CellIds)) if self.CellIds is not None else None) \
+                .field("sector_ids", ','.join([str(sector_id) for sector_id in self.SectorIds])) \
+                .time(int(time.time()), WritePrecision.S)  # Corrected timestamp in seconds
 
-        return point
+            return point
+        except Exception as e:
+            database_logger.error(f"Error serializing gNodeB data for InfluxDB: {e}")
+            # Depending on your error handling policy, you might want to re-raise the exception or return None
+            raise
 ######################################################################################################
 ##################################################Cell and sector add Management##########################
     def add_cell_to_gNodeB(self, cell):

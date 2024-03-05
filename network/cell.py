@@ -7,10 +7,8 @@
 # role in the network simulation by managing the radio resources assigned to each cell, tracking the UEs connected to each cell#
 # and simulating cell-specific behaviors such as load balancing and handovers.                                                 #
 ################################################################################################################################
-from logs.logger_config import cell_logger
+from logs.logger_config import cell_logger, ue_logger, cell_logger, database_logger
 import datetime
-from logs.logger_config import ue_logger
-from logs.logger_config import cell_logger
 import time 
 import uuid
 from influxdb_client import Point
@@ -90,31 +88,36 @@ class Cell:
         }
 ####################################################################################### 
     def serialize_for_influxdb(self, cell_load):
-        # Convert current UTC time to a UNIX timestamp in seconds
-        unix_timestamp_seconds = int(datetime.utcnow().timestamp())
+        try:
+            # Convert current UTC time to a UNIX timestamp in seconds
+            unix_timestamp_seconds = int(datetime.utcnow().timestamp())
     
-        point = Point("cell_metrics") \
-            .tag("cell_id", str(self.ID)) \
-            .tag("gnodeb_id", str(self.gNodeB_ID)) \
-            .tag("entity_type", "cell") \
-            .tag("instance_id", str(self.instance_id)) \
-            .field("frequencyBand", str(self.FrequencyBand)) \
-            .field("duplexMode", str(self.DuplexMode)) \
-            .field("tx_power", int(self.TxPower)) \
-            .field("bandwidth", int(self.Bandwidth)) \
-            .field("ssb_periodicity", int(self.SSBPeriodicity)) \
-            .field("ssb_offset", int(self.SSBOffset)) \
-            .field("max_connect_ues", int(self.maxConnectUes)) \
-            .field("max_throughput", int(self.max_throughput)) \
-            .field("channel_model", str(self.ChannelModel)) \
-            .field("trackingArea", str(self.TrackingArea)) \
-            .field("CellisActive", bool(self.IsActive)) \
-            .field("sector_count", int(self.SectorCount)) \
-            .field("is_active", bool(self.IsActive)) \
-            .field("cell_load", cell_load) \
-            .time(unix_timestamp_seconds, WritePrecision.S)  # Set the timestamp in seconds
+            point = Point("cell_metrics") \
+                .tag("cell_id", str(self.ID)) \
+                .tag("gnodeb_id", str(self.gNodeB_ID)) \
+                .tag("entity_type", "cell") \
+                .tag("instance_id", str(self.instance_id)) \
+                .field("frequencyBand", str(self.FrequencyBand)) \
+                .field("duplexMode", str(self.DuplexMode)) \
+                .field("tx_power", int(self.TxPower)) \
+                .field("bandwidth", int(self.Bandwidth)) \
+                .field("ssb_periodicity", int(self.SSBPeriodicity)) \
+                .field("ssb_offset", int(self.SSBOffset)) \
+                .field("max_connect_ues", int(self.maxConnectUes)) \
+                .field("max_throughput", int(self.max_throughput)) \
+                .field("channel_model", str(self.ChannelModel)) \
+                .field("trackingArea", str(self.TrackingArea)) \
+                .field("CellisActive", bool(self.IsActive)) \
+                .field("sector_count", int(self.SectorCount)) \
+                .field("is_active", bool(self.IsActive)) \
+                .field("cell_load", cell_load) \
+                .time(unix_timestamp_seconds, WritePrecision.S)  # Set the timestamp in seconds
     
-        return point
+            return point
+        except Exception as e:
+            database_logger.error(f"Error serializing cell data for InfluxDB: {e}")
+            # Depending on your error handling policy, you might want to re-raise the exception or return None
+            raise
 
 ####################################################################################
     def add_sector_to_cell(self, sector):
