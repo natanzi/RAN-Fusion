@@ -1,1 +1,10 @@
-\
+\{"level": "INFO", "timestamp": "2024-03-04 19:45:34", "message": "Database connection successful.", "test_id": "80e19b02-b798-4cea-8d11-1d4d30f4ad7f"}
+{"level": "INFO", "timestamp": "2024-03-04 20:32:04", "message": "Database connection successful.", "test_id": "1673a6a8-89c2-430c-9887-25504042a605"}
+{"level": "ERROR", "timestamp": "2024-03-04 20:32:04", "message": "Failed to insert data into InfluxDB: <urllib3.connection.HTTPConnection object at 0x0000010AE78414D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it", "test_id": "1673a6a8-89c2-430c-9887-25504042a605"}
+{"level": "INFO", "timestamp": "2024-03-04 20:32:54", "message": "Database connection successful.", "test_id": "edc9f4d1-7a22-4991-85aa-da41e8292b0e"}
+{"level": "ERROR", "timestamp": "2024-03-04 20:32:54", "message": "Failed to insert data into InfluxDB: <urllib3.connection.HTTPConnection object at 0x000001D4FFC60FD0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it", "test_id": "edc9f4d1-7a22-4991-85aa-da41e8292b0e"}
+{"level": "ERROR", "timestamp": "2024-03-04 20:32:54", "message": "Failed to insert data into InfluxDB: <urllib3.connection.HTTPConnection object at 0x000001D4FFC633D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it", "test_id": "edc9f4d1-7a22-4991-85aa-da41e8292b0e"}
+{"level": "INFO", "timestamp": "2024-03-05 09:44:07", "message": "Database connection successful.", "test_id": "004b0ed0-fa22-445b-817d-a83e8cb019e6"}
+{"level": "INFO", "timestamp": "2024-03-05 09:45:24", "message": "Database connection successful.", "test_id": "aa64a209-3160-4a1c-bff4-d77f14ef2725"}
+{"level": "INFO", "timestamp": "2024-03-05 09:53:05", "message": "Database connection successful.", "test_id": "88741b8a-1d76-44af-8fd3-3754dbaad552"}
+{"level": "INFO", "timestamp": "2024-03-05 11:35:11", "message": "Database connection successful.", "test_id": "41c73620-b3de-44f2-9946-bcf33034b3c0"}

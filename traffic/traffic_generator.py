@@ -89,7 +89,7 @@ class TrafficController:
         'packet_loss_rate': 0.01
     },
     }
-    def generate_traffic(self, ue, severity='low'):
+    def generate_traffic(self, ue, severity='ultra'):
         if not ue.generating_traffic:
             print(f"Traffic generation for UE {ue.ID} is stopped.")
             return {
@@ -115,8 +115,8 @@ class TrafficController:
             raise ValueError(f"Unknown service type: {ue.ServiceType}")
     
 ##############################################################################################################################
-    def generate_voice_traffic(self, severity='low'):
-        severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['harsh'])
+    def generate_voice_traffic(self, severity='ultra'):
+        severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['ultra'])
         # Adjust parameters based on severity
         start_time = datetime.now()
         delay = random.uniform(*severity_settings['delay'])
@@ -147,8 +147,8 @@ class TrafficController:
         self.traffic_logs.append(traffic_data)
         return traffic_data
 ###################################################################################################################
-    def generate_video_traffic(self, severity='low'):
-        severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['harsh'])
+    def generate_video_traffic(self, severity='ultra'):
+        severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['ultra'])
         # Adjust parameters based on severity
         start_time = datetime.now()
         delay = random.uniform(*severity_settings['delay'])
@@ -187,8 +187,8 @@ class TrafficController:
         self.traffic_logs.append(traffic_data)
         return traffic_data
 ###################################################################################################################
-    def generate_gaming_traffic(self, severity='low'):
-        severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['harsh'])
+    def generate_gaming_traffic(self, severity='ultra'):
+        severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['ultra'])
 
         try:
             # Record the start timestamp
@@ -243,8 +243,8 @@ class TrafficController:
                 'ue_packet_loss_rate': severity_settings['packet_loss_rate']
             }
 #####################################################################################
-    def generate_iot_traffic(self, severity='low'):
-        severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['harsh'])
+    def generate_iot_traffic(self, severity='ultra'):
+        severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['ultra'])
 
         # Record the start timestamp
         start_time = datetime.now()
@@ -284,8 +284,8 @@ class TrafficController:
         self.traffic_logs.append(traffic_data)
         return traffic_data
 ###########################################################################################
-    def generate_data_traffic(self, severity='low'):
-        severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['harsh'])
+    def generate_data_traffic(self, severity='ultra'):
+        severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['ultra'])
 
         # Record the start timestamp
         start_time = datetime.now()
