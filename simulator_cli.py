@@ -16,6 +16,7 @@ from threading import Event
 import os
 import threading
 from network.ue import UE
+from blessed import Terminal
 
 # Assuming these are your custom modules for managing various aspects of the network simulator
 from network.ue_manager import UEManager
@@ -55,6 +56,8 @@ class SimulatorCLI(cmd.Cmd):
         self.base_dir = base_dir
         self.display_thread = None
         self.running = False
+        self.term = Terminal()
+        self.stop_event = threading.Event()
         # Assuming alias_config is defined
         self.aliases = self.generate_alias_mappings(alias_config)
         self.gNodeB_manager = gNodeB_manager
@@ -197,134 +200,164 @@ class SimulatorCLI(cmd.Cmd):
         except KeyboardInterrupt:
             print("\nReturning to CLI...")
 ################################################################################################################################ 
-    def do_gnb_list(self, arg):
-        """List all gNodeBs with details."""
-        gNodeB_details_list = self.gNodeB_manager.list_all_gNodeBs_detailed()
-        gNodeB_loads = self.network_load_manager.calculate_gNodeB_load()
-        if not gNodeB_details_list:
-            print("No gNodeBs found.")
-            return
-
-        # Create a PrettyTable instance
-        table = PrettyTable()
-
-        # Define the table columns
-        table.field_names = ["gNodeB ID", "Latitude", "Longitude", "Coverage Radius", "Transmission Power", "Bandwidth", "Load %"]
-
-        # Adding rows to the table
-        for gNodeB in gNodeB_details_list:
-            gNodeB_id = gNodeB['id']
-            load_percentage = gNodeB_loads.get(gNodeB_id, 0)
-            coverage_radius = gNodeB.get('coverage_radius', 'N/A')
-            transmission_power = gNodeB.get('transmission_power', 'N/A')
-            bandwidth = gNodeB.get('bandwidth', 'N/A')
-            load_percentage = gNodeB_loads.get(gNodeB['id'], 0)
-            table.add_row([
-                gNodeB['id'], 
-                gNodeB['latitude'], 
-                gNodeB['longitude'], 
-                coverage_radius, 
-                transmission_power, 
-                bandwidth,
-                f"{load_percentage:.2f}%" 
-            ])
-    
-        # Optional: Set alignment for each column if needed
-        table.align = "l"  # Left align the text
-    
-        # Print the table
-        print(table) 
-################################################################################################################################ 
-    def do_cell_list(self, arg):
-        """List all cells with their load percentage."""
-        def display_cell_list():
+    # Adjusted display_gnb_list method
+    def display_gnb_list(self):
+        term = Terminal()
+        with term.cbreak(), term.hidden_cursor():
             while not self.stop_event.is_set():
-                cell_details_list = self.cell_manager.list_all_cells_detailed()
-                if not cell_details_list:
-                    print("No cells found.")
-                    break  # Exit the loop if no cells are found
+                # Clear the screen before reprinting the updated table
+                self.clear_screen(term)  # Make sure to pass 'term' here
 
+                # Reconstruct and print the gNodeB table
+                gNodeB_details_list = self.gNodeB_manager.list_all_gNodeBs_detailed()
+                gNodeB_loads = self.network_load_manager.calculate_gNodeB_load()
                 table = PrettyTable()
-                table.field_names = ["Cell ID", "Technology", "Status", "Active UEs", "Cell Load (%)"]
-
-                for cell_detail in cell_details_list:
-                    cell_id = cell_detail['id']
-                    cell = self.cell_manager.get_cell(cell_id)  # Retrieve the cell object by its ID
-                    if cell is None:
-                        continue  # Skip if the cell is not found
-
-                    technology = cell_detail.get('technology', '5GNR')
-                    status_text = "\033[92mActive\033[0m" if cell_detail.get('Active', True) else "\033[91mInactive\033[0m"
-                    active_ues = self.calculate_active_ues_for_cell(cell_id)  # Calculate active UEs for each cell
-
-                    # Calculate the load of the cell using the NetworkLoadManager
-                    cell_load_percentage = self.network_load_manager.calculate_cell_load(cell)
-            
+                table.field_names = ["gNodeB ID", "Latitude", "Longitude", "Coverage Radius", "Transmission Power", "Bandwidth", "Load %"]
+                for gNodeB in gNodeB_details_list:
+                    load_percentage = gNodeB_loads.get(gNodeB['id'], 0)
                     table.add_row([
-                        cell_id,
-                        technology,
-                        status_text,
-                        active_ues,
-                        f"{cell_load_percentage:.2f}%"  # Format the cell load as a percentage
+                        gNodeB['id'],
+                        gNodeB['latitude'],
+                        gNodeB['longitude'],
+                        gNodeB.get('coverage_radius', 'N/A'),
+                        gNodeB.get('transmission_power', 'N/A'),
+                        gNodeB.get('bandwidth', 'N/A'),
+                        f"{load_percentage:.2f}%"
                     ])
-
-                os.system('cls' if os.name == 'nt' else 'clear')  # Clear the console for each update
                 print(table)
-                time.sleep(1)  # Refresh the table every second
+                time.sleep(1)  # Refresh interval
 
-        self.stop_event = threading.Event()
-        display_thread = threading.Thread(target=display_cell_list)
+    # Modification in the command method to start the automatic refresh mechanism
+    def do_gnb_list(self, arg):
+        """Displays the gNodeB list with automatic refresh."""
+        print('Displaying gNodeB list. Press any key to stop...')
+
+        # Initialize and start the display thread
+        self.stop_event.clear()
+        display_thread = threading.Thread(target=self.display_gnb_list)
         display_thread.start()
 
-        input("Press Enter to stop displaying cell load...")  # Wait for user input to stop the dynamic display
+        # Wait for user input to stop the display
+        with self.term.cbreak():
+            self.term.inkey()
+
+        # Signal the display thread to stop and wait for it to finish
         self.stop_event.set()
         display_thread.join()
-
-    def calculate_active_ues_for_cell(self, cell_id):
-        # Retrieve the cell object by its ID using the correct method name
-        cell = self.cell_manager.get_cell(cell_id)
-        if cell is None:
-            return 0  # Return 0 if the cell is not found
-        # Return the count of active UEs for the cell
-        return len(cell.ConnectedUEs)
+        print(self.term.clear)  # Clear the screen after stopping
 ################################################################################################################################ 
-    def do_sector_list(self, arg):
-        """List all sectors"""
-        sector_list = self.sector_manager.list_all_sectors()
-        if not sector_list:
-            print("No sectors found.")
-            return
-        # Create a PrettyTable instance
-        table = PrettyTable()
-        # Define the table columns including Current Load (%)
-        table.field_names = ["Sector ID", "Cell ID", "Max UEs", "Active UEs", "Max Throughput", "Sector Load (%)"]
-        # Adding rows to the table
-        for sector_info in sector_list:
-            sector_id = sector_info['sector_id']
-            # Retrieve the Sector object using the sector_id
-            sector = self.sector_manager.get_sector_by_id(sector_id)  # Assuming there's a method like this in SectorManager
-            if sector is None:
-                continue  # Skip if the sector is not found
-
-            sector_load_percentage = self.network_load_manager.calculate_sector_load(sector)
+    def clear_screen(self, term):
+        """Clears the terminal screen."""
+        print(term.home + term.clear, end='')
+################################################################################################################################
+    def display_cell_list(self):
+        term = Terminal()
+        with term.cbreak(), term.hidden_cursor():
+            while not self.stop_event.is_set():
+                # Use clear_screen instead of printing term.home + term.clear directly
+                self.clear_screen(term)
+    
+                # Initialize PrettyTable with specific attributes
+                table = PrettyTable()
+                table.field_names = ["Cell ID", "Technology", "Status", "Active UEs", "Cell Load (%)"]
+                table.align = "c"
+                table.align["Cell ID"] = "l"
+                table.title = "Cell List"
+                table.header_style = "title"
+                table.border = True
+    
+                # Fetch cell details
+                cell_details_list = self.cell_manager.list_all_cells_detailed()
+                for cell_detail in cell_details_list:
+                    cell_id = cell_detail['id']
+                    cell = self.cell_manager.get_cell(cell_id)
+                    if cell is None:
+                        continue
         
-            table.add_row([
-                sector_info['sector_id'],
-                sector_info['cell_id'],
-                sector_info['capacity'],
-                sector_info['current_load'],
-                sector_info['max_throughput'],
-                f"{sector_load_percentage:.2f}%"  # Display the calculated load percentage
-            ])
-        # Optional: Set alignment for each column
-        table.align["Sector ID"] = "l"
-        table.align["Cell ID"] = "l"
-        table.align["Max UEs"] = "r"
-        table.align["Active UEs"] = "r"
-        table.align["Max Throughput"] = "r"
-        table.align["Sector Load (%)"] = "r"  # Align the new column to the right
-        # Print the table
-        print(table)
+                    technology = cell_detail.get('technology', '5GNR')
+                    status = f"{term.green}Active{term.normal}" if cell.IsActive else f"{term.yellow}Inactive{term.normal}"
+                    active_ues = len(cell.ConnectedUEs)
+                    cell_load_percentage = self.network_load_manager.calculate_cell_load(cell)
+        
+                    row = [
+                        cell_id,
+                        technology,
+                        status,
+                        str(active_ues),
+                        f"{cell_load_percentage:.2f}%"
+                    ]
+                    table.add_row(row)
+    
+                print(table)
+                time.sleep(1)
+
+    def do_cell_list(self, arg):
+        """Displays the cell list with live updates."""
+        print('Displaying cell list. Press any key to stop...')
+
+        # Initialize and start the display thread
+        self.stop_event.clear()
+        display_thread = threading.Thread(target=self.display_cell_list)
+        display_thread.start()
+
+        # Wait for user input to stop the display
+        with self.term.cbreak():
+            self.term.inkey()
+
+        # Signal the display thread to stop and wait for it to finish
+        self.stop_event.set()
+        display_thread.join()
+        print(self.term.clear)  # Clear the screen after stopping
+################################################################################################################################ 
+    def display_sector_list(self):
+        term = Terminal()
+        with term.cbreak(), term.hidden_cursor():
+            while not self.stop_event.is_set():
+                self.clear_screen(term)
+
+                table = PrettyTable()
+                table.field_names = ["Sector ID", "Cell ID", "Max UEs", "Active UEs", "Max Throughput", "Sector Load (%)"]
+                table.align = "c"
+                table.title = "Sector List"
+                table.header_style = "title"
+                table.border = True
+
+                sector_list = self.sector_manager.list_all_sectors()
+                for sector_info in sector_list:
+                    sector_id = sector_info['sector_id']
+                    sector = self.sector_manager.get_sector_by_id(sector_id)
+                    if sector is None:
+                        continue
+
+                    status = f"{term.green}Active{term.normal}" if sector.is_active else f"{term.yellow}Inactive{term.normal}"
+                    active_ues = len(sector.connected_ues)
+                    sector_load_percentage = self.network_load_manager.calculate_sector_load(sector)
+
+                    row = [
+                        sector_id,
+                        sector_info['cell_id'],
+                        sector_info['capacity'],
+                        active_ues,
+                        sector_info['max_throughput'],
+                        f"{sector_load_percentage:.2f}%"
+                    ]
+                    table.add_row(row)
+
+                print(table)
+                time.sleep(1)
+    def do_sector_list(self, arg):
+        print('Displaying sector list. Press any key to stop...')
+
+        self.stop_event.clear()
+        display_thread = threading.Thread(target=self.display_sector_list)
+        display_thread.start()
+
+        with self.term.cbreak():
+            self.term.inkey()
+
+        self.stop_event.set()
+        display_thread.join()
+        print(self.term.clear)  # This line will clear the screen after stopping the thread
 ################################################################################################################################            
     def do_del_ue(self, line):
         from network.sector import global_ue_ids
