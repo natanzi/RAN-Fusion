@@ -25,11 +25,11 @@ class NetworkLoadManager:
         return cls._instance
 
     @classmethod
-    def get_instance(cls, cell_manager: CellManager, sector_manager: SectorManager):
+    def get_instance(cls, cell_manager: CellManager, sector_manager: SectorManager, gNodeB_manager: gNodeBManager):
         if cls._instance is None:
             cls._instance = cls.__new__(cls)
             # Initialize the instance only once
-            cls._instance._initialize(cell_manager, sector_manager)
+            cls._instance._initialize(cell_manager, sector_manager, gNodeB_manager)
         return cls._instance
 
     def _initialize(self, cell_manager: CellManager, sector_manager: SectorManager, gNodeB_manager: gNodeBManager):
