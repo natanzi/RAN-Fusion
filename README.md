@@ -60,7 +60,7 @@ Explore RANFusion further in our documentation.(https://RANFusion.com/doc).
 
 To remove a UE, for example, remove "UE10" from sector "AX1112-A1" :
 ```powershell
-Invoke-RestMethod -Uri 'http://localhost:5000/del_ue' -Method Post -ContentType 'application/json' -Body '{"ue_id": "10"}'
+Invoke-RestMethod -Uri 'http://localhost:5000/del_ue' -Method Post -ContentType 'application/json' -Body '{"ue_id": "ue10"}'
 ```
 
 To update a UE parameter, for example, set "MaxBandwidth" of "UE10" to 150 :
