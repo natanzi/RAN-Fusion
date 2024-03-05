@@ -207,10 +207,10 @@ class DatabaseManager:
         self.write_api.write(bucket=self.bucket, record=point)
 
 ##################################################################################################################################
-    def write_network_measurement(self, network_load, total_connected_ues, total_handover_success_count, total_handover_failure_count):
+    def write_network_measurement(self, network_load, network_delay, total_handover_success_count, total_handover_failure_count):
         point = Point("network_metrics") \
             .field("load", float(network_load)) \
-            .field("total_connected_ues", int(total_connected_ues)) \
+            .field("delay", float(network_delay)) \
             .field("total_handover_success_count", int(total_handover_success_count)) \
             .field("total_handover_failure_count", int(total_handover_failure_count)) \
             .time(datetime.utcnow(), WritePrecision.NS)

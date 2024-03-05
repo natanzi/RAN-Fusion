@@ -148,8 +148,12 @@ class NetworkLoadManager:
         network_delay = network_delay_calculator.calculate_delay(network_load)
         #print(f"Network Delay: {network_delay} ms")
 
-        # Write network measurement (both load and delay) to the database
-        self.db_manager.write_network_measurement(network_load, network_delay)
+        # Get the total handover success count and failure count
+        total_handover_success_count = sum(gnb.handover_success_count for gnb in self.gNodeB_manager.gNodeBs.values())
+        total_handover_failure_count = sum(gnb.handover_failure_count for gnb in self.gNodeB_manager.gNodeBs.values())
+
+        # Write network measurement (load, delay, handover counts) to the database
+        self.db_manager.write_network_measurement(network_load, network_delay, total_handover_success_count, total_handover_failure_count)
         
 ##################################################################################################################     
     def monitoring(self):
