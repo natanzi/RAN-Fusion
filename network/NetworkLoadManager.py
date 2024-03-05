@@ -8,12 +8,14 @@
 from network.cell import Cell
 from network.sector import Sector
 from network.network_delay import NetworkDelay
+from network.gNodeB_manager import gNodeBManager
 from network.cell_manager import CellManager
 from network.sector_manager import SectorManager
 from database.database_manager import DatabaseManager
 from network.loadbalancer import LoadBalancer
 from logs.logger_config import cell_load_logger, sector_load_logger, gnodbe_load_logger, sector_logger
 import time
+
 class NetworkLoadManager:
     _instance = None
 
@@ -30,9 +32,10 @@ class NetworkLoadManager:
             cls._instance._initialize(cell_manager, sector_manager)
         return cls._instance
 
-    def _initialize(self, cell_manager: CellManager, sector_manager: SectorManager):
+    def _initialize(self, cell_manager: CellManager, sector_manager: SectorManager, gNodeB_manager: gNodeBManager):
         self.cell_manager = cell_manager
         self.sector_manager = sector_manager
+        self.gNodeB_manager = gNodeB_manager
         self.db_manager = DatabaseManager.get_instance()
         self.load_balancer = LoadBalancer()
         
@@ -142,7 +145,7 @@ class NetworkLoadManager:
     def network_measurement(self):
         network_load = self.calculate_network_load()
         #print(f"Network Load: {network_load:.2f}%")
-
+        network_load = self.calculate_network_load()
         # Calculate network delay
         network_delay_calculator = NetworkDelay()
         network_delay = network_delay_calculator.calculate_delay(network_load)
