@@ -550,8 +550,6 @@ class SimulatorCLI(cmd.Cmd):
         
         return line
 #############################################################################################################
-
-#############################################################################################################
     def do_ue_kpis(self, arg):
         if not self.in_kpis_mode:
             print("UE KPIs command is only available in the KPIs submenu.") 
