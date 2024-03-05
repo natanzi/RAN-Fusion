@@ -135,16 +135,29 @@ def add_ue():
 @app.route('/update_ue', methods=['POST'])
 def update_ue():
     data = request.json
-    ue_id = data.get('ue_id')
-    ue_id_str = str(ue_id)  # Convert to string if necessary
-    data = request.json
-    # Existing validation and logging logic
-    # ...
+
+    # Validate input data
+    if 'ue_id' not in data:
+        API_logger.error("Missing 'ue_id' in request data")
+        return jsonify({'error': "Missing 'ue_id' in request data"}), 400
+
+    # Extract UE ID and parameters to be updated
+    ue_id = data['ue_id']
+    update_params = {key: value for key, value in data.items() if key != 'ue_id'}
+
     try:
-        CommandHandler.handle_command('update_ue', data)
-        return jsonify({'message': 'UE updated successfully'}), 200
+        # Use CommandHandler to update the UE
+        update_result, message = CommandHandler._update_ue({'ue_id': ue_id, **update_params})
+
+        if update_result:
+            API_logger.info(f'UE {ue_id} updated successfully')
+            return jsonify({'message': message}), 200
+        else:
+            API_logger.error(f'UE {ue_id} not found or update failed')
+            return jsonify({'error': message}), 404
+
     except Exception as e:
-        traceback.print_exc()
+        API_logger.error(f'An error occurred while updating UE: {str(e)}')
         return jsonify({'error': 'An error occurred while updating UE'}), 500
 
 #########################################################################################################

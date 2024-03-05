@@ -63,10 +63,19 @@ To remove a UE, for example, remove "UE10" from sector "AX1112-A1" :
 Invoke-RestMethod -Uri 'http://localhost:5000/del_ue' -Method Post -ContentType 'application/json' -Body '{"ue_id": "10"}'
 ```
 
+To update a UE parameter, for example, set "MaxBandwidth" of "UE10" to 150 :
+```powershell
+Invoke-RestMethod -Method Post -ContentType "application/json" -Body '{
+    "ue_id": "ue10",
+    "MaxBandwidth": 150
+}' -Uri http://localhost:5000/update_ue
+```
+
 To receive a UE metric, for example, "UE10" :
 ```powershell
 Invoke-RestMethod -Uri 'http://localhost:5000/ue_metrics?ue_id=10' -Method Get
 ```
+
 To change a UE traffic, for example, "UE10" :
 ```powershell
 Invoke-RestMethod -Uri 'http://localhost:5000/set_traffic' -Method Post -ContentType 'application/json' -Body '{"ue_id": "5", "traffic_params": {"throughput": 30}}'

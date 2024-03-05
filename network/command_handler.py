@@ -42,6 +42,10 @@ class CommandHandler:
     def _del_ue(data):
         ue_id = data['ue_id']
 
+        # Ensure UE ID is in the correct format
+        if not ue_id.startswith("ue"):
+            ue_id = "ue" + ue_id
+
         base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         # Use UEManager to handle UE removal comprehensively
         ue_manager = UEManager.get_instance(base_dir)
@@ -117,6 +121,11 @@ class CommandHandler:
     @staticmethod
     def _start_ue_traffic(data):
         ue_id = data['ue_id']
+
+        # Ensure UE ID is in the correct format
+        if not ue_id.startswith("ue"):
+            ue_id = "ue" + ue_id
+
         traffic_controller = TrafficController.get_instance()
         started = traffic_controller.start_ue_traffic(ue_id)
         if started:
@@ -129,6 +138,11 @@ class CommandHandler:
     @staticmethod
     def _stop_ue_traffic(data):
         ue_id = data['ue_id']
+
+        # Ensure UE ID is in the correct format
+        if not ue_id.startswith("ue"):
+            ue_id = "ue" + ue_id
+
         traffic_controller = TrafficController.get_instance()
         stopped = traffic_controller.stop_ue_traffic(ue_id)
         if stopped:
@@ -141,12 +155,30 @@ class CommandHandler:
     @staticmethod
     def _update_ue(data):
         ue_id = data['ue_id']
-        ue = UE.get_ue_instance_by_id(ue_id)
-        if ue:
-            ue.update_parameters(**data)
-            print(f"UE {ue_id} updated successfully.")
-        else:
-            print(f"UE {ue_id} not found.")
+        update_params = {key: value for key, value in data.items() if key != 'ue_id'}
+
+        try:
+            # Retrieve the UE instance
+            ue = UE.get_ue_instance_by_id(ue_id)
+
+            if ue:
+                # Update the UE parameters
+                for key, value in update_params.items():
+                    if hasattr(ue, key):
+                        setattr(ue, key, value)
+                        API_logger.info(f"Updated parameter '{key}' for UE {ue_id} to '{value}'")
+                    else:
+                        API_logger.warning(f"Parameter '{key}' not found for UE {ue_id}")
+
+                API_logger.info(f"UE {ue_id} updated successfully")
+                return True, f"UE {ue_id} updated successfully"
+            else:
+                API_logger.warning(f"UE {ue_id} not found")
+                return False, f"UE {ue_id} not found"
+        except Exception as e:
+            API_logger.error(f"An error occurred while updating UE {ue_id}: {str(e)}")
+            return False, f"An error occurred while updating UE {ue_id}"
+            
     @staticmethod
     def _set_custom_traffic(data):  
         ue_id = data['ue_id']

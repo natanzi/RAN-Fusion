@@ -4,3 +4,5 @@
 {"level": "ERROR", "timestamp": "2024-03-04 13:52:05", "message": "An error occurred while removing UE 10: UEManager.get_instance() missing 1 required positional argument: 'base_dir'", "test_id": "3411bdda-79ab-4080-a7f6-654050ac5429"}
 {"level": "ERROR", "timestamp": "2024-03-04 14:17:11", "message": "UE 10 not found in any sector or system", "test_id": "e7b55bac-ff8a-4d58-a549-16c0830b2271"}
 {"level": "INFO", "timestamp": "2024-03-04 14:17:11", "message": "UE 10 successfully removed.", "test_id": "e7b55bac-ff8a-4d58-a549-16c0830b2271"}
+{"level": "ERROR", "timestamp": "2024-03-05 12:15:04", "message": "UE 10 not found in any sector or system", "test_id": "242d998f-e25d-4874-9eb4-bbc4f9a43f4b"}
+{"level": "INFO", "timestamp": "2024-03-05 12:15:04", "message": "UE 10 successfully removed.", "test_id": "242d998f-e25d-4874-9eb4-bbc4f9a43f4b"}
