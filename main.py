@@ -48,6 +48,7 @@ def generate_traffic_loop(traffic_controller, ue_list, network_load_manager, net
     while True:
         for ue in ue_list:
             throughput_data = traffic_controller.calculate_throughput(ue)
+            
             network_load_manager.network_measurement()
         time.sleep(1)
 
@@ -81,7 +82,7 @@ def main():
 
     # Network Initialization
     gNodeB_manager = gNodeBManager.get_instance(base_dir=base_dir)
-    gNodeBs, cells, sectors, ues, cell_manager = initialize_network(base_dir, num_ues_to_launch=100)
+    gNodeBs, cells, sectors, ues, cell_manager = initialize_network(base_dir, num_ues_to_launch=5)
     print("Network Initialization Complete")
 
     # Additional setup

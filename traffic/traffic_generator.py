@@ -422,35 +422,46 @@ class TrafficController:
         # Calculate throughput
         throughput = data_size_bits / interval if interval > 0 else 0
         # Update the UE's throughput attribute with the calculated value
-        ue.throughput = throughput
+        throughput = float(throughput) # Before preparing influxdb_data, ensure throughput is a float
         
+        ue.throughput = throughput
+
+        print(f"UE {ue.ID} throughput: {throughput} bps")
         # Prepare the data for InfluxDB with units for clarity
         influxdb_data = {
-        "measurement": "ue_metrics",
-        "tags": {
-            "ue_id": ue.ID,  # Added the missing comma here
-            "service_type": ue.ServiceType
-        },
-        "fields": {
-            "throughput": f"{throughput} bps",  # Adding units
-            "jitter": jitter,
-            "packet_loss": packet_loss_rate,
-            "ue_delay": ue_delay,
-        },
-        "time": datetime.utcnow().isoformat()
+            "measurement": "ue_metrics",
+            "tags": {
+                "ue_id": ue.ID,
+                "service_type": ue.ServiceType,
+            },
+            "fields": {
+                "throughput": throughput, 
+            },
+            "time": datetime.utcnow().isoformat(),
         }
-
+        print('******traffic Gen******influxdb_data:', influxdb_data)
         # Assuming DatabaseManager and other necessary imports are correctly handled
         database_manager = DatabaseManager()
-        database_manager.insert_data(influxdb_data)
+        # If preparing a data dictionary for insertion
+        influxdb_data['fields']['throughput'] = int(influxdb_data['fields']['throughput'])
+
+        database_manager.insert_data(
+            measurement_or_point=influxdb_data["measurement"],
+            tags=influxdb_data["tags"],
+            fields=influxdb_data["fields"],
+            timestamp=influxdb_data["time"]
+        )
+        print('--------------------------ue.ID-----------------------------------:',ue.ID)
+        ue_ID = ue.ID
+        database_manager.get_ue_metrics(ue_ID)
         database_manager.close_connection()
 
         # Return the raw numeric value of throughput along with other metrics
         return {
             'throughput': throughput,
-            'jitter': jitter,
-            'packet_loss_rate': packet_loss_rate,
-            "ue_delay": ue_delay,
+            'ue_jitter': jitter,  
+            'ue_packet_loss_rate': packet_loss_rate,  
+            "ue_delay": ue_delay,  
             'interval': interval
         }
 ############################################################################################

@@ -117,32 +117,72 @@ class DatabaseManager:
         except Exception as e:
             database_logger.error(f"Failed to insert batch data into InfluxDB: {e}")
 ##################################################################################################################################
+    # def insert_data(self, measurement_or_point, tags=None, fields=None, timestamp=None):
+    #     print('------------------inside insert -------------------')
+    #     print('measurement_or_point:', measurement_or_point)
+    #     """Inserts data into InfluxDB. Can handle both Point objects and separate parameters."""
+    #     try:
+    #         if isinstance(measurement_or_point, Point):
+    #             print('-----we are in first try if insert_data-----------')
+    #             # If a Point object is provided
+    #             point = measurement_or_point
+    #             if timestamp:
+    #                 point.time(timestamp)
+    #         else:
+    #             # If separate parameters are provided
+    #             print('-----we are in first try else insert_data-----------')
+    #             measurement = measurement_or_point
+    #             point = Point(measurement)
+    #             for tag_key, tag_value in (tags or {}).items():
+    #                 point.tag(tag_key, tag_value)
+    #             for field_key, field_value in (fields or {}).items():
+    #                 point.field(field_key, field_value)
+    #             # Convert the timestamp to the correct format for InfluxDB
+    #             point.time(timestamp, WritePrecision.S)
+
+    #         self.write_api.write(bucket=self.bucket, record=point)
+    #         print('write is done')
+    #         # Log the measurement and the tags for context
+    #         tags_description = ", ".join([f"{k}={v}" for k, v in point._tags.items()])
+    #         #database_logger.info(f"Data inserted for measurement {point._name} with tags {tags_description}")
+
+    #     except Exception as e:
+    #         database_logger.error(f"Failed to insert data into InfluxDB: {e}")
     def insert_data(self, measurement_or_point, tags=None, fields=None, timestamp=None):
-        """Inserts data into InfluxDB. Can handle both Point objects and separate parameters."""
+        print('------------------inside insert -------------------')
+        """Inserts or updates data into InfluxDB. Can handle both Point objects and separate parameters."""
         try:
             if isinstance(measurement_or_point, Point):
-                # If a Point object is provided
                 point = measurement_or_point
-                if timestamp:
-                    point.time(timestamp)
+                # For debugging: print throughput if it's a field in the Point object
+                if 'throughput' in point._fields:
+                    throughput_value = point._fields['throughput']
+                    print(f"Throughput (Point object): {throughput_value}, Type: {type(throughput_value)}")
             else:
-                # If separate parameters are provided
+                # If separate parameters are provided, create a new Point
                 measurement = measurement_or_point
                 point = Point(measurement)
+                # For debugging: specifically check and print throughput and its type
+                if fields and 'throughput' in fields:
+                    throughput_value = fields['throughput']
+                    print(f"Throughput (field): {throughput_value}, Type: {type(throughput_value)}")
+                # Add tags and fields to the Point
                 for tag_key, tag_value in (tags or {}).items():
                     point.tag(tag_key, tag_value)
                 for field_key, field_value in (fields or {}).items():
                     point.field(field_key, field_value)
-                # Convert the timestamp to the correct format for InfluxDB
+                # Use the provided timestamp or the current time
+                if timestamp is None:
+                    timestamp = datetime.utcnow()
                 point.time(timestamp, WritePrecision.S)
-
+            
+            # Write the point to the database
             self.write_api.write(bucket=self.bucket, record=point)
-            # Log the measurement and the tags for context
-            tags_description = ", ".join([f"{k}={v}" for k, v in point._tags.items()])
-            #database_logger.info(f"Data inserted for measurement {point._name} with tags {tags_description}")
+            print('Data write is done')
 
         except Exception as e:
-            database_logger.error(f"Failed to insert data into InfluxDB: {e}")
+            print(f"Failed to insert data into InfluxDB: {e}")
+
 ##################################################################################################################################
     def close_connection(self):
         """Closes the database connection."""
@@ -206,7 +246,7 @@ class DatabaseManager:
             .time(datetime.utcnow(), WritePrecision.S)
         self.write_api.write(bucket=self.bucket, record=point)
 
-##################################################################################################################################
+###################################################################################################################################
     def write_network_measurement(self, network_load, network_delay, total_handover_success_count, total_handover_failure_count):
         point = Point("network_metrics") \
             .field("load", float(network_load)) \
@@ -216,26 +256,72 @@ class DatabaseManager:
             .time(datetime.utcnow(), WritePrecision.NS)
         self.write_api.write(bucket=self.bucket, record=point)
 ##################################################################################################################################
+    # def get_ue_metrics(self, ue_id):
+    #     print('----DB Manager----ue_id:', ue_id)
+    #     print('----DB Manager----self.bucket:', self.bucket)
+    #     query = f'''
+    #         from(bucket: "{self.bucket}")
+    #             |> range(start: -1d)
+    #             |> filter(fn: (r) => r._measurement == "ue_metrics" and r.ue_id == "ue_id")
+    #             |> pivot(rowKey:["_time"], columnKey: ["_field"], valueColumn: "_value")
+    #             |> last()
+    #     '''
+    #     result = self.query_api.query(query=query)
+    #     print('result:', result)
+    #     metrics = []
+    #     for table in result:
+    #         print('--------inside for loop DB Manager----table:', table)
+    #         for record in table.records:
+    #             print('----DB Manager-------record:', record)
+    #             print('-------DB Manager-------throughput:', record.get_value())
+    #             metrics.append({
+    #                 'timestamp': record.get_time(),
+    #                 'throughput': record.get_value(),
+    #                 'jitter': record.values['jitter'],
+    #                 'packet_loss': record.values['packet_loss'],
+    #                 'delay': record.values['delay']
+    #             })
+    #     return metrics
     def get_ue_metrics(self, ue_id):
+        print('----DB Manager----ue_id:', ue_id)
+        print('----DB Manager----self.bucket:', self.bucket)
+        #3query = f'''
+            #from(bucket: "{self.bucket}")
+            # |> range(start: -1d)
+            # |> filter(fn: (r) => r._measurement == "ue_metrics" and r.ue_id == "{ue_id}")
+            # |> pivot(rowKey:["_time"], columnKey: ["_field"], valueColumn: "_value")
+            # |> last()
         query = f'''
             from(bucket: "{self.bucket}")
                 |> range(start: -1d)
                 |> filter(fn: (r) => r._measurement == "ue_metrics" and r.ue_id == "{ue_id}")
+                // Check the output here to ensure fields are present
                 |> pivot(rowKey:["_time"], columnKey: ["_field"], valueColumn: "_value")
-                |> last()
-        '''
+                // Then check the output here to ensure the pivot is as expected
+                '''
         result = self.query_api.query(query=query)
+        print('result:', result)
         metrics = []
-        for table in result:
-            for record in table.records:
-                metrics.append({
-                    'timestamp': record.get_time(),
-                    'throughput': record.get_value(),
-                    'jitter': record.values['jitter'],
-                    'packet_loss': record.values['packet_loss'],
-                    'delay': record.values['delay']
-                })
+        if result:
+            for table in result:
+                print('--------inside for loop DB Manager----table:', table)
+                for record in table.records:
+                    print('----DB Manager-------record:', record)
+                    print('--------------throughput:', record.values.get('throughput', None))
+                    print('-------------------time:', record.get_time())
+                    # Ensure you are safely accessing fields, assuming 'throughput', 'jitter', 'packet_loss', 'delay' might not always be present
+                    metrics.append({
+                        'timestamp': record.get_time(),
+                        'throughput': record.values.get('throughput', None),
+                        'ue_jitter': record.values.get('jitter', None),
+                        'ue_packet_loss_rate': record.values.get('packet_loss', None),
+                        'ue_delay': record.values.get('delay', None)
+                    })
+        else:
+            print("No results found for the query.")
         return metrics
+
+
 ##################################################################################################################################
     def get_sector_load(self, sector_id):
         # Flux query syntax for InfluxDB 2.x
@@ -256,3 +342,21 @@ class DatabaseManager:
                 })
         return load_metrics
 ##################################################################################################################################
+    def flush_all_data(self):
+        try:
+            # No need to call connect_to_database() since self.client is already initialized
+            bucket_to_clear = self.bucket  # Use the bucket name from the class attribute
+
+            # Use delete_api to delete all data within the specified bucket
+            delete_api = self.client.delete_api()
+            start = "1970-01-01T00:00:00Z"  # Broadly covers the earliest possible data
+            stop = "2099-01-01T00:00:00Z"   # Broadly covers up to far future data
+
+            # Perform the deletion for the entire bucket content
+            delete_api.delete(start=start, stop=stop, bucket=bucket_to_clear, org=self.org)
+
+            print(f"All data in the bucket {bucket_to_clear} has been deleted.")
+            return True  # Indicate success
+        except Exception as e:
+            print(f"Failed to delete data from bucket {bucket_to_clear}: {e}")
+            return False  # Indicate failure

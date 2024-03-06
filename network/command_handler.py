@@ -33,8 +33,10 @@ class CommandHandler:
             return CommandHandler._start_ue_traffic(data)
         elif command_type == 'stop_ue_traffic':
             return CommandHandler._stop_ue_traffic(data)
-        elif command_type == 'set_custom_traffic':  # New command type
+        elif command_type == 'set_custom_traffic':  
             return CommandHandler._set_custom_traffic(data)
+        elif command_type == 'flush_all_data':
+            return CommandHandler._flush_all_data(data)
         else:
             raise ValueError("Unsupported command type")
 
@@ -177,8 +179,7 @@ class CommandHandler:
                 return False, f"UE {ue_id} not found"
         except Exception as e:
             API_logger.error(f"An error occurred while updating UE {ue_id}: {str(e)}")
-            return False, f"An error occurred while updating UE {ue_id}"
-            
+#########################################################################################################
     @staticmethod
     def _set_custom_traffic(data):  
         ue_id = data['ue_id']
@@ -194,3 +195,19 @@ class CommandHandler:
         else:
             API_logger.error(f"Failed to set custom traffic for UE {ue_id}.")
             return jsonify({'error': f"Failed to set custom traffic for UE {ue_id}."}), 500
+#########################################################################################################
+    @staticmethod
+    def _flush_all_data():
+        try:
+            db_manager = DatabaseManager.get_instance()
+            success = db_manager.flush_all_data()
+            if success:
+                API_logger.info("Database successfully flushed.")
+                return True, "Database successfully flushed."
+            else:
+                API_logger.error("Failed to flush the database.")
+                return False, "Failed to flush the database."
+        except Exception as e:
+            API_logger.error(f"An error occurred while flushing the database: {str(e)}")
+            return False, f"An error occurred while flushing the database: {str(e)}"
+#########################################################################################################

@@ -17,7 +17,7 @@ import os
 import threading
 from network.ue import UE
 from blessed import Terminal
-
+from database.database_manager import DatabaseManager
 # Assuming these are your custom modules for managing various aspects of the network simulator
 from network.ue_manager import UEManager
 from network.gNodeB_manager import gNodeBManager
@@ -43,6 +43,8 @@ alias_config = {
         {'alias': 'ue', 'command': 'ue_list'},
         {'alias': 'ulog', 'command': 'ue_log'},
         {'alias': 'ukpi', 'command': 'ue_kpis'},
+        {'alias': 'uespecs', 'command': 'ue_specs'},
+        {'alias': 'Flu', 'command': 'flush_db'},
         # Add more aliases as needed
     ]
 }
@@ -358,6 +360,17 @@ class SimulatorCLI(cmd.Cmd):
         self.stop_event.set()
         display_thread.join()
         print(self.term.clear)  # This line will clear the screen after stopping the thread
+################################################################################################################################
+    def do_ue_specs(self, arg):
+        """Displays specifications of all UEs."""
+        ue_specs_list = self.ue_manager.list_all_ue_specs()  # Assuming such a method exists
+
+        table = PrettyTable()
+        table.field_names = ["UE ID", "Connected Cell ID", "Service Type", "Signal Quality", "Battery Status"]
+        for specs in ue_specs_list:
+            table.add_row([specs['ue_id'], specs['cell_id'], specs['service_type'], specs['signal_quality'], specs['battery_status']])
+    
+        print(table) 
 ################################################################################################################################            
     def do_del_ue(self, line):
         from network.sector import global_ue_ids
@@ -430,12 +443,14 @@ class SimulatorCLI(cmd.Cmd):
                 ('sector_list', 'List all sectors in the network.'),
                 ('ue_list', 'List all UEs (User Equipments) in the network.'),
                 ('ue_log', 'Display UE traffic logs.'),
+                ('ue_specs', 'Display UE specifications of ue in the network.'),
                 ('del_ue', 'delete ue from sector and database'),
                 ('add_ue', 'add new ue based on current config file to the specific sector'),
                 ('kpis', 'Display KPIs for the network.'),
                 ('loadbalancing', 'Display load balancing information for the network.'),
                 ('start_ue', 'Start the ue traffic.'),
                 ('stop_ue', 'Stop the ue traffic.'),
+                ('Flush Database', 'Delete all the information inside the InfluxDB database.'),
                 ('exit', 'Exit the Simulator.')
             ]:
                 print(f"  {Fore.CYAN}{command}{Fore.RESET} - {description}")
@@ -557,3 +572,14 @@ class SimulatorCLI(cmd.Cmd):
     
         # Display KPIs
         print("Displaying UE KPIs...")
+#############################################################################################################
+    def do_flush_db(self, arg):
+        """Flush Database: Delete all the information inside the InfluxDB database."""
+        response = input("Are you sure you want to delete all the data in the database? (yes/no): ")
+        if response.lower() == 'yes':
+            db_manager = DatabaseManager.get_instance()
+            db_manager.flush_all_data()
+            print("Database successfully flushed.")
+        else:
+            print("Database flush canceled.")
+#############################################################################################################

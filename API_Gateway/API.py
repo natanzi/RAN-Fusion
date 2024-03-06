@@ -172,7 +172,9 @@ def start_ue_traffic():
     if result:
         return jsonify({'message': message}), 200
     else:
+        API_logger.error(f"An error occurred while starting UE {data.get('ue_id', 'unknown')}")
         return jsonify({'error': message}), 400
+
 #########################################################################################################
 @app.route('/stop_ue_traffic', methods=['POST'])
 def stop_ue_traffic():
@@ -185,6 +187,7 @@ def stop_ue_traffic():
     if result:
         return jsonify({'message': message}), 200
     else:
+        API_logger.error(f"An error occurred while stopping UE {data.get('ue_id', 'unknown')}:")
         return jsonify({'error': message}), 400
 #########################################################################################################
 @app.route('/sector_load', methods=['GET'])
@@ -205,7 +208,7 @@ def sector_load():
     except Exception as e:
         API_logger.error(f"An error occurred while retrieving load metrics for sector {sector_id}: {e}")
         return jsonify({'error': 'An error occurred while retrieving load metrics'}), 500
-######################################################################################################### 
+#########################################################################################################  
 @app.route('/set_traffic', methods=['POST'])
 def set_traffic():
     data = request.json
@@ -213,6 +216,22 @@ def set_traffic():
     if command_result:
         return jsonify({'message': message}), 200
     else:
+        API_logger.error(f"Failed to set custom traffic: {message}")
         return jsonify({'error': message}), 500
+#########################################################################################################
+@app.route('/flush_database', methods=['POST'])
+def flush_database():
+    # Optional: Require a confirmation in the request body
+    data = request.get_json()
+    if not data or data.get('confirm') != 'yes':
+        return jsonify({'error': 'Confirmation required'}), 400
 
+    # Use CommandHandler to perform the operation
+    result, message = CommandHandler.handle_command('flush_all_data')
 
+    if result:
+        return jsonify({'message': message}), 200
+    else:
+        API_logger.error(f"Database flush failed: {message}")
+        return jsonify({'error': message}), 500
+#########################################################################################################

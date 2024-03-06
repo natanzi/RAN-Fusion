@@ -36,7 +36,7 @@ class UE:
             UE.existing_ue_ids.add(ue_id)
             UE.ue_instances[ue_id] = self  # Store the instance in the dictionary
             self.IMEI = kwargs.get('imei') or self.allocate_imei()         # International Mobile Equipment Identity
-            self.throughput = kwargs.get('throughput', 0)  # Initialize throughput with a default value of 0
+            self.throughput = float(kwargs.get('throughput', 0))  # Initialize throughput with a default value of 0
             self.Location = kwargs.get('location')         # Geographic location of the UE
             self.ConnectedCellID = kwargs.get('connected_cell_id')        # ID of the cell to which the UE is connected
             self.ConnectedSector = kwargs.get('connected_sector')        # Sector of the cell to which the UE is connected
@@ -71,6 +71,9 @@ class UE:
             self.generating_traffic = True               #link to initialize the traffic generation flag
             self.IP = kwargs.get('ip') or UE.allocate_ip() # Allocate an IP if not provided
             self.MAC = kwargs.get('mac') or UE.allocate_mac() # Allocate a MAC if not provided
+            self.ue_jitter = float(0)  # Initialize ue_jitter to 0. Jitter measures variation in packet delay.
+            self.ue_packet_loss_rate = float(0)  # Initialize ue_packet loss rate to 0. This measures the rate of ue lost packets in the network.
+            self.ue_delay = float(0)  # Initialize ue_delay to 0. Delay measures the time taken for data to travel from source to destination.
             ue_logger.info(f"UE initialized with ID {self.ID} at {datetime.now()}")
     
     @classmethod
@@ -173,7 +176,7 @@ class UE:
                 .field("signal_strength", float(self.SignalStrength)) \
                 .field("rat", str(self.RAT)) \
                 .field("max_bandwidth", int(self.MaxBandwidth)) \
-                .field("throughput", int(self.throughput)) \
+                .field("throughput", float(self.throughput)) \
                 .field("duplex_mode", str(self.DuplexMode)) \
                 .field("tx_power", int(self.TxPower)) \
                 .field("modulation", ','.join(self.Modulation) if isinstance(self.Modulation, list) else str(self.Modulation)) \
@@ -196,6 +199,9 @@ class UE:
                 .field("battery_level", int(self.BatteryLevel)) \
                 .field("ip_address", str(self.IP)) \
                 .field("mac_address", str(self.MAC)) \
+                .field("ue_jitter", float(self.ue_jitter)) \
+                .field("ue_packet_loss_rate", float(self.ue_packet_loss_rate)) \
+                .field("ue_delay", float(self.ue_delay)) \
                 .time(unix_timestamp_seconds, WritePrecision.S)  # Use UNIX timestamp in seconds
             return point
         except Exception as e:
