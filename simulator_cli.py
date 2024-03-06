@@ -580,7 +580,7 @@ class SimulatorCLI(cmd.Cmd):
             db_manager = DatabaseManager.get_instance()
             success = db_manager.flush_all_data()  # This now returns True on success, False on failure
             if success:
-                print("Database successfully flushed.")
+                print("Database successfully flushed. Please run again!")
             else:
                 print("Failed to flush the database.")  # Only print this if flushing fails
         else:

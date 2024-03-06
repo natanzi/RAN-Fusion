@@ -127,7 +127,7 @@ class UEManager:
         if ue.generating_traffic:
             traffic_controller.stop_ue_traffic(ue)
             ue.generating_traffic = False
-            ue.throughput = 0
+            ue.throughput = 0.0
             print(f"Traffic stopped for UE {ue_id}")
         else:
             print(f"UE {ue_id} does not have active traffic generation")
