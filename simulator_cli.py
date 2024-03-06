@@ -128,7 +128,6 @@ class SimulatorCLI(cmd.Cmd):
         def display_page(page, page_size):
             start_index = (page - 1) * page_size
             end_index = start_index + page_size
-            # Fetch all UE IDs using UEManager
             ue_ids = self.ue_manager.list_all_ues()
             total_ues = len(ue_ids)
             ues_to_display = ue_ids[start_index:end_index]
@@ -143,41 +142,33 @@ class SimulatorCLI(cmd.Cmd):
             for ue_id in ues_to_display:
                 ue = self.ue_manager.get_ue_by_id(ue_id)
                 if ue:
-                    throughput_mbps = ue.throughput / 1e6  # Convert throughput to Mbps
+                    throughput_mbps = ue.throughput / 1e6
                     table.add_row([ue.ID, ue.ServiceType, f"{throughput_mbps:.2f}"])
 
             print(table)
-            total_pages = total_ues // page_size + (1 if total_ues % page_size > 0 else 0)
+            total_pages = (total_ues // page_size) + (1 if total_ues % page_size > 0 else 0)
             print(f"Page {page} of {total_pages}")
 
-        def refresh_data():
-            while not self.stop_event.is_set():
+        def refresh_data(stop_event):
+            while not stop_event.is_set():
                 os.system('cls' if os.name == 'nt' else 'clear')  # Clear the console
                 display_page(page, page_size)  # Display the current page
-                time.sleep(1)  # Wait for a second before refreshing
+                stop_event.wait(timeout=1)  # Refresh every 5 seconds
 
-            self.stop_event = threading.Event()
-            display_thread = threading.Thread(target=refresh_data)
-            display_thread.start()
+        # Initialize stop_event and display_thread
+        stop_event = threading.Event()
+        display_thread = threading.Thread(target=refresh_data, args=(stop_event,))
+
+        try:
+            display_thread.start()  # Start the refreshing thread
 
             input("Press Enter to stop refreshing...")  # Wait for user input to stop refreshing
-            self.stop_event.set()
-            display_thread.join()
+        finally:
+            stop_event.set()  # Signal the thread to stop
+            display_thread.join()  # Wait for the thread to finish
 
-        # Handling pagination manually after stopping the refresh
-        while True:
-            next_action = input("Enter 'n' for next page, 'p' for previous page, or 'q' to quit: ").lower()
-            if next_action == 'n':
-                page += 1
-            elif next_action == 'p' and page > 1:
-                page -= 1
-            elif next_action == 'q':
-                break
-            else:
-                print("Invalid input. Please try again.")
+        # After stopping the refresh, you can implement further actions or exit the command
 
-            os.system('cls' if os.name == 'nt' else 'clear')  # Clear the console
-            display_page(page, page_size)  # Display the updated page
 
 ############################################################################################################################## 
     def do_ue_log(self, arg):
