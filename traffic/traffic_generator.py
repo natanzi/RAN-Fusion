@@ -426,7 +426,7 @@ class TrafficController:
         
         ue.throughput = throughput
 
-        print(f"UE {ue.ID} throughput: {throughput} bps")
+        #print(f"UE {ue.ID} throughput: {throughput} bps")
         # Prepare the data for InfluxDB with units for clarity
         influxdb_data = {
             "measurement": "ue_metrics",
@@ -439,7 +439,7 @@ class TrafficController:
             },
             "time": datetime.utcnow().isoformat(),
         }
-        print('******traffic Gen******influxdb_data:', influxdb_data)
+        #print('******traffic Gen******influxdb_data:', influxdb_data)
         # Assuming DatabaseManager and other necessary imports are correctly handled
         database_manager = DatabaseManager()
         # If preparing a data dictionary for insertion
@@ -451,7 +451,7 @@ class TrafficController:
             fields=influxdb_data["fields"],
             timestamp=influxdb_data["time"]
         )
-        print('--------------------------ue.ID-----------------------------------:',ue.ID)
+        #print('--------------------------ue.ID-----------------------------------:',ue.ID)
         ue_ID = ue.ID
         database_manager.get_ue_metrics(ue_ID)
         database_manager.close_connection()

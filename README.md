@@ -76,6 +76,11 @@ To receive a UE metric, for example, "UE10" :
 Invoke-RestMethod -Uri 'http://localhost:5000/ue_metrics?ue_id=10' -Method Get
 ```
 
+To Remove all information inside the influx db:
+```powershell
+curl -X POST http://localhost:5000/flushdb -H "Content-Type: application/json" -d "{\"confirm\":\"yes\"}"
+```
+
 To change a UE traffic, for example, "UE10" :
 ```powershell
 Invoke-RestMethod -Uri 'http://localhost:5000/set_traffic' -Method Post -ContentType 'application/json' -Body '{"ue_id": "5", "traffic_params": {"throughput": 30}}'

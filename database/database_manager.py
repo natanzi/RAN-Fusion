@@ -149,7 +149,7 @@ class DatabaseManager:
     #     except Exception as e:
     #         database_logger.error(f"Failed to insert data into InfluxDB: {e}")
     def insert_data(self, measurement_or_point, tags=None, fields=None, timestamp=None):
-        print('------------------inside insert -------------------')
+        #print('------------------inside insert -------------------')
         """Inserts or updates data into InfluxDB. Can handle both Point objects and separate parameters."""
         try:
             if isinstance(measurement_or_point, Point):
@@ -157,7 +157,7 @@ class DatabaseManager:
                 # For debugging: print throughput if it's a field in the Point object
                 if 'throughput' in point._fields:
                     throughput_value = point._fields['throughput']
-                    print(f"Throughput (Point object): {throughput_value}, Type: {type(throughput_value)}")
+                    #print(f"Throughput (Point object): {throughput_value}, Type: {type(throughput_value)}")
             else:
                 # If separate parameters are provided, create a new Point
                 measurement = measurement_or_point
@@ -165,7 +165,7 @@ class DatabaseManager:
                 # For debugging: specifically check and print throughput and its type
                 if fields and 'throughput' in fields:
                     throughput_value = fields['throughput']
-                    print(f"Throughput (field): {throughput_value}, Type: {type(throughput_value)}")
+                    #print(f"Throughput (field): {throughput_value}, Type: {type(throughput_value)}")
                 # Add tags and fields to the Point
                 for tag_key, tag_value in (tags or {}).items():
                     point.tag(tag_key, tag_value)
@@ -178,7 +178,7 @@ class DatabaseManager:
             
             # Write the point to the database
             self.write_api.write(bucket=self.bucket, record=point)
-            print('Data write is done')
+            #print('Data write is done')
 
         except Exception as e:
             print(f"Failed to insert data into InfluxDB: {e}")
@@ -283,8 +283,8 @@ class DatabaseManager:
     #             })
     #     return metrics
     def get_ue_metrics(self, ue_id):
-        print('----DB Manager----ue_id:', ue_id)
-        print('----DB Manager----self.bucket:', self.bucket)
+        #print('----DB Manager----ue_id:', ue_id)
+        #print('----DB Manager----self.bucket:', self.bucket)
         #3query = f'''
             #from(bucket: "{self.bucket}")
             # |> range(start: -1d)
@@ -300,15 +300,15 @@ class DatabaseManager:
                 // Then check the output here to ensure the pivot is as expected
                 '''
         result = self.query_api.query(query=query)
-        print('result:', result)
+        #print('result:', result)
         metrics = []
         if result:
             for table in result:
-                print('--------inside for loop DB Manager----table:', table)
+                #print('--------inside for loop DB Manager----table:', table)
                 for record in table.records:
-                    print('----DB Manager-------record:', record)
-                    print('--------------throughput:', record.values.get('throughput', None))
-                    print('-------------------time:', record.get_time())
+                    #print('----DB Manager-------record:', record)
+                    #print('--------------throughput:', record.values.get('throughput', None))
+                    #print('-------------------time:', record.get_time())
                     # Ensure you are safely accessing fields, assuming 'throughput', 'jitter', 'packet_loss', 'delay' might not always be present
                     metrics.append({
                         'timestamp': record.get_time(),
