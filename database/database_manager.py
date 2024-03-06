@@ -8,6 +8,7 @@
 #########################################################################################################
 import os
 from influxdb_client import InfluxDBClient, WritePrecision, Point, QueryApi
+from influxdb_client.client.delete_api import DeleteApi
 from influxdb_client.client.write_api import SYNCHRONOUS
 from logs.logger_config import database_logger  # Import the configured logger
 from datetime import datetime
@@ -48,7 +49,7 @@ class DatabaseManager:
         self.write_api = self.client.write_api(write_options=SYNCHRONOUS)
         self.query_api = self.client.query_api()
         self.bucket = INFLUXDB_BUCKET
-    
+        self.org = INFLUXDB_ORG
 ##################################################################################################################################
     def get_sector_by_id(self, sector_id):
         query = f'from(bucket: "{self.bucket}") |> range(start: -1d) |> filter(fn: (r) => r._measurement == "sector_metrics" and r.sector_id == "{sector_id}")'
@@ -343,20 +344,45 @@ class DatabaseManager:
         return load_metrics
 ##################################################################################################################################
     def flush_all_data(self):
+        from datetime import datetime, timezone
+        import requests
+
         try:
-            # No need to call connect_to_database() since self.client is already initialized
-            bucket_to_clear = self.bucket  # Use the bucket name from the class attribute
+            if not hasattr(self, 'client'):
+                self.client_init()
 
-            # Use delete_api to delete all data within the specified bucket
-            delete_api = self.client.delete_api()
-            start = "1970-01-01T00:00:00Z"  # Broadly covers the earliest possible data
-            stop = "2099-01-01T00:00:00Z"   # Broadly covers up to far future data
+            bucket_to_clear = self.bucket
+            start = "1970-01-01T00:00:00Z"
+            # Using datetime.now() with timezone.utc to get current UTC time
+            # Formatting manually to include milliseconds, ensuring compliance with RFC3339
+            stop = datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%S.%f')[:-3] + 'Z'
 
-            # Perform the deletion for the entire bucket content
-            delete_api.delete(start=start, stop=stop, bucket=bucket_to_clear, org=self.org)
+            url = f"{self.client.url}/api/v2/delete?org={self.org}&bucket={bucket_to_clear}"
+            headers = {
+                'Authorization': f'Token {self.client.token}',
+                'Content-Type': 'application/json',
+            }
+            data = {
+                "start": start,
+                "stop": stop,
+            }
 
-            print(f"All data in the bucket {bucket_to_clear} has been deleted.")
-            return True  # Indicate success
+            response = requests.post(url, headers=headers, json=data, timeout=10)
+
+            if response.status_code == 204:
+                print(f"All data in the bucket {bucket_to_clear} has been deleted successfully.")
+                return True
+            else:
+                print(f"Failed to delete data from bucket {bucket_to_clear}: {response.status_code} - {response.text}")
+                return False
+        except requests.exceptions.RequestException as e:
+            print(f"Request exception occurred: {e}")
+            return False
         except Exception as e:
-            print(f"Failed to delete data from bucket {bucket_to_clear}: {e}")
-            return False  # Indicate failure
+            print(f"General exception occurred: {e}")
+            return False
+
+
+
+
+

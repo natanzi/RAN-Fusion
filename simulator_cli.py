@@ -578,8 +578,11 @@ class SimulatorCLI(cmd.Cmd):
         response = input("Are you sure you want to delete all the data in the database? (yes/no): ")
         if response.lower() == 'yes':
             db_manager = DatabaseManager.get_instance()
-            db_manager.flush_all_data()
-            print("Database successfully flushed.")
+            success = db_manager.flush_all_data()  # This now returns True on success, False on failure
+            if success:
+                print("Database successfully flushed.")
+            else:
+                print("Failed to flush the database.")  # Only print this if flushing fails
         else:
             print("Database flush canceled.")
 #############################################################################################################
