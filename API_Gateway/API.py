@@ -221,13 +221,12 @@ def set_traffic():
 #########################################################################################################
 @app.route('/flush_database', methods=['POST'])
 def flush_database():
-    # Optional: Require a confirmation in the request body
     data = request.get_json()
     if not data or data.get('confirm') != 'yes':
         return jsonify({'error': 'Confirmation required'}), 400
 
-    # Use CommandHandler to perform the operation without passing the data argument
-    result, message = CommandHandler.handle_command('flush_all_data')
+    # Passing an empty dictionary as data for commands that do not require additional data.
+    result, message = CommandHandler.handle_command('flush_all_data', {})
 
     if result:
         return jsonify({'message': message}), 200

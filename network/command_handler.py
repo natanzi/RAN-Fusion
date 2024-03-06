@@ -197,7 +197,7 @@ class CommandHandler:
             return jsonify({'error': f"Failed to set custom traffic for UE {ue_id}."}), 500
 #########################################################################################################
     @staticmethod
-    def _flush_all_data():
+    def _flush_all_data(data=None):  # Make data optional
         try:
             db_manager = DatabaseManager.get_instance()
             success = db_manager.flush_all_data()
