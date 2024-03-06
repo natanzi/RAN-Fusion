@@ -78,7 +78,7 @@ Invoke-RestMethod -Uri 'http://localhost:5000/ue_metrics?ue_id=10' -Method Get
 
 To Remove all information inside the influx db:
 ```powershell
-curl -X POST http://localhost:5000/flushdb -H "Content-Type: application/json" -d "{\"confirm\":\"yes\"}"
+Invoke-RestMethod -Uri "http://localhost:5000/flush_database" -Method Post -Headers @{"Content-Type"="application/json"} -Body '{"confirm":"yes"}'
 ```
 
 To change a UE traffic, for example, "UE10" :

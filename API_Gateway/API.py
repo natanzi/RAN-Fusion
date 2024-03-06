@@ -226,7 +226,7 @@ def flush_database():
     if not data or data.get('confirm') != 'yes':
         return jsonify({'error': 'Confirmation required'}), 400
 
-    # Use CommandHandler to perform the operation
+    # Use CommandHandler to perform the operation without passing the data argument
     result, message = CommandHandler.handle_command('flush_all_data')
 
     if result:
