@@ -119,7 +119,7 @@ class gNodeB:
                 .field("load_balancing_offset", int(self.LoadBalancingOffset)) \
                 .field("cell_ids", ','.join(map(str, self.CellIds)) if self.CellIds is not None else None) \
                 .field("sector_ids", ','.join([str(sector_id) for sector_id in self.SectorIds])) \
-                .field("gnodeb_load", float(self.gnb_load())) \
+                .field("gnodeb_load", float(self.gnb_load)) \
                 .time(int(time.time()), WritePrecision.S)  # Corrected timestamp in seconds
 
             return point
