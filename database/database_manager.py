@@ -119,7 +119,7 @@ class DatabaseManager:
             database_logger.error(f"Failed to insert batch data into InfluxDB: {e}")
 ##################################################################################################################################
     def insert_data(self, measurement_or_point, tags=None, fields=None, timestamp=None):
-        print('------------------inside  insert_data Function od database_manager.py -------------------')
+        #print('------------------inside  insert_data Function od database_manager.py -------------------')
         """Inserts or updates data into InfluxDB. Can handle both Point objects and separate parameters."""
         try:
             if isinstance(measurement_or_point, Point):
@@ -149,7 +149,7 @@ class DatabaseManager:
             
             # Write the point to the database
             self.write_api.write(bucket=self.bucket, record=point)
-            print('Data write is done')
+            #print('Data write is done')
 
         except Exception as e:
             print(f"Failed to insert data into InfluxDB: {e}")
@@ -157,7 +157,10 @@ class DatabaseManager:
 ##################################################################################################################################
     def close_connection(self):
         """Closes the database connection."""
-        self.client.close()
+        try:
+            self.client.close()
+        except Exception as e:
+            print(f"Failed to close database connection: {e}")
 ##################################################################################################################################
     def get_all_ue_ids(self):
         """Retrieves all UE IDs from InfluxDB."""
@@ -228,7 +231,7 @@ class DatabaseManager:
         self.write_api.write(bucket=self.bucket, record=point)
 ##################################################################################################################################
     def get_ue_metrics(self, ue_id):
-        print(f"Attempting to fetch UE metrics for ue_id: {ue_id}")  # Debug message 1
+        #print(f"Attempting to fetch UE metrics for ue_id: {ue_id}")  # Debug message 1
         query = f'''
             from(bucket: "{self.bucket}")
                 |> range(start: -1d)
@@ -239,16 +242,16 @@ class DatabaseManager:
         '''
         # Execute query
         result = self.query_api.query(query=query)
-        print(f'Result of the query inside the get_ue_metrics for ue_id {ue_id}:', result)  # Debug message 2
+        #print(f'Result of the query inside the get_ue_metrics for ue_id {ue_id}:', result)  # Debug message 2
         metrics = []
         if result:
             for table in result:
-                print('--------inside for loop DB Manager----table:', table)
+                #print('--------inside for loop DB Manager----table:', table)
                 for record in table.records:
-                    print(f'Record from table: {record}')  # Debug message 3
-                    print('----DB Manager-------record:', record)
-                    print('--------------throughput:', record.values.get('throughput', None))
-                    print('-------------------time:', record.get_time())
+                    #print(f'Record from table: {record}')  # Debug message 3
+                    #print('----DB Manager-------record:', record)
+                    #print('--------------throughput:', record.values.get('throughput', None))
+                    #print('-------------------time:', record.get_time())
                     #Ensure you are safely accessing fields, assuming 'throughput', 'jitter', 'packet_loss', 'delay' might not always be present
                     metrics.append({
                         'timestamp': record.get_time(),

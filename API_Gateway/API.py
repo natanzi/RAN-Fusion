@@ -253,11 +253,27 @@ def flush_database():
         API_logger.error(f"Database flush failed: {message}")
         return jsonify({'error': message}), 500
 #########################################################################################################
+# this API return the list of the current ue in database
+@app.route('/api/ues', methods=['GET'])
+def get_ues():
+    try:
+        # Initialize your DatabaseManager
+        db_manager = DatabaseManager.get_instance()
+        # Fetch UE IDs from the database
+        ue_ids = db_manager.get_all_ue_ids()
+        # Return the list of UE IDs
+        return jsonify({'ue_ids': ue_ids}), 200
+    except Exception as e:
+        # Log the error and return an error message
+        # Make sure to set up logging appropriately
+        API_logger.error(f"Failed to retrieve UE IDs: {e}")  
+        return jsonify({'error': 'Failed to retrieve UE IDs'}), 500
+#########################################################################################################
 #This is an API for for moving a UE  from one sector, to another place (sector!)
-@app.route('/move_ue', methods=['POST'])
-def move_ue():
-    data = request.get_json()
-    ue_id = data.get('ue_id')
+#@app.route('/move_ue', methods=['POST'])
+#def move_ue():
+    #data = request.get_json()
+    #ue_id = data.get('ue_id')
 
     # Retrieve UE and validate existence
     #ue_manager = UEManager.get_instance()
@@ -273,3 +289,4 @@ def move_ue():
         #return jsonify({'message': 'UE moved successfully'}), 200
 # else:
         #return jsonify({'error': 'Failed to move UE'}), 500
+###########################################################################################################
