@@ -63,7 +63,8 @@ class NetworkLoadManager:
         sector.sector_load_attribute = sector_load  # Update the sector's load attribute
 
         # Directly write the sector load to the database
-        self.db_manager.write_sector_load(sector.ID, sector_load)
+        self.db_manager.write_sector_load(sector.sector_id, sector_load)
+
         return sector_load
 
 
@@ -119,7 +120,7 @@ class NetworkLoadManager:
             point = gNodeB.serialize_for_influxdb()
         
             # Write the serialized data point to InfluxDB
-            self.db_manager.write_data_point(point)  # Assuming this method exists and writes the point to the database
+            self.db_manager.insert_data(point)  
         
             # Log the load of each gNodeB
             gnodbe_load_logger.info(f"gNodeB {gNodeB_id} Load: {gNodeB_load:.2f}%")

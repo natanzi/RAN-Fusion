@@ -353,15 +353,77 @@ class SimulatorCLI(cmd.Cmd):
         print(self.term.clear)  # This line will clear the screen after stopping the thread
 ################################################################################################################################
     def do_ue_specs(self, arg):
-        """Displays specifications of all UEs."""
-        ue_specs_list = self.ue_manager.list_all_ue_specs()  # Assuming such a method exists
+        """Displays specifications of all UEs with live updates."""
+        print('Displaying UE specs. Press any key to stop...')
 
+        def refresh_ue_specs(stop_event):
+            while not stop_event.is_set():
+                os.system('cls' if os.name == 'nt' else 'clear')  # Clear the console for Windows or Unix-based systems
+                self.fetch_and_display_ue_specs()  # Fetch and display the current UE specs
+                stop_event.wait(timeout=1)  # Refresh every second
+
+        # Initialize stop_event and display_thread
+        stop_event = threading.Event()
+        display_thread = threading.Thread(target=refresh_ue_specs, args=(stop_event,))
+
+        try:
+            display_thread.start()  # Start the refreshing thread
+
+            input("Press Enter to stop refreshing...")  # Wait for user input to stop refreshing
+        finally:
+            stop_event.set()  # Signal the thread to stop
+            display_thread.join()  # Wait for the thread to finish
+
+    def fetch_ue_instances(self):
+        """
+        Fetches current UE instances and formats them for display.
+        
+        Returns:
+            List[Dict[str, Any]]: A list of dictionaries, each representing a UE with its attributes.
+        """
+        ue_instances = UE.get_ues()  # Use the class method from the UE class to get all UE instances
+        ue_list = []  # Initialize an empty list to hold formatted UE data
+
+        # Iterate over each UE instance to extract and format its attributes
+        for ue in ue_instances:
+            ue_data = {
+                'id': ue.ID,
+                'Connected Cell ID': ue.ConnectedCellID,
+                'Connected Sector ID': ue.ConnectedSector,
+                'gNodeB ID': ue.gNodeB_ID,
+                'Service Type': ue.ServiceType,
+                'IMEI': ue.IMEI,
+                'Signal Strength': ue.SignalStrength,
+                'RAT': ue.RAT,
+                'Max Bandwidth': ue.MaxBandwidth,
+                'Throughput': ue.get_throughput(),
+                'IP Address': ue.IP,
+                'MAC Address': ue.MAC,
+                'UE Jitter': ue.ue_jitter,
+                'UE Packet Loss Rate': ue.ue_packet_loss_rate,
+                'UE Delay': ue.ue_delay
+            }
+            ue_list.append(ue_data)  # Add the formatted UE data to the list
+
+        return ue_list
+
+    def fetch_and_display_ue_specs(self):
+        ue_instances = self.fetch_ue_instances()  # Fetch current UE instances
         table = PrettyTable()
-        table.field_names = ["UE ID", "Connected Cell ID", "Service Type", "Signal Quality", "Battery Status"]
-        for specs in ue_specs_list:
-            table.add_row([specs['ue_id'], specs['cell_id'], specs['service_type'], specs['signal_quality'], specs['battery_status']])
-    
-        print(table) 
+        table.field_names = ["Attribute"] + [f"{ue['id']}" for ue in ue_instances]
+
+        attributes = [
+            "Connected Cell ID", "Connected Sector ID", "gNodeB ID", 
+            "Service Type", "IMEI", "Signal Strength", "RAT", "Max Bandwidth",
+            "Throughput", "IP Address", "MAC Address", "UE Jitter",
+            "UE Packet Loss Rate", "UE Delay"
+        ]
+
+        for attr in attributes:
+            row = [attr] + [ue.get(attr, "N/A") for ue in ue_instances]
+            table.add_row(row)
+
+        print(table)
 ################################################################################################################################            
     def do_del_ue(self, line):
         from network.sector import global_ue_ids
