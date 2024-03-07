@@ -94,6 +94,12 @@ def ue_metrics():
         return jsonify({'error': "Invalid 'ue_id' format. 'ue_id' must be alphanumeric."}), 400
 
     try:
+        # Check if UE exists in the system
+        from network.ue_manager import UEManager  # Ensure this import is at the top of your file
+        ue_manager = UEManager.get_instance()
+        if not ue_manager.get_ue_by_id(ue_id):
+            return jsonify({'error': f"UE {ue_id} not found in the system"}), 404
+
         db_manager = DatabaseManager.get_instance()
         metrics = db_manager.get_ue_metrics(ue_id)
         if metrics:
