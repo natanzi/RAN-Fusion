@@ -87,7 +87,7 @@ def main():
     # Additional setup
     sector_manager = SectorManager.get_instance(db_manager=db_manager)
     network_load_manager = NetworkLoadManager.get_instance(cell_manager, sector_manager, gNodeB_manager)
-    network_load_manager.log_and_write_loads()
+    
 
     ue_manager = UEManager.get_instance(base_dir)
     network_delay_calculator = NetworkDelay()
