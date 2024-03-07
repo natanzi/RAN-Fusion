@@ -45,6 +45,7 @@ class gNodeB:
         self.ID = gnodeb_id  # str: Unique identifier for the gNodeB
         self.instance_id = str(uuid.uuid4())  # Generic unique identifier for the instance of the GNodeB
         gNodeB_instances[gnodeb_id] = self #define global dictionaries
+        self.gnb_load = float(0) # this is for wrriting the gNodeb Load
         self.Latitude = latitude  # float: Geographic latitude where the gNodeB is located
         self.Longitude = longitude  # float: Geographic longitude where the gNodeB is located
         self.CoverageRadius = coverageRadius  # int: The radius (in meters) that the gNodeB covers
@@ -66,8 +67,8 @@ class gNodeB:
         self.CellIds = cellIds  # list: List of cell IDs under this gNodeB
         self.CellCount = cellCount  # int: Number of cells under this gNodeB
         self.SectorCount = sectorCount  # int: Number of sectors under this gNodeB
-        self.handover_success_count = 0  # int: Count of successful handovers
-        self.handover_failure_count = 0  # int: Count of failed handovers
+        self.handover_success_count = int(0)  # int: Count of successful handovers
+        self.handover_failure_count = int(0)  # int: Count of failed handovers
         self.SectorIds = sectorIds  # list: List of sector IDs under this gNodeB
         self.Cells = []  # list: List to hold cell objects associated with this gNodeB
         current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -118,6 +119,7 @@ class gNodeB:
                 .field("load_balancing_offset", int(self.LoadBalancingOffset)) \
                 .field("cell_ids", ','.join(map(str, self.CellIds)) if self.CellIds is not None else None) \
                 .field("sector_ids", ','.join([str(sector_id) for sector_id in self.SectorIds])) \
+                .field("gnodeb_load", float(self.gnb_load())) \
                 .time(int(time.time()), WritePrecision.S)  # Corrected timestamp in seconds
 
             return point

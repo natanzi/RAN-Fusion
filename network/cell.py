@@ -40,11 +40,12 @@ class Cell:
         self.last_ue_update = None          # Timestamp of the last update to the UE list
         self.last_update = None             # Timestamp of the last update to any cell attribute
         self.IsActive = is_active           # Indicates whether the cell is active or not
-        self.current_ue_count = 0           # Current count of UEs connected to the cell
+        self.current_ue_count = int(0)           # Current count of UEs connected to the cell
         self.sectors = []                   # List of sectors associated with the cell
         self.SectorCount = sectorCount      # Number of sectors the cell is divided into
         self.gNodeB = None                  # Initialize with None
         self.Technology = technology
+        self.cell_load = float(0)           # this is cell load for each cell and shoudl be float!
         current_time = get_current_time_ntp()
         # Logging statement should be here, after all attributes are set
         cell_logger.info(f" A Cell '{cell_id}' has been created at '{current_time}' in gNodeB '{gnodeb_id}' with max capacity {self.maxConnectUes} ue.")
@@ -110,7 +111,7 @@ class Cell:
                 .field("CellisActive", bool(self.IsActive)) \
                 .field("sector_count", int(self.SectorCount)) \
                 .field("is_active", bool(self.IsActive)) \
-                .field("cell_load", cell_load) \
+                .field("cell_load", self.cell_load)\
                 .time(unix_timestamp_seconds, WritePrecision.S)  # Set the timestamp in seconds
     
             return point

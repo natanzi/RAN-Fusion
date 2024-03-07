@@ -60,8 +60,12 @@ class NetworkLoadManager:
         COUNT_WEIGHT = 0.7
         TP_WEIGHT = 0.3
         sector_load = COUNT_WEIGHT * ue_count_load + TP_WEIGHT * throughput_load
-        sector_load_attribute = sector_load  # Update the sector's load attribute
+        sector.sector_load_attribute = sector_load  # Update the sector's load attribute
+
+        # Directly write the sector load to the database
+        self.db_manager.write_sector_load(sector.ID, sector_load)
         return sector_load
+
 
     def calculate_capped_throughput(self, sector: Sector):
         """Calculate the total capped throughput for a sector.
@@ -87,27 +91,39 @@ class NetworkLoadManager:
 
         # Calculate the average load of the cell based on its sectors
         cell_load = sum(sector_loads) / len(sector_loads)
+        cell.cell_load = cell_load  # Update the cell's attribute
+
+        # Directly write the cell load to the database using DatabaseManager's method
+        self.db_manager.write_cell_load(cell.ID, cell_load)
 
         return cell_load
 ####################################################################################################################   
     def calculate_gNodeB_load(self):
         """
-        Calculate the load of each gNodeB based on the loads of its cells.
-        :return: A dictionary with gNodeB IDs as keys and their loads as values.
+        Calculate the load of each gNodeB based on the loads of its cells and write it to the database.
         """
         gNodeB_loads = {}
         for gNodeB_id, gNodeB in self.cell_manager.gNodeBs.items():
-            # Directly iterate over the Cells list since it's not a dictionary
             if not gNodeB.Cells:
                 gNodeB_loads[gNodeB_id] = 0
                 continue
+        
             cell_loads = [self.calculate_cell_load(cell) for cell in gNodeB.Cells]
             gNodeB_load = sum(cell_loads) / len(cell_loads) if cell_loads else 0
             gNodeB_loads[gNodeB_id] = gNodeB_load
-
+        
+            # Update the gNodeB's load
+            gNodeB.gnb_load = gNodeB_load
+        
+            # Serialize the gNodeB for InfluxDB
+            point = gNodeB.serialize_for_influxdb()
+        
+            # Write the serialized data point to InfluxDB
+            self.db_manager.write_data_point(point)  # Assuming this method exists and writes the point to the database
+        
             # Log the load of each gNodeB
-            cell_load_logger.info(f"gNodeB {gNodeB_id} Load: {gNodeB_load:.2f}%")
-
+            gnodbe_load_logger.info(f"gNodeB {gNodeB_id} Load: {gNodeB_load:.2f}%")
+        
         return gNodeB_loads
 ####################################################################################################################   
     def calculate_network_load(self):
@@ -126,21 +142,6 @@ class NetworkLoadManager:
         network_load = sum(cell_loads) / len(cell_loads)
 
         return network_load
-####################################################################################################################   
-    def log_and_write_loads(self):
-
-        # Calculate, log, and write the load of each cell
-        for cell_id, cell in self.cell_manager.cells.items():
-            cell_load = self.calculate_cell_load(cell)
-            cell_load_logger.info(f"Cell {cell_id} Load: {cell_load:.2f}%")
-            DatabaseManager().write_cell_load(cell_id, cell_load)
-
-        #calculate, log, and write the load of each sector
-        for sector_id, sector in self.sector_manager.sectors.items():
-            sector_load = self.calculate_sector_load(sector)
-            # Assuming sector_load_logger and sector_manager exist
-            sector_load_logger.info(f"Sector {sector_id} Load: {sector_load:.2f}%")
-            DatabaseManager().write_sector_load(sector_id, sector_load)
 ####################################################################################################################   
     def network_measurement(self):
         network_load = self.calculate_network_load()
