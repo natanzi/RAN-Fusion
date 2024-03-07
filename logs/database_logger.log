@@ -3,3 +3,4 @@
 {"level": "INFO", "timestamp": "2024-03-07 16:54:05", "message": "Database connection successful.", "test_id": "4865074d-5fe0-4e9b-b967-27cae6c1423e"}
 {"level": "ERROR", "timestamp": "2024-03-07 16:54:05", "message": "Error serializing gNodeB data for InfluxDB: 'float' object is not callable", "test_id": "4865074d-5fe0-4e9b-b967-27cae6c1423e"}
 {"level": "INFO", "timestamp": "2024-03-07 16:56:40", "message": "Database connection successful.", "test_id": "dab1b714-1bb5-4741-9e6b-0f7a20c46dab"}
+{"level": "INFO", "timestamp": "2024-03-07 16:58:34", "message": "Database connection successful.", "test_id": "0c80c56b-6c03-485a-9f4d-635e44f7da58"}
