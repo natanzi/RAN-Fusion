@@ -1,4 +1,8 @@
-# API_Gateway/API.py modifications
+##########################################################################################
+# API.py is API Gateway of RANFusion and work with command_handler.py and also RANFUsion #
+# Architecture to do some task.                                                          #
+#                                                                                        #
+##########################################################################################
 from dotenv import load_dotenv
 import os
 import sys
@@ -55,7 +59,8 @@ def run_api(queue):
     # Start the Flask application
     app.run(debug=True, use_reloader=False)  # use_reloader=False is important to not spawn child processes
     
-#########################################################################################################
+######################################################################################################################
+#This is an API for delete one ue from all place!
 @app.route('/del_ue', methods=['POST'])
 def del_ue():
     data = request.json
@@ -82,7 +87,8 @@ def del_ue():
         API_logger.error(f"An error occurred while removing UE {ue_id}: {e}")
         return jsonify({'error': 'An error occurred while removing UE', 'details': str(e)}), 500
     
-#########################################################################################################
+########################################################################################################################
+#This is an API for get ue metric  like throuput, jitter, packet loss and so on via API from influxDB with json format
 @app.route('/ue_metrics', methods=['GET'])
 def ue_metrics():
     ue_id = request.args.get('ue_id')
@@ -112,7 +118,8 @@ def ue_metrics():
         API_logger.error(f"An error occurred while retrieving metrics for UE {ue_id}: {e}")
         return jsonify({'error': 'An error occurred while retrieving metrics'}), 500
 
-#########################################################################################################
+########################################################################################################################
+#This is an API for add a ue instance via API, we should send a jason format of the ue info to add it.
 @app.route('/add_ue', methods=['POST'])
 def add_ue():
     data = request.json
@@ -137,7 +144,8 @@ def add_ue():
         traceback.print_exc()
         return jsonify({'error': 'An error occurred while adding UE', 'details': str(e)}), 500
 
-#########################################################################################################
+#########################################################################################################################
+#This is a API for chnage one or more attribute of the ue instance! for example chnage one parameter but in live network.
 @app.route('/update_ue', methods=['POST'])
 def update_ue():
     data = request.json
@@ -167,6 +175,7 @@ def update_ue():
         return jsonify({'error': 'An error occurred while updating UE'}), 500
 
 #########################################################################################################
+#This is A API for start the traffic of the each UE
 @app.route('/start_ue_traffic', methods=['POST'])
 def start_ue_traffic():
     data = request.json
@@ -182,6 +191,7 @@ def start_ue_traffic():
         return jsonify({'error': message}), 400
 
 #########################################################################################################
+#This is a API for Stop the traffic of the each UE
 @app.route('/stop_ue_traffic', methods=['POST'])
 def stop_ue_traffic():
     data = request.json
@@ -196,6 +206,7 @@ def stop_ue_traffic():
         API_logger.error(f"An error occurred while stopping UE {data.get('ue_id', 'unknown')}:")
         return jsonify({'error': message}), 400
 #########################################################################################################
+# This is an API for get the load of the each sector.
 @app.route('/sector_load', methods=['GET'])
 def sector_load():
     sector_id = request.args.get('sector_id')
@@ -214,7 +225,8 @@ def sector_load():
     except Exception as e:
         API_logger.error(f"An error occurred while retrieving load metrics for sector {sector_id}: {e}")
         return jsonify({'error': 'An error occurred while retrieving load metrics'}), 500
-#########################################################################################################  
+######################################################################################################### 
+#This is an API for change the traffic pattern
 @app.route('/set_traffic', methods=['POST'])
 def set_traffic():
     data = request.json
@@ -225,6 +237,7 @@ def set_traffic():
         API_logger.error(f"Failed to set custom traffic: {message}")
         return jsonify({'error': message}), 500
 #########################################################################################################
+# This is an API for delete all information inside the databse.
 @app.route('/flush_database', methods=['POST'])
 def flush_database():
     data = request.get_json()
@@ -240,3 +253,23 @@ def flush_database():
         API_logger.error(f"Database flush failed: {message}")
         return jsonify({'error': message}), 500
 #########################################################################################################
+#This is an API for for moving a UE  from one sector, to another place (sector!)
+@app.route('/move_ue', methods=['POST'])
+def move_ue():
+    data = request.get_json()
+    ue_id = data.get('ue_id')
+
+    # Retrieve UE and validate existence
+    #ue_manager = UEManager.get_instance()
+    #ue = ue_manager.get_ue_by_id(ue_id)
+    #if not ue:
+        #return jsonify({'error': 'UE not found'}), 404
+    
+    # Logic to move UE to new cell (simplified for example)
+    # This would involve more detailed logic to handle sector/gNodeB changes
+    #success = ue_manager.move_ue_to_cell(ue_id,)
+    
+    #if success:
+        #return jsonify({'message': 'UE moved successfully'}), 200
+# else:
+        #return jsonify({'error': 'Failed to move UE'}), 500

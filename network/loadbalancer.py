@@ -15,8 +15,10 @@
 #6 - Choose best sector in underloaded cell- Identify best target sector                                        #
 #7 - Handover UE to new cell target sector and Validate mobility successful                                     #
 #8 - Rollback any unsuccessful handovers and Revert UE association if handover fails                            #
-#9 - Update database for successful handovers and  Ensure accurate view of network                              #
+#9 - Update database for successful handovers and Ensure accurate view of network                               #
 #10- Sync new UE to sector mapping and Keep in-memory mapping in sync                                           #
+#                                                                                                               #
+#   Note: In this version we do not support Cross-gNodeB Handovers!                                             #
 #################################################################################################################
 from datetime import datetime
 import logging
@@ -42,11 +44,13 @@ class LoadBalancer:
             cls._instance = cls.__new__(cls)
         return cls._instance
 
-    def __init__(self):
+    def __init__(self, auto_balancing_enabled=True):
         self.db_manager = DatabaseManager.get_instance()
         self.handover_success_count = 0
         self.handover_failure_count = 0
         self.lock = threading.Lock()
+        self.auto_balancing_enabled = auto_balancing_enabled  # Load balancing mode flag
+
     
     def update_handover_counts(self, handover_successful):
         with self.lock:
@@ -61,6 +65,10 @@ class LoadBalancer:
         :param entity_type: Type of the entity ('gNodeB', 'cell', or 'sector')
         :param entity_id: ID of the overloaded entity
         """
+        if not self.auto_balancing_enabled:
+            logging.info("Automatic load balancing is disabled. Manual intervention required.")
+            return  # Exit the method if auto balancing is not enabled
+        
         if entity_type == 'gNodeB':
             # Placeholder for gNodeB load balancing logic
             pass
