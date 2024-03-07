@@ -43,8 +43,8 @@ class DatabaseManager:
 
     def client_init(self):
         # This method replaces the original __init__ content
-        print(f"InfluxDB token: {INFLUXDB_TOKEN}")  # Print the InfluxDB token for test
-        print(f"Connecting to InfluxDB with URL: {INFLUXDB_URL}, Token: {INFLUXDB_TOKEN}, Org: {INFLUXDB_ORG}")
+        #print(f"InfluxDB token: {INFLUXDB_TOKEN}")  # Print the InfluxDB token for test
+        #print(f"Connecting to InfluxDB with URL: {INFLUXDB_URL}, Token: {INFLUXDB_TOKEN}, Org: {INFLUXDB_ORG}")
         self.client = InfluxDBClient(url=INFLUXDB_URL, token=INFLUXDB_TOKEN, org=INFLUXDB_ORG)
         self.write_api = self.client.write_api(write_options=SYNCHRONOUS)
         self.query_api = self.client.query_api()
