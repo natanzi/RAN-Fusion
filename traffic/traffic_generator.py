@@ -63,6 +63,13 @@ class TrafficController:
     
     #Defines parameters for different severity levels of network conditions
     SEVERITY_LEVELS = {
+        'zero': {
+            'multiplier': 1,
+            'delay': (0, 0),
+            'jitter': (0, 0),
+            'packet_loss_rate': 0.0
+        },
+
         'low': {
             'multiplier': 1,
             'delay': (0, 5),
@@ -88,7 +95,8 @@ class TrafficController:
         'packet_loss_rate': 0.02
     },
     }
-    def generate_traffic(self, ue, severity='ultra'):
+    def generate_traffic(self, ue, severity='zero'):
+        #print(f"---------Inside traffic_generator.py --------Generating traffic for UE: {ue.ID}")
         if not ue.generating_traffic:
             print(f"Traffic generation for UE {ue.ID} is stopped.")
             return {
@@ -117,8 +125,8 @@ class TrafficController:
 
         return traffic_data
 ##############################################################################################################################
-    def generate_voice_traffic(self, ue, severity='ultra'):
-        severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['ultra'])
+    def generate_voice_traffic(self, ue, severity='zero'):
+        severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['zero'])
         # Adjust parameters based on severity
         start_time = datetime.now()
         delay = random.uniform(*severity_settings['delay'])
@@ -154,8 +162,8 @@ class TrafficController:
         self.traffic_logs.append(traffic_data)
         return traffic_data
 ###################################################################################################################
-    def generate_video_traffic(self,ue, severity='ultra'):
-        severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['ultra'])
+    def generate_video_traffic(self,ue, severity='zero'):
+        severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['zero'])
         # Adjust parameters based on severity
         start_time = datetime.now()
         delay = random.uniform(*severity_settings['delay'])
@@ -196,8 +204,8 @@ class TrafficController:
         self.traffic_logs.append(traffic_data)
         return traffic_data
 ###################################################################################################################
-    def generate_gaming_traffic(self, ue, severity='ultra'):
-        severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['ultra'])
+    def generate_gaming_traffic(self, ue, severity='zero'):
+        severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['zero'])
 
         try:
             # Record the start timestamp
@@ -255,8 +263,8 @@ class TrafficController:
                 'ue_packet_loss_rate': severity_settings['packet_loss_rate']
             }
 #####################################################################################
-    def generate_iot_traffic(self, ue, severity='ultra'):
-        severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['ultra'])
+    def generate_iot_traffic(self, ue, severity='zero'):
+        severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['zero'])
 
         # Record the start timestamp
         start_time = datetime.now()
@@ -299,8 +307,8 @@ class TrafficController:
         self.traffic_logs.append(traffic_data)
         return traffic_data
 ###########################################################################################
-    def generate_data_traffic(self, ue, severity='ultra'):
-        severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['ultra'])
+    def generate_data_traffic(self, ue, severity='zero'):
+        severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['zero'])
 
         # Record the start timestamp
         start_time = datetime.now()
@@ -342,6 +350,15 @@ class TrafficController:
         }
         self.traffic_logs.append(traffic_data)
         return traffic_data
+############################################################################################
+    def get_all_traffic_data(self):
+            """Retrieve current traffic data for all UEs."""
+            all_traffic_data = []
+            for ue_id, ue in self.ues.items():
+                # Assuming generate_traffic returns the latest traffic data for a UE
+                traffic_data = self.generate_traffic(ue)
+                all_traffic_data.append(traffic_data)
+            return all_traffic_data
 ############################################################################################
     def add_ue(self, ue):
         if ue.ID not in self.ues:
@@ -462,7 +479,7 @@ class TrafficController:
         
         ue.throughput = throughput
 
-        #print(f"UE {ue.ID} throughput: {throughput} bps")
+        #print(f"UE {ue.ID} throughput: {throughput} bits/s")
         # Prepare the data for InfluxDB with units for clarity
         influxdb_data = {
             "measurement": "ue_metrics",

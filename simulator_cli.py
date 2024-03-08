@@ -67,6 +67,7 @@ class SimulatorCLI(cmd.Cmd):
         self.sector_manager = sector_manager
         self.ue_manager = ue_manager  # If UEManager.get_instance() is necessary, make sure it's called correctly
         self.network_load_manager = network_load_manager
+        self.traffic_controller = TrafficController.get_instance() # # Assuming there's a way to get a TrafficController instance
         self.stop_event = Event()
         self.in_kpis_mode = False
 
@@ -175,23 +176,32 @@ class SimulatorCLI(cmd.Cmd):
         """Display UE (User Equipment) traffic logs."""
         print("Displaying UE traffic logs. Press Ctrl+C to return to the CLI.")
         try:
-            # Initialize PrettyTable with column headers based on your log structure
+            # Initialize PrettyTable with column headers
             table = PrettyTable(["UE ID", "Service Type", "Throughput (MB)", "Interval (s)", "Delay (ms)", "Jitter (%)", "Packet Loss Rate (%)"])
-            with open('traffic_logs.txt', 'r') as log_file:
-                for line in log_file:
-                    # Assuming each log entry is a comma-separated value line
-                    # You'll need to adjust parsing based on your actual log format
-                    parts = line.split(',')  # This is an example; adjust based on your actual log format
-                    if len(parts) < 7:
-                        continue  # Skip malformed lines
-                    # Add a row to the table for each log entry
-                    # Adjust index and parsing as necessary based on the actual log format
-                    table.add_row(parts)
+            
+            # Iterate over each UE in the traffic_controller's UE dictionary
+            for ue_id, ue in self.traffic_controller.ues.items():
+                # Assuming each UE instance has attributes for throughput, delay, jitter, and packet loss rate
+                # Convert throughput from bytes to MB and format other attributes as needed
+                throughput_mbps = ue.throughput / 1e6
+                delay_ms = ue.ue_delay  # Assuming delay is stored in milliseconds
+                jitter_percentage = ue.ue_jitter  # Assuming jitter is stored as a percentage
+                packet_loss_rate_percentage = ue.ue_packet_loss_rate  # Assuming packet loss rate is stored as a percentage
+                
+                # Add a row to the table for each UE
+                table.add_row([
+                    ue_id, 
+                    ue.ServiceType, 
+                    f"{throughput_mbps:.2f}", 
+                    "N/A",  # Placeholder for Interval (s) if not directly available
+                    f"{delay_ms}", 
+                    f"{jitter_percentage}%", 
+                    f"{packet_loss_rate_percentage}%"
+                ])
             print(table)
-        except FileNotFoundError:
-            print("Log file not found. Ensure traffic logging is enabled.")
-        except KeyboardInterrupt:
-            print("\nReturning to CLI...")
+        except Exception as e:
+            print(f"Error displaying UE traffic logs: {e}")
+
 ################################################################################################################################ 
     # Adjusted display_gnb_list method
     def display_gnb_list(self):

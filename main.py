@@ -44,7 +44,7 @@ def run_api(queue):
     api_server_thread.join()  # Wait for the API server thread to finish
 
 def generate_traffic_loop(traffic_controller, ue_list, network_load_manager, network_delay_calculator, db_manager):
-    print(f"Debug: First UE type: {type(ue_list[0])}")  # Debugging line
+    print(f"Debug: inside generate_traffic_loop of main.py ")  # Debugging line
     while True:
         for ue in ue_list:
             throughput_data = traffic_controller.calculate_throughput(ue)
