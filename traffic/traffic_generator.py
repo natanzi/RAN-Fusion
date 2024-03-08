@@ -43,7 +43,8 @@ class TrafficController:
         self.gaming_traffic_params = {'bitrate': (30, 70)}  # in Kbps
         self.iot_traffic_params = {'packet_size': (5, 15), 'interval': (10, 60)}  # packet size in KB, interval in seconds
         self.data_traffic_params = {'bitrate': (10, 100), 'interval': (0.5, 2)}  # in Mbps
-        
+        self.traffic_increase_factor = 1.0  # Initial traffic increase factor
+        self.traffic_increase_interval = 60  # Increase traffic every 60 seconds
         # Initialize jitter, delay, and packet loss for each traffic type
         #for example (5, 15)  # Jitter range in milliseconds or (10, 50)  # Delay range in milliseconds or (0.01, 0.05)  # Packet loss rate range
         self.ue_voice_jitter = 0
@@ -71,22 +72,22 @@ class TrafficController:
             'packet_loss_rate': 0.01
         },
         'medium': {
-            'multiplier': 2,
+            'multiplier': 5,
             'delay': (5, 15),
             'jitter': (5, 10),
             'packet_loss_rate': 0.05
         },
         'harsh': {
-            'multiplier': 3,
+            'multiplier': 10,
             'delay': (15, 50),
             'jitter': (10, 20),
             'packet_loss_rate': 0.1
         },
         'ultra': {
-        'multiplier': 10,
-        'delay': (0, 2),
-        'jitter': (0, 2),
-        'packet_loss_rate': 0.01
+        'multiplier': 20,
+        'delay': (50, 100),
+        'jitter': (20, 50),
+        'packet_loss_rate': 0.02
     },
     }
     def generate_traffic(self, ue, severity='ultra'):

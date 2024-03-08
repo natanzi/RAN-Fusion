@@ -283,7 +283,7 @@ class SimulatorCLI(cmd.Cmd):
     
                 print(table)
                 time.sleep(1)
-
+    
     def do_cell_list(self, arg):
         """Displays the cell list with live updates."""
         print('Displaying cell list. Press any key to stop...')
