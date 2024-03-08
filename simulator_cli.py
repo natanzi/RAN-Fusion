@@ -177,25 +177,24 @@ class SimulatorCLI(cmd.Cmd):
         print("Displaying UE traffic logs. Press Ctrl+C to return to the CLI.")
         try:
             # Initialize PrettyTable with column headers
-            table = PrettyTable(["UE ID", "Service Type", "Throughput (MB)", "Interval (s)", "Delay (ms)", "Jitter (%)", "Packet Loss Rate (%)"])
+            table = PrettyTable(["UE ID", "Service Type", "Throughput (MB)", "Delay (ms)", "Jitter (%)", "Packet Loss Rate (%)"])
             
-            # Retrieve all traffic data using the get_all_traffic_data method
-            all_traffic_data = self.traffic_controller.get_all_traffic_data()
+            # Fetch current UE instances
+            ue_instances = UE.get_ues()
             
-            # Iterate over the traffic data for each UE
-            for traffic_data in all_traffic_data:
+            # Iterate over each UE instance to extract and display its attributes
+            for ue in ue_instances:
                 # Convert throughput from bytes to MB
-                throughput_mbps = traffic_data['data_size'] * 8 / 1e6 / traffic_data['interval']
+                throughput_mbps = ue.throughput / 1e6
                 
                 # Add a row to the table for each UE's traffic data
                 table.add_row([
-                    traffic_data['ue_id'],  # Assuming traffic_data includes 'ue_id'
-                    traffic_data['service_type'],  # Assuming traffic_data includes 'service_type'
-                    f"{throughput_mbps:.2f}", 
-                    f"{traffic_data['interval']}", 
-                    f"{traffic_data['ue_delay']}", 
-                    f"{traffic_data['ue_jitter']}%", 
-                    f"{traffic_data['ue_packet_loss_rate']*100}%"  # Convert to percentage
+                    ue.ID,  # UE ID
+                    ue.ServiceType,  # Service Type
+                    f"{throughput_mbps:.2f}",  # Throughput in MB
+                    f"{ue.ue_delay}",  # Delay in ms
+                    f"{ue.ue_jitter}%",  # Jitter in %
+                    f"{ue.ue_packet_loss_rate*100}%"  # Packet Loss Rate in %
                 ])
             print(table)
         except Exception as e:
