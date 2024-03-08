@@ -43,8 +43,6 @@ class TrafficController:
         self.gaming_traffic_params = {'bitrate': (30, 70)}  # in Kbps
         self.iot_traffic_params = {'packet_size': (5, 15), 'interval': (10, 60)}  # packet size in KB, interval in seconds
         self.data_traffic_params = {'bitrate': (10, 100), 'interval': (0.5, 2)}  # in Mbps
-        self.traffic_increase_factor = 1.0  # Initial traffic increase factor
-        self.traffic_increase_interval = 60  # Increase traffic every 60 seconds
         # Initialize jitter, delay, and packet loss for each traffic type
         #for example (5, 15)  # Jitter range in milliseconds or (10, 50)  # Delay range in milliseconds or (0.01, 0.05)  # Packet loss rate range
         self.ue_voice_jitter = 0
@@ -103,20 +101,23 @@ class TrafficController:
                 'ue_packet_loss_rate': 0
             }
         if ue.ServiceType.lower() == 'voice':
-            return self.generate_voice_traffic(severity)
+            traffic_data = self.generate_voice_traffic(ue, severity)
         elif ue.ServiceType.lower() == 'video':
-            return self.generate_video_traffic(severity)
+            traffic_data = self.generate_video_traffic(ue, severity)
         elif ue.ServiceType.lower() == 'game':
-            return self.generate_gaming_traffic(severity)
+            traffic_data = self.generate_gaming_traffic(ue, severity)
         elif ue.ServiceType.lower() == 'iot':
-            return self.generate_iot_traffic(severity)
+            traffic_data = self.generate_iot_traffic(ue, severity)
         elif ue.ServiceType.lower() == 'data':
-            return self.generate_data_traffic(severity)
+            traffic_data = self.generate_data_traffic(ue, severity)
         else:
             raise ValueError(f"Unknown service type: {ue.ServiceType}")
-    
+        
+        traffic_data['data_size'] = int(traffic_data['data_size'] * ue.traffic_factor)
+
+        return traffic_data
 ##############################################################################################################################
-    def generate_voice_traffic(self, severity='ultra'):
+    def generate_voice_traffic(self, ue, severity='ultra'):
         severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['ultra'])
         # Adjust parameters based on severity
         start_time = datetime.now()
@@ -131,13 +132,18 @@ class TrafficController:
         bitrate = random.uniform(*self.voice_traffic_params['bitrate']) * severity_settings['multiplier']
         interval = 0.02  # Interval duration in seconds
         data_size = int((bitrate * interval) / 8 * 1024)
+
+        # Apply UE's traffic_factor to scale the data size (use for dynamic increase or decrease of the ue traffic)
+        scaled_data_size = int(data_size * ue.traffic_factor)  # Scaling the data size according to the UE's traffic factor     
+
         time.sleep(jitter)
         packet_loss_occurred = random.random() < severity_settings['packet_loss_rate']
+
         if packet_loss_occurred:
             data_size = 0  # Packet is lost
         end_time = datetime.now()
         traffic_data = {
-            'data_size': data_size,
+            'data_size': scaled_data_size,
             'start_timestamp': start_time,
             'end_timestamp': end_time,
             'interval': interval,
@@ -148,7 +154,7 @@ class TrafficController:
         self.traffic_logs.append(traffic_data)
         return traffic_data
 ###################################################################################################################
-    def generate_video_traffic(self, severity='ultra'):
+    def generate_video_traffic(self,ue, severity='ultra'):
         severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['ultra'])
         # Adjust parameters based on severity
         start_time = datetime.now()
@@ -165,18 +171,20 @@ class TrafficController:
         num_streams = random.randint(*self.video_traffic_params['num_streams']) * severity_settings['multiplier']
         data_size = 0  # Initialize data_size as 0 bytes
         interval = 1  # Interval duration in seconds
-
+        # Apply UE's traffic_factor to scale the data size (use for dynamic increase or decrease of the ue traffic)
+        scaled_data_size = int(data_size * ue.traffic_factor)  # Scaling the data size according to the UE's traffic factor
+        
         for _ in range(num_streams):
             stream_bitrate = random.uniform(*self.video_traffic_params['stream_bitrate']) * severity_settings['multiplier']  # Adjust bitrate based on severity
             if random.random() < severity_settings['packet_loss_rate']:
                 continue  # Skip this stream due to packet loss based on severity
             # Convert to MB, then to bytes, and accumulate
-            data_size += int((stream_bitrate * interval) / 8 * 1024 * 1024)
+            scaled_data_size += int((stream_bitrate * interval) / 8 * 1024 * 1024)
 
         # Record the end timestamp
         end_time = datetime.now()
         traffic_data = {
-            'data_size': data_size,  # Now in bytes and ensured to be an integer
+            'data_size': scaled_data_size,  # Now in bytes and ensured to be an integer
             'start_timestamp': start_time,
             'end_timestamp': end_time,
             'num_streams': num_streams,
@@ -188,7 +196,7 @@ class TrafficController:
         self.traffic_logs.append(traffic_data)
         return traffic_data
 ###################################################################################################################
-    def generate_gaming_traffic(self, severity='ultra'):
+    def generate_gaming_traffic(self, ue, severity='ultra'):
         severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['ultra'])
 
         try:
@@ -209,6 +217,9 @@ class TrafficController:
 
             # Convert to KB, then to bytes, and ensure it's an integer
             data_size = int((bitrate * interval) / 8 * 1024)  
+            
+            # Apply UE's traffic_factor to scale the data size (use for dynamic increase or decrease of the ue traffic)
+            scaled_data_size = int(data_size * ue.traffic_factor)  # Scaling the data size according to the UE's traffic factor
 
             # Apply jitter
             time.sleep(jitter)
@@ -216,12 +227,12 @@ class TrafficController:
             # Simulate packet loss based on severity
             packet_loss_occurred = random.random() < severity_settings['packet_loss_rate']
             if packet_loss_occurred:
-                data_size = 0  # Packet is lost
+                scaled_data_size = 0  # Packet is lost
 
             # Record the end timestamp
             end_time = datetime.now()
             traffic_data = {
-                'data_size': data_size,  # Now in bytes and ensured to be an integer
+                'data_size': scaled_data_size,  # Now in bytes and ensured to be an integer
                 'start_timestamp': start_time,
                 'end_timestamp': end_time,
                 'interval': interval,
@@ -244,7 +255,7 @@ class TrafficController:
                 'ue_packet_loss_rate': severity_settings['packet_loss_rate']
             }
 #####################################################################################
-    def generate_iot_traffic(self, severity='ultra'):
+    def generate_iot_traffic(self, ue, severity='ultra'):
         severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['ultra'])
 
         # Record the start timestamp
@@ -264,17 +275,20 @@ class TrafficController:
         # Convert packet_size from KB to bytes, and ensure it's an integer
         data_size = int(packet_size * 1024)  
 
+        # Apply UE's traffic_factor to scale the data size (use for dynamic increase or decrease of the ue traffic)
+        scaled_data_size = int(data_size * ue.traffic_factor)  # Scaling the data size according to the UE's traffic factor
+
         # Apply jitter
         time.sleep(jitter)
 
         # Simulate packet loss based on severity
         if random.random() < severity_settings['packet_loss_rate']:
-            data_size = 0  # Packet is lost
+            scaled_data_size = 0  # Packet is lost
 
         # Record the end timestamp
         end_time = datetime.now()
         traffic_data = {
-            'data_size': data_size,  # Now in bytes and ensured to be an integer
+            'data_size': scaled_data_size,  # Now in bytes and ensured to be an integer
             'start_timestamp': start_time,
             'end_timestamp': end_time,
             'interval': interval,
@@ -285,7 +299,7 @@ class TrafficController:
         self.traffic_logs.append(traffic_data)
         return traffic_data
 ###########################################################################################
-    def generate_data_traffic(self, severity='ultra'):
+    def generate_data_traffic(self, ue, severity='ultra'):
         severity_settings = self.SEVERITY_LEVELS.get(severity, self.SEVERITY_LEVELS['ultra'])
 
         # Record the start timestamp
@@ -305,17 +319,20 @@ class TrafficController:
         # Convert bitrate from Mbps to bytes, then calculate data_size for the interval, and ensure it's an integer
         data_size = int((bitrate * interval) / 8 * 1024 * 1024)
 
+        # Apply UE's traffic_factor to scale the data size (use for dynamic increase or decrease of the ue traffic)
+        scaled_data_size = int(data_size * ue.traffic_factor)  # Scaling the data size according to the UE's traffic factor
+
         # Apply jitter
         time.sleep(jitter)
 
         # Simulate packet loss based on severity
         if random.random() < severity_settings['packet_loss_rate']:
-            data_size = 0  # Packet is lost
+            scaled_data_size = 0  # Packet is lost
 
         # Record the end timestamp
         end_time = datetime.now()
         traffic_data = {
-            'data_size': data_size,  # Now in bytes and ensured to be an integer
+            'data_size': scaled_data_size,  # Now in bytes and ensured to be an integer
             'start_timestamp': start_time,
             'end_timestamp': end_time,
             'interval': interval,
@@ -335,7 +352,7 @@ class TrafficController:
         if ue_id in self.ues:
             del self.ues[ue_id]
             print(f"UE {ue_id} removed.")  # Example print message for debugging
-
+############################################################################################
     def start_ue_traffic(self, ue_or_id):
         # Check if the input is an UE ID instead of an object and retrieve the UE object
         if isinstance(ue_or_id, int):
@@ -352,18 +369,38 @@ class TrafficController:
             return
 
         # If not generating traffic, start traffic generation
-        ue.generating_traffic = True
-        # Additional setup for starting traffic
-        print(f"Traffic generation started for UE {ue.ID}")
+        with self._lock:  # Ensure thread-safe access to ue.generating_traffic
+            ue.generating_traffic = True
 
-    def stop_ue_traffic(self, ue): 
+        try:
+            # Additional setup for starting traffic (if needed)
+            # ...
+            print(f"Traffic generation started for UE {ue.ID}")
+        except Exception as e:
+            traffic_update_logger.error(f"Failed to start traffic for UE {ue.ID}: {e}")
+
+############################################################################################
+    def stop_ue_traffic(self, ue):
         """Stops traffic generation for the given UE"""
         if ue.ID in self.ues and ue.generating_traffic:
-            ue.generating_traffic = False
-            ue.throughput = 0 
-            # additional cleanup
+            with self._lock:  # Ensure thread-safe access to ue.generating_traffic
+                ue.generating_traffic = False
+                ue.throughput = 0
+
+            try:
+                # Additional cleanup (if needed)
+                # For example, you might need to:
+                # - Stop any threads or processes related to traffic generation for this UE.
+                # - Close any open sockets or connections.
+                # - Release any resources associated with the UE's traffic.
+                pass  # Replace this with your actual cleanup logic
+            except Exception as e:
+                traffic_update_logger.error(f"Error during cleanup for UE {ue.ID}: {e}")
+                # Handle the error (e.g., log the error and continue)
+
             traffic_update_logger.info(f"Traffic stopped for {ue.ID}")
             self.remove_ue(ue.ID)
+
 #########################################################################################################################
     # Note:Throughput measures the rate at which data is successfully transmitted over the network,typically expressed  #
     # in bits per second (bps). It's crucial for evaluating network performance, especially in scenarios where the      #
@@ -372,7 +409,7 @@ class TrafficController:
     # often measured in bytes or multiples thereof (e.g., MB, GB).                                                      #
     # This metric is vital for assessing network load, data consumption patterns, and for planning network capacity.    #
 #########################################################################################################################
-    def set_custom_traffic(self, ue_id, traffic_params):
+    def set_custom_traffic(self, ue_id, traffic_factor):
         # Assuming self.ue_manager is an instance of UEManager
         ue = self.ue_manager.get_ue_by_id(ue_id)
         if not ue:
@@ -380,10 +417,8 @@ class TrafficController:
             return
 
         # Apply the custom traffic parameters
-        ue.traffic_volume = traffic_params.get('traffic_volume', 0)
-        # Optionally, set other parameters like throughput if needed
-        ue.throughput = traffic_params.get('throughput', ue.throughput)
-        print(f"Set custom traffic for UE {ue_id}: {ue.traffic_volume}MB, Throughput: {ue.throughput}bps")
+        ue.traffic_factor = traffic_factor
+        print(f"Set custom traffic factor for UE {ue_id}: {traffic_factor}")
 ############################################################################################
     def find_ue_by_id(self, ue_id):
         """
@@ -417,8 +452,8 @@ class TrafficController:
         ue_delay = traffic_data['ue_delay']
 
         # data_size is expected to be in bytes (as an integer)
-        data_size_bytes = traffic_data['data_size']
-        data_size_bits = data_size_bytes * 8  # Convert bytes to bits
+        scaled_data_size_bytes  = traffic_data['data_size']
+        data_size_bits = scaled_data_size_bytes  * 8  # Convert bytes to bits
 
         # Calculate throughput
         throughput = data_size_bits / interval if interval > 0 else 0

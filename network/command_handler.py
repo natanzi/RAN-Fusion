@@ -183,11 +183,11 @@ class CommandHandler:
     @staticmethod
     def _set_custom_traffic(data):  
         ue_id = data['ue_id']
-        traffic_params = data['traffic_params']
+        factor = data['factor']
     
     # TrafficController has a method to set custom traffic
         traffic_controller = TrafficController.get_instance()
-        result = traffic_controller.set_custom_traffic(ue_id, traffic_params)
+        result = traffic_controller.set_custom_traffic(ue_id, factor)
     
         if result:
             API_logger.info(f"Custom traffic set for UE {ue_id}.")

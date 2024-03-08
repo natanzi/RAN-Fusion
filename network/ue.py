@@ -66,7 +66,7 @@ class UE:
             self.Model = kwargs.get('model')        # Model of the UE
             self.ScreenSize = kwargs.get('screensize', f"{random.uniform(5.0, 7.0):.1f} inches")        # Screen size of the UE
             self.BatteryLevel = kwargs.get('batterylevel', random.randint(10, 100))        # Battery level of the UE
-            self.traffic_volume = 0       # Traffic volume handled by the UE (initialized to 0)
+            self.traffic_volume = float(0)       # Traffic volume handled by the UE (initialized to 0)
             self.DataSize = kwargs.get('datasize')        # Data size transmitted/received by the UE
             self.generating_traffic = True               #link to initialize the traffic generation flag
             self.IP = kwargs.get('ip') or UE.allocate_ip() # Allocate an IP if not provided
@@ -74,6 +74,8 @@ class UE:
             self.ue_jitter = float(0)  # Initialize ue_jitter to 0. Jitter measures variation in packet delay.
             self.ue_packet_loss_rate = float(0)  # Initialize ue_packet loss rate to 0. This measures the rate of ue lost packets in the network.
             self.ue_delay = float(0)  # Initialize ue_delay to 0. Delay measures the time taken for data to travel from source to destination.
+            self.traffic_factor = float(kwargs.get('traffic_factor', 1.0))  # Default factor is 1.0, this is for dynamic traffic change via API
+
             ue_logger.info(f"UE initialized with ID {self.ID} at {datetime.now()}")
     
     @classmethod
@@ -202,6 +204,7 @@ class UE:
                 .field("ue_jitter", float(self.ue_jitter)) \
                 .field("ue_packet_loss_rate", float(self.ue_packet_loss_rate)) \
                 .field("ue_delay", float(self.ue_delay)) \
+                .field("traffic_factor", float(self.traffic_factor)) \
                 .time(unix_timestamp_seconds, WritePrecision.S)  # Use UNIX timestamp in seconds
             return point
         except Exception as e:
