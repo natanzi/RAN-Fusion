@@ -179,29 +179,27 @@ class SimulatorCLI(cmd.Cmd):
             # Initialize PrettyTable with column headers
             table = PrettyTable(["UE ID", "Service Type", "Throughput (MB)", "Interval (s)", "Delay (ms)", "Jitter (%)", "Packet Loss Rate (%)"])
             
-            # Iterate over each UE in the traffic_controller's UE dictionary
-            for ue_id, ue in self.traffic_controller.ues.items():
-                # Assuming each UE instance has attributes for throughput, delay, jitter, and packet loss rate
-                # Convert throughput from bytes to MB and format other attributes as needed
-                throughput_mbps = ue.throughput / 1e6
-                delay_ms = ue.ue_delay  # Assuming delay is stored in milliseconds
-                jitter_percentage = ue.ue_jitter  # Assuming jitter is stored as a percentage
-                packet_loss_rate_percentage = ue.ue_packet_loss_rate  # Assuming packet loss rate is stored as a percentage
+            # Retrieve all traffic data using the get_all_traffic_data method
+            all_traffic_data = self.traffic_controller.get_all_traffic_data()
+            
+            # Iterate over the traffic data for each UE
+            for traffic_data in all_traffic_data:
+                # Convert throughput from bytes to MB
+                throughput_mbps = traffic_data['data_size'] * 8 / 1e6 / traffic_data['interval']
                 
-                # Add a row to the table for each UE
+                # Add a row to the table for each UE's traffic data
                 table.add_row([
-                    ue_id, 
-                    ue.ServiceType, 
+                    traffic_data['ue_id'],  # Assuming traffic_data includes 'ue_id'
+                    traffic_data['service_type'],  # Assuming traffic_data includes 'service_type'
                     f"{throughput_mbps:.2f}", 
-                    "N/A",  # Placeholder for Interval (s) if not directly available
-                    f"{delay_ms}", 
-                    f"{jitter_percentage}%", 
-                    f"{packet_loss_rate_percentage}%"
+                    f"{traffic_data['interval']}", 
+                    f"{traffic_data['ue_delay']}", 
+                    f"{traffic_data['ue_jitter']}%", 
+                    f"{traffic_data['ue_packet_loss_rate']*100}%"  # Convert to percentage
                 ])
             print(table)
         except Exception as e:
             print(f"Error displaying UE traffic logs: {e}")
-
 ################################################################################################################################ 
     # Adjusted display_gnb_list method
     def display_gnb_list(self):

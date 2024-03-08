@@ -122,6 +122,37 @@ class TrafficController:
             raise ValueError(f"Unknown service type: {ue.ServiceType}")
         
         traffic_data['data_size'] = int(traffic_data['data_size'] * ue.traffic_factor)
+        
+        # Update UE class attributes directly after generating traffic data
+        ue.ue_delay = traffic_data['ue_delay']
+        ue.ue_jitter = traffic_data['ue_jitter']
+        ue.ue_packet_loss_rate = traffic_data['ue_packet_loss_rate']
+
+        # Get instance of DatabaseManager
+        db_manager = DatabaseManager.get_instance()
+
+        # Prepare data for InfluxDB
+        influxdb_data = {
+            "measurement": "ue_metrics",
+            "tags": {
+                "ue_id": ue.ID,
+                "service_type": ue.ServiceType,
+            },
+            "fields": {
+                "ue_jitter": ue.ue_jitter,
+                "ue_packet_loss_rate": ue.ue_packet_loss_rate,
+                "ue_delay": ue.ue_delay,
+            },
+            "time": datetime.utcnow().isoformat(),
+        }
+
+        # Write to InfluxDB
+        db_manager.insert_data(
+            measurement_or_point=influxdb_data["measurement"],
+            tags=influxdb_data["tags"],
+            fields=influxdb_data["fields"],
+            timestamp=influxdb_data["time"]
+        )
 
         return traffic_data
 ##############################################################################################################################
@@ -467,7 +498,7 @@ class TrafficController:
         packet_loss_rate = traffic_data['ue_packet_loss_rate']  # Adjusted to use 'ue_packet_loss_rate'
         interval = traffic_data['interval']
         ue_delay = traffic_data['ue_delay']
-
+        
         # data_size is expected to be in bytes (as an integer)
         scaled_data_size_bytes  = traffic_data['data_size']
         data_size_bits = scaled_data_size_bytes  * 8  # Convert bytes to bits
