@@ -173,32 +173,53 @@ class SimulatorCLI(cmd.Cmd):
 
 ############################################################################################################################## 
     def do_ue_log(self, arg):
-        """Display UE (User Equipment) traffic logs."""
+        """Display UE (User Equipment) traffic logs with live updates."""
         print("Displaying UE traffic logs. Press Ctrl+C to return to the CLI.")
+
+        def refresh_data(stop_event):
+            while not stop_event.is_set():
+                try:
+                    # Clear the console for a fresh display
+                    os.system('cls' if os.name == 'nt' else 'clear')
+                    print("Displaying UE traffic logs. Press Ctrl+C to return to the CLI.")
+                    
+                    # Initialize PrettyTable with column headers
+                    table = PrettyTable(["UE ID", "Service Type", "Throughput (MB)", "Delay (ms)", "Jitter (%)", "Packet Loss Rate (%)"])
+                    
+                    # Fetch current UE instances
+                    ue_instances = UE.get_ues()
+                    
+                    # Iterate over each UE instance to extract and display its attributes
+                    for ue in ue_instances:
+                        # Convert throughput from bytes to MB
+                        throughput_mbps = ue.throughput / 1e6
+                        
+                        # Add a row to the table for each UE's traffic data
+                        table.add_row([
+                            ue.ID,  # UE ID
+                            ue.ServiceType,  # Service Type
+                            f"{throughput_mbps:.4f}",  # Throughput in MB
+                            f"{ue.ue_delay}",  # Delay in ms
+                            f"{ue.ue_jitter}%",  # Jitter in %
+                            f"{ue.ue_packet_loss_rate*100}%"  # Packet Loss Rate in %
+                        ])
+                    print(table)
+                    time.sleep(1)  # Refresh every 1 second
+                except Exception as e:
+                    print(f"Error displaying UE traffic logs: {e}")
+                    break
+
+        # Initialize stop_event and display_thread
+        stop_event = threading.Event()
+        display_thread = threading.Thread(target=refresh_data, args=(stop_event,))
+
         try:
-            # Initialize PrettyTable with column headers
-            table = PrettyTable(["UE ID", "Service Type", "Throughput (MB)", "Delay (ms)", "Jitter (%)", "Packet Loss Rate (%)"])
-            
-            # Fetch current UE instances
-            ue_instances = UE.get_ues()
-            
-            # Iterate over each UE instance to extract and display its attributes
-            for ue in ue_instances:
-                # Convert throughput from bytes to MB
-                throughput_mbps = ue.throughput / 1e6
-                
-                # Add a row to the table for each UE's traffic data
-                table.add_row([
-                    ue.ID,  # UE ID
-                    ue.ServiceType,  # Service Type
-                    f"{throughput_mbps:.2f}",  # Throughput in MB
-                    f"{ue.ue_delay}",  # Delay in ms
-                    f"{ue.ue_jitter}%",  # Jitter in %
-                    f"{ue.ue_packet_loss_rate*100}%"  # Packet Loss Rate in %
-                ])
-            print(table)
-        except Exception as e:
-            print(f"Error displaying UE traffic logs: {e}")
+            display_thread.start()  # Start the refreshing thread
+
+            input("Press Enter to stop refreshing...")  # Wait for user input to stop refreshing
+        finally:
+            stop_event.set()  # Signal the thread to stop
+            display_thread.join()  # Wait for the thread to finish
 ################################################################################################################################ 
     # Adjusted display_gnb_list method
     def display_gnb_list(self):

@@ -139,9 +139,9 @@ class TrafficController:
                 "service_type": ue.ServiceType,
             },
             "fields": {
-                "ue_jitter": ue.ue_jitter,
-                "ue_packet_loss_rate": ue.ue_packet_loss_rate,
-                "ue_delay": ue.ue_delay,
+                "ue_jitter": float(ue.ue_jitter),
+                "ue_packet_loss_rate": float(ue.ue_packet_loss_rate),
+                "ue_delay": float(ue.ue_delay),
             },
             "time": datetime.utcnow().isoformat(),
         }
