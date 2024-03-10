@@ -1,0 +1,1 @@
+#Handles radio resource management tasks, including allocation of resources to UEs, management of radio bearers, and QoS enforcement.

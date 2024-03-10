@@ -1,0 +1,1 @@
+#Defines the interface for communication between the DU and UEs, facilitating data transmission and reception.

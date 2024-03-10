@@ -1,0 +1,38 @@
+  {
+  "cu_id": "CU_1",
+  "supported_functionalities": [
+    "session_management",
+    "mobility_management",
+    "policy_control",
+    "slice_management"
+  ],
+  "performance_parameters": {
+    "max_sessions": 20000,
+    "max_bearers_per_session": 8,
+    "max_transactions_per_second": 2000
+  },
+  "integration_points": {
+    "du_addresses": ["192.168.0.101", "192.168.0.102"],
+    "du_ports": [8001, 8002, 8003],
+    "core_network_address": "10.0.0.1",
+    "core_network_port": 5000,
+    "amf_address": "10.0.0.2",
+    "amf_port": 6000
+  },
+  "session_management": {
+    "default_session_timeout": 7200,
+    "max_session_lifetime": 172800,
+    "session_cleanup_interval": 600
+  },
+  "mobility_management": {
+    "tau_update_interval": 1800,
+    "handover_hysteresis": 3,
+    "max_ue_contexts": 200000
+  },
+  "signaling_protocols": ["http1.1", "http2", "diameter", "sip"],
+  "logging": {
+    "level": "debug",
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    "output": "cu_detailed.log"
+  }
+}

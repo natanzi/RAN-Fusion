@@ -1,0 +1,31 @@
+{
+  "du_id": "DU_1",
+  "processing_capabilities": {
+    "max_throughput": "10 Gbps",
+    "max_connected_ues": 1000,
+    "supported_numerologies": [0, 1, 2],
+    "supported_bandwidth": [5, 10, 20, 40, 80, 160]
+  },
+  "user_plane_functions": [
+    "packet_scheduling",
+    "header_compression",
+    "encryption",
+    "traffic_steering",
+    "QoS_handling"
+  ],
+  "connectivity": {
+    "cu_address": "192.168.0.100",
+    "cu_port": 8000,
+    "gnodeb_addresses": ["192.168.1.1", "192.168.1.2"],
+    "gnodeb_ports": [9000, 9001, 9002]
+  },
+  "resource_management": {
+    "scheduling_algorithm": "proportional_fair",
+    "max_harq_retransmissions": 4,
+    "initial_mcs_index": 12
+  },
+  "performance_metrics": {
+    "kpi_reporting_interval": 500,
+    "kpi_measurements": ["throughput", "latency", "packet_loss"]
+  }
+}
