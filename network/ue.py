@@ -33,6 +33,7 @@ class UE:
             self.ID = ue_id
             print(f"Creating UE instance {self.ID}")
             self.instance_id = str(uuid.uuid4())  # Generic unique identifier for the instance of the ue
+            ue_logger.debug(f"Created UE instance with ID: {self.instance_id}")
             UE.existing_ue_ids.add(ue_id)
             UE.ue_instances[ue_id] = self  # Store the instance in the dictionary
             self.IMEI = kwargs.get('imei') or self.allocate_imei()         # International Mobile Equipment Identity

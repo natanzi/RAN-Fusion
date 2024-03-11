@@ -60,7 +60,8 @@ class UEManager:
         print(f"UE instances added to ues dictionary:")
         for ue_id, ue in self.ues.items():
             print(f"UE ID: {ue_id}, Connected Cell: {ue.ConnectedCellID}, ...")
-            ue_logger.debug(f"UE ID: {ue_id}, UE instance: {ue}")
+            ue_logger.info(f"Added UE instance with ID: {ue.instance_id} to UEManager")
+
 
         return list(self.ues.values())  # Return a list of UE objects
 
