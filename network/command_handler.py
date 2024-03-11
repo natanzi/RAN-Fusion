@@ -128,6 +128,13 @@ class CommandHandler:
         if not ue_id.startswith("ue"):
             ue_id = "ue" + ue_id
 
+        # Get an instance of the UEManager to check if the UE exists
+        ue_manager = UEManager.get_instance()
+        if not ue_manager.get_ue_by_id(ue_id):
+            API_logger.error(f"UE {ue_id} not found.")
+            return False, f"UE {ue_id} not found."
+
+        # Proceed with starting the traffic since the UE exists
         traffic_controller = TrafficController.get_instance()
         started = traffic_controller.start_ue_traffic(ue_id)
         if started:
@@ -145,6 +152,13 @@ class CommandHandler:
         if not ue_id.startswith("ue"):
             ue_id = "ue" + ue_id
 
+        # Get an instance of the UEManager to check if the UE exists
+        ue_manager = UEManager.get_instance()
+        if not ue_manager.get_ue_by_id(ue_id):
+            API_logger.error(f"UE {ue_id} not found.")
+            return False, f"UE {ue_id} not found."
+
+        # Proceed with stopping the traffic since the UE exists
         traffic_controller = TrafficController.get_instance()
         stopped = traffic_controller.stop_ue_traffic(ue_id)
         if stopped:
