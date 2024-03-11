@@ -73,13 +73,13 @@ class UEManager:
 
     def get_ue_by_id(self, ue_id):
         ue_id_str = str(ue_id)  # Convert ue_id to string
-        ue_logger.debug(f"Looking for UE with ID: {ue_id_str}")  # Debug logging
-        ue_logger.debug(f"Contents of ues dictionary: {self.ues}")  # Debug logging
+        ue_logger.info(f"Looking for UE with ID: {ue_id_str}")  # Debug logging
+        ue_logger.info(f"Contents of ues dictionary: {self.ues}")  # Debug logging
         ue = self.ues.get(ue_id_str)  # Use the correct attribute 'ues' to retrieve the UE
         if ue is None:
             ue_logger.error(f"UE with ID {ue_id} not found.")  # Log the error
         else:
-            ue_logger.debug(f"Found UE instance: {ue}")  # Debug logging
+            ue_logger.info(f"Found UE instance: {ue}")  # Debug logging
         return ue
 
 
