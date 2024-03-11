@@ -59,9 +59,10 @@ class UEManager:
         # Debug logging or print statements
         print(f"UE instances added to ues dictionary:")
         for ue_id, ue in self.ues.items():
+            ue_logger.info(f"Added UE instance with ID: {ue.instance_id} to UEManager")
             print(f"UE ID: {ue_id}, Connected Cell: {ue.ConnectedCellID}, ...")
             ue_logger.info(f"Added UE instance with ID: {ue.instance_id} to UEManager")
-
+        ue_logger.info(f"Contents of ues dictionary after initialization: {self.ues}")
 
         return list(self.ues.values())  # Return a list of UE objects
 
@@ -70,6 +71,11 @@ class UEManager:
         new_ue = UE(config, **kwargs)
         self.ues[new_ue.ID] = new_ue
         global_ue_ids.add(new_ue.ID)  # Add the new UE ID to the global set
+
+        # Log the addition and current state of the ues dictionary
+        ue_logger.info(f"UE with ID {new_ue.ID} created and added to ues dictionary.")
+        ue_logger.info(f"Current contents of ues dictionary: {self.ues}")
+
         return new_ue
 
     def get_ue_by_id(self, ue_id):
@@ -97,11 +103,11 @@ class UEManager:
         print(f"UE instance found for ID {ue_id}: {ue}")
         if ue:
             ue.update_parameters(**kwargs)
-            ue_logger.info(f"UE {ue_id} updated successfully.")
+            ue_logger.info(f"UE {ue_id} updated successfully with parameters {kwargs}.")
             return True
         else:
             print(f"UE {ue_id} not found")
-            ue_logger.warning(f"UE {ue_id} not found. Update failed.")
+            ue_logger.info(f"Attempted to update UE {ue_id}, but it was not found.")
             return False
 
     def list_all_ues(self):
@@ -113,6 +119,7 @@ class UEManager:
         ue = self.get_ue_by_id(ue_id)
         if ue is None:
             print(f"UE with ID {ue_id} not found.")
+            ue_logger.info(f"Attempted to delete UE {ue_id}, but it was not found.")
             return False
 
         # Assuming you have a way to access the SectorManager instance
@@ -125,7 +132,8 @@ class UEManager:
             global_ue_ids.discard(ue_id)  # Correctly modify global_ue_ids
             # Now, delete the UE instance from UEManager's ues dictionary
             del self.ues[ue_id]
-            # Perform any additional cleanup here (if necessary)
+            ue_logger.debug(f"UE {ue_id} successfully deleted from ues dictionary.")
+            ue_logger.debug(f"Current contents of ues dictionary: {self.ues}")
             return True
         else:
             print(f"Failed to remove UE {ue_id} from sector {sector_id}.")
@@ -137,6 +145,7 @@ class UEManager:
         ue = self.get_ue_by_id(ue_id)
         
         if not ue:
+            ue_logger.info(f"Attempted to stop traffic for UE {ue_id}, but it was not found.")
             print(f"UE {ue_id} not found")
             return
         # Get reference to traffic generator 
@@ -145,6 +154,7 @@ class UEManager:
             traffic_controller.stop_ue_traffic(ue)
             ue.generating_traffic = False
             ue.throughput = 0.0
+            ue_logger.info(f"Traffic stopped for UE {ue_id}.")
             print(f"Traffic stopped for UE {ue_id}")
         else:
             print(f"UE {ue_id} does not have active traffic generation")

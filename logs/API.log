@@ -1,0 +1,3 @@
+{"level": "INFO", "timestamp": "2024-03-11 17:23:22", "message": "Received request to stop traffic for UE: ue1", "test_id": "f7e12e5f-a3a7-4446-bd2e-e0815f19315d"}
+{"level": "ERROR", "timestamp": "2024-03-11 17:23:22", "message": "UE ue1 not found.", "test_id": "f7e12e5f-a3a7-4446-bd2e-e0815f19315d"}
+{"level": "ERROR", "timestamp": "2024-03-11 17:23:22", "message": "An error occurred while stopping UE ue1:", "test_id": "f7e12e5f-a3a7-4446-bd2e-e0815f19315d"}
