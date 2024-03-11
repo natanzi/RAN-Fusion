@@ -153,7 +153,8 @@ class CommandHandler:
             ue_id = "ue" + ue_id
 
         # Get an instance of the UEManager to check if the UE exists
-        ue_manager = UEManager.get_instance()
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))    
+        ue_manager = UEManager.get_instance(base_dir)
         ue = ue_manager.get_ue_by_id(ue_id)
         if not ue:
             API_logger.error(f"UE {ue_id} not found.")

@@ -15,3 +15,9 @@
 {"level": "ERROR", "timestamp": "2024-03-05 19:25:35", "message": "UE ue10 not found in any sector or system", "test_id": "3a927c36-a15d-4a10-a837-afdddf0dce2b"}
 {"level": "INFO", "timestamp": "2024-03-05 19:25:35", "message": "UE ue10 successfully removed.", "test_id": "3a927c36-a15d-4a10-a837-afdddf0dce2b"}
 {"level": "INFO", "timestamp": "2024-03-06 17:32:08", "message": "Database successfully flushed.", "test_id": "be3b5fb7-70b1-4a02-99b0-059e877df01a"}
+{"level": "ERROR", "timestamp": "2024-03-11 16:24:16", "message": "UE ue1 not found.", "test_id": "48ec80ae-0d91-461e-84da-cffd7927e7ab"}
+{"level": "ERROR", "timestamp": "2024-03-11 16:24:16", "message": "An error occurred while stopping UE ue1:", "test_id": "48ec80ae-0d91-461e-84da-cffd7927e7ab"}
+{"level": "ERROR", "timestamp": "2024-03-11 16:34:05", "message": "UE ue1 not found.", "test_id": "06d3f3bd-3f8e-4b9f-b8f3-4635faacd7d0"}
+{"level": "ERROR", "timestamp": "2024-03-11 16:34:05", "message": "An error occurred while stopping UE ue1:", "test_id": "06d3f3bd-3f8e-4b9f-b8f3-4635faacd7d0"}
+{"level": "ERROR", "timestamp": "2024-03-11 16:37:33", "message": "UE ue1 not found.", "test_id": "0e8bd374-5024-47a5-867d-173ab52b12eb"}
+{"level": "ERROR", "timestamp": "2024-03-11 16:37:33", "message": "An error occurred while stopping UE ue1:", "test_id": "0e8bd374-5024-47a5-867d-173ab52b12eb"}
