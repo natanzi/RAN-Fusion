@@ -65,7 +65,7 @@ Invoke-RestMethod -Uri 'http://localhost:5000/del_ue' -Method Post -ContentType 
 
 To stop a UE traffic, for example, stop  "UE1" :
 ```powershell
-Invoke-RestMethod -Uri "http://localhost:5000/api/stop_ue_traffic" -Method Post -ContentType "application/json" -Body '{"ue_id": "1"}'
+Invoke-RestMethod -Uri "http://localhost:5000/api/stop_ue_traffic" -Method Post -ContentType "application/json" -Body '{"ue_id": "ue1"}'
 ```
 
 To update a UE parameter, for example, set "MaxBandwidth" of "UE10" to 150 :

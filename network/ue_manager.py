@@ -63,9 +63,9 @@ class UEManager:
 
     def get_ue_by_id(self, ue_id):
         ue_id_str = str(ue_id)  # Convert ue_id to string
-        ue = self.ues.get(ue_id_str)  # Use the string version of ue_id to retrieve the UE
+        ue = self.ue_instances.get(ue_id_str)  # Use the string version of ue_id to retrieve the UE
         if ue is None:
-            print(f"UE with ID {ue_id} not found.")  # Example print message for debugging
+            ue_logger.error(f"UE with ID {ue_id} not found.")  # Log the error
         return ue
 
     def update_ue(self, ue_id, **kwargs):

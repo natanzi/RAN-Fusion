@@ -430,24 +430,24 @@ class TrafficController:
 ############################################################################################
     def stop_ue_traffic(self, ue):
         """Stops traffic generation for the given UE"""
-        if ue.ID in self.ues and ue.generating_traffic:
-            with self._lock:  # Ensure thread-safe access to ue.generating_traffic
-                ue.generating_traffic = False
-                ue.throughput = 0
+        try:
+            if ue.ID in self.ues and ue.generating_traffic:
+                with self._lock:  # Ensure thread-safe access to ue.generating_traffic
+                    ue.generating_traffic = False
+                    ue.throughput = 0
 
-            try:
-                # Additional cleanup (if needed)
-                # For example, you might need to:
-                # - Stop any threads or processes related to traffic generation for this UE.
-                # - Close any open sockets or connections.
-                # - Release any resources associated with the UE's traffic.
-                pass  # Replace this with your actual cleanup logic
-            except Exception as e:
-                traffic_update_logger.error(f"Error during cleanup for UE {ue.ID}: {e}")
-                # Handle the error (e.g., log the error and continue)
+                try:
+                    # Additional cleanup (if needed)
+                    pass  # Replace this with your actual cleanup logic
+                except Exception as e:
+                    traffic_update_logger.error(f"Error during cleanup for UE {ue.ID}: {e}")
 
-            traffic_update_logger.info(f"Traffic stopped for {ue.ID}")
-            self.remove_ue(ue.ID)
+                traffic_update_logger.info(f"Traffic stopped for {ue.ID}")
+                self.remove_ue(ue.ID)
+        except Exception as e:
+            traffic_update_logger.error(f"Error while stopping traffic for UE {ue.ID}: {str(e)}")
+            # You can also re-raise the exception if needed
+            raise
 
 #########################################################################################################################
     # Note:Throughput measures the rate at which data is successfully transmitted over the network,typically expressed  #

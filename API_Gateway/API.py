@@ -192,7 +192,7 @@ def start_ue_traffic():
 
 #########################################################################################################
 #This is a API for Stop the traffic of the each UE
-@app.route('/stop_ue_traffic', methods=['POST'])
+@app.route('/api/stop_ue_traffic', methods=['POST'])
 def stop_ue_traffic():
     data = request.json
     if 'ue_id' not in data:

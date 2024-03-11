@@ -154,7 +154,8 @@ class CommandHandler:
 
         # Get an instance of the UEManager to check if the UE exists
         ue_manager = UEManager.get_instance()
-        if not ue_manager.get_ue_by_id(ue_id):
+        ue = ue_manager.get_ue_by_id(ue_id)
+        if not ue:
             API_logger.error(f"UE {ue_id} not found.")
             return False, f"UE {ue_id} not found."
 
