@@ -141,7 +141,7 @@ class UE:
     @classmethod
     def get_ue_instance_by_id(cls, ue_id):
         ue_id_processed = ue_id.strip().lower()
-        for stored_ue_id, ue_instance in cls.ue_instances.items():
+        for stored_ue_id, ue_instance in cls.ues.items():  # Use the correct attribute 'ues'
             if stored_ue_id.lower() == ue_id_processed:
                 return ue_instance
         return None
@@ -155,10 +155,10 @@ class UE:
                 ue_logger.info(f"UE ID {stored_ue_id} removed from existing_ue_ids.")
                 break  # Assuming UE IDs are unique, break after finding and removing the ID
 
-        for stored_ue_id in list(cls.ue_instances.keys()):
+        for stored_ue_id in list(cls.ues.keys()):  # Use the correct attribute 'ues'
             if stored_ue_id.lower() == ue_id_lower:
-                del cls.ue_instances[stored_ue_id]
-                ue_logger.info(f"UE instance {stored_ue_id} removed from ue_instances.")
+                del cls.ues[stored_ue_id]  # Use the correct attribute 'ues'
+                ue_logger.info(f"UE instance {stored_ue_id} removed from ues.")
                 break  # Assuming UE IDs are unique, break after finding and removing the instance
 
     def serialize_for_influxdb(self):

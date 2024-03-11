@@ -129,7 +129,7 @@ class SimulatorCLI(cmd.Cmd):
         def display_page(page, page_size):
             start_index = (page - 1) * page_size
             end_index = start_index + page_size
-            ue_ids = self.ue_manager.list_all_ues()
+            ue_ids = list(self.ue_manager.ues.keys())[start_index:end_index]
             total_ues = len(ue_ids)
             ues_to_display = ue_ids[start_index:end_index]
 
@@ -142,10 +142,14 @@ class SimulatorCLI(cmd.Cmd):
 
             for ue_id in ues_to_display:
                 ue = self.ue_manager.get_ue_by_id(ue_id)
+                print(f"UE ID being passed to get_ue_by_id: {ue_id}")
                 if ue:
                     throughput_mbps = ue.throughput / 1e6
                     table.add_row([ue.ID, ue.ServiceType, f"{throughput_mbps:.2f}"])
+                    print(f"UE ID: {ue.ID}, Connected Cell: {ue.ConnectedCellID}, ...")
 
+                else:
+                    print(f"UE with ID {ue_id} not found.")
             print(table)
             total_pages = (total_ues // page_size) + (1 if total_ues % page_size > 0 else 0)
             print(f"Page {page} of {total_pages}")

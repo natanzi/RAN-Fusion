@@ -50,8 +50,17 @@ class UEManager:
             return []
 
         ue_instances = allocate_ues(num_ues_to_launch, all_sectors, self.ue_config)
+
+        # Debug logging or print statements
+        print(f"Number of UE instances created: {len(ue_instances)}")
         # Convert list of UE instances to a dictionary with UE ID as keys
         self.ues = {ue.ID: ue for ue in ue_instances}
+
+        # Debug logging or print statements
+        print(f"UE instances added to ues dictionary:")
+        for ue_id, ue in self.ues.items():
+            print(f"UE ID: {ue_id}, Connected Cell: {ue.ConnectedCellID}, ...")
+
         return list(self.ues.values())  # Return a list of UE objects
 
     def create_ue(self, config, **kwargs):
@@ -63,7 +72,7 @@ class UEManager:
 
     def get_ue_by_id(self, ue_id):
         ue_id_str = str(ue_id)  # Convert ue_id to string
-        ue = self.ue_instances.get(ue_id_str)  # Use the string version of ue_id to retrieve the UE
+        ue = self.ues.get(ue_id_str)  # Use the correct attribute 'ues' to retrieve the UE
         if ue is None:
             ue_logger.error(f"UE with ID {ue_id} not found.")  # Log the error
         return ue
