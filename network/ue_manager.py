@@ -12,7 +12,7 @@ from Config_files.config import Config
 from logs.logger_config import ue_logger
 from network.sector_manager import SectorManager
 from network.sector import global_ue_ids  # Ensure this import is correct
-
+import threading
 # Get base path
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 config = Config(base_dir)
@@ -20,24 +20,36 @@ ue_config = config.ue_config
 
 class UEManager:
     _instance = None
+    _lock = threading.Lock()
 
-    def __new__(cls, *args, **kwargs):
-            if not cls._instance:
-                cls._instance = super(UEManager, cls).__new__(cls, *args, **kwargs)
-            return cls._instance
-
-    def __init__(self, base_dir):
-        if not hasattr(self, 'initialized'):  # This ensures __init__ is only called once
-            self.config = Config(base_dir)
-            self.ue_config = self.config.ue_config
-            self.ues = {}  # Ensure this is a dictionary
+    def __new__(cls):
+        with cls._lock:
+            if cls._instance is None:
+                cls._instance = super(UEManager, cls).__new__(cls)
+        return cls._instance
+    
+    def __init__(self):
+        if not hasattr(self, 'initialized'):  # Ensures __init__ is only called once
+            self.ues = {}  # Dictionary initialization
             self.initialized = True
 
     @classmethod
-    def get_instance(cls, base_dir):
-        if not cls._instance:
-            cls._instance = UEManager(base_dir)
+    def get_instance(cls, base_dir=None):
+        with cls._lock:
+            if cls._instance is None:
+                cls._instance = UEManager()
+                cls._instance.initialize(base_dir)
+            elif base_dir and cls._instance.base_dir != base_dir:
+                # Only re-initialize if base_dir is different from the current one
+                # and if you really need to support changing the base_dir after instantiation.
+                cls._instance.initialize(base_dir)
         return cls._instance
+    
+    def initialize(self, base_dir=None):
+        if base_dir and not hasattr(self, 'base_dir'):
+            self.base_dir = base_dir
+            self.config = Config(base_dir)
+            self.ue_config = self.config.ue_config
 
     def initialize_ues(self, num_ues_to_launch, cells, gNodeBs, ue_config):
         """Initialize UEs and allocate them to sectors."""
@@ -68,13 +80,14 @@ class UEManager:
 
     def create_ue(self, config, **kwargs):
         # Logic to create a single UE instance
-        new_ue = UE(config, **kwargs)
-        self.ues[new_ue.ID] = new_ue
-        global_ue_ids.add(new_ue.ID)  # Add the new UE ID to the global set
+        with UEManager._lock:  # Acquire the global lock
+            new_ue = UE(config, **kwargs)
+            self.ues[new_ue.ID] = new_ue
+            global_ue_ids.add(new_ue.ID)  # Add the new UE ID to the global set
 
-        # Log the addition and current state of the ues dictionary
-        ue_logger.info(f"UE with ID {new_ue.ID} created and added to ues dictionary.")
-        ue_logger.info(f"Current contents of ues dictionary: {self.ues}")
+            # Log the addition and current state of the ues dictionary
+            ue_logger.info(f"UE with ID {new_ue.ID} created and added to ues dictionary.")
+            ue_logger.info(f"Current contents of ues dictionary: {self.ues}")
 
         return new_ue
 
@@ -116,11 +129,12 @@ class UEManager:
 
     def delete_ue(self, ue_id):
         # Retrieve the UE instance
-        ue = self.get_ue_by_id(ue_id)
-        if ue is None:
-            print(f"UE with ID {ue_id} not found.")
-            ue_logger.info(f"Attempted to delete UE {ue_id}, but it was not found.")
-            return False
+        with UEManager._lock:  # Acquire the global lock
+            ue = self.get_ue_by_id(ue_id)
+            if ue is None:
+                print(f"UE with ID {ue_id} not found.")
+                ue_logger.info(f"Attempted to delete UE {ue_id}, but it was not found.")
+                return False
 
         # Assuming you have a way to access the SectorManager instance
         sector_manager = SectorManager.get_instance()

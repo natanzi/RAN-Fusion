@@ -100,7 +100,7 @@ class SectorManager:
 
     def remove_ue_from_sector(self, sector_id, ue_id):
         global global_ue_ids
-        with self.lock:  # Use the SectorManager's lock for thread safety
+        with self.lock:  # Assuming self.lock is accessible and used across both SectorManager and UEManager for shared resources
             sector = self.sectors.get(sector_id)
             if sector and ue_id in sector.connected_ues:
                 print(f"Before removal, sector {sector_id} connected UEs: {sector.connected_ues}")
