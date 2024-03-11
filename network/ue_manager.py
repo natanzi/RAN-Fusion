@@ -22,9 +22,9 @@ class UEManager:
     _instance = None
 
     def __new__(cls, *args, **kwargs):
-        if not cls._instance:
-            cls._instance = super(UEManager, cls).__new__(cls)
-        return cls._instance
+            if not cls._instance:
+                cls._instance = super(UEManager, cls).__new__(cls, *args, **kwargs)
+            return cls._instance
 
     def __init__(self, base_dir):
         if not hasattr(self, 'initialized'):  # This ensures __init__ is only called once
