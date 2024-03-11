@@ -159,6 +159,9 @@ class CommandHandler:
         if not ue:
             API_logger.error(f"UE {ue_id} not found.")
             return False, f"UE {ue_id} not found."
+        
+        API_logger.debug(f"UE instance found: {ue}")  # Debug logging
+        API_logger.debug(f"UE instance ID: {id(ue)}")  # Debug logging
 
         # Proceed with stopping the traffic since the UE exists
         traffic_controller = TrafficController.get_instance()

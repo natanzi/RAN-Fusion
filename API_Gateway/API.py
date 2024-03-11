@@ -198,7 +198,8 @@ def stop_ue_traffic():
     if 'ue_id' not in data:
         API_logger.error("Missing 'ue_id' in request data")
         return jsonify({'error': "Missing 'ue_id'"}), 400
-
+    
+    API_logger.info(f"Received request to stop traffic for UE: {data['ue_id']}")  # Debug logging
     result, message = CommandHandler.handle_command('stop_ue_traffic', data)
     if result:
         return jsonify({'message': message}), 200

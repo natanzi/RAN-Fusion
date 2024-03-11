@@ -430,6 +430,10 @@ class TrafficController:
 ############################################################################################
     def stop_ue_traffic(self, ue):
         """Stops traffic generation for the given UE"""
+        traffic_update_logger.info(f"Stopping traffic for UE: {ue}")
+        traffic_update_logger.info(f"UE ID: {ue.ID}")
+        traffic_update_logger.info(f"UE generating traffic: {ue.generating_traffic}")
+        
         try:
             if ue.ID in self.ues and ue.generating_traffic:
                 with self._lock:  # Ensure thread-safe access to ue.generating_traffic
