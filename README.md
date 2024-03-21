@@ -37,7 +37,7 @@
 
 ### Prerequisites
 
-- **Operating System:** Windows, Linux, or macOS.
+- **Operating System:** Windows
 - **Python:** Version 3.x.
 - **Dependencies:** Install InfluxDB and Libraries via `pip install -r requirements.txt`.
 
